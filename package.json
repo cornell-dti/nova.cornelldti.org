@@ -6,9 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "node server.js", 
+    "start": "node server.js",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "postinstall": "npm install express"
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.8",
