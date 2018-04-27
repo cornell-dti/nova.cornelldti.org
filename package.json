@@ -6,17 +6,13 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "node server.js", 
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },
   "dependencies": {
-    "@getbase/base": "^4.0.9",
-    "@getbase/buttons": "^4.0.0",
-    "@getbase/containers": "^4.0.1",
-    "@getbase/grid": "^4.0.2",
-    "@getbase/typography": "^4.0.2",
     "bootstrap-vue": "^2.0.0-rc.8",
+    "express": "^4.16.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
