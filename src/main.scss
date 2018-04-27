@@ -1,0 +1,69 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+@import 'bootstrap-vue/dist/bootstrap-vue.css';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+section {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+#app {
+  font-family: 'Open Sans', 'sans-serif';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-nav>li {
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+#navbar {
+  margin-right: 10vw;
+}
+
+.headshot-card img {
+  max-height: 125px;
+  max-width: 125px;
+  background-color: #d8d8d8;
+  border: 2px solid #b9b9b9;
+}
+
+.headshot-card p {
+  padding: 5px;
+}
+
+.headshot-card {
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+}
+
+.selected-filter-btn {
+  background-color: #4a4a4a !important;
+  color: #fefefe !important;
+}
+
+.selected-filter-btn:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.filter-btn {
+  color: #4a4a4a !important;
+}
+
+.filter-btn:hover {
+  text-decoration: none !important;
+  color: #9a9a9a !important;
+}
+
+.page-hero {
+  min-width: 100%;
+  height: 40vh;
+  background: #777;
+}
+
+.flexible-item {
+    flex: 1 1 16%;
+}
