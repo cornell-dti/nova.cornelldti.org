@@ -1,59 +1,58 @@
 <template>
 
-<div>
+  <div>
 
- <dti-main-menu />
+    <dti-main-menu :transparent="false" />
 
-   <section>
-    <div class="page-hero"> </div>
-   </section>
+    <section>
+      <div class="page-hero"> </div>
+    </section>
 
-<b-container>
-  
-  <section>
-    <h1>Diversity</h1>
+    <b-container>
 
-    <b-row class="justify-content-center">
-    </b-row>
-   </section>
-   <section>
-    <h1>Team</h1>
+      <section>
+        <h1>Diversity</h1>
 
-    <b-row class="justify-content-center">
-        <b-col class="text-center">
-          <!-- TODO do this dynamically -->
+        <b-row class="justify-content-center">
+        </b-row>
+      </section>
+      <section>
+        <h1>Team</h1>
 
-          <b-button class="selected-filter-btn" v-if="roleCategory == ''" v-on:click="roleCategory = '';">All</b-button>
-          <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = '';">All</b-button>
+        <b-row class="justify-content-center">
+          <b-col class="text-center">
+            <!-- TODO do this dynamically -->
 
-          <b-button class="selected-filter-btn" v-if="roleCategory == 'pm'" v-on:click="roleCategory = 'pm';">Product Manager</b-button>
-          <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'pm';">Product Manager</b-button>
-     
-          <b-button class="selected-filter-btn"  v-if="roleCategory == 'designer'"  v-on:click="roleCategory = 'designer';">Designer</b-button>
-          <b-button class="filter-btn"  v-else variant="link" v-on:click="roleCategory = 'designer';">Designer</b-button>
-          
-          <b-button class="selected-filter-btn"  v-if="roleCategory == 'lead'" v-on:click="roleCategory = 'lead';">Lead</b-button>
-          <b-button class="filter-btn"  v-else variant="link" v-on:click="roleCategory = 'lead';">Lead</b-button>
-    
-          <b-button class="selected-filter-btn"  v-if="roleCategory == 'developer'" v-on:click="roleCategory = 'developer';">Developer</b-button>
-          <b-button class="filter-btn"  v-else variant="link" v-on:click="roleCategory = 'developer';">Developer</b-button>
-         
-         
-      </b-col>
-   </b-row>
+            <b-button class="selected-filter-btn" v-if="roleCategory == ''" v-on:click="roleCategory = '';">All</b-button>
+            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = '';">All</b-button>
 
-   <!-- TODO actual padding --> <br>
+            <b-button class="selected-filter-btn" v-if="roleCategory == 'pm'" v-on:click="roleCategory = 'pm';">Product Manager</b-button>
+            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'pm';">Product Manager</b-button>
 
-   
-    <div class="d-flex flex-row flex-wrap justify-content-center" > <!-- v-for="row in rows()" :key="row.index" -->
-       <div class="flexible-item" v-for="member in filterMembers(roleCategory)" :key="member.name">
-       <headshot-card :name="member.name" :image='member.image'></headshot-card>
-       </div>
- </div>
+            <b-button class="selected-filter-btn" v-if="roleCategory == 'designer'" v-on:click="roleCategory = 'designer';">Designer</b-button>
+            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'designer';">Designer</b-button>
 
-   </section>
-</b-container>
-</div>
+            <b-button class="selected-filter-btn" v-if="roleCategory == 'lead'" v-on:click="roleCategory = 'lead';">Lead</b-button>
+            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'lead';">Lead</b-button>
+
+            <b-button class="selected-filter-btn" v-if="roleCategory == 'developer'" v-on:click="roleCategory = 'developer';">Developer</b-button>
+            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'developer';">Developer</b-button>
+
+          </b-col>
+        </b-row>
+
+        <!-- TODO actual padding --><br>
+
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+          <!-- v-for="row in rows()" :key="row.index" -->
+          <div class="flexible-item" v-for="member in filterMembers(roleCategory)" :key="member.name">
+            <headshot-card :name="member.name" :image='member.image'></headshot-card>
+          </div>
+        </div>
+
+      </section>
+    </b-container>
+  </div>
 </template>
 
 <style lang="scss" scoped>

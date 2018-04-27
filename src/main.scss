@@ -2,6 +2,11 @@
 @import 'bootstrap-vue/dist/bootstrap-vue.css';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+html {
+  overflow: -moz-scrollbars-vertical; 
+  overflow-y: scroll;
+}
+
 section {
     padding-top: 3vh;
     padding-bottom: 3vh;
@@ -16,10 +21,6 @@ section {
 .navbar-nav>li {
   padding-left: 1vw;
   padding-right: 1vw;
-}
-
-#navbar {
-  margin-right: 10vw;
 }
 
 .headshot-card img {
