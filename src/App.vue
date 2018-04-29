@@ -1,13 +1,52 @@
 <template>
   <div id="app">
-     <router-view/>
+    <div class="page-background" :style="backgroundStyle">
+      <dti-main-menu :transparent="isTransparent" />
+      <p>{{isTransparent ? 't' : 'f'}}</p>
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
+const BACKGROUND_IMAGE_STYLE =
+  "background: url('/static/new-header-bg.jpg') no-repeat center center/cover;";
+const BACKGROUND_BLANK_STYLE = "background: none;";
 
 export default {
   name: "App",
+  data() {
+    return {
+      bgStyle: BACKGROUND_BLANK_STYLE,
+      navbarTransparent: false
+    };
+  },
+  mounted() {
+    this.$router.afterEach((to, from) => {
+      this.updateBackground(to.name);
+    });
+
+    this.updateBackground(this.$route.name);
+  },
+  computed: {
+    isTransparent: function() {
+      return this.navbarTransparent;
+    },
+    backgroundStyle: function() {
+      return this.bgStyle;
+    }
+  },
+  methods: {
+    updateBackground(routeName) {
+      if (routeName === "Home") {
+        this.navbarTransparent = true;
+        this.bgStyle = BACKGROUND_IMAGE_STYLE;
+      } else {
+        this.navbarTransparent = false;
+        this.bgStyle = BACKGROUND_BLANK_STYLE;
+      }
+    }
+  }
 };
 </script>
 
@@ -15,6 +54,6 @@ export default {
 @import "main.scss";
 
 body {
-    margin: 0;
+  margin: 0;
 }
 </style>

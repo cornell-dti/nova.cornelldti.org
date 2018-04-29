@@ -1,7 +1,6 @@
 <template>
   <div>
-    <dti-main-menu :transparent="false" />
-    <div class="project-view">
+     <div class="project-view">
       <b-row class="project-row" v-for="projectRow in projectRows" :key="projectRow.index">
         <b-col class="justify-content" v-for="project in projectRow.members" :key="project.title">
           <div class="my-auto project-card">

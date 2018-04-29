@@ -2,6 +2,11 @@
 @import 'bootstrap-vue/dist/bootstrap-vue.css';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+.page-background {
+  height: 100vh;
+  width: 100%;
+}
+
 html {
   overflow: -moz-scrollbars-vertical; 
   overflow-y: scroll;
@@ -16,11 +21,6 @@ section {
   font-family: 'Open Sans', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.navbar-nav>li {
-  padding-left: 1vw;
-  padding-right: 1vw;
 }
 
 .headshot-card img {

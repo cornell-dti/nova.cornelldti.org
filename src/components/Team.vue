@@ -2,8 +2,6 @@
 
   <div>
 
-    <dti-main-menu :transparent="false" />
-
     <section>
       <div class="page-hero"> </div>
     </section>
@@ -46,12 +44,14 @@
         <div class="d-flex flex-row flex-wrap justify-content-center">
           <!-- v-for="row in rows()" :key="row.index" -->
           <div class="flexible-item" v-for="member in filterMembers(roleCategory)" :key="member.name">
-            <headshot-card :name="member.name" :image='member.image'></headshot-card>
+            <headshot-card :name="member.name" :image='member.image' @click.native="memberClicked(member)"></headshot-card>
           </div>
         </div>
 
       </section>
     </b-container>
+
+    <member-profile-modal v-model="modalShow" :profile="currentProfile" />
   </div>
 </template>
 
@@ -61,9 +61,16 @@
 
 <script>
 import HeadshotCard from "./HeadshotCard.vue";
+import MemberProfileModal from "./MemberProfileModal.vue";
 
 export default {
-  components: { HeadshotCard },
+  components: { HeadshotCard, MemberProfileModal },
+  data() {
+    return {
+      modalShow: false,
+      currentProfile: {}
+    };
+  },
   props: {
     members: {
       type: Array,
@@ -86,6 +93,10 @@ export default {
     }
   },
   methods: {
+    memberClicked(member) {
+      this.currentProfile = member;
+      this.modalShow = true;
+    },
     filterMembers: function(role = "") {
       let filtered = [];
 
