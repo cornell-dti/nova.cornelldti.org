@@ -3,10 +3,29 @@
   <div>
     <b-modal lazy centered size="lg" id="memberModal" v-model="modalShow" :title="profile.name" header-bg-variant="dark" header-text-variant="light" body-bg-variant="dark" body-text-variant="light" footer-bg-variant="dark" footer-text-variant="light" header-border-variant="dark" footer-border-variant="dark">
       <b-container fluid>
+        <row>
+          <b-col cols="8">
+            <row>
+              <h3>About Me</h3>
+              <p class="my-4">{{profile.about}}</p>
+            </row>
+            <row v-if="profile.teams != null && profile.teams.length > 0">
+              <h3>Team Work</h3>
+              <row v-for="team in profile.teams" :key="team.name">
+                <b-col cols="4">
+                  <b-img :src="team.logo" height="32px" width="32px" />
+                </b-col>
+                <b-col>
+                  <h3>{{team.name}}</h3>
+                  <p>{{team.description}}</p>
+                </b-col>
+              </row>
+            </row>
+          </b-col>
+          <b-col>
+          </b-col>
+        </row>
       </b-container>
-      <p class="my-4">{{profile.name}}</p>
-      <p class="my-4">{{profile.role}}</p>
-      <p class="my-4">{{profile.about}}</p>
     </b-modal>
   </div>
 </template>

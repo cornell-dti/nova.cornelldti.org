@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <!--<div class="marquee-outer">
+    <div class="marquee-outer">
       <div class="marquee-content">
         <div :class="{'marquee-animation': enabled}">
           <div class="marquee-inner">
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-    </div>-->
+    </div>
   </div>
 </template>
 
