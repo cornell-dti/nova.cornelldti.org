@@ -64,6 +64,7 @@ $animation-speed: 20s;
         .company-logo {
           white-space: nowrap;
           margin: 10px;
+          border-radius: 25px;
         }
       }
     }
