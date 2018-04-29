@@ -59,7 +59,7 @@ $animation-speed: 20s;
         flex: 0 0 auto;
         display: flex;
         justify-content: space-around;
-        width: 100%;
+        min-width: 100%;
 
         .company-logo {
           white-space: nowrap;
