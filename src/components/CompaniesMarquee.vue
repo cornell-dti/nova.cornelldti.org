@@ -16,7 +16,7 @@
     </div>
     <div class="marquee-outer">
       <div class="marquee-content">
-        <div :class="{'marquee-animation': enabled}">
+        <div :class="{'marquee-animation-reverse': enabled}">
           <div class="marquee-inner">
             <div class="marquee-item offset-t">
               <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo" :alt="company.name" rounded="true" blank width="150" height="75" blank-color="#777" />
@@ -73,6 +73,28 @@ $animation-speed: 20s;
 .marquee-animation {
   -webkit-animation: marquee $animation-speed linear infinite;
   animation: marquee $animation-speed linear infinite;
+}
+
+.marquee-animation-reverse {
+  -webkit-animation: marquee-reverse $animation-speed linear infinite;
+  animation: marquee-reverse $animation-speed linear infinite;
+}
+
+@-webkit-keyframes marquee-reverse {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(50%, 0, 0);
+  }
+}
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
 }
 
 @-webkit-keyframes marquee {
