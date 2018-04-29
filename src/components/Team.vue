@@ -43,7 +43,8 @@
         <div class="d-flex flex-row flex-wrap justify-content-center">
           <!-- v-for="row in rows()" :key="row.index" -->
           <div class="flexible-item" v-for="member in filterMembers(roleCategory)" :key="member.name">
-            <headshot-card :name="member.name" :image='member.image' @click.native="memberClicked(member)"></headshot-card>
+            <div v-if="member.phantom" class="phantom-headshot-card headshot-card" />
+            <headshot-card v-else :name="member.name" :image='member.image' @click.native="memberClicked(member)" />
           </div>
         </div>
 
@@ -58,6 +59,13 @@
 
   </div>
 </template>
+
+<style lang="scss" scoped>
+.phantom-headshot-card {
+  min-width: 130px;
+}
+</style>
+
 
 <script>
 import HeadshotCard from "./HeadshotCard.vue";
@@ -101,14 +109,25 @@ export default {
     filterMembers: function(role = "") {
       let filtered = [];
 
-      if (role === "") return this.members;
-
-      for (let member of this.members) {
-        if (
-          member.roleCategory != null &&
-          member.roleCategory.indexOf(role) !== -1
-        ) {
+      if (role === "") {
+        for (let member of this.members) {
           filtered.push(member);
+        }
+      } else {
+        for (let member of this.members) {
+          if (
+            member.roleCategory != null &&
+            member.roleCategory.indexOf(role) !== -1
+          ) {
+            filtered.push(member);
+          }
+        }
+      }
+
+      if (filtered.length % 6 != 0) {
+        let max = filtered.length % 6;
+        for (let i = 0; i < max; i++) {
+          filtered.push({ name: "phantom-" + i, phantom: true });
         }
       }
 
