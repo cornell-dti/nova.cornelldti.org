@@ -1,8 +1,6 @@
 <template>
 
   <div>
-    <p> modal2: {{modalShow}}</p>
-    <p class="my-4">{{profile}}</p>
     <b-modal lazy centered size="lg" id="memberModal" v-model="modalShow" :title="profile.name" header-bg-variant="dark" header-text-variant="light" body-bg-variant="dark" body-text-variant="light" footer-bg-variant="dark" footer-text-variant="light" header-border-variant="dark" footer-border-variant="dark">
       <b-container fluid>
       </b-container>

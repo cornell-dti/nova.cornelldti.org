@@ -1,9 +1,6 @@
 <template>
 
   <div>
-
-    <p> modal1: {{modalShow}}</p>
-
     <section>
       <div class="page-hero"> </div>
     </section>
@@ -51,18 +48,24 @@
         </div>
 
       </section>
+
     </b-container>
+    <section>
+      <marquee />
+    </section>
 
     <member-profile-modal v-model="modalShow" :profile="currentProfile" />
+
   </div>
 </template>
 
 <script>
 import HeadshotCard from "./HeadshotCard.vue";
 import MemberProfileModal from "./MemberProfileModal.vue";
+import Marquee from "./CompaniesMarquee.vue";
 
 export default {
-  components: { HeadshotCard, MemberProfileModal },
+  components: { HeadshotCard, MemberProfileModal, Marquee },
   data() {
     return {
       modalShow: false,
