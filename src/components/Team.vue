@@ -62,7 +62,7 @@
 
 <style lang="scss" scoped>
 .phantom-headshot-card {
-  min-width: 130px;
+  min-width: 155px;
 }
 </style>
 
@@ -124,8 +124,8 @@ export default {
         }
       }
 
-      if (filtered.length % 6 != 0) {
-        let max = filtered.length % 6;
+      if (filtered.length % 5 != 0 || filtered.length % 6 != 0) {
+        let max = Math.max(5 - filtered.length % 5, filtered.length % 5, 6 - filtered.length % 6, filtered.length % 6);
         for (let i = 0; i < max; i++) {
           filtered.push({ name: "phantom-" + i, phantom: true });
         }
