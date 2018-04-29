@@ -12,9 +12,17 @@ html {
   overflow-y: scroll;
 }
 
+body.modal-open {
+  padding-right: 0 !important;
+}
+
 section {
     padding-top: 3vh;
     padding-bottom: 3vh;
+}
+
+.bg-dark {
+  background-color: #4a4a4a !important;
 }
 
 #app {

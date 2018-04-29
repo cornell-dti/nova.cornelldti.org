@@ -2,7 +2,6 @@
   <div id="app">
     <div class="page-background" :style="backgroundStyle">
       <dti-main-menu :transparent="isTransparent" />
-      <p>{{isTransparent ? 't' : 'f'}}</p>
       <router-view/>
     </div>
   </div>

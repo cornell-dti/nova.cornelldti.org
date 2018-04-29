@@ -2,6 +2,8 @@
 
   <div>
 
+    <p> modal1: {{modalShow}}</p>
+
     <section>
       <div class="page-hero"> </div>
     </section>
@@ -54,10 +56,6 @@
     <member-profile-modal v-model="modalShow" :profile="currentProfile" />
   </div>
 </template>
-
-<style lang="scss" scoped>
-@import "../main.scss";
-</style>
 
 <script>
 import HeadshotCard from "./HeadshotCard.vue";
