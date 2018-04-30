@@ -30,7 +30,7 @@ export default {
     }
   },
   computed: {
-    classObj: function() {
+    classObj() {
       if (this.transparent) {
         return [
           "dtiNavbarTransparent",
@@ -38,16 +38,15 @@ export default {
           "navbar-dti",
           "navbar-dark"
         ];
-      } else {
-        return ["dtiNavbar", "bg-dark", "navbar-dti", "navbar-dark"];
       }
+
+      return ["dtiNavbar", "bg-dark", "navbar-dti", "navbar-dark"];
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-
 .brand-icon {
   width: 8vh;
   height: 8vh;

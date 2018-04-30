@@ -9,7 +9,7 @@
 
 <script>
 const BACKGROUND_IMAGE_STYLE =
-  "background: url('/static/new-header-bg.jpg') no-repeat center center/cover;";
+  'background: url("/static/new-header-bg.jpg") no-repeat center center/cover;';
 const BACKGROUND_BLANK_STYLE = "background: none;";
 
 export default {
@@ -21,17 +21,17 @@ export default {
     };
   },
   mounted() {
-    this.$router.afterEach((to, from) => {
+    this.$router.afterEach(to => {
       this.updateBackground(to.name);
     });
 
     this.updateBackground(this.$route.name);
   },
   computed: {
-    isTransparent: function() {
+    isTransparent() {
       return this.navbarTransparent;
     },
-    backgroundStyle: function() {
+    backgroundStyle() {
       return this.bgStyle;
     }
   },

@@ -13,36 +13,36 @@ Vue.use(Router);
 
 export default new Router({
   routes: [{
-      path: '/',
-      name: 'Home',
-      component: Home,
-    },
-    {
-      path: '/Projects',
-      name: 'Projects',
-      component: Projects,
-      props: {
-        projects: ProjectsJson
-      }
-    },
-    {
-      path: '/Team',
-      name: 'Team',
-      component: Team,
-      props: {
-        members: MembersJson,
-        teams: TeamsJson
-      }
-    },
-    {
-      path: '/Sponsor',
-      name: 'Sponsor',
-      component: Sponsor,
-    },
-    {
-      path: '/Apply',
-      name: 'Apply',
-      component: Apply,
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/Projects',
+    name: 'Projects',
+    component: Projects,
+    props: {
+      projects: ProjectsJson
     }
-  ],
+  },
+  {
+    path: '/Team',
+    name: 'Team',
+    component: Team,
+    props: {
+      members: MembersJson,
+      teams: TeamsJson
+    }
+  },
+  {
+    path: '/Sponsor',
+    name: 'Sponsor',
+    component: Sponsor
+  },
+  {
+    path: '/Apply',
+    name: 'Apply',
+    component: Apply
+  }
+  ]
 });

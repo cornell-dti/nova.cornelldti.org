@@ -20,19 +20,19 @@
           <b-col class="text-center">
             <!-- TODO do this dynamically -->
 
-            <b-button class="selected-filter-btn" v-if="roleCategory == ''" v-on:click="roleCategory = '';">All</b-button>
+            <b-button class="selected-filter-btn" v-if="roleCategory === ''" v-on:click="roleCategory = '';">All</b-button>
             <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = '';">All</b-button>
 
-            <b-button class="selected-filter-btn" v-if="roleCategory == 'pm'" v-on:click="roleCategory = 'pm';">Product Manager</b-button>
+            <b-button class="selected-filter-btn" v-if="roleCategory === 'pm'" v-on:click="roleCategory = 'pm';">Product Manager</b-button>
             <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'pm';">Product Manager</b-button>
 
-            <b-button class="selected-filter-btn" v-if="roleCategory == 'designer'" v-on:click="roleCategory = 'designer';">Designer</b-button>
+            <b-button class="selected-filter-btn" v-if="roleCategory === 'designer'" v-on:click="roleCategory = 'designer';">Designer</b-button>
             <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'designer';">Designer</b-button>
 
-            <b-button class="selected-filter-btn" v-if="roleCategory == 'lead'" v-on:click="roleCategory = 'lead';">Lead</b-button>
+            <b-button class="selected-filter-btn" v-if="roleCategory === 'lead'" v-on:click="roleCategory = 'lead';">Lead</b-button>
             <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'lead';">Lead</b-button>
 
-            <b-button class="selected-filter-btn" v-if="roleCategory == 'developer'" v-on:click="roleCategory = 'developer';">Developer</b-button>
+            <b-button class="selected-filter-btn" v-if="roleCategory === 'developer'" v-on:click="roleCategory = 'developer';">Developer</b-button>
             <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'developer';">Developer</b-button>
 
           </b-col>
@@ -68,9 +68,9 @@
 
 
 <script>
-import HeadshotCard from "./HeadshotCard.vue";
-import MemberProfileModal from "./MemberProfileModal.vue";
-import Marquee from "./CompaniesMarquee.vue";
+import HeadshotCard from "./HeadshotCard";
+import MemberProfileModal from "./MemberProfileModal";
+import Marquee from "./CompaniesMarquee";
 
 export default {
   components: { HeadshotCard, MemberProfileModal, Marquee },
@@ -93,10 +93,10 @@ export default {
   },
   computed: {
     roleCategory: {
-      set: function(value) {
+      set(value) {
         this.filter_role_category = value;
       },
-      get: function() {
+      get() {
         return this.filter_role_category;
       }
     }
@@ -106,8 +106,8 @@ export default {
       this.currentProfile = member;
       this.currentProfile.teams = [];
 
-      for (let team of this.teams) {
-        for (let teamMember of team.members) {
+      for (const team of this.teams) {
+        for (const teamMember of team.members) {
           if (teamMember.name === this.currentProfile.name) {
             this.currentProfile.teams.push(team);
           }
@@ -116,8 +116,8 @@ export default {
 
       this.modalShow = true;
     },
-    filterMembers: function(role = "") {
-      let filtered = [];
+    filterMembers(role = "") {
+      const filtered = [];
 
       if (role === "") {
         for (let member of this.members) {
@@ -126,7 +126,7 @@ export default {
       } else {
         for (let member of this.members) {
           if (
-            member.roleCategory != null &&
+            member.roleCategory !== null &&
             member.roleCategory.indexOf(role) !== -1
           ) {
             filtered.push(member);
@@ -134,15 +134,15 @@ export default {
         }
       }
 
-      if (filtered.length % 5 != 0 || filtered.length % 6 != 0) {
+      if (filtered.length % 5 !== 0 || filtered.length % 6 !== 0) {
         let max = Math.max(
           5 - filtered.length % 5,
           filtered.length % 5,
           6 - filtered.length % 6,
           filtered.length % 6
         );
-        for (let i = 0; i < max; i++) {
-          filtered.push({ name: "phantom-" + i, phantom: true });
+        for (let i = 0; i < max; i += 1) {
+          filtered.push({ name: `phantom-{$i}`, phantom: true });
         }
       }
 

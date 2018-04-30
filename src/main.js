@@ -2,11 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 import Vue from 'vue';
-import BootstrapVue from 'bootstrap-vue'
+import BootstrapVue from 'bootstrap-vue';
 import App from './App';
 import router from './router';
-import DtiMainMenu from './components/DtiMainMenu.vue'
-import DataJson from './data.json'
+import DtiMainMenu from './components/DtiMainMenu';
+import DataJson from './data.json';
 
 Vue.use(BootstrapVue);
 

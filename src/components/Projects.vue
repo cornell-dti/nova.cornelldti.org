@@ -41,11 +41,11 @@ export default {
     }
   },
   computed: {
-    projectRows: function() {
-      let rows = [];
+    projectRows() {
+      const rows = [];
       let row = [];
 
-      let random = Math.round(Math.random() * this.projects.length); // todo double check rounding
+      const random = Math.round(Math.random() * this.projects.length); // todo double check rounding
 
       if (this.projects.length > 0) {
         rows.push({
@@ -54,12 +54,12 @@ export default {
         });
       }
 
-      for (let i = 0; i < this.projects.length; i++) {
-        if (i != random) {
+      for (let i = 0; i < this.projects.length; i += 1) {
+        if (i !== random) {
           row.push(this.projects[i]);
         }
 
-        if (row.length == 2 || rows.length * 2 == this.projects.length) {
+        if (row.length === 2 || rows.length * 2 === this.projects.length) {
           rows.push({ index: i, members: row });
           row = [];
         }
