@@ -45,7 +45,8 @@
             </b-row>
           </b-col>
           <b-col>
-            <h4>Profile</h4>
+            <h4 class="profile-header-md">Profile</h4>
+            <h3 class="profile-header-sm">Profile</h3>
             <b-row v-if="profile.major != null">
               <b-col>
                 Major
@@ -133,22 +134,26 @@ $radius: 25px;
         overflow-y: scroll;
         max-height: 50vh;
       }
+
+      .profile-header-sm {
+        display: none;
+      }
     }
 
     @media (max-width: 767px) {
       .profile-header {
         text-align: center;
       }
-    }
 
-    @media (max-width: 767px) {
+      .profile-header-md {
+        display: none;
+      }
+
       .modal-scroll {
         overflow-y: scroll;
         max-height: 30vh;
       }
-    }
 
-    @media (max-width: 767px) {
       .link-list {
         padding-left: 50px;
       }
@@ -181,10 +186,7 @@ export default {
   },
   props: {
     profile: { type: Object, required: false, default: {} },
-    modalShow: Boolean
-  },
-  data() {
-    return { modalShow: this.value };
+    modalShow: { type: Boolean, default: false }
   },
   watch: {
     modalShow($event) {

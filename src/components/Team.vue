@@ -77,7 +77,8 @@ export default {
   data() {
     return {
       modalShow: false,
-      currentProfile: {}
+      currentProfile: {},
+      filter_role_category: ""
     };
   },
   props: {
@@ -88,11 +89,6 @@ export default {
     teams: {
       type: Array,
       required: true
-    },
-    filter_role_category: {
-      type: String,
-      required: false,
-      default: ""
     }
   },
   computed: {
