@@ -20,20 +20,45 @@
           <b-col class="text-center">
             <!-- TODO do this dynamically -->
 
-            <b-button class="selected-filter-btn" v-if="roleCategory === ''" v-on:click="roleCategory = '';">All</b-button>
-            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = '';">All</b-button>
+            <b-button class="selected-filter-btn" v-if="roleCategory === ''" v-on:click="roleCategory = ''">
+              All
+            </b-button>
 
-            <b-button class="selected-filter-btn" v-if="roleCategory === 'pm'" v-on:click="roleCategory = 'pm';">Product Manager</b-button>
-            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'pm';">Product Manager</b-button>
+            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = '';">
+              All
+            </b-button>
 
-            <b-button class="selected-filter-btn" v-if="roleCategory === 'designer'" v-on:click="roleCategory = 'designer';">Designer</b-button>
-            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'designer';">Designer</b-button>
+            <b-button class="selected-filter-btn" v-if="roleCategory === 'pm'" v-on:click="roleCategory = 'pm'">
+              Product Manager
+            </b-button>
 
-            <b-button class="selected-filter-btn" v-if="roleCategory === 'lead'" v-on:click="roleCategory = 'lead';">Lead</b-button>
-            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'lead';">Lead</b-button>
+            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'pm'">
+              Product Manager
+            </b-button>
 
-            <b-button class="selected-filter-btn" v-if="roleCategory === 'developer'" v-on:click="roleCategory = 'developer';">Developer</b-button>
-            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'developer';">Developer</b-button>
+            <b-button class="selected-filter-btn" v-if="roleCategory === 'designer'" v-on:click="roleCategory = 'designer'">
+              Designer
+            </b-button>
+
+            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'designer'">
+              Designer
+            </b-button>
+
+            <b-button class="selected-filter-btn" v-if="roleCategory === 'lead'" v-on:click="roleCategory = 'lead'">
+              Lead
+            </b-button>
+
+            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'lead'">
+              Lead
+            </b-button>
+
+            <b-button class="selected-filter-btn" v-if="roleCategory === 'developer'" v-on:click="roleCategory = 'developer'">
+              Developer
+            </b-button>
+
+            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'developer'">
+              Developer
+            </b-button>
 
           </b-col>
         </b-row>
@@ -44,7 +69,8 @@
           <!-- v-for="row in rows()" :key="row.index" -->
           <div class="flexible-item" v-for="member in filterMembers(roleCategory)" :key="member.name">
             <div v-if="member.phantom" class="phantom-headshot-card headshot-card" />
-            <headshot-card v-else :name="member.name" :image='member.image' @click.native="memberClicked(member)" />
+            <headshot-card v-else :name="member.name" :image='member.image' @click.native="memberClicked(member)"
+            />
           </div>
         </div>
 
@@ -73,7 +99,11 @@ import MemberProfileModal from "./MemberProfileModal";
 import Marquee from "./CompaniesMarquee";
 
 export default {
-  components: { HeadshotCard, MemberProfileModal, Marquee },
+  components: {
+    HeadshotCard,
+    MemberProfileModal,
+    Marquee
+  },
   data() {
     return {
       modalShow: false,
@@ -106,43 +136,41 @@ export default {
       this.currentProfile = member;
       this.currentProfile.teams = [];
 
-      for (const team of this.teams) {
-        for (const teamMember of team.members) {
+      this.teams.forEach(team => {
+        team.members.forEach(teamMember => {
           if (teamMember.name === this.currentProfile.name) {
             this.currentProfile.teams.push(team);
           }
-        }
-      }
+        });
+      });
 
       this.modalShow = true;
     },
     filterMembers(role = "") {
-      const filtered = [];
-
+      let filtered;
       if (role === "") {
-        for (let member of this.members) {
-          filtered.push(member);
-        }
+        filtered = this.members;
       } else {
-        for (let member of this.members) {
-          if (
-            typeof member.roleCategory !== 'undefined' &&
+        filtered = this.members.filter(
+          member =>
+            typeof member.roleCategory !== "undefined" &&
             member.roleCategory.indexOf(role) !== -1
-          ) {
-            filtered.push(member);
-          }
-        }
+        );
       }
 
       if (filtered.length % 5 !== 0 || filtered.length % 6 !== 0) {
-        let max = Math.max(
+        const max = Math.max(
           5 - filtered.length % 5,
           filtered.length % 5,
           6 - filtered.length % 6,
           filtered.length % 6
         );
+
         for (let i = 0; i < max; i += 1) {
-          filtered.push({ name: `phantom-{$i}`, phantom: true });
+          filtered.push({
+            name: `phantom-{$i}`,
+            phantom: true
+          });
         }
       }
 

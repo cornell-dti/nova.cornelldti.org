@@ -9,7 +9,7 @@
 
 <script>
 const BACKGROUND_IMAGE_STYLE =
-  'background: url("/static/new-header-bg.jpg") no-repeat center center/cover;';
+  "background: url('/static/new-header-bg.jpg') no-repeat center center/cover;";
 const BACKGROUND_BLANK_STYLE = "background: none;";
 
 export default {
