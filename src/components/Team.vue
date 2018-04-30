@@ -126,7 +126,7 @@ export default {
       } else {
         for (let member of this.members) {
           if (
-            member.roleCategory !== null &&
+            typeof member.roleCategory !== 'undefined' &&
             member.roleCategory.indexOf(role) !== -1
           ) {
             filtered.push(member);

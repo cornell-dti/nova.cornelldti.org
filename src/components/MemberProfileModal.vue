@@ -26,10 +26,10 @@
             <b-row>
               <b-col>
                 <h3>About Me</h3>
-                <p>{{profile.about !== null ? profile.about : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut leo bibendum lorem vestibulum laoreet eget vitae tortor. Phasellus mauris ante, euismod quis feugiat dignissim, fringilla et arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat accumsan nibh, eu imperdiet odio ornare et. Mauris feugiat magna a lacus tincidunt dapibus. Sed egestas, diam eget congue cursus, nibh ipsum lacinia nisl, nec imperdiet est ante vitae diam. Duis pulvinar vehicula fringilla. Nulla vel lobortis nulla. Maecenas nunc odio, ornare a semper nec, maximus a ex. Duis quis est id est bibendum volutpat eget at turpis. Nam porttitor vitae nunc at imperdiet. Nam rutrum leo bibendum lorem suscipit, sit amet aliquam ligula tristique. Aliquam erat volutpat."}}</p>
+                <p>{{typeof profile.about !== 'undefined' ? profile.about : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut leo bibendum lorem vestibulum laoreet eget vitae tortor. Phasellus mauris ante, euismod quis feugiat dignissim, fringilla et arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat accumsan nibh, eu imperdiet odio ornare et. Mauris feugiat magna a lacus tincidunt dapibus. Sed egestas, diam eget congue cursus, nibh ipsum lacinia nisl, nec imperdiet est ante vitae diam. Duis pulvinar vehicula fringilla. Nulla vel lobortis nulla. Maecenas nunc odio, ornare a semper nec, maximus a ex. Duis quis est id est bibendum volutpat eget at turpis. Nam porttitor vitae nunc at imperdiet. Nam rutrum leo bibendum lorem suscipit, sit amet aliquam ligula tristique. Aliquam erat volutpat."}}</p>
               </b-col>
             </b-row>
-            <b-row v-if="profile.teams !== null && profile.teams.length > 0">
+            <b-row v-if="typeof profile.teams !== 'undefined' && profile.teams.length > 0">
               <b-col>
                 <h3>Team Work</h3>
                 <b-row v-for="team in profile.teams" :key="team.teamname">
@@ -47,7 +47,7 @@
           <b-col>
             <h4 class="profile-header-md">Profile</h4>
             <h3 class="profile-header-sm">Profile</h3>
-            <b-row v-if="profile.major !== null">
+            <b-row v-if="typeof profile.major !== 'undefined'">
               <b-col>
                 Major
               </b-col>
@@ -55,7 +55,7 @@
                 <p>{{profile.major}}</p>
               </b-col>
             </b-row>
-            <b-row v-if="profile.hometown !== null">
+            <b-row v-if="typeof profile.hometown !== 'undefined'">
               <b-col>
                 Hometown
               </b-col>
@@ -63,7 +63,7 @@
                 <p>{{profile.hometown}}</p>
               </b-col>
             </b-row>
-            <b-row v-if="profile.year !== null">
+            <b-row v-if="typeof profile.year !== 'undefined'">
               <b-col>
                 Year
               </b-col>
@@ -77,13 +77,13 @@
               </b-col>
               <b-col class="link-list">
                 <b-row>
-                  <a v-if="profile.website !== null" class="text-light" :href="profile.website">Website</a>
+                  <a v-if="typeof profile.website !== 'undefined'" class="text-light" :href="profile.website">Website</a>
                 </b-row>
                 <b-row>
-                  <a v-if="profile.linkedin !== null" class="text-light" :href="profile.linkedin">Linkedin</a>
+                  <a v-if="typeof profile.linkedin !== 'undefined'" class="text-light" :href="profile.linkedin">Linkedin</a>
                 </b-row>
                 <b-row>
-                  <a v-if="profile.github !== null" class="text-light" :href="profile.github">GitHub</a>
+                  <a v-if="typeof profile.github !== 'undefined'" class="text-light" :href="profile.github">GitHub</a>
                 </b-row>
               </b-col>
             </b-row>
@@ -147,7 +147,8 @@ $radius: 25px;
     margin-left: auto;
   }
 
-  .modal-header {
+  .modal-header,
+  .modal-footer {
     display: none;
   }
 
