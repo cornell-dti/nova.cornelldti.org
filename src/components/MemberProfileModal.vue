@@ -2,40 +2,48 @@
 
   <div>
     <b-modal lazy centered size="lg" ref="memberModal" id="memberModal" v-model="modalShow" :title="profile.name" header-bg-variant="dark" header-text-variant="light" body-bg-variant="dark" body-text-variant="light" footer-bg-variant="dark" footer-text-variant="light" header-border-variant="dark" footer-border-variant="dark">
-      <b-container fluid>
+      <b-container fluid class="modal-scroll">
         <b-row>
-          <b-col cols="2">
-            <b-img rounded="circle" height="100px" width="100px" :src="profile.image" />
+          <b-col cols="10" class="my-auto">
+            <b-row>
+              <b-col lg="3" md="auto" sm="12">
+                <b-img rounded="circle" class="profile-image" :src="profile.image" />
+              </b-col>
+              <b-col class="my-auto">
+                <h1>{{profile.name}}</h1>
+                <h4 class="text-light">{{profile.role}}</h4>
+              </b-col>
+            </b-row>
           </b-col>
-          <b-col cols="8">
-            <h1>{{profile.name}}</h1>
-            <h4>{{profile.role}}</h4>
-          </b-col>
           <b-col cols="2">
-            <b-button class="modal-close-button close text-light" @click="modalClose()">x</b-button>
+            <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
           </b-col>
         </b-row>
         <br />
         <b-row>
-          <b-col cols="8">
+          <b-col sm="12" md="8" class="about-section">
             <b-row>
-              <h3>About Me</h3>
-              <p class="my-4">{{profile.about}}</p>
+              <b-col>
+                <h3>About Me</h3>
+                <p>{{profile.about != null ? profile.about : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut leo bibendum lorem vestibulum laoreet eget vitae tortor. Phasellus mauris ante, euismod quis feugiat dignissim, fringilla et arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat accumsan nibh, eu imperdiet odio ornare et. Mauris feugiat magna a lacus tincidunt dapibus. Sed egestas, diam eget congue cursus, nibh ipsum lacinia nisl, nec imperdiet est ante vitae diam. Duis pulvinar vehicula fringilla. Nulla vel lobortis nulla. Maecenas nunc odio, ornare a semper nec, maximus a ex. Duis quis est id est bibendum volutpat eget at turpis. Nam porttitor vitae nunc at imperdiet. Nam rutrum leo bibendum lorem suscipit, sit amet aliquam ligula tristique. Aliquam erat volutpat."}}</p>
+              </b-col>
             </b-row>
             <b-row v-if="profile.teams != null && profile.teams.length > 0">
-              <h3>Team Work</h3>
-              <b-row v-for="team in profile.teams" :key="team.name">
-                <b-col cols="4">
-                  <b-img :src="team.logo" height="32px" width="32px" />
-                </b-col>
-                <b-col>
-                  <h3>{{team.name}}</h3>
-                  <p>{{team.description}}</p>
-                </b-col>
-              </b-row>
+              <b-col>
+                <h3>Team Work</h3>
+                <b-row v-for="team in profile.teams" :key="team.teamname">
+                  <b-col cols="2" class="my-auto">
+                    <b-img :src="team.logo" :alt="team.teamname" height="64px" width="64px" />
+                  </b-col>
+                  <b-col class="team-info my-auto">
+                    <h4>{{team.teamname}}</h4>
+                    <p>{{team.description}}</p>
+                  </b-col>
+                </b-row>
+              </b-col>
             </b-row>
           </b-col>
-          <b-col cols="4">
+          <b-col>
             <h4>Profile</h4>
             <b-row v-if="profile.major != null">
               <b-col>
@@ -89,6 +97,8 @@ $radius: 25px;
   }
 
   .modal-close-button {
+    opacity: 1;
+    color: #fff;
     float: right;
   }
 
@@ -101,6 +111,36 @@ $radius: 25px;
     border-top-right-radius: $radius;
     border-bottom-right-radius: $radius;
     border-bottom-left-radius: $radius;
+    padding: 2em;
+
+    .modal-row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .profile-image {
+      height: 140px;
+      width: 140px;
+      border: 2px white solid;
+    }
+
+    @media (min-width: 768px) {
+      .about-section {
+        overflow-y: scroll;
+        max-height: 60vh;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .modal-scroll {
+        overflow-y: scroll;
+        max-height: 80vh;
+      }
+    }
+
+    .team-info {
+      padding-left: 20px;
+    }
   }
 
   .modal-footer {

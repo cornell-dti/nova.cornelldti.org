@@ -1,5 +1,6 @@
 [{
     "teamname": "Leads",
+    "description": "The leads.",
     "members": [{
         "image": "/static/team/alicep.jpg",
         "name": "Alice Pham",

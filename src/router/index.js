@@ -7,12 +7,12 @@ import Apply from '@/components/Apply';
 import Sponsor from '@/components/Sponsor';
 import MembersJson from '@/members.json';
 import ProjectsJson from '@/projects.json';
+import TeamsJson from '@/teams.json';
 
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'Home',
       component: Home,
@@ -21,13 +21,18 @@ export default new Router({
       path: '/Projects',
       name: 'Projects',
       component: Projects,
-      props: { projects: ProjectsJson }
+      props: {
+        projects: ProjectsJson
+      }
     },
     {
       path: '/Team',
       name: 'Team',
       component: Team,
-      props: { members: MembersJson }
+      props: {
+        members: MembersJson,
+        teams: TeamsJson
+      }
     },
     {
       path: '/Sponsor',

@@ -89,6 +89,7 @@ $animation-speed: 20s;
     -webkit-transform: translate3d(0, 0, 0);
   }
 }
+
 @keyframes marquee-reverse {
   0% {
     transform: translateX(-50%);
@@ -106,6 +107,7 @@ $animation-speed: 20s;
     -webkit-transform: translate3d(-50%, 0, 0);
   }
 }
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -126,12 +128,14 @@ export default {
   props: {
     companies: {
       type: Array,
-      default: [
-        { name: "Google" },
-        { name: "Amazon" },
-        { name: "eBay" },
-        { name: "Elsewhere" }
-      ]
+      default() {
+        return [
+          { name: "Google" },
+          { name: "Amazon" },
+          { name: "eBay" },
+          { name: "Elsewhere" }
+        ];
+      }
     }
   }
 };

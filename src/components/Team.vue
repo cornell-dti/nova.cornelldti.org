@@ -85,6 +85,10 @@ export default {
       type: Array,
       required: true
     },
+    teams: {
+      type: Array,
+      required: true
+    },
     filter_role_category: {
       type: String,
       required: false,
@@ -104,6 +108,16 @@ export default {
   methods: {
     memberClicked(member) {
       this.currentProfile = member;
+      this.currentProfile.teams = [];
+
+      for (let team of this.teams) {
+        for (let teamMember of team.members) {
+          if (teamMember.name === this.currentProfile.name) {
+            this.currentProfile.teams.push(team);
+          }
+        }
+      }
+
       this.modalShow = true;
     },
     filterMembers: function(role = "") {
@@ -125,7 +139,12 @@ export default {
       }
 
       if (filtered.length % 5 != 0 || filtered.length % 6 != 0) {
-        let max = Math.max(5 - filtered.length % 5, filtered.length % 5, 6 - filtered.length % 6, filtered.length % 6);
+        let max = Math.max(
+          5 - filtered.length % 5,
+          filtered.length % 5,
+          6 - filtered.length % 6,
+          filtered.length % 6
+        );
         for (let i = 0; i < max; i++) {
           filtered.push({ name: "phantom-" + i, phantom: true });
         }
