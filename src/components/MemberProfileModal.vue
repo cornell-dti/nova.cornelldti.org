@@ -2,10 +2,13 @@
 
   <div>
     <b-modal lazy centered size="lg" ref="memberModal" id="memberModal" v-model="modalShow" :title="profile.name" header-bg-variant="dark" header-text-variant="light" body-bg-variant="dark" body-text-variant="light" footer-bg-variant="dark" footer-text-variant="light" header-border-variant="dark" footer-border-variant="dark">
-      <b-container fluid class="modal-scroll">
+      <b-container fluid>
         <b-row>
-          <b-col cols="10" class="my-auto">
-            <b-row>
+
+          <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
+
+          <b-col cols="12" class="my-auto">
+            <b-row class="profile-header">
               <b-col lg="3" md="auto" sm="12">
                 <b-img rounded="circle" class="profile-image" :src="profile.image" />
               </b-col>
@@ -15,12 +18,10 @@
               </b-col>
             </b-row>
           </b-col>
-          <b-col cols="2">
-            <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
-          </b-col>
+
         </b-row>
         <br />
-        <b-row>
+        <b-row class="modal-scroll">
           <b-col sm="12" md="8" class="about-section">
             <b-row>
               <b-col>
@@ -70,13 +71,19 @@
               </b-col>
             </b-row>
             <b-row>
-              <b-col>
+              <b-col sm="2" md="auto">
                 Links
               </b-col>
-              <b-col>
-                <a v-if="profile.website != null" :href="profile.website">Website</a>
-                <a v-if="profile.linkedin != null" :href="profile.linkedin">Linkedin</a>
-                <a v-if="profile.github != null" :href="profile.github">GitHub</a>
+              <b-col class="link-list">
+                <b-row>
+                  <a v-if="profile.website != null" class="text-light" :href="profile.website">Website</a>
+                </b-row>
+                <b-row>
+                  <a v-if="profile.linkedin != null" class="text-light" :href="profile.linkedin">Linkedin</a>
+                </b-row>
+                <b-row>
+                  <a v-if="profile.github != null" class="text-light" :href="profile.github">GitHub</a>
+                </b-row>
               </b-col>
             </b-row>
 
@@ -98,8 +105,9 @@ $radius: 25px;
 
   .modal-close-button {
     opacity: 1;
-    color: #fff;
+    color: #fefefe;
     float: right;
+    margin-left: auto;
   }
 
   .modal-header {
@@ -112,34 +120,42 @@ $radius: 25px;
     border-bottom-right-radius: $radius;
     border-bottom-left-radius: $radius;
     padding: 2em;
-
-    .modal-row {
-      margin-left: 0;
-      margin-right: 0;
-    }
+    max-height: 80vh;
 
     .profile-image {
-      height: 140px;
-      width: 140px;
-      border: 2px white solid;
+      height: 8.75rem;
+      width: 8.75rem;
+      border: 0.125rem white solid;
     }
 
     @media (min-width: 768px) {
       .about-section {
         overflow-y: scroll;
-        max-height: 60vh;
+        max-height: 50vh;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .profile-header {
+        text-align: center;
       }
     }
 
     @media (max-width: 767px) {
       .modal-scroll {
         overflow-y: scroll;
-        max-height: 80vh;
+        max-height: 30vh;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .link-list {
+        padding-left: 50px;
       }
     }
 
     .team-info {
-      padding-left: 20px;
+      padding-left: 35px;
     }
   }
 

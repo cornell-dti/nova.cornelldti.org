@@ -1,15 +1,18 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 @import 'bootstrap-vue/dist/bootstrap-vue.css';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
 .page-background {
   height: 100vh;
   width: 100%;
 }
 
 html {
-  overflow: -moz-scrollbars-vertical; 
+  overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
+}
+
+.text-light {
+  color: #fefefe !important;
 }
 
 body.modal-open {
@@ -17,8 +20,8 @@ body.modal-open {
 }
 
 section {
-    padding-top: 3vh;
-    padding-bottom: 3vh;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 }
 
 .bg-dark {
@@ -30,8 +33,6 @@ section {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
 
 .selected-filter-btn {
   background-color: #4a4a4a !important;
@@ -59,5 +60,5 @@ section {
 }
 
 .flexible-item {
-    flex: 1 1 16%;
+  flex: 1 1 16%;
 }
