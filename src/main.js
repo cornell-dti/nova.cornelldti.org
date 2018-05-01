@@ -6,27 +6,14 @@ import BootstrapVue from "bootstrap-vue";
 import App from "./App";
 import router from "./router";
 import DtiMainMenu from "./components/DtiMainMenu";
+import StoreBadge from "./components/StoreBadge";
 import DataJson from "./data.json";
 
 Vue.use(BootstrapVue);
 
 Vue.component("DtiMainMenu", DtiMainMenu);
 
-Vue.component(
-  "AppStoreBadge",
-  `<template>
-  <b-img src='static/app-store-download-badge.svg'>
-  <a :href='url' />
-  </b-img>
-  </template>
-  <script>
-  export default { props: { url: String }}
-  </script>`
-);
-Vue.component(
-  "PlayStoreBadge",
-  `<template><b-img src='static/google-play-badge.svg'><a :href='url' /></b-img></template><script>export default { props: { url: String }} </script>`
-);
+Vue.component("StoreBadge", StoreBadge);
 
 Vue.config.productionTip = false;
 

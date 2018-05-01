@@ -177,10 +177,6 @@ $radius: 25px;
       }
     }
 
-    .modal-footer {
-      display: none;
-    }
-
     @media (max-width: 767px) {
       .profile-header {
         text-align: center;

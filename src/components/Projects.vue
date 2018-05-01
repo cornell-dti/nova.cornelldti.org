@@ -45,7 +45,7 @@ export default {
       const rows = [];
       let row = [];
 
-      const random = Math.round(Math.random() * this.projects.length); // todo double check rounding
+      const random = Math.round(Math.random() * (this.projects.length - 1)); // todo double check rounding
 
       if (this.projects.length > 0) {
         rows.push({

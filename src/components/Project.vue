@@ -56,10 +56,10 @@
             <b-col>
               <b-row>
                 <b-col>
-                  <play-store-badge :url="projectData.playstore" />
+                  <store-badge store="playstore" :url="projectData.playstore" />
                 </b-col>
                 <b-col>
-                  <app-store-badge :url="projectData.appstore" />
+                  <store-badge store="appstore" :url="projectData.appstore" />
                 </b-col>
               </b-row>
             </b-col>
@@ -77,12 +77,12 @@
               <b-col>
                 <b-row v-if="typeof projectData.playstore !== 'undefined'">
                   <b-col>
-                    <play-store-badge :url="projectData.playstore" />
+                    <store-badge store="playstore" :url="projectData.playstore" />
                   </b-col>
                 </b-row>
                 <b-row v-if="typeof projectData.appstore !== 'undefined'">
                   <b-col>
-                    <app-store-badge :url="projectData.appstore" />
+                    <store-badge store="appstore" :url="projectData.appstore" />
                   </b-col>
                 </b-row>
               </b-col>
@@ -117,7 +117,18 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
-.project-hero {
+<style lang="scss" >
+$radius: 20px;
+
+#downloadModal {
+  .modal-content {
+    border: none !important;
+    border-radius: ($radius + 5) !important;
+  }
+
+  .modal-header,
+  .modal-footer {
+    display: none;
+  }
 }
 </style>
