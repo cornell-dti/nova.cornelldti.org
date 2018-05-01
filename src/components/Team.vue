@@ -168,7 +168,7 @@ export default {
 
         for (let i = 0; i < max; i += 1) {
           filtered.push({
-            name: `phantom-{$i}`,
+            name: 'phantom-' + i,
             phantom: true
           });
         }

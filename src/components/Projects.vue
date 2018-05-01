@@ -57,11 +57,11 @@ export default {
       for (let i = 0; i < this.projects.length; i += 1) {
         if (i !== random) {
           row.push(this.projects[i]);
-        }
 
-        if (row.length === 2 || rows.length * 2 === this.projects.length) {
-          rows.push({ index: i, members: row });
-          row = [];
+          if (row.length === 2 || rows.length * 2 === this.projects.length) {
+            rows.push({ index: i, members: row });
+            row = [];
+          }
         }
       }
 
