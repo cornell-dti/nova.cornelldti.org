@@ -12,6 +12,22 @@ Vue.use(BootstrapVue);
 
 Vue.component("DtiMainMenu", DtiMainMenu);
 
+Vue.component(
+  "AppStoreBadge",
+  `<template>
+  <b-img src='static/app-store-download-badge.svg'>
+  <a :href='url' />
+  </b-img>
+  </template>
+  <script>
+  export default { props: { url: String }}
+  </script>`
+);
+Vue.component(
+  "PlayStoreBadge",
+  `<template><b-img src='static/google-play-badge.svg'><a :href='url' /></b-img></template><script>export default { props: { url: String }} </script>`
+);
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

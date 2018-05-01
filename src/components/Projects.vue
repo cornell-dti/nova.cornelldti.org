@@ -1,11 +1,13 @@
 <template>
   <div>
-     <div class="project-view">
+    <div class="project-view">
       <b-row class="project-row" v-for="projectRow in projectRows" :key="projectRow.index">
         <b-col class="justify-content" v-for="project in projectRow.members" :key="project.title">
-          <div class="my-auto project-card">
-            <p>{{project.title}}</p>
-          </div>
+          <router-link :to="{ path: project.subUrl, params:{ project: project.title }}" append>
+            <div class="project-card">
+              <p class="my-auto">{{project.title}}</p>
+            </div>
+          </router-link>
         </b-col>
       </b-row>
     </div>
@@ -13,7 +15,6 @@
 </template>
 
 <style lang="scss" scoped>
-
 .project-view {
   margin: 3vh;
 }
@@ -28,7 +29,6 @@
   width: 100%;
   padding-bottom: 30vh;
 }
-
 </style>
 
 

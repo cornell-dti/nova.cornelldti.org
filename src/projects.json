@@ -1,90 +1,106 @@
- [{
+[
+  {
+    "title": "Rescuer",
+    "subUrl": "rescuer",
+    "logo": "img/portfolio/cu-rescuer-logo.png",
+    "team": "Rescuer & Shout",
+    "images": [
+      {
+        "src": "img/portfolio/rescuer/1.jpg"
+      },
+      {
+        "src": "img/portfolio/rescuer/2.jpg"
+      },
+      {
+        "src": "img/portfolio/rescuer/3.jpg"
+      },
+      {
+        "src": "img/portfolio/rescuer/4.jpg"
+      },
+      {
+        "src": "img/portfolio/rescuer/5.jpg"
+      }
+    ],
+    "description":
+      "A campus safety app that helps students find blue lights around them, get in touch with taxi services, get directions to home, and call emergency services, all at the touch of a button. This app has been released for iOS and Android phones! The team is now working to combat the problem of sexual assault, which plagues college campuses nationwide, by building an anonymous reporting service for survivors. The collected data will be mapped to warn other users of potentially dangerous areas on campus.",
+    "appstore":
+      "https://itunes.apple.com/us/app/cornell-rescuer/id1209164387?mt=8",
+    "playstore":
+      "https://play.google.com/store/apps/details?id=cornell.sa.rescuer",
+    "ios-github": "https://github.com/cornell-dti/Rescuer",
+    "android-github": "https://github.com/cornell-dti/resCUer-app-android",
+    "row-start": true
+  },
+  {
+    "title": "CU Orientation",
+    "logo": "img/portfolio/oweek-logo.png",
+    "subUrl": "orientation",
+    "team": "CU Orientation & Events",
+    "description":
+      "Orientation Week is an exciting and equally nervous time for incoming freshmen and transfer students, but we were perplexed by one simple inefficiency: the orientation booklet. Everyone would carry around the 20-page booklet everywhere, only to get overwhelmed with follow-up emails about updated and canceled events. So, we digitized it! CU Orientation displays all scheduled events for the week, filters for events, and directions to each event. This app has been used by more than 2,000 incoming freshmen during August 2017 and January 2018 orientation!",
+    "images": [
+      {
+        "src": "img/portfolio/oweek/1.jpg"
+      },
+      {
+        "src": "img/portfolio/oweek/2.jpg"
+      },
+      {
+        "src": "img/portfolio/oweek/3.jpg"
+      },
+      {
+        "src": "img/portfolio/oweek/4.jpg"
+      },
+      {
+        "src": "img/portfolio/oweek/5.jpg"
+      }
+    ],
+    "appstore":
+      "https://itunes.apple.com/us/app/cu-orientation/id1244530142?mt=8",
+    "playstore":
+      "https://play.google.com/store/apps/details?id=com.cornellsatech.o_week",
+    "ios-github": "https://github.com/cornell-dti/o-week-ios",
+    "android-github": "https://github.com/cornell-dti/o-week-android"
+  },
+  {
+    "title": "CU Reviews",
+    "subUrl": "reviews",
+    "team": "CU Reviews",
+    "logo": "img/portfolio/reviews-mockup.png",
+    "website": "http://www.CUreviews.org",
+    "website-title": "CUReviews.org",
+    "github": "https://github.com/cornell-dti/course-reviews-react-2.0",
+    "image": "img/portfolio/reviews/Posting.png",
+    "description":
+      "Honest feedback about courses that you're planning to take is hard to come by. CU Reviews solves precisely this problem, by giving students access to student-submitted reviews of Cornell courses from past semesters. Learn more about the difficulty, median grade, and quality of the classes that you're planning to take!",
+    "row-start": true
+  },
+  {
+    "title": "Project Samwise",
+    "team": "Project Samwise",
+    "subUrl": "samwise",
+    "logo": "img/portfolio/samwise-mockup.png",
+    "image": "img/portfolio/samwise/7.12.17_work.png",
+    "description":
+      "A leading cause of stress at Cornell is the relentless pace of deadlines and events that one has to keep track of. Project Samwise is a task visualization web app designed for Cornell students, which helps them keep an eye on their upcoming project deadlines, prelims, and any other important events.",
+    "github": "https://github.com/cornell-dti/project-samwise"
+  },
+  {
+    "title": "Research Connect",
+    "subUrl": "research-connect",
+    "image": "img/portfolio/research-mockup.png",
+    "description":
+      "The abundance of undergraduate research opportunities is one of the great things about Cornell, yet unfortunately the process of finding these opportunities is still very unstructured. One must knock on doors, send countless emails to professors, and make do with obsolete web pages to seek research opportunities. Research Connect aims to bridge this gap by providing a structured platform where students can find opportunities, and research labs can find the students they are looking for.",
 
-     "title": "Rescuer",
-     "logo": "img/portfolio/cu-rescuer-logo.png",
-     "images": [{
-         "src": "img/portfolio/rescuer/1.jpg"
-       },
-       {
-         "src": "img/portfolio/rescuer/2.jpg"
-       },
-       {
-         "src": "img/portfolio/rescuer/3.jpg"
-       },
-       {
-         "src": "img/portfolio/rescuer/4.jpg"
-       },
-       {
-         "src": "img/portfolio/rescuer/5.jpg"
-       }
-     ],
-     "description": "A campus safety app that helps students find blue lights around them, get in touch with taxi services, get directions to home, and call emergency services, all at the touch of a button. This app has been released for iOS and Android phones! The team is now working to combat the problem of sexual assault, which plagues college campuses nationwide, by building an anonymous reporting service for survivors. The collected data will be mapped to warn other users of potentially dangerous areas on campus.",
-     "appstore": "https://itunes.apple.com/us/app/cornell-rescuer/id1209164387?mt=8",
-     "playstore": "https://play.google.com/store/apps/details?id=cornell.sa.rescuer",
-     "ios-github": "https://github.com/cornell-dti/Rescuer",
-     "android-github": "https://github.com/cornell-dti/resCUer-app-android",
-     "row-start": true
-   },
-   {
-     "title": "CU Orientation",
-     "logo": "img/portfolio/oweek-logo.png",
+    "github": "https://github.com/cornell-dti/research-connect"
+  },
+  {
+    "title": "Queue Me In",
+    "subUrl": "queue-me-in",
+    "image": "img/portfolio/qmi-mockups.png",
+    "description":
+      "With an exponential increase in enrollment in popular majors such as Computer Science and Information Science, TA office hours have become a relatively scarce resource. Long wait times and overcrowded rooms are the norm in these majors – hence, we’re building an online queuing solution, which is designed to bring some amount of order to this chaos.",
 
-     "description": "Orientation Week is an exciting and equally nervous time for incoming freshmen and transfer students, but we were perplexed by one simple inefficiency: the orientation booklet. Everyone would carry around the 20-page booklet everywhere, only to get overwhelmed with follow-up emails about updated and canceled events. So, we digitized it! CU Orientation displays all scheduled events for the week, filters for events, and directions to each event. This app has been used by more than 2,000 incoming freshmen during August 2017 and January 2018 orientation!",
-     "images": [{
-         "src": "img/portfolio/oweek/1.jpg"
-       },
-       {
-         "src": "img/portfolio/oweek/2.jpg"
-       },
-       {
-         "src": "img/portfolio/oweek/3.jpg"
-       },
-       {
-         "src": "img/portfolio/oweek/4.jpg"
-       },
-       {
-         "src": "img/portfolio/oweek/5.jpg"
-       }
-     ],
-     "appstore": "https://itunes.apple.com/us/app/cu-orientation/id1244530142?mt=8",
-     "playstore": "https://play.google.com/store/apps/details?id=com.cornellsatech.o_week",
-     "ios-github": "https://github.com/cornell-dti/o-week-ios",
-     "android-github": "https://github.com/cornell-dti/o-week-android"
-   },
-   {
-
-     "title": "CU Reviews",
-     "logo": "img/portfolio/reviews-mockup.png",
-     "website": "http://www.CUreviews.org",
-     "website-title": "CUReviews.org",
-     "github": "https://github.com/cornell-dti/course-reviews-react-2.0",
-     "image": "img/portfolio/reviews/Posting.png",
-     "description": "Honest feedback about courses that you're planning to take is hard to come by. CU Reviews solves precisely this problem, by giving students access to student-submitted reviews of Cornell courses from past semesters. Learn more about the difficulty, median grade, and quality of the classes that you're planning to take!",
-     "row-start": true
-   },
-   {
-
-     "title": "Project Samwise",
-
-     "logo": "img/portfolio/samwise-mockup.png",
-     "image": "img/portfolio/samwise/7.12.17_work.png",
-     "description": "A leading cause of stress at Cornell is the relentless pace of deadlines and events that one has to keep track of. Project Samwise is a task visualization web app designed for Cornell students, which helps them keep an eye on their upcoming project deadlines, prelims, and any other important events.",
-     "github": "https://github.com/cornell-dti/project-samwise"
-   },
-   {
-
-     "title": "Research Connect",
-     "image": "img/portfolio/research-mockup.png",
-     "description": "The abundance of undergraduate research opportunities is one of the great things about Cornell, yet unfortunately the process of finding these opportunities is still very unstructured. One must knock on doors, send countless emails to professors, and make do with obsolete web pages to seek research opportunities. Research Connect aims to bridge this gap by providing a structured platform where students can find opportunities, and research labs can find the students they are looking for.",
-
-     "github": "https://github.com/cornell-dti/research-connect"
-   },
-   {
-
-     "title": "Queue Me In",
-     "image": "img/portfolio/qmi-mockups.png",
-     "description": "With an exponential increase in enrollment in popular majors such as Computer Science and Information Science, TA office hours have become a relatively scarce resource. Long wait times and overcrowded rooms are the norm in these majors – hence, we’re building an online queuing solution, which is designed to bring some amount of order to this chaos.",
-
-     "github": "https://github.com/cornell-dti/office-hours"
-   }
- ]
+    "github": "https://github.com/cornell-dti/office-hours"
+  }
+]

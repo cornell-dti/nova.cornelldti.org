@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import Team from "@/components/Team";
 import Apply from "@/components/Apply";
 import Sponsor from "@/components/Sponsor";
+import Project from "@/components/Project";
 import MembersJson from "@/members.json";
 import ProjectsJson from "@/projects.json";
 import TeamsJson from "@/teams.json";
@@ -12,37 +13,47 @@ import TeamsJson from "@/teams.json";
 Vue.use(Router);
 
 export default new Router({
-  routes: [{
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/Projects",
-    name: "Projects",
-    component: Projects,
-    props: {
-      projects: ProjectsJson
+  routes: [
+    {
+      path: "/",
+      name: "Home",
+      component: Home
+    },
+    {
+      path: "/Projects",
+      name: "Projects",
+      component: Projects,
+      props: {
+        projects: ProjectsJson
+      }
+    },
+    {
+      path: "/Projects/:project",
+      component: Project,
+      props: route => ({
+        project: route.params.project,
+        projects: ProjectsJson,
+        teams: TeamsJson
+      })
+    },
+    {
+      path: "/Team",
+      name: "Team",
+      component: Team,
+      props: {
+        members: MembersJson,
+        teams: TeamsJson
+      }
+    },
+    {
+      path: "/Sponsor",
+      name: "Sponsor",
+      component: Sponsor
+    },
+    {
+      path: "/Apply",
+      name: "Apply",
+      component: Apply
     }
-  },
-  {
-    path: "/Team",
-    name: "Team",
-    component: Team,
-    props: {
-      members: MembersJson,
-      teams: TeamsJson
-    }
-  },
-  {
-    path: "/Sponsor",
-    name: "Sponsor",
-    component: Sponsor
-  },
-  {
-    path: "/Apply",
-    name: "Apply",
-    component: Apply
-  }
   ]
 });
