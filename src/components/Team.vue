@@ -65,14 +65,7 @@
 
         <!-- TODO actual padding --><br>
 
-        <div class="d-flex flex-row flex-wrap justify-content-center">
-          <!-- v-for="row in rows()" :key="row.index" -->
-          <div class="flexible-item" v-for="member in filterMembers(roleCategory)" :key="member.name">
-            <div v-if="member.phantom" class="phantom-headshot-card headshot-card" />
-            <headshot-card v-else :name="member.name" :image='member.image' @click.native="memberClicked(member)"
-            />
-          </div>
-        </div>
+        <headshot-grid :members="filterMembers(roleCategory)" :teams="teams" />
 
       </section>
 
@@ -80,33 +73,20 @@
     <section>
       <marquee />
     </section>
-
-    <member-profile-modal v-model="modalShow" :profile="currentProfile" />
-
   </div>
 </template>
 
-<style lang="scss" scoped>
-.phantom-headshot-card {
-  min-width: 155px;
-}
-</style>
-
-
 <script>
-import HeadshotCard from "./HeadshotCard";
-import MemberProfileModal from "./MemberProfileModal";
+import HeadshotGrid from "./HeadshotGrid";
 import Marquee from "./CompaniesMarquee";
 
 export default {
   components: {
-    HeadshotCard,
-    MemberProfileModal,
+    HeadshotGrid,
     Marquee
   },
   data() {
     return {
-      modalShow: false,
       currentProfile: {},
       filter_role_category: ""
     };
@@ -132,20 +112,6 @@ export default {
     }
   },
   methods: {
-    memberClicked(member) {
-      this.currentProfile = member;
-      this.currentProfile.teams = [];
-
-      this.teams.forEach(team => {
-        team.members.forEach(teamMember => {
-          if (teamMember.name === this.currentProfile.name) {
-            this.currentProfile.teams.push(team);
-          }
-        });
-      });
-
-      this.modalShow = true;
-    },
     filterMembers(role = "") {
       let filtered;
       if (role === "") {
@@ -156,22 +122,6 @@ export default {
             typeof member.roleCategory !== "undefined" &&
             member.roleCategory.indexOf(role) !== -1
         );
-      }
-
-      if (filtered.length % 5 !== 0 || filtered.length % 6 !== 0) {
-        const max = Math.max(
-          5 - filtered.length % 5,
-          filtered.length % 5,
-          6 - filtered.length % 6,
-          filtered.length % 6
-        );
-
-        for (let i = 0; i < max; i += 1) {
-          filtered.push({
-            name: 'phantom-' + i,
-            phantom: true
-          });
-        }
       }
 
       // todo fix this ugliness

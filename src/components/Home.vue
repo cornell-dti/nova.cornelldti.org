@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../main.scss";
+@import "../index.scss";
 
 $left-hero-margin: 30%;
 $top-hero-margin: 60%;
