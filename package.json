@@ -13,7 +13,10 @@
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.8",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "mailchimp-node": "0.0.2",
+    "morgan": "^1.9.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
@@ -66,8 +69,8 @@
     "webpack-merge": "^4.1.0"
   },
   "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+    "node": "9.11.1",
+    "npm": "5.6.0"
   },
   "browserslist": [
     "> 1%",

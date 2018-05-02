@@ -1,11 +1,15 @@
-var express = require('express');
-var path = require('path');
-var serveStatic = require('serve-static');
+const express     = require("express");
+const mailchimp   = require("mailchimp-node")(process.env.mailchimpkey);
+const morgan      = require("morgan");
+const path        = require("path");
 
-app = express();
-app.use(serveStatic(__dirname + "/dist"));
+const app = express();
+require("dotenv").load();
 
-var port = process.env.PORT || 5000;
-app.listen(port);
+app.use(morgan("dev"));
+app.use(express.static(path.join(__dirname, "/dist")));
 
-console.log('Server started on: '+ port + '!');
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+    console.log(`Server started on port ${port}!`);
+});
