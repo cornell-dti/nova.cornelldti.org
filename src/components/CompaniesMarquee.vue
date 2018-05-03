@@ -6,11 +6,11 @@
           <div class="marquee-inner">
             <div class="marquee-item">
               <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo" :alt="company.name"
-                rounded="true" blank width="150" height="75" blank-color="#777" />
+                rounded="true" blank width="200" height="75" blank-color="#777" />
             </div>
             <div class="marquee-item">
               <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo" :alt="company.name"
-                rounded="true" blank width="150" height="75" blank-color="#777" />
+                rounded="true" blank width="200" height="75" blank-color="#777" />
             </div>
           </div>
         </div>
@@ -22,11 +22,11 @@
           <div class="marquee-inner">
             <div class="marquee-item offset-t">
               <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo" :alt="company.name"
-                rounded="true" blank width="150" height="75" blank-color="#777" />
+                rounded="true" blank width="200" height="75" blank-color="#777" />
             </div>
             <div class="marquee-item offset-b">
               <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo" :alt="company.name"
-                rounded="true" blank width="150" height="75" blank-color="#777" />
+                rounded="true" blank width="200" height="75" blank-color="#777" />
             </div>
           </div>
         </div>
