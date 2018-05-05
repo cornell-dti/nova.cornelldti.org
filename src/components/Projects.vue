@@ -1,10 +1,10 @@
 <template>
   <div class="project-view">
     <b-row class="project-row" v-for="projectRow in projectRows" :key="projectRow.index">
-      <b-col class="justify-content" v-for="project in projectRow.members" :key="project.title">
-        <router-link :to="{ path: project.subUrl, params:{ project: project.title }}" append>
+      <b-col class="justify-content" v-for="project in projectRow.members" :key="project.id">
+        <router-link :to="{ path: project.id, params:{ project: project.name }}" append>
           <div class="project-card">
-            <p class="my-auto">{{project.title}}</p>
+            <p class="my-auto">{{project.name}}</p>
           </div>
         </router-link>
       </b-col>
@@ -31,7 +31,7 @@
 
 
 <script>
-import bus from "../bus";
+import EventBus from "../bus";
 
 export default {
   props: {
@@ -41,12 +41,15 @@ export default {
     }
   },
   mounted() {
-    bus.$emit("update-hero", {
-      type: "header",
-      bg: "",
-      header: "Projects",
-      subheader: "",
-      img: ""
+    EventBus.$emit("define-page", {
+      background: null,
+      hero: {
+        type: "header",
+        bg: "",
+        header: "Projects",
+        subheader: "",
+        img: ""
+      }
     });
   },
   computed: {

@@ -1,18 +1,19 @@
 <template>
     <div>
-        <div :class="hero.type !== 'none' ? 'page-hero' : 'page-header'" :style="heroBgUrl">
+
+        <div :class="hero.type !== 'none' ? ['page-header', 'page-hero'] : ['page-header', 'page-no-hero']" :style="heroBgUrl">
             <slot name="header" />
 
-            <b-row v-if="hero.type === 'header'" no-gutters=true class="content justify-content-center">
+            <b-row v-if="hero.type === 'header'" align-h="center" no-gutters=true class="h-50">
                 <slot />
-                <b-col md="6" sm="12">
-                    <h2>{{hero.header}}</h2>
+                <b-col cols="auto" class="my-auto">
+                    <h2 class="">{{hero.header}}</h2>
                     <p>{{hero.subheader}}</p>
                 </b-col>
             </b-row>
-            <b-row v-else-if="hero.type === 'productDisplay'" align-h="center">
+            <b-row v-else-if="hero.type === 'productDisplay'" align-h="center" no-gutters=true class="h-50">
                 <slot />
-                <b-col cols="6" class="my-auto">
+                <b-col sm="auto" md="8" class="my-auto">
                     <b-row no-gutters=true class="project-hero-header">
                         <b-col cols="auto" class="project-hero-logo">
                             <b-img :src="hero.img" />
@@ -25,11 +26,25 @@
                     <b-button v-b-modal.downloadModal>Download</b-button>
                 </b-col>
             </b-row>
+            <b-row v-else />
         </div>
-
         <slot name="body" />
     </div>
 </template>
+
+<style lang="scss" scoped>
+.page-header {
+  min-height: 10vh;
+
+  &.page-hero {
+    min-width: 100%;
+    min-height: 50vh;
+    transition: min-height 0.5s linear;
+    background: #777;
+  }
+}
+</style>
+
 
 <script>
 export default {
@@ -43,7 +58,9 @@ export default {
   },
   computed: {
     heroBgUrl() {
-      return "background-image: url('" + this.hero.bg + "');"; //eslint-disable-line
+      return this.hero.bg == null
+        ? "background-image: none;  "
+        : "background-image: url('" + this.hero.bg + "');"; //eslint-disable-line
     }
   }
 };

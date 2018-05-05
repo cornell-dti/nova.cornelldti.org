@@ -1,14 +1,14 @@
 <template>
-    <div class="d-flex flex-row flex-wrap justify-content-center">
-        <!-- v-for="row in rows()" :key="row.index" -->
-        <div class="flexible-item" v-for="member in pad(members)" :key="member.name">
-            <div v-if="member.phantom" class="phantom-headshot-card headshot-card" />
-            <headshot-card v-else :name="member.name" :image='member.image' @click.native="memberClicked(member)"
-            />
-        </div>
-
-        <member-profile-modal v-model="modalShow" :profile="currentProfile" />
+  <div class="d-flex flex-row flex-wrap justify-content-center">
+    <!-- v-for="row in rows()" :key="row.index" -->
+    <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
+      <div v-if="member.phantom" class="phantom-headshot-card headshot-card" />
+      <headshot-card v-else :name="member.name" :image='img(member.image)' @click.native="memberClicked(member)"
+      />
     </div>
+
+    <member-profile-modal v-model="modalShow" :profile="currentProfile" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -34,7 +34,7 @@ export default {
     }
   },
   data() {
-    return { modalShow: false };
+    return { modalShow: false, currentProfile: {} };
   },
   methods: {
     memberClicked(member) {
@@ -63,7 +63,7 @@ export default {
         for (let i = 0; i < max; i += 1) {
           members.push({
             // TODO
-            name: "phantom-" + i, //eslint-disable-line
+            id: "phantom-" + i, //eslint-disable-line
             phantom: true
           });
         }

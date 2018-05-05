@@ -12,54 +12,20 @@
 
         <b-row class="justify-content-center">
           <b-col class="text-center">
-            <!-- TODO do this dynamically -->
-
-            <b-button class="selected-filter-btn" v-if="roleCategory === ''" v-on:click="roleCategory = ''">
+            <div :variant="link" :class="roleId === '' ? ['selected-filter-btn', 'btn', 'btn-secondary'] : ['filter-btn', 'btn', 'btn-link']"
+              v-on:click="roleId = ''">
               All
-            </b-button>
-
-            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = '';">
-              All
-            </b-button>
-
-            <b-button class="selected-filter-btn" v-if="roleCategory === 'pm'" v-on:click="roleCategory = 'pm'">
-              Product Manager
-            </b-button>
-
-            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'pm'">
-              Product Manager
-            </b-button>
-
-            <b-button class="selected-filter-btn" v-if="roleCategory === 'designer'" v-on:click="roleCategory = 'designer'">
-              Designer
-            </b-button>
-
-            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'designer'">
-              Designer
-            </b-button>
-
-            <b-button class="selected-filter-btn" v-if="roleCategory === 'lead'" v-on:click="roleCategory = 'lead'">
-              Lead
-            </b-button>
-
-            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'lead'">
-              Lead
-            </b-button>
-
-            <b-button class="selected-filter-btn" v-if="roleCategory === 'developer'" v-on:click="roleCategory = 'developer'">
-              Developer
-            </b-button>
-
-            <b-button class="filter-btn" v-else variant="link" v-on:click="roleCategory = 'developer'">
-              Developer
-            </b-button>
-
+            </div>
+            <div v-for="role in roles" :key="role.id" :variant="link" :class="roleId === role.id ? ['selected-filter-btn', 'btn', 'btn-secondary'] : ['filter-btn', 'btn', 'btn-link']"
+              v-on:click="roleId = role.id">
+              {{role.name}}
+            </div>
           </b-col>
         </b-row>
 
         <!-- TODO actual padding --><br>
 
-        <headshot-grid :members="filterMembers(roleCategory)" :teams="teams" />
+        <headshot-grid :members="filterMembers(roleId)" :teams="teams" />
 
       </section>
 
@@ -73,7 +39,7 @@
 <script>
 import HeadshotGrid from "./HeadshotGrid";
 import Marquee from "./CompaniesMarquee";
-import bus from "../bus";
+import EventBus from "../bus";
 
 export default {
   components: {
@@ -81,12 +47,15 @@ export default {
     Marquee
   },
   mounted() {
-    bus.$emit("update-hero", {
-      type: "header",
-      bg: "",
-      header: "Teams",
-      subheader: "",
-      img: ""
+    EventBus.$emit("define-page", {
+      background: null,
+      hero: {
+        type: "header",
+        bg: "",
+        header: "Teams",
+        subheader: "",
+        img: ""
+      }
     });
   },
   data() {
@@ -103,10 +72,14 @@ export default {
     teams: {
       type: Array,
       required: true
+    },
+    roles: {
+      type: Array,
+      required: true
     }
   },
   computed: {
-    roleCategory: {
+    roleId: {
       set(value) {
         this.filter_role_category = value;
       },
@@ -123,8 +96,8 @@ export default {
       } else {
         filtered = this.members.filter(
           member =>
-            typeof member.roleCategory !== "undefined" &&
-            member.roleCategory.indexOf(role) !== -1
+            typeof member.roleId !== "undefined" &&
+            member.roleId.indexOf(role) !== -1
         );
       }
 

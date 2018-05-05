@@ -5,11 +5,16 @@
 </template>
 
 <script>
-import bus from "../bus";
+import EventBus from "../bus";
 
 export default {
   mounted() {
-    bus.$emit("update-hero", { type: "none" });
+    EventBus.$emit("define-page", {
+      background: {
+        image: "/static/test4.jpg"
+      },
+      hero: { type: "none" }
+    });
   }
 };
 </script>

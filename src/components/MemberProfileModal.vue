@@ -32,12 +32,12 @@
             <b-row v-if="typeof profile.teams !== 'undefined' && profile.teams.length > 0">
               <b-col>
                 <h3>Team Work</h3>
-                <b-row v-for="team in profile.teams" :key="team.teamname">
+                <b-row v-for="team in profile.teams" :key="team.name">
                   <b-col cols="2" class="my-auto">
-                    <b-img :src="team.logo" :alt="team.teamname" height="64px" width="64px" />
+                    <b-img :src="team.logo" :alt="team.name" height="64px" width="64px" />
                   </b-col>
                   <b-col class="team-info my-auto">
-                    <h4>{{team.teamname}}</h4>
+                    <h4>{{team.name}}</h4>
                     <p>{{team.description}}</p>
                   </b-col>
                 </b-row>
