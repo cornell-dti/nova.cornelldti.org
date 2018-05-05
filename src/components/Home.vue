@@ -1,8 +1,19 @@
-<template>
+<template :slot="$route.path + '/body'">
   <div>
     <h1 class="hero-text">Cornell Design <br />&amp; Tech Initiative</h1>
   </div>
 </template>
+
+<script>
+import bus from "../bus";
+
+export default {
+  mounted() {
+    bus.$emit("update-hero", { type: "none" });
+  }
+};
+</script>
+
 
 <style lang="scss" scoped>
 @import "../index.scss";
@@ -20,6 +31,4 @@ $top-hero-margin: 60%;
   transform: translate(-$left-hero-margin, -$left-hero-margin);
   color: white;
 }
-
-
 </style>

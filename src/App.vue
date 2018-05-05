@@ -1,50 +1,38 @@
 <template>
   <div id="app">
     <div class="page-background" :style="backgroundStyle">
-      <dti-main-menu :transparent="isTransparent" />
-      <router-view/>
+      <base-layout :hero="hero">
+        <dti-main-menu slot="header" :transparent='isTransparent' />
+        <router-view slot="body" />
+      </base-layout>
     </div>
   </div>
 </template>
 
 <script>
-const BACKGROUND_IMAGE_STYLE =
-  "background: url('/static/new-header-bg.jpg') no-repeat center center/cover;";
-const BACKGROUND_BLANK_STYLE = "background: none;";
+import bus from "./bus";
 
 export default {
   name: "App",
   data() {
     return {
-      bgStyle: BACKGROUND_BLANK_STYLE,
-      navbarTransparent: false
+      hero: {
+        type: "none",
+        bg: "",
+        header: "test",
+        subheader: "test2",
+        img: ""
+      }
     };
   },
-  mounted() {
-    this.$router.afterEach(to => {
-      this.updateBackground(to.name);
+  created() {
+    bus.$on("update-hero", hero => {
+      this.hero.type = hero.type;
+      this.hero.bg = hero.bg;
+      this.hero.header = hero.header;
+      this.hero.subheader = hero.subheader;
+      this.hero.img = hero.img;
     });
-
-    this.updateBackground(this.$route.name);
-  },
-  computed: {
-    isTransparent() {
-      return this.navbarTransparent;
-    },
-    backgroundStyle() {
-      return this.bgStyle;
-    }
-  },
-  methods: {
-    updateBackground(routeName) {
-      if (routeName === "Home") {
-        this.navbarTransparent = true;
-        this.bgStyle = BACKGROUND_IMAGE_STYLE;
-      } else {
-        this.navbarTransparent = false;
-        this.bgStyle = BACKGROUND_BLANK_STYLE;
-      }
-    }
   }
 };
 </script>

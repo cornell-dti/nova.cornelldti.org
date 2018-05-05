@@ -1,121 +1,103 @@
 <template>
   <b-container fluid>
+    <div>
 
-    <div v-for="projectData in projects" :key="projectData.subUrl">
-      <div v-if="projectData.subUrl === project">
+      <b-row>
+        <b-col cols="2">
+          <div class="h-100 project-content-border-left" />
+        </b-col>
+        <b-col>
+          <b-row>
+            <h3>{{ipsum(projectData.header1, 20)}}</h3>
+            <p> {{ipsum(projectData.description1, 80)}}</p>
 
-        <b-row class="project-hero" align-h="center">
-          <b-col cols="6" class="my-auto">
-            <b-row no-gutters=true class="project-hero-header">
-              <b-col cols="auto" class="project-hero-logo">
-                <b-img :src="projectData.logo" />
-              </b-col>
-              <b-col>
-                <h3>{{projectData.title}}</h3>
-              </b-col>
-            </b-row>
-            <p class="project-hero-description">{{projectData.description}}</p>
-            <b-button v-b-modal.downloadModal>Download</b-button>
+            <h3>{{ipsum(projectData.header2, 20)}}</h3>
+            <p> {{ipsum(projectData.description2, 60)}}</p>
 
-          </b-col>
-        </b-row>
+            <b-col sm="12" md="auto">
+              <b-img :src="currentScreenshot" blank width="300" height="400" blank-color="#aaa" />
+            </b-col>
+            <b-col sm="12" md="auto">
+              <!-- TODO ADD LOGIC -->
+              <b-row>
+                <b-button variant="link" class="filter-btn">{{projectData.feature1}}</b-button>
+                <b-button variant="link" class="filter-btn">{{projectData.feature2}}</b-button>
+                <b-button variant="link" class="filter-btn">{{projectData.feature3}}</b-button>
+              </b-row>
+              <p>{{currentFeatureDescription}}</p>
+            </b-col>
+          </b-row>
 
-        <b-row>
-          <b-col cols="2">
-            <div class="h-100 project-content-border-left" />
-          </b-col>
-          <b-col>
-            <b-row>
-              <h3>{{ipsum(projectData.header1, 20)}}</h3>
-              <p> {{ipsum(projectData.description1, 80)}}</p>
+          <h1>Team</h1>
+          <headshot-grid v-for="team of teams" :key="team.name" v-if="team.teamname === projectData.team" :members="team.members"
+          />
 
-              <h3>{{ipsum(projectData.header2, 20)}}</h3>
-              <p> {{ipsum(projectData.description2, 60)}}</p>
+          <b-row align-h="center">
+            <b-col cols="auto">
 
-              <b-col sm="12" md="auto">
-                <b-img :src="currentScreenshot" blank width="300" height="400" blank-color="#aaa" />
-              </b-col>
-              <b-col sm="12" md="auto">
-                <!-- TODO ADD LOGIC -->
-                <b-row>
-                  <b-button variant="link" class="filter-btn">{{projectData.feature1}}</b-button>
-                  <b-button variant="link" class="filter-btn">{{projectData.feature2}}</b-button>
-                  <b-button variant="link" class="filter-btn">{{projectData.feature3}}</b-button>
-                </b-row>
-                <p>{{currentFeatureDescription}}</p>
-              </b-col>
-            </b-row>
+              <b-row align-h="center">
+                <b-col cols="auto">
+                  <h3>Find us on</h3>
+                </b-col>
+              </b-row>
 
-            <h1>Team</h1>
-            <headshot-grid v-for="team of teams" :key="team.name" v-if="team.teamname === projectData.team" :members="team.members"
-            />
+              <b-row align-h="center">
+                <b-col>
+                  <a v-if="typeof projectData.github !== 'undefined'" href="projectData.github" />
+                </b-col>
+                <b-col>
+                  <a v-if="typeof projectData.medium !== 'undefined'" href="projectData.medium" />
+                </b-col>
+              </b-row>
 
-            <b-row align-h="center">
-              <b-col cols="auto">
-
-                <b-row align-h="center">
-                  <b-col cols="auto">
-                    <h3>Find us on</h3>
-                  </b-col>
-                </b-row>
-
-                <b-row align-h="center">
-                  <b-col>
-                    <a v-if="typeof projectData.github !== 'undefined'" href="projectData.github" />
-                  </b-col>
-                  <b-col>
-                    <a v-if="typeof projectData.medium !== 'undefined'" href="projectData.medium" />
-                  </b-col>
-                </b-row>
-
-                <b-row align-h="center">
-                  <b-col>
-                    <store-badge store="playstore" :url="projectData.playstore" />
-                  </b-col>
-                  <b-col>
-                    <store-badge store="appstore" :url="projectData.appstore" />
-                  </b-col>
-                </b-row>
-              </b-col>
-            </b-row>
-          </b-col>
-          <b-col cols="2">
-            <div class="h-100 project-content-border-right" />
-          </b-col>
-        </b-row>
-        <b-modal ref="downloadModal" id="downloadModal">
-          <b-container fluid>
-            <b-row align-h="center">
-              <b-col cols="auto">
-                <p>Download on</p>
-              </b-col>
-            </b-row>
-            <b-row align-h="center">
-              <b-col cols="auto">
-                <b-row align-h="center" v-if="typeof projectData.playstore !== 'undefined'">
-                  <b-col cols="auto">
-                    <store-badge store="playstore" :url="projectData.playstore" />
-                  </b-col>
-                </b-row>
-                <br />
-                <b-row align-h="center" v-if="typeof projectData.appstore !== 'undefined'">
-                  <b-col cols="auto">
-                    <store-badge store="appstore" :url="projectData.appstore" />
-                  </b-col>
-                </b-row>
-              </b-col>
-            </b-row>
-          </b-container>
-        </b-modal>
-      </div>
+              <b-row align-h="center">
+                <b-col>
+                  <store-badge store="playstore" :url="projectData.playstore" />
+                </b-col>
+                <b-col>
+                  <store-badge store="appstore" :url="projectData.appstore" />
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
+        </b-col>
+        <b-col cols="2">
+          <div class="h-100 project-content-border-right" />
+        </b-col>
+      </b-row>
+      <b-modal ref="downloadModal" id="downloadModal">
+        <b-container fluid>
+          <b-row align-h="center">
+            <b-col cols="auto">
+              <p>Download on</p>
+            </b-col>
+          </b-row>
+          <b-row align-h="center">
+            <b-col cols="auto">
+              <b-row align-h="center" v-if="typeof projectData.playstore !== 'undefined'">
+                <b-col cols="auto">
+                  <store-badge store="playstore" :url="projectData.playstore" />
+                </b-col>
+              </b-row>
+              <br />
+              <b-row align-h="center" v-if="typeof projectData.appstore !== 'undefined'">
+                <b-col cols="auto">
+                  <store-badge store="appstore" :url="projectData.appstore" />
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-modal>
     </div>
-
   </b-container>
-</template>
+  </div>
 
+</template>
 
 <script>
 import HeadshotGrid from "./HeadshotGrid";
+import bus from "../bus";
 
 export default {
   props: {
@@ -127,6 +109,17 @@ export default {
     teams: Array
   },
   components: { HeadshotGrid },
+  mounted() {
+    const projectData = this.projectData;
+
+    bus.$emit("update-hero", {
+      type: "productDisplay",
+      bg: "",
+      header: projectData.title,
+      subheader: projectData.description,
+      img: projectData.logo
+    });
+  },
   data() {
     return {
       currentFeatureDescription: "",
@@ -137,7 +130,23 @@ export default {
               Curabitur pretium blandit ullamcorper. Donec pretium ex ac libero feugiat consectetur eget vitae ex. Donec a pharetra turpis, ac posuere ipsum. Nam mattis, sapien nec mattis venenatis, dolor ex interdum felis, ac feugiat nulla magna non risus. Integer vel nulla vitae arcu sagittis scelerisque. Aliquam erat volutpat. Donec vitae imperdiet felis. Ut sagittis auctor quam in convallis. Donec ut turpis et enim imperdiet venenatis. Proin gravida, ipsum id cursus bibendum, sem velit congue tortor, id scelerisque risus lectus nec purus. Morbi sodales sapien nulla, eget gravida tortor tempus nec. In at nibh lorem. Etiam fringilla placerat lorem, id aliquam lacus luctus vitae. Suspendisse congue lorem sed pretium rhoncus. Nam elementum, diam ut imperdiet lacinia, lorem ligula ornare elit, in pulvinar mauris nisl et odio.`
     };
   },
+  computed: {
+    projectData() {
+      return this.getProject(this.project);
+    }
+  },
   methods: {
+    getProject(project) {
+      let projectA = null;
+
+      this.projects.forEach(projectData => {
+        if (projectData.subUrl === project) {
+          projectA = projectData;
+        }
+      });
+
+      return projectA;
+    },
     ipsum(text, amount = 50) {
       if (typeof text === "undefined" || text === null || text === "") {
         return (

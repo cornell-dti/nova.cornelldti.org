@@ -1,12 +1,6 @@
 <template>
-
   <div>
-    <section>
-      <div class="page-hero"> </div>
-    </section>
-
     <b-container>
-
       <section>
         <h1>Diversity</h1>
 
@@ -79,11 +73,21 @@
 <script>
 import HeadshotGrid from "./HeadshotGrid";
 import Marquee from "./CompaniesMarquee";
+import bus from "../bus";
 
 export default {
   components: {
     HeadshotGrid,
     Marquee
+  },
+  mounted() {
+    bus.$emit("update-hero", {
+      type: "header",
+      bg: "",
+      header: "Teams",
+      subheader: "",
+      img: ""
+    });
   },
   data() {
     return {
