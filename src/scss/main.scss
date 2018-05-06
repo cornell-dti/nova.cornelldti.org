@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+html {
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+section {
+  padding-bottom: 6vh;
+}
+
+.page-background {
+  height: 100vh;
+  width: 100%;
+}
+
+.selected-filter-btn {
+  background-color: #4a4a4a !important;
+  color: #fefefe !important;
+}
+
+.selected-filter-btn:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.filter-btn {
+  color: #4a4a4a !important;
+}
+
+.filter-btn:hover {
+  text-decoration: none !important;
+  color: #9a9a9a !important;
+}
+
+.nav-padding {
+  min-height: 10vh;
+}
+.flexible-item {
+  flex: 1 1 16%;
+}
+
+
+#app {
+  font-family: "Open Sans", "sans-serif";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slide-up-enter-active {
+  -webkit-animation: slide-up 0.5s linear;
+  animation: slide-up 0.5s linear;
+}
+
+.slide-up-leave-active {
+  -webkit-animation: slide-down 0.5s linear;
+  animation: slide-down 0.5s linear;
+}
+
+.slide-left-enter-active {
+  -webkit-animation: slide-out 0.5s linear;
+  animation: slide-out 0.5s linear;
+}
+
+.slide-left-leave-active {
+  -webkit-animation: slide-in 0.5s linear;
+  animation: slide-in 0.5s linear;
+}
+
+.slide-right-enter-active {
+  -webkit-animation: slide-in 0.5s linear;
+  animation: slide-in 0.5s linear;
+}
+
+.slide-right-leave-active {
+  -webkit-animation: slide-out 0.5s linear;
+  animation: slide-out 0.5s linear;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

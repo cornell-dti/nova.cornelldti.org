@@ -1,10 +1,12 @@
 <template>
 
-  <b-navbar :class="classObj" toggleable="md">
+  <b-navbar fixed="top" :class="classObj" toggleable="md">
 
     <b-navbar-brand href="#">
       <b-img class="brand-icon" src="/static/brand-icon.png" /></b-navbar-brand>
-    <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+    <b-navbar-toggle target="nav_collapse">
+      <b-img src="/static/menu-small.svg" />
+    </b-navbar-toggle>
 
     <b-collapse is-nav id="nav_collapse">
       <b-navbar-nav class="ml-auto">

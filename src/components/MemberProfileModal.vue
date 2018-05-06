@@ -26,18 +26,18 @@
             <b-row>
               <b-col>
                 <h3>About Me</h3>
-                <p>{{typeof profile.about !== 'undefined' ? profile.about : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut leo bibendum lorem vestibulum laoreet eget vitae tortor. Phasellus mauris ante, euismod quis feugiat dignissim, fringilla et arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat accumsan nibh, eu imperdiet odio ornare et. Mauris feugiat magna a lacus tincidunt dapibus. Sed egestas, diam eget congue cursus, nibh ipsum lacinia nisl, nec imperdiet est ante vitae diam. Duis pulvinar vehicula fringilla. Nulla vel lobortis nulla. Maecenas nunc odio, ornare a semper nec, maximus a ex. Duis quis est id est bibendum volutpat eget at turpis. Nam porttitor vitae nunc at imperdiet. Nam rutrum leo bibendum lorem suscipit, sit amet aliquam ligula tristique. Aliquam erat volutpat."}}</p>
+                <p>{{typeof profile.about !== 'undefined' ? profile.about : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut leo bibendum lorem vestibulum laoreet eget vitae tortor. Phasellus mauris ante, euismod quis feugiat dignissim, fringilla et arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat accumsan nibh, eu imperdiet odio ornare et. Mauris feugiat magna a lacus tincidunt dapibus. Sed egestas, diam eget congue cursus, nibh ipsum lacinia nisl, nec imperdiet est ante vitae diam. Duis pulvinar vehicula fringilla."}}</p>
               </b-col>
             </b-row>
             <b-row v-if="typeof profile.teams !== 'undefined' && profile.teams.length > 0">
               <b-col>
                 <h3>Team Work</h3>
-                <b-row v-for="team in profile.teams" :key="team.teamname">
+                <b-row v-for="team in profile.teams" :key="team.name">
                   <b-col cols="2" class="my-auto">
-                    <b-img :src="team.logo" :alt="team.teamname" height="64px" width="64px" />
+                    <b-img :src="team.logo" :alt="team.name" height="64px" width="64px" />
                   </b-col>
                   <b-col class="team-info my-auto">
-                    <h4>{{team.teamname}}</h4>
+                    <h4>{{team.name}}</h4>
                     <p>{{team.description}}</p>
                   </b-col>
                 </b-row>
@@ -175,10 +175,6 @@ $radius: 25px;
       .profile-header-sm {
         display: none;
       }
-    }
-
-    .modal-footer {
-      display: none;
     }
 
     @media (max-width: 767px) {

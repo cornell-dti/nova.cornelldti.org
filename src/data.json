@@ -1,7 +1,7 @@
 {
   "teams": [
     {
-      "teamname": "Leads",
+      "name": "Leads",
       "members": [
         {
           "image": "img/team/alicep.jpg",
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "teamname": "CU Orientation & Events",
+      "name": "CU Orientation & Events",
       "members": [
         {
           "image": "img/team/juliak.jpg",
@@ -124,7 +124,7 @@
       ]
     },
     {
-      "teamname": "Rescuer & Shout",
+      "name": "Rescuer & Shout",
       "members": [
         {
           "image": "img/team/nehar.jpg",
@@ -176,7 +176,7 @@
       ]
     },
     {
-      "teamname": "CU Reviews",
+      "name": "CU Reviews",
       "members": [
         {
           "image": "img/team/divyanshas.jpg",
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "teamname": "Project Samwise",
+      "name": "Project Samwise",
       "members": [
         {
           "image": "img/team/alicez.jpg",
@@ -294,7 +294,7 @@
       ]
     },
     {
-      "teamname": "Research Connect",
+      "name": "Research Connect",
       "members": [
         {
           "image": "img/team/aramb.jpg",
@@ -357,7 +357,7 @@
       ]
     },
     {
-      "teamname": "Queue Me In",
+      "name": "Queue Me In",
       "members": [
         {
           "image": "img/team/tiffanyw.jpg",
@@ -420,7 +420,7 @@
       ]
     },
     {
-      "teamname": "Floating Consultants",
+      "name": "Floating Consultants",
       "members": [
         {
           "image": "img/team/rachelg.jpg",
@@ -437,7 +437,7 @@
       ]
     },
     {
-      "teamname": "Business",
+      "name": "Business",
       "members": [
         {
           "image": "img/team/davidt.png",

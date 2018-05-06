@@ -9,7 +9,7 @@
     "start": "node server.js",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "postinstall": "npm install express"
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.8",

@@ -1,0 +1,7 @@
+[
+  { "id": "pm", "name": "Product Manager" },
+  { "id": "leads", "name": "Lead" },
+  { "id": "business", "name": "Business" },
+  { "id": "developer", "name": "Developer" },
+  { "id": "designer", "name": "Designer" }
+]
