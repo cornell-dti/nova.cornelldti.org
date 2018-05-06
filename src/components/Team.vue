@@ -1,5 +1,14 @@
 <template>
-  <div>
+  <page-background>
+    <page-hero>
+      <b-row align-h="center" no-gutters=true class="h-50">
+        <slot />
+        <b-col cols="auto" class="my-auto">
+          <h2 class="">Team</h2>
+
+        </b-col>
+      </b-row>
+    </page-hero>
     <b-container>
       <section>
         <h1>Diversity</h1>
@@ -33,7 +42,7 @@
     <section>
       <marquee />
     </section>
-  </div>
+  </page-background>
 </template>
 
 <script>

@@ -33,11 +33,13 @@ section {
   color: #9a9a9a !important;
 }
 
-
-
+.nav-padding {
+  min-height: 10vh;
+}
 .flexible-item {
   flex: 1 1 16%;
 }
+
 
 #app {
   font-family: "Open Sans", "sans-serif";
@@ -48,13 +50,11 @@ section {
 .slide-up-enter-active {
   -webkit-animation: slide-up 0.5s linear;
   animation: slide-up 0.5s linear;
-
 }
 
 .slide-up-leave-active {
   -webkit-animation: slide-down 0.5s linear;
   animation: slide-down 0.5s linear;
-
 }
 
 .slide-left-enter-active {

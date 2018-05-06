@@ -1,5 +1,5 @@
 <template>
-    <div />
+    <page-background />
 </template>
 <script>
 import EventBus from "../bus";

@@ -1,6 +1,6 @@
 <template>
 
-  <b-navbar :class="classObj" toggleable="md">
+  <b-navbar fixed="top" :class="classObj" toggleable="md">
 
     <b-navbar-brand href="#">
       <b-img class="brand-icon" src="/static/brand-icon.png" /></b-navbar-brand>

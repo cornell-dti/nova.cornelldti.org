@@ -1,24 +1,10 @@
 <template :slot="$route.path + '/body'">
-  <div>
-    <h1 class="hero-text">Cornell Design <br />&amp; Tech Initiative</h1>
+  <div class="home-background">
+    <b-row>
+      <h1 class="home-hero-text">Cornell Design <br />&amp; Tech Initiative</h1>
+    </b-row>
   </div>
 </template>
-
-<script>
-import EventBus from "../bus";
-
-export default {
-  mounted() {
-    EventBus.$emit("define-page", {
-      background: {
-        image: "/static/test4.jpg"
-      },
-      hero: { type: "none" }
-    });
-  }
-};
-</script>
-
 
 <style lang="scss" scoped>
 @import "../index.scss";
@@ -26,7 +12,13 @@ export default {
 $left-hero-margin: 30%;
 $top-hero-margin: 60%;
 
-.hero-text {
+.home-background {
+  height: 100vh;
+  background-image: url("/static/test4.jpg");
+  background-size: cover;
+}
+
+.home-hero-text {
   text-align: left;
   font-weight: bolder;
   font-size: 4.5em;

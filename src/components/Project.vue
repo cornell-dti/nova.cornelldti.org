@@ -1,6 +1,22 @@
 <template>
-  <b-container fluid>
-    <div>
+  <page-background>
+    <page-hero>
+      <b-row align-h="center" no-gutters=true class="h-50">
+        <b-col sm="auto" md="8" class="my-auto">
+          <b-row no-gutters=true class="project-hero-header">
+            <b-col cols="auto" class="project-hero-logo">
+              <b-img :src="projectData.logo" />
+            </b-col>
+            <b-col>
+              <h3>{{projectData.header}}</h3>
+            </b-col>
+          </b-row>
+          <p class="project-hero-description">{{projectData.subheader}}</p>
+          <b-button v-b-modal.downloadModal>Download</b-button>
+        </b-col>
+      </b-row>
+    </page-hero>
+    <b-container fluid>
 
       <b-row>
         <b-col cols="2">
@@ -89,10 +105,9 @@
           </b-row>
         </b-container>
       </b-modal>
-    </div>
-  </b-container>
-  </div>
 
+    </b-container>
+  </page-background>
 </template>
 
 <script>
@@ -152,6 +167,16 @@ export default {
 
 
 <style lang="scss" scoped>
+.page-header {
+  min-height: 10vh;
+
+  &.page-hero {
+    min-width: 100%;
+    min-height: 50vh;
+    transition: min-height 0.5s linear;
+    background: #777;
+  }
+}
 .project-hero-logo {
   margin: 1vw;
 }
