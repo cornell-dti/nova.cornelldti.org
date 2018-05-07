@@ -3,15 +3,44 @@
     <text-page-hero>
       Sponsor
     </text-page-hero>
-    <div class="project-view">
-      <b-row class="project-row" v-for="projectRow in projectRows" :key="projectRow.index" align-h="center">
-        <b-col md="12" lg="6" class="justify-content" v-for="project in projectRow.members" :key="project.id">
-          <router-link :to="{ path: project.id, params:{ project: project.name }}" append>
-            <b-img :src="img(project.badge)" class="project-card" />
-          </router-link>
-        </b-col>
-      </b-row>
-    </div>
+
+    <b-container>
+      <section>
+        <b-row align-h="center">
+          <b-col sm="12" md="6">
+            <h2>Why Sponsors?</h2>
+            <p>{{ipsum_def(200)}}</p>
+          </b-col>
+          <b-col sm="12" md="6" style="overflow: hidden;">
+            <b-img height="300" width="600" blank blank-color="#777" />
+          </b-col>
+        </b-row>
+      </section>
+      <section>
+        <b-row align-h="center">
+          <b-col sm="12" md="6">
+            <h2>Membership</h2>
+            <p>{{ipsum_def(200)}}</p>
+          </b-col>
+          <b-col sm="12" md="6">
+            <h2>Funding</h2>
+            <p>{{ipsum_def(200)}}</p>
+          </b-col>
+        </b-row>
+      </section>
+      <section>
+        <b-row align-h="center">
+          <b-col cols="auto">
+            <h2>Current Sponsors</h2>
+            <!--TODO ADD SPONSOR CODE -->
+            <b-btn>Become a sponsor!</b-btn>
+          </b-col>
+        </b-row>
+      </section>
+    </b-container>
   </page-background>
 </template>
+<style lang="scss" scoped>
+
+</style>
 

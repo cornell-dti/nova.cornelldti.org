@@ -44,6 +44,9 @@ Vue.mixin({
 
       return text;
     },
+    ipsum_def(amount = 50) {
+      return this.ipsum(null, amount);
+    },
     img(imagePath) {
       return "/static/" + imagePath; //eslint-disable-line
     }
