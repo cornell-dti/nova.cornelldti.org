@@ -112,7 +112,6 @@
 
 <script>
 import HeadshotGrid from "./HeadshotGrid";
-import EventBus from "../bus";
 
 export default {
   props: {
@@ -124,20 +123,6 @@ export default {
     teams: Array
   },
   components: { HeadshotGrid },
-  mounted() {
-    const projectData = this.projectData;
-
-    EventBus.$emit("define-page", {
-      background: null,
-      hero: {
-        type: "productDisplay",
-        bg: "",
-        header: projectData.title,
-        subheader: projectData.description,
-        img: projectData.logo
-      }
-    });
-  },
   data() {
     return {
       currentFeatureDescription: "",

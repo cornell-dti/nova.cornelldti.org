@@ -3,11 +3,13 @@
 
 import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
+
 import App from "./App";
 import router from "./router";
 import DtiMainMenu from "./components/DtiMainMenu";
 import PageBackground from "./components/PageBackground";
 import PageHero from "./components/PageHero";
+import TextPageHero from "./components/TextPageHero";
 
 import BaseLayout from "./components/BaseLayout";
 import StoreBadge from "./components/StoreBadge";
@@ -20,6 +22,7 @@ Vue.component("DtiMainMenu", DtiMainMenu);
 Vue.component("StoreBadge", StoreBadge);
 Vue.component("PageBackground", PageBackground);
 Vue.component("PageHero", PageHero);
+Vue.component("TextPageHero", TextPageHero);
 
 Vue.mixin({
   data() {

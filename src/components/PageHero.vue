@@ -4,6 +4,7 @@
         <slot />
     </div>
 </template>
+
 <style lang="scss" scoped>
 .page-header {
   min-height: 10vh;

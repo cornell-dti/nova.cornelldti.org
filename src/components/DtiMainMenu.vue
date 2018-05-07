@@ -1,6 +1,6 @@
 <template>
-
-  <b-navbar fixed="top" :class="classObj" toggleable="md">
+  <b-navbar ref="dtinavbar" fixed="top" :class="['navbar-dti ', 'navbar-dark ', transparent ? 'bg-transparent' : 'bg-dark ']"
+    toggleable="md">
 
     <b-navbar-brand href="#">
       <b-img class="brand-icon" src="/static/brand-icon.png" /></b-navbar-brand>
@@ -24,26 +24,28 @@
 
 <script>
 export default {
-  props: {
-    transparent: {
-      type: Boolean,
-      default: true,
-      required: false
+  data() {
+    return {
+      transparent: true
+    };
+  },
+  methods: {
+    onScroll(window) {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      if (typeof this.$refs.dtinavbar !== "undefined") {
+        this.transparent = scrollTop <= this.$refs.dtinavbar.clientHeight;
+      } else {
+        this.transparent = false;
+      }
     }
   },
-  computed: {
-    classObj() {
-      if (this.transparent) {
-        return [
-          "dtiNavbarTransparent",
-          "bg-transparent",
-          "navbar-dti",
-          "navbar-dark"
-        ];
-      }
-
-      return ["dtiNavbar", "bg-dark", "navbar-dti", "navbar-dark"];
-    }
+  destroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll);
   }
 };
 </script>
@@ -57,6 +59,10 @@ export default {
 .navbar-dti {
   transition: background-color 500ms linear;
   padding-right: 10vw;
+
+  &.scrolled {
+    background-color: white !important;
+  }
 
   @media (min-width: 768px) {
     .navbar-nav > li {

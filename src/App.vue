@@ -28,6 +28,7 @@ export default {
       transition: "slidein"
     };
   },
+
   mounted() {
     // TODO clean this up
     this.$router.beforeEach((to, from, next) => {

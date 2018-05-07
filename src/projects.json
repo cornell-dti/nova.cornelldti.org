@@ -3,6 +3,7 @@
     "name": "Rescuer",
     "id": "rescuer",
     "logo": "img/portfolio/cu-rescuer-logo.png",
+    "badge": "test3.jpg",
     "teamId": "safety",
     "images": [
       {
@@ -34,6 +35,7 @@
     "name": "CU Orientation",
     "logo": "img/portfolio/oweek-logo.png",
     "id": "orientation",
+    "badge": "test2.jpg",
     "teamId": "orientation",
     "description":
       "Orientation Week is an exciting and equally nervous time for incoming freshmen and transfer students, but we were perplexed by one simple inefficiency: the orientation booklet. Everyone would carry around the 20-page booklet everywhere, only to get overwhelmed with follow-up emails about updated and canceled events. So, we digitized it! CU Orientation displays all scheduled events for the week, filters for events, and directions to each event. This app has been used by more than 2,000 incoming freshmen during August 2017 and January 2018 orientation!",
@@ -65,6 +67,7 @@
     "name": "CU Reviews",
     "id": "reviews",
     "teamId": "CU Reviews",
+    "badge": "test1.png",
     "logo": "img/portfolio/reviews-mockup.png",
     "website": "http://www.CUreviews.org",
     "website-title": "CUReviews.org",
@@ -77,6 +80,7 @@
     "name": "Project Samwise",
     "teamId": "samwise",
     "id": "samwise",
+    "badge": "test3.jpg",
     "logo": "img/portfolio/samwise-mockup.png",
     "image": "img/portfolio/samwise/7.12.17_work.png",
     "description":
@@ -86,6 +90,7 @@
   {
     "name": "Research Connect",
     "id": "research-connect",
+    "badge": "test2.jpg",
     "teamId": "research",
     "image": "img/portfolio/research-mockup.png",
     "description":
@@ -96,6 +101,7 @@
   {
     "name": "Queue Me In",
     "id": "queue-me-in",
+    "badge": "test1.png",
     "teamId": "officehours",
     "image": "img/portfolio/qmi-mockups.png",
     "description":

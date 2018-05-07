@@ -48,24 +48,11 @@
 <script>
 import HeadshotGrid from "./HeadshotGrid";
 import Marquee from "./CompaniesMarquee";
-import EventBus from "../bus";
 
 export default {
   components: {
     HeadshotGrid,
     Marquee
-  },
-  mounted() {
-    EventBus.$emit("define-page", {
-      background: null,
-      hero: {
-        type: "header",
-        bg: "",
-        header: "Teams",
-        subheader: "",
-        img: ""
-      }
-    });
   },
   data() {
     return {
