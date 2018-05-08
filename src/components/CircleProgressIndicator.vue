@@ -1,15 +1,19 @@
 <template>
-  <div class="circle-progress">
-    <div class="circle">
-      <div class="mask full">
+  <div>
+    <div class="circle-progress">
+      <div class="circle">
+        <div class="mask full">
 
-        <div class="fill lower" />
-        <div class="fill-hider lower" />
-        <div class="fill upper" />
-        <div class="fill-hider upper" />
+          <div class="fill" />
+          <div class="fill-hider" />
+
+        </div>
+
       </div>
+      <div class="inset" />
+
     </div>
-    <div class="inset" />
+    <p>{{i}} </p>
   </div>
 </template>
 
@@ -22,87 +26,144 @@ export default {
     }
   },
   data() {
-    return { interval: -1 };
+    return { interval: -1, i: 0 };
   },
   mounted() {
-    // let i = 0;
-    // this.interval = setInterval(() => {
-    //  this.setPercentage(i >= 1.0 ? (i = 0.0) : (i += 0.05));
-    // }, 100);
-    //this.setPercentage(0.0);
+    this.i = 0;
 
-    setTimeout(() => {
-      this.setPercentage(0.7);
-    }, 1000);
-
-    setTimeout(() => {
-      this.setPercentage(0.2);
-    }, 7000);
+    this.interval = setInterval(() => {
+      this.setPercentage(this.i >= 1.0 ? (this.i = 0) : (this.i += 0.01));
+    }, 300);
   },
-  destroyed() {
-    //clearInterval(this.interval);
-    //this.setPercentage(0.0);
+  beforeDestroy() {
+    clearInterval(this.interval);
   },
   methods: {
     // todo ensure I'm selecting the right z-indexed div (use ids/classes instead of finger crossing)
 
     setPercentage(percentage = 0.5) {
-      const fillHiders = Array.from(document.querySelectorAll('.fill-hider'));
       const fillers = Array.from(document.querySelectorAll('.fill'));
 
       // TODO Don't use javascript "hax" for animations, just meant to illustrate the current progress.
 
       let e = fillers[0];
       e.style = '';
-      e = fillers[1];
-      e.style = '';
-      let element = fillHiders[0];
-      element.style = '';
-      element = fillHiders[1];
-      element.style = '';
 
-      let percentageDeg = Math.round(percentage * 360);
+      const x = [];
+      const y = [];
 
-      // todo convert some to actual css
+      const radius = 60;
 
-      if (percentageDeg >= 180) {
-        let e = fillers[0];
-        e.style.transform = `rotate(-180deg)`;
-        e = fillers[1];
-        e.style.transform = `rotate(0deg)`;
+      x.push(radius);
+      y.push(radius);
 
-        let element = fillHiders[0];
+      if (percentage >= 0) {
+        x.push(radius);
+        y.push(0);
 
-        element.style['-webkit-transform'] = ` rotate(${-percentageDeg}deg)`;
-        element.style.transform = `rotate(${-percentageDeg}deg)`;
+        if (percentage >= 0.25) {
+          x.push(radius * 2);
+          y.push(0);
+          x.push(radius * 2);
+          y.push(radius);
+          x.push(radius * 2);
+          y.push(radius * 2);
 
-        element = fillHiders[1];
+          if (percentage >= 0.5) {
+            x.push(radius);
+            y.push(radius * 2);
+            x.push(0);
+            y.push(radius * 2);
 
-        element.style['-webkit-transform'] = ` rotate(-180deg)`;
-        element.style.transform = `rotate(-180deg)`;
+            if (percentage >= 0.75) {
+              x.push(0);
+              y.push(radius);
+              x.push(0);
+              y.push(0);
 
-        element.style.visibility = 'hidden';
-      } else {
-        let e = fillers[0];
+              x.push(
+                radius -
+                  Math.abs(
+                    radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
+                  )
+              );
+              y.push(
+                radius -
+                  Math.abs(
+                    radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
+                  )
+              );
 
-        e.style.transform = `rotate(0deg)`;
-        e.style.clip = 'rect(0px, 119px, 59px, 0px)';
+              // 75% -100%
+            } else {
+              x.push(
+                radius -
+                  Math.abs(
+                    radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
+                  )
+              );
+              y.push(
+                radius +
+                  Math.abs(
+                    radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
+                  )
+              );
+            }
+            // 50-74%
+          } else {
+            // x.push(radius * 2);
+            // y.push(radius + (percentage - 0.25) * 4 * radius);
 
-        e = fillers[1];
+            x.push(
+              radius +
+                Math.abs(
+                  radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
+                )
+            );
+            y.push(
+              radius +
+                Math.abs(
+                  radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
+                )
+            );
+          }
+          // 25% - 49%
+        } else {
+          x.push(radius * 2);
+          y.push(0);
 
-        e.style.transform = 'rotate(-180deg)';
-        e.style.clip = 'rect(0px, 119px, 59px, 0px)';
+          // x.push(radius * 2);
+          // y.push(percentage * 4 * radius);
 
-        let element = fillHiders[0];
+          x.push(
+            radius +
+              Math.abs(
+                radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
+              )
+          );
+          y.push(
+            radius -
+              Math.abs(
+                radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
+              )
+          );
 
-        element.style['-webkit-transform'] = ` rotate(${-percentageDeg}deg)`;
-        element.style.transform = `rotate(${-percentageDeg}deg)`;
+          x.push(radius);
+          y.push(radius);
+        }
 
-        element = fillHiders[1];
-
-        element.style['-webkit-transform'] = ` rotate(-180deg)`;
-        element.style.transform = `rotate(-180deg)`;
+        // 0 - 24%
       }
+
+      let polygon = 'polygon(';
+
+      for (let i = 0; i < Math.min(x.length, y.length); i += 1) {
+        polygon += `${x[i]}px ${y[i]}px,`;
+      }
+
+      polygon = `${polygon.substring(0, polygon.length - 1)})`;
+
+      fillers[0].style['clip-path'] = polygon;
     }
   }
 };
@@ -147,19 +208,12 @@ $inset-color: #fefefe;
         height: $circle-size;
         border-radius: 50%;
         position: absolute;
-        clip: rect(0px, $circle-size, $circle-size / 2, 0px);
+        // clip: rect(0px, $circle-size, $circle-size / 2, 0px);
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        transition: transform 3s linear, visibility 0s linear 3s;
+        transition: clip-path 300ms linear;
 
-        &.upper {
-          z-index: 3;
-        }
-
-        &.lower {
-          transition: transform 3s linear 3s, visibility 0s linear 3s;
-          z-index: 1;
-        }
+        z-index: 3;
       }
 
       .fill-hider {
@@ -168,18 +222,11 @@ $inset-color: #fefefe;
         height: $circle-size;
         border-radius: 48.5%;
         position: absolute;
-        clip: rect(0px, $circle-size, $circle-size / 2, 0px);
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         transition: transform 3s linear, visibility 0s linear 3s;
 
-        &.upper {
-          z-index: 4;
-        }
-
-        &.lower {
-          z-index: 2;
-        }
+        z-index: 2;
       }
     }
   }
