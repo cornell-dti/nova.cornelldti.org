@@ -10,7 +10,7 @@
           <b-col cols="12" class="my-auto">
             <b-row class="profile-header">
               <b-col lg="3" md="auto" sm="12">
-                <b-img rounded="circle" class="profile-image" :src="profile.image" />
+                <b-img rounded="circle" class="profile-image" :src="img(profile.image)" />
               </b-col>
               <b-col class="my-auto">
                 <h1>{{profile.name}}</h1>
