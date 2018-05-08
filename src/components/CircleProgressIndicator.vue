@@ -1,16 +1,16 @@
 <template>
-    <div class="circle-progress" style="z-index: 102;">
-        <div class="circle" style="z-index: 101;">
-            <div class="mask full" style="z-index: 100;">
+  <div class="circle-progress">
+    <div class="circle">
+      <div class="mask full">
 
-                <div class="fill" style="z-index: 1;" />
-                <div class="fill-hider" style="z-index: 2;" />
-                <div class="fill" style="z-index: 3;" />
-                <div class="fill-hider" style="z-index: 4;" />
-            </div>
-        </div>
-        <div class="inset" style="z-index: 200;" />
+        <div class="fill lower" />
+        <div class="fill-hider lower" />
+        <div class="fill upper" />
+        <div class="fill-hider upper" />
+      </div>
     </div>
+    <div class="inset" />
+  </div>
 </template>
 
 <script>
@@ -21,17 +21,47 @@ export default {
       default: 0.0
     }
   },
+  data() {
+    return { interval: -1 };
+  },
   mounted() {
-    this.setPercentage(this.percentage);
+    // let i = 0;
+    // this.interval = setInterval(() => {
+    //  this.setPercentage(i >= 1.0 ? (i = 0.0) : (i += 0.05));
+    // }, 100);
+    //this.setPercentage(0.0);
+
+    setTimeout(() => {
+      this.setPercentage(0.7);
+    }, 1000);
+
+    setTimeout(() => {
+      this.setPercentage(0.2);
+    }, 7000);
+  },
+  destroyed() {
+    //clearInterval(this.interval);
+    //this.setPercentage(0.0);
   },
   methods: {
     // todo ensure I'm selecting the right z-indexed div (use ids/classes instead of finger crossing)
 
     setPercentage(percentage = 0.5) {
-      let percentageDeg = Math.round(percentage * 360);
-
       const fillHiders = Array.from(document.querySelectorAll('.fill-hider'));
       const fillers = Array.from(document.querySelectorAll('.fill'));
+
+      // TODO Don't use javascript "hax" for animations, just meant to illustrate the current progress.
+
+      let e = fillers[0];
+      e.style = '';
+      e = fillers[1];
+      e.style = '';
+      let element = fillHiders[0];
+      element.style = '';
+      element = fillHiders[1];
+      element.style = '';
+
+      let percentageDeg = Math.round(percentage * 360);
 
       // todo convert some to actual css
 
@@ -47,6 +77,9 @@ export default {
         element.style.transform = `rotate(${-percentageDeg}deg)`;
 
         element = fillHiders[1];
+
+        element.style['-webkit-transform'] = ` rotate(-180deg)`;
+        element.style.transform = `rotate(-180deg)`;
 
         element.style.visibility = 'hidden';
       } else {
@@ -89,6 +122,8 @@ $inset-color: #fefefe;
   height: $circle-size;
   border-radius: 50%;
 
+  z-index: 10;
+
   .inset {
     width: $inset-size;
     height: $inset-size;
@@ -97,8 +132,12 @@ $inset-color: #fefefe;
     margin-top: ($circle-size - $inset-size) / 2;
     background-color: $inset-color;
     border-radius: 50%;
+
+    z-index: 10;
   }
   .circle {
+    z-index: 10;
+
     .mask {
       clip: rect(0px, $circle-size, $circle-size, $circle-size / 2);
 
@@ -111,6 +150,16 @@ $inset-color: #fefefe;
         clip: rect(0px, $circle-size, $circle-size / 2, 0px);
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        transition: transform 3s linear, visibility 0s linear 3s;
+
+        &.upper {
+          z-index: 3;
+        }
+
+        &.lower {
+          transition: transform 3s linear 3s, visibility 0s linear 3s;
+          z-index: 1;
+        }
       }
 
       .fill-hider {
@@ -122,6 +171,15 @@ $inset-color: #fefefe;
         clip: rect(0px, $circle-size, $circle-size / 2, 0px);
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        transition: transform 3s linear, visibility 0s linear 3s;
+
+        &.upper {
+          z-index: 4;
+        }
+
+        &.lower {
+          z-index: 2;
+        }
       }
     }
   }
