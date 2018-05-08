@@ -1,32 +1,25 @@
 <template>
   <page-background>
-    <page-hero>
-      <b-row align-h="center" no-gutters=true class="h-50">
-        <slot />
-        <b-col cols="auto" class="my-auto">
-          <h2 class="">Team</h2>
-
-        </b-col>
-      </b-row>
-    </page-hero>
+    <text-page-hero>
+      Team
+    </text-page-hero>
     <b-container>
-      <section>
+      <page-section>
         <h1>Diversity</h1>
 
         <b-row class="justify-content-center">
+          <circle-progress-indicator />
         </b-row>
-      </section>
-      <section>
+      </page-section>
+      <page-section>
         <h1>Team</h1>
 
         <b-row class="justify-content-center">
           <b-col class="text-center">
-            <div :variant="link" :class="roleId === '' ? ['selected-filter-btn', 'btn', 'btn-secondary'] : ['filter-btn', 'btn', 'btn-link']"
-              v-on:click="roleId = ''">
+            <div :class="btn(roleId === '')" @click="roleId = ''">
               All
             </div>
-            <div v-for="role in roles" :key="role.id" :variant="link" :class="roleId === role.id ? ['selected-filter-btn', 'btn', 'btn-secondary'] : ['filter-btn', 'btn', 'btn-link']"
-              v-on:click="roleId = role.id">
+            <div v-for="role of roles" :key="role.id" :class="btn(roleId === role.id)" @click="roleId = role.id">
               {{role.name}}
             </div>
           </b-col>
@@ -36,7 +29,7 @@
 
         <headshot-grid :members="filterMembers(roleId)" :teams="teams" />
 
-      </section>
+      </page-section>
 
     </b-container>
     <section>
@@ -46,18 +39,20 @@
 </template>
 
 <script>
-import HeadshotGrid from "./HeadshotGrid";
-import Marquee from "./CompaniesMarquee";
+import HeadshotGrid from './HeadshotGrid';
+import Marquee from './CompaniesMarquee';
+import CircleProgressIndicator from './CircleProgressIndicator';
 
 export default {
   components: {
     HeadshotGrid,
-    Marquee
+    Marquee,
+    CircleProgressIndicator
   },
   data() {
     return {
       currentProfile: {},
-      filter_role_category: ""
+      filter_role_category: ''
     };
   },
   props: {
@@ -85,14 +80,19 @@ export default {
     }
   },
   methods: {
-    filterMembers(role = "") {
+    btn(selected) {
+      return selected
+        ? ['selected-filter-btn', 'btn', 'btn-secondary']
+        : ['filter-btn', 'btn', 'btn-link'];
+    },
+    filterMembers(role = '') {
       let filtered;
-      if (role === "") {
+      if (role === '') {
         filtered = this.members;
       } else {
         filtered = this.members.filter(
           member =>
-            typeof member.roleId !== "undefined" &&
+            typeof member.roleId !== 'undefined' &&
             member.roleId.indexOf(role) !== -1
         );
       }

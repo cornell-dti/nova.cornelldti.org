@@ -31,7 +31,8 @@
             <p> {{ipsum(projectData.description2, 60)}}</p>
 
             <b-col sm="12" md="auto">
-              <b-img :src="currentScreenshot" blank width="300" height="400" blank-color="#aaa" />
+              <b-img :src="currentScreenshot" blank width="300" height="400" blank-color="#aaa"
+              />
             </b-col>
             <b-col sm="12" md="auto">
               <!-- TODO ADD LOGIC -->
@@ -45,8 +46,7 @@
           </b-row>
 
           <h1>Team</h1>
-          <headshot-grid v-for="team of teams" :key="team.name" v-if="team.name === projectData.team" :members="team.members"
-          />
+          <headshot-grid :members="getTeam(projectData.teamId).members" />
 
           <b-row align-h="center">
             <b-col cols="auto">
@@ -135,6 +135,17 @@ export default {
     }
   },
   methods: {
+    getTeam(team) {
+      let teamA = null;
+
+      this.teams.forEach(teamData => {
+        if (teamData.id === team) {
+          teamA = teamData;
+        }
+      });
+
+      return teamA;
+    },
     getProject(project) {
       let projectA = null;
 

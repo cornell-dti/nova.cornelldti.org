@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="page-stack page-background" :style="backgroundStyle">
+    <div class="page-stack page-background">
       <div class="page-stack-element loader-background my-auto">
         <div class="loader">
           <span class="loader-element"></span>
@@ -8,8 +8,8 @@
           <span class="loader-element third-dot"></span>
         </div>
       </div>
-      <base-layout class="page-stack-element" :hero="hero">
-        <dti-main-menu slot="header" :transparent='isTransparent' />
+      <base-layout class="page-stack-element">
+        <dti-main-menu slot="header" />
         <transition :name="transition" slot="body">
           <router-view />
         </transition>
@@ -19,13 +19,13 @@
 </template>
 
 <script>
-const Pages = ["Home", "Projects", "Team", "Sponsor", "Apply"];
+const Pages = ['Home', 'Projects', 'Team', 'Sponsor', 'Apply'];
 
 export default {
-  name: "App",
+  name: 'App',
   data() {
     return {
-      transition: "slidein"
+      transition: 'slidein'
     };
   },
 
@@ -36,13 +36,13 @@ export default {
       const fromI = Pages.indexOf(from.name);
 
       if (toI === -1) {
-        this.transition = "slidedown";
+        this.transition = 'slidedown';
       } else if (fromI === -1) {
-        this.transition = "none";
+        this.transition = 'slideup';
       } else if (toI > fromI) {
-        this.transition = "slidein";
+        this.transition = 'slidein';
       } else {
-        this.transition = "slideout";
+        this.transition = 'slideout';
       }
       next();
     });
@@ -140,19 +140,34 @@ $page-transition-duration: 1s;
 .slideout-leave-active,
 .slideout-enter-active,
 .slidedown-leave-active,
-.slidedown-enter-active {
+.slidedown-enter-active,
+.slideup-leave-active,
+.slideup-enter-active {
   max-height: 100vh;
   overflow: hidden;
 }
 
 .slidedown-leave-active {
-  -webkit-animation: moveToBottom $page-transition-duration ease both;
-  animation: moveToBottom $page-transition-duration ease both;
+  // TODO: Currently is broken due to width requirements...
+  //-webkit-animation: moveToBottom $page-transition-duration ease both;
+  //animation: moveToBottom $page-transition-duration ease both;
 }
 
 .slidedown-enter-active {
   -webkit-animation: moveFromTop $page-transition-duration ease both;
   animation: moveFromTop $page-transition-duration ease both;
+  animation-delay: $page-transition-duration;
+}
+
+.slideup-leave-active {
+  // TODO: Currently is broken due to width requirements...
+  -webkit-animation: moveToTop $page-transition-duration ease both;
+  animation: moveToTop $page-transition-duration ease both;
+}
+
+.slideup-enter-active {
+  -webkit-animation: moveFromBottom $page-transition-duration ease both;
+  animation: moveFromBottom $page-transition-duration ease both;
   animation-delay: $page-transition-duration;
 }
 
@@ -259,6 +274,34 @@ $page-transition-duration: 1s;
   to {
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
+  }
+}
+
+@-webkit-keyframes moveFromBottom {
+  from {
+    -webkit-transform: translateY(100%);
+  }
+}
+@keyframes moveFromBottom {
+  from {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+
+@-webkit-keyframes moveToTop {
+  from {
+  }
+  to {
+    -webkit-transform: translateY(-100%);
+  }
+}
+@keyframes moveToTop {
+  from {
+  }
+  to {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 </style>

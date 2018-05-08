@@ -5,7 +5,7 @@
     </text-page-hero>
 
     <b-container>
-      <section>
+      <page-section>
         <b-row align-h="center">
           <b-col sm="12" md="6">
             <h2>Why Sponsors?</h2>
@@ -15,8 +15,8 @@
             <b-img height="300" width="600" blank blank-color="#777" />
           </b-col>
         </b-row>
-      </section>
-      <section>
+      </page-section>
+      <page-section>
         <b-row align-h="center">
           <b-col sm="12" md="6">
             <h2>Membership</h2>
@@ -27,8 +27,8 @@
             <p>{{ipsum_def(200)}}</p>
           </b-col>
         </b-row>
-      </section>
-      <section>
+      </page-section>
+      <page-section>
         <b-row align-h="center">
           <b-col cols="auto">
             <h2>Current Sponsors</h2>
@@ -36,7 +36,7 @@
             <b-btn>Become a sponsor!</b-btn>
           </b-col>
         </b-row>
-      </section>
+      </page-section>
     </b-container>
   </page-background>
 </template>
