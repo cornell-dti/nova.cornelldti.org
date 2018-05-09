@@ -16,9 +16,10 @@
 
     <b-collapse is-nav id="nav_collapse" v-model="navShown">
       <b-navbar-nav class="ml-auto">
-        <!-- todo look into ml-auto variants -->
+        <!-- todo look into ml-auto variants, also move routes to an actual file -->
         <b-nav-item to="/" exact>Home</b-nav-item>
         <b-nav-item to="/Projects">Projects</b-nav-item>
+        <b-nav-item to="/Initiatives">Initiatives</b-nav-item>
         <b-nav-item to="/Team">Team</b-nav-item>
         <b-nav-item to="/Sponsor">Sponsor</b-nav-item>
         <b-nav-item to="/Apply">Apply</b-nav-item>

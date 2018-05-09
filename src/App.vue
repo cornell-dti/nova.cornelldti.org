@@ -19,7 +19,7 @@
 </template>
 
 <script>
-const Pages = ['Home', 'Projects', 'Team', 'Sponsor', 'Apply'];
+const Pages = ['Home', 'Projects', 'Initiatives', 'Team', 'Sponsor', 'Apply'];
 
 export default {
   name: 'App',
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./index.scss";
+@import './index.scss';
 
 body {
   margin: 0;

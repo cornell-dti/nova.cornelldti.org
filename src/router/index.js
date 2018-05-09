@@ -1,15 +1,17 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
 import Home from '@/components/Home';
 import Projects from '@/components/Projects';
 import Team from '@/components/Team';
 import Apply from '@/components/Apply';
 import Sponsor from '@/components/Sponsor';
 import Project from '@/components/Project';
+import Initiatives from '@/components/Initiatives';
+
 import MembersJson from '@/members.json';
 import ProjectsJson from '@/projects.json';
 import TeamsJson from '@/teams.json';
-
 import RolesJson from '@/roles.json';
 
 Vue.use(Router);
@@ -37,6 +39,11 @@ export default new Router({
         projects: ProjectsJson,
         teams: TeamsJson
       })
+    },
+    {
+      path: '/Initiatives',
+      name: 'Initiatives',
+      component: Initiatives
     },
     {
       path: '/Team',
