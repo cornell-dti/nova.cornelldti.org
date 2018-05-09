@@ -13,7 +13,6 @@
       <div class="inset" />
 
     </div>
-    <p>{{i}} </p>
   </div>
 </template>
 
@@ -53,6 +52,14 @@ export default {
       const y = [];
 
       const radius = 60;
+      const diameter = radius * 2;
+
+      const xOffset = Math.abs(
+        radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
+      );
+      const yOffset = Math.abs(
+        radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
+      );
 
       x.push(radius);
       y.push(radius);
@@ -62,94 +69,31 @@ export default {
         y.push(0);
 
         if (percentage >= 0.25) {
-          x.push(radius * 2);
-          y.push(0);
-          x.push(radius * 2);
-          y.push(radius);
-          x.push(radius * 2);
-          y.push(radius * 2);
+          x.push(diameter, diameter, diameter);
+          y.push(0, radius, diameter);
 
           if (percentage >= 0.5) {
-            x.push(radius);
-            y.push(radius * 2);
-            x.push(0);
-            y.push(radius * 2);
+            x.push(radius, 0);
+            y.push(diameter, diameter);
 
             if (percentage >= 0.75) {
-              x.push(0);
-              y.push(radius);
-              x.push(0);
-              y.push(0);
-
-              x.push(
-                radius -
-                  Math.abs(
-                    radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
-                  )
-              );
-              y.push(
-                radius -
-                  Math.abs(
-                    radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
-                  )
-              );
+              x.push(0, 0, radius - x);
+              y.push(radius, 0, radius - y);
 
               // 75% -100%
             } else {
-              x.push(
-                radius -
-                  Math.abs(
-                    radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
-                  )
-              );
-              y.push(
-                radius +
-                  Math.abs(
-                    radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
-                  )
-              );
+              x.push(radius - x);
+              y.push(radius + y);
             }
             // 50-74%
           } else {
-            // x.push(radius * 2);
-            // y.push(radius + (percentage - 0.25) * 4 * radius);
-
-            x.push(
-              radius +
-                Math.abs(
-                  radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
-                )
-            );
-            y.push(
-              radius +
-                Math.abs(
-                  radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
-                )
-            );
+            x.push(radius + x);
+            y.push(radius + y);
           }
           // 25% - 49%
         } else {
-          x.push(radius * 2);
-          y.push(0);
-
-          // x.push(radius * 2);
-          // y.push(percentage * 4 * radius);
-
-          x.push(
-            radius +
-              Math.abs(
-                radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
-              )
-          );
-          y.push(
-            radius -
-              Math.abs(
-                radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
-              )
-          );
-
-          x.push(radius);
-          y.push(radius);
+          x.push(radius * 2, radius + x, radius);
+          y.push(radius - y, radius);
         }
 
         // 0 - 24%
@@ -208,7 +152,6 @@ $inset-color: #fefefe;
         height: $circle-size;
         border-radius: 50%;
         position: absolute;
-        // clip: rect(0px, $circle-size, $circle-size / 2, 0px);
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         transition: clip-path 300ms linear;

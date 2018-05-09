@@ -1,5 +1,9 @@
-<template :slot="$route.path + '/body'">
-  <div class="home-background">
+<template>
+  <div>
+    <video autoplay loop=true muted=true preload=auto class="home-background" src="/static/givingday.mp4">
+      No video support.
+    </video>
+    <div class="home-background overlay" />
     <b-row>
       <h1 class="home-hero-text">Cornell Design <br />&amp; Tech Initiative</h1>
     </b-row>
@@ -7,15 +11,22 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../index.scss";
+@import '../index.scss';
 
-$left-hero-margin: 30%;
-$top-hero-margin: 60%;
+$left-hero-margin: 5%;
+$top-hero-margin: 70%;
 
 .home-background {
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
   height: 100vh;
-  background-image: url("/static/test4.jpg");
-  background-size: cover;
+  width: 100vw;
+
+  &.overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .home-hero-text {

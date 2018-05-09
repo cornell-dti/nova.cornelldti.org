@@ -1,8 +1,14 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
 
 html {
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
+}
+
+#app {
+  font-family: "PT Sans", "sans-serif" !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 section {
@@ -37,79 +43,9 @@ section {
 .nav-padding {
   min-height: 10vh;
 }
+
 .flexible-item {
   flex: 1 1 16%;
 }
 
 
-#app {
-  font-family: "Open Sans", "sans-serif";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.slide-up-enter-active {
-  -webkit-animation: slide-up 0.5s linear;
-  animation: slide-up 0.5s linear;
-}
-
-.slide-up-leave-active {
-  -webkit-animation: slide-down 0.5s linear;
-  animation: slide-down 0.5s linear;
-}
-
-.slide-left-enter-active {
-  -webkit-animation: slide-out 0.5s linear;
-  animation: slide-out 0.5s linear;
-}
-
-.slide-left-leave-active {
-  -webkit-animation: slide-in 0.5s linear;
-  animation: slide-in 0.5s linear;
-}
-
-.slide-right-enter-active {
-  -webkit-animation: slide-in 0.5s linear;
-  animation: slide-in 0.5s linear;
-}
-
-.slide-right-leave-active {
-  -webkit-animation: slide-out 0.5s linear;
-  animation: slide-out 0.5s linear;
-}
-
-@keyframes slide-up {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
-
-@keyframes slide-down {
-  0% {
-    transform: translateY(0%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes slide-in {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes slide-out {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
