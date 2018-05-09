@@ -51,7 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 .headshot-card {
-  margin: 1vw;
+  margin: 2vh 0.5vw;
   text-align: left;
   width: 11em;
   max-height: 17em;
