@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import HeadshotGrid from "./HeadshotGrid";
+import HeadshotGrid from './HeadshotGrid';
 
 export default {
   props: {
@@ -125,8 +125,8 @@ export default {
   components: { HeadshotGrid },
   data() {
     return {
-      currentFeatureDescription: "",
-      currentScreenshot: ""
+      currentFeatureDescription: '',
+      currentScreenshot: ''
     };
   },
   computed: {
@@ -209,7 +209,7 @@ $border-dash-width: 0.1rem;
 </style>
 
 <style lang="scss">
-@import "../index.scss";
+@import '../index.scss';
 
 $radius: 20px;
 

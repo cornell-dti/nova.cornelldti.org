@@ -3,8 +3,8 @@
     <!-- v-for="row in rows()" :key="row.index" -->
     <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
       <div v-if="member.phantom" class="phantom-headshot-card headshot-card" />
-      <headshot-card v-else :name="member.name" :role="member.role" :image='img(member.image)' @click.native="memberClicked(member)"
-      />
+      <headshot-card v-else :name="member.name" :role="member.role" :image='img(member.image)'
+        @click.native="memberClicked(member)" />
     </div>
 
     <member-profile-modal v-model="modalShow" :profile="currentProfile" />

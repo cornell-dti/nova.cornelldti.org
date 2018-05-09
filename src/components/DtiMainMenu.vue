@@ -34,7 +34,7 @@ export default {
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
 
-      if (typeof this.$refs.dtinavbar !== "undefined") {
+      if (typeof this.$refs.dtinavbar !== 'undefined') {
         this.transparent = scrollTop <= this.$refs.dtinavbar.clientHeight;
       } else {
         this.transparent = false;
@@ -42,10 +42,10 @@ export default {
     }
   },
   destroy() {
-    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener('scroll', this.onScroll);
   },
   mounted() {
-    window.addEventListener("scroll", this.onScroll);
+    window.addEventListener('scroll', this.onScroll);
   }
 };
 </script>

@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import PageHero from "./PageHero";
+import PageHero from './PageHero';
 
 export default {
   extends: PageHero,
   props: {
-    header: { type: String, default: "" },
-    subheader: { type: String, default: "" }
+    header: { type: String, default: '' },
+    subheader: { type: String, default: '' }
   }
 };
 </script>

@@ -1,7 +1,10 @@
 <template>
 
   <div>
-    <b-modal lazy centered size="lg" ref="memberModal" id="memberModal" v-model="modalShow" :title="profile.name" header-bg-variant="dark" header-text-variant="light" body-bg-variant="dark" body-text-variant="light" footer-bg-variant="dark" footer-text-variant="light" header-border-variant="dark" footer-border-variant="dark">
+    <b-modal lazy centered size="lg" ref="memberModal" id="memberModal" v-model="modalShow"
+      :title="profile.name" header-bg-variant="dark" header-text-variant="light" body-bg-variant="dark"
+      body-text-variant="light" footer-bg-variant="dark" footer-text-variant="light"
+      header-border-variant="dark" footer-border-variant="dark">
       <b-container fluid>
         <b-row>
           <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
@@ -26,7 +29,15 @@
             <b-row>
               <b-col>
                 <h3>About Me</h3>
-                <p>{{typeof profile.about !== 'undefined' ? profile.about : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut leo bibendum lorem vestibulum laoreet eget vitae tortor. Phasellus mauris ante, euismod quis feugiat dignissim, fringilla et arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat accumsan nibh, eu imperdiet odio ornare et. Mauris feugiat magna a lacus tincidunt dapibus. Sed egestas, diam eget congue cursus, nibh ipsum lacinia nisl, nec imperdiet est ante vitae diam. Duis pulvinar vehicula fringilla."}}</p>
+                <p>{{typeof profile.about !== 'undefined' ? profile.about : `Lorem ipsum
+                  dolor sit amet, consectetur adipiscing elit. Integer ut leo bibendum
+                  lorem vestibulum laoreet eget vitae tortor. Phasellus mauris ante,
+                  euismod quis feugiat dignissim, fringilla et arcu. Lorem ipsum
+                  dolor sit amet, consectetur adipiscing elit. Donec placerat accumsan
+                  nibh, eu imperdiet odio ornare et. Mauris feugiat magna a lacus
+                  tincidunt dapibus. Sed egestas, diam eget congue cursus, nibh ipsum
+                  lacinia nisl, nec imperdiet est ante vitae diam. Duis pulvinar
+                  vehicula fringilla.`}}</p>
               </b-col>
             </b-row>
             <b-row v-if="typeof profile.teams !== 'undefined' && profile.teams.length > 0">
@@ -97,8 +108,8 @@
 <script>
 export default {
   model: {
-    prop: "modalShow",
-    event: "update:change"
+    prop: 'modalShow',
+    event: 'update:change'
   },
   props: {
     profile: {
@@ -112,7 +123,7 @@ export default {
   },
   watch: {
     modalShow($event) {
-      this.$emit("update:change", $event);
+      this.$emit('update:change', $event);
     }
   },
   methods: {
