@@ -30,7 +30,7 @@
       </page-section>
       <page-section>
         <b-row align-h="center">
-          <b-col cols="auto">
+          <b-col cols="auto" class="text-center">
             <h2>Current Sponsors</h2>
             <!--TODO ADD SPONSOR CODE -->
             <b-btn>Become a sponsor!</b-btn>
