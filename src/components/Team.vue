@@ -3,14 +3,49 @@
     <text-page-hero>
       Team
     </text-page-hero>
-    <b-container>
-      <page-section>
-        <h1>Diversity</h1>
 
-        <b-row class="justify-content-center">
-          <circle-progress-indicator />
+    <div class="diversity">
+      <div class="diversity-graph diversity-left" />
+      <div class="diversity-graph diversity-right" />
+      <b-container>
+        <b-row>
+          <b-col>
+            <h1>Diversity</h1>
+
+            <b-row class="justify-content-center">
+              <circle-progress-indicator :percentage="genderRatio">
+                <b-row>
+                  <b-col>
+                    <h3>53%</h3>
+                    <p>Female</p>
+                  </b-col>
+                  <b-col>
+                    <h3>47%</h3>
+                    <p>Male</p>
+                  </b-col>
+                </b-row>
+              </circle-progress-indicator>
+            </b-row>
+          </b-col>
+          <b-col class="diversity-text-right my-auto">
+            <b-row align-h="center">
+              <b-col cols="6">
+                <h1>14</h1>
+                <p>Number of different majors</p>
+              </b-col>
+            </b-row>
+            <b-row align-h="center">
+              <b-col cols="6">
+                <h1>6</h1>
+                <p>Number of represented colleges</p>
+              </b-col>
+            </b-row>
+          </b-col>
         </b-row>
-      </page-section>
+      </b-container>
+    </div>
+
+    <b-container>
       <page-section>
         <h1>Team</h1>
 
@@ -37,6 +72,33 @@
     </section>
   </page-background>
 </template>
+<style lang="scss" scoped>
+.diversity {
+  height: 70vh;
+  overflow: hidden;
+}
+
+.diversity-graph {
+  position: absolute;
+
+  width: 100vw;
+  height: 70vh;
+}
+
+.diversity-left {
+  background-color: #f6f6f6;
+  clip-path: polygon(0 0, 0 100%, 48% 100%, 52% 0);
+}
+
+.diversity-text-right {
+  color: #fefefe;
+}
+
+.diversity-right {
+  background-color: #ff324a;
+  clip-path: polygon(52% 0, 48% 100%, 100% 100%, 100% 0);
+}
+</style>
 
 <script>
 import HeadshotGrid from './HeadshotGrid';
@@ -77,6 +139,9 @@ export default {
       get() {
         return this.filter_role_category;
       }
+    },
+    genderRatio() {
+      return 0.53;
     }
   },
   methods: {

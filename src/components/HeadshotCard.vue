@@ -71,8 +71,9 @@ export default {
 
     .name {
       margin-top: 0;
-      font-size: 1.2em;
+      font-size: 1.0em;
       line-height: 1.2em;
+      max-width: 8em;
     }
 
     .role {

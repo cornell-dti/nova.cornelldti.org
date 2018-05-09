@@ -3,15 +3,13 @@
     <div class="circle-progress">
       <div class="circle">
         <div class="mask full">
-
           <div class="fill" />
           <div class="fill-hider" />
-
         </div>
-
       </div>
-      <div class="inset" />
-
+      <div class="inset">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
@@ -25,17 +23,24 @@ export default {
     }
   },
   data() {
-    return { interval: -1, i: 0 };
+    return { interval: -1, counter: 0 };
   },
   mounted() {
-    this.i = 0;
+    this.counter = 0;
 
     this.interval = setInterval(() => {
-      this.setPercentage(this.i >= 1.0 ? (this.i = 0) : (this.i += 0.01));
-    }, 300);
+      if (this.interval !== -1 && this.counter >= this.percentage) {
+        clearInterval(this.interval);
+        this.counter = 0;
+      } else {
+        this.setPercentage((this.counter += 0.01));
+      }
+    }, 100);
   },
   beforeDestroy() {
-    clearInterval(this.interval);
+    if (this.interval !== -1) {
+      clearInterval(this.interval);
+    }
   },
   methods: {
     // todo ensure I'm selecting the right z-indexed div (use ids/classes instead of finger crossing)
@@ -48,7 +53,7 @@ export default {
       const x = [];
       const y = [];
 
-      const radius = 60;
+      const radius = 120;
       const diameter = radius * 2;
 
       const xOffset = Math.abs(
@@ -75,7 +80,7 @@ export default {
 
             if (percentage >= 0.75) {
               x.push(0, 0, radius - xOffset);
-              y.push(radius, 0, radius - y);
+              y.push(radius, 0, radius - yOffset);
 
               // 75% -100%
             } else {
@@ -90,7 +95,7 @@ export default {
           // 25% - 49%
         } else {
           x.push(radius * 2, radius + xOffset, radius);
-          y.push(radius - yOffset, radius);
+          y.push(0, radius - yOffset, radius);
         }
 
         // 0 - 24%
@@ -112,10 +117,10 @@ export default {
 
 
 <style lang="scss" scoped>
-$circle-background-color: #d6dadc;
-$circle-fill-color: #ff0000;
-$circle-size: 120px;
-$inset-size: 90px;
+$circle-background-color: #ececec47;
+$circle-fill-color: #ff324a;
+$circle-size: 240px;
+$inset-size: 180px;
 $inset-color: #fefefe;
 
 .circle-progress {
@@ -123,7 +128,6 @@ $inset-color: #fefefe;
   width: $circle-size;
   height: $circle-size;
   border-radius: 50%;
-
   z-index: 10;
 
   .inset {
@@ -134,6 +138,7 @@ $inset-color: #fefefe;
     margin-top: ($circle-size - $inset-size) / 2;
     background-color: $inset-color;
     border-radius: 50%;
+    border: grey 1px solid;
 
     z-index: 10;
   }
@@ -151,12 +156,14 @@ $inset-color: #fefefe;
         position: absolute;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        transition: clip-path 300ms linear;
+        transition: clip-path 100ms linear;
+        border: grey 1px solid;
 
         z-index: 3;
       }
 
       .fill-hider {
+        border: grey 1px solid;
         background-color: $circle-background-color;
         width: $circle-size;
         height: $circle-size;
@@ -164,7 +171,6 @@ $inset-color: #fefefe;
         position: absolute;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        transition: transform 3s linear, visibility 0s linear 3s;
 
         z-index: 2;
       }
