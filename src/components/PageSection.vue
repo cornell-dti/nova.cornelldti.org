@@ -6,7 +6,7 @@
 
 <style lang="scss" scoped>
 .page-section {
-  margin: 6vw;
+  margin: 4vw;
 }
 </style>
 
