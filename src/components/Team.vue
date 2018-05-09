@@ -14,12 +14,12 @@
 
             <b-row class="justify-content-center">
               <circle-progress-indicator :percentage="genderRatio">
-                <b-row>
-                  <b-col>
+                <b-row align-h="center">
+                  <b-col sm="8" md="6">
                     <h3>53%</h3>
                     <p>Female</p>
                   </b-col>
-                  <b-col>
+                  <b-col sm="8" md="6">
                     <h3>47%</h3>
                     <p>Male</p>
                   </b-col>
@@ -62,7 +62,8 @@
 
         <!-- TODO actual padding --><br>
 
-        <headshot-grid :members="filterMembers(roleId)" :teams="teams" />
+        <headshot-grid :members="[...filterMembers(`project-lead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
+          :teams="teams" />
 
       </page-section>
 
@@ -153,13 +154,22 @@ export default {
     filterMembers(role = '') {
       let filtered;
       if (role === '') {
-        filtered = this.members;
+        filtered = [...this.members].sort((a, b) => {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        });
       } else {
-        filtered = this.members.filter(
-          member =>
-            typeof member.roleId !== 'undefined' &&
-            member.roleId.indexOf(role) !== -1
-        );
+        filtered = this.members
+          .filter(
+            member =>
+              typeof member.roleId !== 'undefined' && member.roleId === role
+          )
+          .sort((a, b) => {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+          });
       }
 
       // todo fix this ugliness

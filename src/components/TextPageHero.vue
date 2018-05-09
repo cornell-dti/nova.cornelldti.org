@@ -1,6 +1,6 @@
 <template>
     <page-hero>
-        <b-row align-h="center" no-gutters=true class="h-50">
+        <b-row align-h="center" class="h-50 no-gutters">
             <b-col cols="auto" class="my-auto">
                 <h2 v-if="header !== ''" :v-html="header" />
                 <h2 v-else>

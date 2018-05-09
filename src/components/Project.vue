@@ -1,9 +1,9 @@
 <template>
   <page-background>
     <page-hero>
-      <b-row align-h="center" no-gutters=true class="h-50">
+      <b-row align-h="center" class="no-gutters h-50">
         <b-col sm="auto" md="8" class="my-auto">
-          <b-row no-gutters=true class="project-hero-header">
+          <b-row class="project-hero-header no-gutters">
             <b-col cols="auto" class="project-hero-logo">
               <b-img :src="projectData.logo" />
             </b-col>

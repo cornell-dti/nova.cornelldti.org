@@ -3,8 +3,8 @@
     "image": "team/alicep.jpg",
     "name": "Alice Pham",
     "id": "ap1",
-    "role": "Co-Lead",
-    "roleId": "leads",
+    "role": "Project Co-Lead",
+    "roleId": "pm-lead",
     "github": "https://github.com/alicepham",
     "linkedin": "https://www.linkedin.com/in/alicetpham/"
   },
@@ -12,8 +12,8 @@
     "image": "team/karuns.jpg",
     "name": "Karun Singh",
     "id": "ks1",
-    "role": "Co-Lead",
-    "roleId": "leads",
+    "role": "Project Co-Lead",
+    "roleId": "pm-lead",
     "github": "https://github.com/karunsingh",
     "linkedin": "https://www.linkedin.com/in/karun17/"
   },
@@ -22,7 +22,7 @@
     "name": "Matthew Barker",
     "id": "mb1",
     "role": "Design Lead",
-    "roleId": "leads",
+    "roleId": "designer-lead",
     "github": "https://github.com/mattbarker016",
     "website": "http://mattbarker.me/"
   },
@@ -31,7 +31,7 @@
     "name": "Shea Belsky",
     "id": "sb1",
     "role": "Development Lead",
-    "roleId": "leads",
+    "roleId": "developer-lead",
     "github": "https://github.com/SHBelsky",
     "linkedin": "https://www.linkedin.com/in/sheabelsky/"
   },
@@ -40,7 +40,7 @@
     "name": "David Ticzon",
     "id": "dt1",
     "role": "Business Lead",
-    "roleId": "leads",
+    "roleId": "business-lead",
     "linkedin": "https://www.linkedin.com/in/david-ticzon-a8291ba0/"
   },
   {
@@ -169,7 +169,7 @@
     "name": "Evan Welsh",
     "id": "ew1",
     "role": "Developer",
-    "roleId": "developer",
+    "roleId": "developer-lead",
     "github": "https://github.com/rockon999/",
     "linkedin": "https://www.linkedin.com/in/evan-welsh-291577141/",
     "website": "http://evanwelsh.com/"
@@ -493,6 +493,7 @@
     "image": "team/glenik.jpg",
     "name": "Gleni Kodra",
     "id": "gk1",
+    "roleId": "business",
     "role": "Corporate Relations"
   },
   {
@@ -500,6 +501,7 @@
     "name": "Ronni Mok",
     "id": "rm1",
     "role": "Business",
+    "roleId": "business",
     "linkedin": "https://www.linkedin.com/in/ronni-mok/"
   },
   {
@@ -507,12 +509,14 @@
     "name": "Imani Majied",
     "id": "im1",
     "role": "Business",
+    "roleId": "business",
     "linkedin": "http://linkedin.com/in/imani-majied-98137b96"
   },
   {
     "image": "team/sonyat.jpg",
     "id": "st1",
     "name": "Sonya Tao",
+    "roleId": "business",
     "role": "Finance"
   }
 ]

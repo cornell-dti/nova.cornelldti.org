@@ -52,16 +52,18 @@ export default {
       this.modalShow = true;
     },
     pad(members) {
-      if (members.length % 5 !== 0 || members.length % 6 !== 0) {
+      const copy = [...members];
+
+      if (copy.length % 5 !== 0 || copy.length % 6 !== 0) {
         const max = Math.max(
-          5 - members.length % 5,
-          members.length % 5,
-          6 - members.length % 6,
-          members.length % 6
+          5 - copy.length % 5,
+          copy.length % 5,
+          6 - copy.length % 6,
+          copy.length % 6
         );
 
         for (let i = 0; i < max; i += 1) {
-          members.push({
+          copy.push({
             // TODO
             id: 'phantom-' + i, //eslint-disable-line
             phantom: true
@@ -69,7 +71,7 @@ export default {
         }
       }
 
-      return members;
+      return copy;
     }
   }
 };

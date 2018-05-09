@@ -8,7 +8,9 @@
         </div>
       </div>
       <div class="inset">
-        <slot />
+        <div class="inset-content">
+          <slot />
+        </div>
       </div>
     </div>
   </div>
@@ -139,8 +141,14 @@ $inset-color: #fefefe;
     background-color: $inset-color;
     border-radius: 50%;
     border: grey 1px solid;
-
+    overflow: hidden;
     z-index: 10;
+
+    .inset-content {
+      padding: $inset-size / 4.5 $inset-size / 18;
+      overflow: hidden;
+      margin: 0 $inset-size / 18;
+    }
   }
   .circle {
     z-index: 10;

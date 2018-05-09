@@ -24,7 +24,7 @@
         "image": "team/matthewb.jpg",
         "name": "Matthew Barker",
         "role": "Design Lead",
-        "roleCategory": "lead",
+        "roleCategory": "designer-lead",
         "github": "https://github.com/mattbarker016",
         "website": "http://mattbarker.me/"
       },
@@ -32,7 +32,7 @@
         "image": "team/sheab.jpg",
         "name": "Shea Belsky",
         "role": "Development Lead",
-        "roleCategory": "lead",
+        "roleCategory": "developer-lead",
         "github": "https://github.com/SHBelsky",
         "linkedin": "https://www.linkedin.com/in/sheabelsky/"
       },
@@ -48,7 +48,7 @@
         "image": "team/davidt.png",
         "name": "David Ticzon",
         "role": "Business Lead",
-        "roleCategory": "lead",
+        "roleCategory": "business-lead",
         "linkedin": "https://www.linkedin.com/in/david-ticzon-a8291ba0/"
       }
     ]
