@@ -188,24 +188,6 @@ export default {
   text-overflow: ellipsis;
   max-width: 40vw;
 }
-
-$border-color: #ddd;
-$border-dash-length: 2rem;
-$border-dash-width: 0.1rem;
-
-.project-content-border-right {
-  background-image: linear-gradient($border-color 50%, transparent 50%);
-  background-position: left;
-  background-repeat: repeat-y;
-  background-size: $border-dash-width $border-dash-length;
-}
-
-.project-content-border-left {
-  background-image: linear-gradient($border-color 50%, transparent 50%);
-  background-position: right;
-  background-repeat: repeat-y;
-  background-size: $border-dash-width $border-dash-length;
-}
 </style>
 
 <style lang="scss">
