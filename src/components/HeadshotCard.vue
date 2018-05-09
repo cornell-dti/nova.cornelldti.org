@@ -1,30 +1,29 @@
 <template>
-  <b-container fluid>
-    <b-row class="headshot-card no-gutters">
-      <b-col>
-        <b-row class="image-row no-gutters">
-          <b-col>
-            <img :src="image" />
-          </b-col>
-        </b-row>
-        <b-row class="info no-gutters">
-          <b-col>
-            <b-row class="h-75 no-gutters" align-v="start">
-              <b-col align-self="start">
-                <div class="name">{{name}}</div>
-              </b-col>
-            </b-row>
-            <b-row class="h-25 no-gutters" align-v="fill">
-              <b-col align-self="end">
-                <div class="role" v-if="role !== ''">{{role}}</div>
-              </b-col>
-            </b-row>
-          </b-col>
-        </b-row>
-      </b-col>
-    </b-row>
-  </b-container>
+  <b-row class="headshot-card no-gutters">
+    <b-col>
+      <b-row class="image-row no-gutters">
+        <b-col>
+          <img :src="image" />
+        </b-col>
+      </b-row>
+      <b-row class="info no-gutters">
+        <b-col>
+          <b-row class="h-75 no-gutters" align-v="start">
+            <b-col align-self="start">
+              <div class="name">{{name}}</div>
+            </b-col>
+          </b-row>
+          <b-row class="h-25 no-gutters">
+            <b-col align-self="end">
+              <div class="role" v-if="role !== ''">{{role}}</div>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+    </b-col>
+  </b-row>
 </template>
+
 <script>
 export default {
   props: {
@@ -66,8 +65,8 @@ export default {
 
     .name {
       margin-top: 0;
-      font-size: 1.55em;
-      line-height: 1em;
+      font-size: 1.2em;
+      line-height: 1.2em;
     }
 
     .role {
