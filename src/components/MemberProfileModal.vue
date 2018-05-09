@@ -2,9 +2,9 @@
 
   <div>
     <b-modal lazy centered size="lg" ref="memberModal" id="memberModal" v-model="modalShow"
-      :title="profile.name" header-bg-variant="dark" header-text-variant="light" body-bg-variant="dark"
-      body-text-variant="light" footer-bg-variant="dark" footer-text-variant="light"
-      header-border-variant="dark" footer-border-variant="dark">
+      :title="profile.name" header-bg-variant="light" header-text-variant="dark" body-bg-variant="light"
+      body-text-variant="dark" footer-bg-variant="light" footer-text-variant="dark"
+      header-border-variant="light" footer-border-variant="light">
       <b-container fluid>
         <b-row>
           <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
@@ -17,7 +17,7 @@
               </b-col>
               <b-col class="my-auto">
                 <h1>{{profile.name}}</h1>
-                <h4 class="text-light">{{profile.role}}</h4>
+                <h4 class="text-dark">{{profile.role}}</h4>
               </b-col>
             </b-row>
           </b-col>
@@ -88,13 +88,13 @@
               </b-col>
               <b-col class="link-list">
                 <b-row>
-                  <a v-if="typeof profile.website !== 'undefined'" class="text-light" :href="profile.website">Website</a>
+                  <a v-if="typeof profile.website !== 'undefined'" class="text-dark" :href="profile.website">Website</a>
                 </b-row>
                 <b-row>
-                  <a v-if="typeof profile.linkedin !== 'undefined'" class="text-light" :href="profile.linkedin">Linkedin</a>
+                  <a v-if="typeof profile.linkedin !== 'undefined'" class="text-dark" :href="profile.linkedin">Linkedin</a>
                 </b-row>
                 <b-row>
-                  <a v-if="typeof profile.github !== 'undefined'" class="text-light" :href="profile.github">GitHub</a>
+                  <a v-if="typeof profile.github !== 'undefined'" class="text-dark" :href="profile.github">GitHub</a>
                 </b-row>
               </b-col>
             </b-row>
@@ -137,14 +137,6 @@ export default {
 <style lang="scss">
 $radius: 25px;
 
-.modal-backdrop {
-  background-color: #fefefe;
-
-  &.show {
-    opacity: 0.9;
-  }
-}
-
 #memberModal {
   .modal-content {
     border: none !important;
@@ -153,7 +145,7 @@ $radius: 25px;
 
   .modal-close-button {
     opacity: 1;
-    color: #fefefe;
+    color: #4a4a4a;
     float: right;
     margin-left: auto;
   }
@@ -169,7 +161,7 @@ $radius: 25px;
     border-bottom-right-radius: $radius;
     border-bottom-left-radius: $radius;
     padding: 2em;
-    max-height: 80vh;
+    overflow: hidden;
 
     .profile-image {
       height: 8.75rem;

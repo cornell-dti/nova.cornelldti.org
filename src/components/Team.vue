@@ -26,16 +26,16 @@
 
               <b-row class="justify-content-center">
                 <circle-progress-indicator :percentage="genderRatio">
-                  <b-row align-h="center">
-                    <b-col sm="8" md="6">
+                  <div class="graph-data">
+                    <div class="graph-datum">
                       <h3>53%</h3>
                       <p>Female</p>
-                    </b-col>
-                    <b-col sm="8" md="6">
+                    </div>
+                    <div class="graph-datum">
                       <h3>47%</h3>
                       <p>Male</p>
-                    </b-col>
-                  </b-row>
+                    </div>
+                  </div>
                 </circle-progress-indicator>
               </b-row>
             </b-col>
@@ -92,6 +92,15 @@
 </template>
 
 <style lang="scss" scoped>
+.graph-data {
+  text-align: center;
+}
+
+.graph-datum {
+  display: inline-block;
+  margin: 0.25em;
+}
+
 .selector {
   background-color: transparent;
   transition: background-color 500ms linear;
@@ -104,7 +113,8 @@
   background-color: #4a4a4a !important;
 }
 
-.filter-btn, .selected-filter-btn {
+.filter-btn,
+.selected-filter-btn {
   color: #4a4a4a !important;
 }
 
@@ -155,6 +165,10 @@
   .diversity-right,
   .diversity-left {
     visibility: hidden;
+  }
+
+  .diversity-inner-text {
+    margin-top: 1em;
   }
 }
 </style>

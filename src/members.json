@@ -247,6 +247,7 @@
     "name": "Nihar Sidhu",
     "id": "ns1",
     "role": "Backend Developer",
+    "roleId": "developer",
     "github": "https://github.com/niharsidhu",
     "linkedin": "https://www.linkedin.com/in/nihar-sidhu-637703126/"
   },
@@ -254,7 +255,8 @@
     "image": "team/jessem.jpg",
     "id": "jm1",
     "name": "Jesse Mansoor",
-    "role": "Designer (Away)"
+    "role": "Designer (Away)",
+    "roleId": "designer"
   },
   {
     "image": "team/jessicap.jpg",
@@ -269,6 +271,7 @@
     "name": "'Alice' Ran Zhou",
     "id": "arz1",
     "role": "Product Manager (Away)",
+    "roleId": "pm",
     "github": "https://github.com/rz96",
     "linkedin": "https://www.linkedin.com/in/aranzhou/"
   },
@@ -294,7 +297,8 @@
     "image": "team/kevinl.jpg",
     "id": "kl1",
     "name": "Kevin Li",
-    "role": "Developer"
+    "role": "Developer",
+    "roleId": "developer"
   },
   {
     "image": "team/jillw.png",
@@ -334,7 +338,8 @@
     "image": "team/vivians.jpg",
     "name": "Vivian Shiu",
     "id": "vs1",
-    "role": "Designer"
+    "role": "Designer",
+    "roleId": "designer"
   },
   {
     "image": "team/aramb.jpg",
@@ -350,6 +355,7 @@
     "name": "Julia Yang",
     "id": "jy1",
     "role": "Developer (Away)",
+    "roleId": "developer",
     "linkedin": "http://linkedin.com/in/juliayangg"
   },
   {
@@ -400,7 +406,8 @@
     "image": "team/michaelh.jpg",
     "id": "mh1",
     "name": "Michael Huang",
-    "role": "Designer"
+    "role": "Designer",
+    "roleId": "designer"
   },
   {
     "image": "team/ayeshag.png",
@@ -422,13 +429,14 @@
     "image": "team/horaceh.jpg",
     "id": "hh1",
     "name": "Horace He",
+    "roleId": "developer",
     "role": "Developer"
   },
   {
     "image": "team/ryan_slama.png",
     "id": "rs1",
     "name": "Ryan Slama",
-
+    "roleId": "designer",
     "role": "Front-End Developer",
     "linkedin": "https://www.linkedin.com/in/ryan-slama-961738137/",
     "github": "https://github.com/glitched",
@@ -479,12 +487,14 @@
     "image": "team/rachelg.jpg",
     "name": "Rachel Goffin",
     "id": "rg1",
+    "roleId": "designer",
     "role": "User Research"
   },
   {
     "image": "team/wenchang_yang.png",
     "name": "Wenchang Yang",
     "id": "wy1",
+    "roleId": "designer",
     "role": "Front-End Design",
     "website": "http://wenchangyang.com",
     "linkedin": "https://www.linkedin.com/in/tiancichang/"
@@ -494,13 +504,13 @@
     "name": "Gleni Kodra",
     "id": "gk1",
     "roleId": "business",
-    "role": "Corporate Relations"
+    "role": "Analyst"
   },
   {
     "image": "team/ronni_mok.jpg",
     "name": "Ronni Mok",
     "id": "rm1",
-    "role": "Business",
+    "role": "Analyst",
     "roleId": "business",
     "linkedin": "https://www.linkedin.com/in/ronni-mok/"
   },
@@ -508,7 +518,7 @@
     "image": "team/imani_majied.jpg",
     "name": "Imani Majied",
     "id": "im1",
-    "role": "Business",
+    "role": "Analyst",
     "roleId": "business",
     "linkedin": "http://linkedin.com/in/imani-majied-98137b96"
   },
@@ -517,6 +527,6 @@
     "id": "st1",
     "name": "Sonya Tao",
     "roleId": "business",
-    "role": "Finance"
+    "role": "Analyst"
   }
 ]
