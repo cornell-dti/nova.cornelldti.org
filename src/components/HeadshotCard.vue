@@ -1,27 +1,29 @@
 <template>
-  <b-row class="headshot-card no-gutters">
-    <b-col>
-      <b-row class="image-row no-gutters">
-        <b-col>
-          <img :src="image" />
-        </b-col>
-      </b-row>
-      <b-row class="info no-gutters">
-        <b-col>
-          <b-row class="h-75 no-gutters" align-v="start">
-            <b-col align-self="start">
-              <div class="name">{{name}}</div>
-            </b-col>
-          </b-row>
-          <b-row class="h-25 no-gutters">
-            <b-col align-self="end">
-              <div class="role" v-if="role !== ''">{{role}}</div>
-            </b-col>
-          </b-row>
-        </b-col>
-      </b-row>
-    </b-col>
-  </b-row>
+  <div class="headshot-card-padding">
+    <b-row class="headshot-card no-gutters">
+      <b-col>
+        <b-row class="image-row no-gutters">
+          <b-col>
+            <img :src="image" />
+          </b-col>
+        </b-row>
+        <b-row class="info no-gutters">
+          <b-col>
+            <b-row class="h-75 no-gutters" align-v="start">
+              <b-col align-self="start">
+                <div class="name">{{name}}</div>
+              </b-col>
+            </b-row>
+            <b-row class="h-25 no-gutters">
+              <b-col align-self="end">
+                <div class="role" v-if="role !== ''">{{role}}</div>
+              </b-col>
+            </b-row>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
+  </div>
 </template>
 
 <script>
@@ -50,10 +52,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.headshot-card-padding {
+  padding: 2vh 1vw;
+}
+
 .headshot-card {
-  margin: 2vh 0.5vw;
   text-align: left;
-  width: 11em;
+  width: 100%;
+  min-width: 8em;
   max-height: 17em;
   height: 17em;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
