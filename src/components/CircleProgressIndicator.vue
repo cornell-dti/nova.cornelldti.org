@@ -43,10 +43,7 @@ export default {
     setPercentage(percentage = 0.5) {
       const fillers = Array.from(document.querySelectorAll('.fill'));
 
-      // TODO Don't use javascript "hax" for animations, just meant to illustrate the current progress.
-
-      let e = fillers[0];
-      e.style = '';
+      fillers[0].style = '';
 
       const x = [];
       const y = [];
@@ -77,23 +74,23 @@ export default {
             y.push(diameter, diameter);
 
             if (percentage >= 0.75) {
-              x.push(0, 0, radius - x);
+              x.push(0, 0, radius - xOffset);
               y.push(radius, 0, radius - y);
 
               // 75% -100%
             } else {
-              x.push(radius - x);
-              y.push(radius + y);
+              x.push(radius - xOffset);
+              y.push(radius + yOffset);
             }
             // 50-74%
           } else {
-            x.push(radius + x);
-            y.push(radius + y);
+            x.push(radius + xOffset);
+            y.push(radius + yOffset);
           }
           // 25% - 49%
         } else {
-          x.push(radius * 2, radius + x, radius);
-          y.push(radius - y, radius);
+          x.push(radius * 2, radius + xOffset, radius);
+          y.push(radius - yOffset, radius);
         }
 
         // 0 - 24%
