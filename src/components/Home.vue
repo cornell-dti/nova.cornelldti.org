@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="background" />
     <video autoplay loop=true muted=true preload=auto class="home-background" src="/static/givingday.mp4">
       No video support.
     </video>
@@ -15,6 +16,12 @@
 
 $left-hero-margin: 5%;
 $top-hero-margin: 70%;
+
+.background {
+  color: black;
+  width: 100vw;
+  height: 100vh;
+}
 
 .home-background {
   object-fit: cover;

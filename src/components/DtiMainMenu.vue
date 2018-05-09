@@ -3,7 +3,9 @@
     toggleable="md">
 
     <b-navbar-brand href="#">
-      <b-img class="brand-icon" src="/static/brand-icon.png" /></b-navbar-brand>
+      <b-img class="brand-icon" src="/static/brand-icon.png" />
+    </b-navbar-brand>
+
     <b-navbar-toggle target="nav_collapse">
       <b-img src="/static/menu-small.svg" />
     </b-navbar-toggle>
@@ -59,10 +61,6 @@ export default {
 .navbar-dti {
   transition: background-color 500ms linear;
   padding-right: 10vw;
-
-  &.scrolled {
-    background-color: white !important;
-  }
 
   @media (min-width: 768px) {
     .navbar-nav > li {

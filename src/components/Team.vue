@@ -5,19 +5,21 @@
     </text-page-hero>
 
     <page-section>
-      <p>Our team consists of 50 product managers, designers and developers working
+      <div>Our team consists of 50 product managers, designers and developers working
         on 6 projects ranging from a campus safety app to a course review website.
         Our diverse and talented team represents six of the seven undergraduate colleges
-        at Cornell.</p>
+        at Cornell.</div>
     </page-section>
+
     <div class="diversity">
       <div class="diversity-graph diversity-left" />
+      <!-- TODO bind formatting to actual elements-->
       <div class="diversity-graph diversity-right" />
 
       <b-container fluid>
         <page-section>
           <b-row>
-            <b-col>
+            <b-col sm="12" md="6" class="my-auto">
               <h1>Diversity</h1>
               <p>Page summary. Diverse team spanning disciplines, years, ethnicities,
                 etc. We've had exciting people and have been to exciting places.</p>
@@ -37,15 +39,13 @@
                 </circle-progress-indicator>
               </b-row>
             </b-col>
-            <b-col class="diversity-text-right my-auto">
+            <b-col sm="12" md="6" class="diversity-text-right my-auto">
               <b-row align-h="center">
-                <b-col cols="6">
+                <b-col sm="6" md="12" class="diversity-inner-text">
                   <h1>14</h1>
                   <p>Number of different majors</p>
                 </b-col>
-              </b-row>
-              <b-row align-h="center">
-                <b-col cols="6">
+                <b-col sm="6" md="12" class="diversity-inner-text">
                   <h1>6</h1>
                   <p>Number of represented colleges</p>
                 </b-col>
@@ -66,9 +66,14 @@
             <div :class="btn(roleId === '')" @click="roleId = ''">
               All
             </div>
-            <div v-for="role of roles" :key="role.id" :class="btn(roleId === role.id)" @click="roleId = role.id">
+            <div :class="selector(roleId === '')" />
+          </b-col>
+          <b-col class="text-center" v-for="role of roles" :key="role.id">
+            <div :class="btn(roleId === role.id)" @click="roleId = role.id">
               {{role.name}}
             </div>
+            <div :class="selector(roleId === role.id)" />
+          </b-col>
           </b-col>
         </b-row>
 
@@ -85,30 +90,72 @@
     </section>
   </page-background>
 </template>
+
 <style lang="scss" scoped>
-.diversity {
-  height: 80vh;
-  overflow: hidden;
+.selector {
+  background-color: transparent;
+  transition: background-color 500ms linear;
+  width: 1em;
+  height: 0.1em;
+  margin: 0 auto;
 }
 
+.selector-selected {
+  background-color: #4a4a4a !important;
+}
+
+.filter-btn, .selected-filter-btn {
+  color: #4a4a4a !important;
+}
+
+.filter-btn:focus,
+.filter-btn:hover,
+.selected-filter-btn:focus,
+.selected-filter-btn:hover {
+  text-decoration: none !important;
+  color: #9a9a9a !important;
+}
+
+.diversity {
+  min-height: 84vh;
+  overflow: hidden;
+}
 .diversity-graph {
   position: absolute;
   width: 100vw;
-  height: 80vh;
+  min-height: 80vh;
 }
 
-.diversity-left {
-  background-color: #f6f6f6;
-  clip-path: polygon(0 0, 0 100%, 48% 100%, 52% 0);
+@media (min-width: 768px) {
+  .diversity-left {
+    background-color: #f6f6f6;
+    clip-path: polygon(0 0, 0 100%, 48% 100%, 52% 0);
+  }
+
+  .diversity-right {
+    background-color: #ff324a;
+    clip-path: polygon(52% 0, 48% 100%, 100% 100%, 100% 0);
+  }
+
+  .diversity-text-right {
+    color: #fefefe;
+    padding: 10vw;
+  }
 }
 
-.diversity-text-right {
-  color: #fefefe;
-}
+@media (max-width: 767px) {
+  .diversity {
+    background-color: #f6f6f6;
+  }
 
-.diversity-right {
-  background-color: #ff324a;
-  clip-path: polygon(52% 0, 48% 100%, 100% 100%, 100% 0);
+  .diversity-inner-text {
+    text-align: center;
+  }
+
+  .diversity-right,
+  .diversity-left {
+    visibility: hidden;
+  }
 }
 </style>
 
@@ -159,8 +206,11 @@ export default {
   methods: {
     btn(selected) {
       return selected
-        ? ['selected-filter-btn', 'btn', 'btn-secondary']
+        ? ['selected-filter-btn', 'btn', 'btn-link']
         : ['filter-btn', 'btn', 'btn-link'];
+    },
+    selector(selected) {
+      return selected ? ['selector', 'selector-selected'] : ['selector'];
     },
     filterMembers(role = '') {
       let filtered;

@@ -6,7 +6,7 @@ html {
 }
 
 #app {
-  font-family: "PT Sans", "sans-serif" !important;
+  font-family: 'PT Sans', 'sans-serif' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,25 +21,6 @@ section {
   width: 100%;
 }
 
-.selected-filter-btn {
-  background-color: #4a4a4a !important;
-  color: #fefefe !important;
-}
-
-.selected-filter-btn:focus {
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.filter-btn {
-  color: #4a4a4a !important;
-}
-
-.filter-btn:hover {
-  text-decoration: none !important;
-  color: #9a9a9a !important;
-}
-
 .nav-padding {
   min-height: 10vh;
 }
@@ -47,5 +28,3 @@ section {
 .flexible-item {
   flex: 1 1 16%;
 }
-
-
