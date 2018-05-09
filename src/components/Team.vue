@@ -74,7 +74,6 @@
             </div>
             <div :class="selector(roleId === role.id)" />
           </b-col>
-          </b-col>
         </b-row>
 
         <!-- TODO actual padding --><br>

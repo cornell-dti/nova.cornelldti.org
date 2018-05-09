@@ -1,16 +1,20 @@
 <template>
-  <b-navbar ref="dtinavbar" fixed="top" :class="['navbar-dti ', 'navbar-dark ', transparent ? 'bg-transparent' : 'bg-dark ']"
+  <b-navbar ref="dtinavbar" fixed="top" :class="['navbar-dti ', 'navbar-dark ', transparent && !navShown ? 'bg-transparent' : 'bg-dark ']"
     toggleable="md">
 
-    <b-navbar-brand href="#">
+    <b-navbar-brand class="navbar-branding-dti" href="#">
       <b-img class="brand-icon" src="/static/brand-icon.png" />
     </b-navbar-brand>
 
-    <b-navbar-toggle target="nav_collapse">
-      <b-img src="/static/menu-small.svg" />
-    </b-navbar-toggle>
+    <b-btn @click="navShown = !navShown" :class="['navbar-toggler', navShown ? 'collapsed' : '']"
+      aria-controls="nav_collapse" :aria-expanded="navShown ? 'true' : 'false'">
+      <transition>
+        <b-img v-if="navShown" src="/static/menu-close-small.svg" />
+        <b-img v-else src="/static/menu-small.svg" />
+      </transition>
+    </b-btn>
 
-    <b-collapse is-nav id="nav_collapse">
+    <b-collapse is-nav id="nav_collapse" v-model="navShown">
       <b-navbar-nav class="ml-auto">
         <!-- todo look into ml-auto variants -->
         <b-nav-item to="/" exact>Home</b-nav-item>
@@ -28,7 +32,8 @@
 export default {
   data() {
     return {
-      transparent: true
+      transparent: true,
+      navShown: true
     };
   },
   methods: {
@@ -60,7 +65,6 @@ export default {
 
 .navbar-dti {
   transition: background-color 500ms linear;
-  padding-right: 10vw;
 
   @media (min-width: 768px) {
     .navbar-nav > li {
@@ -70,9 +74,28 @@ export default {
   }
 
   @media (max-width: 767px) {
+    &.navbar {
+      padding: 0;
+    }
+
+    .navbar-branding-dti,
+    .navbar-toggler {
+      margin: 0.5rem 1rem; // todo
+
+      btn {
+        float: right;
+      }
+    }
+
     .navbar-nav {
-      float: right;
-      text-align: right;
+      float: none;
+      text-align: center;
+      padding-right: 0;
+
+      .nav-item {
+        padding: 0.5rem;
+        border-top: 2px solid rgba(255, 255, 255, 0.2);
+      }
     }
   }
 }
