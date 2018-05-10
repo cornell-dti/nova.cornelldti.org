@@ -97,14 +97,14 @@
 
 .graph-datum {
   display: inline-block;
-  margin: 0.25em;
+  margin: 0.25rem;
 }
 
 .selector {
   background-color: transparent;
   transition: background-color 500ms linear;
-  width: 1em;
-  height: 0.1em;
+  width: 1rem;
+  height: 0.1rem;
   margin: 0 auto;
 }
 
@@ -167,7 +167,7 @@
   }
 
   .diversity-inner-text {
-    margin-top: 1em;
+    margin-top: 1rem;
   }
 }
 </style>

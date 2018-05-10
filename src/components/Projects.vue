@@ -23,7 +23,7 @@
   background-color: transparent;
   text-align: center;
   padding: 3vw 0vw;
-  height: 20em;
+  height: 20rem;
   width: 100%;
   max-width: 100%;
   object-fit: cover;
