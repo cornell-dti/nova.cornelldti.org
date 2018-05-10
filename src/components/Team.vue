@@ -20,7 +20,7 @@
         <page-section>
           <b-row>
             <b-col sm="12" md="6" class="my-auto">
-              <h1>Diversity</h1>
+              <h1 class="team-header">Diversity</h1>
               <p>Page summary. Diverse team spanning disciplines, years, ethnicities,
                 etc. We've had exciting people and have been to exciting places.</p>
 
@@ -59,7 +59,7 @@
 
     <b-container fluid>
       <page-section>
-        <h1>Team</h1>
+        <h1 class="team-header">Team</h1>
 
         <b-row class="justify-content-center">
           <b-col class="text-center">
@@ -83,7 +83,11 @@
 
       </page-section>
 
+      <div class="pseudo-team-header">
+        <h1>Where we've worked...</h1>
+      </div>
     </b-container>
+
     <section>
       <marquee :companies="companies" />
     </section>
@@ -91,6 +95,16 @@
 </template>
 
 <style lang="scss" scoped>
+.team-header {
+  margin-bottom: 3rem;
+}
+
+.pseudo-team-header {
+  margin-top: 1rem;
+  margin-left: 4vw;
+  margin-right: 4vw;
+}
+
 .graph-data {
   text-align: center;
 }
