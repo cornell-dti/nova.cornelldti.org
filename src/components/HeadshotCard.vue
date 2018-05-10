@@ -58,38 +58,43 @@ export default {
 
 .headshot-card {
   text-align: left;
-  width: 100%;
-  min-width: 8em;
-  max-height: 17em;
-  height: 17em;
+  width: 12.5rem;
+  min-width: 12.5rem;
+  max-height: 18.5rem;
+  height: 18.5rem;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
 
   .info {
-    padding: 0.75em;
-    height: 40%;
+    padding: 1.25rem;
+    height: 6.5rem;
     flex-grow: 1;
 
     .name {
-      margin-top: 0;
-      font-size: 1.0em;
-      line-height: 1.2em;
-      max-width: 8em;
+      font-size: 1.125rem;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      text-align: left;
+      color: #000000;
+      max-width: 12rem;
     }
 
     .role {
       margin: 0;
-      font-size: 0.8em;
-      line-height: 0.8em;
-      color: #777;
-    }
-
-    .role-row {
-      flex-grow: 1;
+      opacity: 0.5;
+      font-size: 0.875rem;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      text-align: left;
+      color: #000000;
     }
   }
 
   .image-row {
-    height: 59.5%;
+    height: 12rem;
     overflow: hidden;
   }
 
