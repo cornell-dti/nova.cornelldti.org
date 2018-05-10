@@ -85,7 +85,7 @@
 
     </b-container>
     <section>
-      <marquee />
+      <marquee :companies="companies" />
     </section>
   </page-background>
 </template>
@@ -190,6 +190,10 @@ export default {
     };
   },
   props: {
+    companies: {
+      type: Array,
+      required: true
+    },
     members: {
       type: Array,
       required: true

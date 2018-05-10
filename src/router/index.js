@@ -13,6 +13,7 @@ import MembersJson from '@/members.json';
 import ProjectsJson from '@/projects.json';
 import TeamsJson from '@/teams.json';
 import RolesJson from '@/roles.json';
+import CompaniesJson from '@/companies.json';
 
 Vue.use(Router);
 
@@ -52,7 +53,8 @@ export default new Router({
       props: {
         members: MembersJson,
         teams: TeamsJson,
-        roles: RolesJson
+        roles: RolesJson,
+        companies: CompaniesJson
       }
     },
     {

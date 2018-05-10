@@ -5,14 +5,15 @@
         <div :class="{'marquee-animation': enabled}">
           <div class="marquee-inner">
             <div class="marquee-item">
-              <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo"
-                :alt="company.name" rounded="true" blank width="200" height="75" blank-color="#777"
-              />
+
+              <b-img class="company-logo" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
+                :key="`topFirst${company.logo}`" :src="img(`companies/${company.logo}`)"
+                :alt="company.name" rounded="true" width="200" height="75" />
             </div>
             <div class="marquee-item">
-              <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo"
-                :alt="company.name" rounded="true" blank width="200" height="75" blank-color="#777"
-              />
+              <b-img class="company-logo" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
+                :key="`topSecond${company.logo}`" :src="img(`companies/${company.logo}`)"
+                :alt="company.name" rounded="true" width="200" height="75" />
             </div>
           </div>
         </div>
@@ -23,14 +24,15 @@
         <div :class="{'marquee-animation-reverse': enabled}">
           <div class="marquee-inner">
             <div class="marquee-item offset-t">
-              <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo"
-                :alt="company.name" rounded="true" blank width="200" height="75" blank-color="#777"
-              />
+
+              <b-img class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
+                :key="`bottomFirst${company.logo}`" :src="img(`companies/${company.logo}`)"
+                :alt="company.name" rounded="true" width="200" height="75" />
             </div>
             <div class="marquee-item offset-b">
-              <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo"
-                :alt="company.name" rounded="true" blank width="200" height="75" blank-color="#777"
-              />
+              <b-img class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
+                :key="`bottomSecond${company.logo}`" :src="img(`companies/${company.logo}`)"
+                :alt="company.name" rounded="true" width="200" height="75" />
             </div>
           </div>
         </div>
@@ -130,7 +132,8 @@ $animation-speed: 20s;
 export default {
   data() {
     return {
-      enabled: true
+      enabled: true,
+      shuffledCompanies: []
     };
   },
   props: {
@@ -144,6 +147,21 @@ export default {
           { name: 'Elsewhere' }
         ];
       }
+    }
+  },
+  mounted() {
+    this.shuffle();
+  },
+  methods: {
+    shuffle() {
+      const copy = [...this.companies];
+
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
+      }
+
+      this.shuffledCompanies = copy;
     }
   }
 };
