@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       transparent: true,
-      navShown: true
+      navShown: false
     };
   },
   methods: {

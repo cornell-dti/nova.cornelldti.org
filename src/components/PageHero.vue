@@ -26,8 +26,8 @@ export default {
 <style lang="scss" scoped>
 .page-header {
   min-height: 10vh;
-  background-position-y: -35vh !important; // todo
   background-size: cover !important;
+  background-position: 0% 50% !important;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 

@@ -58,6 +58,8 @@ export default {
 
 .headshot-card {
   text-align: left;
+  margin-left: auto;
+  margin-right: auto;
   width: 12.5rem;
   min-width: 12.5rem;
   max-height: 18.5rem;
