@@ -46,7 +46,7 @@
           </b-row>
 
           <h1>Team</h1>
-          <headshot-grid :members="getTeam(projectData.teamId).members" />
+          <headshot-grid :members="getTeam(projectData.teamId).members" :teams="teams" />
 
           <b-row align-h="center">
             <b-col cols="auto">
