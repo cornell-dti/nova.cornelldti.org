@@ -16,8 +16,8 @@
         </b-col>
       </b-row>
     </page-hero>
-    <b-container fluid>
 
+    <b-container fluid>
       <b-row>
         <b-col cols="2">
           <div class="h-100 project-content-border-left" />
