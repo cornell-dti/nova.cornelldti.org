@@ -1,8 +1,10 @@
 <template>
   <div>
     <div class="background" />
-    <video autoplay loop=true muted=true preload=auto class="home-background" src="/static/givingday.mp4">
-      No video support.
+    <video class="home-background" src="/static/givingday.mp4" autoplay loop=true muted=true
+      preload=auto>
+      Your browser does not support video playback.
+      <!--TODO-->
     </video>
     <div class="home-background overlay" />
     <b-row>
@@ -14,11 +16,10 @@
 <style lang="scss" scoped>
 @import '../index.scss';
 
-$left-hero-margin: 5%;
-$top-hero-margin: 70%;
+$hero-margin: 5%;
 
 .background {
-  color: black;
+  color: #000;
   width: 100vw;
   height: 100vh;
 }
@@ -37,13 +38,12 @@ $top-hero-margin: 70%;
 }
 
 .home-hero-text {
+  position: absolute;
+  bottom: $hero-margin;
+  left: $hero-margin;
   text-align: left;
   font-weight: bolder;
   font-size: 4.5em;
-  position: absolute;
-  top: $top-hero-margin;
-  left: $left-hero-margin;
-  transform: translate(-$left-hero-margin, -$left-hero-margin);
-  color: white;
+  color: #fff;
 }
 </style>

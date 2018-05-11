@@ -41,7 +41,8 @@ export default {
     }
   },
   methods: {
-    // todo ensure I'm selecting the right z-indexed div (use ids/classes instead of finger crossing)
+    // todo ensure I'm selecting the right z-indexed div
+    // (use ids/classes instead of finger crossing)
     percentageArr(percentage = 0.5) {
       const x = [];
       const y = [];

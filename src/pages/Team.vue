@@ -95,7 +95,7 @@
 
         <!-- TODO actual padding --><br>
 
-        <headshot-grid :members="[...filterMembers(`project-lead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
+        <headshot-grid :members="[...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
           :teams="teams" />
 
       </page-section>
