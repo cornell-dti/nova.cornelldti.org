@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <div class="page-stack page-background">
-      <div class="page-stack-element loader-background my-auto">
-        <div class="loader">
+      <div id="loaderBackground" class="page-stack-element loader-background my-auto">
+        <div class="page-stack-element loader-background-shade my-auto" />
+
+        <!--<div class="loader">
           <span class="loader-element"></span>
           <span class="loader-element second-dot"></span>
           <span class="loader-element third-dot"></span>
-        </div>
+        </div>-->
       </div>
       <base-layout class="page-stack-element">
         <dti-main-menu slot="header" />
@@ -44,6 +46,11 @@ export default {
       } else {
         this.transition = 'slideout';
       }
+
+      document.getElementById('loaderBackground').style[
+        'background-image'
+      ] = `url('${this.img(`bg/${toI % 4}.jpg`)}')`;
+
       next();
     });
   }
@@ -59,7 +66,7 @@ body {
 </style>
 
 <style lang="scss" scoped>
-$page-transition-duration: 1s;
+$page-transition-duration: 1.5s;
 
 .page-stack {
   position: relative;
@@ -74,7 +81,13 @@ $page-transition-duration: 1s;
 }
 
 .loader-background {
-  background: #ff324a;
+  background-size: cover; // #ff324a;
+  -webkit-filer: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.loader-background-shade {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .loader {
