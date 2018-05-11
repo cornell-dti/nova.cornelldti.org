@@ -2,7 +2,10 @@
   <div class="d-flex flex-row flex-wrap justify-content-center">
     <!-- v-for="row in rows()" :key="row.index" -->
     <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
-      <div v-if="member.phantom" class="phantom-headshot-card headshot-card" />
+      <div v-if="member.phantom" class="phantom-headshot-card ">
+        <headshot-card :name="member.id" :role="member.id" :image='``' @click.native="null"
+        />
+      </div>
       <headshot-card v-else :name="member.name" :role="member.role" :image='img(member.image)'
         @click.native="memberClicked(member)" />
     </div>
@@ -13,7 +16,9 @@
 
 <style lang="scss" scoped>
 .phantom-headshot-card {
-  min-width: 155px;
+  //min-width: 155px;
+  visibility: hidden;
+  max-height: 0;
 }
 </style>
 
