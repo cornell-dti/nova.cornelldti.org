@@ -8,6 +8,7 @@ import Apply from '@/pages/Apply';
 import Sponsor from '@/pages/Sponsor';
 import Project from '@/pages/Project';
 import Initiatives from '@/pages/Initiatives';
+import NotFound from '@/pages/NotFound';
 
 import MembersJson from '@/data/members.json';
 import ProjectsJson from '@/data/projects.json';
@@ -19,7 +20,9 @@ import DiversityJson from '@/data/diversity.json';
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
+    { path: '*', component: NotFound },
     {
       path: '/',
       name: 'Home',

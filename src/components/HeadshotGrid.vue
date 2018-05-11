@@ -16,7 +16,6 @@
 
 <style lang="scss" scoped>
 .phantom-headshot-card {
-  //min-width: 155px;
   visibility: hidden;
   max-height: 0;
 }
