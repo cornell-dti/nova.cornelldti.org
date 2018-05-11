@@ -3,8 +3,8 @@
     <div class="circle-progress">
       <div class="circle">
         <div class="mask full">
-          <div class="fill" />
-          <div class="fill-hider" />
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            class="fill-hider circle-svg" />
         </div>
       </div>
       <div class="inset">
@@ -25,19 +25,10 @@ export default {
     }
   },
   data() {
-    return { interval: -1, counter: 0 };
+    return { interval: -1, percentageLast: 0 };
   },
   mounted() {
-    this.counter = 0;
-
-    this.interval = setInterval(() => {
-      if (this.interval !== -1 && this.counter >= this.percentage) {
-        clearInterval(this.interval);
-        this.counter = 0;
-      } else {
-        this.setPercentage((this.counter += 0.01));
-      }
-    }, 100);
+    this.setPercentage(0.55);
   },
   beforeDestroy() {
     if (this.interval !== -1) {
@@ -46,12 +37,7 @@ export default {
   },
   methods: {
     // todo ensure I'm selecting the right z-indexed div (use ids/classes instead of finger crossing)
-
-    setPercentage(percentage = 0.5) {
-      const fillers = Array.from(document.querySelectorAll('.fill'));
-
-      fillers[0].style = '';
-
+    percentageArr(percentage = 0.5) {
       const x = [];
       const y = [];
 
@@ -103,15 +89,54 @@ export default {
         // 0 - 24%
       }
 
-      let polygon = 'polygon(';
+      return [x, y];
+    },
+    setPercentage(percentage = 0.5) {
+      const fillers = Array.from(document.querySelectorAll('.circle-svg'));
 
-      for (let i = 0; i < Math.min(x.length, y.length); i += 1) {
-        polygon += `${x[i]}px ${y[i]}px,`;
+      const params = [];
+
+      if (this.interval !== -1) {
+        clearInterval(this.interval);
       }
 
-      polygon = `${polygon.substring(0, polygon.length - 1)})`;
+      let percentageIncr = this.percentageLast;
 
-      fillers[0].style['clip-path'] = polygon;
+      this.interval = setInterval(() => {
+        const [x, y] = this.percentageArr(percentageIncr);
+
+        params.push(`M${x[0]},${y[0]}`);
+
+        for (let i = 1; i < Math.min(x.length, y.length); i += 1) {
+          params.push(`L${x[i]},${y[i]}`);
+        }
+        params.push('Z');
+
+        let pathData = '';
+
+        for (const param of params) {
+          pathData += ` ${param}`;
+        }
+
+        let path = document.getElementsByTagNameNS(
+          'http://www.w3.org/2000/svg',
+          'path'
+        )[0];
+        if (path == null) {
+          path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          fillers[0].appendChild(path);
+        }
+
+        path.setAttributeNS(null, 'd', pathData);
+        path.setAttributeNS(null, 'style', 'fill: red;');
+
+        if (percentageIncr + 0.05 >= percentage) {
+          this.percentageLast = percentage;
+          clearInterval(this.interval);
+        } else {
+          percentageIncr += 0.01;
+        }
+      }, 10);
     }
   }
 };
@@ -176,7 +201,7 @@ $inset-color: #fefefe;
         background-color: $circle-background-color;
         width: $circle-size;
         height: $circle-size;
-        border-radius: 48.5%;
+        border-radius: 50%;
         position: absolute;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
