@@ -1,15 +1,6 @@
 <template>
   <div id="app">
     <div class="page-stack page-background">
-      <div id="loaderBackground" class="page-stack-element loader-background my-auto">
-        <div class="page-stack-element loader-background-shade my-auto" />
-
-        <!--<div class="loader">
-          <span class="loader-element"></span>
-          <span class="loader-element second-dot"></span>
-          <span class="loader-element third-dot"></span>
-        </div>-->
-      </div>
       <base-layout class="page-stack-element">
         <dti-main-menu slot="header" />
         <transition :name="transition" slot="body">
@@ -47,10 +38,6 @@ export default {
         this.transition = 'slideout';
       }
 
-      document.getElementById('loaderBackground').style[
-        'background-image'
-      ] = `url('${this.img(`bg/${toI % 4}.jpg`)}')`;
-
       next();
     });
   }
@@ -74,47 +61,9 @@ $page-transition-duration: 1.5s;
   .page-stack-element {
     position: absolute;
     left: 0;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     height: 100%;
-  }
-}
-
-.loader-background {
-  background-size: cover; // #ff324a;
-  -webkit-filer: grayscale(100%);
-  filter: grayscale(100%);
-}
-
-.loader-background-shade {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.loader {
-  text-align: center;
-  color: #fefefe;
-  margin-top: 40vh; // TODO hacky
-
-  .loader-element {
-    display: inline-block;
-    vertical-align: middle;
-    width: 0.625rem;
-    height: 0.625rem;
-    margin: 3.125rem auto;
-    background: #fefefe;
-    border-radius: 3.125rem;
-    -webkit-animation: loader 0.9s infinite alternate;
-    animation: loader 0.9s infinite alternate;
-
-    &.second-dot {
-      -webkit-animation-delay: 0.3s;
-      animation-delay: 0.3s;
-    }
-
-    &.third-dot {
-      -webkit-animation-delay: 0.6s;
-      animation-delay: 0.6s;
-    }
   }
 }
 
@@ -158,52 +107,57 @@ $page-transition-duration: 1.5s;
 .slideup-enter-active {
   max-height: 100vh;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .slidedown-leave-active {
   // TODO: Currently is broken due to width requirements...
-  //-webkit-animation: moveToBottom $page-transition-duration ease both;
-  //animation: moveToBottom $page-transition-duration ease both;
+  //-webkit-animation: moveToBottom $page-transition-duration linear both;
+  //animation: moveToBottom $page-transition-duration linear both;
 }
 
 .slidedown-enter-active {
-  -webkit-animation: moveFromTop $page-transition-duration ease both;
-  animation: moveFromTop $page-transition-duration ease both;
-  animation-delay: $page-transition-duration;
+  -webkit-animation: moveFromTop $page-transition-duration linear both;
+  animation: moveFromTop $page-transition-duration linear both;
+  //animation-delay: $page-transition-duration / 100;
 }
 
 .slideup-leave-active {
   // TODO: Currently is broken due to width requirements...
-  -webkit-animation: moveToTop $page-transition-duration ease both;
-  animation: moveToTop $page-transition-duration ease both;
+  -webkit-animation: moveToTop $page-transition-duration linear both;
+  animation: moveToTop $page-transition-duration linear both;
 }
 
 .slideup-enter-active {
-  -webkit-animation: moveFromBottom $page-transition-duration ease both;
-  animation: moveFromBottom $page-transition-duration ease both;
-  animation-delay: $page-transition-duration;
+  -webkit-animation: moveFromBottom $page-transition-duration linear both;
+  animation: moveFromBottom $page-transition-duration linear both;
+  //animation-delay: $page-transition-duration / 100;
 }
 
 .slidein-leave-active {
-  -webkit-animation: moveToLeft $page-transition-duration ease both;
-  animation: moveToLeft $page-transition-duration ease both;
+  -webkit-animation: moveToLeft $page-transition-duration linear both;
+  animation: moveToLeft $page-transition-duration linear both;
 }
 
 .slidein-enter-active {
-  -webkit-animation: moveFromRight $page-transition-duration ease both;
-  animation: moveFromRight $page-transition-duration ease both;
-  animation-delay: $page-transition-duration;
+  -webkit-animation: moveFromRight $page-transition-duration linear both;
+  animation: moveFromRight $page-transition-duration linear both;
+
+  // animation-delay: $page-transition-duration / 100;
 }
 
 .slideout-enter-active {
-  -webkit-animation: moveFromLeft $page-transition-duration ease both;
-  animation: moveFromLeft $page-transition-duration ease both;
-  animation-delay: $page-transition-duration;
+  -webkit-animation: moveFromLeft $page-transition-duration linear both;
+  animation: moveFromLeft $page-transition-duration linear both;
+
+  //animation-delay: $page-transition-duration / 100;
 }
 
 .slideout-leave-active {
-  -webkit-animation: moveToRight $page-transition-duration ease both;
-  animation: moveToRight $page-transition-duration ease both;
+  -webkit-animation: moveToRight $page-transition-duration linear both;
+  //animation: moveToRight $page-transition-duration linear both;
 }
 
 @-webkit-keyframes moveToLeft {
