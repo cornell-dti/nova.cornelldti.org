@@ -10,7 +10,7 @@
         <b-col md="12" lg="6" class="justify-content" v-for="project in projectRow.members"
           :key="project.id">
           <router-link :to="{ path: project.id, params:{ project: project.name }}" append>
-            <b-img :src="img(project.badge)" class="project-card" />
+            <b-img :src="img(`projects/${project.id}/card.jpg`)" class="project-card" />
           </router-link>
         </b-col>
       </b-row>
@@ -22,11 +22,12 @@
 .project-card {
   background-color: transparent;
   text-align: center;
-  padding: 3vw 0vw;
-  height: 20rem;
+  margin: 3vw 0vw;
   width: 100%;
   max-width: 100%;
   object-fit: cover;
+ 
+  box-shadow: 0 0 3px 0px rgba(0,0,0,0.6);
 }
 </style>
 

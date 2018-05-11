@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <page-hero>
+    <page-hero :bg="img(`projects/${projectData.id}/hero.jpg`)">
       <b-row align-h="center" class="no-gutters h-50">
         <b-col sm="auto" md="8" class="my-auto">
           <b-row class="project-hero-header no-gutters">
