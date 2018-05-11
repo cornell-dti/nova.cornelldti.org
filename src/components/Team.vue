@@ -25,18 +25,35 @@
                 etc. We've had exciting people and have been to exciting places.</p>
 
               <b-row class="justify-content-center">
-                <circle-progress-indicator :percentage="genderRatio">
+                <circle-progress-indicator :percentage="fem(divRoleId)">
                   <div class="graph-data">
-                    <div class="graph-datum">
-                      <h3>53%</h3>
-                      <p>Female</p>
-                    </div>
-                    <div class="graph-datum">
-                      <h3>47%</h3>
-                      <p>Male</p>
-                    </div>
+                    <b-row align-v="center" class="h-100">
+                      <b-col cols="6" class="graph-datum">
+                        <h3 v-html="`${Math.round(100 * fem(divRoleId))}%`" />
+                        <p>Female</p>
+                      </b-col>
+                      <b-col cols="6" class="graph-datum">
+                        <h3 v-html="`${Math.round(100 * masc(divRoleId))}%`" />
+                        <p>Male</p>
+                      </b-col>
+                    </b-row>
                   </div>
                 </circle-progress-indicator>
+              </b-row>
+              <br />
+              <b-row class="justify-content-center">
+                <b-col class="text-center">
+                  <div :class="btn(divRoleId === 'all')" @click="divRoleId = 'all'">
+                    All
+                  </div>
+                  <div :class="selector(divRoleId === 'all')" />
+                </b-col>
+                <b-col class="text-center" v-for="role of roles" :key="role.id">
+                  <div :class="btn(divRoleId === role.id)" @click="divRoleId = role.id">
+                    {{role.name}}
+                  </div>
+                  <div :class="selector(divRoleId === role.id)" />
+                </b-col>
               </b-row>
             </b-col>
             <b-col sm="12" md="6" class="diversity-text-right my-auto">
@@ -107,11 +124,7 @@
 
 .graph-data {
   text-align: center;
-}
-
-.graph-datum {
-  display: inline-block;
-  margin: 0.25rem;
+  height: 120px;
 }
 
 .selector {
@@ -200,7 +213,8 @@ export default {
   data() {
     return {
       currentProfile: {},
-      filter_role_category: ''
+      filter_role_category: '',
+      divRoleId: 'all'
     };
   },
   props: {
@@ -219,6 +233,10 @@ export default {
     roles: {
       type: Array,
       required: true
+    },
+    diversity: {
+      type: Object,
+      required: true
     }
   },
   computed: {
@@ -229,12 +247,33 @@ export default {
       get() {
         return this.filter_role_category;
       }
-    },
-    genderRatio() {
-      return 0.53;
     }
   },
   methods: {
+    masc(roleId) {
+      return (
+        this.diversity.genderRatio[roleId].m /
+        (this.diversity.genderRatio[roleId].f +
+          this.diversity.genderRatio[roleId]['3'] +
+          this.diversity.genderRatio[roleId].m)
+      );
+    },
+    fem(roleId) {
+      return (
+        this.diversity.genderRatio[roleId].f /
+        (this.diversity.genderRatio[roleId].m +
+          this.diversity.genderRatio[roleId]['3'] +
+          this.diversity.genderRatio[roleId].f)
+      );
+    },
+    third(roleId) {
+      return (
+        this.diversity.genderRatio[roleId]['3'] /
+        (this.diversity.genderRatio[roleId].m +
+          this.diversity.genderRatio[roleId]['3'] +
+          this.diversity.genderRatio[roleId].f)
+      );
+    },
     btn(selected) {
       return selected
         ? ['selected-filter-btn', 'btn', 'btn-link']

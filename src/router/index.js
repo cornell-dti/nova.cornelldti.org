@@ -14,6 +14,7 @@ import ProjectsJson from '@/projects.json';
 import TeamsJson from '@/teams.json';
 import RolesJson from '@/roles.json';
 import CompaniesJson from '@/companies.json';
+import DiversityJson from '@/diversity.json';
 
 Vue.use(Router);
 
@@ -54,7 +55,8 @@ export default new Router({
         members: MembersJson,
         teams: TeamsJson,
         roles: RolesJson,
-        companies: CompaniesJson
+        companies: CompaniesJson,
+        diversity: DiversityJson
       }
     },
     {

@@ -27,12 +27,17 @@ export default {
   data() {
     return { interval: -1, percentageLast: 0 };
   },
-  mounted() {
-    this.setPercentage(0.55);
-  },
   beforeDestroy() {
     if (this.interval !== -1) {
       clearInterval(this.interval);
+    }
+  },
+  mounted() {
+    this.setPercentage(this.percentage);
+  },
+  watch: {
+    percentage(val) {
+      this.setPercentage(val);
     }
   },
   methods: {
@@ -94,16 +99,16 @@ export default {
     setPercentage(percentage = 0.5) {
       const fillers = Array.from(document.querySelectorAll('.circle-svg'));
 
-      const params = [];
-
       if (this.interval !== -1) {
         clearInterval(this.interval);
       }
 
       let percentageIncr = this.percentageLast;
+      this.percentageLast = percentage;
 
       this.interval = setInterval(() => {
         const [x, y] = this.percentageArr(percentageIncr);
+        const params = [];
 
         params.push(`M${x[0]},${y[0]}`);
 
@@ -130,11 +135,12 @@ export default {
         path.setAttributeNS(null, 'd', pathData);
         path.setAttributeNS(null, 'style', 'fill: red;');
 
-        if (percentageIncr + 0.05 >= percentage) {
-          this.percentageLast = percentage;
+        if (Math.abs(percentageIncr - percentage) < 0.01) {
           clearInterval(this.interval);
-        } else {
+        } else if (percentageIncr < percentage) {
           percentageIncr += 0.01;
+        } else {
+          percentageIncr -= 0.01;
         }
       }, 10);
     }

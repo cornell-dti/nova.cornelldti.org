@@ -6,14 +6,20 @@
           <div class="marquee-inner">
             <div class="marquee-item">
 
-              <b-img class="company-logo" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
+              <!--<b-img class="company-logo" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
                 :key="`topFirst${company.logo}`" :src="img(`companies/${company.logo}`)"
-                :alt="company.name" rounded="true" width="200" height="75" />
+                :alt="company.name" rounded="true" width="200" height="75" />-->
+              <h1 class="company-logo" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
+                :key="`topFirst${company.name}`" v-html="company.name" rounded="true"
+                width="200" height="75" />
             </div>
             <div class="marquee-item">
-              <b-img class="company-logo" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
+              <!--<b-img class="company-logo" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
                 :key="`topSecond${company.logo}`" :src="img(`companies/${company.logo}`)"
-                :alt="company.name" rounded="true" width="200" height="75" />
+                :alt="company.name" rounded="true" width="200" height="75" />-->
+              <h1 class="company-logo" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
+                :key="`topSecond${company.name}`" v-html="company.name" rounded="true"
+                width="200" height="75" />
             </div>
           </div>
         </div>
@@ -25,14 +31,21 @@
           <div class="marquee-inner">
             <div class="marquee-item offset-t">
 
-              <b-img class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
+              <!--<b-img class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
                 :key="`bottomFirst${company.logo}`" :src="img(`companies/${company.logo}`)"
-                :alt="company.name" rounded="true" width="200" height="75" />
+                :alt="company.name" rounded="true" width="200" height="75" />-->
+              <h1 class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
+                :key="`bottomFirst${company.name}`" v-html="company.name" rounded="true"
+                width="200" height="75" />
             </div>
             <div class="marquee-item offset-b">
-              <b-img class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
+              <!-- <b-img class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
                 :key="`bottomSecond${company.logo}`" :src="img(`companies/${company.logo}`)"
-                :alt="company.name" rounded="true" width="200" height="75" />
+                :alt="company.name" rounded="true" width="200" height="75" />-->
+              <h1 class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
+                :key="`bottomSecond${company.name}`" v-html="company.name" rounded="true"
+                width="200" height="75" />
+
             </div>
           </div>
         </div>
@@ -42,14 +55,49 @@
 </template>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Playfair+Display|Roboto+Slab|Titan+One|Titillium+Web');
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Acme|Pacifico|Shadows+Into+Light');
+
 $animation-speed: 20s;
 
 .offset-t {
   margin-left: -12.5vw;
+
+  h1:nth-child(0) {
+    font-family: 'Roboto Slab', serif !important;
+  }
+  h1:nth-child(1) {
+    font-family: 'Titan One', cursive !important;
+  }
+  h1:nth-child(2) {
+    font-family: 'Playfair Display', serif !important;
+  }
+  h1:nth-child(3) {
+    font-family: 'Titillium Web', sans-serif !important;
+  }
+  h1:nth-child(4) {
+    font-family: 'Indie Flower', cursive !important;
+  }
 }
 
 .offset-b {
   margin-left: 0vw !important;
+
+  h1:nth-child(0) {
+    font-family: 'Roboto Slab', serif !important;
+  }
+  h1:nth-child(1) {
+    font-family: 'Titan One', cursive !important;
+  }
+  h1:nth-child(2) {
+    font-family: 'Playfair Display', serif !important;
+  }
+  h1:nth-child(3) {
+    font-family: 'Titillium Web', sans-serif !important;
+  }
+  h1:nth-child(4) {
+    font-family: 'Indie Flower', cursive !important;
+  }
 }
 
 .marquee-outer {
@@ -75,6 +123,22 @@ $animation-speed: 20s;
           white-space: nowrap;
           margin: 10px;
           border-radius: 25px;
+        }
+
+        h1:nth-child(0) {
+          font-family: 'Pacifico', cursive;
+        }
+        h1:nth-child(1) {
+          font-family: 'Abel', sans-serif;
+        }
+        h1:nth-child(2) {
+          font-family: 'Shadows Into Light', cursive;
+        }
+        h1:nth-child(3) {
+          font-family: 'Abril Fatface', cursive;
+        }
+        h1:nth-child(4) {
+          font-family: 'Acme', sans-serif;
         }
       }
     }
