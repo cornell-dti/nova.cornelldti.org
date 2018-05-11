@@ -18,7 +18,7 @@
 </style>
 
 <script>
-import HeadshotCard from '@/components/HeadshotGrid';
+import HeadshotCard from '@/components/HeadshotCard';
 import MemberProfileModal from '@/components/MemberProfileModal';
 
 export default {
