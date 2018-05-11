@@ -6,24 +6,24 @@
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 
+/* Data */
+
+import LoremIpsumJson from '@/data/loremipsum.json';
+
 /* Core Files */
 
-import App from './App';
-import router from './router';
+import App from '@/App';
+import router from '@/router';
 
 /* Global Components */
 
-import DtiMainMenu from './components/DtiMainMenu';
-import PageBackground from './components/PageBackground';
-import PageHero from './components/PageHero';
-import TextPageHero from './components/TextPageHero';
-import PageSection from './components/PageSection';
-import BaseLayout from './components/BaseLayout';
-import StoreBadge from './components/StoreBadge';
-
-/* Data */
-
-import LoremIpsumJson from './loremipsum.json';
+import DtiMainMenu from '@/components/DtiMainMenu';
+import PageBackground from '@/components/PageBackground';
+import PageHero from '@/components/PageHero';
+import TextPageHero from '@/components/TextPageHero';
+import PageSection from '@/components/PageSection';
+import BaseLayout from '@/components/BaseLayout';
+import StoreBadge from '@/components/StoreBadge';
 
 Vue.use(BootstrapVue);
 

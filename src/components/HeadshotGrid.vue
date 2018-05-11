@@ -18,8 +18,8 @@
 </style>
 
 <script>
-import HeadshotCard from './HeadshotCard';
-import MemberProfileModal from './MemberProfileModal';
+import HeadshotCard from '@/components/HeadshotGrid';
+import MemberProfileModal from '@/components/MemberProfileModal';
 
 export default {
   components: { HeadshotCard, MemberProfileModal },

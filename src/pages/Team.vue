@@ -200,9 +200,9 @@
 </style>
 
 <script>
-import HeadshotGrid from './HeadshotGrid';
-import Marquee from './CompaniesMarquee';
-import CircleProgressIndicator from './CircleProgressIndicator';
+import HeadshotGrid from '@/components/HeadshotGrid';
+import Marquee from '@/components/CompaniesMarquee';
+import CircleProgressIndicator from '@/components/CircleProgressIndicator';
 
 export default {
   components: {

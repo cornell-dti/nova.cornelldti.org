@@ -1,20 +1,20 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from '@/components/Home';
-import Projects from '@/components/Projects';
-import Team from '@/components/Team';
-import Apply from '@/components/Apply';
-import Sponsor from '@/components/Sponsor';
-import Project from '@/components/Project';
-import Initiatives from '@/components/Initiatives';
+import Home from '@/pages/Home';
+import Projects from '@/pages/Projects';
+import Team from '@/pages/Team';
+import Apply from '@/pages/Apply';
+import Sponsor from '@/pages/Sponsor';
+import Project from '@/pages/Project';
+import Initiatives from '@/pages/Initiatives';
 
-import MembersJson from '@/members.json';
-import ProjectsJson from '@/projects.json';
-import TeamsJson from '@/teams.json';
-import RolesJson from '@/roles.json';
-import CompaniesJson from '@/companies.json';
-import DiversityJson from '@/diversity.json';
+import MembersJson from '@/data/members.json';
+import ProjectsJson from '@/data/projects.json';
+import TeamsJson from '@/data/teams.json';
+import RolesJson from '@/data/roles.json';
+import CompaniesJson from '@/data/companies.json';
+import DiversityJson from '@/data/diversity.json';
 
 Vue.use(Router);
 

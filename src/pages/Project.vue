@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import HeadshotGrid from './HeadshotGrid';
+import HeadshotGrid from '@/components/HeadshotGrid';
 
 export default {
   props: {
