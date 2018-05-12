@@ -10,6 +10,10 @@ body.modal-open {
   background-color: #4a4a4a !important;
 }
 
+// Does this have negative reprecussions?
+.row {
+  margin: 0;
+}
 .bg-light {
   background-color: #fefefe !important;
 }
