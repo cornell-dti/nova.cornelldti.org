@@ -58,6 +58,16 @@ export default {
   padding-left: 1rem;
   min-height: 15vh;
 
+  @media (max-width: 767px) {
+    .row {
+      margin: 0.5rem;
+      -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+      justify-content: center !important;
+      text-align: center;
+    }
+  }
+
   .copyright {
     margin-top: 1rem;
     color: rgba(255, 255, 255, 0.7);
@@ -66,6 +76,12 @@ export default {
   .statement {
     margin-left: 1rem;
     color: rgba(255, 255, 255, 0.7);
+  }
+
+  @media (max-width: 767px) {
+    .statement {
+      display: none;
+    }
   }
 
   .wordmark {
