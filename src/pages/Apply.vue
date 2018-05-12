@@ -1,8 +1,27 @@
 <template>
   <page-background>
-    <text-page-hero>
-      Apply
-    </text-page-hero>
+    <page-hero>
+      <b-row align-h="center" class="text-center no-gutters h-50">
+        <b-col cols="auto" class="my-auto">
+          <b-row align-h="center" class="no-gutters">
+            <b-col cols="auto">
+              <h2>Applications are currently closed.</h2>
+              <p>Subscribe to our newsletter to stay updated on the application process.</p>
+            </b-col>
+          </b-row>
+          <b-row align-h="center">
+            <b-form inline @submit="onSubscribe">
+              <b-input-group>
+                <label class="sr-only" for="newsletterEmailSubscribeInput">Email</label>
+                <b-input required id="newsletterEmailSubscribeInput" v-model="email" type="email"
+                  placeholder="Email" />
+              </b-input-group>
+              <b-button type="submit">Subscribe</b-button>
+            </b-form>
+          </b-row>
+        </b-col>
+      </b-row>
+    </page-hero>
     <b-container>
       <section>
         <h1 class="container-section-heading">Join Us</h1>
@@ -85,6 +104,24 @@
     </b-container>
   </page-background>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      email: ''
+    };
+  },
+  methods: {
+    onSubscribe(event) {
+      event.preventDefault();
+
+      alert(`Email: ${this.email}`); //eslint-disable-line
+    }
+  }
+};
+</script>
+
 
 <style lang="scss" scoped>
 .apply-pills {

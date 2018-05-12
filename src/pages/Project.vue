@@ -175,6 +175,7 @@ export default {
     background: #777;
   }
 }
+
 .project-hero-logo {
   margin: 1vw;
 }
