@@ -107,6 +107,8 @@
       </b-modal>
 
     </b-container>
+
+    <dti-footer />
   </page-background>
 </template>
 

@@ -108,6 +108,8 @@
     <section>
       <marquee :companies="companies" />
     </section>
+
+    <dti-footer />
   </page-background>
 </template>
 

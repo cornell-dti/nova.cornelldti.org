@@ -10,6 +10,8 @@
     <b-row>
       <h1 class="home-hero-text">Cornell Design <br />&amp; Tech Initiative</h1>
     </b-row>
+
+    <dti-footer />
   </div>
 </template>
 
