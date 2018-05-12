@@ -5,7 +5,7 @@
   "author": "rockon999 <rockon999@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --open --inline --progress --config build/webpack.dev.conf.js",
     "start": "node server.js",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
