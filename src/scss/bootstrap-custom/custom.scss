@@ -9,3 +9,8 @@ body.modal-open {
 .bg-dark {
   background-color: #4a4a4a !important;
 }
+
+// Does this have negative reprecussions?
+.row {
+  margin: 0;
+}
