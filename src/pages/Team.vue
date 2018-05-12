@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <text-page-hero :bg="img('team-hero.jpg')">
+    <text-page-hero bg="/static/team-hero.jpg">
       Team
     </text-page-hero>
 

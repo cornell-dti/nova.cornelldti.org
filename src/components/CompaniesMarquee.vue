@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- TODO Fix performance -->
     <div class="marquee-outer">
       <div class="marquee-content">
         <div :class="{'marquee-animation': enabled}">

@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div ref="circleProgressIndicator">
     <div class="circle-progress">
       <div class="circle">
         <div class="mask full">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            class="fill-hider circle-svg" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="fill circle-svg" />
         </div>
       </div>
       <div class="inset">
@@ -33,7 +32,9 @@ export default {
     }
   },
   mounted() {
-    this.setPercentage(this.percentage);
+    this.$nextTick(() => {
+      this.setPercentage(this.percentage);
+    });
   },
   watch: {
     percentage(val) {
@@ -41,9 +42,7 @@ export default {
     }
   },
   methods: {
-    // todo ensure I'm selecting the right z-indexed div
-    // (use ids/classes instead of finger crossing)
-    percentageArr(percentage = 0.5) {
+    percentagePtArr(percentage = 0.5) {
       const x = [];
       const y = [];
 
@@ -73,33 +72,29 @@ export default {
             y.push(diameter, diameter);
 
             if (percentage >= 0.75) {
+              // 75% -100%
               x.push(0, 0, radius - xOffset);
               y.push(radius, 0, radius - yOffset);
-
-              // 75% -100%
             } else {
+              // 50-74%
               x.push(radius - xOffset);
               y.push(radius + yOffset);
             }
-            // 50-74%
           } else {
+            // 25% - 49%
             x.push(radius + xOffset);
             y.push(radius + yOffset);
           }
-          // 25% - 49%
         } else {
+          // 0 - 24%
           x.push(radius * 2, radius + xOffset, radius);
           y.push(0, radius - yOffset, radius);
         }
-
-        // 0 - 24%
       }
 
       return [x, y];
     },
     setPercentage(percentage = 0.5) {
-      const fillers = Array.from(document.querySelectorAll('.circle-svg'));
-
       if (this.interval !== -1) {
         clearInterval(this.interval);
       }
@@ -108,7 +103,7 @@ export default {
       this.percentageLast = percentage;
 
       this.interval = setInterval(() => {
-        const [x, y] = this.percentageArr(percentageIncr);
+        const [x, y] = this.percentagePtArr(percentageIncr);
         const params = [];
 
         params.push(`M${x[0]},${y[0]}`);
@@ -124,17 +119,22 @@ export default {
           pathData += ` ${param}`;
         }
 
-        let path = document.getElementsByTagNameNS(
+        const svg = this.$refs.circleProgressIndicator.getElementsByTagNameNS(
+          'http://www.w3.org/2000/svg',
+          'svg'
+        )[0];
+        let path = svg.getElementsByTagNameNS(
           'http://www.w3.org/2000/svg',
           'path'
         )[0];
+
         if (path == null) {
           path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-          fillers[0].appendChild(path);
+          svg.appendChild(path);
         }
 
         path.setAttributeNS(null, 'd', pathData);
-        path.setAttributeNS(null, 'style', 'fill: red;');
+        path.setAttributeNS(null, 'class', 'circle-path');
 
         if (Math.abs(percentageIncr - percentage) < 0.01) {
           clearInterval(this.interval);
@@ -153,6 +153,7 @@ export default {
 <style lang="scss" scoped>
 $circle-background-color: #ececec47;
 $circle-fill-color: #ff324a;
+$circle-border-color: grey;
 $circle-size: 240px;
 $inset-size: 180px;
 $inset-color: #fefefe;
@@ -162,7 +163,6 @@ $inset-color: #fefefe;
   width: $circle-size;
   height: $circle-size;
   border-radius: 50%;
-  z-index: 10;
 
   .inset {
     width: $inset-size;
@@ -172,7 +172,7 @@ $inset-color: #fefefe;
     margin-top: ($circle-size - $inset-size) / 2;
     background-color: $inset-color;
     border-radius: 50%;
-    border: grey 1px solid;
+    border: $circle-border-color 1px solid;
     overflow: hidden;
     z-index: 10;
 
@@ -184,27 +184,11 @@ $inset-color: #fefefe;
     }
   }
   .circle {
-    z-index: 10;
-
     .mask {
       clip: rect(0px, $circle-size, $circle-size, $circle-size / 2);
 
       .fill {
-        background-color: $circle-fill-color;
-        width: $circle-size;
-        height: $circle-size;
-        border-radius: 50%;
-        position: absolute;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        transition: clip-path 100ms linear;
-        border: grey 1px solid;
-
-        z-index: 3;
-      }
-
-      .fill-hider {
-        border: grey 1px solid;
+        border: $circle-border-color 1px solid;
         background-color: $circle-background-color;
         width: $circle-size;
         height: $circle-size;
@@ -212,8 +196,12 @@ $inset-color: #fefefe;
         position: absolute;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-
         z-index: 2;
+      }
+
+      .circle-svg {
+        fill: $circle-fill-color;
+        stroke: $circle-border-color;
       }
     }
   }
