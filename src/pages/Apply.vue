@@ -3,7 +3,7 @@
     <text-page-hero>
       Apply
     </text-page-hero>
-    <b-container class="apply-page">
+    <b-container>
       <section>
         <h1 class="container-section-heading">Join Us</h1>
 
@@ -85,3 +85,27 @@
     </b-container>
   </page-background>
 </template>
+
+<style lang="scss" scoped>
+.apply-pills {
+  .card-header {
+    background-color: transparent;
+    border-bottom: none;
+
+    li a {
+      background-color: transparent;
+      color: black;
+      font-weight: bold;
+
+      &.active {
+        border-bottom: 2px solid black;
+        border-radius: 0px;
+      }
+    }
+  }
+}
+
+.apply-row {
+  border-left: 3px solid black;
+}
+</style>
