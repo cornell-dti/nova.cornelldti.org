@@ -1,0 +1,532 @@
+[
+  {
+    "image": "team/alicep.jpg",
+    "name": "Alice Pham",
+    "id": "ap1",
+    "role": "Project Co-Lead",
+    "roleId": "pm-lead",
+    "github": "https://github.com/alicepham",
+    "linkedin": "https://www.linkedin.com/in/alicetpham/"
+  },
+  {
+    "image": "team/karuns.jpg",
+    "name": "Karun Singh",
+    "id": "ks1",
+    "role": "Project Co-Lead",
+    "roleId": "pm-lead",
+    "github": "https://github.com/karunsingh",
+    "linkedin": "https://www.linkedin.com/in/karun17/"
+  },
+  {
+    "image": "team/matthewb.jpg",
+    "name": "Matthew Barker",
+    "id": "mb1",
+    "role": "Design Lead",
+    "roleId": "designer-lead",
+    "github": "https://github.com/mattbarker016",
+    "website": "http://mattbarker.me/"
+  },
+  {
+    "image": "team/sheab.jpg",
+    "name": "Shea Belsky",
+    "id": "sb1",
+    "role": "Development Lead",
+    "roleId": "developer-lead",
+    "github": "https://github.com/SHBelsky",
+    "linkedin": "https://www.linkedin.com/in/sheabelsky/"
+  },
+  {
+    "image": "team/davidt.png",
+    "name": "David Ticzon",
+    "id": "dt1",
+    "role": "Business Lead",
+    "roleId": "business-lead",
+    "linkedin": "https://www.linkedin.com/in/david-ticzon-a8291ba0/"
+  },
+  {
+    "image": "team/juliak.jpg",
+    "name": "Julia Kruk",
+    "id": "jk1",
+    "role": "Product Manager",
+    "roleId": "pm",
+    "linkedin": "https://www.linkedin.com/in/julia-kruk-854155112/"
+  },
+  {
+    "image": "team/davidc.jpg",
+    "name": "David Chu",
+    "id": "dc1",
+    "role": "Product Manager",
+    "roleId": "pm",
+    "github": "https://github.com/davidchuyaya",
+    "linkedin": "https://www.linkedin.com/in/davidchuyaya/"
+  },
+  {
+    "image": "team/arnavg.jpg",
+    "name": "Arnav Ghosh",
+    "id": "ag1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/garnav",
+    "linkedin": "https://www.linkedin.com/in/arnav-ghosh-9b877a106/"
+  },
+  {
+    "image": "team/amandao.jpg",
+    "name": "Amanda Ong",
+    "id": "ao1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/amandaong/",
+    "linkedin": "https://www.linkedin.com/in/amandaong1/"
+  },
+  {
+    "image": "team/jaggerb.jpg",
+    "name": "Jagger Brulato",
+    "id": "jb1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/JBoss925",
+    "linkedin": "https://www.linkedin.com/in/jagger-brulato-896968149/"
+  },
+  {
+    "image": "team/aditg.jpg",
+    "name": "Adit Gupta",
+    "id": "ag2",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/ag999/",
+    "linkedin": "https://www.linkedin.com/in/aditgupta25/"
+  },
+  {
+    "image": "team/qichenh.jpg",
+    "name": "Qichen (Ethan) Hu",
+    "id": "qeh1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/wsjnohyeah",
+    "linkedin": "https://www.linkedin.com/in/qichen-hu-b6811b112/"
+  },
+  {
+    "image": "team/jessica_zhao.jpg",
+    "name": "Jessica Zhao",
+    "id": "jz1",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/jessica-zhao-cornell/",
+    "github": "https://github.com/jess1cazhao/"
+  },
+  {
+    "image": "team/justinp.jpg",
+    "name": "Justin Park",
+    "id": "jp1",
+    "roleId": "designer",
+    "role": "Designer"
+  },
+  {
+    "image": "team/lisal.jpg",
+    "name": "Lisa LaBarbera",
+    "id": "ll1",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/lisa-labarbera-9983ab13b/"
+  },
+  {
+    "image": "team/cedricc.jpg",
+    "name": "Cedric Castillo",
+    "id": "cc1",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/cedric-castillo-7b081a131/"
+  },
+  {
+    "image": "team/nehar.jpg",
+    "name": "Neha Rao",
+    "id": "nr1",
+    "role": "Product Manager",
+    "roleId": "pm",
+
+    "github": "https://github.com/neharao98",
+    "linkedin": "https://www.linkedin.com/in/neha-rao-75a5bb133/"
+  },
+  {
+    "image": "team/raymoner.jpg",
+    "name": "Raymone Radi",
+    "id": "rr1",
+    "role": "Product Manager",
+    "roleId": "pm",
+    "linkedin": "https://www.linkedin.com/in/raymoneradi/"
+  },
+  {
+    "image": "team/kaushikr.jpg",
+    "name": "Kaushik Ravikumar",
+    "id": "kr1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/kaushikravikumar",
+    "linkedin": "https://www.linkedin.com/in/kaushikravikumar/"
+  },
+  {
+    "image": "team/evanw.png",
+    "name": "Evan Welsh",
+    "id": "ew1",
+    "role": "Developer",
+    "roleId": "developer-lead",
+    "github": "https://github.com/rockon999/",
+    "linkedin": "https://www.linkedin.com/in/evan-welsh-291577141/",
+    "website": "http://evanwelsh.com/"
+  },
+  {
+    "image": "team/matthewc.jpg",
+    "name": "Matthew Coufal",
+    "id": "mc1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/matthewcoufal",
+    "linkedin": "https://www.linkedin.com/in/matthew-coufal-1a08b0123/"
+  },
+  {
+    "image": "team/kaitlyns.jpg",
+    "name": "Kaitlyn Son",
+    "id": "ks2",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/kaitlyn-son-2277b495/"
+  },
+  {
+    "image": "team/aprily.jpg",
+    "name": "April Ye",
+    "id": "ay1",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/april-ye-120b5aab/"
+  },
+  {
+    "image": "team/divyanshas.jpg",
+    "name": "Divyansha Sehgal",
+    "id": "ds1",
+    "role": "Product Manager",
+    "roleId": "pm",
+    "linkedin": "https://www.linkedin.com/in/divyansha-sehgal/"
+  },
+  {
+    "image": "team/brooked.jpg",
+    "name": "Brooke Docherty",
+    "id": "bd1",
+    "role": "Product Manager",
+    "roleId": "pm",
+    "linkedin": "https://www.linkedin.com/in/brooke-docherty/"
+  },
+  {
+    "image": "team/vinisham.jpg",
+    "name": "Vinisha Mittal",
+    "id": "vm1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "http://github.com/VinishaM",
+    "linkedin": "http://linkedin.com/in/VinishaM"
+  },
+  {
+    "image": "team/julianl.jpg",
+    "name": "Julian Londono",
+    "id": "jl1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/julian-londono",
+    "linkedin": "https://www.linkedin.com/in/julian-londono/"
+  },
+  {
+    "image": "team/jessicac.jpg",
+    "name": "Jessica Chen",
+    "id": "jc1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/jjc387",
+    "linkedin": "https://www.linkedin.com/in/jessica-chen-0305b2149/"
+  },
+  {
+    "image": "team/nihar_sidhu.jpg",
+    "name": "Nihar Sidhu",
+    "id": "ns1",
+    "role": "Backend Developer",
+    "roleId": "developer",
+    "github": "https://github.com/niharsidhu",
+    "linkedin": "https://www.linkedin.com/in/nihar-sidhu-637703126/"
+  },
+  {
+    "image": "team/jessem.jpg",
+    "id": "jm1",
+    "name": "Jesse Mansoor",
+    "role": "Designer (Away)",
+    "roleId": "designer"
+  },
+  {
+    "image": "team/jessicap.jpg",
+    "name": "Jessica Prague",
+    "id": "jp2",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/jessica-prague-07a157149/"
+  },
+  {
+    "image": "team/alicez.jpg",
+    "name": "'Alice' Ran Zhou",
+    "id": "arz1",
+    "role": "Product Manager (Away)",
+    "roleId": "pm",
+    "github": "https://github.com/rz96",
+    "linkedin": "https://www.linkedin.com/in/aranzhou/"
+  },
+  {
+    "image": "team/matthewe.jpg",
+    "name": "Matthew Epstein",
+    "id": "me1",
+    "role": "Product Manager",
+    "roleId": "pm",
+    "github": "https://github.com/me382",
+    "linkedin": "https://www.linkedin.com/in/matthew-epstein-5b64ab33/"
+  },
+  {
+    "image": "team/justint.jpg",
+    "name": "Justin Tran",
+    "id": "jt1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "http://github.com/justinttran",
+    "linkedin": "https://www.linkedin.com/in/justinttran/"
+  },
+  {
+    "image": "team/kevinl.jpg",
+    "id": "kl1",
+    "name": "Kevin Li",
+    "role": "Developer",
+    "roleId": "developer"
+  },
+  {
+    "image": "team/jillw.png",
+    "name": "Jill Wu",
+    "id": "jw1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/jillwuu",
+    "linkedin": "https://linkedin.com/in/jillwuu"
+  },
+  {
+    "image": "team/gautamm.png",
+    "name": "Gautam Mekkat",
+    "id": "gm1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/Blue9"
+  },
+  {
+    "image": "team/alexa_bren.jpg",
+    "name": "Alexa Bren",
+    "id": "ab1",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/alexa-bren-117520b8/",
+    "website": "https://www.alexabren.com/"
+  },
+  {
+    "image": "team/michelley.jpg",
+    "name": "Michelle Yang",
+    "id": "my1",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/michelle-yang-24ab00b9/"
+  },
+  {
+    "image": "team/vivians.jpg",
+    "name": "Vivian Shiu",
+    "id": "vs1",
+    "role": "Designer",
+    "roleId": "designer"
+  },
+  {
+    "image": "team/aramb.jpg",
+    "name": "Aram Baghdassarian",
+    "id": "ab2",
+    "role": "Product Manager",
+    "roleId": "pm",
+    "github": "https://github.com/abagh0703",
+    "linkedin": "https://www.linkedin.com/in/aram-baghdassarian/"
+  },
+  {
+    "image": "team/juliay.jpg",
+    "name": "Julia Yang",
+    "id": "jy1",
+    "role": "Developer (Away)",
+    "roleId": "developer",
+    "linkedin": "http://linkedin.com/in/juliayangg"
+  },
+  {
+    "image": "team/andrewx.jpg",
+    "name": "Andrew Xiao",
+    "id": "ax1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/Andrewxzn",
+    "linkedin": "https://www.linkedin.com/in/andrewxzn/"
+  },
+  {
+    "image": "team/dhruvb.jpg",
+    "name": "Dhruv Baijal",
+    "id": "db1",
+    "role": "Developer",
+    "roleId": "developer",
+    "linkedin": "https://www.linkedin.com/in/dhruv-baijal/"
+  },
+  {
+    "image": "team/phillip_kheyfets.jpg",
+    "name": "Phillip Kheyfets",
+    "id": "pk1",
+    "role": "Developer",
+    "roleId": "developer",
+    "linkedin": "https://www.linkedin.com/in/kheyfets1",
+    "github": "https://github.com/kheyfets"
+  },
+  {
+    "image": "team/racheln.jpg",
+    "name": "Rachel Nash",
+    "id": "rn1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/rsn55",
+    "linkedin": "https://www.linkedin.com/in/rachel-nash-29b25351/"
+  },
+  {
+    "image": "team/emily_chan.jpg",
+    "name": "Emily Chan",
+    "id": "ec1",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/emilychan-21",
+    "website": "https://emilychan.myportfolio.com"
+  },
+  {
+    "image": "team/michaelh.jpg",
+    "id": "mh1",
+    "name": "Michael Huang",
+    "role": "Designer",
+    "roleId": "designer"
+  },
+  {
+    "image": "team/ayeshag.png",
+    "name": "Ayesha Gagguturi",
+    "id": "ag3",
+    "role": "Designer",
+    "roleId": "designer",
+    "github": "https://github.com/Ayesha34/CS"
+  },
+  {
+    "image": "team/tiffanyw.jpg",
+    "name": "Tiffany Wang",
+    "id": "tw1",
+    "role": "Product Manager",
+    "roleId": "pm",
+    "linkedin": "https://www.linkedin.com/in/tiffany-wang-29ab2a127/"
+  },
+  {
+    "image": "team/horaceh.jpg",
+    "id": "hh1",
+    "name": "Horace He",
+    "roleId": "developer",
+    "role": "Developer"
+  },
+  {
+    "image": "team/ryan_slama.png",
+    "id": "rs1",
+    "name": "Ryan Slama",
+    "roleId": "designer",
+    "role": "Front-End Developer",
+    "linkedin": "https://www.linkedin.com/in/ryan-slama-961738137/",
+    "github": "https://github.com/glitched",
+    "website": "http://ryanslama.com/"
+  },
+  {
+    "image": "team/vanessaw.jpg",
+    "name": "Vanessa Wang",
+    "id": "vw1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/vanessaw1",
+    "linkedin": "https://www.linkedin.com/in/vanessa-w-381939102"
+  },
+  {
+    "image": "team/shefalia.jpg",
+    "name": "Shefali Agarwal",
+    "id": "sa1",
+    "role": "Developer",
+    "roleId": "developer",
+    "github": "https://github.com/Shefali-A",
+    "linkedin": "https://www.linkedin.com/in/shefaliagarwal/"
+  },
+  {
+    "image": "team/sangwook.jpg",
+    "name": "Sangwoo (Sean) Kim",
+    "id": "ssk1",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/sangwoo-kim-2a520b119/"
+  },
+  {
+    "image": "team/joyelleg.jpg",
+    "name": "Joyelle Gilbert",
+    "id": "jg1",
+    "role": "Designer"
+  },
+  {
+    "image": "team/sophia_wang.jpg",
+    "name": "Sophia Wang",
+    "id": "sw1",
+    "role": "Designer",
+    "roleId": "designer",
+    "linkedin": "https://www.linkedin.com/in/sophia-wang-90228413b/",
+    "website": "https://www.sophiawang.design"
+  },
+  {
+    "image": "team/rachelg.jpg",
+    "name": "Rachel Goffin",
+    "id": "rg1",
+    "roleId": "designer",
+    "role": "User Research"
+  },
+  {
+    "image": "team/wenchang_yang.png",
+    "name": "Wenchang Yang",
+    "id": "wy1",
+    "roleId": "designer",
+    "role": "Front-End Design",
+    "website": "http://wenchangyang.com",
+    "linkedin": "https://www.linkedin.com/in/tiancichang/"
+  },
+  {
+    "image": "team/glenik.jpg",
+    "name": "Gleni Kodra",
+    "id": "gk1",
+    "roleId": "business",
+    "role": "Analyst"
+  },
+  {
+    "image": "team/ronni_mok.jpg",
+    "name": "Ronni Mok",
+    "id": "rm1",
+    "role": "Analyst",
+    "roleId": "business",
+    "linkedin": "https://www.linkedin.com/in/ronni-mok/"
+  },
+  {
+    "image": "team/imani_majied.jpg",
+    "name": "Imani Majied",
+    "id": "im1",
+    "role": "Analyst",
+    "roleId": "business",
+    "linkedin": "http://linkedin.com/in/imani-majied-98137b96"
+  },
+  {
+    "image": "team/sonyat.jpg",
+    "id": "st1",
+    "name": "Sonya Tao",
+    "roleId": "business",
+    "role": "Analyst"
+  }
+]

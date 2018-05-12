@@ -1,15 +1,8 @@
 <template>
   <div id="app">
-    <div class="page-stack page-background" :style="backgroundStyle">
-      <div class="page-stack-element loader-background my-auto">
-        <div class="loader">
-          <span class="loader-element"></span>
-          <span class="loader-element second-dot"></span>
-          <span class="loader-element third-dot"></span>
-        </div>
-      </div>
-      <base-layout class="page-stack-element" :hero="hero">
-        <dti-main-menu slot="header" :transparent='isTransparent' />
+    <div class="page-stack page-background">
+      <base-layout class="page-stack-element">
+        <dti-main-menu slot="header" />
         <transition :name="transition" slot="body">
           <router-view />
         </transition>
@@ -19,13 +12,18 @@
 </template>
 
 <script>
-const Pages = ["Home", "Projects", "Team", "Sponsor", "Apply"];
+import DtiFooter from '@/components/DtiFooter';
+
+const Pages = ['Home', 'Projects', 'Initiatives', 'Team', 'Sponsor', 'Apply'];
 
 export default {
-  name: "App",
+  name: 'App',
+  components: {
+    DtiFooter
+  },
   data() {
     return {
-      transition: "slidein"
+      transition: 'slidein'
     };
   },
   mounted() {
@@ -35,14 +33,15 @@ export default {
       const fromI = Pages.indexOf(from.name);
 
       if (toI === -1) {
-        this.transition = "slidedown";
+        this.transition = 'slidedown';
       } else if (fromI === -1) {
-        this.transition = "none";
+        this.transition = 'slideup';
       } else if (toI > fromI) {
-        this.transition = "slidein";
+        this.transition = 'slidein';
       } else {
-        this.transition = "slideout";
+        this.transition = 'slideout';
       }
+
       next();
     });
   }
@@ -50,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./index.scss";
+@import './index.scss';
 
 body {
   margin: 0;
@@ -58,7 +57,7 @@ body {
 </style>
 
 <style lang="scss" scoped>
-$page-transition-duration: 1s;
+$page-transition-duration: 0.5s;
 
 .page-stack {
   position: relative;
@@ -66,41 +65,9 @@ $page-transition-duration: 1s;
   .page-stack-element {
     position: absolute;
     left: 0;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     height: 100%;
-  }
-}
-
-.loader-background {
-  background: #ff324a;
-}
-
-.loader {
-  text-align: center;
-  color: #fefefe;
-  margin-top: 40vh; // TODO hacky
-
-  .loader-element {
-    display: inline-block;
-    vertical-align: middle;
-    width: 0.625rem;
-    height: 0.625rem;
-    margin: 3.125rem auto;
-    background: #fefefe;
-    border-radius: 3.125rem;
-    -webkit-animation: loader 0.9s infinite alternate;
-    animation: loader 0.9s infinite alternate;
-
-    &.second-dot {
-      -webkit-animation-delay: 0.3s;
-      animation-delay: 0.3s;
-    }
-
-    &.third-dot {
-      -webkit-animation-delay: 0.6s;
-      animation-delay: 0.6s;
-    }
   }
 }
 
@@ -139,42 +106,62 @@ $page-transition-duration: 1s;
 .slideout-leave-active,
 .slideout-enter-active,
 .slidedown-leave-active,
-.slidedown-enter-active {
+.slidedown-enter-active,
+.slideup-leave-active,
+.slideup-enter-active {
   max-height: 100vh;
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .slidedown-leave-active {
-  -webkit-animation: moveToBottom $page-transition-duration ease both;
-  animation: moveToBottom $page-transition-duration ease both;
+  // TODO: Currently is broken due to width requirements...
+  //-webkit-animation: moveToBottom $page-transition-duration linear both;
+  //animation: moveToBottom $page-transition-duration linear both;
 }
 
 .slidedown-enter-active {
-  -webkit-animation: moveFromTop $page-transition-duration ease both;
-  animation: moveFromTop $page-transition-duration ease both;
-  animation-delay: $page-transition-duration;
+  -webkit-animation: moveFromTop $page-transition-duration linear both;
+  animation: moveFromTop $page-transition-duration linear both;
+  //animation-delay: $page-transition-duration / 100;
+}
+
+.slideup-leave-active {
+  // TODO: Currently is broken due to width requirements...
+  -webkit-animation: moveToTop $page-transition-duration linear both;
+  animation: moveToTop $page-transition-duration linear both;
+}
+
+.slideup-enter-active {
+  -webkit-animation: moveFromBottom $page-transition-duration linear both;
+  animation: moveFromBottom $page-transition-duration linear both;
+  //animation-delay: $page-transition-duration / 100;
 }
 
 .slidein-leave-active {
-  -webkit-animation: moveToLeft $page-transition-duration ease both;
-  animation: moveToLeft $page-transition-duration ease both;
+  -webkit-animation: moveToLeft $page-transition-duration linear both;
+  animation: moveToLeft $page-transition-duration linear both;
 }
 
 .slidein-enter-active {
-  -webkit-animation: moveFromRight $page-transition-duration ease both;
-  animation: moveFromRight $page-transition-duration ease both;
-  animation-delay: $page-transition-duration;
+  -webkit-animation: moveFromRight $page-transition-duration linear both;
+  animation: moveFromRight $page-transition-duration linear both;
+
+  // animation-delay: $page-transition-duration / 100;
 }
 
 .slideout-enter-active {
-  -webkit-animation: moveFromLeft $page-transition-duration ease both;
-  animation: moveFromLeft $page-transition-duration ease both;
-  animation-delay: $page-transition-duration;
+  -webkit-animation: moveFromLeft $page-transition-duration linear both;
+  animation: moveFromLeft $page-transition-duration linear both;
+
+  //animation-delay: $page-transition-duration / 100;
 }
 
 .slideout-leave-active {
-  -webkit-animation: moveToRight $page-transition-duration ease both;
-  animation: moveToRight $page-transition-duration ease both;
+  -webkit-animation: moveToRight $page-transition-duration linear both;
+  //animation: moveToRight $page-transition-duration linear both;
 }
 
 @-webkit-keyframes moveToLeft {
@@ -258,6 +245,34 @@ $page-transition-duration: 1s;
   to {
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
+  }
+}
+
+@-webkit-keyframes moveFromBottom {
+  from {
+    -webkit-transform: translateY(100%);
+  }
+}
+@keyframes moveFromBottom {
+  from {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+
+@-webkit-keyframes moveToTop {
+  from {
+  }
+  to {
+    -webkit-transform: translateY(-100%);
+  }
+}
+@keyframes moveToTop {
+  from {
+  }
+  to {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
   }
 }
 </style>

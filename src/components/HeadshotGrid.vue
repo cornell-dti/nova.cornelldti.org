@@ -2,9 +2,12 @@
   <div class="d-flex flex-row flex-wrap justify-content-center">
     <!-- v-for="row in rows()" :key="row.index" -->
     <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
-      <div v-if="member.phantom" class="phantom-headshot-card headshot-card" />
-      <headshot-card v-else :name="member.name" :image='img(member.image)' @click.native="memberClicked(member)"
-      />
+      <div v-if="member.phantom" class="phantom-headshot-card ">
+        <headshot-card :name="member.id" :role="member.id" :image='``' @click.native="null"
+        />
+      </div>
+      <headshot-card v-else :name="member.name" :role="member.role" :image='img(member.image)'
+        @click.native="memberClicked(member)" />
     </div>
 
     <member-profile-modal v-model="modalShow" :profile="currentProfile" />
@@ -13,13 +16,14 @@
 
 <style lang="scss" scoped>
 .phantom-headshot-card {
-  min-width: 155px;
+  visibility: hidden;
+  max-height: 0;
 }
 </style>
 
 <script>
-import HeadshotCard from "./HeadshotCard";
-import MemberProfileModal from "./MemberProfileModal";
+import HeadshotCard from '@/components/HeadshotCard';
+import MemberProfileModal from '@/components/MemberProfileModal';
 
 export default {
   components: { HeadshotCard, MemberProfileModal },
@@ -52,24 +56,26 @@ export default {
       this.modalShow = true;
     },
     pad(members) {
-      if (members.length % 5 !== 0 || members.length % 6 !== 0) {
+      const copy = [...members];
+
+      if (copy.length % 5 !== 0 || copy.length % 6 !== 0) {
         const max = Math.max(
-          5 - members.length % 5,
-          members.length % 5,
-          6 - members.length % 6,
-          members.length % 6
+          5 - copy.length % 5,
+          copy.length % 5,
+          6 - copy.length % 6,
+          copy.length % 6
         );
 
         for (let i = 0; i < max; i += 1) {
-          members.push({
+          copy.push({
             // TODO
-            id: "phantom-" + i, //eslint-disable-line
+            id: 'phantom-' + i, //eslint-disable-line
             phantom: true
           });
         }
       }
 
-      return members;
+      return copy;
     }
   }
 };

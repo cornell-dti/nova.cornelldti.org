@@ -1,16 +1,20 @@
 <template>
   <div>
+    <!-- TODO Fix performance -->
     <div class="marquee-outer">
       <div class="marquee-content">
         <div :class="{'marquee-animation': enabled}">
           <div class="marquee-inner">
             <div class="marquee-item">
-              <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo" :alt="company.name"
-                rounded="true" blank width="200" height="75" blank-color="#777" />
+
+              <h1 class="company-logo" :key="`topFirst${company.name}`" v-html="company.name" rounded="true"
+                width="200" height="75" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
+              />
             </div>
             <div class="marquee-item">
-              <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo" :alt="company.name"
-                rounded="true" blank width="200" height="75" blank-color="#777" />
+              <h1 class="company-logo" :key="`topSecond${company.name}`" v-html="company.name"
+                rounded="true" width="200" height="75" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
+              />
             </div>
           </div>
         </div>
@@ -21,12 +25,14 @@
         <div :class="{'marquee-animation-reverse': enabled}">
           <div class="marquee-inner">
             <div class="marquee-item offset-t">
-              <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo" :alt="company.name"
-                rounded="true" blank width="200" height="75" blank-color="#777" />
+              <h1 class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
+                :key="`bottomFirst${company.name}`" v-html="company.name" rounded="true"
+                width="200" height="75" />
             </div>
             <div class="marquee-item offset-b">
-              <b-img class="company-logo" v-for="company in companies" :key="company.name" :src="company.logo" :alt="company.name"
-                rounded="true" blank width="200" height="75" blank-color="#777" />
+              <h1 class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
+                :key="`bottomSecond${company.name}`" v-html="company.name" rounded="true"
+                width="200" height="75" />
             </div>
           </div>
         </div>
@@ -36,14 +42,49 @@
 </template>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Playfair+Display|Roboto+Slab|Titan+One|Titillium+Web');
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Acme|Pacifico|Shadows+Into+Light');
+
 $animation-speed: 20s;
 
 .offset-t {
   margin-left: -12.5vw;
+
+  h1:nth-child(0) {
+    font-family: 'Roboto Slab', serif !important;
+  }
+  h1:nth-child(1) {
+    font-family: 'Titan One', cursive !important;
+  }
+  h1:nth-child(2) {
+    font-family: 'Playfair Display', serif !important;
+  }
+  h1:nth-child(3) {
+    font-family: 'Titillium Web', sans-serif !important;
+  }
+  h1:nth-child(4) {
+    font-family: 'Indie Flower', cursive !important;
+  }
 }
 
 .offset-b {
   margin-left: 0vw !important;
+
+  h1:nth-child(0) {
+    font-family: 'Roboto Slab', serif !important;
+  }
+  h1:nth-child(1) {
+    font-family: 'Titan One', cursive !important;
+  }
+  h1:nth-child(2) {
+    font-family: 'Playfair Display', serif !important;
+  }
+  h1:nth-child(3) {
+    font-family: 'Titillium Web', sans-serif !important;
+  }
+  h1:nth-child(4) {
+    font-family: 'Indie Flower', cursive !important;
+  }
 }
 
 .marquee-outer {
@@ -70,6 +111,22 @@ $animation-speed: 20s;
           margin: 10px;
           border-radius: 25px;
         }
+
+        h1:nth-child(0) {
+          font-family: 'Pacifico', cursive;
+        }
+        h1:nth-child(1) {
+          font-family: 'Abel', sans-serif;
+        }
+        h1:nth-child(2) {
+          font-family: 'Shadows Into Light', cursive;
+        }
+        h1:nth-child(3) {
+          font-family: 'Abril Fatface', cursive;
+        }
+        h1:nth-child(4) {
+          font-family: 'Acme', sans-serif;
+        }
       }
     }
   }
@@ -87,7 +144,7 @@ $animation-speed: 20s;
 
 @-webkit-keyframes marquee-reverse {
   0% {
-    -webkit-transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-100%, 0, 0);
   }
   100% {
     -webkit-transform: translate3d(0, 0, 0);
@@ -96,7 +153,7 @@ $animation-speed: 20s;
 
 @keyframes marquee-reverse {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
   100% {
     transform: translateX(0%);
@@ -108,7 +165,7 @@ $animation-speed: 20s;
     -webkit-transform: translate3d(0, 0, 0);
   }
   100% {
-    -webkit-transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-100%, 0, 0);
   }
 }
 
@@ -117,7 +174,7 @@ $animation-speed: 20s;
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 </style>
@@ -126,7 +183,8 @@ $animation-speed: 20s;
 export default {
   data() {
     return {
-      enabled: true
+      enabled: true,
+      shuffledCompanies: []
     };
   },
   props: {
@@ -134,12 +192,27 @@ export default {
       type: Array,
       default() {
         return [
-          { name: "Google" },
-          { name: "Amazon" },
-          { name: "eBay" },
-          { name: "Elsewhere" }
+          { name: 'Google' },
+          { name: 'Amazon' },
+          { name: 'eBay' },
+          { name: 'Elsewhere' }
         ];
       }
+    }
+  },
+  mounted() {
+    this.shuffle();
+  },
+  methods: {
+    shuffle() {
+      const copy = [...this.companies];
+
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
+      }
+
+      this.shuffledCompanies = copy;
     }
   }
 };

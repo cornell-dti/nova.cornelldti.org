@@ -1,10 +1,31 @@
 <template>
-  <div :class="background === 'transparent' ? 'headshot-card' : 'headshot-card-backed'">
-    <img :src="image" class="rounded-circle" />
-    <h5>{{name}}</h5>
-    <p v-if="role !== ''">{{role}}</p>
+  <div class="headshot-card-padding">
+    <b-row class="headshot-card no-gutters">
+      <b-col>
+        <b-row class="image-row no-gutters">
+          <b-col>
+            <img :src="image" />
+          </b-col>
+        </b-row>
+        <b-row class="info no-gutters">
+          <b-col>
+            <b-row class="h-75 no-gutters" align-v="start">
+              <b-col align-self="start">
+                <div class="name">{{name}}</div>
+              </b-col>
+            </b-row>
+            <b-row class="h-25 no-gutters">
+              <b-col align-self="end">
+                <div class="role" v-if="role !== ''">{{role}}</div>
+              </b-col>
+            </b-row>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
   </div>
 </template>
+
 <script>
 export default {
   props: {
@@ -19,49 +40,71 @@ export default {
     role: {
       type: String,
       required: false,
-      default: ""
+      default: ''
     },
     background: {
       type: String,
       required: false,
-      default: "transparent"
+      default: 'backed'
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.headshot-card {
-  padding: 10px;
-  margin: 5px;
-  text-align: center;
-
-  p {
-    padding: 5px;
-  }
-
-  img {
-    max-height: 125px;
-    max-width: 125px;
-    background-color: #d8d8d8;
-    border: 2px solid #b9b9b9;
-  }
+.headshot-card-padding {
+  padding: 2vh 1vw;
 }
 
-.headshot-card-backed {
-  padding: 10px;
-  margin: 5px;
-  text-align: center;
+.headshot-card {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 12.5rem;
+  min-width: 12.5rem;
+  max-height: 18.5rem;
+  height: 18.5rem;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
 
-  p {
-    padding: 5px;
+  .info {
+    padding: 1.25rem;
+    height: 6.5rem;
+    flex-grow: 1;
+
+    .name {
+      font-size: 1.125rem;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      text-align: left;
+      color: #000000;
+      max-width: 12rem;
+    }
+
+    .role {
+      margin: 0;
+      opacity: 0.5;
+      font-size: 0.875rem;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      text-align: left;
+      color: #000000;
+    }
+  }
+
+  .image-row {
+    height: 12rem;
+    overflow: hidden;
   }
 
   img {
-    max-height: 125px;
-    max-width: 125px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
     background-color: #d8d8d8;
-    border: 2px solid #b9b9b9;
   }
 }
 </style>

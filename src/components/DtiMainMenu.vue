@@ -1,18 +1,25 @@
 <template>
+  <b-navbar ref="dtinavbar" fixed="top" :class="['navbar-dti ', 'navbar-dark ', transparent && !navShown ? 'bg-transparent' : 'bg-dark ']"
+    toggleable="md">
 
-  <b-navbar fixed="top" :class="classObj" toggleable="md">
+    <b-navbar-brand class="navbar-branding-dti" href="#">
+      <b-img class="brand-icon" src="/static/brand-icon.png" />
+    </b-navbar-brand>
 
-    <b-navbar-brand href="#">
-      <b-img class="brand-icon" src="/static/brand-icon.png" /></b-navbar-brand>
-    <b-navbar-toggle target="nav_collapse">
-      <b-img src="/static/menu-small.svg" />
-    </b-navbar-toggle>
+    <b-btn @click="navShown = !navShown" :class="['navbar-toggler', navShown ? 'collapsed' : '']"
+      aria-controls="nav_collapse" :aria-expanded="navShown ? 'true' : 'false'">
+      <transition>
+        <b-img v-if="navShown" src="/static/menu-close-small.svg" />
+        <b-img v-else src="/static/menu-small.svg" />
+      </transition>
+    </b-btn>
 
-    <b-collapse is-nav id="nav_collapse">
+    <b-collapse is-nav id="nav_collapse" v-model="navShown">
       <b-navbar-nav class="ml-auto">
-        <!-- todo look into ml-auto variants -->
+        <!-- todo look into ml-auto variants, also move routes to an actual file -->
         <b-nav-item to="/" exact>Home</b-nav-item>
         <b-nav-item to="/Projects">Projects</b-nav-item>
+        <b-nav-item to="/Initiatives">Initiatives</b-nav-item>
         <b-nav-item to="/Team">Team</b-nav-item>
         <b-nav-item to="/Sponsor">Sponsor</b-nav-item>
         <b-nav-item to="/Apply">Apply</b-nav-item>
@@ -24,26 +31,29 @@
 
 <script>
 export default {
-  props: {
-    transparent: {
-      type: Boolean,
-      default: true,
-      required: false
+  data() {
+    return {
+      transparent: true,
+      navShown: false
+    };
+  },
+  methods: {
+    onScroll(window) {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      if (typeof this.$refs.dtinavbar !== 'undefined') {
+        this.transparent = scrollTop <= this.$refs.dtinavbar.clientHeight;
+      } else {
+        this.transparent = false;
+      }
     }
   },
-  computed: {
-    classObj() {
-      if (this.transparent) {
-        return [
-          "dtiNavbarTransparent",
-          "bg-transparent",
-          "navbar-dti",
-          "navbar-dark"
-        ];
-      }
-
-      return ["dtiNavbar", "bg-dark", "navbar-dti", "navbar-dark"];
-    }
+  destroy() {
+    window.removeEventListener('scroll', this.onScroll);
+  },
+  mounted() {
+    window.addEventListener('scroll', this.onScroll);
   }
 };
 </script>
@@ -56,7 +66,6 @@ export default {
 
 .navbar-dti {
   transition: background-color 500ms linear;
-  padding-right: 10vw;
 
   @media (min-width: 768px) {
     .navbar-nav > li {
@@ -66,9 +75,28 @@ export default {
   }
 
   @media (max-width: 767px) {
+    &.navbar {
+      padding: 0;
+    }
+
+    .navbar-branding-dti,
+    .navbar-toggler {
+      margin: 0.5rem 1rem; // todo
+
+      btn {
+        float: right;
+      }
+    }
+
     .navbar-nav {
-      float: right;
-      text-align: right;
+      float: none;
+      text-align: center;
+      padding-right: 0;
+
+      .nav-item {
+        padding: 0.5rem;
+        border-top: 2px solid rgba(255, 255, 255, 0.2);
+      }
     }
   }
 }

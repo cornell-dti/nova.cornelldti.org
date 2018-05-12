@@ -1,0 +1,531 @@
+[
+  {
+    "name": "Leads",
+    "id": "leads",
+    "description": "The leads.",
+    "members": [
+      {
+        "image": "team/alicep.jpg",
+        "name": "Alice Pham",
+        "role": "Co-Lead",
+        "roleCategory": "lead",
+        "github": "https://github.com/alicepham",
+        "linkedin": "https://www.linkedin.com/in/alicetpham/"
+      },
+      {
+        "image": "team/karuns.jpg",
+        "name": "Karun Singh",
+        "role": "Co-Lead",
+        "roleCategory": "lead",
+        "github": "https://github.com/karunsingh",
+        "linkedin": "https://www.linkedin.com/in/karun17/"
+      },
+      {
+        "image": "team/matthewb.jpg",
+        "name": "Matthew Barker",
+        "role": "Design Lead",
+        "roleCategory": "designer-lead",
+        "github": "https://github.com/mattbarker016",
+        "website": "http://mattbarker.me/"
+      },
+      {
+        "image": "team/sheab.jpg",
+        "name": "Shea Belsky",
+        "role": "Development Lead",
+        "roleCategory": "developer-lead",
+        "github": "https://github.com/SHBelsky",
+        "linkedin": "https://www.linkedin.com/in/sheabelsky/"
+      },
+      {
+        "image": "team/davidc.jpg",
+        "name": "David Chu",
+        "role": "Webmaster :)",
+        "roleCategory": "lead",
+        "github": "https://github.com/davidchuyaya",
+        "linkedin": "https://www.linkedin.com/in/davidchuyaya/"
+      },
+      {
+        "image": "team/davidt.png",
+        "name": "David Ticzon",
+        "role": "Business Lead",
+        "roleCategory": "business-lead",
+        "linkedin": "https://www.linkedin.com/in/david-ticzon-a8291ba0/"
+      }
+    ]
+  },
+  {
+    "name": "CU Orientation & Events",
+    "id": "orientation",
+    "members": [
+      {
+        "image": "team/juliak.jpg",
+        "name": "Julia Kruk",
+        "role": "Product Manager",
+        "roleCategory": "pm",
+        "linkedin": "https://www.linkedin.com/in/julia-kruk-854155112/"
+      },
+      {
+        "image": "team/davidc.jpg",
+        "name": "David Chu",
+        "role": "Product Manager",
+        "roleCategory": "pm",
+        "github": "https://github.com/davidchuyaya",
+        "linkedin": "https://www.linkedin.com/in/davidchuyaya/"
+      },
+      {
+        "image": "team/arnavg.jpg",
+        "name": "Arnav Ghosh",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/garnav",
+        "linkedin": "https://www.linkedin.com/in/arnav-ghosh-9b877a106/"
+      },
+      {
+        "image": "team/amandao.jpg",
+        "name": "Amanda Ong",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/amandaong/",
+        "linkedin": "https://www.linkedin.com/in/amandaong1/"
+      },
+      {
+        "image": "team/jaggerb.jpg",
+        "name": "Jagger Brulato",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/JBoss925",
+        "linkedin": "https://www.linkedin.com/in/jagger-brulato-896968149/"
+      },
+      {
+        "image": "team/aditg.jpg",
+        "name": "Adit Gupta",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/ag999/",
+        "linkedin": "https://www.linkedin.com/in/aditgupta25/"
+      },
+      {
+        "image": "team/qichenh.jpg",
+        "name": "Qichen (Ethan) Hu",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/wsjnohyeah",
+        "linkedin": "https://www.linkedin.com/in/qichen-hu-b6811b112/"
+      },
+      {
+        "image": "team/jessica_zhao.jpg",
+        "name": "Jessica Zhao",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/jessica-zhao-cornell/",
+        "github": "https://github.com/jess1cazhao/"
+      },
+      {
+        "image": "team/justinp.jpg",
+        "name": "Justin Park",
+        "roleCategory": "designer",
+        "role": "Designer"
+      },
+      {
+        "image": "team/lisal.jpg",
+        "name": "Lisa LaBarbera",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/lisa-labarbera-9983ab13b/"
+      },
+      {
+        "image": "team/cedricc.jpg",
+        "name": "Cedric Castillo",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/cedric-castillo-7b081a131/"
+      }
+    ]
+  },
+  {
+    "name": "Rescuer & Shout",
+    "id": "safety",
+    "members": [
+      {
+        "image": "team/nehar.jpg",
+        "name": "Neha Rao",
+        "role": "Product Manager",
+        "roleCategory": "pm",
+
+        "github": "https://github.com/neharao98",
+        "linkedin": "https://www.linkedin.com/in/neha-rao-75a5bb133/"
+      },
+      {
+        "image": "team/raymoner.jpg",
+        "name": "Raymone Radi",
+        "role": "Product Manager",
+        "roleCategory": "pm",
+        "linkedin": "https://www.linkedin.com/in/raymoneradi/"
+      },
+      {
+        "image": "team/kaushikr.jpg",
+        "name": "Kaushik Ravikumar",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/kaushikravikumar",
+        "linkedin": "https://www.linkedin.com/in/kaushikravikumar/"
+      },
+      {
+        "image": "team/evanw.png",
+        "name": "Evan Welsh",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/rockon999/",
+        "linkedin": "https://www.linkedin.com/in/evan-welsh-291577141/",
+        "website": "http://evanwelsh.com/"
+      },
+      {
+        "image": "team/matthewc.jpg",
+        "name": "Matthew Coufal",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/matthewcoufal",
+        "linkedin": "https://www.linkedin.com/in/matthew-coufal-1a08b0123/"
+      },
+      {
+        "image": "team/kaitlyns.jpg",
+        "name": "Kaitlyn Son",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/kaitlyn-son-2277b495/"
+      },
+      {
+        "image": "team/aprily.jpg",
+        "name": "April Ye",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/april-ye-120b5aab/"
+      }
+    ]
+  },
+  {
+    "name": "CU Reviews",
+    "id": "reviews",
+    "members": [
+      {
+        "image": "team/divyanshas.jpg",
+        "name": "Divyansha Sehgal",
+        "role": "Product Manager",
+        "roleCategory": "pm",
+        "linkedin": "https://www.linkedin.com/in/divyansha-sehgal/"
+      },
+      {
+        "image": "team/brooked.jpg",
+        "name": "Brooke Docherty",
+        "role": "Product Manager",
+        "roleCategory": "pm",
+        "linkedin": "https://www.linkedin.com/in/brooke-docherty/"
+      },
+      {
+        "image": "team/vinisham.jpg",
+        "name": "Vinisha Mittal",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "http://github.com/VinishaM",
+        "linkedin": "http://linkedin.com/in/VinishaM"
+      },
+      {
+        "image": "team/julianl.jpg",
+        "name": "Julian Londono",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/julian-londono",
+        "linkedin": "https://www.linkedin.com/in/julian-londono/"
+      },
+      {
+        "image": "team/jessicac.jpg",
+        "name": "Jessica Chen",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/jjc387",
+        "linkedin": "https://www.linkedin.com/in/jessica-chen-0305b2149/"
+      },
+      {
+        "image": "team/nihar_sidhu.jpg",
+        "name": "Nihar Sidhu",
+        "role": "Backend Developer",
+        "github": "https://github.com/niharsidhu",
+        "linkedin": "https://www.linkedin.com/in/nihar-sidhu-637703126/"
+      },
+      {
+        "image": "team/jessem.jpg",
+        "name": "Jesse Mansoor",
+        "role": "Designer (Away)"
+      },
+      {
+        "image": "team/jessicap.jpg",
+        "name": "Jessica Prague",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/jessica-prague-07a157149/"
+      }
+    ]
+  },
+  {
+    "name": "Project Samwise",
+    "id": "samwise",
+    "members": [
+      {
+        "image": "team/alicez.jpg",
+        "name": "'Alice' Ran Zhou",
+        "role": "Product Manager (Away)",
+        "github": "https://github.com/rz96",
+        "linkedin": "https://www.linkedin.com/in/aranzhou/"
+      },
+      {
+        "image": "team/matthewe.jpg",
+        "name": "Matthew Epstein",
+        "role": "Product Manager",
+        "roleCategory": "pm",
+        "github": "https://github.com/me382",
+        "linkedin": "https://www.linkedin.com/in/matthew-epstein-5b64ab33/"
+      },
+      {
+        "image": "team/justint.jpg",
+        "name": "Justin Tran",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "http://github.com/justinttran",
+        "linkedin": "https://www.linkedin.com/in/justinttran/"
+      },
+      {
+        "image": "team/kevinl.jpg",
+        "name": "Kevin Li",
+        "role": "Developer"
+      },
+      {
+        "image": "team/jillw.png",
+        "name": "Jill Wu",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/jillwuu",
+        "linkedin": "https://linkedin.com/in/jillwuu"
+      },
+      {
+        "image": "team/gautamm.png",
+        "name": "Gautam Mekkat",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/Blue9"
+      },
+      {
+        "image": "team/alexa_bren.jpg",
+        "name": "Alexa Bren",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/alexa-bren-117520b8/",
+        "website": "https://www.alexabren.com/"
+      },
+      {
+        "image": "team/michelley.jpg",
+        "name": "Michelle Yang",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/michelle-yang-24ab00b9/"
+      },
+      {
+        "image": "team/vivians.jpg",
+        "name": "Vivian Shiu",
+        "role": "Designer"
+      }
+    ]
+  },
+  {
+    "name": "Research Connect",
+    "id": "research",
+    "members": [
+      {
+        "image": "team/aramb.jpg",
+        "name": "Aram Baghdassarian",
+        "role": "Product Manager",
+        "roleCategory": "pm",
+        "github": "https://github.com/abagh0703",
+        "linkedin": "https://www.linkedin.com/in/aram-baghdassarian/"
+      },
+      {
+        "image": "team/juliay.jpg",
+        "name": "Julia Yang",
+        "role": "Developer (Away)",
+        "linkedin": "http://linkedin.com/in/juliayangg"
+      },
+      {
+        "image": "team/andrewx.jpg",
+        "name": "Andrew Xiao",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/Andrewxzn",
+        "linkedin": "https://www.linkedin.com/in/andrewxzn/"
+      },
+      {
+        "image": "team/dhruvb.jpg",
+        "name": "Dhruv Baijal",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "linkedin": "https://www.linkedin.com/in/dhruv-baijal/"
+      },
+      {
+        "image": "team/phillip_kheyfets.jpg",
+        "name": "Phillip Kheyfets",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "linkedin": "https://www.linkedin.com/in/kheyfets1",
+        "github": "https://github.com/kheyfets"
+      },
+      {
+        "image": "team/racheln.jpg",
+        "name": "Rachel Nash",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/rsn55",
+        "linkedin": "https://www.linkedin.com/in/rachel-nash-29b25351/"
+      },
+      {
+        "image": "team/emily_chan.jpg",
+        "name": "Emily Chan",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/emilychan-21",
+        "website": "https://emilychan.myportfolio.com"
+      },
+      {
+        "image": "team/michaelh.jpg",
+        "name": "Michael Huang",
+        "role": "Designer"
+      },
+      {
+        "image": "team/ayeshag.png",
+        "name": "Ayesha Gagguturi",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "github": "https://github.com/Ayesha34/CS"
+      }
+    ]
+  },
+  {
+    "name": "Queue Me In",
+    "id": "officehours",
+    "members": [
+      {
+        "image": "team/tiffanyw.jpg",
+        "name": "Tiffany Wang",
+        "role": "Product Manager",
+        "roleCategory": "pm",
+        "linkedin": "https://www.linkedin.com/in/tiffany-wang-29ab2a127/"
+      },
+      {
+        "image": "team/karuns.jpg",
+        "name": "Karun Singh",
+        "role": "Product Manager",
+        "roleCategory": "pm",
+        "github": "https://github.com/karunsingh",
+        "linkedin": "https://www.linkedin.com/in/karun17/"
+      },
+      {
+        "image": "team/horaceh.jpg",
+        "name": "Horace He",
+        "role": "Developer"
+      },
+      {
+        "image": "team/ryan_slama.png",
+        "name": "Ryan Slama",
+        "role": "Front-End Developer",
+        "linkedin": "https://www.linkedin.com/in/ryan-slama-961738137/",
+        "github": "https://github.com/glitched",
+        "website": "http://ryanslama.com/"
+      },
+      {
+        "image": "team/vanessaw.jpg",
+        "name": "Vanessa Wang",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/vanessaw1",
+        "linkedin": "https://www.linkedin.com/in/vanessa-w-381939102"
+      },
+      {
+        "image": "team/shefalia.jpg",
+        "name": "Shefali Agarwal",
+        "role": "Developer",
+        "roleCategory": "developer",
+        "github": "https://github.com/Shefali-A",
+        "linkedin": "https://www.linkedin.com/in/shefaliagarwal/"
+      },
+      {
+        "image": "team/sangwook.jpg",
+        "name": "Sangwoo (Sean) Kim",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/sangwoo-kim-2a520b119/"
+      },
+      {
+        "image": "team/joyelleg.jpg",
+        "name": "Joyelle Gilbert",
+        "role": "Designer"
+      },
+      {
+        "image": "team/sophia_wang.jpg",
+        "name": "Sophia Wang",
+        "role": "Designer",
+        "roleCategory": "designer",
+        "linkedin": "https://www.linkedin.com/in/sophia-wang-90228413b/",
+        "website": "https://www.sophiawang.design"
+      }
+    ]
+  },
+  {
+    "name": "Floating Consultants",
+    "id": "floaters",
+    "members": [
+      {
+        "image": "team/rachelg.jpg",
+        "name": "Rachel Goffin",
+        "role": "User Research"
+      },
+      {
+        "image": "team/wenchang_yang.png",
+        "name": "Wenchang Yang",
+        "role": "Front-End Design",
+        "website": "http://wenchangyang.com",
+        "linkedin": "https://www.linkedin.com/in/tiancichang/"
+      }
+    ]
+  },
+  {
+    "name": "Business",
+    "id": "business",
+    "members": [
+      {
+        "image": "team/davidt.png",
+        "name": "David Ticzon",
+        "role": "Business Lead",
+        "linkedin": "https://www.linkedin.com/in/david-ticzon-a8291ba0/"
+      },
+      {
+        "image": "team/glenik.jpg",
+        "name": "Gleni Kodra",
+        "role": "Corporate Relations"
+      },
+      {
+        "image": "team/ronni_mok.jpg",
+        "name": "Ronni Mok",
+        "role": "Business",
+        "linkedin": "https://www.linkedin.com/in/ronni-mok/"
+      },
+      {
+        "image": "team/imani_majied.jpg",
+        "name": "Imani Majied",
+        "role": "Business",
+        "linkedin": "http://linkedin.com/in/imani-majied-98137b96"
+      },
+      {
+        "image": "team/sonyat.jpg",
+        "name": "Sonya Tao",
+        "role": "Finance"
+      }
+    ]
+  }
+]

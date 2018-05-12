@@ -14,6 +14,7 @@
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.8",
     "dotenv": "^5.0.1",
+    "connect-history-api-fallback": "^1.5.0",
     "express": "^4.16.3",
     "mailchimp-node": "0.0.2",
     "morgan": "^1.9.0",
@@ -62,6 +63,7 @@
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
+    "vue-svg-loader": "^0.5.0",
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
