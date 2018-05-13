@@ -15,6 +15,8 @@
         </b-col>
       </b-row>
     </page-section>
+
+    <dti-footer />
   </page-background>
 </template>
 
@@ -26,8 +28,8 @@
   width: 100%;
   max-width: 100%;
   object-fit: cover;
- 
-  box-shadow: 0 0 3px 0px rgba(0,0,0,0.6);
+
+  box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.6);
 }
 </style>
 

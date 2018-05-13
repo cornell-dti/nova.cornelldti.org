@@ -38,8 +38,11 @@
         </b-row>
       </page-section>
     </b-container>
+
+    <dti-footer />
   </page-background>
 </template>
+
 <style lang="scss" scoped>
 
 </style>

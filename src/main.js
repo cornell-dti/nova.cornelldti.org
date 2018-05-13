@@ -18,6 +18,7 @@ import router from '@/router';
 /* Global Components */
 
 import DtiMainMenu from '@/components/DtiMainMenu';
+import DtiFooter from '@/components/DtiFooter';
 import PageBackground from '@/components/PageBackground';
 import PageHero from '@/components/PageHero';
 import TextPageHero from '@/components/TextPageHero';
@@ -29,6 +30,7 @@ Vue.use(BootstrapVue);
 
 Vue.component('BaseLayout', BaseLayout);
 Vue.component('DtiMainMenu', DtiMainMenu);
+Vue.component('DtiFooter', DtiFooter);
 Vue.component('StoreBadge', StoreBadge);
 Vue.component('PageBackground', PageBackground);
 Vue.component('PageSection', PageSection);

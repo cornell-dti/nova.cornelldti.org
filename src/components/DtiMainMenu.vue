@@ -1,6 +1,6 @@
 <template>
-  <b-navbar ref="dtinavbar" fixed="top" :class="['navbar-dti ', 'navbar-dark ', transparent && !navShown ? 'bg-transparent' : 'bg-dark ']"
-    toggleable="md">
+  <b-navbar :class="['navbar-dti ', 'navbar-dark ', transparent && !navShown ? 'bg-transparent' : 'bg-dark ']"
+    ref="dtinavbar" fixed="top" toggleable="md">
 
     <b-navbar-brand class="navbar-branding-dti" href="#">
       <b-img class="brand-icon" src="/static/brand-icon.png" />

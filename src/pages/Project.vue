@@ -107,6 +107,8 @@
       </b-modal>
 
     </b-container>
+
+    <dti-footer />
   </page-background>
 </template>
 
@@ -173,6 +175,7 @@ export default {
     background: #777;
   }
 }
+
 .project-hero-logo {
   margin: 1vw;
 }

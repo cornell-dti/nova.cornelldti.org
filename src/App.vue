@@ -12,15 +12,10 @@
 </template>
 
 <script>
-import DtiFooter from '@/components/DtiFooter';
-
 const Pages = ['Home', 'Projects', 'Initiatives', 'Team', 'Sponsor', 'Apply'];
 
 export default {
   name: 'App',
-  components: {
-    DtiFooter
-  },
   data() {
     return {
       transition: 'slidein'
@@ -67,7 +62,6 @@ $page-transition-duration: 0.5s;
     left: 0;
     width: 100%;
     min-height: 100vh;
-    height: 100%;
   }
 }
 
