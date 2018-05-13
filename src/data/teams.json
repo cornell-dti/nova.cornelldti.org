@@ -1,59 +1,5 @@
 [
   {
-    "name": "Leads",
-    "id": "leads",
-    "description": "The leads.",
-    "members": [
-      {
-        "image": "team/alicep.jpg",
-        "name": "Alice Pham",
-        "role": "Co-Lead",
-        "roleCategory": "lead",
-        "github": "https://github.com/alicepham",
-        "linkedin": "https://www.linkedin.com/in/alicetpham/"
-      },
-      {
-        "image": "team/karuns.jpg",
-        "name": "Karun Singh",
-        "role": "Co-Lead",
-        "roleCategory": "lead",
-        "github": "https://github.com/karunsingh",
-        "linkedin": "https://www.linkedin.com/in/karun17/"
-      },
-      {
-        "image": "team/matthewb.jpg",
-        "name": "Matthew Barker",
-        "role": "Design Lead",
-        "roleCategory": "designer-lead",
-        "github": "https://github.com/mattbarker016",
-        "website": "http://mattbarker.me/"
-      },
-      {
-        "image": "team/sheab.jpg",
-        "name": "Shea Belsky",
-        "role": "Development Lead",
-        "roleCategory": "developer-lead",
-        "github": "https://github.com/SHBelsky",
-        "linkedin": "https://www.linkedin.com/in/sheabelsky/"
-      },
-      {
-        "image": "team/davidc.jpg",
-        "name": "David Chu",
-        "role": "Webmaster :)",
-        "roleCategory": "lead",
-        "github": "https://github.com/davidchuyaya",
-        "linkedin": "https://www.linkedin.com/in/davidchuyaya/"
-      },
-      {
-        "image": "team/davidt.png",
-        "name": "David Ticzon",
-        "role": "Business Lead",
-        "roleCategory": "business-lead",
-        "linkedin": "https://www.linkedin.com/in/david-ticzon-a8291ba0/"
-      }
-    ]
-  },
-  {
     "name": "CU Orientation & Events",
     "id": "orientation",
     "members": [
@@ -473,58 +419,6 @@
         "roleCategory": "designer",
         "linkedin": "https://www.linkedin.com/in/sophia-wang-90228413b/",
         "website": "https://www.sophiawang.design"
-      }
-    ]
-  },
-  {
-    "name": "Floating Consultants",
-    "id": "floaters",
-    "members": [
-      {
-        "image": "team/rachelg.jpg",
-        "name": "Rachel Goffin",
-        "role": "User Research"
-      },
-      {
-        "image": "team/wenchang_yang.png",
-        "name": "Wenchang Yang",
-        "role": "Front-End Design",
-        "website": "http://wenchangyang.com",
-        "linkedin": "https://www.linkedin.com/in/tiancichang/"
-      }
-    ]
-  },
-  {
-    "name": "Business",
-    "id": "business",
-    "members": [
-      {
-        "image": "team/davidt.png",
-        "name": "David Ticzon",
-        "role": "Business Lead",
-        "linkedin": "https://www.linkedin.com/in/david-ticzon-a8291ba0/"
-      },
-      {
-        "image": "team/glenik.jpg",
-        "name": "Gleni Kodra",
-        "role": "Corporate Relations"
-      },
-      {
-        "image": "team/ronni_mok.jpg",
-        "name": "Ronni Mok",
-        "role": "Business",
-        "linkedin": "https://www.linkedin.com/in/ronni-mok/"
-      },
-      {
-        "image": "team/imani_majied.jpg",
-        "name": "Imani Majied",
-        "role": "Business",
-        "linkedin": "http://linkedin.com/in/imani-majied-98137b96"
-      },
-      {
-        "image": "team/sonyat.jpg",
-        "name": "Sonya Tao",
-        "role": "Finance"
       }
     ]
   }

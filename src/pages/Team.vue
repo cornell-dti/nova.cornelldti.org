@@ -219,10 +219,15 @@ export default {
     Marquee,
     CircleProgressIndicator
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.roleId = '';
+    });
+  },
   data() {
     return {
       currentProfile: {},
-      filter_role_category: '',
+      filter_role_category: 'none',
       divRoleId: 'all'
     };
   },
