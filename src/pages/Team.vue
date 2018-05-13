@@ -12,19 +12,17 @@
     </page-section>
 
     <div class="diversity">
-      <div class="diversity-graph diversity-left" />
-      <!-- TODO bind formatting to actual elements-->
-      <div class="diversity-graph diversity-right" />
+      <div class="">
+        <!-- TODO bind formatting to actual elements-->
+        <div class="">
 
-      <b-container fluid>
-        <page-section>
-          <b-row>
-            <b-col sm="12" md="6" class="my-auto">
+          <b-row class="no-gutters">
+            <b-col sm="12" md="5" class="diversity-left">
               <h1 class="team-header">Diversity</h1>
               <p>Page summary. Diverse team spanning disciplines, years, ethnicities,
                 etc. We've had exciting people and have been to exciting places.</p>
 
-              <b-row class="justify-content-center">
+              <b-row class="no-gutters justify-content-center">
                 <circle-progress-indicator :percentage="fem(divRoleId)">
                   <div class="graph-data">
                     <b-row align-v="center" class="h-100">
@@ -41,7 +39,7 @@
                 </circle-progress-indicator>
               </b-row>
               <br />
-              <b-row class="justify-content-center">
+              <b-row class="no-gutters  justify-content-center">
                 <b-col class="text-center">
                   <div :class="btn(divRoleId === 'all')" @click="divRoleId = 'all'">
                     All
@@ -56,7 +54,10 @@
                 </b-col>
               </b-row>
             </b-col>
-            <b-col sm="12" md="6" class="diversity-text-right my-auto">
+            <b-col sm="0" md="2" class="diversity-center">
+              <div class="right" />
+            </b-col>
+            <b-col sm="12" md="5" class="diversity-right diversity-text-right">
               <b-row align-h="center">
                 <b-col sm="6" md="12" class="diversity-inner-text">
                   <h1>14</h1>
@@ -69,9 +70,9 @@
               </b-row>
             </b-col>
           </b-row>
-        </page-section>
-      </b-container>
 
+        </div>
+      </div>
     </div>
 
     <b-container fluid>
@@ -167,12 +168,23 @@
 @media (min-width: 768px) {
   .diversity-left {
     background-color: #f6f6f6;
-    clip-path: polygon(0 0, 0 100%, 48% 100%, 52% 0);
+    padding: 4vw;
   }
 
   .diversity-right {
     background-color: #ff324a;
-    clip-path: polygon(52% 0, 48% 100%, 100% 100%, 100% 0);
+    padding: 4vw;
+  }
+
+  .diversity-center {
+    background-color: #f6f6f6;
+
+    .right {
+      width: 100%;
+      height: 100%;
+      background-color: #ff324a;
+      clip-path: polygon(52% 0, 48% 100%, 100% 100%, 100% 0);
+    }
   }
 
   .diversity-text-right {
@@ -188,11 +200,6 @@
 
   .diversity-inner-text {
     text-align: center;
-  }
-
-  .diversity-right,
-  .diversity-left {
-    visibility: hidden;
   }
 
   .diversity-inner-text {
