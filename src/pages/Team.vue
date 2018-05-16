@@ -39,14 +39,14 @@
                 </circle-progress-indicator>
               </b-row>
               <br />
-              <b-row class="no-gutters  justify-content-center">
-                <b-col class="text-center">
+              <b-row class="no-gutters filter-btn-group">
+                <b-col cols="auto" class="text-center">
                   <div :class="btn(divRoleId === 'all')" @click="divRoleId = 'all'">
                     All
                   </div>
                   <div :class="selector(divRoleId === 'all')" />
                 </b-col>
-                <b-col class="text-center" v-for="role of roles" :key="role.id">
+                <b-col cols="auto" class="text-center" v-for="role of roles" :key="role.id">
                   <div :class="btn(divRoleId === role.id)" @click="divRoleId = role.id">
                     {{role.name}}
                   </div>
@@ -79,7 +79,7 @@
       <page-section>
         <h1 class="team-header">Team</h1>
 
-        <b-row class="justify-content-center">
+        <b-row class="filter-btn-group">
           <b-col class="text-center">
             <div :class="btn(roleId === '')" @click="roleId = ''">
               All
@@ -138,6 +138,10 @@
   margin: 0 auto;
 }
 
+.filter-btn-group {
+  justify-content: center;
+}
+
 .selector-selected {
   background-color: #4a4a4a !important;
 }
@@ -145,6 +149,7 @@
 .filter-btn,
 .selected-filter-btn {
   color: #4a4a4a !important;
+  margin: 1rem;
 }
 
 .filter-btn:focus,
@@ -196,6 +201,7 @@
 @media (max-width: 767px) {
   .diversity {
     background-color: #f6f6f6;
+    padding: 4vw;
   }
 
   .diversity-inner-text {

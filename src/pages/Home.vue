@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <video class="home-background home-preload-background home-background-video" src="/static/givingday.mp4"
+    <video class="home-background home-preload-background home-background-video" src="/static/givingday.m4v"
       autoplay loop=true muted=true preload=auto>
       Your browser does not support video playback.
       <!--TODO-->
