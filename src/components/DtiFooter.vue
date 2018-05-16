@@ -13,15 +13,25 @@
         </b-col>
         <b-col sm="12" md="6">
           <b-row align-h="end" align-v="center">
-            <Facebook class="social-icon" />
-            <Dribbble class="social-icon" />
-            <Github class="social-icon" />
-            <GooglePlay class="social-icon-circle" />
-            <AppStore class="social-icon-circle" />
-            <Medium class="social-icon" />
+            <a href="https://www.facebook.com/cornelldti/">
+              <Facebook class="social-icon" />
+            </a>
+            <a href="https://github.com/cornell-dti/">
+              <Github class="social-icon" />
+            </a>
+            <a href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative">
+              <GooglePlay class="social-icon-circle" />
+            </a>
+            <a href="http://appstore.com/cornelldti">
+              <!--TODO get the actual link-->
+              <AppStore class="social-icon-circle" />
+            </a>
+            <a href="https://medium.com/cornell-design-tech-initiative/">
+              <Medium class="social-icon" />
+            </a>
           </b-row>
           <b-row class="copyright" align-h="end" align-v="center">
-            <p>&copy; 2018 Cornell Design &amp; Tech Initiative</p>
+            <p>&copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech Initiative</p>
           </b-row>
         </b-col>
       </b-row>

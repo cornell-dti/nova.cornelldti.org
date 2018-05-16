@@ -1,5 +1,5 @@
 <template>
-  <b-navbar :class="['navbar-dti ', 'navbar-dark ', transparent && !navShown ? 'bg-transparent' : 'bg-dark ']"
+  <b-navbar :class="['navbar-dti ', ...(transparent && !navShown ? [ 'navbar-dark ', 'bg-transparent'] : ['navbar-dti-light', 'navbar-light', 'bg-light'])]"
     ref="dtinavbar" fixed="top" toggleable="md">
 
     <b-navbar-brand class="navbar-branding-dti" href="#">
@@ -66,6 +66,10 @@ export default {
 
 .navbar-dti {
   transition: background-color 500ms linear;
+
+  &.navbar-dti-light {
+    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.3);
+  }
 
   @media (min-width: 768px) {
     .navbar-nav > li {

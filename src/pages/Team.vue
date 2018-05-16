@@ -17,7 +17,7 @@
         <div class="">
 
           <b-row class="no-gutters">
-            <b-col sm="12" md="5" class="diversity-left">
+            <b-col sm="12" md="6" class="diversity-left">
               <h1 class="team-header">Diversity</h1>
               <p>Page summary. Diverse team spanning disciplines, years, ethnicities,
                 etc. We've had exciting people and have been to exciting places.</p>
@@ -54,10 +54,10 @@
                 </b-col>
               </b-row>
             </b-col>
-            <b-col sm="0" md="2" class="diversity-center">
+            <b-col sm="0" md="1" class="diversity-center">
               <div class="right" />
             </b-col>
-            <b-col sm="12" md="5" class="diversity-right diversity-text-right">
+            <b-col sm="12" md="" class="diversity-right diversity-text-right">
               <b-row align-h="center">
                 <b-col sm="6" md="12" class="diversity-inner-text">
                   <h1>14</h1>
@@ -183,7 +183,7 @@
       width: 100%;
       height: 100%;
       background-color: #ff324a;
-      clip-path: polygon(52% 0, 48% 100%, 100% 100%, 100% 0);
+      clip-path: polygon(70% 0, 30% 100%, 100% 100%, 100% 0);
     }
   }
 
@@ -219,10 +219,15 @@ export default {
     Marquee,
     CircleProgressIndicator
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.roleId = '';
+    });
+  },
   data() {
     return {
       currentProfile: {},
-      filter_role_category: '',
+      filter_role_category: 'none',
       divRoleId: 'all'
     };
   },

@@ -1,23 +1,5 @@
 [
   {
-    "image": "team/alicep.jpg",
-    "name": "Alice Pham",
-    "id": "ap1",
-    "role": "Project Co-Lead",
-    "roleId": "pm-lead",
-    "github": "https://github.com/alicepham",
-    "linkedin": "https://www.linkedin.com/in/alicetpham/"
-  },
-  {
-    "image": "team/karuns.jpg",
-    "name": "Karun Singh",
-    "id": "ks1",
-    "role": "Project Co-Lead",
-    "roleId": "pm-lead",
-    "github": "https://github.com/karunsingh",
-    "linkedin": "https://www.linkedin.com/in/karun17/"
-  },
-  {
     "image": "team/matthewb.jpg",
     "name": "Matthew Barker",
     "id": "mb1",
@@ -30,33 +12,17 @@
     "image": "team/sheab.jpg",
     "name": "Shea Belsky",
     "id": "sb1",
-    "role": "Development Lead",
-    "roleId": "developer-lead",
+    "role": "Developer",
+    "roleId": "developer",
     "github": "https://github.com/SHBelsky",
     "linkedin": "https://www.linkedin.com/in/sheabelsky/"
-  },
-  {
-    "image": "team/davidt.png",
-    "name": "David Ticzon",
-    "id": "dt1",
-    "role": "Business Lead",
-    "roleId": "business-lead",
-    "linkedin": "https://www.linkedin.com/in/david-ticzon-a8291ba0/"
-  },
-  {
-    "image": "team/juliak.jpg",
-    "name": "Julia Kruk",
-    "id": "jk1",
-    "role": "Product Manager",
-    "roleId": "pm",
-    "linkedin": "https://www.linkedin.com/in/julia-kruk-854155112/"
   },
   {
     "image": "team/davidc.jpg",
     "name": "David Chu",
     "id": "dc1",
-    "role": "Product Manager",
-    "roleId": "pm",
+    "role": "Mobile Platforms Lead",
+    "roleId": "developer-lead",
     "github": "https://github.com/davidchuyaya",
     "linkedin": "https://www.linkedin.com/in/davidchuyaya/"
   },
@@ -115,13 +81,6 @@
     "github": "https://github.com/jess1cazhao/"
   },
   {
-    "image": "team/justinp.jpg",
-    "name": "Justin Park",
-    "id": "jp1",
-    "roleId": "designer",
-    "role": "Designer"
-  },
-  {
     "image": "team/lisal.jpg",
     "name": "Lisa LaBarbera",
     "id": "ll1",
@@ -168,7 +127,7 @@
     "image": "team/evanw.png",
     "name": "Evan Welsh",
     "id": "ew1",
-    "role": "Developer",
+    "role": "Web Platforms Lead",
     "roleId": "developer-lead",
     "github": "https://github.com/rockon999/",
     "linkedin": "https://www.linkedin.com/in/evan-welsh-291577141/",
@@ -200,29 +159,12 @@
     "linkedin": "https://www.linkedin.com/in/april-ye-120b5aab/"
   },
   {
-    "image": "team/divyanshas.jpg",
-    "name": "Divyansha Sehgal",
-    "id": "ds1",
-    "role": "Product Manager",
-    "roleId": "pm",
-    "linkedin": "https://www.linkedin.com/in/divyansha-sehgal/"
-  },
-  {
     "image": "team/brooked.jpg",
     "name": "Brooke Docherty",
     "id": "bd1",
     "role": "Product Manager",
     "roleId": "pm",
     "linkedin": "https://www.linkedin.com/in/brooke-docherty/"
-  },
-  {
-    "image": "team/vinisham.jpg",
-    "name": "Vinisha Mittal",
-    "id": "vm1",
-    "role": "Developer",
-    "roleId": "developer",
-    "github": "http://github.com/VinishaM",
-    "linkedin": "http://linkedin.com/in/VinishaM"
   },
   {
     "image": "team/julianl.jpg",
@@ -325,14 +267,6 @@
     "roleId": "designer",
     "linkedin": "https://www.linkedin.com/in/alexa-bren-117520b8/",
     "website": "https://www.alexabren.com/"
-  },
-  {
-    "image": "team/michelley.jpg",
-    "name": "Michelle Yang",
-    "id": "my1",
-    "role": "Designer",
-    "roleId": "designer",
-    "linkedin": "https://www.linkedin.com/in/michelle-yang-24ab00b9/"
   },
   {
     "image": "team/vivians.jpg",
@@ -489,15 +423,6 @@
     "id": "rg1",
     "roleId": "designer",
     "role": "User Research"
-  },
-  {
-    "image": "team/wenchang_yang.png",
-    "name": "Wenchang Yang",
-    "id": "wy1",
-    "roleId": "designer",
-    "role": "Front-End Design",
-    "website": "http://wenchangyang.com",
-    "linkedin": "https://www.linkedin.com/in/tiancichang/"
   },
   {
     "image": "team/glenik.jpg",

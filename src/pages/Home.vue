@@ -38,6 +38,7 @@ $hero-margin: 5%;
 }
 
 .home-hero-text {
+  font-family: 'Space Mono';
   position: absolute;
   bottom: $hero-margin;
   left: $hero-margin;
