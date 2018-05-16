@@ -5,18 +5,19 @@
   "author": "rockon999 <rockon999@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --open --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "concurrently \"npm start\" \"webpack --progress --watch --config build/webpack.dev.conf.js\"",
     "start": "node server.js",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
     "postinstall": "npm run build"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.8",
-    "dotenv": "^5.0.1",
     "connect-history-api-fallback": "^1.5.0",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
-    "mailchimp-node": "0.0.2",
+    "mailchimp-api-v3": "^1.9.0",
     "morgan": "^1.9.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
@@ -72,7 +73,7 @@
   },
   "engines": {
     "node": "9.11.1",
-    "npm": "5.6.0"
+    "npm": "5.10.0"
   },
   "browserslist": [
     "> 1%",
