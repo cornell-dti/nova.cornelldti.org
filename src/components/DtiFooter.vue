@@ -4,7 +4,7 @@
       <b-row class="footer" align-v="center">
         <b-col sm="12" md="6">
           <b-row align-h="start" align-v="center">
-            <b-img class="wordmark" :src="img('wordmark.png')" />
+            <b-img class="wordmark" :src="img('branding', 'wordmark.png')" />
           </b-row>
           <b-row align-h="start" align-v="center">
             <p class="statement">creating technology for community impact</p>

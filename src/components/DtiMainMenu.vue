@@ -3,12 +3,12 @@
     ref="dtinavbar" fixed="top" toggleable="md" type="none">
 
     <b-navbar-brand class="navbar-branding-dti" href="#">
-      <b-img class="brand-icon" src="/static/brand-icon.png" />
+      <b-img class="brand-icon" :src="img('branding', 'brand-icon.png')" />
     </b-navbar-brand>
 
     <b-nav-text :style="{display: navShown ? '' : 'none'}" v-html="this.$route.name"
     />
-    
+
     <b-btn @click="navShown = !navShown" :class="['navbar-toggler', navShown ? 'collapsed' : '']"
       aria-controls="nav_collapse" :aria-expanded="navShown ? 'true' : 'false'">
       <transition>

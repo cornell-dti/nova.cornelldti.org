@@ -57,8 +57,11 @@ Vue.mixin({
     ipsum_def(amount = 50) {
       return this.ipsum(null, amount);
     },
-    img(imagePath) {
-      return `/static/${imagePath}`; //eslint-disable-line
+    img(type, name) {
+      return `/static/img/${type}/${name}`; //eslint-disable-line
+    },
+    vid(type, name) {
+      return `/static/vid/${type}/${name}`; //eslint-disable-line
     }
   }
 });

@@ -6,7 +6,7 @@
         <headshot-card :name="member.id" :role="member.id" :image='``' @click.native="null"
         />
       </div>
-      <headshot-card v-else :name="member.name" :role="member.role" :image='img(member.image)'
+      <headshot-card v-else :name="member.name" :role="member.role" :image="img('members', member.image)"
         @click.native="memberClicked(member)" />
     </div>
 

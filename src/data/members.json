@@ -1,6 +1,6 @@
 [
   {
-    "image": "team/matthewb.jpg",
+    "image": "matthewb.jpg",
     "name": "Matthew Barker",
     "id": "mb1",
     "role": "Design Lead",
@@ -9,7 +9,7 @@
     "website": "http://mattbarker.me/"
   },
   {
-    "image": "team/sheab.jpg",
+    "image": "sheab.jpg",
     "name": "Shea Belsky",
     "id": "sb1",
     "role": "Developer",
@@ -18,7 +18,7 @@
     "linkedin": "https://www.linkedin.com/in/sheabelsky/"
   },
   {
-    "image": "team/davidc.jpg",
+    "image": "davidc.jpg",
     "name": "David Chu",
     "id": "dc1",
     "role": "Mobile Platforms Lead",
@@ -27,7 +27,7 @@
     "linkedin": "https://www.linkedin.com/in/davidchuyaya/"
   },
   {
-    "image": "team/arnavg.jpg",
+    "image": "arnavg.jpg",
     "name": "Arnav Ghosh",
     "id": "ag1",
     "role": "Developer",
@@ -36,7 +36,7 @@
     "linkedin": "https://www.linkedin.com/in/arnav-ghosh-9b877a106/"
   },
   {
-    "image": "team/amandao.jpg",
+    "image": "amandao.jpg",
     "name": "Amanda Ong",
     "id": "ao1",
     "role": "Developer",
@@ -45,7 +45,7 @@
     "linkedin": "https://www.linkedin.com/in/amandaong1/"
   },
   {
-    "image": "team/jaggerb.jpg",
+    "image": "jaggerb.jpg",
     "name": "Jagger Brulato",
     "id": "jb1",
     "role": "Developer",
@@ -54,7 +54,7 @@
     "linkedin": "https://www.linkedin.com/in/jagger-brulato-896968149/"
   },
   {
-    "image": "team/aditg.jpg",
+    "image": "aditg.jpg",
     "name": "Adit Gupta",
     "id": "ag2",
     "role": "Developer",
@@ -63,7 +63,7 @@
     "linkedin": "https://www.linkedin.com/in/aditgupta25/"
   },
   {
-    "image": "team/qichenh.jpg",
+    "image": "qichenh.jpg",
     "name": "Qichen (Ethan) Hu",
     "id": "qeh1",
     "role": "Developer",
@@ -72,7 +72,7 @@
     "linkedin": "https://www.linkedin.com/in/qichen-hu-b6811b112/"
   },
   {
-    "image": "team/jessica_zhao.jpg",
+    "image": "jessica_zhao.jpg",
     "name": "Jessica Zhao",
     "id": "jz1",
     "role": "Designer",
@@ -81,7 +81,7 @@
     "github": "https://github.com/jess1cazhao/"
   },
   {
-    "image": "team/lisal.jpg",
+    "image": "lisal.jpg",
     "name": "Lisa LaBarbera",
     "id": "ll1",
     "role": "Designer",
@@ -89,7 +89,7 @@
     "linkedin": "https://www.linkedin.com/in/lisa-labarbera-9983ab13b/"
   },
   {
-    "image": "team/cedricc.jpg",
+    "image": "cedricc.jpg",
     "name": "Cedric Castillo",
     "id": "cc1",
     "role": "Designer",
@@ -97,7 +97,7 @@
     "linkedin": "https://www.linkedin.com/in/cedric-castillo-7b081a131/"
   },
   {
-    "image": "team/nehar.jpg",
+    "image": "nehar.jpg",
     "name": "Neha Rao",
     "id": "nr1",
     "role": "Product Manager",
@@ -107,7 +107,7 @@
     "linkedin": "https://www.linkedin.com/in/neha-rao-75a5bb133/"
   },
   {
-    "image": "team/raymoner.jpg",
+    "image": "raymoner.jpg",
     "name": "Raymone Radi",
     "id": "rr1",
     "role": "Product Manager",
@@ -115,7 +115,7 @@
     "linkedin": "https://www.linkedin.com/in/raymoneradi/"
   },
   {
-    "image": "team/kaushikr.jpg",
+    "image": "kaushikr.jpg",
     "name": "Kaushik Ravikumar",
     "id": "kr1",
     "role": "Developer",
@@ -124,7 +124,7 @@
     "linkedin": "https://www.linkedin.com/in/kaushikravikumar/"
   },
   {
-    "image": "team/evanw.png",
+    "image": "evanw.png",
     "name": "Evan Welsh",
     "id": "ew1",
     "role": "Web Platforms Lead",
@@ -134,7 +134,7 @@
     "website": "http://evanwelsh.com/"
   },
   {
-    "image": "team/matthewc.jpg",
+    "image": "matthewc.jpg",
     "name": "Matthew Coufal",
     "id": "mc1",
     "role": "Developer",
@@ -143,7 +143,7 @@
     "linkedin": "https://www.linkedin.com/in/matthew-coufal-1a08b0123/"
   },
   {
-    "image": "team/kaitlyns.jpg",
+    "image": "kaitlyns.jpg",
     "name": "Kaitlyn Son",
     "id": "ks2",
     "role": "Designer",
@@ -151,7 +151,7 @@
     "linkedin": "https://www.linkedin.com/in/kaitlyn-son-2277b495/"
   },
   {
-    "image": "team/aprily.jpg",
+    "image": "aprily.jpg",
     "name": "April Ye",
     "id": "ay1",
     "role": "Designer",
@@ -159,7 +159,7 @@
     "linkedin": "https://www.linkedin.com/in/april-ye-120b5aab/"
   },
   {
-    "image": "team/brooked.jpg",
+    "image": "brooked.jpg",
     "name": "Brooke Docherty",
     "id": "bd1",
     "role": "Product Manager",
@@ -167,7 +167,7 @@
     "linkedin": "https://www.linkedin.com/in/brooke-docherty/"
   },
   {
-    "image": "team/julianl.jpg",
+    "image": "julianl.jpg",
     "name": "Julian Londono",
     "id": "jl1",
     "role": "Developer",
@@ -176,7 +176,7 @@
     "linkedin": "https://www.linkedin.com/in/julian-londono/"
   },
   {
-    "image": "team/jessicac.jpg",
+    "image": "jessicac.jpg",
     "name": "Jessica Chen",
     "id": "jc1",
     "role": "Developer",
@@ -185,7 +185,7 @@
     "linkedin": "https://www.linkedin.com/in/jessica-chen-0305b2149/"
   },
   {
-    "image": "team/nihar_sidhu.jpg",
+    "image": "nihar_sidhu.jpg",
     "name": "Nihar Sidhu",
     "id": "ns1",
     "role": "Backend Developer",
@@ -194,14 +194,14 @@
     "linkedin": "https://www.linkedin.com/in/nihar-sidhu-637703126/"
   },
   {
-    "image": "team/jessem.jpg",
+    "image": "jessem.jpg",
     "id": "jm1",
     "name": "Jesse Mansoor",
     "role": "Designer (Away)",
     "roleId": "designer"
   },
   {
-    "image": "team/jessicap.jpg",
+    "image": "jessicap.jpg",
     "name": "Jessica Prague",
     "id": "jp2",
     "role": "Designer",
@@ -209,7 +209,7 @@
     "linkedin": "https://www.linkedin.com/in/jessica-prague-07a157149/"
   },
   {
-    "image": "team/alicez.jpg",
+    "image": "alicez.jpg",
     "name": "'Alice' Ran Zhou",
     "id": "arz1",
     "role": "Product Manager (Away)",
@@ -218,7 +218,7 @@
     "linkedin": "https://www.linkedin.com/in/aranzhou/"
   },
   {
-    "image": "team/matthewe.jpg",
+    "image": "matthewe.jpg",
     "name": "Matthew Epstein",
     "id": "me1",
     "role": "Product Manager",
@@ -227,7 +227,7 @@
     "linkedin": "https://www.linkedin.com/in/matthew-epstein-5b64ab33/"
   },
   {
-    "image": "team/justint.jpg",
+    "image": "justint.jpg",
     "name": "Justin Tran",
     "id": "jt1",
     "role": "Developer",
@@ -236,14 +236,14 @@
     "linkedin": "https://www.linkedin.com/in/justinttran/"
   },
   {
-    "image": "team/kevinl.jpg",
+    "image": "kevinl.jpg",
     "id": "kl1",
     "name": "Kevin Li",
     "role": "Developer",
     "roleId": "developer"
   },
   {
-    "image": "team/jillw.png",
+    "image": "jillw.png",
     "name": "Jill Wu",
     "id": "jw1",
     "role": "Developer",
@@ -252,7 +252,7 @@
     "linkedin": "https://linkedin.com/in/jillwuu"
   },
   {
-    "image": "team/gautamm.png",
+    "image": "gautamm.png",
     "name": "Gautam Mekkat",
     "id": "gm1",
     "role": "Developer",
@@ -260,7 +260,7 @@
     "github": "https://github.com/Blue9"
   },
   {
-    "image": "team/alexa_bren.jpg",
+    "image": "alexa_bren.jpg",
     "name": "Alexa Bren",
     "id": "ab1",
     "role": "Designer",
@@ -269,14 +269,14 @@
     "website": "https://www.alexabren.com/"
   },
   {
-    "image": "team/vivians.jpg",
+    "image": "vivians.jpg",
     "name": "Vivian Shiu",
     "id": "vs1",
     "role": "Designer",
     "roleId": "designer"
   },
   {
-    "image": "team/aramb.jpg",
+    "image": "aramb.jpg",
     "name": "Aram Baghdassarian",
     "id": "ab2",
     "role": "Product Manager",
@@ -285,7 +285,7 @@
     "linkedin": "https://www.linkedin.com/in/aram-baghdassarian/"
   },
   {
-    "image": "team/juliay.jpg",
+    "image": "juliay.jpg",
     "name": "Julia Yang",
     "id": "jy1",
     "role": "Developer (Away)",
@@ -293,7 +293,7 @@
     "linkedin": "http://linkedin.com/in/juliayangg"
   },
   {
-    "image": "team/andrewx.jpg",
+    "image": "andrewx.jpg",
     "name": "Andrew Xiao",
     "id": "ax1",
     "role": "Developer",
@@ -302,7 +302,7 @@
     "linkedin": "https://www.linkedin.com/in/andrewxzn/"
   },
   {
-    "image": "team/dhruvb.jpg",
+    "image": "dhruvb.jpg",
     "name": "Dhruv Baijal",
     "id": "db1",
     "role": "Developer",
@@ -310,7 +310,7 @@
     "linkedin": "https://www.linkedin.com/in/dhruv-baijal/"
   },
   {
-    "image": "team/phillip_kheyfets.jpg",
+    "image": "phillip_kheyfets.jpg",
     "name": "Phillip Kheyfets",
     "id": "pk1",
     "role": "Developer",
@@ -319,7 +319,7 @@
     "github": "https://github.com/kheyfets"
   },
   {
-    "image": "team/racheln.jpg",
+    "image": "racheln.jpg",
     "name": "Rachel Nash",
     "id": "rn1",
     "role": "Developer",
@@ -328,7 +328,7 @@
     "linkedin": "https://www.linkedin.com/in/rachel-nash-29b25351/"
   },
   {
-    "image": "team/emily_chan.jpg",
+    "image": "emily_chan.jpg",
     "name": "Emily Chan",
     "id": "ec1",
     "role": "Designer",
@@ -337,14 +337,14 @@
     "website": "https://emilychan.myportfolio.com"
   },
   {
-    "image": "team/michaelh.jpg",
+    "image": "michaelh.jpg",
     "id": "mh1",
     "name": "Michael Huang",
     "role": "Designer",
     "roleId": "designer"
   },
   {
-    "image": "team/ayeshag.png",
+    "image": "ayeshag.png",
     "name": "Ayesha Gagguturi",
     "id": "ag3",
     "role": "Designer",
@@ -352,7 +352,7 @@
     "github": "https://github.com/Ayesha34/CS"
   },
   {
-    "image": "team/tiffanyw.jpg",
+    "image": "tiffanyw.jpg",
     "name": "Tiffany Wang",
     "id": "tw1",
     "role": "Product Manager",
@@ -360,14 +360,14 @@
     "linkedin": "https://www.linkedin.com/in/tiffany-wang-29ab2a127/"
   },
   {
-    "image": "team/horaceh.jpg",
+    "image": "horaceh.jpg",
     "id": "hh1",
     "name": "Horace He",
     "roleId": "developer",
     "role": "Developer"
   },
   {
-    "image": "team/ryan_slama.png",
+    "image": "ryan_slama.png",
     "id": "rs1",
     "name": "Ryan Slama",
     "roleId": "designer",
@@ -377,7 +377,7 @@
     "website": "http://ryanslama.com/"
   },
   {
-    "image": "team/vanessaw.jpg",
+    "image": "vanessaw.jpg",
     "name": "Vanessa Wang",
     "id": "vw1",
     "role": "Developer",
@@ -386,7 +386,7 @@
     "linkedin": "https://www.linkedin.com/in/vanessa-w-381939102"
   },
   {
-    "image": "team/shefalia.jpg",
+    "image": "shefalia.jpg",
     "name": "Shefali Agarwal",
     "id": "sa1",
     "role": "Developer",
@@ -395,7 +395,7 @@
     "linkedin": "https://www.linkedin.com/in/shefaliagarwal/"
   },
   {
-    "image": "team/sangwook.jpg",
+    "image": "sangwook.jpg",
     "name": "Sangwoo (Sean) Kim",
     "id": "ssk1",
     "role": "Designer",
@@ -403,13 +403,13 @@
     "linkedin": "https://www.linkedin.com/in/sangwoo-kim-2a520b119/"
   },
   {
-    "image": "team/joyelleg.jpg",
+    "image": "joyelleg.jpg",
     "name": "Joyelle Gilbert",
     "id": "jg1",
     "role": "Designer"
   },
   {
-    "image": "team/sophia_wang.jpg",
+    "image": "sophia_wang.jpg",
     "name": "Sophia Wang",
     "id": "sw1",
     "role": "Designer",
@@ -418,21 +418,21 @@
     "website": "https://www.sophiawang.design"
   },
   {
-    "image": "team/rachelg.jpg",
+    "image": "rachelg.jpg",
     "name": "Rachel Goffin",
     "id": "rg1",
     "roleId": "designer",
     "role": "User Research"
   },
   {
-    "image": "team/glenik.jpg",
+    "image": "glenik.jpg",
     "name": "Gleni Kodra",
     "id": "gk1",
     "roleId": "business",
     "role": "Analyst"
   },
   {
-    "image": "team/ronni_mok.jpg",
+    "image": "ronni_mok.jpg",
     "name": "Ronni Mok",
     "id": "rm1",
     "role": "Analyst",
@@ -440,7 +440,7 @@
     "linkedin": "https://www.linkedin.com/in/ronni-mok/"
   },
   {
-    "image": "team/imani_majied.jpg",
+    "image": "imani_majied.jpg",
     "name": "Imani Majied",
     "id": "im1",
     "role": "Analyst",
@@ -448,7 +448,7 @@
     "linkedin": "http://linkedin.com/in/imani-majied-98137b96"
   },
   {
-    "image": "team/sonyat.jpg",
+    "image": "sonyat.jpg",
     "id": "st1",
     "name": "Sonya Tao",
     "roleId": "business",

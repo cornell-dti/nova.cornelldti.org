@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <text-page-hero bg="/static/initiative-hero.jpg">
+    <text-page-hero :bg="img('heroes', 'initiative-hero.jpg')">
       Initiatives
     </text-page-hero>
 

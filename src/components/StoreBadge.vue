@@ -1,5 +1,5 @@
 <template>
-    <b-img :src="store === 'appstore' ? 'static/app-store-download-badge.svg' : 'static/google-play-badge.svg'">
+    <b-img :src="store === 'appstore' ? img('thirdparty', 'app-store-download-badge.svg') : img('thirdparty', 'google-play-badge.svg')">
         <a :href='url' />
     </b-img>
 </template>
