@@ -106,6 +106,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -115,8 +117,13 @@ export default {
   methods: {
     onSubscribe(event) {
       event.preventDefault();
-
-      alert(`Email: ${this.email}`); //eslint-disable-line
+      axios.post("/email", {
+        email: this.email
+      }).then(response => {
+        alert(response.data.msg);
+      }, error => {
+        console.err(error.data.msg);
+      });
     }
   }
 };
@@ -124,6 +131,9 @@ export default {
 
 
 <style lang="scss" scoped>
+#newsletterEmailSubscribeInput {
+    border-radius: 5px;
+}
 .apply-pills {
   .card-header {
     background-color: transparent;

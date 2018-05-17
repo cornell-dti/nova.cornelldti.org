@@ -1,11 +1,13 @@
+require('dotenv').load();
+const bodyParser = require('body-parser');
 const express = require('express');
 const history = require('connect-history-api-fallback');
-const mailchimp = require('mailchimp-node')(process.env.mailchimpkey);
+const Mailchimp = require('mailchimp-api-v3');
 const morgan = require('morgan');
 const path = require('path');
 
 const app = express();
-require('dotenv').load();
+const mailchimp = new Mailchimp(process.env.mailchimpkey);
 
 app.use(history());
 app.use(express.static(__dirname + '/dist'));
@@ -13,7 +15,37 @@ app.use(express.static(__dirname + '/dist'));
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '/dist')));
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 const port = process.env.PORT || 5000;
+
+app.post("/email", (req, res) => {
+  //TODO: Validate email address
+  const email = req.body.email;
+  mailchimp.post({
+    path: `/lists/d12b7f1367`,
+    body: {
+      members: [
+        {
+          email_address: email,
+          status: 'subscribed'
+        }
+      ]
+    }
+  }).then(result => {
+    return res.status(200).json({
+      success: true,
+      msg: "Sucessfully subscribed!"
+    });
+  }).catch(error => {
+    return res.status(500).json({
+      success: false,
+      msg: error
+    });
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}!`);
 });
