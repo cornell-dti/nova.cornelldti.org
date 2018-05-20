@@ -2,7 +2,7 @@
   <page-background>
     <page-hero :bg="img(`projects/${projectData.id}`, 'hero.jpg')">
       <b-row align-h="center" class="no-gutters h-50">
-        <b-col sm="auto" md="8" class="my-auto">
+        <b-col sm="auto" md="8" class="project-hero my-auto">
           <b-row class="project-hero-header no-gutters">
             <b-col cols="auto" class="project-hero-logo">
               <b-img :src="projectData.logo" />
@@ -165,31 +165,16 @@ export default {
 
 
 <style lang="scss" scoped>
-.page-header {
-  min-height: 10vh;
-
-  &.page-hero {
-    min-width: 100%;
-    min-height: 50vh;
-    transition: min-height 0.5s linear;
-    background: #777;
-  }
-}
-
-.project-hero-logo {
-  margin: 1vw;
-}
-
 .project-hero {
-  height: 50vh;
-  background-color: #aaa;
-}
-
-.project-hero-description {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 40vw;
+  .project-hero-logo {
+    margin: 1vw;
+  }
+  .project-hero-description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40vw;
+  }
 }
 </style>
 

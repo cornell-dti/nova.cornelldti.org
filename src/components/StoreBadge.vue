@@ -1,9 +1,18 @@
 <template>
-    <b-img :src="store === 'appstore' ? img('thirdparty', 'app-store-download-badge.svg') : img('thirdparty', 'google-play-badge.svg')">
+    <AppStoreBadge v-if="store === 'appstore'">
         <a :href='url' />
-    </b-img>
+    </AppStoreBadge>
+    <GooglePlayBadge v-else>
+        <a :href='url' />
+    </GooglePlayBadge>
 </template>
 
 <script>
-export default { props: { store: String, url: String } };
+import AppStoreBadge from '@/assets/stores/app-store.svg';
+import GooglePlayBadge from '@/assets/stores/google-play.svg';
+
+export default {
+  components: { AppStoreBadge, GooglePlayBadge },
+  props: { store: String, url: String }
+};
 </script>

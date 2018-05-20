@@ -1,29 +1,9 @@
 {
-  "genderRatio": {
-    "all": {
-      "f": 32,
-      "m": 29,
-      "3": 0
-    },
-    "business": {
-      "f": 3,
-      "m": 2,
-      "3": 0
-    },
-    "developer": {
-      "f": 10,
-      "m": 18,
-      "3": 0
-    },
-    "designer": {
-      "f": 12,
-      "m": 5,
-      "3": 0
-    },
-    "pm": {
-      "f": 64,
-      "m": 36,
-      "3": 0
-    }
+  "femalePercentage": {
+    "": 0.52,
+    "business": 0.6,
+    "developer": 0.36,
+    "designer": 0.71,
+    "pm": 0.64
   }
 }

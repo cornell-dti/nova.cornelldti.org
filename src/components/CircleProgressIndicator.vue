@@ -42,57 +42,88 @@ export default {
     }
   },
   methods: {
-    percentagePtArr(percentage = 0.5) {
-      const x = [];
-      const y = [];
+    percentagePathVar(percentage = 0.5, inverse = false) {
+      const outerRadius = 120;
+      const innerRadius = 110;
 
-      const radius = 120;
-      const diameter = radius * 2;
+      const xOffset = Math.cos(Math.PI / 2 - percentage * 2 * Math.PI);
+      const yOffset = -Math.sin(Math.PI / 2 - percentage * 2 * Math.PI);
 
-      const xOffset = Math.abs(
-        radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
+      const outerX = outerRadius + outerRadius * xOffset;
+      const outerY = outerRadius + outerRadius * yOffset;
+
+      const innerX = outerRadius + innerRadius * xOffset;
+      const innerY = outerRadius + innerRadius * yOffset;
+
+      const largeArc = (inverse ? percentage < 0.5 : percentage >= 0.5) ? 1 : 0;
+
+      return [
+        outerRadius,
+        innerRadius,
+        outerX,
+        outerY,
+        innerX,
+        innerY,
+        largeArc
+      ];
+    },
+    inversePercentagePath(percentage = 0.5) {
+      const [
+        outerRadius,
+        innerRadius,
+        outerX,
+        outerY,
+        innerX,
+        innerY,
+        largeArc
+      ] = this.percentagePathVar(percentage, true);
+
+      const commands = [];
+
+      commands.push(`M ${innerX} ${innerY}`);
+      commands.push(`L ${outerX} ${outerY}`);
+
+      commands.push(
+        `A ${outerRadius} ${outerRadius} 0  ${largeArc} 1  ${outerRadius} ${0}`
       );
-      const yOffset = Math.abs(
-        radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
+      commands.push(`L ${outerRadius} ${outerRadius - innerRadius}`);
+
+      commands.push(
+        `A ${innerRadius} ${innerRadius} 0 ${largeArc} 0 ${innerX} ${innerY}`
       );
 
-      x.push(radius);
-      y.push(radius);
+      commands.push(`Z`);
 
-      if (percentage >= 0) {
-        x.push(radius);
-        y.push(0);
+      return commands;
+    },
+    percentagePath(percentage = 0.5) {
+      const [
+        outerRadius,
+        innerRadius,
+        outerX,
+        outerY,
+        innerX,
+        innerY,
+        largeArc
+      ] = this.percentagePathVar(percentage);
+      const commands = [];
 
-        if (percentage >= 0.25) {
-          x.push(diameter, diameter, diameter);
-          y.push(0, radius, diameter);
+      commands.push(`M ${outerRadius} ${outerRadius - innerRadius}`);
+      commands.push(`L ${outerRadius} 0`);
 
-          if (percentage >= 0.5) {
-            x.push(radius, 0);
-            y.push(diameter, diameter);
+      commands.push(
+        `A ${outerRadius} ${outerRadius} 0  ${largeArc} 1  ${outerX} ${outerY}`
+      );
+      commands.push(`L ${innerX} ${innerY}`);
 
-            if (percentage >= 0.75) {
-              // 75% -100%
-              x.push(0, 0, radius - xOffset);
-              y.push(radius, 0, radius - yOffset);
-            } else {
-              // 50-74%
-              x.push(radius - xOffset);
-              y.push(radius + yOffset);
-            }
-          } else {
-            // 25% - 49%
-            x.push(radius + xOffset);
-            y.push(radius + yOffset);
-          }
-        } else {
-          // 0 - 24%
-          x.push(radius * 2, radius + xOffset, radius);
-          y.push(0, radius - yOffset, radius);
-        }
-      }
+      commands.push(
+        `A ${innerRadius} ${innerRadius} 0 ${largeArc} 0 ${outerRadius} ${outerRadius -
+          innerRadius}`
+      );
 
-      return [x, y];
+      commands.push(`Z`);
+
+      return commands;
     },
     setPercentage(percentage = 0.5) {
       if (this.interval !== -1) {
@@ -103,20 +134,20 @@ export default {
       this.percentageLast = percentage;
 
       this.interval = setInterval(() => {
-        const [x, y] = this.percentagePtArr(percentageIncr);
-        const params = [];
+        const commands = this.percentagePath(percentageIncr);
 
-        params.push(`M${x[0]},${y[0]}`);
-
-        for (let i = 1; i < Math.min(x.length, y.length); i += 1) {
-          params.push(`L${x[i]},${y[i]}`);
-        }
-        params.push('Z');
+        const commands1 = this.inversePercentagePath(percentageIncr);
 
         let pathData = '';
 
-        for (const param of params) {
+        for (const param of commands) {
           pathData += ` ${param}`;
+        }
+
+        let pathData1 = '';
+
+        for (const param of commands1) {
+          pathData1 += ` ${param}`;
         }
 
         const svg = this.$refs.circleProgressIndicator.getElementsByTagNameNS(
@@ -127,14 +158,29 @@ export default {
           'http://www.w3.org/2000/svg',
           'path'
         )[0];
+        let path1 = svg.getElementsByTagNameNS(
+          'http://www.w3.org/2000/svg',
+          'path'
+        )[1];
 
         if (path == null) {
           path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
           svg.appendChild(path);
         }
 
+        if (path1 == null) {
+          path1 = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'path'
+          );
+          svg.appendChild(path1);
+        }
+
         path.setAttributeNS(null, 'd', pathData);
-        path.setAttributeNS(null, 'class', 'circle-path');
+        path.id = 'circle-path';
+
+        path1.setAttributeNS(null, 'd', pathData1);
+        path1.id = 'circle-path1';
 
         if (Math.abs(percentageIncr - percentage) < 0.01) {
           clearInterval(this.interval);
@@ -159,10 +205,8 @@ $inset-size: 180px;
 $inset-color: #fefefe;
 
 .circle-progress {
-  background-color: $circle-background-color;
   width: $circle-size;
   height: $circle-size;
-  border-radius: 50%;
 
   .inset {
     width: $inset-size;
@@ -170,9 +214,7 @@ $inset-color: #fefefe;
     position: absolute;
     margin-left: ($circle-size - $inset-size) / 2;
     margin-top: ($circle-size - $inset-size) / 2;
-    background-color: $inset-color;
-    border-radius: 50%;
-    border: $circle-border-color 1px solid;
+
     overflow: hidden;
     z-index: 10;
 
@@ -185,14 +227,10 @@ $inset-color: #fefefe;
   }
   .circle {
     .mask {
-      clip: rect(0px, $circle-size, $circle-size, $circle-size / 2);
-
       .fill {
-        border: $circle-border-color 1px solid;
-        background-color: $circle-background-color;
         width: $circle-size;
         height: $circle-size;
-        border-radius: 50%;
+
         position: absolute;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
@@ -200,10 +238,26 @@ $inset-color: #fefefe;
       }
 
       .circle-svg {
-        fill: $circle-fill-color;
-        stroke: $circle-border-color;
+        fill-rule: evenodd;
       }
     }
   }
 }
 </style>
+
+<style lang="scss">
+$circle-background-color: #ececec47;
+$circle-fill-color: #ff324a;
+$circle-border-color: grey;
+#circle-path {
+  fill: $circle-fill-color;
+
+  //stroke: $circle-border-color;
+}
+
+#circle-path1 {
+  fill: rgb(236, 236, 236);
+  //stroke: greenyellow;
+}
+</style>
+

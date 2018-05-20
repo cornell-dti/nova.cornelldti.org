@@ -11,27 +11,27 @@
         at Cornell.</div>
     </page-section>
 
-    <div class="diversity">
-      <div class="">
-        <!-- TODO bind formatting to actual elements-->
-        <div class="">
+    <div class="diversity diversity-background">
 
-          <b-row class="no-gutters">
-            <b-col sm="12" md="6" class="diversity-left">
+      <!-- TODO bind formatting to actual elements-->
+      <b-row class="no-gutters diversity">
+        <b-col cols="8" class="diversity-left-overlay">
+          <b-row>
+            <b-col cols="9">
               <h1 class="team-header">Diversity</h1>
               <p>Page summary. Diverse team spanning disciplines, years, ethnicities,
                 etc. We've had exciting people and have been to exciting places.</p>
 
               <b-row class="no-gutters justify-content-center">
-                <circle-progress-indicator :percentage="fem(divRoleId)">
+                <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
                   <div class="graph-data">
                     <b-row align-v="center" class="h-100">
                       <b-col cols="6" class="graph-datum">
-                        <h3 v-html="`${Math.round(100 * fem(divRoleId))}%`" />
+                        <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
                         <p>Female</p>
                       </b-col>
                       <b-col cols="6" class="graph-datum">
-                        <h3 v-html="`${Math.round(100 * masc(divRoleId))}%`" />
+                        <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
                         <p>Male</p>
                       </b-col>
                     </b-row>
@@ -41,38 +41,38 @@
               <br />
               <b-row class="no-gutters filter-btn-group">
                 <b-col cols="auto" class="text-center">
-                  <div :class="btn(divRoleId === 'all')" @click="divRoleId = 'all'">
+                  <div :class="lightbtn(divRoleId === '')" @click="divRoleId = ''">
                     All
                   </div>
-                  <div :class="selector(divRoleId === 'all')" />
+                  <div :class="lightselector(divRoleId === '')" />
                 </b-col>
                 <b-col cols="auto" class="text-center" v-for="role of roles" :key="role.id">
-                  <div :class="btn(divRoleId === role.id)" @click="divRoleId = role.id">
+                  <div :class="lightbtn(divRoleId === role.id)" @click="divRoleId = role.id">
                     {{role.name}}
                   </div>
-                  <div :class="selector(divRoleId === role.id)" />
+                  <div :class="lightselector(divRoleId === role.id)" />
                 </b-col>
+
               </b-row>
             </b-col>
-            <b-col sm="0" md="1" class="diversity-center">
-              <div class="right" />
-            </b-col>
-            <b-col sm="12" md="" class="diversity-right diversity-text-right">
-              <b-row align-h="center">
-                <b-col sm="6" md="12" class="diversity-inner-text">
-                  <h1>14</h1>
-                  <p>Number of different majors</p>
-                </b-col>
-                <b-col sm="6" md="12" class="diversity-inner-text">
-                  <h1>6</h1>
-                  <p>Number of represented colleges</p>
-                </b-col>
-              </b-row>
+            <b-col cols="3">
             </b-col>
           </b-row>
+        </b-col>
+        <b-col cols="4">
+          <b-row align-h="middle" align-v="middle">
+            <b-col sm="6" md="12" class="diversity-inner-text">
+              <h1>14</h1>
+              <p>Number of different majors</p>
+            </b-col>
+            <b-col sm="6" md="12" class="diversity-inner-text">
+              <h1>6</h1>
+              <p>Number of represented colleges</p>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
 
-        </div>
-      </div>
     </div>
 
     <b-container fluid>
@@ -115,6 +115,9 @@
 </template>
 
 <style lang="scss" scoped>
+$primary: #ff324a;
+$secondary: #f6f6f6;
+
 .team-header {
   margin-bottom: 3rem;
 }
@@ -125,10 +128,12 @@
   margin-right: 4vw;
 }
 
-.graph-data {
+.circle-inner-data {
   text-align: center;
   height: 120px;
 }
+
+// TODO create selector component
 
 .selector {
   background-color: transparent;
@@ -144,6 +149,24 @@
 
 .selector-selected {
   background-color: #4a4a4a !important;
+}
+
+.selector-light-selected {
+  background-color: #fefefe !important;
+}
+
+.filter-btn-light,
+.selected-filter-light-btn {
+  color: #fefefe !important;
+  margin: 1rem;
+}
+
+.filter-btn-light:focus,
+.filter-btn-light:hover,
+.selected-filter-light-btn:focus,
+.selected-filter-light-btn:hover {
+  text-decoration: none !important;
+  color: #dadada !important;
 }
 
 .filter-btn,
@@ -163,28 +186,61 @@
 .diversity {
   min-height: 84vh;
   overflow: hidden;
+  color: #fefefe !important;
+
+  &.diversity-background {
+    background-image: url('/static/img/candids/header-bg.jpg');
+    object-fit: cover;
+    -webkit-filter: blur();
+    filter: blur();
+  }
+
+  .diversity-left-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+    clip-path: polygon(0 0, 0 100%, 80% 100%, 100% 0);
+    padding: 4vw;
+  }
 }
-.diversity-graph {
-  position: absolute;
-  width: 100vw;
-  min-height: 80vh;
+
+@media (max-width: 767px) {
+  .diversity {
+    background-color: #f6f6f6;
+  }
+
+  .diversity-inner-text {
+    text-align: center;
+  }
+
+  .diversity-inner-text {
+    margin-top: 1rem;
+  }
 }
 
 @media (min-width: 768px) {
-  .diversity-left {
-    background-color: #f6f6f6;
+  .diversity-column {
     padding: 4vw;
-  }
 
-  .diversity-right {
-    background-color: #ff324a;
-    padding: 4vw;
+    &.diversity-left {
+      background-color: #f6f6f6;
+    }
+
+    &.diversity-right {
+      background-color: #ff324a;
+
+      // Prevents a 1px-ish line between center and right.
+
+      margin-right: -1vw;
+      margin-left: -1vw;
+
+      color: #fefefe;
+      padding: 10vw;
+    }
   }
 
   .diversity-center {
     background-color: #f6f6f6;
 
-    .right {
+    .diversity-center-right {
       width: 100%;
       height: 100%;
       background-color: #ff324a;
@@ -233,8 +289,8 @@ export default {
   data() {
     return {
       currentProfile: {},
-      filter_role_category: 'none',
-      divRoleId: 'all'
+      roleId: 'none',
+      divRoleId: ''
     };
   },
   props: {
@@ -259,40 +315,21 @@ export default {
       required: true
     }
   },
-  computed: {
-    roleId: {
-      set(value) {
-        this.filter_role_category = value;
-      },
-      get() {
-        return this.filter_role_category;
-      }
-    }
-  },
+
   methods: {
-    masc(roleId) {
-      return (
-        this.diversity.genderRatio[roleId].m /
-        (this.diversity.genderRatio[roleId].f +
-          this.diversity.genderRatio[roleId]['3'] +
-          this.diversity.genderRatio[roleId].m)
-      );
+    malePercentage(roleId) {
+      return 1 - this.diversity.femalePercentage[roleId];
     },
-    fem(roleId) {
-      return (
-        this.diversity.genderRatio[roleId].f /
-        (this.diversity.genderRatio[roleId].m +
-          this.diversity.genderRatio[roleId]['3'] +
-          this.diversity.genderRatio[roleId].f)
-      );
+    femalePercentage(roleId) {
+      return this.diversity.femalePercentage[roleId];
     },
-    third(roleId) {
-      return (
-        this.diversity.genderRatio[roleId]['3'] /
-        (this.diversity.genderRatio[roleId].m +
-          this.diversity.genderRatio[roleId]['3'] +
-          this.diversity.genderRatio[roleId].f)
-      );
+    lightbtn(selected) {
+      return selected
+        ? ['selected-filter-light-btn', 'btn', 'btn-link']
+        : ['filter-btn-light', 'btn', 'btn-link'];
+    },
+    lightselector(selected) {
+      return selected ? ['selector', 'selector-light-selected'] : ['selector'];
     },
     btn(selected) {
       return selected

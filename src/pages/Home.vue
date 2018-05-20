@@ -7,14 +7,12 @@
     </video>
     <div class="home-background home-background-overlay" />
     <b-row>
-      <h1 class="home-hero-text">Cornell Design <br />&amp; Tech Initiative</h1>
+      <h1 class="home-overlay-text">Cornell Design <br />&amp; Tech Initiative</h1>
     </b-row>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import '../index.scss';
-
 $hero-margin: 5%;
 
 .home {
@@ -45,8 +43,7 @@ $hero-margin: 5%;
   }
 }
 
-.home-hero-text {
-  font-family: 'Space Mono';
+.home-overlay-text {
   position: absolute;
   bottom: $hero-margin;
   left: $hero-margin;

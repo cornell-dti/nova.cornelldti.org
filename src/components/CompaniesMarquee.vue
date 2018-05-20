@@ -7,13 +7,12 @@
           <div class="marquee-inner">
             <div class="marquee-item">
 
-              <h1 class="company-logo" :key="`topFirst${company.name}`" v-html="company.name" rounded="true"
-                width="200" height="75" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
+              <h1 class="company-logo" :key="`topFirst${company.name}`" v-html="company.name" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
               />
             </div>
             <div class="marquee-item">
               <h1 class="company-logo" :key="`topSecond${company.name}`" v-html="company.name"
-                rounded="true" width="200" height="75" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
+                v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
               />
             </div>
           </div>
@@ -24,15 +23,13 @@
       <div class="marquee-content">
         <div :class="{'marquee-animation-reverse': enabled}">
           <div class="marquee-inner">
-            <div class="marquee-item offset-t">
+            <div class="marquee-item offset offset-original">
               <h1 class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
-                :key="`bottomFirst${company.name}`" v-html="company.name" rounded="true"
-                width="200" height="75" />
+                :key="`bottomFirst${company.name}`" v-html="company.name" />
             </div>
-            <div class="marquee-item offset-b">
+            <div class="marquee-item offset offset-duplicate">
               <h1 class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
-                :key="`bottomSecond${company.name}`" v-html="company.name" rounded="true"
-                width="200" height="75" />
+                :key="`bottomSecond${company.name}`" v-html="company.name" />
             </div>
           </div>
         </div>
@@ -41,51 +38,50 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      shuffledCompanies: []
+    };
+  },
+  props: {
+    enabled: {
+      type: Boolean,
+      default() {
+        return true;
+      }
+    },
+    companies: {
+      type: Array,
+      default() {
+        return [];
+      }
+    }
+  },
+  mounted() {
+    this.shuffle();
+  },
+  methods: {
+    shuffle() {
+      const copy = [...this.companies];
+
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
+      }
+
+      this.shuffledCompanies = copy;
+    }
+  }
+};
+</script>
+
+
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Playfair+Display|Roboto+Slab|Titan+One|Titillium+Web');
-@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Acme|Pacifico|Shadows+Into+Light');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Playfair+Display|Roboto+Slab|Titan+One|Titillium+Web|Abel|Abril+Fatface|Acme|Pacifico|Shadows+Into+Light');
 
 $animation-speed: 20s;
-
-.offset-t {
-  margin-left: -12.5vw;
-
-  h1:nth-child(0) {
-    font-family: 'Roboto Slab', serif !important;
-  }
-  h1:nth-child(1) {
-    font-family: 'Titan One', cursive !important;
-  }
-  h1:nth-child(2) {
-    font-family: 'Playfair Display', serif !important;
-  }
-  h1:nth-child(3) {
-    font-family: 'Titillium Web', sans-serif !important;
-  }
-  h1:nth-child(4) {
-    font-family: 'Indie Flower', cursive !important;
-  }
-}
-
-.offset-b {
-  margin-left: 0vw !important;
-
-  h1:nth-child(0) {
-    font-family: 'Roboto Slab', serif !important;
-  }
-  h1:nth-child(1) {
-    font-family: 'Titan One', cursive !important;
-  }
-  h1:nth-child(2) {
-    font-family: 'Playfair Display', serif !important;
-  }
-  h1:nth-child(3) {
-    font-family: 'Titillium Web', sans-serif !important;
-  }
-  h1:nth-child(4) {
-    font-family: 'Indie Flower', cursive !important;
-  }
-}
 
 .marquee-outer {
   height: 100px;
@@ -110,6 +106,8 @@ $animation-speed: 20s;
           white-space: nowrap;
           margin: 10px;
           border-radius: 25px;
+          width: 200px;
+          height: 75px;
         }
 
         h1:nth-child(0) {
@@ -126,6 +124,32 @@ $animation-speed: 20s;
         }
         h1:nth-child(4) {
           font-family: 'Acme', sans-serif;
+        }
+
+        &.offset {
+          h1:nth-child(0) {
+            font-family: 'Roboto Slab', serif !important;
+          }
+          h1:nth-child(1) {
+            font-family: 'Titan One', cursive !important;
+          }
+          h1:nth-child(2) {
+            font-family: 'Playfair Display', serif !important;
+          }
+          h1:nth-child(3) {
+            font-family: 'Titillium Web', sans-serif !important;
+          }
+          h1:nth-child(4) {
+            font-family: 'Indie Flower', cursive !important;
+          }
+
+          &.offset-original {
+            margin-left: -12.5vw;
+          }
+
+          &.offset-duplicate {
+            margin-left: 0vw !important;
+          }
         }
       }
     }
@@ -178,42 +202,3 @@ $animation-speed: 20s;
   }
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      enabled: true,
-      shuffledCompanies: []
-    };
-  },
-  props: {
-    companies: {
-      type: Array,
-      default() {
-        return [
-          { name: 'Google' },
-          { name: 'Amazon' },
-          { name: 'eBay' },
-          { name: 'Elsewhere' }
-        ];
-      }
-    }
-  },
-  mounted() {
-    this.shuffle();
-  },
-  methods: {
-    shuffle() {
-      const copy = [...this.companies];
-
-      for (let i = copy.length - 1; i > 0; i -= 1) {
-        const randomIndex = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
-      }
-
-      this.shuffledCompanies = copy;
-    }
-  }
-};
-</script>
