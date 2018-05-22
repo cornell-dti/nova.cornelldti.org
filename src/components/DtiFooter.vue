@@ -6,7 +6,7 @@
           <b-img class="wordmark" :src="img('branding', 'wordmark.png')" />
         </b-col>
         <b-col sm="12" md="6">
-          <b-row align-h="end" align-v="middle">
+          <b-row align-h="end" align-v="center">
             <b-col cols="auto">
               <a href="https://www.facebook.com/cornelldti/">
                 <Facebook class="social-icon social-icon-blank" />
@@ -37,7 +37,7 @@
               </a>
             </b-col>
           </b-row>
-          <b-row class="copyright" align-h="end" align-v="middle">
+          <b-row class="copyright" align-h="end" align-v="center">
             <b-col cols="auto">
               <div>&copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
                 Initiative

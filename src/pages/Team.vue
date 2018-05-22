@@ -22,21 +22,24 @@
               <p>Page summary. Diverse team spanning disciplines, years, ethnicities,
                 etc. We've had exciting people and have been to exciting places.</p>
 
-              <b-row class="no-gutters justify-content-center">
-                <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
-                  <div class="graph-data">
-                    <b-row align-v="center" class="h-100">
-                      <b-col cols="6" class="graph-datum">
-                        <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
-                        <p>Female</p>
-                      </b-col>
-                      <b-col cols="6" class="graph-datum">
-                        <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
-                        <p>Male</p>
-                      </b-col>
-                    </b-row>
-                  </div>
-                </circle-progress-indicator>
+              <b-row class="no-gutters" align-h="center">
+                <b-col cols="auto">
+                  <h3 class="text-center">Gender Ratio</h3>
+                  <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
+                    <div class="graph-data">
+                      <b-row align-v="center" class="h-100">
+                        <b-col cols="6" class="graph-datum">
+                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
+                          <p>Female</p>
+                        </b-col>
+                        <b-col cols="6" class="graph-datum">
+                          <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
+                          <p>Male</p>
+                        </b-col>
+                      </b-row>
+                    </div>
+                  </circle-progress-indicator>
+                </b-col>
               </b-row>
               <br />
               <b-row class="no-gutters filter-btn-group">
@@ -59,8 +62,12 @@
             </b-col>
           </b-row>
         </b-col>
-        <b-col cols="4">
-          <b-row align-h="middle" align-v="middle">
+        <b-col cols="4" align-self="center">
+          <b-row>
+            <b-col sm="6" md="12" class="diversity-inner-text">
+              <h1>14</h1>
+              <p>Number of different majors</p>
+            </b-col>
             <b-col sm="6" md="12" class="diversity-inner-text">
               <h1>14</h1>
               <p>Number of different majors</p>
@@ -184,21 +191,29 @@ $secondary: #f6f6f6;
 }
 
 .diversity {
-  min-height: 84vh;
+  height: 80vh;
   overflow: hidden;
   color: #fefefe !important;
 
   &.diversity-background {
-    background-image: url('/static/img/candids/header-bg.jpg');
-    object-fit: cover;
-    -webkit-filter: blur();
-    filter: blur();
+    background-image: url('/static/img/candids/new-header-bg.jpg');
+    background-size: cover;
+  }
+
+  &.diversity-background:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 80vh;
+    background: inherit;
+    filter: blur(10px);
+    transition: all 2s linear;
   }
 
   .diversity-left-overlay {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(70, 71, 72, 0.8);
     clip-path: polygon(0 0, 0 100%, 80% 100%, 100% 0);
-    padding: 4vw;
+    padding: 2vw 4vw;
   }
 }
 
@@ -217,6 +232,10 @@ $secondary: #f6f6f6;
 }
 
 @media (min-width: 768px) {
+  .diversity-inner-text {
+    padding: 4vw;
+  }
+
   .diversity-column {
     padding: 4vw;
 

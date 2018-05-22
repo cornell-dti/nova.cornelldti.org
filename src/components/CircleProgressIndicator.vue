@@ -16,6 +16,69 @@
 </template>
 
 <script>
+import { PathTemplate } from '../path';
+
+const OUTER_RADIUS = 120;
+const INNER_RADIUS = 110;
+
+const INNER_X_PARAM = 'innerX';
+const INNER_Y_PARAM = 'innerY';
+const OUTER_X_PARAM = 'outerX';
+const OUTER_Y_PARAM = 'outerY';
+const OUTER_RADIUS_PARAM = 'outerRadius';
+const INNER_RADIUS_PARAM = 'innerRadius';
+const LARGE_ARC_PARAM = 'largeArc';
+const LARGE_ARC_INV_PARAM = 'largeArcInv'; // todo
+
+const INVERSE_ARC_TEMPLATE = new PathTemplate()
+  .move(INNER_X_PARAM, INNER_Y_PARAM)
+  .line(OUTER_X_PARAM, OUTER_Y_PARAM)
+  .circulararc(
+    OUTER_RADIUS_PARAM,
+    LARGE_ARC_INV_PARAM,
+    PathTemplate.ONE,
+    OUTER_RADIUS_PARAM,
+    PathTemplate.ZERO
+  ) // todo toggle var
+  .line(
+    OUTER_RADIUS_PARAM,
+    parameters =>
+      parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
+  )
+  .circulararc(
+    INNER_RADIUS_PARAM,
+    LARGE_ARC_INV_PARAM,
+    PathTemplate.ZERO,
+    INNER_X_PARAM,
+    INNER_Y_PARAM
+  )
+  .end();
+
+const ARC_TEMPLATE = new PathTemplate()
+  .move(
+    OUTER_RADIUS_PARAM,
+    parameters =>
+      parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
+  )
+  .line(OUTER_RADIUS_PARAM, PathTemplate.ZERO)
+  .circulararc(
+    OUTER_RADIUS_PARAM,
+    LARGE_ARC_PARAM,
+    PathTemplate.ONE,
+    OUTER_X_PARAM,
+    OUTER_Y_PARAM
+  ) // todo toggle var
+  .line(INNER_X_PARAM, INNER_Y_PARAM)
+  .circulararc(
+    INNER_RADIUS_PARAM,
+    LARGE_ARC_PARAM,
+    PathTemplate.ZERO,
+    OUTER_RADIUS_PARAM,
+    parameters =>
+      parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
+  )
+  .end();
+
 export default {
   props: {
     percentage: {
@@ -24,7 +87,7 @@ export default {
     }
   },
   data() {
-    return { interval: -1, percentageLast: 0 };
+    return { interval: -1, lastPercentage: 0 };
   },
   beforeDestroy() {
     if (this.interval !== -1) {
@@ -42,101 +105,43 @@ export default {
     }
   },
   methods: {
-    percentagePathVar(percentage = 0.5, inverse = false) {
-      const outerRadius = 120;
-      const innerRadius = 110;
+    getTemplateParameters(percentage) {
+      const angle = Math.PI / 2 - percentage * 2 * Math.PI;
 
-      const xOffset = Math.cos(Math.PI / 2 - percentage * 2 * Math.PI);
-      const yOffset = -Math.sin(Math.PI / 2 - percentage * 2 * Math.PI);
+      const [xOffset, yOffset] = [Math.cos(angle), -Math.sin(angle)];
 
-      const outerX = outerRadius + outerRadius * xOffset;
-      const outerY = outerRadius + outerRadius * yOffset;
+      const params = {};
 
-      const innerX = outerRadius + innerRadius * xOffset;
-      const innerY = outerRadius + innerRadius * yOffset;
+      params[INNER_X_PARAM] = OUTER_RADIUS + INNER_RADIUS * xOffset;
+      params[INNER_Y_PARAM] = OUTER_RADIUS + INNER_RADIUS * yOffset;
+      params[OUTER_X_PARAM] = OUTER_RADIUS + OUTER_RADIUS * xOffset;
+      params[OUTER_Y_PARAM] = OUTER_RADIUS + OUTER_RADIUS * yOffset;
+      params[INNER_RADIUS_PARAM] = INNER_RADIUS;
+      params[OUTER_RADIUS_PARAM] = OUTER_RADIUS;
+      params[LARGE_ARC_INV_PARAM] = percentage < 0.5 ? 1 : 0;
+      params[LARGE_ARC_PARAM] = percentage >= 0.5 ? 1 : 0;
 
-      const largeArc = (inverse ? percentage < 0.5 : percentage >= 0.5) ? 1 : 0;
+      return params;
+    },
+    getPaths(percentage = 0.5) {
+      const params = this.getTemplateParameters(percentage);
 
       return [
-        outerRadius,
-        innerRadius,
-        outerX,
-        outerY,
-        innerX,
-        innerY,
-        largeArc
+        ARC_TEMPLATE.commands(params),
+        INVERSE_ARC_TEMPLATE.commands(params)
       ];
-    },
-    inversePercentagePath(percentage = 0.5) {
-      const [
-        outerRadius,
-        innerRadius,
-        outerX,
-        outerY,
-        innerX,
-        innerY,
-        largeArc
-      ] = this.percentagePathVar(percentage, true);
-
-      const commands = [];
-
-      commands.push(`M ${innerX} ${innerY}`);
-      commands.push(`L ${outerX} ${outerY}`);
-
-      commands.push(
-        `A ${outerRadius} ${outerRadius} 0  ${largeArc} 1  ${outerRadius} ${0}`
-      );
-      commands.push(`L ${outerRadius} ${outerRadius - innerRadius}`);
-
-      commands.push(
-        `A ${innerRadius} ${innerRadius} 0 ${largeArc} 0 ${innerX} ${innerY}`
-      );
-
-      commands.push(`Z`);
-
-      return commands;
-    },
-    percentagePath(percentage = 0.5) {
-      const [
-        outerRadius,
-        innerRadius,
-        outerX,
-        outerY,
-        innerX,
-        innerY,
-        largeArc
-      ] = this.percentagePathVar(percentage);
-      const commands = [];
-
-      commands.push(`M ${outerRadius} ${outerRadius - innerRadius}`);
-      commands.push(`L ${outerRadius} 0`);
-
-      commands.push(
-        `A ${outerRadius} ${outerRadius} 0  ${largeArc} 1  ${outerX} ${outerY}`
-      );
-      commands.push(`L ${innerX} ${innerY}`);
-
-      commands.push(
-        `A ${innerRadius} ${innerRadius} 0 ${largeArc} 0 ${outerRadius} ${outerRadius -
-          innerRadius}`
-      );
-
-      commands.push(`Z`);
-
-      return commands;
     },
     setPercentage(percentage = 0.5) {
       if (this.interval !== -1) {
         clearInterval(this.interval);
+        this.interval = -1;
       }
 
-      let percentageIncr = this.percentageLast;
-      this.percentageLast = percentage;
+      let currentPercentage = this.lastPercentage;
+      this.lastPercentage = percentage;
 
       this.interval = setInterval(() => {
-        const commands = this.percentagePath(percentageIncr);
-
-        const commands1 = this.inversePercentagePath(percentageIncr);
+        const [commands, inverseCommands] = this.getPaths(currentPercentage);
 
         let pathData = '';
 
@@ -144,50 +149,44 @@ export default {
           pathData += ` ${param}`;
         }
 
-        let pathData1 = '';
+        let inversePathData = '';
 
-        for (const param of commands1) {
-          pathData1 += ` ${param}`;
+        for (const param of inverseCommands) {
+          inversePathData += ` ${param}`;
         }
 
         const svg = this.$refs.circleProgressIndicator.getElementsByTagNameNS(
           'http://www.w3.org/2000/svg',
           'svg'
-        )[0];
-        let path = svg.getElementsByTagNameNS(
-          'http://www.w3.org/2000/svg',
-          'path'
-        )[0];
-        let path1 = svg.getElementsByTagNameNS(
-          'http://www.w3.org/2000/svg',
-          'path'
-        )[1];
+        )[0]; // TODO don't rely on array index
+        let path = svg.getElementById('circle-path');
+        let inversePath = svg.getElementById('circle-path-inverse');
 
         if (path == null) {
           path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.id = 'circle-path';
           svg.appendChild(path);
         }
 
-        if (path1 == null) {
-          path1 = document.createElementNS(
+        if (inversePath == null) {
+          inversePath = document.createElementNS(
             'http://www.w3.org/2000/svg',
             'path'
           );
-          svg.appendChild(path1);
+          inversePath.id = 'circle-path-inverse';
+          svg.appendChild(inversePath);
         }
 
         path.setAttributeNS(null, 'd', pathData);
-        path.id = 'circle-path';
+        inversePath.setAttributeNS(null, 'd', inversePathData);
 
-        path1.setAttributeNS(null, 'd', pathData1);
-        path1.id = 'circle-path1';
-
-        if (Math.abs(percentageIncr - percentage) < 0.01) {
+        if (Math.abs(currentPercentage - percentage) < 0.01) {
           clearInterval(this.interval);
-        } else if (percentageIncr < percentage) {
-          percentageIncr += 0.01;
+          this.interval = -1;
+        } else if (currentPercentage < percentage) {
+          currentPercentage += 0.02;
         } else {
-          percentageIncr -= 0.01;
+          currentPercentage -= 0.02;
         }
       }, 10);
     }
@@ -249,15 +248,13 @@ $inset-color: #fefefe;
 $circle-background-color: #ececec47;
 $circle-fill-color: #ff324a;
 $circle-border-color: grey;
+
 #circle-path {
   fill: $circle-fill-color;
-
-  //stroke: $circle-border-color;
 }
 
-#circle-path1 {
+#circle-path-inverse {
   fill: rgb(236, 236, 236);
-  //stroke: greenyellow;
 }
 </style>
 
