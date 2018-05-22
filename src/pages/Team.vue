@@ -1,8 +1,7 @@
 <template>
   <page-background>
-    <text-page-hero :bg="img('heroes', 'team-hero.jpg')">
-      Team
-    </text-page-hero>
+    <page-hero :overlay="false" :bg="img('heroes', 'team-hero.jpg')"
+    />
 
     <page-section>
       <div>Our team consists of 50 product managers, designers and developers working
