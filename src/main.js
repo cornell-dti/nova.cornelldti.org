@@ -9,6 +9,11 @@ import BootstrapVue from 'bootstrap-vue';
 /* Data */
 
 import LoremIpsumJson from '@/data/loremipsum.json';
+import Members from '@/data/members.json';
+import Companies from '@/data/companies.json';
+import Projects from '@/data/projects.json';
+import Teams from '@/data/teams.json';
+import Roles from '@/data/roles.json';
 
 /* Core Files */
 
@@ -62,6 +67,21 @@ Vue.mixin({
     },
     vid(type, name) {
       return `/static/vid/${type}/${name}`; //eslint-disable-line
+    },
+    getMembers() {
+      return Members;
+    },
+    getRoles() {
+      return Roles;
+    },
+    getProjects() {
+      return Projects;
+    },
+    getTeams() {
+      return Teams;
+    },
+    getCompanies() {
+      return Companies;
     }
   }
 });

@@ -10,11 +10,6 @@ import Project from '@/pages/Project';
 import Initiatives from '@/pages/Initiatives';
 import NotFound from '@/pages/NotFound';
 
-import MembersJson from '@/data/members.json';
-import ProjectsJson from '@/data/projects.json';
-import TeamsJson from '@/data/teams.json';
-import RolesJson from '@/data/roles.json';
-import CompaniesJson from '@/data/companies.json';
 import DiversityJson from '@/data/diversity.json';
 
 Vue.use(Router);
@@ -31,18 +26,13 @@ export default new Router({
     {
       path: '/Projects',
       name: 'Projects',
-      component: Projects,
-      props: {
-        projects: ProjectsJson
-      }
+      component: Projects
     },
     {
       path: '/Projects/:project',
       component: Project,
       props: route => ({
-        project: route.params.project,
-        projects: ProjectsJson,
-        teams: TeamsJson
+        project: route.params.project
       })
     },
     {
@@ -55,10 +45,6 @@ export default new Router({
       name: 'Team',
       component: Team,
       props: {
-        members: MembersJson,
-        teams: TeamsJson,
-        roles: RolesJson,
-        companies: CompaniesJson,
         diversity: DiversityJson
       }
     },

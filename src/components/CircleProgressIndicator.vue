@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script>
+<script >
 import { PathTemplate } from '../path';
 
 const OUTER_RADIUS = 120;
@@ -29,6 +29,8 @@ const OUTER_RADIUS_PARAM = 'outerRadius';
 const INNER_RADIUS_PARAM = 'innerRadius';
 const LARGE_ARC_PARAM = 'largeArc';
 const LARGE_ARC_INV_PARAM = 'largeArcInv'; // todo
+
+// TODO Cleanup this api/utility
 
 const INVERSE_ARC_TEMPLATE = new PathTemplate()
   .move(INNER_X_PARAM, INNER_Y_PARAM)
@@ -231,7 +233,7 @@ $inset-color: #fefefe;
         height: $circle-size;
 
         position: absolute;
-        -webkit-backface-visibility: hidden;
+
         backface-visibility: hidden;
         z-index: 2;
       }

@@ -1,13 +1,13 @@
 <template>
   <page-background>
-    <text-page-hero>
+    <text-page-hero :greyscale="true" :bg="img('heroes', 'projects-hero.jpg')">
       Projects
     </text-page-hero>
 
     <page-section>
       <b-row class="project-row" v-for="projectRow in projectRows" :key="projectRow.index"
         align-h="center">
-        <b-col md="12" lg="6" class="justify-content" v-for="project in projectRow.members"
+        <b-col md="12" lg="4" class="justify-content" v-for="project in projectRow.members"
           :key="project.id">
           <router-link :to="{ path: project.id, params:{ project: project.name }}" append>
             <b-img :src="img(`projects/${project.id}`, 'card.png')" class="project-card" />
@@ -24,7 +24,7 @@
 .project-card {
   background-color: transparent;
   text-align: center;
-  margin: 3vw 0vw;
+  margin: 1vw 0vw;
   width: 100%;
   max-width: 100%;
   object-fit: cover;
@@ -36,21 +36,17 @@
 
 <script>
 export default {
-  props: {
-    projects: {
-      type: Array,
-      required: true
-    }
-  },
   computed: {
     projectRows() {
       const rows = [];
       let row = [];
 
-      for (let i = 0; i < this.projects.length; i += 1) {
-        row.push(this.projects[i]);
+      const projects = this.getProjects();
 
-        if (row.length === 2 || rows.length * 2 === this.projects.length) {
+      for (let i = 0; i < projects.length; i += 1) {
+        row.push(projects[i]);
+
+        if (row.length === 3 || rows.length * 3 === projects.length) {
           rows.push({ index: i, members: row });
           row = [];
         }

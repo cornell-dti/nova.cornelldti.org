@@ -1,22 +1,24 @@
 <template>
   <page-background>
-    <page-hero :overlay="false" :bg="img('heroes', 'team-hero.jpg')"
-    />
+    <page-hero :overlay="false" :bg="img('heroes', 'team-hero.jpg')" />
 
     <page-section>
-      <div>Our team consists of 50 product managers, designers and developers working
-        on 6 projects ranging from a campus safety app to a course review website.
-        Our diverse and talented team represents six of the seven undergraduate colleges
-        at Cornell.</div>
+      <b-row align-h="center">
+        <b-col sm="12" md="8">
+          <div class="team-hero-header text-center">Working Together</div>
+          <div class="team-hero-header-subtext text-center">We are Cornell Design &amp; Tech Initiative. But individually, we are a
+            talented, diverse, group of students from different colleges and countries
+            striving to make a difference in our community.</div>
+        </b-col>
+      </b-row>
     </page-section>
 
     <div class="diversity diversity-background">
-
       <!-- TODO bind formatting to actual elements-->
-      <b-row class="no-gutters diversity">
-        <b-col cols="8" class="diversity-left-overlay">
+      <b-row class="no-gutters diversity diversity-content">
+        <b-col sm="12" md="8" class="diversity-left-overlay">
           <b-row>
-            <b-col cols="9">
+            <b-col sm="12" md="9">
               <h1 class="team-header">Diversity</h1>
               <p>Page summary. Diverse team spanning disciplines, years, ethnicities,
                 etc. We've had exciting people and have been to exciting places.</p>
@@ -25,7 +27,7 @@
                 <b-col cols="auto">
                   <h3 class="text-center">Gender Ratio</h3>
                   <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
-                    <div class="graph-data">
+                    <div class="text-center graph-data">
                       <b-row align-v="center" class="h-100">
                         <b-col cols="6" class="graph-datum">
                           <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
@@ -41,27 +43,13 @@
                 </b-col>
               </b-row>
               <br />
-              <b-row class="no-gutters filter-btn-group">
-                <b-col cols="auto" class="text-center">
-                  <div :class="lightbtn(divRoleId === '')" @click="divRoleId = ''">
-                    All
-                  </div>
-                  <div :class="lightselector(divRoleId === '')" />
-                </b-col>
-                <b-col cols="auto" class="text-center" v-for="role of roles" :key="role.id">
-                  <div :class="lightbtn(divRoleId === role.id)" @click="divRoleId = role.id">
-                    {{role.name}}
-                  </div>
-                  <div :class="lightselector(divRoleId === role.id)" />
-                </b-col>
-
-              </b-row>
+              <role-selector v-model="divRoleId" :dark="true" />
             </b-col>
-            <b-col cols="3">
+            <b-col sm="0" md="3">
             </b-col>
           </b-row>
         </b-col>
-        <b-col cols="4" align-self="center">
+        <b-col sm="12" md="4" align-self="center">
           <b-row>
             <b-col sm="6" md="12" class="diversity-inner-text">
               <h1>14</h1>
@@ -78,43 +66,27 @@
           </b-row>
         </b-col>
       </b-row>
-
     </div>
 
     <b-container fluid>
       <page-section>
         <h1 class="team-header">Team</h1>
 
-        <b-row class="filter-btn-group">
-          <b-col class="text-center">
-            <div :class="btn(roleId === '')" @click="roleId = ''">
-              All
-            </div>
-            <div :class="selector(roleId === '')" />
-          </b-col>
-          <b-col class="text-center" v-for="role of roles" :key="role.id">
-            <div :class="btn(roleId === role.id)" @click="roleId = role.id">
-              {{role.name}}
-            </div>
-            <div :class="selector(roleId === role.id)" />
-          </b-col>
-        </b-row>
+        <role-selector v-model="roleId" />
 
         <!-- TODO actual padding --><br>
 
         <headshot-grid :members="[...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
-          :teams="teams" />
+        />
 
       </page-section>
 
-      <div class="pseudo-team-header">
+      <div class="pseudo-team-header ">
         <h1>Where we've worked...</h1>
       </div>
     </b-container>
 
-    <section>
-      <marquee :companies="companies" />
-    </section>
+    <marquee :companies="getCompanies()" />
 
     <dti-footer />
   </page-background>
@@ -134,6 +106,15 @@ $secondary: #f6f6f6;
   margin-right: 4vw;
 }
 
+.team-hero-header {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.team-hero-header-subtext {
+  font-size: 2rem;
+}
+
 .circle-inner-data {
   text-align: center;
   height: 120px;
@@ -141,57 +122,11 @@ $secondary: #f6f6f6;
 
 // TODO create selector component
 
-.selector {
-  background-color: transparent;
-  transition: background-color 500ms linear;
-  width: 1rem;
-  height: 0.1rem;
-  margin: 0 auto;
-}
-
-.filter-btn-group {
-  justify-content: center;
-}
-
-.selector-selected {
-  background-color: #4a4a4a !important;
-}
-
-.selector-light-selected {
-  background-color: #fefefe !important;
-}
-
-.filter-btn-light,
-.selected-filter-light-btn {
-  color: #fefefe !important;
-  margin: 1rem;
-}
-
-.filter-btn-light:focus,
-.filter-btn-light:hover,
-.selected-filter-light-btn:focus,
-.selected-filter-light-btn:hover {
-  text-decoration: none !important;
-  color: #dadada !important;
-}
-
-.filter-btn,
-.selected-filter-btn {
-  color: #4a4a4a !important;
-  margin: 1rem;
-}
-
-.filter-btn:focus,
-.filter-btn:hover,
-.selected-filter-btn:focus,
-.selected-filter-btn:hover {
-  text-decoration: none !important;
-  color: #9a9a9a !important;
-}
-
 .diversity {
-  height: 80vh;
+  min-height: 80vh;
+
   overflow: hidden;
+  position: relative;
   color: #fefefe !important;
 
   &.diversity-background {
@@ -202,94 +137,46 @@ $secondary: #f6f6f6;
   &.diversity-background:before {
     content: '';
     position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
-    height: 80vh;
+    min-height: 80vh;
     background: inherit;
     filter: blur(10px);
     transition: all 2s linear;
   }
-
-  .diversity-left-overlay {
-    background-color: rgba(70, 71, 72, 0.8);
-    clip-path: polygon(0 0, 0 100%, 80% 100%, 100% 0);
-    padding: 2vw 4vw;
-  }
-}
-
-@media (max-width: 767px) {
-  .diversity {
-    background-color: #f6f6f6;
-  }
-
-  .diversity-inner-text {
-    text-align: center;
-  }
-
-  .diversity-inner-text {
-    margin-top: 1rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .diversity-inner-text {
-    padding: 4vw;
-  }
-
-  .diversity-column {
-    padding: 4vw;
-
-    &.diversity-left {
-      background-color: #f6f6f6;
-    }
-
-    &.diversity-right {
-      background-color: #ff324a;
-
-      // Prevents a 1px-ish line between center and right.
-
-      margin-right: -1vw;
-      margin-left: -1vw;
-
-      color: #fefefe;
-      padding: 10vw;
+  @media (min-width: 768px) {
+    .diversity-left-overlay {
+      padding: 2vw 4vw;
+      background-color: rgba(70, 71, 72, 0.8);
+      clip-path: polygon(0 0, 0 100%, 80% 100%, 100% 0);
     }
   }
 
-  .diversity-center {
-    background-color: #f6f6f6;
+  @media (max-width: 767px) {
+    &.diversity-content {
+      padding: 2vw 4vw;
+      background-color: rgba(70, 71, 72, 0.8);
+    }
 
-    .diversity-center-right {
-      width: 100%;
-      height: 100%;
-      background-color: #ff324a;
-      clip-path: polygon(70% 0, 30% 100%, 100% 100%, 100% 0);
+    .diversity-inner-text {
+      text-align: center;
+      margin-top: 1rem;
     }
   }
 
-  .diversity-text-right {
-    color: #fefefe;
-    padding: 10vw;
-  }
-}
-
-@media (max-width: 767px) {
-  .diversity {
-    background-color: #f6f6f6;
-    padding: 4vw;
-  }
-
-  .diversity-inner-text {
-    text-align: center;
-  }
-
-  .diversity-inner-text {
-    margin-top: 1rem;
+  @media (min-width: 768px) {
+    .diversity-inner-text {
+      padding: 4vw;
+    }
   }
 }
 </style>
 
 <script>
 import HeadshotGrid from '@/components/HeadshotGrid';
+import RoleSelector from '@/components/RoleSelector';
 import Marquee from '@/components/CompaniesMarquee';
 import CircleProgressIndicator from '@/components/CircleProgressIndicator';
 
@@ -297,7 +184,8 @@ export default {
   components: {
     HeadshotGrid,
     Marquee,
-    CircleProgressIndicator
+    CircleProgressIndicator,
+    RoleSelector
   },
   mounted() {
     this.$nextTick(() => {
@@ -312,22 +200,6 @@ export default {
     };
   },
   props: {
-    companies: {
-      type: Array,
-      required: true
-    },
-    members: {
-      type: Array,
-      required: true
-    },
-    teams: {
-      type: Array,
-      required: true
-    },
-    roles: {
-      type: Array,
-      required: true
-    },
     diversity: {
       type: Object,
       required: true
@@ -341,32 +213,16 @@ export default {
     femalePercentage(roleId) {
       return this.diversity.femalePercentage[roleId];
     },
-    lightbtn(selected) {
-      return selected
-        ? ['selected-filter-light-btn', 'btn', 'btn-link']
-        : ['filter-btn-light', 'btn', 'btn-link'];
-    },
-    lightselector(selected) {
-      return selected ? ['selector', 'selector-light-selected'] : ['selector'];
-    },
-    btn(selected) {
-      return selected
-        ? ['selected-filter-btn', 'btn', 'btn-link']
-        : ['filter-btn', 'btn', 'btn-link'];
-    },
-    selector(selected) {
-      return selected ? ['selector', 'selector-selected'] : ['selector'];
-    },
     filterMembers(role = '') {
       let filtered;
       if (role === '') {
-        filtered = [...this.members].sort((a, b) => {
+        filtered = [...this.getMembers()].sort((a, b) => {
           if (a.name < b.name) return -1;
           if (a.name > b.name) return 1;
           return 0;
         });
       } else {
-        filtered = this.members
+        filtered = this.getMembers()
           .filter(
             member =>
               typeof member.roleId !== 'undefined' && member.roleId === role

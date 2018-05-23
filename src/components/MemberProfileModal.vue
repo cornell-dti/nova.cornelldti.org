@@ -21,7 +21,6 @@
               </b-col>
             </b-row>
           </b-col>
-
         </b-row>
         <br />
         <b-row class="modal-scroll">

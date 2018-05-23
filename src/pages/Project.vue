@@ -46,7 +46,7 @@
           </b-row>
 
           <h1>Team</h1>
-          <headshot-grid :members="getTeam(projectData.teamId).members" :teams="teams" />
+          <headshot-grid :members="getTeam(projectData.teamId).members" />
 
           <b-row align-h="center">
             <b-col cols="auto">
@@ -120,9 +120,7 @@ export default {
     project: {
       type: String,
       required: true
-    },
-    projects: Array,
-    teams: Array
+    }
   },
   components: { HeadshotGrid },
   data() {
@@ -140,7 +138,7 @@ export default {
     getTeam(team) {
       let teamA = null;
 
-      this.teams.forEach(teamData => {
+      this.getTeams().forEach(teamData => {
         if (teamData.id === team) {
           teamA = teamData;
         }
@@ -151,7 +149,7 @@ export default {
     getProject(project) {
       let projectA = null;
 
-      this.projects.forEach(projectData => {
+      this.getProjects().forEach(projectData => {
         if (projectData.id === project) {
           projectA = projectData;
         }

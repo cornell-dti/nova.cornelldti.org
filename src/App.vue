@@ -22,6 +22,10 @@ export default {
     };
   },
   mounted() {
+    for (const element of Array.from(document.getElementsByTagName('title'))) {
+      element.innerText = `${this.$route.name} | Cornell DTI`;
+    }
+
     // TODO clean this up
     this.$router.beforeEach((to, from, next) => {
       const toI = Pages.indexOf(to.name);
@@ -38,6 +42,14 @@ export default {
       }
 
       next();
+    });
+
+    this.$router.afterEach(to => {
+      for (const element of Array.from(
+        document.getElementsByTagName('title')
+      )) {
+        element.innerText = `${to.name} | Cornell DTI`;
+      }
     });
   }
 };

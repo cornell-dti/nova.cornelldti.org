@@ -6,14 +6,14 @@
         <div :class="{'marquee-animation': enabled}">
           <div class="marquee-inner">
             <div class="marquee-item">
-
-              <h1 class="company-logo" :key="`topFirst${company.name}`" v-html="company.name" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
-              />
+              <div class="company-logo" :key="`topFirst${company.name}`" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))">
+                <h1>{{company.name}}</h1>
+              </div>
             </div>
             <div class="marquee-item">
-              <h1 class="company-logo" :key="`topSecond${company.name}`" v-html="company.name"
-                v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))"
-              />
+              <div class="company-logo" :key="`topSecond${company.name}`" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))">
+                <h1>{{company.name}}</h1>
+              </div>
             </div>
           </div>
         </div>
@@ -24,12 +24,16 @@
         <div :class="{'marquee-animation-reverse': enabled}">
           <div class="marquee-inner">
             <div class="marquee-item offset offset-original">
-              <h1 class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
-                :key="`bottomFirst${company.name}`" v-html="company.name" />
+              <div class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
+                :key="`bottomFirst${company.name}`">
+                <h1>{{company.name}}</h1>
+              </div>
             </div>
             <div class="marquee-item offset offset-duplicate">
-              <h1 class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
-                :key="`bottomSecond${company.name}`" v-html="company.name" />
+              <div class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
+                :key="`bottomSecond${company.name}`">
+                <h1>{{company.name}}</h1>
+              </div>
             </div>
           </div>
         </div>
@@ -42,7 +46,16 @@
 export default {
   data() {
     return {
-      shuffledCompanies: []
+      shuffledCompanies: [
+        { name: 'Facebook', logo: 'facebook.svg' },
+        { name: 'Twitter', logo: 'twitter.svg' },
+        { name: 'Google', logo: 'google.svg' },
+        { name: 'IBM', logo: 'ibm.svg' },
+        { name: 'JP Morgan', logo: 'jpmorgan.svg' },
+        { name: 'Snapchat', logo: 'snapchat.svg' },
+        { name: 'Adobe', logo: 'adobe.svg' },
+        { name: 'Microsoft', logo: 'microsoft.svg' }
+      ]
     };
   },
   props: {
@@ -51,12 +64,6 @@ export default {
       default() {
         return true;
       }
-    },
-    companies: {
-      type: Array,
-      default() {
-        return [];
-      }
     }
   },
   mounted() {
@@ -64,14 +71,12 @@ export default {
   },
   methods: {
     shuffle() {
-      const copy = [...this.companies];
-
-      for (let i = copy.length - 1; i > 0; i -= 1) {
-        const randomIndex = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
-      }
-
-      this.shuffledCompanies = copy;
+      // const copy = [...this.getCompanies()];
+      // for (let i = copy.length - 1; i > 0; i -= 1) {
+      //   const randomIndex = Math.floor(Math.random() * (i + 1));
+      //   [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
+      // }
+      //this.shuffledCompanies = copy;
     }
   }
 };
@@ -82,10 +87,14 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Playfair+Display|Roboto+Slab|Titan+One|Titillium+Web|Abel|Abril+Fatface|Acme|Pacifico|Shadows+Into+Light');
 
 $animation-speed: 20s;
+$percentagea: -1.75%;
 
 .marquee-outer {
-  height: 100px;
   width: 100%;
+  border-color: white;
+  border-width: 0px;
+  border-top-width: 5px;
+  border-style: solid;
 
   .marquee-content {
     overflow: hidden;
@@ -94,7 +103,7 @@ $animation-speed: 20s;
     .marquee-inner {
       display: flex;
       justify-content: space-between;
-      margin: 20px 0;
+      margin: 0 0;
 
       .marquee-item {
         flex: 0 0 auto;
@@ -104,43 +113,74 @@ $animation-speed: 20s;
 
         .company-logo {
           white-space: nowrap;
-          margin: 10px;
-          border-radius: 25px;
-          width: 200px;
-          height: 75px;
+          width: 100%;
+          clip-path: polygon(15% 0, 0 100%, 85% 100%, 100% 0);
+          text-align: center;
+          color: white;
         }
 
-        h1:nth-child(0) {
+        .company-logo h1 {
+          height: 100%;
+          margin: 0.5rem;
+        }
+
+        div:nth-child(0) {
           font-family: 'Pacifico', cursive;
+          background-color: #fafafa;
+          color: black;
+          margin-left: $percentagea;
+          margin-right: $percentagea;
         }
-        h1:nth-child(1) {
+        div:nth-child(1) {
           font-family: 'Abel', sans-serif;
+          background-color: #212121;
+
+          margin-left: $percentagea;
+          margin-right: $percentagea;
         }
-        h1:nth-child(2) {
+        div:nth-child(2) {
           font-family: 'Shadows Into Light', cursive;
+          background-color: #e0e0e0;
+          color: black;
+          margin-left: $percentagea;
+          margin-right: $percentagea;
         }
-        h1:nth-child(3) {
+        div:nth-child(3) {
           font-family: 'Abril Fatface', cursive;
+          background-color: #757575;
+          margin-left: $percentagea;
+          margin-right: $percentagea;
         }
-        h1:nth-child(4) {
+        div:nth-child(4) {
           font-family: 'Acme', sans-serif;
+          background-color: #eeeeee;
+          color: black;
+          margin-left: $percentagea;
+          margin-right: $percentagea;
         }
 
         &.offset {
-          h1:nth-child(0) {
+          div:nth-child(0) {
             font-family: 'Roboto Slab', serif !important;
+            background-color: #424242;
           }
-          h1:nth-child(1) {
+          div:nth-child(1) {
             font-family: 'Titan One', cursive !important;
+            background-color: #bdbdbd;
           }
-          h1:nth-child(2) {
+          div:nth-child(2) {
             font-family: 'Playfair Display', serif !important;
+            background-color: #616161;
+            color: white;
           }
-          h1:nth-child(3) {
+          div:nth-child(3) {
             font-family: 'Titillium Web', sans-serif !important;
+            background-color: #fafafa;
+            color: black;
           }
-          h1:nth-child(4) {
+          div:nth-child(4) {
             font-family: 'Indie Flower', cursive !important;
+            background-color: #9e9e9e;
           }
 
           &.offset-original {
@@ -156,23 +196,17 @@ $animation-speed: 20s;
   }
 }
 
+.marquee-animation:hover,
+.marquee-animation-reverse:hover {
+  animation-play-state: paused;
+}
+
 .marquee-animation {
-  -webkit-animation: marquee $animation-speed linear infinite;
   animation: marquee $animation-speed linear infinite;
 }
 
 .marquee-animation-reverse {
-  -webkit-animation: marquee-reverse $animation-speed linear infinite;
   animation: marquee-reverse $animation-speed linear infinite;
-}
-
-@-webkit-keyframes marquee-reverse {
-  0% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0);
-  }
 }
 
 @keyframes marquee-reverse {
@@ -181,15 +215,6 @@ $animation-speed: 20s;
   }
   100% {
     transform: translateX(0%);
-  }
-}
-
-@-webkit-keyframes marquee {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-  }
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
   }
 }
 
@@ -202,3 +227,4 @@ $animation-speed: 20s;
   }
 }
 </style>
+

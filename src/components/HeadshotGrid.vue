@@ -26,17 +26,15 @@ import HeadshotCard from '@/components/HeadshotCard';
 import MemberProfileModal from '@/components/MemberProfileModal';
 
 export default {
-  components: { HeadshotCard, MemberProfileModal },
   props: {
     members: {
       type: Array,
-      required: true
-    },
-    teams: {
-      type: Array,
-      required: true
+      default() {
+        return [];
+      }
     }
   },
+  components: { HeadshotCard, MemberProfileModal },
   data() {
     return { modalShow: false, currentProfile: {} };
   },
@@ -45,7 +43,7 @@ export default {
       this.currentProfile = member;
       this.currentProfile.teams = [];
 
-      this.teams.forEach(team => {
+      this.getTeams().forEach(team => {
         team.members.forEach(teamMember => {
           if (teamMember.name === this.currentProfile.name) {
             this.currentProfile.teams.push(team);

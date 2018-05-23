@@ -81,8 +81,6 @@ export default {
   @media (max-width: 767px) {
     .row {
       margin: 0.5rem;
-      -webkit-box-pack: center !important;
-      -ms-flex-pack: center !important;
       justify-content: center !important;
       text-align: center;
     }
