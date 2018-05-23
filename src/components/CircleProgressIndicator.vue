@@ -198,7 +198,7 @@ export default {
 
 
 <style lang="scss" scoped>
-$circle-background-color: #ececec47;
+$circle-background-color: #ececec;
 $circle-fill-color: #ff324a;
 $circle-border-color: grey;
 $circle-size: 240px;
