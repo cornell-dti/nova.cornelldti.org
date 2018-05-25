@@ -5,7 +5,7 @@
         <b-col cols="auto" class="my-auto">
           <b-row align-h="center" class="no-gutters">
             <b-col cols="auto">
-              <h2>Applications are currently closed.</h2>
+              <h2 class="text-header">Applications are currently closed.</h2>
               <p>Subscribe to our newsletter to stay updated on the application process.</p>
             </b-col>
           </b-row>
@@ -19,13 +19,17 @@
               <b-button type="submit">Subscribe</b-button>
             </b-form>
           </b-row>
+          <b-row align-h="center">
+            <b-alert :show="msgShow" dismissible :variant="msgVariant">
+              {{msgContent}}
+            </b-alert>
+          </b-row>
         </b-col>
       </b-row>
     </page-hero>
     <b-container>
       <section>
         <h1 class="container-section-heading">Join Us</h1>
-
         <b-row class="justify-content-left">
           OBI-WAN: Hello, there! GENERAL GRIEVOUS: General Kenobi, you are a bold one. I find
           your behavior bewildering . . . Surely you realize you're doomed, (to droids)
@@ -34,12 +38,12 @@
       </section>
       <hr>
       <section>
-        <h1 class="container-section-heading">Apply</h1>
-        <b-row>
-          <b-col>
+        <b-row align-v="center">
+          <b-col class="left-col-text">
+            <h1 class="container-section-heading">Apply</h1>
           </b-col>
-          <b-col>
-            <!-- right-side text -->
+          <b-col class="right-col-text">
+            due 11:59 PM on Friday, 9/8
           </b-col>
         </b-row>
         <b-row class="justify-content-md-center apply-row">
@@ -65,7 +69,14 @@
         </b-row>
       </section>
       <section>
-        <h1 class="container-section-heading">Information</h1>
+        <b-row align-v="center">
+          <b-col class="left-col-text">
+            <h1 class="container-section-heading">Information</h1>
+          </b-col>
+          <b-col class="right-col-text">
+            on Tuesday and Thursday
+          </b-col>
+        </b-row>
         <b-row class="justify-content-md-center apply-row">
           <b-col offset="2">
             <h3>Info Session 1</h3>
@@ -78,7 +89,14 @@
         </b-row>
       </section>
       <section>
-        <h1 class="container-section-heading">Interview</h1>
+        <b-row align-v="center">
+          <b-col class="left-col-text">
+            <h1 class="container-section-heading">Interview</h1>
+          </b-col>
+          <b-col class="right-col-text">
+            by 11:59 PM on Tuesday, 9/14
+          </b-col>
+        </b-row>
         <b-row class="justify-content-md-center apply-row">
           <b-col cols="8">
             Aren't you a little short to be a stormtrooper? What? Oh...the uniform. I'm Luke
@@ -101,28 +119,46 @@
           </b-col>
         </b-row>
       </section>
+      <section>
+        <b-row align-v="center">
+          <b-col class="left-col-text">
+            <h1 class="container-section-heading">Decision</h1>
+          </b-col>
+          <b-col class="right-col-text">
+            by 11:59 PM on Tuesday, 9/14
+          </b-col>
+        </b-row>
+      </section>
     </b-container>
   </page-background>
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
   data() {
     return {
-      email: ''
+      email: '',
+      msgContent: 'banana',
+      msgShow: false,
+      msgVariant: 'success'
     };
   },
   methods: {
     onSubscribe(event) {
       event.preventDefault();
-      axios.post("/email", {
+      axios.post('/email', {
         email: this.email
       }).then(response => {
-        alert(response.data.msg);
+        this.msgContent = response.msg;
+        this.msgVariant = 'success';
+        this.msgShow = true;
       }, error => {
-        console.err(error.data.msg);
+        console.log(error);
+        this.msgContent = 'There was an error subscribing you to the email list!';
+        this.msgVariant = 'error';
+        this.msgShow = true;
       });
     }
   }
@@ -131,28 +167,52 @@ export default {
 
 
 <style lang="scss" scoped>
-#newsletterEmailSubscribeInput {
-    border-radius: 5px;
-}
-.apply-pills {
-  .card-header {
-    background-color: transparent;
-    border-bottom: none;
+  .alert {
+    display: block;
+    margin-top: 1em;
+  }
+  .apply-pills {
+    .card-header {
+      background-color: transparent !important;
+      border-bottom: none;
 
-    li a {
-      background-color: transparent;
-      color: black;
-      font-weight: bold;
+      li a {
+        background-color: transparent;
+        color: black;
+        font-weight: bold;
 
-      &.active {
-        border-bottom: 2px solid black;
-        border-radius: 0px;
+        &.active {
+          border-bottom: 2px solid black;
+          border-radius: 0px;
+        }
       }
     }
   }
-}
+  .apply-row {
+    border-left: 3px solid black;
+  }
+  button[type='submit'] {
+    margin-left: 15px;
+  }
+  .col {
+    &.left-col-text {
+      text-align: left;
+    }
+    &.right-col-text {
+      color: grey;
+      font-weight: bold;
+      text-align: right;
+    }
+  }
+  #newsletterEmailSubscribeInput {
+    border-radius: 5px;
+  }
+  .text-header {
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0,0,0,.6);
 
-.apply-row {
-  border-left: 3px solid black;
-}
+    & + p {
+      color: grey;
+    }
+  }
 </style>
