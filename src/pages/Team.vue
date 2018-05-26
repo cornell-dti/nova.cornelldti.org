@@ -54,15 +54,15 @@
         </b-col>
         <b-col sm="12" md="4" align-self="center" class="mx-auto">
           <b-row>
-            <b-col cols="12" class="diversity-inner-text">
+            <b-col cols="12" class="diversity-description diversity-inner-text">
               <h1>55%</h1>
               <div class="diversity-description diversity-stat-description">Percentage of underclassmen team members</div>
             </b-col>
-            <b-col cols="12" class="diversity-inner-text">
+            <b-col cols="12" class="diversity-description diversity-inner-text">
               <h1>14</h1>
               <div class="diversity-description diversity-stat-description">Number of different majors</div>
             </b-col>
-            <b-col cols="12" class="diversity-inner-text">
+            <b-col cols="12" class="diversity-description diversity-inner-text">
               <h1>6</h1>
               <div class="diversity-description diversity-stat-description">Number of represented colleges</div>
             </b-col>
