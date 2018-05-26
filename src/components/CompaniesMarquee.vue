@@ -68,16 +68,6 @@ export default {
   },
   mounted() {
     this.shuffle();
-  },
-  methods: {
-    shuffle() {
-      // const copy = [...this.getCompanies()];
-      // for (let i = copy.length - 1; i > 0; i -= 1) {
-      //   const randomIndex = Math.floor(Math.random() * (i + 1));
-      //   [copy[i], copy[randomIndex]] = [copy[randomIndex], copy[i]];
-      // }
-      //this.shuffledCompanies = copy;
-    }
   }
 };
 </script>
@@ -86,7 +76,7 @@ export default {
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Playfair+Display|Roboto+Slab|Titan+One|Titillium+Web|Abel|Abril+Fatface|Acme|Pacifico|Shadows+Into+Light');
 
-$animation-speed: 20s;
+$animation-speed: 60s;
 $percentagea: -1.75%;
 
 .marquee-outer {

@@ -16,52 +16,55 @@
     <div class="diversity diversity-background">
       <!-- TODO bind formatting to actual elements-->
       <b-row class="no-gutters diversity diversity-content">
-        <b-col sm="12" md="8" class="diversity-left-overlay">
+        <b-col sm="12" md="7" class="diversity-left-overlay">
           <b-row>
             <b-col sm="12" md="9">
-              <h1 class="team-header">Diversity</h1>
-              <p>Page summary. Diverse team spanning disciplines, years, ethnicities,
-                etc. We've had exciting people and have been to exciting places.</p>
+              <div class="team-header diversity-header my-auto sm-y-padding">Diversity</div>
+              <div class="diversity-description my-auto sm-y-padding">Page summary. Diverse team spanning disciplines, years, ethnicities,
+                etc. We've had exciting people and have been to exciting places.</div>
 
-              <b-row class="no-gutters" align-h="center">
+              <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
-                  <h3 class="text-center">Gender Ratio</h3>
+                  <h3 class="graph-header text-center">Gender Ratio</h3>
                   <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
-                    <div class="text-center graph-data">
+                    <div class="text-center graph-data h-100">
                       <b-row align-v="center" class="h-100">
                         <b-col cols="6" class="graph-datum">
                           <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
-                          <p>Female</p>
+                          <p class="graph-datum-description">Female</p>
                         </b-col>
                         <b-col cols="6" class="graph-datum">
                           <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
-                          <p>Male</p>
+                          <p class="graph-datum-description">Male</p>
                         </b-col>
                       </b-row>
                     </div>
                   </circle-progress-indicator>
                 </b-col>
               </b-row>
-              <br />
-              <role-selector v-model="divRoleId" :dark="true" />
+              <b-row class="my-auto" align-h="center">
+                <b-col>
+                  <role-selector class="diversity-role-selector" v-model="divRoleId" :dark="true" />
+                </b-col>
+              </b-row>
             </b-col>
             <b-col sm="0" md="3">
             </b-col>
           </b-row>
         </b-col>
-        <b-col sm="12" md="4" align-self="center">
+        <b-col sm="12" md="4" align-self="center" class="mx-auto">
           <b-row>
-            <b-col sm="6" md="12" class="diversity-inner-text">
-              <h1>14</h1>
-              <p>Number of different majors</p>
+            <b-col cols="12" class="diversity-inner-text">
+              <h1>55%</h1>
+              <div class="diversity-description diversity-stat-description">Percentage of underclassmen team members</div>
             </b-col>
-            <b-col sm="6" md="12" class="diversity-inner-text">
+            <b-col cols="12" class="diversity-inner-text">
               <h1>14</h1>
-              <p>Number of different majors</p>
+              <div class="diversity-description diversity-stat-description">Number of different majors</div>
             </b-col>
-            <b-col sm="6" md="12" class="diversity-inner-text">
+            <b-col cols="12" class="diversity-inner-text">
               <h1>6</h1>
-              <p>Number of represented colleges</p>
+              <div class="diversity-description diversity-stat-description">Number of represented colleges</div>
             </b-col>
           </b-row>
         </b-col>
@@ -70,9 +73,9 @@
 
     <b-container fluid>
       <page-section>
-        <h1 class="team-header">Team</h1>
+        <div class="team-header">Team</div>
 
-        <role-selector v-model="roleId" />
+        <role-selector density="normal" class="team-role-selector" v-model="roleId" />
 
         <!-- TODO actual padding --><br>
 
@@ -80,13 +83,20 @@
         />
 
       </page-section>
+      <page-section>
+        <div class="team-header">We've worked at...</div>
 
-      <div class="pseudo-team-header ">
-        <h1>Where we've worked...</h1>
-      </div>
+        <div class="company-list">Google, Twitter, Amazon, JP Morgen, Lorem, Ipsum, GNOME, Buzzfeed, Also Creative,
+          AirBnb, Delta, Deusche* Bank, Company A, Company B, Company C, Google,
+          Twitter, Amazon, JP Morgen, Lorem, Ipsum, GNOME, Buzzfeed, Also Creative,
+          AirBnb, Delta, Deusche* Bank, Company A, Company B, Company C, Ipsum, GNOME,
+          Buzzfeed, Also Creative, AirBnb, Delta, Deusche* Bank, Company A, Company
+          B, Company C, Delta, Deusche* Bank, Company A, Company B, Company C, Ipsum,
+          GNOME, Buzzfeed, Also Creative, AirBnb, Delta, Deusche* Bank, Company A,
+          Company B, Company C
+        </div>
+      </page-section>
     </b-container>
-
-    <marquee :companies="getCompanies()" />
 
     <dti-footer />
   </page-background>
@@ -96,11 +106,62 @@
 $primary: #ff324a;
 $secondary: #f6f6f6;
 
+.graph-header {
+  font-size: 1.5rem;
+}
+
+.graph-datum {
+  font-size: 3rem;
+  font-weight: 500;
+
+  .graph-datum-description {
+    font-size: 1.5rem;
+  }
+}
+
+.team-role-selector {
+  padding: 0 1vw;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.diversity-role-selector {
+  font-size: 1.5rem;
+  font-weight: 500; //todo
+}
+
+.company-list {
+  position: relative;
+  font-size: 2rem;
+  max-width: 95vw;
+  margin-top: 1rem;
+  margin-bottom: 10vh;
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1) 90%
+    );
+    width: 100%;
+    height: 6.5em;
+  }
+}
+
 .team-header {
   margin-bottom: 3rem;
+  font-size: 4.5rem;
+  font-weight: 600;
 }
 
 .pseudo-team-header {
+  max-width: 80vw;
   margin-top: 1rem;
   margin-left: 4vw;
   margin-right: 4vw;
@@ -128,6 +189,27 @@ $secondary: #f6f6f6;
   overflow: hidden;
   position: relative;
   color: #fefefe !important;
+
+  .sm-y-padding {
+    padding: 0.6rem 0;
+  }
+
+  .lg-y-padding {
+    padding: 2rem 0;
+  }
+
+  .diversity-header {
+    padding: 0.6rem 0;
+  }
+
+  .diversity-description {
+    font-size: 1.5rem;
+    font-weight: normal;
+
+    &.diversity-stat-description {
+      font-weight: 500;
+    }
+  }
 
   &.diversity-background {
     background-image: url('/static/img/candids/new-header-bg.jpg');
@@ -168,7 +250,7 @@ $secondary: #f6f6f6;
 
   @media (min-width: 768px) {
     .diversity-inner-text {
-      padding: 4vw;
+      padding: 2vw 4vw;
     }
   }
 }

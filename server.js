@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, '/dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 app.post('/email', (req, res) => {
   //TODO: Validate email address

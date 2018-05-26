@@ -1,67 +1,85 @@
  <template>
   <b-row class="filter-btn-group">
-    <b-col class="text-center">
-      <div :class="btn(roleId === '', dark)" @click="roleId = ''">
+    <b-col :cols="density == 'compact' ? 'auto' : null" class="my-auto text-center">
+      <div :class="btnCSS(roleId === '', density, dark)" @click="roleId = ''">
         All
       </div>
-      <div :class="selector(roleId === '', dark)" />
+      <div :class="selectorCSS(roleId === '', dark)" />
     </b-col>
-    <b-col class="text-center" v-for="role of getRoles()" :key="role.id">
-      <div :class="btn(roleId === role.id, dark)" @click="roleId = role.id">
+    <b-col v-for="role of getRoles()" :cols="density === 'compact' ? 'auto' : null" :key="role.id"
+      class="my-auto text-center">
+      <div :class="btnCSS(roleId === role.id, density, dark)" @click="roleId = role.id">
         {{role.name}}
       </div>
-      <div :class="selector(roleId === role.id, dark)" />
+      <div :class="selectorCSS(roleId === role.id, dark)" />
     </b-col>
   </b-row>
 </template>
 
 <style lang="scss" scoped>
+.filter-btn-group {
+  justify-content: center;
+}
+
+.filter-btn,
+.selected-filter-btn {
+  margin: 1rem;
+  background-color: transparent;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
+
+  &.fg-dark {
+    color: #4a4a4a !important;
+
+    &:hover,
+    &:focus {
+      text-decoration: none !important;
+      color: #9a9a9a !important;
+    }
+  }
+
+  &.fg-light {
+    color: #fefefe !important;
+
+    &:hover,
+    &:focus {
+      text-decoration: none !important;
+      color: #dadada !important;
+    }
+  }
+
+  &.density-compact {
+    margin: 0.1rem;
+  }
+}
+
 .selector {
   background-color: transparent;
   transition: background-color 500ms linear;
   width: 1rem;
   height: 0.1rem;
   margin: 0 auto;
-}
 
-.filter-btn-group {
-  justify-content: center;
-}
+  &.selected {
+    &.fg-dark {
+      background-color: #4a4a4a !important;
+    }
 
-.selector-selected {
-  background-color: #4a4a4a !important;
-}
-
-.selector-light-selected {
-  background-color: #fefefe !important;
-}
-
-.filter-btn-light,
-.selected-filter-light-btn {
-  color: #fefefe !important;
-  margin: 1rem;
-}
-
-.filter-btn-light:focus,
-.filter-btn-light:hover,
-.selected-filter-light-btn:focus,
-.selected-filter-light-btn:hover {
-  text-decoration: none !important;
-  color: #dadada !important;
-}
-
-.filter-btn,
-.selected-filter-btn {
-  color: #4a4a4a !important;
-  margin: 1rem;
-}
-
-.filter-btn:focus,
-.filter-btn:hover,
-.selected-filter-btn:focus,
-.selected-filter-btn:hover {
-  text-decoration: none !important;
-  color: #9a9a9a !important;
+    &.fg-light {
+      background-color: #fefefe !important;
+    }
+  }
 }
 </style>
 
@@ -80,6 +98,10 @@ export default {
     dark: {
       type: Boolean,
       default: false
+    },
+    density: {
+      type: String,
+      default: 'compact'
     }
   },
   mounted() {
@@ -96,20 +118,16 @@ export default {
     };
   },
   methods: {
-    btn(selected, isDark = false) {
-      if (selected) {
-        return [
-          isDark ? 'selected-filter-light-btn' : 'selected-filter-btn',
-          'btn',
-          'btn-link'
-        ];
-      }
-
-      return [isDark ? 'filter-btn-light' : 'filter-btn', 'btn', 'btn-link'];
+    btnCSS(selected, density, isDark = false) {
+      return [
+        selected ? 'selected-filter-btn' : 'filter-btn',
+        isDark ? 'fg-light' : 'fg-dark',
+        density === 'compact' ? 'density-compact' : null
+      ];
     },
-    selector(selected, isDark = false) {
+    selectorCSS(selected, isDark = false) {
       return selected
-        ? ['selector', isDark ? 'selector-light-selected' : 'selector-selected']
+        ? ['selector', 'selected', isDark ? 'fg-light' : 'fg-dark']
         : ['selector'];
     }
   },
