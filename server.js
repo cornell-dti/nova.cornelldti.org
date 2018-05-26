@@ -1,4 +1,5 @@
 require('dotenv').load();
+
 const bodyParser = require('body-parser');
 const express = require('express');
 const history = require('connect-history-api-fallback');
@@ -12,7 +13,7 @@ const mailchimp = new Mailchimp(process.env.mailchimpkey);
 if (process.env.environment === 'production') {
   console.log('Production environment detected, enforcing HTTPS & SSL.');
   console.log(`Environment: ` + process.env.environment);
-  
+
   const enforce = require('express-sslify');
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
@@ -29,6 +30,7 @@ const port = process.env.PORT || 5001;
 
 app.post('/email', (req, res) => {
   //TODO: Validate email address
+  //TODO: Convert List ID to environment variable
   const email = req.body.email;
   mailchimp
     .post({
@@ -49,6 +51,7 @@ app.post('/email', (req, res) => {
       });
     })
     .catch(error => {
+      console.log(error);
       return res.status(500).json({
         success: false,
         msg: error
