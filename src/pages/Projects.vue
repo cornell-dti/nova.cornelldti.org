@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <text-page-hero :greyscale="true" :bg="img('heroes', 'projects-hero.jpg')">
+    <text-page-hero :greyscale="true" :bg="`url(${img('heroes', 'projects-hero.jpg')})`">
       Projects
     </text-page-hero>
 

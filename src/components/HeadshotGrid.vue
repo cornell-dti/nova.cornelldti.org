@@ -18,6 +18,7 @@
 .phantom-headshot-card {
   visibility: hidden;
   max-height: 0;
+  overflow: hidden;
 }
 </style>
 

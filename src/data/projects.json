@@ -85,7 +85,11 @@
     "image": "img/portfolio/samwise/7.12.17_work.png",
     "description":
       "A leading cause of stress at Cornell is the relentless pace of deadlines and events that one has to keep track of. Project Samwise is a task visualization web app designed for Cornell students, which helps them keep an eye on their upcoming project deadlines, prelims, and any other important events.",
-    "github": "https://github.com/cornell-dti/project-samwise"
+    "github": "https://github.com/cornell-dti/project-samwise",
+    "header": "Samwise",
+    "subheader": "Lorem ipsum dolor sit amet, consectetur adipiscing",
+    "heroStartingColor": "#efefef",
+    "heroEndingColor": "#fefefe"
   },
   {
     "name": "Research Connect",

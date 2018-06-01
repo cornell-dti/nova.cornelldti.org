@@ -1,5 +1,5 @@
 <template>
-  <b-navbar :class="['navbar-dti ', ...(transparent && !navShown ? [ 'navbar-dark ', 'bg-transparent'] : ['navbar-dti-light', 'navbar-light', 'bg-light'])]"
+  <b-navbar :class="['navbar-dti ', ...(transparent && !navShown ? [ (light ? 'navbar-light' : 'navbar-dark'), 'bg-transparent'] : ['navbar-dti-light', 'navbar-light', 'bg-light'])]"
     ref="dtinavbar" fixed="top" toggleable="md" type="none">
 
     <b-navbar-brand class="navbar-branding-dti" href="#">
@@ -44,11 +44,14 @@
 </template>
 
 <script>
+import EventBus from '@/eventbus';
+
 export default {
   data() {
     return {
       transparent: true,
-      navShown: false
+      navShown: false,
+      light: false
     };
   },
   methods: {
@@ -68,6 +71,14 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll);
+
+    EventBus.$on('set-navbar-light', () => {
+      this.light = true;
+    });
+
+    EventBus.$on('reset-navbar', () => {
+      this.light = false;
+    });
   }
 };
 </script>

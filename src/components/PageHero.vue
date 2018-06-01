@@ -1,7 +1,6 @@
 <template>
-  <div :style="bg_(bg)" :class="['page-header', 'page-hero', this.greyscale ? 'page-hero-greyscale' : '']">
+  <div :style="bg_()" :class="['page-header', 'page-hero', this.greyscale ? 'page-hero-greyscale' : '']">
     <div v-if="overlay" class="bg-overlay" />
-    <div class="nav-padding" />
     <slot />
   </div>
 </template>
@@ -24,7 +23,7 @@ export default {
   },
   methods: {
     bg_() {
-      return `background-image: url('${this.bg}');`;
+      return `background: ${this.bg};`;
     }
   }
 };
@@ -52,6 +51,8 @@ export default {
   }
 
   &.page-hero {
+    overflow-y: hidden;
+    padding-top: 10vh !important;
     min-width: 100%;
     min-height: 60vh;
     height: 60vh;

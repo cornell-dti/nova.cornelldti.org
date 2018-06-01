@@ -1,77 +1,76 @@
 <template>
   <page-background>
-    <page-hero :overlay="false" :bg="img('heroes', 'team-hero.jpg')" />
-
-    <page-section>
-      <b-row align-h="center">
-        <b-col sm="12" md="8">
-          <div class="team-hero-header text-center">Working Together</div>
-          <div class="team-hero-header-subtext text-center">We are Cornell Design &amp; Tech Initiative. But individually, we are a
-            talented, diverse, group of students from different colleges and countries
-            striving to make a difference in our community.</div>
-        </b-col>
-      </b-row>
-    </page-section>
-
-    <div class="diversity diversity-background">
-      <!-- TODO bind formatting to actual elements-->
-      <b-row class="no-gutters diversity diversity-content">
-        <b-col sm="12" md="7" class="diversity-left-overlay">
-          <b-row>
-            <b-col sm="12" md="9">
-              <div class="team-header diversity-header my-auto sm-y-padding">Diversity</div>
-              <div class="diversity-description my-auto sm-y-padding">Page summary. Diverse team spanning disciplines, years, ethnicities,
-                etc. We've had exciting people and have been to exciting places.</div>
-
-              <b-row class="lg-y-padding" align-h="center">
-                <b-col cols="auto">
-                  <h3 class="graph-header text-center">Gender Ratio</h3>
-                  <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
-                    <div class="text-center graph-data h-100">
-                      <b-row align-v="center" class="h-100">
-                        <b-col cols="6" class="graph-datum">
-                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
-                          <p class="graph-datum-description">Female</p>
-                        </b-col>
-                        <b-col cols="6" class="graph-datum">
-                          <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
-                          <p class="graph-datum-description">Male</p>
-                        </b-col>
-                      </b-row>
-                    </div>
-                  </circle-progress-indicator>
-                </b-col>
-              </b-row>
-              <b-row class="my-auto" align-h="center">
-                <b-col>
-                  <role-selector class="diversity-role-selector" v-model="divRoleId" :dark="true" />
-                </b-col>
-              </b-row>
-            </b-col>
-            <b-col sm="0" md="3">
-            </b-col>
-          </b-row>
-        </b-col>
-        <b-col sm="12" md="4" align-self="center" class="mx-auto">
-          <b-row>
-            <b-col cols="12" class="diversity-description diversity-inner-text">
-              <h1>55%</h1>
-              <div class="diversity-description diversity-stat-description">Percentage of underclassmen team members</div>
-            </b-col>
-            <b-col cols="12" class="diversity-description diversity-inner-text">
-              <h1>14</h1>
-              <div class="diversity-description diversity-stat-description">Number of different majors</div>
-            </b-col>
-            <b-col cols="12" class="diversity-description diversity-inner-text">
-              <h1>6</h1>
-              <div class="diversity-description diversity-stat-description">Number of represented colleges</div>
-            </b-col>
-          </b-row>
-        </b-col>
-      </b-row>
-    </div>
-
+    <page-hero :overlay="false" :bg="`url(${img('heroes', 'team-hero.jpg')})`" />
     <b-container fluid>
+      <page-section>
+        <b-row align-h="center">
+          <b-col sm="12" md="8">
+            <div class="team-hero-header text-center">Working Together</div>
+            <div class="team-hero-header-subtext text-center">We are Cornell Design &amp; Tech Initiative. But individually, we are
+              a talented, diverse, group of students from different colleges and
+              countries striving to make a difference in our community.</div>
+          </b-col>
+        </b-row>
+      </page-section>
+
+      <div class="diversity diversity-background">
+        <!-- TODO bind formatting to actual elements-->
+        <b-row class="no-gutters diversity diversity-content">
+          <b-col sm="12" md="7" class="diversity-left-overlay">
+            <b-row>
+              <b-col sm="12" md="9">
+                <div class="team-header diversity-header my-auto sm-y-padding">Diversity</div>
+                <div class="diversity-description my-auto sm-y-padding">Page summary. Diverse team spanning disciplines, years, ethnicities,
+                  etc. We've had exciting people and have been to exciting places.</div>
+
+                <b-row class="lg-y-padding" align-h="center">
+                  <b-col cols="auto">
+                    <h3 class="graph-header text-center">Gender Ratio</h3>
+                    <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
+                      <div class="text-center graph-data h-100">
+                        <b-row align-v="center" class="h-100">
+                          <b-col cols="6" class="graph-datum">
+                            <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
+                            <p class="graph-datum-description">Female</p>
+                          </b-col>
+                          <b-col cols="6" class="graph-datum">
+                            <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
+                            <p class="graph-datum-description">Male</p>
+                          </b-col>
+                        </b-row>
+                      </div>
+                    </circle-progress-indicator>
+                  </b-col>
+                </b-row>
+                <b-row class="my-auto" align-h="center">
+                  <b-col>
+                    <role-selector class="diversity-role-selector" v-model="divRoleId" :dark="true" />
+                  </b-col>
+                </b-row>
+              </b-col>
+              <b-col sm="0" md="3">
+              </b-col>
+            </b-row>
+          </b-col>
+          <b-col sm="12" md="4" align-self="center" class="mx-auto">
+            <b-row>
+              <b-col cols="12" class="diversity-description diversity-inner-text">
+                <h1>55%</h1>
+                <div class="diversity-description diversity-stat-description">Percentage of underclassmen team members</div>
+              </b-col>
+              <b-col cols="12" class="diversity-description diversity-inner-text">
+                <h1>14</h1>
+                <div class="diversity-description diversity-stat-description">Number of different majors</div>
+              </b-col>
+              <b-col cols="12" class="diversity-description diversity-inner-text">
+                <h1>6</h1>
+                <div class="diversity-description diversity-stat-description">Number of represented colleges</div>
+              </b-col>
+            </b-row>
+          </b-col>
+        </b-row>
+      </div>
+
       <page-section>
         <div class="team-header">Team</div>
 
@@ -84,17 +83,17 @@
 
       </page-section>
       <page-section>
-        <div class="team-header">We've worked at...</div>
-
-        <div class="company-list">Google, Twitter, Amazon, JP Morgen, Lorem, Ipsum, GNOME, Buzzfeed, Also Creative,
-          AirBnb, Delta, Deusche* Bank, Company A, Company B, Company C, Google,
-          Twitter, Amazon, JP Morgen, Lorem, Ipsum, GNOME, Buzzfeed, Also Creative,
-          AirBnb, Delta, Deusche* Bank, Company A, Company B, Company C, Ipsum, GNOME,
-          Buzzfeed, Also Creative, AirBnb, Delta, Deusche* Bank, Company A, Company
-          B, Company C, Delta, Deusche* Bank, Company A, Company B, Company C, Ipsum,
-          GNOME, Buzzfeed, Also Creative, AirBnb, Delta, Deusche* Bank, Company A,
-          Company B, Company C
-        </div>
+        <b-row class="no-wrap no-gutters">
+          <b-col cols="auto" class="lefter">
+            <div class="team-header-outer">We've worked at...</div>
+          </b-col>
+          <b-col cols="auto" class="righter">
+            <marquee class="no-wrap" />
+          </b-col>
+        </b-row>
+        <div class="team-work-description">Our team has worked at many amazing companies, starups, and open source organizations.
+          From internships to engineering co-ops to full time employment after Cornell
+          we've done it all.</div>
       </page-section>
     </b-container>
 
@@ -105,6 +104,46 @@
 <style lang="scss" scoped>
 $primary: #ff324a;
 $secondary: #f6f6f6;
+
+.company-switcher {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1s linear;
+}
+
+.company-switcher-a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1s linear;
+}
+
+.team-header {
+  position: relative;
+}
+
+.team-work-description {
+  font-size: 3rem;
+}
+
+.team-header-outer {
+  margin-bottom: 1rem;
+  font-size: 4.5rem;
+  font-weight: 600;
+  z-index: 10;
+  background: linear-gradient(to right, white 95%, rgba(255, 255, 255, 0));
+  padding-right: 2vw;
+}
+
+.no-wrap {
+  flex-wrap: nowrap !important;
+  max-width: 100%;
+}
+
+.lefter {
+  z-index: 10;
+}
 
 .graph-header {
   font-size: 1.5rem;
@@ -157,7 +196,7 @@ $secondary: #f6f6f6;
 .team-header {
   margin-bottom: 3rem;
   font-size: 4.5rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .pseudo-team-header {
@@ -315,7 +354,6 @@ export default {
             return 0;
           });
       }
-
       // todo fix this ugliness
 
       return filtered;

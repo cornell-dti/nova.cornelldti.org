@@ -1,39 +1,18 @@
 <template>
-  <div>
-    <!-- TODO Fix performance -->
-    <div class="marquee-outer">
-      <div class="marquee-content">
-        <div :class="{'marquee-animation': enabled}">
-          <div class="marquee-inner">
-            <div class="marquee-item">
-              <div class="company-logo" :key="`topFirst${company.name}`" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))">
-                <h1>{{company.name}}</h1>
-              </div>
-            </div>
-            <div class="marquee-item">
-              <div class="company-logo" :key="`topSecond${company.name}`" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))">
-                <h1>{{company.name}}</h1>
-              </div>
+
+  <!-- TODO Fix performance -->
+  <div class="marquee-outer">
+    <div class="marquee-content">
+      <div :class="{'marquee-animation': enabled}">
+        <div class="marquee-inner">
+          <div class="marquee-item">
+            <div class="company-logo" :key="`topFirst${company.name}`" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))">
+              <h1>{{company.name}}</h1>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="marquee-outer">
-      <div class="marquee-content">
-        <div :class="{'marquee-animation-reverse': enabled}">
-          <div class="marquee-inner">
-            <div class="marquee-item offset offset-original">
-              <div class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
-                :key="`bottomFirst${company.name}`">
-                <h1>{{company.name}}</h1>
-              </div>
-            </div>
-            <div class="marquee-item offset offset-duplicate">
-              <div class="company-logo" v-for="company of shuffledCompanies.slice(Math.round((shuffledCompanies.length - 1) / 2),shuffledCompanies.length)"
-                :key="`bottomSecond${company.name}`">
-                <h1>{{company.name}}</h1>
-              </div>
+          <div class="marquee-item">
+            <div class="company-logo" :key="`topSecond${company.name}`" v-for="company of shuffledCompanies.slice(0, Math.round((shuffledCompanies.length - 1) / 2))">
+              <h1>{{company.name}}</h1>
             </div>
           </div>
         </div>
@@ -66,9 +45,7 @@ export default {
       }
     }
   },
-  mounted() {
-    this.shuffle();
-  }
+  mounted() {}
 };
 </script>
 
@@ -81,10 +58,6 @@ $percentagea: -1.75%;
 
 .marquee-outer {
   width: 100%;
-  border-color: white;
-  border-width: 0px;
-  border-top-width: 5px;
-  border-style: solid;
 
   .marquee-content {
     overflow: hidden;
@@ -99,80 +72,23 @@ $percentagea: -1.75%;
         flex: 0 0 auto;
         display: flex;
         justify-content: space-around;
-        min-width: 100%;
+        margin: 0 1vw;
 
         .company-logo {
           white-space: nowrap;
           width: 100%;
-          clip-path: polygon(15% 0, 0 100%, 85% 100%, 100% 0);
+          font-size: 3rem;
+          font-weight: normal;
           text-align: center;
-          color: white;
+          color: black;
         }
 
         .company-logo h1 {
           height: 100%;
-          margin: 0.5rem;
-        }
-
-        div:nth-child(0) {
-          font-family: 'Pacifico', cursive;
-          background-color: #fafafa;
-          color: black;
-          margin-left: $percentagea;
-          margin-right: $percentagea;
-        }
-        div:nth-child(1) {
-          font-family: 'Abel', sans-serif;
-          background-color: #212121;
-
-          margin-left: $percentagea;
-          margin-right: $percentagea;
-        }
-        div:nth-child(2) {
-          font-family: 'Shadows Into Light', cursive;
-          background-color: #e0e0e0;
-          color: black;
-          margin-left: $percentagea;
-          margin-right: $percentagea;
-        }
-        div:nth-child(3) {
-          font-family: 'Abril Fatface', cursive;
-          background-color: #757575;
-          margin-left: $percentagea;
-          margin-right: $percentagea;
-        }
-        div:nth-child(4) {
-          font-family: 'Acme', sans-serif;
-          background-color: #eeeeee;
-          color: black;
-          margin-left: $percentagea;
-          margin-right: $percentagea;
+          margin: 0 0.5rem;
         }
 
         &.offset {
-          div:nth-child(0) {
-            font-family: 'Roboto Slab', serif !important;
-            background-color: #424242;
-          }
-          div:nth-child(1) {
-            font-family: 'Titan One', cursive !important;
-            background-color: #bdbdbd;
-          }
-          div:nth-child(2) {
-            font-family: 'Playfair Display', serif !important;
-            background-color: #616161;
-            color: white;
-          }
-          div:nth-child(3) {
-            font-family: 'Titillium Web', sans-serif !important;
-            background-color: #fafafa;
-            color: black;
-          }
-          div:nth-child(4) {
-            font-family: 'Indie Flower', cursive !important;
-            background-color: #9e9e9e;
-          }
-
           &.offset-original {
             margin-left: -12.5vw;
           }
@@ -186,26 +102,12 @@ $percentagea: -1.75%;
   }
 }
 
-.marquee-animation:hover,
-.marquee-animation-reverse:hover {
+.marquee-animation:hover {
   animation-play-state: paused;
 }
 
 .marquee-animation {
   animation: marquee $animation-speed linear infinite;
-}
-
-.marquee-animation-reverse {
-  animation: marquee-reverse $animation-speed linear infinite;
-}
-
-@keyframes marquee-reverse {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
 }
 
 @keyframes marquee {
