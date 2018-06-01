@@ -1,7 +1,6 @@
 <template>
-  <div :style="bg_(bg)" class="page-header page-hero">
-    <div class="bg-overlay" />
-    <div class="nav-padding" />
+  <div :style="bg_()" :class="['page-header', 'page-hero', this.greyscale ? 'page-hero-greyscale' : '']">
+    <div v-if="overlay" class="bg-overlay" />
     <slot />
   </div>
 </template>
@@ -12,11 +11,19 @@ export default {
     bg: {
       type: String,
       default: ''
+    },
+    greyscale: {
+      type: Boolean,
+      default: false
+    },
+    overlay: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {
     bg_() {
-      return `background-image: url('${this.bg}');`;
+      return `background: ${this.bg};`;
     }
   }
 };
@@ -28,8 +35,6 @@ export default {
   min-height: 10vh;
   background-size: cover !important;
   background-position: 0% 50% !important;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
 
   .bg-overlay {
     position: absolute;
@@ -41,7 +46,13 @@ export default {
     width: 100vw;
   }
 
+  &.page-hero-greyscale {
+    filter: grayscale(100%);
+  }
+
   &.page-hero {
+    overflow-y: hidden;
+    padding-top: 10vh !important;
     min-width: 100%;
     min-height: 60vh;
     height: 60vh;

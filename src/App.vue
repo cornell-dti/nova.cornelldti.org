@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <div class="page-stack page-background">
-      <base-layout class="page-stack-element">
-        <dti-main-menu slot="header" />
-        <transition :name="transition" slot="body">
-          <router-view />
-        </transition>
-      </base-layout>
+    <dti-main-menu />
+    <div class="page-stack">
+      <transition :name="transition">
+        <router-view class="page-stack-element" />
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
+import EventBus from '@/eventbus';
+
 const Pages = ['Home', 'Projects', 'Initiatives', 'Team', 'Sponsor', 'Apply'];
 
 export default {
@@ -22,6 +22,14 @@ export default {
     };
   },
   mounted() {
+    for (const element of Array.from(document.getElementsByTagName('title'))) {
+      if (typeof this.$route.name !== 'undefined') {
+        element.innerText = `${this.$route.name} | Cornell DTI`;
+      } else {
+        element.innerText = `Cornell DTI`;
+      }
+    }
+
     // TODO clean this up
     this.$router.beforeEach((to, from, next) => {
       const toI = Pages.indexOf(to.name);
@@ -37,7 +45,21 @@ export default {
         this.transition = 'slideout';
       }
 
+      EventBus.$emit('reset-navbar', {});
+
       next();
+    });
+
+    this.$router.afterEach(to => {
+      for (const element of Array.from(
+        document.getElementsByTagName('title')
+      )) {
+        if (typeof to.name !== 'undefined') {
+          element.innerText = `${to.name} | Cornell DTI`;
+        } else {
+          element.innerText = `Cornell DTI`;
+        }
+      }
     });
   }
 };
@@ -48,6 +70,8 @@ export default {
 
 body {
   margin: 0;
+  height: 100%;
+  width: 100%;
 }
 </style>
 
@@ -56,12 +80,16 @@ $page-transition-duration: 0.5s;
 
 .page-stack {
   position: relative;
+  width: 100%;
+  height: 100%;
 
   .page-stack-element {
-    position: absolute;
-    left: 0;
+    //position: absolute;
+    //left: 0;
+    // right: 0;
+    // top: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
   }
 }
 

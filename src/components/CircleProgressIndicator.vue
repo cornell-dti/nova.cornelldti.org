@@ -15,7 +15,72 @@
   </div>
 </template>
 
-<script>
+<script >
+import { PathTemplate } from '../path';
+
+const OUTER_RADIUS = 175;
+const INNER_RADIUS = 155;
+
+const INNER_X_PARAM = 'innerX';
+const INNER_Y_PARAM = 'innerY';
+const OUTER_X_PARAM = 'outerX';
+const OUTER_Y_PARAM = 'outerY';
+const OUTER_RADIUS_PARAM = 'outerRadius';
+const INNER_RADIUS_PARAM = 'innerRadius';
+const LARGE_ARC_PARAM = 'largeArc';
+const LARGE_ARC_INV_PARAM = 'largeArcInv'; // todo
+
+// TODO Cleanup this api/utility
+
+const INVERSE_ARC_TEMPLATE = new PathTemplate()
+  .move(INNER_X_PARAM, INNER_Y_PARAM)
+  .line(OUTER_X_PARAM, OUTER_Y_PARAM)
+  .circulararc(
+    OUTER_RADIUS_PARAM,
+    LARGE_ARC_INV_PARAM,
+    PathTemplate.ONE,
+    OUTER_RADIUS_PARAM,
+    PathTemplate.ZERO
+  ) // todo toggle var
+  .line(
+    OUTER_RADIUS_PARAM,
+    parameters =>
+      parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
+  )
+  .circulararc(
+    INNER_RADIUS_PARAM,
+    LARGE_ARC_INV_PARAM,
+    PathTemplate.ZERO,
+    INNER_X_PARAM,
+    INNER_Y_PARAM
+  )
+  .end();
+
+const ARC_TEMPLATE = new PathTemplate()
+  .move(
+    OUTER_RADIUS_PARAM,
+    parameters =>
+      parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
+  )
+  .line(OUTER_RADIUS_PARAM, PathTemplate.ZERO)
+  .circulararc(
+    OUTER_RADIUS_PARAM,
+    LARGE_ARC_PARAM,
+    PathTemplate.ONE,
+    OUTER_X_PARAM,
+    OUTER_Y_PARAM
+  ) // todo toggle var
+  .line(INNER_X_PARAM, INNER_Y_PARAM)
+  .circulararc(
+    INNER_RADIUS_PARAM,
+    LARGE_ARC_PARAM,
+    PathTemplate.ZERO,
+    OUTER_RADIUS_PARAM,
+    parameters =>
+      parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
+  )
+  .end();
+
 export default {
   props: {
     percentage: {
@@ -24,7 +89,7 @@ export default {
     }
   },
   data() {
-    return { interval: -1, percentageLast: 0 };
+    return { interval: -1, lastPercentage: 0 };
   },
   beforeDestroy() {
     if (this.interval !== -1) {
@@ -42,106 +107,88 @@ export default {
     }
   },
   methods: {
-    percentagePtArr(percentage = 0.5) {
-      const x = [];
-      const y = [];
+    getTemplateParameters(percentage) {
+      const angle = Math.PI / 2 - percentage * 2 * Math.PI;
 
-      const radius = 120;
-      const diameter = radius * 2;
+      const [xOffset, yOffset] = [Math.cos(angle), -Math.sin(angle)];
 
-      const xOffset = Math.abs(
-        radius * Math.cos(Math.PI / 2 - percentage * 2 * Math.PI)
-      );
-      const yOffset = Math.abs(
-        radius * Math.sin(Math.PI / 2 - percentage * 2 * Math.PI)
-      );
+      const params = {};
 
-      x.push(radius);
-      y.push(radius);
+      params[INNER_X_PARAM] = OUTER_RADIUS + INNER_RADIUS * xOffset;
+      params[INNER_Y_PARAM] = OUTER_RADIUS + INNER_RADIUS * yOffset;
+      params[OUTER_X_PARAM] = OUTER_RADIUS + OUTER_RADIUS * xOffset;
+      params[OUTER_Y_PARAM] = OUTER_RADIUS + OUTER_RADIUS * yOffset;
+      params[INNER_RADIUS_PARAM] = INNER_RADIUS;
+      params[OUTER_RADIUS_PARAM] = OUTER_RADIUS;
+      params[LARGE_ARC_INV_PARAM] = percentage < 0.5 ? 1 : 0;
+      params[LARGE_ARC_PARAM] = percentage >= 0.5 ? 1 : 0;
 
-      if (percentage >= 0) {
-        x.push(radius);
-        y.push(0);
+      return params;
+    },
+    getPaths(percentage = 0.5) {
+      const params = this.getTemplateParameters(percentage);
 
-        if (percentage >= 0.25) {
-          x.push(diameter, diameter, diameter);
-          y.push(0, radius, diameter);
-
-          if (percentage >= 0.5) {
-            x.push(radius, 0);
-            y.push(diameter, diameter);
-
-            if (percentage >= 0.75) {
-              // 75% -100%
-              x.push(0, 0, radius - xOffset);
-              y.push(radius, 0, radius - yOffset);
-            } else {
-              // 50-74%
-              x.push(radius - xOffset);
-              y.push(radius + yOffset);
-            }
-          } else {
-            // 25% - 49%
-            x.push(radius + xOffset);
-            y.push(radius + yOffset);
-          }
-        } else {
-          // 0 - 24%
-          x.push(radius * 2, radius + xOffset, radius);
-          y.push(0, radius - yOffset, radius);
-        }
-      }
-
-      return [x, y];
+      return [
+        ARC_TEMPLATE.commands(params),
+        INVERSE_ARC_TEMPLATE.commands(params)
+      ];
     },
     setPercentage(percentage = 0.5) {
       if (this.interval !== -1) {
         clearInterval(this.interval);
+        this.interval = -1;
       }
 
-      let percentageIncr = this.percentageLast;
-      this.percentageLast = percentage;
+      let currentPercentage = this.lastPercentage;
+      this.lastPercentage = percentage;
 
       this.interval = setInterval(() => {
-        const [x, y] = this.percentagePtArr(percentageIncr);
-        const params = [];
-
-        params.push(`M${x[0]},${y[0]}`);
-
-        for (let i = 1; i < Math.min(x.length, y.length); i += 1) {
-          params.push(`L${x[i]},${y[i]}`);
-        }
-        params.push('Z');
+        const [commands, inverseCommands] = this.getPaths(currentPercentage);
 
         let pathData = '';
 
-        for (const param of params) {
+        for (const param of commands) {
           pathData += ` ${param}`;
+        }
+
+        let inversePathData = '';
+
+        for (const param of inverseCommands) {
+          inversePathData += ` ${param}`;
         }
 
         const svg = this.$refs.circleProgressIndicator.getElementsByTagNameNS(
           'http://www.w3.org/2000/svg',
           'svg'
-        )[0];
-        let path = svg.getElementsByTagNameNS(
-          'http://www.w3.org/2000/svg',
-          'path'
-        )[0];
+        )[0]; // TODO don't rely on array index
+        let path = svg.getElementById('circle-path');
+        let inversePath = svg.getElementById('circle-path-inverse');
 
         if (path == null) {
           path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.id = 'circle-path';
           svg.appendChild(path);
         }
 
-        path.setAttributeNS(null, 'd', pathData);
-        path.setAttributeNS(null, 'class', 'circle-path');
+        if (inversePath == null) {
+          inversePath = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'path'
+          );
+          inversePath.id = 'circle-path-inverse';
+          svg.appendChild(inversePath);
+        }
 
-        if (Math.abs(percentageIncr - percentage) < 0.01) {
+        path.setAttributeNS(null, 'd', pathData);
+        inversePath.setAttributeNS(null, 'd', inversePathData);
+
+        if (Math.abs(currentPercentage - percentage) < 0.01) {
           clearInterval(this.interval);
-        } else if (percentageIncr < percentage) {
-          percentageIncr += 0.01;
+          this.interval = -1;
+        } else if (currentPercentage < percentage) {
+          currentPercentage += 0.02;
         } else {
-          percentageIncr -= 0.01;
+          currentPercentage -= 0.02;
         }
       }, 10);
     }
@@ -151,18 +198,16 @@ export default {
 
 
 <style lang="scss" scoped>
-$circle-background-color: #ececec47;
+$circle-background-color: #ececec;
 $circle-fill-color: #ff324a;
 $circle-border-color: grey;
-$circle-size: 240px;
-$inset-size: 180px;
+$circle-size: 350px;
+$inset-size: 290px;
 $inset-color: #fefefe;
 
 .circle-progress {
-  background-color: $circle-background-color;
   width: $circle-size;
   height: $circle-size;
-  border-radius: 50%;
 
   .inset {
     width: $inset-size;
@@ -170,9 +215,7 @@ $inset-color: #fefefe;
     position: absolute;
     margin-left: ($circle-size - $inset-size) / 2;
     margin-top: ($circle-size - $inset-size) / 2;
-    background-color: $inset-color;
-    border-radius: 50%;
-    border: $circle-border-color 1px solid;
+
     overflow: hidden;
     z-index: 10;
 
@@ -185,25 +228,35 @@ $inset-color: #fefefe;
   }
   .circle {
     .mask {
-      clip: rect(0px, $circle-size, $circle-size, $circle-size / 2);
-
       .fill {
-        border: $circle-border-color 1px solid;
-        background-color: $circle-background-color;
         width: $circle-size;
         height: $circle-size;
-        border-radius: 50%;
+
         position: absolute;
-        -webkit-backface-visibility: hidden;
+
         backface-visibility: hidden;
         z-index: 2;
       }
 
       .circle-svg {
-        fill: $circle-fill-color;
-        stroke: $circle-border-color;
+        fill-rule: evenodd;
       }
     }
   }
 }
 </style>
+
+<style lang="scss">
+$circle-background-color: #ececec47;
+$circle-fill-color: #ff324a;
+$circle-border-color: grey;
+
+#circle-path {
+  fill: $circle-fill-color;
+}
+
+#circle-path-inverse {
+  fill: rgb(236, 236, 236);
+}
+</style>
+

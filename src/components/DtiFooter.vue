@@ -2,36 +2,47 @@
   <div>
     <b-container fluid class="h-100">
       <b-row class="footer" align-v="center">
-        <b-col sm="12" md="6">
-          <b-row align-h="start" align-v="center">
-            <b-img class="wordmark" :src="img('wordmark.png')" />
-          </b-row>
-          <b-row align-h="start" align-v="center">
-            <p class="statement">creating technology for community impact</p>
-          </b-row>
-
+        <b-col sm="12" md="6" class="my-auto">
+          <b-img class="wordmark" :src="img('branding', 'wordmark.png')" />
         </b-col>
         <b-col sm="12" md="6">
           <b-row align-h="end" align-v="center">
-            <a href="https://www.facebook.com/cornelldti/">
-              <Facebook class="social-icon" />
-            </a>
-            <a href="https://github.com/cornell-dti/">
-              <Github class="social-icon" />
-            </a>
-            <a href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative">
-              <GooglePlay class="social-icon-circle" />
-            </a>
-            <a href="http://appstore.com/cornelldti">
-              <!--TODO get the actual link-->
-              <AppStore class="social-icon-circle" />
-            </a>
-            <a href="https://medium.com/cornell-design-tech-initiative/">
-              <Medium class="social-icon" />
-            </a>
+            <b-col cols="auto">
+              <a href="https://www.facebook.com/cornelldti/">
+                <Facebook class="social-icon social-icon-blank" />
+              </a>
+            </b-col>
+            <b-col cols="auto">
+
+              <a href="https://github.com/cornell-dti/">
+                <Github class="social-icon social-icon-blank" />
+              </a>
+            </b-col>
+            <b-col cols="auto">
+
+              <a href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative">
+                <GooglePlay class="social-icon social-icon-blank" />
+              </a>
+            </b-col>
+            <b-col cols="auto">
+
+              <a href="http://appstore.com/cornelldti">
+                <!--TODO get the actual link-->
+                <AppStore class="social-icon social-icon-blank" />
+              </a>
+            </b-col>
+            <b-col cols="auto">
+              <a href="https://medium.com/cornell-design-tech-initiative/">
+                <Medium class="social-icon social-icon-blank" />
+              </a>
+            </b-col>
           </b-row>
           <b-row class="copyright" align-h="end" align-v="center">
-            <p>&copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech Initiative</p>
+            <b-col cols="auto">
+              <div>&copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
+                Initiative
+              </div>
+            </b-col>
           </b-row>
         </b-col>
       </b-row>
@@ -40,12 +51,12 @@
 </template>
 
 <script>
-import Facebook from '@/assets/social/facebook-with-circle.svg';
-import Dribbble from '@/assets/social/dribbble-with-circle.svg';
-import Github from '@/assets/social/github-with-circle.svg';
+import Facebook from '@/assets/social/facebook.svg';
+import Dribbble from '@/assets/social/dribbble.svg';
+import Github from '@/assets/social/github.svg';
 import GooglePlay from '@/assets/social/google-play.svg';
 import AppStore from '@/assets/social/app-store.svg';
-import Medium from '@/assets/social/medium-with-circle.svg';
+import Medium from '@/assets/social/medium.svg';
 
 export default {
   components: {
@@ -65,21 +76,19 @@ export default {
   margin-top: auto;
   padding: 2rem;
   padding-left: 1rem;
-  min-height: 15vh;
+  min-height: 20vh;
 
   @media (max-width: 767px) {
     .row {
       margin: 0.5rem;
-      -webkit-box-pack: center !important;
-      -ms-flex-pack: center !important;
       justify-content: center !important;
       text-align: center;
     }
   }
 
   .copyright {
-    margin-top: 1rem;
-    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.1rem;
+    color: rgb(255, 255, 255);
   }
 
   .statement {
@@ -99,20 +108,19 @@ export default {
   }
 }
 .social-icon {
-  width: 3rem;
-  height: 3rem;
-  fill: white;
-  margin: 0.1rem;
-}
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.2rem;
 
-.social-icon-circle {
-  width: 3rem;
-  height: 3rem;
-  fill: #4a4a4a;
+  &.social-icon-blank {
+    fill: white;
+  }
 
-  background-color: white;
-  border-radius: 50%;
-  padding: 0.5rem;
-  margin: 0.1rem;
+  &.social-icon-circle {
+    fill: #4a4a4a;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <page-hero :bg="bg">
+    <page-hero :bg="bg" :greyscale="greyscale" :overlay="overlay">
         <b-row align-h="center" class="h-50 no-gutters">
             <b-col cols="auto" class="my-auto">
                 <h2 class="text-header" v-if="header !== ''" :v-html="header" />

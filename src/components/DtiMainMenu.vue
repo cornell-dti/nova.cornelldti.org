@@ -1,16 +1,30 @@
 <template>
-  <b-navbar :class="['navbar-dti ', ...(transparent && !navShown ? [ 'navbar-dark ', 'bg-transparent'] : ['navbar-dti-light', 'navbar-light', 'bg-light'])]"
-    ref="dtinavbar" fixed="top" toggleable="md">
+  <b-navbar :class="['navbar-dti ', ...(transparent && !navShown ? [ (light ? 'navbar-light' : 'navbar-dark'), 'bg-transparent'] : ['navbar-dti-light', 'navbar-light', 'bg-light'])]"
+    ref="dtinavbar" fixed="top" toggleable="md" type="none">
 
     <b-navbar-brand class="navbar-branding-dti" href="#">
-      <b-img class="brand-icon" src="/static/brand-icon.png" />
+      <b-img class="brand-icon" :src="img('branding', 'brand-icon.png')" />
     </b-navbar-brand>
+
+    <b-nav-text :style="{display: navShown ? '' : 'none'}" v-html="this.$route.name"
+    />
 
     <b-btn @click="navShown = !navShown" :class="['navbar-toggler', navShown ? 'collapsed' : '']"
       aria-controls="nav_collapse" :aria-expanded="navShown ? 'true' : 'false'">
       <transition>
-        <b-img v-if="navShown" src="/static/menu-close-small.svg" />
-        <b-img v-else src="/static/menu-small.svg" />
+        <svg v-if="navShown" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px" y="0px" width="36px" height="36px" viewBox="0 0 24 24" enable-background="new 0 0 24 24"
+          xml:space="preserve">
+
+          <path fill="none" d="M0,0h24v24H0V0z" />
+          <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41z"
+          />
+        </svg>
+        <svg v-else height="36" viewBox="0 0 24 24" width="36" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+        </svg>
       </transition>
     </b-btn>
 
@@ -30,11 +44,14 @@
 </template>
 
 <script>
+import EventBus from '@/eventbus';
+
 export default {
   data() {
     return {
       transparent: true,
-      navShown: false
+      navShown: false,
+      light: false
     };
   },
   methods: {
@@ -54,6 +71,14 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll);
+
+    EventBus.$on('set-navbar-light', () => {
+      this.light = true;
+    });
+
+    EventBus.$on('reset-navbar', () => {
+      this.light = false;
+    });
   }
 };
 </script>
@@ -66,6 +91,13 @@ export default {
 
 .navbar-dti {
   transition: background-color 500ms linear;
+
+  .navbar-toggler {
+    outline: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
 
   &.navbar-dti-light {
     box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.3);
@@ -99,7 +131,7 @@ export default {
 
       .nav-item {
         padding: 0.5rem;
-        border-top: 2px solid rgba(255, 255, 255, 0.2);
+        border-top: 0.5px solid rgba(0, 0, 0, 0.2);
       }
     }
   }
