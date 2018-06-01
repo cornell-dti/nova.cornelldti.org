@@ -1,4 +1,4 @@
-<template>
+<template class="applyPage">
   <page-background>
     <page-hero>
       <b-row align-h="center" class="text-center no-gutters h-50">
@@ -20,8 +20,7 @@
             </b-form>
           </b-row>
           <b-row align-h="center">
-            <b-alert :show="msgShow" dismissible :variant="msgVariant">
-              {{msgContent}}
+            <b-alert :show="msgShow" :variant="msgVariant" v-html="msgContent">
             </b-alert>
           </b-row>
         </b-col>
@@ -39,10 +38,10 @@
       <hr>
       <section>
         <b-row align-v="center">
-          <b-col class="left-col-text">
+          <b-col class="left-col-text" sm>
             <h1 class="container-section-heading">Apply</h1>
           </b-col>
-          <b-col class="right-col-text">
+          <b-col class="right-col-text" sm>
             due 11:59 PM on Friday, 9/8
           </b-col>
         </b-row>
@@ -62,7 +61,7 @@
             </b-tab>
           </b-tabs>
         </b-row>
-        <b-row class="justify-content-md-center">
+        <b-row class="justify-content-center">
           <b-button size="lg" variant="secondary" class="text-center">
             Apply
           </b-button>
@@ -70,61 +69,51 @@
       </section>
       <section>
         <b-row align-v="center">
-          <b-col class="left-col-text">
+          <b-col sm class="left-col-text">
             <h1 class="container-section-heading">Information</h1>
           </b-col>
-          <b-col class="right-col-text">
+          <b-col sm class="right-col-text">
             on Tuesday and Thursday
           </b-col>
         </b-row>
         <b-row class="justify-content-md-center apply-row">
-          <b-col offset="2">
+          <b-col sm offset-md="2">
             <h3>Info Session 1</h3>
-            Date: Tuesday, 09/03<br> Time: 5:30 PM<br> Location: Death Star 101<br>            Link: not yet
+            Date: Tuesday, 09/03<br> Time: 5:30 PM<br> Location: Death Star 101<br>Link: not yet
           </b-col>
-          <b-col>
+          <b-col sm>
             <h3>Info Session 2</h3>
-            Date: Tuesday, 09/03<br> Time: 5:30 PM<br> Location: Death Star 101<br>            Link: not yet
+            Date: Tuesday, 09/03<br> Time: 5:30 PM<br> Location: Death Star 101<br>Link: not yet
           </b-col>
         </b-row>
       </section>
       <section>
         <b-row align-v="center">
-          <b-col class="left-col-text">
-            <h1 class="container-section-heading">Interview</h1>
+          <b-col sm class="left-col-text">
+            <h1 class="container-section-heading">Next Steps</h1>
           </b-col>
-          <b-col class="right-col-text">
-            by 11:59 PM on Tuesday, 9/14
+          <b-col sm class="right-col-text">
+            Saturday, 9/12 through Monday, 9/14
           </b-col>
         </b-row>
         <b-row class="justify-content-md-center apply-row">
-          <b-col cols="8">
-            Aren't you a little short to be a stormtrooper? What? Oh...the uniform. I'm Luke
-            Skywalker. I'm here to rescue you. You're who? I'm here to rescue you.
-            I've got your R2 unit. I'm here with Ben Kenobi. Ben Kenobi is here!
-            Where is he? Come on!<br><br> Let me see your identification.
-            You don't need to see his identification. We don't need to see his identification.
-            These are not the droids your looking for. These are not the droids we're
-            looking for. He can go about his business. You can go about your business.
-            Move along. Move along. Move along.<br><br> How did I get into this mess?
-            I really don't know how. We seem to be made to suffer. It's our lot in
-            life. I've got to rest before I fall apart. My joints are almost frozen.
-            What a desolate place this is. Where are you going? Well, I'm not going
-            that way. It's much too rocky. This way is much easier. What makes you
-            think there are settlements over there? Don't get technical with me.
-            What mission? What are you talking about? I've had just about enough
-            of you! Go that way! You'll be malfunctioning within a day, you nearsighted
-            scrap pile! And don't let me catch you following me begging for help,
-            because you won't get it. No more adventures. I'm not going that way.<br>
+          <b-col md="8" sm="12">
+            <h2>Application Review</h2>
+            Jazz Fenton: Wow! Isn't this great? We just caught three ghosts tonight!
+            Danny Fenton: No, actually, you've just caught one ghost, three times, all of them me!
+            <h2>Interview</h2>
+            Samantha "Sam" Manson: Hi. I'm Sam. I don't believe I caught your name. I suggest you shout
+            it out loud, along with your motive.
+            Technus: I am technus! Master of all things mechanical! Wizard of integrated soicuittry! And destroyer of woilds!
           </b-col>
         </b-row>
       </section>
       <section>
         <b-row align-v="center">
-          <b-col class="left-col-text">
+          <b-col class="left-col-text" sm>
             <h1 class="container-section-heading">Decision</h1>
           </b-col>
-          <b-col class="right-col-text">
+          <b-col class="right-col-text" sm>
             by 11:59 PM on Tuesday, 9/14
           </b-col>
         </b-row>
@@ -145,13 +134,16 @@ export default {
       msgVariant: 'success'
     };
   },
+  computed: {
+
+  },
   methods: {
     onSubscribe(event) {
       event.preventDefault();
       axios.post('/email', {
         email: this.email
       }).then(response => {
-        this.msgContent = response.msg;
+        this.msgContent = response.data.msg;
         this.msgVariant = 'success';
         this.msgShow = true;
       }, error => {
@@ -166,7 +158,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
   .alert {
     display: block;
     margin-top: 1em;
@@ -176,10 +168,11 @@ export default {
       background-color: transparent !important;
       border-bottom: none;
 
-      li a {
+      li a, li a.active {
         background-color: transparent;
         color: black;
         font-weight: bold;
+        text-decoration: none;
 
         &.active {
           border-bottom: 2px solid black;
@@ -194,7 +187,7 @@ export default {
   button[type='submit'] {
     margin-left: 15px;
   }
-  .col {
+  .col, div[class*='col-'] {
     &.left-col-text {
       text-align: left;
     }
@@ -213,6 +206,16 @@ export default {
 
     & + p {
       color: grey;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .col, div[class*='col-'] {
+      &.right-col-text {
+        color: grey;
+        font-weight: bold;
+        text-align: left;
+      }
     }
   }
 </style>
