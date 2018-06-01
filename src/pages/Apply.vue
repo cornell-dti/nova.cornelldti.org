@@ -45,19 +45,38 @@
             due 11:59 PM on Friday, 9/8
           </b-col>
         </b-row>
-        <b-row class="justify-content-md-center apply-row">
-          <b-tabs pills card class="apply-pills">
-            <b-tab title="Product Design" active>
-              <br>Treasure Planet
+        <b-row class="mobile-picker-container text-center">
+          <b-col>
+            I want to be a
+            <b-form-select @change="handleMobileDropdown" id="mobile-apply-dropdown" :options="mobileDropdownOpts" v-model="mobileDropdownDefault">
+            </b-form-select>
+          </b-col>
+        </b-row>
+        <b-row class="justify-content-md-center apply-row desktop-picker-container">
+          <b-tabs pills card class="apply-pills" v-model="tabIndex">
+            <b-tab title="Business Analyst" active>
+              <h2>What We're Looking For</h2>
+              We're looking for people who can advertise, get sponsorships, and be savvy on Excel
+              <h2>What You'll Do</h2>
+              You'll help us design cool tech initiatives
             </b-tab>
-            <b-tab title="Software Development">
-              <br>POT OF GREED ALLOWS ME TO DRAW TWO CARDS FROM MY DECK TO MY HAND
+            <b-tab title="Product Designer">
+              <h2>What We're Looking For</h2>
+              We're looking for people who can help us design cool tech initiatives
+              <h2>What You'll Do</h2>
+              You'll help us design cool tech initiatives
             </b-tab>
             <b-tab title="Product Management">
-              <br>What could possibly go wrong?
+              <h2>What We're Looking For</h2>
+              We're looking for people who can manage our amazing design and tech initiatives
+              <h2>What You'll Do</h2>
+              You'll help us design cool tech initiatives
             </b-tab>
-            <b-tab title="Business">
-              <br>Pet rock!
+            <b-tab title="Software Developer">
+              <h2>What We're Looking For</h2>
+              We're looking for people who can code our amazing design and tech initiatives
+              <h2>What You'll Do</h2>
+              You'll help us design cool tech initiatives
             </b-tab>
           </b-tabs>
         </b-row>
@@ -125,19 +144,37 @@
 <script>
 import axios from 'axios';
 
+const valTabMap = {
+  ba: 0,
+  pd: 1,
+  pm: 2,
+  sd: 3
+};
+
 export default {
   data() {
     return {
       email: '',
+      mobileDropdownDefault: 'ba',
+      mobileDropdownOpts: [
+        { value: 'ba', text: 'business analyst' },
+        { value: 'pd', text: 'product designer' },
+        { value: 'pm', text: 'product manager' },
+        { value: 'sd', text: 'software developer' },
+      ],
       msgContent: 'banana',
       msgShow: false,
-      msgVariant: 'success'
+      msgVariant: 'success',
+      tabIndex: 0
     };
   },
   computed: {
 
   },
   methods: {
+    handleMobileDropdown(val) {
+      this.tabIndex = valTabMap[val];
+    },
     onSubscribe(event) {
       event.preventDefault();
       axios.post('/email', {
@@ -197,6 +234,9 @@ export default {
       text-align: right;
     }
   }
+  .mobile-picker-container {
+    display: none;
+  }
   #newsletterEmailSubscribeInput {
     border-radius: 5px;
   }
@@ -215,6 +255,30 @@ export default {
         color: grey;
         font-weight: bold;
         text-align: left;
+      }
+    }
+
+    .desktop-picker-container {
+      .apply-pills {
+        .card-header {
+          display: none;
+        }
+      }
+    }
+
+    .mobile-picker-container {
+      display: flex;
+      font-weight: bold;
+
+      #mobile-apply-dropdown {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        display: inline;
+        font-weight: bold;
+        padding: 0;
+        text-decoration: underline;
+        width: auto;
       }
     }
   }
