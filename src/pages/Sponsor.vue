@@ -21,7 +21,7 @@
           </b-col>
           <b-col sm="12" md="6" order-md="1" order-sm="2">
             <h2>Mentorship</h2>
-            <p class="sponsor-row-content-container">
+            <p class="sponsor-row-content">
               Cornell Design & Tech Initiative is an student project team at Cornell University dedicated
               to creating web and mobile apps that improve the lives around us. We are a team of 60
               developers, designers, and product managers united in the goal to use our skills to make
@@ -51,7 +51,7 @@
         </b-row>
       </page-section>
       <page-section>
-        <h2>Current Sponsors</h2>
+        <h2 class="sponsor-list-heading">Current Sponsors</h2>
         <b-row class="sponsor-list justify-content-sm-center">
           <b-col sm="12" md="4">
             Sponsor 1
@@ -79,6 +79,9 @@
     font-weight: 600;
   }
 }
+.sponsor-list-heading {
+  font-size: 36px;
+}
 .sponsor-list {
   .col, div[class*="col-"] {
     border-radius: 32px;
@@ -95,6 +98,7 @@
     font-size: 36px;
     font-weight: bold;
     letter-spacing: -0.3px;
+    text-align: left;
   }
 
   .sponsor-row-img {
@@ -103,6 +107,10 @@
 
   & + .sponsor-row {
     margin-top: 120px;
+  }
+
+  .sponsor-row-content {
+    text-align: left;
   }
 
   &:nth-child(odd) {
@@ -118,6 +126,7 @@
   }
 }
 .sponsor-top {
+  font-size: 48px;
   text-align: center;
 
   h2 {
