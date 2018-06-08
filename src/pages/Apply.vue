@@ -35,16 +35,7 @@
           Kill him!
         </b-row>
       </section>
-      <hr>
       <section>
-        <b-row align-v="center">
-          <b-col class="left-col-text" sm>
-            <h1 class="container-section-heading">Apply</h1>
-          </b-col>
-          <b-col class="right-col-text" sm>
-            due 11:59 PM on Friday, 9/8
-          </b-col>
-        </b-row>
         <b-row class="mobile-picker-container text-center">
           <b-col>
             I want to be a
@@ -52,38 +43,93 @@
             </b-form-select>
           </b-col>
         </b-row>
-        <b-row class="justify-content-md-center apply-row desktop-picker-container">
+        <b-row class="apply-row desktop-picker-container">
           <b-tabs pills card class="apply-pills" v-model="tabIndex">
             <b-tab title="Business Analyst" active>
-              <h2>What We're Looking For</h2>
-              We're looking for people who can advertise, get sponsorships, and be savvy on Excel
-              <h2>What You'll Do</h2>
-              You'll help us design cool tech initiatives
+              <b-row align-v="center">
+                <b-col class="left-col-text" sm>
+                  <h1 class="container-section-heading">Apply</h1>
+                </b-col>
+                <b-col class="right-col-text" sm>
+                  due 11:59 PM on Friday, 9/8
+                </b-col>
+              </b-row>
+              <div class="tab-roleSpecific-content">
+                <h2>What We're Looking For</h2>
+                <p>We're looking for people who can advertise, get sponsorships, and be savvy on Excel</p>
+                <h2>What You'll Do</h2>
+                <p>You'll help us design cool tech initiatives</p>
+              </div>
+              <b-row class="justify-content-center">
+                <b-button size="lg" variant="secondary" class="text-center">
+                  Apply
+                </b-button>
+              </b-row>
             </b-tab>
             <b-tab title="Product Designer">
-              <h2>What We're Looking For</h2>
-              We're looking for people who can help us design cool tech initiatives
-              <h2>What You'll Do</h2>
-              You'll help us design cool tech initiatives
+              <b-row align-v="center">
+                <b-col class="left-col-text" sm>
+                  <h1 class="container-section-heading">Apply</h1>
+                </b-col>
+                <b-col class="right-col-text" sm>
+                  due 11:59 PM on Friday, 9/8
+                </b-col>
+              </b-row>
+              <div class="tab-roleSpecific-content">
+                <h2>What We're Looking For</h2>
+                <p>We're looking for people who can help us design cool tech initiatives</p>
+                <h2>What You'll Do</h2>
+                <p>You'll help us design cool tech initiatives</p>
+              </div>
+              <b-row class="justify-content-center">
+                <b-button size="lg" variant="secondary" class="text-center">
+                  Apply
+                </b-button>
+              </b-row>
             </b-tab>
             <b-tab title="Product Management">
-              <h2>What We're Looking For</h2>
-              We're looking for people who can manage our amazing design and tech initiatives
-              <h2>What You'll Do</h2>
-              You'll help us design cool tech initiatives
+              <b-row align-v="center">
+                <b-col class="left-col-text" sm>
+                  <h1 class="container-section-heading">Apply</h1>
+                </b-col>
+                <b-col class="right-col-text" sm>
+                  due 11:59 PM on Friday, 9/8
+                </b-col>
+              </b-row>
+              <div class="tab-roleSpecific-content">
+                <h2>What We're Looking For</h2>
+                <p>We're looking for people who can manage our amazing design and tech initiatives</p>
+                <h2>What You'll Do</h2>
+                <p>You'll help us design cool tech initiatives</p>
+              </div>
+              <b-row class="justify-content-center">
+                <b-button size="lg" variant="secondary" class="text-center">
+                  Apply
+                </b-button>
+              </b-row>
             </b-tab>
             <b-tab title="Software Developer">
-              <h2>What We're Looking For</h2>
-              We're looking for people who can code our amazing design and tech initiatives
-              <h2>What You'll Do</h2>
-              You'll help us design cool tech initiatives
+              <b-row align-v="center">
+                <b-col class="left-col-text" sm>
+                  <h1 class="container-section-heading">Apply</h1>
+                </b-col>
+                <b-col class="right-col-text" sm>
+                  due 11:59 PM on Friday, 9/8
+                </b-col>
+              </b-row>
+              <div class="tab-roleSpecific-content">
+                <h2>What We're Looking For</h2>
+                <p>We're looking for people who can code our amazing design and tech initiatives</p>
+                <h2>What You'll Do</h2>
+                <p>You'll help us design cool tech initiatives</p>
+              </div>
+              <b-row class="justify-content-center">
+                <b-button size="lg" variant="secondary" class="text-center">
+                  Apply
+                </b-button>
+              </b-row>
             </b-tab>
           </b-tabs>
-        </b-row>
-        <b-row class="justify-content-center">
-          <b-button size="lg" variant="secondary" class="text-center">
-            Apply
-          </b-button>
         </b-row>
       </section>
       <section>
@@ -95,8 +141,8 @@
             on Tuesday and Thursday
           </b-col>
         </b-row>
-        <b-row class="justify-content-md-center apply-row">
-          <b-col sm offset-md="2">
+        <b-row class="apply-row">
+          <b-col sm>
             <h3>Info Session 1</h3>
             Date: Tuesday, 09/03<br> Time: 5:30 PM<br> Location: Death Star 101<br>Link: not yet
           </b-col>
@@ -115,8 +161,8 @@
             Saturday, 9/12 through Monday, 9/14
           </b-col>
         </b-row>
-        <b-row class="justify-content-md-center apply-row">
-          <b-col md="8" sm="12">
+        <b-row class="apply-row">
+          <b-col md="12" sm="16">
             <h2>Application Review</h2>
             Jazz Fenton: Wow! Isn't this great? We just caught three ghosts tonight!
             Danny Fenton: No, actually, you've just caught one ghost, three times, all of them me!
@@ -201,14 +247,21 @@ export default {
     margin-top: 1em;
   }
   .apply-pills {
+    width: 100%;
+
     .card-header {
       background-color: transparent !important;
       border-bottom: none;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
 
       li a, li a.active {
         background-color: transparent;
         color: black;
-        font-weight: bold;
+        font-weight: 600;
+        line-height: 1.06;
+        letter-spacing: 0.3px;
         text-decoration: none;
 
         &.active {
@@ -217,9 +270,59 @@ export default {
         }
       }
     }
+
+    button.apply-button {
+      color: #ffffff;
+      font-size: 32px;
+      font-weight: 500;
+      height: 38px;
+      padding: 12px 39px;
+      letter-spacing: 0.2px;
+      text-align: left;
+      width: 81px;
+    }
+
+    .tab-content {
+      .card-body {
+        .tab-roleSpecific-content {
+          padding-left: 120px;
+          border-left: 5px solid black;
+
+          h2, p {
+            margin: 0;
+          }
+          h2 {
+            font-size: 22px;
+          }
+          p {
+            font-size: 18px;
+          }
+          h2 + p {
+            margin-top: 22px;
+          }
+
+          p + h2 {
+            margin-top: 40px;
+          }
+
+          & + .row {
+            margin-top: 52px;
+          }
+        }
+      }
+    }
   }
-  .apply-row {
-    border-left: 3px solid black;
+  .apply-row:not(.desktop-picker-container) {
+    border-left: 5px solid black;
+    font-size: 18px;
+    padding-left: 120px;
+
+    &:not(.desktop-picker-container) {
+      div[class*='col'] {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
   }
   button[type='submit'] {
     margin-left: 15px;
@@ -233,6 +336,11 @@ export default {
       font-weight: bold;
       text-align: right;
     }
+  }
+  .container-section-heading {
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 40px;
   }
   .mobile-picker-container {
     display: none;
