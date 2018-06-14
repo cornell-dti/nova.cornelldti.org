@@ -89,6 +89,7 @@
     border: solid 1px #979797;
     height: 156px;
     font-size: 25px;
+    margin: auto;
     text-align: center;
     width: 90%;
   }
@@ -107,6 +108,10 @@
 
   & + .sponsor-row {
     margin-top: 120px;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 10px;
+    }
   }
 
   .sponsor-row-content {
@@ -116,12 +121,20 @@
   &:nth-child(odd) {
     .sponsor-row-content-container {
       padding-left: 80px;
+
+      @media screen and (max-width: 768px) {
+        padding-left: 15px;
+      }
     }
   }
 
   &:nth-child(even) {
     .sponsor-row-content-container {
       padding-right: 80px;
+
+      @media screen and (max-width: 768px) {
+        padding-right: 15px;
+      }
     }
   }
 }
@@ -136,16 +149,6 @@
   p {
     font-size: 24px;
     letter-spacing: 0.4px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .sponsor-row {
-    &:nth-of-type(odd), &:nth-of-type(even)  {
-      .sponsor-row-content-container {
-        padding-left: 0;
-        padding-right: 0;
-      }
-    }
   }
 }
 </style>

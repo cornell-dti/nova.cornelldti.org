@@ -41,6 +41,7 @@
             I want to be a
             <b-form-select @change="handleMobileDropdown" id="mobile-apply-dropdown" :options="mobileDropdownOpts" v-model="mobileDropdownDefault">
             </b-form-select>
+            <span>⇩</span>
           </b-col>
         </b-row>
         <b-row class="apply-row desktop-picker-container">
@@ -308,6 +309,10 @@ export default {
           & + .row {
             margin-top: 52px;
           }
+
+          @media screen and (max-width: 768px) {
+            padding-left: 5px;
+          }
         }
       }
     }
@@ -322,6 +327,10 @@ export default {
         padding-left: 0;
         padding-right: 0;
       }
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-left: 5px;
     }
   }
   button[type='submit'] {
@@ -341,6 +350,10 @@ export default {
     font-size: 50px;
     font-weight: 600;
     margin-bottom: 40px;
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 10px;
+    }
   }
   .mobile-picker-container {
     display: none;
@@ -358,6 +371,10 @@ export default {
   }
 
   @media screen and (max-width: 768px) {
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
     .col, div[class*='col-'] {
       &.right-col-text {
         color: grey;
