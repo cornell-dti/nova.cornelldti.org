@@ -47,6 +47,8 @@
       <page-section>
         <b-row class="justify-content-center sponsor-contact">
           <h2>Sponsor an event, workshop or our team to help us make community impact.</h2>
+        </b-row>
+        <b-row class="justify-content-center sponsor-contact">
           <b-button>Contact Us</b-button>
         </b-row>
       </page-section>
