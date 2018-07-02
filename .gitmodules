@@ -1,0 +1,3 @@
+[submodule "src/data/strings"]
+	path = src/data/strings
+	url = https://github.com/cornell-dti/website-strings.git

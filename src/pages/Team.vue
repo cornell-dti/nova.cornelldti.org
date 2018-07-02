@@ -1,17 +1,17 @@
 <template>
   <page-background>
-    <page-hero :overlay="false" :bg="`url(${img('heroes', 'team-hero.jpg')})`" />
+    <div class="team-hero">
+      <visual :video="Strings.get('pages.team.hero.video', 'assets')" :poster="Strings.get('pages.team.hero.lazy', 'assets')"
+        background="cover" :fallback="Strings.get('pages.team.hero.image', 'assets')"
+        class="team-hero" align="top left" autoplay :loop="true" :muted="true" preload=auto
+        :fill="true" />
+    </div>
     <b-container fluid>
-      <page-section>
-        <b-row align-h="center">
-          <b-col sm="12" md="8">
-            <div class="team-hero-header text-center">Working Together</div>
-            <div class="team-hero-header-subtext text-center">We are Cornell Design &amp; Tech Initiative. But individually, we are
-              a talented, diverse, group of students from different colleges and
-              countries striving to make a difference in our community.</div>
-          </b-col>
-        </b-row>
-      </page-section>
+      <text-hero header="Working Together">
+        We are Cornell Design &amp; Tech Initiative. But individually, we are a talented,
+        diverse, group of students from different colleges and countries striving
+        to make a difference in our community.
+      </text-hero>
 
       <div class="diversity diversity-background">
         <!-- TODO bind formatting to actual elements-->
@@ -82,19 +82,6 @@
         />
 
       </page-section>
-      <page-section>
-        <b-row class="no-wrap no-gutters">
-          <b-col cols="auto" class="lefter">
-            <div class="team-header-outer">We've worked at...</div>
-          </b-col>
-          <b-col cols="auto" class="righter">
-            <marquee class="no-wrap" />
-          </b-col>
-        </b-row>
-        <div class="team-work-description">Our team has worked at many amazing companies, starups, and open source organizations.
-          From internships to engineering co-ops to full time employment after Cornell
-          we've done it all.</div>
-      </page-section>
     </b-container>
 
     <dti-footer />
@@ -104,6 +91,13 @@
 <style lang="scss" scoped>
 $primary: #ff324a;
 $secondary: #f6f6f6;
+
+.team-hero {
+  height: 80vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
 
 .company-switcher {
   position: absolute;

@@ -1,14 +1,25 @@
 <template>
-  <div class="home">
-    <video class="home-background home-preload-background home-background-video" :src="vid('home', 'givingday.m4v')"
-      autoplay loop=true muted=true preload=auto>
-      Your browser does not support video playback.
-      <!--TODO-->
-    </video>
-    <div class="home-background home-background-overlay" />
-    <b-row>
-      <h1 class="home-overlay-text">Cornell Design <br />&amp; Tech Initiative</h1>
-    </b-row>
+  <div>
+    <div class="home">
+      <visual video="/static/pages/home/hero/hero.mp4" class="home-background home-preload-background home-background-video"
+        autoplay :fill="true" background="cover" :loop="true" :muted="true" preload=auto />
+      <div class="home-background home-background-overlay" />
+      <b-row>
+        <h1 class="home-overlay-text">Cornell Design <br />&amp; Tech Initiative</h1>
+      </b-row>
+    </div>
+    <text-hero :header="Strings.get('text-hero.header', 'home')" :subheader="Strings.get('text-hero.subheader', 'home')"
+    />
+    <page-sublist :border-padding="true">
+      <quicklink image="/static/pages/team/hero/hero.png" header="Projects" subheader="What we do >"
+      />
+      <quicklink image="/static/pages/team/hero/hero.png" header="Team" subheader="Who we are >"
+      />
+      <quicklink image="/static/pages/team/hero/hero.png" header="Initiatives" subheader="Why we do it >"
+      />
+    </page-sublist>
+
+    <dti-footer />
   </div>
 </template>
 
@@ -16,19 +27,18 @@
 $hero-margin: 5%;
 
 .home {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .home-background {
   position: absolute;
   left: 0;
   top: 0;
-  height: 100vh;
-  width: 100vw;
+  right: 0;
+  bottom: 0;
 
   &.home-preload-background {
     background-color: #000;
@@ -36,6 +46,8 @@ $hero-margin: 5%;
 
   &.home-background-overlay {
     background-color: rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    width: 100vw;
   }
 
   &.home-background-video {
@@ -52,7 +64,7 @@ $hero-margin: 5%;
   font-weight: bolder;
 
   @media (max-width: 767px) {
-    font-size: 3.0rem;
+    font-size: 3rem;
   }
 
   @media (min-width: 768px) {

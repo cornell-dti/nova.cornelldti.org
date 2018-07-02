@@ -5,10 +5,11 @@
 
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
+import VueVisual from 'vue-visual';
+import VueVisualCSS from 'vue-visual/index.css'; // eslint-disable-line
 
 /* Data */
 
-import LoremIpsumJson from '@/data/loremipsum.json';
 import Members from '@/data/members.json';
 import Companies from '@/data/companies.json';
 import Projects from '@/data/projects.json';
@@ -18,6 +19,7 @@ import Roles from '@/data/roles.json';
 /* Core Files */
 
 import App from '@/App';
+import Strings from '@/data/strings';
 import router from '@/router';
 
 /* Global Components */
@@ -26,13 +28,24 @@ import DtiMainMenu from '@/components/DtiMainMenu';
 import DtiFooter from '@/components/DtiFooter';
 import PageBackground from '@/components/PageBackground';
 import PageHero from '@/components/PageHero';
+import PageSublist from '@/components/PageSublist';
 import TextPageHero from '@/components/TextPageHero';
+import TextHero from '@/components/TextHero';
 import PageSection from '@/components/PageSection';
 import BaseLayout from '@/components/BaseLayout';
 import StoreBadge from '@/components/StoreBadge';
+import Quicklink from '@/components/Quicklink';
 
 Vue.use(BootstrapVue);
 
+Vue.component('visual', VueVisual).options.setDefaults({
+  load: 'visible',
+  loadPoster: true,
+  transition: 'vv-fade'
+});
+
+Vue.component('PageSublist', PageSublist);
+Vue.component('Quicklink', Quicklink);
 Vue.component('BaseLayout', BaseLayout);
 Vue.component('DtiMainMenu', DtiMainMenu);
 Vue.component('DtiFooter', DtiFooter);
@@ -41,33 +54,15 @@ Vue.component('PageBackground', PageBackground);
 Vue.component('PageSection', PageSection);
 Vue.component('PageHero', PageHero);
 Vue.component('TextPageHero', TextPageHero);
+Vue.component('TextHero', TextHero);
 
 Vue.mixin({
   data() {
     return {
-      ipsumText: LoremIpsumJson[0]
+      Strings
     };
   },
   methods: {
-    ipsum(text, amount = 50) {
-      if (typeof text === 'undefined' || text === null || text === '') {
-        return `${this.ipsumText.substr(
-          0,
-          Math.min(amount, this.ipsumText.length - 1)
-        )}...`;
-      }
-
-      return text;
-    },
-    ipsum_def(amount = 50) {
-      return this.ipsum(null, amount);
-    },
-    img(type, name) {
-      return `/static/img/${type}/${name}`; //eslint-disable-line
-    },
-    vid(type, name) {
-      return `/static/vid/${type}/${name}`; //eslint-disable-line
-    },
     getMembers() {
       return Members;
     },

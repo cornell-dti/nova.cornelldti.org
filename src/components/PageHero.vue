@@ -1,7 +1,8 @@
 <template>
-  <div :style="bg_()" :class="['page-header', 'page-hero', this.greyscale ? 'page-hero-greyscale' : '']">
-    <div v-if="overlay" class="bg-overlay" />
-    <slot />
+  <div :class="['page-header', 'page-hero', this.greyscale ? 'page-hero-greyscale' : '']">
+    <slot>
+      <slot name="inner-content" class="navbar-padding" />
+    </slot>
   </div>
 </template>
 
@@ -31,6 +32,10 @@ export default {
 
 
 <style lang="scss" scoped>
+.navbar-padding {
+  padding-top: 10vh !important;
+}
+
 .page-header {
   min-height: 10vh;
   background-size: cover !important;
@@ -52,7 +57,6 @@ export default {
 
   &.page-hero {
     overflow-y: hidden;
-    padding-top: 10vh !important;
     min-width: 100%;
     min-height: 60vh;
     height: 60vh;

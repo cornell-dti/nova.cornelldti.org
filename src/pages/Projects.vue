@@ -1,8 +1,12 @@
 <template>
   <page-background>
-    <text-page-hero :greyscale="true" :bg="`url(${img('heroes', 'projects-hero.jpg')})`">
-      Projects
-    </text-page-hero>
+
+    <div class="projects-hero">
+      <visual :video="Strings.get('pages.projects.hero.video', 'assets')" :poster="Strings.get('pages.projects.hero.lazy', 'assets')"
+        background="cover" :fallback="Strings.get('pages.projects.hero.image', 'assets')"
+        class="projects-hero" align="top left" autoplay :loop="true" :muted="true"
+        preload=auto :fill="true" />
+    </div>
 
     <page-section>
       <b-row class="project-row" v-for="projectRow in projectRows" :key="projectRow.index"
@@ -10,7 +14,8 @@
         <b-col md="12" lg="4" class="justify-content" v-for="project in projectRow.members"
           :key="project.id">
           <router-link :to="{ path: project.id, params:{ project: project.name }}" append>
-            <b-img :src="img(`projects/${project.id}`, 'card.png')" class="project-card" />
+            <b-img :src="Strings.get(`projects.${project.id}.card`, 'assets')" class="project-card"
+            />
           </router-link>
         </b-col>
       </b-row>
@@ -21,6 +26,13 @@
 </template>
 
 <style lang="scss" scoped>
+.projects-hero {
+  height: 80vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
 .project-card {
   background-color: transparent;
   text-align: center;

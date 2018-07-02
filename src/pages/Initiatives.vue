@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <text-page-hero :bg="`url(${img('heroes', 'initiative-hero.jpg')})`">
+    <text-page-hero :bg="`url(${Strings.get('pages.initiatives.hero.image', 'assets')})`">
       Initiatives
     </text-page-hero>
 

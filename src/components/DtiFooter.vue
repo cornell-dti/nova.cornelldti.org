@@ -3,7 +3,7 @@
     <b-container fluid class="h-100">
       <b-row class="footer" align-v="center">
         <b-col sm="12" md="6" class="my-auto">
-          <b-img class="wordmark" :src="img('branding', 'wordmark.png')" />
+          <b-img class="wordmark" :src="Strings.get('branding.wordmark', 'assets')" />
         </b-col>
         <b-col sm="12" md="6">
           <b-row align-h="end" align-v="center">

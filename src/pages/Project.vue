@@ -12,7 +12,7 @@
           </b-row>
         </b-col>
         <b-col cols="6" class="project-hero-logo">
-          <b-img class="product" :src="img(`projects/${projectData.id}`, 'product.png')" />
+          <b-img class="product" :src="Strings.get(`projects.${projectData.id}.image`, 'assets')" />
         </b-col>
       </b-row>
     </page-hero>
@@ -30,7 +30,7 @@
             <div class="project-header">Features</div>
             <b-row>
               <b-col cols="7">
-                <b-img class="product" :src="img(`projects/${projectData.id}/features/`, '1.feature.svg')"
+                <b-img class="product" :src="Strings.get(`projects.${projectData.id}.features.1`, 'assets')"
                 />
               </b-col>
               <b-col cols="5">
@@ -49,14 +49,14 @@
                   amet, consectetur adipiscing elit</div>
               </b-col>
               <b-col cols="7">
-                <b-img class="product" :src="img(`projects/${projectData.id}/features/`, '2.feature.svg')"
+                <b-img class="product" :src="Strings.get(`projects.${projectData.id}.features.2`, 'assets')"
                 />
               </b-col>
             </b-row>
             <b-row class="feature-padding" />
             <b-row>
               <b-col cols="7">
-                <b-img class="product" :src="img(`projects/${projectData.id}/features/`, '3.feature.svg')"
+                <b-img class="product" :src="Strings.get(`projects.${projectData.id}.features.3`, 'assets')"
                 />
               </b-col>
               <b-col cols="5">
