@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <text-page-hero>
+    <text-page-hero :bg="img('headers', 'sponsor.png')">
       Sponsor
     </text-page-hero>
 
