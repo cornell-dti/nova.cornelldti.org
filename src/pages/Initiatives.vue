@@ -9,37 +9,41 @@
           <b-col sm="12" md="10">
             <h2>Inspiring Change</h2>
             <p>
-              What sets us apart from other project teams is our desire to share what we know with students
-              and community members alike. Through annual makeathons, events, and workshops, we teach about
-              design and technology to inspire others.
+              What sets us apart from other project teams is our desire to share what we know with
+              students and community members alike. Through annual makeathons, events,
+              and workshops, we teach about design and technology to inspire others.
             </p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="1">
-            <b-img height="300" width="600" blank blank-color="#777" />
+            <b-img height="394" width="590" :src="Strings.get('promo.makeathon')" />
           </b-col>
           <b-col sm="12" md="6" order-md="1" order-sm="2">
             <h2>Ready, Set, Make!</h2>
             <p class="initiative-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University dedicated to creating web
-              and mobile apps that iimprove the lives around us. We are a team fo 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our community. We are a team fo 60 developers,
-              designers, blah blah blah...
+              Cornell Design & Tech Initiative is an student project team at Cornell University
+              dedicated to creating web and mobile apps that iimprove the lives around
+              us. We are a team fo 60 developers, designers, and product managers
+              united in the goal to use our skills to make a positive impact in our
+              community. We are a team fo 60 developers, designers, blah blah blah...
             </p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="6" class="initiative-row-img" order-md="1" order-sm="1">
-            <b-img height="300" width="600" blank blank-color="#777" />
+            <b-img height="393" width="590" :src="Strings.get('promo.blueprint', 'assets')" />
           </b-col>
           <b-col sm="12" md="6" class="initiative-row-content-container" order-md="2" order-sm="2">
             <h2>DTI Blueprint</h2>
             <p class="initiative-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University dedicated to creating web and
-              mobile apps that iimprove the lives around us. We are a team fo 60 developers, designers, and product managers united
-              in the goal to use our skills to make a positive impact in our community. We are a team fo 60 developers, designers,
-              and product managers united in the goal to use our skills to make a positive impact in our community.
+              Cornell Design & Tech Initiative is an student project team at Cornell University
+              dedicated to creating web and mobile apps that iimprove the lives around
+              us. We are a team fo 60 developers, designers, and product managers
+              united in the goal to use our skills to make a positive impact in our
+              community. We are a team fo 60 developers, designers, and product managers
+              united in the goal to use our skills to make a positive impact in our
+              community.
             </p>
           </b-col>
         </b-row>
@@ -47,14 +51,17 @@
           <b-col sm="12" md="6" class="initiative-row-content-container" order-md="1" order-sm="1">
             <h2>Events & Workshops</h2>
             <p class="initiative-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University dedicated to creating web and mobile
-              apps that iimprove the lives around us. We are a team fo 60 developers, designers, and product managers united in the goal
-              to use our skills to make a positive impact in our community. We are a team fo 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our community.
+              Cornell Design & Tech Initiative is an student project team at Cornell University
+              dedicated to creating web and mobile apps that iimprove the lives around
+              us. We are a team fo 60 developers, designers, and product managers
+              united in the goal to use our skills to make a positive impact in our
+              community. We are a team fo 60 developers, designers, and product managers
+              united in the goal to use our skills to make a positive impact in our
+              community.
             </p>
           </b-col>
           <b-col sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="2">
-            <b-img height="300" width="600" blank blank-color="#777" />
+            <b-img height="348" width="530" :src="Strings.get('promo.halfbaked', 'assets')" />
           </b-col>
         </b-row>
       </page-section>
@@ -85,7 +92,8 @@
   font-size: 36px;
 }
 .initiative-list {
-  .col, div[class*="col-"] {
+  .col,
+  div[class*='col-'] {
     border-radius: 32px;
     background-color: #d8d8d8;
     border: solid 1px #979797;
