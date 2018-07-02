@@ -1,7 +1,11 @@
 <template>
   <page-background>
-    <text-page-hero :bg="`url(${Strings.get('pages.initiatives.hero.image', 'assets')})`">
-    </text-page-hero>
+    <div class="initiatives-hero">
+      <visual :video="Strings.get('pages.initiatives.hero.video', 'assets')" :poster="Strings.get('pages.initiatives.hero.lazy', 'assets')"
+        background="cover" :fallback="Strings.get('pages.initiatives.hero.image', 'assets')"
+        class="initiatives-hero" align="top left" autoplay :loop="true" :muted="true"
+        preload=auto :fill="true" />
+    </div>
     <b-container>
       <page-section>
         <b-row class="justify-content-center initiative-top">
@@ -78,6 +82,13 @@
 </template>
 
 <style lang="scss" scoped>
+.initiatives-hero {
+  height: 80vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
 .justify-content-center {
   text-align: center;
 }
@@ -103,6 +114,7 @@
     width: 90%;
   }
 }
+
 .initiative-row {
   h2 {
     font-size: 36px;
