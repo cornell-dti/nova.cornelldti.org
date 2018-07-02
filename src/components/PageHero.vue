@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     bg_() {
-      return `background: url('${this.bg}');`;
+      return `background: ${this.bg};`;
     }
   }
 };

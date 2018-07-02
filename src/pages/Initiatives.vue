@@ -1,7 +1,6 @@
 <template>
   <page-background>
     <text-page-hero :bg="`url(${Strings.get('pages.initiatives.hero.image', 'assets')})`">
-      Initiatives
     </text-page-hero>
     <b-container>
       <page-section>
@@ -17,7 +16,7 @@
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="1">
-            <b-img height="394" width="590" :src="Strings.get('promo.makeathon')" />
+            <b-img height="300" width="600" :src="Strings.get('promo.makeathon')" />
           </b-col>
           <b-col sm="12" md="6" order-md="1" order-sm="2">
             <h2>Ready, Set, Make!</h2>
@@ -32,7 +31,7 @@
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="6" class="initiative-row-img" order-md="1" order-sm="1">
-            <b-img height="393" width="590" :src="Strings.get('promo.blueprint', 'assets')" />
+            <b-img height="300" width="600" :src="Strings.get('promo.blueprint', 'assets')" />
           </b-col>
           <b-col sm="12" md="6" class="initiative-row-content-container" order-md="2" order-sm="2">
             <h2>DTI Blueprint</h2>
@@ -61,7 +60,7 @@
             </p>
           </b-col>
           <b-col sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="2">
-            <b-img height="348" width="530" :src="Strings.get('promo.halfbaked', 'assets')" />
+            <b-img height="300" width="600" :src="Strings.get('promo.halfbaked', 'assets')" />
           </b-col>
         </b-row>
       </page-section>
