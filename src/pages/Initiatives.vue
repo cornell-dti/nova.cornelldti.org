@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <text-page-hero :bg="img('headers', 'initiatives.png')">
+    <text-page-hero :bg="`url(${img('headers', 'initiatives.png')})`">
       Initiatives
     </text-page-hero>
     <b-container>
@@ -17,7 +17,7 @@
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="1">
-            <b-img height="394" width="590" :src="img('promo', 'makeathon.png')" />
+            <b-img height="300" width="600" blank blank-color="#777" />
           </b-col>
           <b-col sm="12" md="6" order-md="1" order-sm="2">
             <h2>Ready, Set, Make!</h2>
@@ -31,7 +31,7 @@
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="6" class="initiative-row-img" order-md="1" order-sm="1">
-            <b-img height="393" width="590" :src="img('promo', 'blueprint.png')" />
+            <b-img height="300" width="600" blank blank-color="#777" />
           </b-col>
           <b-col sm="12" md="6" class="initiative-row-content-container" order-md="2" order-sm="2">
             <h2>DTI Blueprint</h2>
@@ -54,7 +54,7 @@
             </p>
           </b-col>
           <b-col sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="2">
-            <b-img height="348" width="530" :src="img('promo', 'hlfbaked.png')" />
+            <b-img height="300" width="600" blank blank-color="#777" />
           </b-col>
         </b-row>
       </page-section>

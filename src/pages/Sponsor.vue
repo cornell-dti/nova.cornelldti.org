@@ -1,8 +1,6 @@
 <template>
   <page-background>
-    <text-page-hero :bg="img('headers', 'sponsor.png')">
-      Sponsor
-    </text-page-hero>
+    <page-hero :bg="`url(${img('headers', 'sponsor.png')})`" />
 
     <b-container>
       <page-section>
