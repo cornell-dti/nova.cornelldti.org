@@ -12,65 +12,67 @@
         diverse, group of students from different colleges and countries striving
         to make a difference in our community.
       </text-hero>
+    </b-container>
 
-      <div class="diversity diversity-background">
-        <!-- TODO bind formatting to actual elements-->
-        <b-row class="no-gutters diversity diversity-content">
-          <b-col sm="12" md="7" class="diversity-left-overlay">
-            <b-row>
-              <b-col sm="12" md="9">
-                <div class="team-header diversity-header my-auto sm-y-padding">Diversity</div>
-                <div class="diversity-description my-auto sm-y-padding">Page summary. Diverse team spanning disciplines, years, ethnicities,
-                  etc. We've had exciting people and have been to exciting places.</div>
+    <div class="diversity diversity-background">
+      <!-- TODO bind formatting to actual elements-->
+      <b-row class="no-gutters diversity diversity-content">
+        <b-col sm="12" md="7" class="diversity-left-overlay">
+          <b-row>
+            <b-col sm="12" md="9">
+              <div class="team-header diversity-header my-auto sm-y-padding">Diversity</div>
+              <div class="diversity-description my-auto sm-y-padding">Page summary. Diverse team spanning disciplines, years, ethnicities,
+                etc. We've had exciting people and have been to exciting places.</div>
 
-                <b-row class="lg-y-padding" align-h="center">
-                  <b-col cols="auto">
-                    <h3 class="graph-header text-center">Gender Ratio</h3>
-                    <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
-                      <div class="text-center graph-data h-100">
-                        <b-row align-v="center" class="h-100">
-                          <b-col cols="6" class="graph-datum">
-                            <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
-                            <p class="graph-datum-description">Female</p>
-                          </b-col>
-                          <b-col cols="6" class="graph-datum">
-                            <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
-                            <p class="graph-datum-description">Male</p>
-                          </b-col>
-                        </b-row>
-                      </div>
-                    </circle-progress-indicator>
-                  </b-col>
-                </b-row>
-                <b-row class="my-auto" align-h="center">
-                  <b-col>
-                    <role-selector class="diversity-role-selector" v-model="divRoleId" :dark="true" />
-                  </b-col>
-                </b-row>
-              </b-col>
-              <b-col sm="0" md="3">
-              </b-col>
-            </b-row>
-          </b-col>
-          <b-col sm="12" md="4" align-self="center" class="mx-auto">
-            <b-row>
-              <b-col cols="12" class="diversity-description diversity-inner-text">
-                <h1>55%</h1>
-                <div class="diversity-description diversity-stat-description">Percentage of underclassmen team members</div>
-              </b-col>
-              <b-col cols="12" class="diversity-description diversity-inner-text">
-                <h1>14</h1>
-                <div class="diversity-description diversity-stat-description">Number of different majors</div>
-              </b-col>
-              <b-col cols="12" class="diversity-description diversity-inner-text">
-                <h1>6</h1>
-                <div class="diversity-description diversity-stat-description">Number of represented colleges</div>
-              </b-col>
-            </b-row>
-          </b-col>
-        </b-row>
-      </div>
-
+              <b-row class="lg-y-padding" align-h="center">
+                <b-col cols="auto">
+                  <h3 class="graph-header text-center">Gender Ratio</h3>
+                  <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
+                    <div class="text-center graph-data h-100">
+                      <b-row align-v="center" class="h-100">
+                        <b-col cols="6" class="graph-datum">
+                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
+                          <p class="graph-datum-description">Female</p>
+                        </b-col>
+                        <b-col cols="6" class="graph-datum">
+                          <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
+                          <p class="graph-datum-description">Male</p>
+                        </b-col>
+                      </b-row>
+                    </div>
+                  </circle-progress-indicator>
+                </b-col>
+              </b-row>
+              <b-row class="my-auto" align-h="center">
+                <b-col>
+                  <role-selector class="diversity-role-selector" v-model="divRoleId" :dark="true" />
+                </b-col>
+              </b-row>
+            </b-col>
+            <b-col sm="0" md="3">
+            </b-col>
+          </b-row>
+        </b-col>
+        <b-col sm="12" md="4" align-self="center" class="mx-auto">
+          <b-row>
+            <b-col cols="12" class="diversity-description diversity-inner-text">
+              <h1>55%</h1>
+              <div class="diversity-description diversity-stat-description">Percentage of underclassmen team members</div>
+            </b-col>
+            <b-col cols="12" class="diversity-description diversity-inner-text">
+              <h1>14</h1>
+              <div class="diversity-description diversity-stat-description">Number of different majors</div>
+            </b-col>
+            <b-col cols="12" class="diversity-description diversity-inner-text">
+              <h1>6</h1>
+              <div class="diversity-description diversity-stat-description">Number of represented colleges</div>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+    </div>
+    
+    <b-container fluid>
       <page-section>
         <div class="team-header">Team</div>
 
