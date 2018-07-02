@@ -16,7 +16,7 @@
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="1">
-            <b-img height="300" width="600" :src="Strings.get('promo.makeathon')" />
+            <b-img height="300" width="600" :src="Strings.get('promo.makeathon', 'assets')" />
           </b-col>
           <b-col sm="12" md="6" order-md="1" order-sm="2">
             <h2>Ready, Set, Make!</h2>
