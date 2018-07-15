@@ -1,19 +1,34 @@
  <template>
-  <b-row class="filter-btn-group">
-    <b-col :cols="density == 'compact' ? 'auto' : null" class="my-auto text-center">
-      <div :class="btnCSS(roleId === '', density, dark)" @click="roleId = ''">
-        All
-      </div>
-      <div :class="selectorCSS(roleId === '', dark)" />
-    </b-col>
-    <b-col v-for="role of getRoles()" :cols="density === 'compact' ? 'auto' : null" :key="role.id"
-      class="my-auto text-center">
-      <div :class="btnCSS(roleId === role.id, density, dark)" @click="roleId = role.id">
-        {{role.name}}
-      </div>
-      <div :class="selectorCSS(roleId === role.id, dark)" />
-    </b-col>
-  </b-row>
+  <div>
+    <b-row class="filter-btn-group desktop-selector-container">
+      <b-col v-if="showAll" :cols="density == 'compact' ? 'auto' : null" class="my-auto text-center">
+        <div :class="btnCSS(roleId === '', density, bold, dark)" @click="roleId = ''">
+          All
+        </div>
+        <div :class="selectorCSS(roleId === '', dark)" />
+      </b-col>
+      <!-- TODO: Cleanup the roles overriding -->
+      <b-col v-for="role of this.roles === null ? getRoles() : this.roles" :cols="density === 'compact' ? 'auto' : null"
+        :key="role.id" class="my-auto text-center">
+        <div :class="btnCSS(roleId === role.id, density, bold, dark)" @click="roleId = role.id">
+          {{role.name}}
+        </div>
+        <div :class="selectorCSS(roleId === role.id, dark)" />
+      </b-col>
+    </b-row>
+    <b-row class="mobile-selector-container text-center">
+      <b-col>
+        {{ dropdownText }}
+        <b-form-select @change="handleMobileSelection" id="mobile-apply-dropdown" v-model="roleId">
+          <option v-for="role of this.roles === null ? getRoles() : this.roles" :key="role.id"
+            :value="role.id">
+            {{role.name}}
+          </option>
+        </b-form-select>
+        <span>⇩</span>
+      </b-col>
+    </b-row>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -34,6 +49,11 @@
   border-radius: 0.25rem;
   padding: 0.375rem 0.75rem;
   line-height: 1.5;
+  font-size: 2rem;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.3px;
 
   &:not(:disabled):not(.disabled) {
     cursor: pointer;
@@ -59,6 +79,14 @@
     }
   }
 
+  &.bold {
+    font-size: 2rem;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 0.3px;
+  }
+
   &.density-compact {
     margin: 0.1rem;
   }
@@ -81,6 +109,49 @@
     }
   }
 }
+
+.apply-row:not(.desktop-selector-container) {
+  border-left: 5px solid black;
+  font-size: 18px;
+  padding-left: 120px;
+
+  &:not(.desktop-selector-container) {
+    div[class*='col'] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding-left: 5px;
+  }
+}
+
+.mobile-selector-container {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-selector-container {
+    display: none !important;
+  }
+
+  .mobile-selector-container {
+    display: flex;
+    font-weight: bold;
+
+    #mobile-apply-dropdown {
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      display: inline;
+      font-weight: bold;
+      padding: 0;
+      text-decoration: underline;
+      width: auto;
+    }
+  }
+}
 </style>
 
 
@@ -95,6 +166,10 @@ export default {
       type: String,
       default: ''
     },
+    dropdownText: {
+      type: String,
+      default: ''
+    },
     dark: {
       type: Boolean,
       default: false
@@ -102,11 +177,24 @@ export default {
     density: {
       type: String,
       default: 'compact'
+    },
+    bold: {
+      type: Boolean,
+      default: false
+    },
+    showAll: {
+      type: Boolean,
+      default: true
+    },
+    roles: {
+      type: Array,
+      default: null
     }
   },
   mounted() {
     this.$nextTick(() => {
-      this.roleId = '';
+      const roles = this.roles !== null ? this.roles : this.getRoles();
+      this.roleId = this.showAll ? '' : roles[0].id;
     });
   },
   data() {
@@ -114,21 +202,28 @@ export default {
       roleId: {
         type: String,
         default: ''
+      },
+      mobileDropdownDefault: {
+        type: String
       }
     };
   },
   methods: {
-    btnCSS(selected, density, isDark = false) {
+    btnCSS(selected, density, isBold, isDark = false) {
       return [
         selected ? 'selected-filter-btn' : 'filter-btn',
         isDark ? 'fg-light' : 'fg-dark',
-        density === 'compact' ? 'density-compact' : null
+        density === 'compact' ? 'density-compact' : null,
+        isBold ? 'bold' : null
       ];
     },
     selectorCSS(selected, isDark = false) {
       return selected
         ? ['selector', 'selected', isDark ? 'fg-light' : 'fg-dark']
         : ['selector'];
+    },
+    handleMobileSelection(val) {
+      this.roleId = val;
     }
   },
   watch: {
