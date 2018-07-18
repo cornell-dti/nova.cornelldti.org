@@ -88,7 +88,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .justify-content-center {
   text-align: center;
 }

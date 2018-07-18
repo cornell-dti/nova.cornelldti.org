@@ -1,7 +1,6 @@
 <template>
   <page-background>
-    <page-hero :bg="`url(${Strings.get('pages.sponsor.hero.image', 'assets')})`" />
-
+  <page-hero :bg="`url(${Strings.get('pages.sponsor.hero.image', 'assets')})`" />
     <b-container>
       <page-section>
         <b-row class="justify-content-center sponsor-top">

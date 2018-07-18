@@ -173,8 +173,52 @@ export default {
         border-radius: 0px;
       }
     }
-  }
 
+    button.apply-button {
+      color: #ffffff;
+      font-size: 32px;
+      font-weight: 500;
+      height: 38px;
+      padding: 12px 39px;
+      letter-spacing: 0.2px;
+      text-align: left;
+      width: 81px;
+    }
+
+    .tab-content {
+      .card-body {
+        .tab-roleSpecific-content {
+          padding-left: 120px;
+          border-left: 5px solid black;
+
+          h2, p {
+            margin: 0;
+          }
+          h2 {
+            font-size: 22px;
+          }
+          p {
+            font-size: 18px;
+          }
+          h2 + p {
+            margin-top: 22px;
+          }
+
+          p + h2 {
+            margin-top: 40px;
+          }
+
+          & + .row {
+            margin-top: 52px;
+          }
+
+          @media screen and (max-width: 768px) {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
   button.apply-button {
     color: #ffffff;
     font-size: 32px;
