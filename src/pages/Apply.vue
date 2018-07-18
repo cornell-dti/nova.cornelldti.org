@@ -39,25 +39,27 @@
         </b-row>
       </section>
 
-      <role-selector dropdownText="I want to be..." :bold="true" :showAll="false" />
+      <role-selector v-model="roleId" dropdownText="I want to be..." :bold="true" :showAll="false"
+      />
 
       <timeline-section v-for="child of Strings.childrenOf(`application-info.${roleId}`, `apply`)"
         :key="child" :header="Strings.get(`application-info.${roleId}.${child}.header`, `apply`)"
         :rightHeader="Strings.get(`application-info.${roleId}.${child}.right-header`, `apply`)">
-
-        <div v-if="Strings.exists(`application-info.${roleId}.${child}.sections.1`)" v-for="section of Strings.childrenOf(`application-info.${roleId}.${child}.sections`)"
+        <div v-if="Strings.exists(`application-info.${roleId}.${child}.sections.1`, 'apply')"
+          v-for="section of Strings.childrenOf(`application-info.${roleId}.${child}.sections`, 'apply')"
           :key="section">
           <h2>{{Strings.get(`application-info.${roleId}.${child}.sections.${section}.header`,
             'apply')}}
           </h2>
 
-          <p v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.content.lines`,
-              'apply')" v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${section}.content.lines`,
+          <div v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.content.lines`,
+              'apply')">
+            <p v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${section}.content.lines`,
               'apply')" :key="line">
-            {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content.lines.${line}`,
-            'apply')}}
-          </p>
-
+              {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content.lines.${line}`,
+              'apply')}}
+            </p>
+          </div>
           <p v-else>
             {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content`,
             'apply')}}
@@ -113,7 +115,8 @@ export default {
       msgContent: 'banana',
       msgShow: false,
       msgVariant: 'success',
-      tabIndex: 0
+      tabIndex: 0,
+      roleId: ''
     };
   },
   computed: {},
