@@ -35,15 +35,12 @@
   h2 + p {
     margin-top: 22px;
   }
-
   p + h2 {
     margin-top: 40px;
   }
-
   & + .row {
     margin-top: 52px;
   }
-
   @media screen and (max-width: 768px) {
     padding-left: 30px;
   }

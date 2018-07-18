@@ -5,9 +5,9 @@
   "author": "rockon999 <rockon999@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm start\" \"webpack --progress --watch --config build/webpack.dev.conf.js\"",
+    "dev": "./node_modules/.bin/concurrently \"npm start\" \"webpack --progress --watch --config build/webpack.dev.conf.js\"",
     "start": "node server.js",
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "./node_modules/.bin/eslint --ext .js,.vue src",
     "build": "node build/build.js",
     "postinstall": "npm run build"
   },
