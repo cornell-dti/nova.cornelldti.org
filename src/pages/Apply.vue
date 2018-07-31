@@ -44,25 +44,25 @@
           </b-col>
         </b-row>
       </page-section>
-      <page-section>
-        <b-row class="justify-content-center apply-dates">
-          <b-col sm="12" md="5" md-offset="1">
-            <h1>Info Sessions</h1>
-            <h3>Fall 2018</h3>
-            <p>
-              We encourage all interested applicants to attend an info session to find 
-              out more about what we do and talk to us in person. 
-              We hope to see you there!
-            </p>
-          </b-col>
-          <b-col sm="12" md="5" md-offset="1">
-            <h2>Tuesday, 9/10 • 5:30 PM</h2>
-            <h3>Upson Hall 216 • Facebook Event</h3>
-            <h2>Thursday, 9/12 • 5:30 PM</h2>
-            <h3>Goldwin Smith Hall 132 • Facebook Event</h3>
-          </b-col>
-        </b-row>
-      </page-section>
+    </b-container>
+    <b-row class="justify-content-center apply-dates">
+      <b-col sm="12" md="5" md-offset="1">
+        <h1>Info Sessions</h1>
+        <h3>Fall 2018</h3>
+        <p>
+          We encourage all interested applicants to attend an info session to find 
+          out more about what we do and talk to us in person. 
+          We hope to see you there!
+        </p>
+      </b-col>
+      <b-col sm="12" md="5" md-offset="1">
+        <h2>Tuesday, 9/10 • 5:30 PM</h2>
+        <h3>Upson Hall 216 • Facebook Event</h3>
+        <h2>Thursday, 9/12 • 5:30 PM</h2>
+        <h3>Goldwin Smith Hall 132 • Facebook Event</h3>
+      </b-col>
+    </b-row>
+    <b-container>
 
       <role-selector v-model="roleId" dropdownText="I want to be..." :bold="true" :showAll="false"
       />
@@ -86,17 +86,19 @@
             {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content`, 'apply')}}
           </p>
         </div>
-        <!--TODO explicitely check for left/right and that they exist... -->
         <b-row v-else>
 
           <b-col sm v-for="col of ['left', 'right']" :key="col">
-            <h2>{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`, 'apply')}}
-            </h2>
+            <h2>{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`, 'apply')}}</h2>
 
             <p v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')" 
               v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')" 
               :key="line">
               {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content.lines.${line}`, 'apply')}}
+            </p>
+
+            <p v-else>
+              {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content`, 'apply')}}
             </p>
           </b-col>
         </b-row>
@@ -164,7 +166,7 @@ export default {
 <style lang="scss">
 .apply-hero {
   height: 80vh;
-  width: 100vw;
+  width: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -184,6 +186,8 @@ export default {
 .row.apply-dates {
   background-color: #ff324a;
   color: white;
+  margin: 4vw 0;
+  padding: 4vw;
 
   h1 {
     font-size: 48px;
@@ -194,9 +198,6 @@ export default {
   h3, p {
     font-size: 20px;
   }
-}
-.timeline-content div + div {
-  margin-top: 40px;
 }
 .alert {
   display: block;
