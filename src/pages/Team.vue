@@ -24,9 +24,10 @@
               <div class="diversity-description my-auto sm-y-padding">Page summary. Diverse team spanning disciplines, years, ethnicities,
                 etc. We've had exciting people and have been to exciting places.</div>
 
+              <h3 class="graph-header text-center">Gender Ratio</h3>
+
               <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
-                  <h3 class="graph-header text-center">Gender Ratio</h3>
                   <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
                     <div class="text-center graph-data h-100">
                       <b-row align-v="center" class="h-100">
@@ -71,7 +72,7 @@
         </b-col>
       </b-row>
     </div>
-    
+
     <b-container fluid>
       <page-section>
         <div class="team-header">Team</div>
@@ -142,7 +143,8 @@ $secondary: #f6f6f6;
 }
 
 .graph-header {
-  font-size: 1.5rem;
+  font-size: 2.25rem;
+  margin: 0.3rem 0;
 }
 
 .graph-datum {
@@ -191,7 +193,7 @@ $secondary: #f6f6f6;
 
 .team-header {
   margin-bottom: 3rem;
-  font-size: 4.5rem;
+  font-size: 3rem;
   font-weight: 400;
 }
 
@@ -230,7 +232,7 @@ $secondary: #f6f6f6;
   }
 
   .lg-y-padding {
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
 
   .diversity-header {
@@ -238,11 +240,12 @@ $secondary: #f6f6f6;
   }
 
   .diversity-description {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
     font-weight: normal;
 
     &.diversity-stat-description {
       font-weight: 500;
+      font-size: 1.125rem;
     }
   }
 
@@ -280,12 +283,14 @@ $secondary: #f6f6f6;
     .diversity-inner-text {
       text-align: center;
       margin-top: 1rem;
+      font-size: 3rem;
     }
   }
 
   @media (min-width: 768px) {
     .diversity-inner-text {
       padding: 2vw 4vw;
+      font-size: 2.5rem;
     }
   }
 }

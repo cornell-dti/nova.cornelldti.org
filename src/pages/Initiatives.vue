@@ -68,14 +68,6 @@
           </b-col>
         </b-row>
       </page-section>
-      <page-section>
-        <b-row class="justify-content-center initiative-contact">
-          <h2>Have an question? Or a great idea? Let us know!</h2>
-        </b-row>
-        <b-row class="justify-content-center initiative-contact">
-          <b-button>Contact Us</b-button>
-        </b-row>
-      </page-section>
     </b-container>
     <dti-footer />
   </page-background>
