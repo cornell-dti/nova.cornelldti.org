@@ -25,3 +25,18 @@ body.modal-open {
     fill: rgba(0, 0, 0, 0.5) !important;
   }
 }
+
+.btn {
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #4a4a4a; // TODO
+}

@@ -27,7 +27,7 @@
 
 <style lang="scss" scoped>
 .projects-hero {
-  height: 80vh;
+  height: 70vh;
   width: 100vw;
   position: relative;
   overflow: hidden;

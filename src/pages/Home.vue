@@ -1,8 +1,9 @@
 <template>
   <div>
     <div class="home">
-      <visual video="/static/pages/home/hero/hero.mp4" class="home-background home-preload-background home-background-video"
-        autoplay :fill="true" background="cover" :loop="true" :muted="true" preload=auto />
+      <visual video="/static/pages/home/hero/hero.m4v" class="home-background home-preload-background home-background-video"
+        autoplay :fill="true" background="cover" :loop="true" :muted="true" preload=auto
+      />
       <div class="home-background home-background-overlay" />
       <b-row>
         <h1 class="home-overlay-text">Cornell Design <br />&amp; Tech Initiative</h1>
@@ -24,7 +25,7 @@
 </template>
 
 <style lang="scss" scoped>
-$hero-margin: 5%;
+$hero-margin: 3vw;
 
 .home {
   position: relative;
@@ -57,20 +58,24 @@ $hero-margin: 5%;
 
 .home-overlay-text {
   position: absolute;
-  bottom: $hero-margin;
+  bottom: $hero-margin - 1vw;
   left: $hero-margin;
   right: $hero-margin;
   text-align: left;
   font-weight: bolder;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  color: #fff;
 
   @media (max-width: 767px) {
     font-size: 3rem;
   }
 
   @media (min-width: 768px) {
-    font-size: 4.4rem;
+    font-size: 4.5rem;
   }
-
-  color: #fff;
 }
 </style>

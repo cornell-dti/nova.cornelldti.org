@@ -1,6 +1,14 @@
 <template>
   <div>
     <b-container fluid class="h-100">
+      <b-row class="contact-us" align-h="center" align-v="center">
+        <b-col cols="auto" align-self="center">
+          <div class="contact-us-prompt">
+            Have a question or a great idea? Let us know!
+          </div>
+          <b-button class="contact-us-button">Contact Us</b-button>
+        </b-col>
+      </b-row>
       <b-row class="footer" align-v="center">
         <b-col sm="12" md="6" class="my-auto">
           <b-img class="wordmark" :src="Strings.get('branding.wordmark', 'assets')" />
@@ -13,13 +21,11 @@
               </a>
             </b-col>
             <b-col cols="auto">
-
               <a href="https://github.com/cornell-dti/">
                 <Github class="social-icon social-icon-blank" />
               </a>
             </b-col>
             <b-col cols="auto">
-
               <a href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative">
                 <GooglePlay class="social-icon social-icon-blank" />
               </a>
@@ -71,6 +77,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.contact-us {
+  min-height: 20vh;
+  margin-top: auto;
+  padding: 5rem 2rem;
+  padding-left: 1rem;
+  text-align: center;
+
+  .contact-us-prompt {
+    font-size: 2rem;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .contact-us-button {
+    margin-top: 1.2rem;
+  }
+}
+
 .footer {
   background-color: #4a4a4a;
   margin-top: auto;
