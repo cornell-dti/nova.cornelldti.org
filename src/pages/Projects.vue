@@ -2,8 +2,8 @@
   <page-background>
 
     <div class="projects-hero">
-      <visual :video="Strings.get('pages.projects.hero.video', 'assets')" :poster="Strings.get('pages.projects.hero.lazy', 'assets')"
-        background="cover" :fallback="Strings.get('pages.projects.hero.image', 'assets')"
+      <visual :video="aws(Strings.get('pages.projects.hero.video', 'assets'))" :poster="Strings.get('pages.projects.hero.lazy', 'assets')"
+        background="cover" :fallback="aws(Strings.get('pages.projects.hero.image', 'assets'))"
         class="projects-hero" align="top left" autoplay :loop="true" :muted="true"
         preload=auto :fill="true" />
     </div>

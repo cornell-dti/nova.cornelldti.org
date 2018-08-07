@@ -63,6 +63,9 @@ Vue.mixin({
     };
   },
   methods: {
+    aws(asset) {
+      return `http://s3.amazonaws.com/dti-nova-website/${asset}`;
+    },
     getMembers() {
       return Members;
     },

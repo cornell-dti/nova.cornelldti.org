@@ -1,8 +1,8 @@
 <template>
   <page-background>
     <div class="initiatives-hero">
-      <visual :video="Strings.get('pages.initiatives.hero.video', 'assets')" :poster="Strings.get('pages.initiatives.hero.lazy', 'assets')"
-        background="cover" :fallback="Strings.get('pages.initiatives.hero.image', 'assets')"
+      <visual :video="aws(Strings.get('pages.initiatives.hero.video', 'assets'))" :poster="Strings.get('pages.initiatives.hero.lazy', 'assets')"
+        background="cover" :fallback="aws(Strings.get('pages.initiatives.hero.image', 'assets'))"
         class="initiatives-hero" align="top left" autoplay :loop="true" :muted="true"
         preload=auto :fill="true" />
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="home">
-      <visual video="/static/pages/home/hero/hero.m4v" class="home-background home-preload-background home-background-video"
+      <visual :video="aws(Strings.get('pages.home.hero.video', 'assets'))" class="home-background home-preload-background home-background-video"
         autoplay :fill="true" background="cover" :loop="true" :muted="true" preload=auto
       />
       <div class="home-background home-background-overlay" />
@@ -12,11 +12,11 @@
     <text-hero :header="Strings.get('text-hero.header', 'home')" :subheader="Strings.get('text-hero.subheader', 'home')"
     />
     <page-sublist :border-padding="true">
-      <quicklink image="/static/pages/team/hero/hero.png" header="Projects" subheader="What we do >"
+      <quicklink image="/static/pages/projects/hero/hero.png" header="Projects" subheader="What we do >"
       />
       <quicklink image="/static/pages/team/hero/hero.png" header="Team" subheader="Who we are >"
       />
-      <quicklink image="/static/pages/team/hero/hero.png" header="Initiatives" subheader="Why we do it >"
+      <quicklink image="/static/pages/initiatives/hero/hero-lazy.png" header="Initiatives" subheader="Why we do it >"
       />
     </page-sublist>
 
