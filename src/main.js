@@ -49,10 +49,10 @@ Vue.component('Quicklink', Quicklink);
 Vue.component('BaseLayout', BaseLayout);
 Vue.component('DtiMainMenu', DtiMainMenu);
 Vue.component('DtiFooter', DtiFooter);
-Vue.component('StoreBadge', StoreBadge);
 Vue.component('PageBackground', PageBackground);
 Vue.component('PageSection', PageSection);
 Vue.component('PageHero', PageHero);
+Vue.component('StoreBadge', StoreBadge);
 Vue.component('TextPageHero', TextPageHero);
 Vue.component('TextHero', TextHero);
 
