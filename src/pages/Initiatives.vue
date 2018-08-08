@@ -4,18 +4,10 @@
               students and community members alike. Through annual makeathons, events, and workshops,
               we teach about design and technology to inspire others." page="initiatives"
     />
-    <b-container>
-      <page-section>
-        <b-row class="justify-content-center initiative-top">
-          <b-col sm="12" md="10">
-            <h2></h2>
-            <p>
-
-            </p>
-          </b-col>
-        </b-row>
+    <page-section>
+      <b-container>
         <b-row align-h="center" align-v="center" class="initiative-row">
-          <b-col sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="1">
+          <b-col  align-h="left" sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="1">
             <b-img height="300" :src="Strings.get('promo.makeathon', 'assets')" />
           </b-col>
           <b-col sm="12" md="6" order-md="1" order-sm="2">
@@ -37,7 +29,7 @@
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
-          <b-col sm="12" md="6" class="initiative-row-img" order-md="1" order-sm="1">
+          <b-col align-h="left" sm="12" md="6" class="initiative-row-img" order-md="1" order-sm="1">
             <b-img height="300" :src="Strings.get('promo.blueprint', 'assets')" />
           </b-col>
           <b-col sm="12" md="6" class="initiative-row-content-container" order-md="2" order-sm="2">
@@ -73,12 +65,12 @@
               </div>
             </b-button>
           </b-col>
-          <b-col sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="1">
+          <b-col  align-h="right" sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="1">
             <b-img height="300" :src="Strings.get('promo.halfbaked', 'assets')" />
           </b-col>
         </b-row>
-      </page-section>
-    </b-container>
+      </b-container>
+    </page-section>
     <dti-footer />
   </page-background>
 </template>
@@ -133,7 +125,7 @@ $dark-gray: #4a4a4a;
   }
 
   // Odd rows (right aligned)
-  &:nth-child(odd) {
+  &:nth-child(even) {
     text-align: right;
 
     .initiative-row-content-container {
@@ -146,7 +138,7 @@ $dark-gray: #4a4a4a;
   }
 
   // Even rows (left aligned)
-  &:nth-child(even) {
+  &:nth-child(odd) {
     text-align: left;
 
     .initiative-row-content-container {
@@ -175,6 +167,7 @@ $dark-gray: #4a4a4a;
   .initiative-row-img {
     overflow: hidden;
   }
+
   .initiative-row-content {
     font-weight: 500;
     letter-spacing: -0.4px;
@@ -184,7 +177,6 @@ $dark-gray: #4a4a4a;
 
 // The top of the page
 .initiative-top {
-  padding-bottom: 70px;
   text-align: center;
 
   h2 {
