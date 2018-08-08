@@ -3,7 +3,7 @@
     <b-col cols="12">
       <div class="quicklink-container">
         <div class="quicklink-overlay" />
-        <visual width="100vw" height="40vh" background="cover" :image="image" align="middle center">
+        <visual class="quicklink-visual-dimensions" background="cover" :image="image" align="middle center">
           <div class="quicklink-internal">
             <a :href="link">
               <div class="quicklink-text quicklink-text-header">{{header}}</div>
@@ -37,18 +37,25 @@ export default {
 
 
 <style lang="scss" scoped>
+$height: 50vh;
+
 .quicklink-container {
   position: relative;
 
+  .quicklink-visual-dimensions {
+    width: 100vw;
+    height: $height;
+  }
+
   .quicklink-overlay {
-    height: 40vh;
+    height: $height;
     width: 100vw;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
     z-index: 10;
   }
 
@@ -64,13 +71,20 @@ export default {
       &.quicklink-text-header {
         font-size: 3rem;
         font-weight: 600;
-        letter-spacing: 0.5px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.5px; // TODO
+        text-align: center;
         color: #fff;
       }
 
       &.quicklink-text-subheader {
         font-size: 1.5rem;
         font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
         letter-spacing: 0.3px;
         text-align: center;
         color: #ededed;

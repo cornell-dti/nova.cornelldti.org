@@ -1,30 +1,22 @@
 <template>
   <page-background>
-    <div class="team-hero">
-      <visual :video="aws(Strings.get('pages.team.hero.video', 'assets'))" :poster="Strings.get('pages.team.hero.lazy', 'assets')"
-        background="cover" :fallback="aws(Strings.get('pages.team.hero.image', 'assets'))"
-        class="team-hero" align="top left" autoplay :loop="true" :muted="true" preload=auto
-        :fill="true" load-video='visible' :load-poster='true' />
-    </div>
-    <b-container fluid>
-      <text-hero header="Working Together">
-        We are Cornell Design &amp; Tech Initiative. But individually, we are a talented,
+    <nova-hero header="Working Together" subheader="We are Cornell Design &amp; Tech Initiative. But individually, we are a talented,
         diverse, group of students from different colleges and countries striving
-        to make a difference in our community.
-      </text-hero>
-    </b-container>
+        to make a difference in our community." page="team" />
 
     <div class="diversity diversity-background">
       <!-- TODO bind formatting to actual elements-->
       <b-row class="no-gutters diversity diversity-content">
-        <b-col sm="12" md="7" class="diversity-left-overlay">
+        <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
           <b-row>
             <b-col sm="12" md="9">
-              <div class="team-header diversity-header my-auto sm-y-padding">Diversity</div>
-              <div class="diversity-description my-auto sm-y-padding">Page summary. Diverse team spanning disciplines, years, ethnicities,
-                etc. We've had exciting people and have been to exciting places.</div>
+              <div class="team-header diversity-header my-auto">Diversity</div>
+              <div class="diversity-description my-auto lg-y-padding">More than just being inclusive, our team strives to bring as many backgrounds
+                and perspectives together to solve community problems. These statistics
+                come from recruiting across campus and seeking applicants with the
+                best skills and potential for growth on the team.</div>
 
-              <h3 class="graph-header text-center">Gender Ratio</h3>
+              <h3 class="graph-header text-center lg-y-padding">Gender Ratio</h3>
 
               <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
@@ -46,7 +38,8 @@
               </b-row>
               <b-row class="my-auto" align-h="center">
                 <b-col>
-                  <role-selector class="diversity-role-selector" v-model="divRoleId" :dark="true" />
+                  <role-selector class="diversity-role-selector" v-model="divRoleId" :dark="true" density="compact"
+                  />
                 </b-col>
               </b-row>
             </b-col>
@@ -54,18 +47,18 @@
             </b-col>
           </b-row>
         </b-col>
-        <b-col sm="12" md="4" align-self="center" class="mx-auto">
+        <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
           <b-row>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <h1>55%</h1>
+              <div class="diversity-stat-header">55%</div>
               <div class="diversity-description diversity-stat-description">Percentage of underclassmen team members</div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <h1>14</h1>
+              <div class="diversity-stat-header">14</div>
               <div class="diversity-description diversity-stat-description">Number of different majors</div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <h1>6</h1>
+              <div class="diversity-stat-header">6</div>
               <div class="diversity-description diversity-stat-description">Number of represented colleges</div>
             </b-col>
           </b-row>
@@ -145,14 +138,28 @@ $secondary: #f6f6f6;
 .graph-header {
   font-size: 2.25rem;
   margin: 0.3rem 0;
+  font-size: 2.25rem;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  color: #ffffff;
 }
 
 .graph-datum {
   font-size: 3rem;
   font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.8px;
+  color: #ffffff;
 
   .graph-datum-description {
     font-size: 1.5rem;
+    font-size: 1.125rem;
+    letter-spacing: 0.7px;
   }
 }
 
@@ -160,6 +167,7 @@ $secondary: #f6f6f6;
   padding: 0 1vw;
   font-size: 1.5rem;
   font-weight: 600;
+  max-width: 86rem;
 }
 
 .diversity-role-selector {
@@ -222,31 +230,66 @@ $secondary: #f6f6f6;
 
 .diversity {
   min-height: 80vh;
-
   overflow: hidden;
   position: relative;
   color: #fefefe !important;
+
+  .diversity-inner-right {
+    padding: 4.5rem 4.5rem 4.5rem 0;
+  }
+
+  .diversity-inner-left {
+    padding: 4.5rem 0 4.5rem 4.5rem;
+  }
 
   .sm-y-padding {
     padding: 0.6rem 0;
   }
 
   .lg-y-padding {
-    padding: 1rem 0;
+    padding: 1.75rem 0;
+  }
+
+  .diversity-stat-header {
+    font-size: 4.5rem;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.9px;
+    color: #ffffff;
+    padding-bottom: 0.1rem;
   }
 
   .diversity-header {
     padding: 0.6rem 0;
+    font-size: 3rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
   }
 
   .diversity-description {
     font-size: 1.125rem;
-    font-weight: normal;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #ffffff;
+  }
 
-    &.diversity-stat-description {
-      font-weight: 500;
-      font-size: 1.125rem;
-    }
+  .diversity-stat-description {
+    padding-top: 0.1rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.7px;
+    color: #ffffff;
   }
 
   &.diversity-background {
@@ -268,7 +311,6 @@ $secondary: #f6f6f6;
   }
   @media (min-width: 768px) {
     .diversity-left-overlay {
-      padding: 2vw 4vw;
       background-color: rgba(70, 71, 72, 0.8);
       clip-path: polygon(0 0, 0 100%, 80% 100%, 100% 0);
     }
@@ -276,7 +318,6 @@ $secondary: #f6f6f6;
 
   @media (max-width: 767px) {
     &.diversity-content {
-      padding: 2vw 4vw;
       background-color: rgba(70, 71, 72, 0.8);
     }
 

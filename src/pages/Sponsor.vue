@@ -1,17 +1,10 @@
 <template>
   <page-background>
-  <page-hero :bg="`url(${Strings.get('pages.sponsor.hero.image', 'assets')})`" />
+    <nova-hero header="Sponsor Us" subheader="We are Cornell Design &amp; Tech Initiative. But indivdually, we are a talented, diverse group
+              of students from different colleges and countries striving to make a difference in our community."
+      page="sponsor" />
     <b-container>
       <page-section>
-        <b-row class="justify-content-center sponsor-top">
-          <b-col sm="12" md="10">
-            <h2>Sponsor Us</h2>
-            <p>
-              We are Cornell Design & Tech Initiative. But indivdually, we are a talented, diverse group
-              of students from different colleges and countries striving to make a difference in our community.
-            </p>
-          </b-col>
-        </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
           <b-col sm="12" md="6" class="sponsor-row-img" order-md="2" order-sm="1">
             <b-img height="300" width="600" blank blank-color="#777" />
@@ -19,10 +12,11 @@
           <b-col sm="12" md="6" order-md="1" order-sm="2">
             <h2>Mentorship</h2>
             <p class="sponsor-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University dedicated
-              to creating web and mobile apps that improve the lives around us. We are a team of 60
-              developers, designers, and product managers united in the goal to use our skills to make
-              a positive impact in our community.
+              Cornell Design & Tech Initiative is an student project team at Cornell University
+              dedicated to creating web and mobile apps that improve the lives around
+              us. We are a team of 60 developers, designers, and product managers
+              united in the goal to use our skills to make a positive impact in our
+              community.
             </p>
           </b-col>
         </b-row>
@@ -33,10 +27,11 @@
           <b-col sm="12" md="6" class="sponsor-row-content-container" order-md="2" order-sm="2">
             <h2>Funding</h2>
             <p class="sponsor-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University dedicated
-              to creating web and mobile apps that improve the lives around us. We are a team of 60
-              developers, designers, and product managers united in the goal to use our skills to make
-              a positive impact in our community.
+              Cornell Design & Tech Initiative is an student project team at Cornell University
+              dedicated to creating web and mobile apps that improve the lives around
+              us. We are a team of 60 developers, designers, and product managers
+              united in the goal to use our skills to make a positive impact in our
+              community.
             </p>
           </b-col>
         </b-row>
@@ -82,7 +77,8 @@
   font-size: 36px;
 }
 .sponsor-list {
-  .col, div[class*="col-"] {
+  .col,
+  div[class*='col-'] {
     border-radius: 32px;
     background-color: #d8d8d8;
     border: solid 1px #979797;

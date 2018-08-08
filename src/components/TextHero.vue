@@ -6,7 +6,8 @@
       </b-col>
       <b-col sm="12" md="8">
         <div class="text-hero-header-subtext text-center">
-          <slot />{{ subheader }}</div>
+          <slot />{{ subheader }}
+        </div>
       </b-col>
     </b-row>
   </page-section>
@@ -30,12 +31,12 @@ export default {
 .text-hero-header {
   font-size: 3rem;
   font-weight: bold;
-  padding: 1rem 0;
+  padding-bottom: 0.5rem;
 }
 
 .text-hero-header-subtext {
   font-size: 1.5rem;
-  padding: 1rem 0;
+  padding-top: 0.5rem;
 }
 </style>
 

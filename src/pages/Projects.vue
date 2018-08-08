@@ -1,12 +1,8 @@
 <template>
   <page-background>
-
-    <div class="projects-hero">
-      <visual :video="aws(Strings.get('pages.projects.hero.video', 'assets'))" :poster="Strings.get('pages.projects.hero.lazy', 'assets')"
-        background="cover" :fallback="aws(Strings.get('pages.projects.hero.image', 'assets'))"
-        class="projects-hero" align="top left" autoplay :loop="true" :muted="true" load-video='visible' :load-poster='true'
-        preload=auto :fill="true" />
-    </div>
+    <nova-hero header="See What We Do!" subheader="We are Cornell Design &amp; Tech Initiative. But indivdually, we are a talented, diverse group
+              of students from different colleges and countries striving to make a difference in our community."
+      page="projects" />
 
     <page-section>
       <b-row class="project-row" v-for="projectRow in projectRows" :key="projectRow.index"

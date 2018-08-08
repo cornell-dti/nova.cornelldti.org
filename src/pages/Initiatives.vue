@@ -1,20 +1,16 @@
 <template>
   <page-background>
-    <div class="initiatives-hero">
-      <visual :video="aws(Strings.get('pages.initiatives.hero.video', 'assets'))" :poster="Strings.get('pages.initiatives.hero.lazy', 'assets')"
-        background="cover" :fallback="aws(Strings.get('pages.initiatives.hero.image', 'assets'))"
-        class="initiatives-hero" align="top left" autoplay :loop="true" :muted="true"
-        preload=auto :fill="true" load-video='visible' :load-poster='true' />
-    </div>
+    <nova-hero header="Inspiring Change" subheader="What sets us apart from other project teams is our desire to share what we know with
+              students and community members alike. Through annual makeathons, events, and workshops,
+              we teach about design and technology to inspire others." page="initiatives"
+    />
     <b-container>
       <page-section>
         <b-row class="justify-content-center initiative-top">
           <b-col sm="12" md="10">
-            <h2>Inspiring Change</h2>
+            <h2></h2>
             <p>
-              What sets us apart from other project teams is our desire to share what we know with
-              students and community members alike. Through annual makeathons, events, and workshops,
-              we teach about design and technology to inspire others.
+
             </p>
           </b-col>
         </b-row>
@@ -149,7 +145,7 @@ $dark-gray: #4a4a4a;
     }
   }
 
-// Even rows (left aligned)
+  // Even rows (left aligned)
   &:nth-child(even) {
     text-align: left;
 
@@ -162,7 +158,8 @@ $dark-gray: #4a4a4a;
     }
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     font-weight: bold;
   }
   h2 {

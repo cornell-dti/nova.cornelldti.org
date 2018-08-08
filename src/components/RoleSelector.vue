@@ -89,6 +89,12 @@
 
   &.density-compact {
     margin: 0.1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
   }
 }
 

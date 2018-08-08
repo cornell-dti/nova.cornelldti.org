@@ -26,33 +26,18 @@
         </b-col>
       </b-row>
     </page-hero> -->
-    <div class="apply-hero">
-      <visual :video="Strings.get('pages.apply.hero.video', 'assets')" :poster="Strings.get('pages.apply.hero.lazy', 'assets')"
-        background="cover" :fallback="Strings.get('pages.apply.hero.image', 'assets')"
-        class="apply-hero" align="top left" autoplay :loop="true" :muted="true"
-        preload=auto :fill="true" />
-    </div>
-    <b-container>
-      <page-section>
-        <b-row class="justify-content-center apply-top">
-          <b-col sm="12" md="10">
-            <h2>Join Us</h2>
-            <p>
-              We are Cornell Design & Tech Initiative. But indivdually, we are a talented, diverse group of students 
-              from different colleges and countries striving to make a difference in our community. And that is really cool.
-            </p>
-          </b-col>
-        </b-row>
-      </page-section>
-    </b-container>
+
+    <nova-hero header="Join Us" subheader="We are Cornell Design &amo; Tech Initiative. But indivdually, we are a talented, diverse group of students 
+              from different colleges and countries striving to make a difference in our community. And that is really cool."
+      page="apply" />
+
     <b-row class="justify-content-center apply-dates">
       <b-col sm="12" md="5" md-offset="1">
         <h1>Info Sessions</h1>
         <h3>Fall 2018</h3>
         <p>
-          We encourage all interested applicants to attend an info session to find 
-          out more about what we do and talk to us in person. 
-          We hope to see you there!
+          We encourage all interested applicants to attend an info session to find out more
+          about what we do and talk to us in person. We hope to see you there!
         </p>
       </b-col>
       <b-col sm="12" md="5" md-offset="1">
@@ -78,23 +63,28 @@
           </h2>
 
           <div v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.content.lines`, 'apply')">
-            <p v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${section}.content.lines`, 'apply')" :key="line">
-              {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content.lines.${line}`, 'apply')}}
+            <p v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${section}.content.lines`, 'apply')"
+              :key="line">
+              {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content.lines.${line}`,
+              'apply')}}
             </p>
           </div>
           <p v-else>
-            {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content`, 'apply')}}
+            {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content`,
+            'apply')}}
           </p>
         </div>
         <b-row v-else>
 
           <b-col sm v-for="col of ['left', 'right']" :key="col">
-            <h2>{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`, 'apply')}}</h2>
+            <h2>{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`,
+              'apply')}}</h2>
 
-            <p v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')" 
-              v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')" 
+            <p v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')"
+              v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')"
               :key="line">
-              {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content.lines.${line}`, 'apply')}}
+              {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content.lines.${line}`,
+              'apply')}}
             </p>
 
             <p v-else>
@@ -106,7 +96,8 @@
         <b-row class="justify-content-center" v-if="Strings.exists(`application-info.${roleId}.${child}.sections.call-to-action-button.content`, 'apply')">
           <b-col cols="auto">
             <b-button size="lg" variant="secondary" class="text-center">
-              {{Strings.get(`application-info.${roleId}.${child}.sections.call-to-action-button.content`, 'apply')}}
+              {{Strings.get(`application-info.${roleId}.${child}.sections.call-to-action-button.content`,
+              'apply')}}
             </b-button>
           </b-col>
         </b-row>
@@ -195,7 +186,8 @@ export default {
   h2 {
     font-size: 32px;
   }
-  h3, p {
+  h3,
+  p {
     font-size: 20px;
   }
 }
@@ -245,7 +237,8 @@ export default {
           padding-left: 120px;
           border-left: 5px solid black;
 
-          h2, p {
+          h2,
+          p {
             margin: 0;
           }
           h2 {

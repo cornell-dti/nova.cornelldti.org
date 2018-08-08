@@ -79,8 +79,7 @@ export default {
 <style lang="scss" scoped>
 .contact-us {
   min-height: 20vh;
-  margin-top: auto;
-  padding: 5rem 2rem;
+  padding: 2rem 2rem 5rem;
   padding-left: 1rem;
   text-align: center;
 
