@@ -2,7 +2,7 @@
   <div>
     <div class="home">
       <visual :video="aws(Strings.get('pages.home.hero.video', 'assets'))" class="home-background home-preload-background home-background-video"
-        autoplay :fill="true" background="cover" :loop="true" :muted="true" preload=auto
+        autoplay :fill="true" background="cover" :loop="true" :muted="true" preload=auto load-video='visible' :load-poster='true'
       />
       <div class="home-background home-background-overlay" />
       <b-row>
@@ -11,12 +11,13 @@
     </div>
     <text-hero :header="Strings.get('text-hero.header', 'home')" :subheader="Strings.get('text-hero.subheader', 'home')"
     />
+
     <page-sublist :border-padding="true">
-      <quicklink image="/static/pages/projects/hero/hero.png" header="Projects" subheader="What we do >"
+      <quicklink link="/projects" image="/static/pages/projects/hero/hero-lazy.png" header="Projects" subheader="What we do >"
       />
-      <quicklink image="/static/pages/team/hero/hero.png" header="Team" subheader="Who we are >"
+      <quicklink link="/hero" image="/static/pages/team/hero/hero-lazy.png" header="Team" subheader="Who we are >"
       />
-      <quicklink image="/static/pages/initiatives/hero/hero-lazy.png" header="Initiatives" subheader="Why we do it >"
+      <quicklink link="/initiatives" image="/static/pages/initiatives/hero/hero-lazy.png" header="Initiatives" subheader="Why we do it >"
       />
     </page-sublist>
 

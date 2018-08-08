@@ -1,13 +1,14 @@
 <template>
-  <b-row>
+  <b-row :no-gutters="true">
     <b-col cols="12">
       <div class="quicklink-container">
         <div class="quicklink-overlay" />
         <visual width="100vw" height="40vh" background="cover" :image="image" align="middle center">
-
           <div class="quicklink-internal">
-            <div class="quicklink-text quicklink-text-header">{{header}}</div>
-            <div class="quicklink-text quicklink-text-subheader">{{subheader}}</div>
+            <a :href="link">
+              <div class="quicklink-text quicklink-text-header">{{header}}</div>
+              <div class="quicklink-text quicklink-text-subheader">{{subheader}}</div>
+            </a>
           </div>
         </visual>
       </div>
@@ -25,6 +26,9 @@ export default {
       type: String
     },
     subheader: {
+      type: String
+    },
+    link: {
       type: String
     }
   }
@@ -51,6 +55,10 @@ export default {
   .quicklink-internal {
     z-index: 20;
     position: relative;
+
+    a {
+      text-decoration: none !important;
+    }
 
     .quicklink-text {
       &.quicklink-text-header {

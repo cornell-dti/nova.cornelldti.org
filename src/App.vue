@@ -6,6 +6,11 @@
         <router-view class="page-stack-element" />
       </transition>
     </div>
+    <!-- Load low quality heros before pages are loaded -->
+    <div v-for="page of ['home', 'projects', 'initiatives', 'team', 'sponsor', 'apply']"
+      :key="page">
+      <img style="display: none;" :src="Strings.get(`pages.${page}.hero.lazy`, `assets`)" />
+    </div>
   </div>
 </template>
 

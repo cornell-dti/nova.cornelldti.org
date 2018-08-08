@@ -4,7 +4,7 @@
       <visual :video="aws(Strings.get('pages.initiatives.hero.video', 'assets'))" :poster="Strings.get('pages.initiatives.hero.lazy', 'assets')"
         background="cover" :fallback="aws(Strings.get('pages.initiatives.hero.image', 'assets'))"
         class="initiatives-hero" align="top left" autoplay :loop="true" :muted="true"
-        preload=auto :fill="true" />
+        preload=auto :fill="true" load-video='visible' :load-poster='true' />
     </div>
     <b-container>
       <page-section>

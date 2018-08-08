@@ -4,7 +4,7 @@
       <visual :video="aws(Strings.get('pages.team.hero.video', 'assets'))" :poster="Strings.get('pages.team.hero.lazy', 'assets')"
         background="cover" :fallback="aws(Strings.get('pages.team.hero.image', 'assets'))"
         class="team-hero" align="top left" autoplay :loop="true" :muted="true" preload=auto
-        :fill="true" />
+        :fill="true" load-video='visible' :load-poster='true' />
     </div>
     <b-container fluid>
       <text-hero header="Working Together">

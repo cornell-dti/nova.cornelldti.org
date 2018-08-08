@@ -4,7 +4,7 @@
     <div class="projects-hero">
       <visual :video="aws(Strings.get('pages.projects.hero.video', 'assets'))" :poster="Strings.get('pages.projects.hero.lazy', 'assets')"
         background="cover" :fallback="aws(Strings.get('pages.projects.hero.image', 'assets'))"
-        class="projects-hero" align="top left" autoplay :loop="true" :muted="true"
+        class="projects-hero" align="top left" autoplay :loop="true" :muted="true" load-video='visible' :load-poster='true'
         preload=auto :fill="true" />
     </div>
 

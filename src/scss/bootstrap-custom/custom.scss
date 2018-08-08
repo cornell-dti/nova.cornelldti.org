@@ -18,12 +18,47 @@ body.modal-open {
   .navbar-toggler {
     fill: #fff !important;
   }
+  .navbar-nav {
+    .nav-link {
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      color: rgba(255, 255, 255, 0.8);
+      &.active {
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+        color: rgba(255, 255, 255, 1.0);
+      }
+    }
+  }
 }
 
 .navbar-light {
   .navbar-toggler {
     fill: rgba(0, 0, 0, 0.5) !important;
   }
+  .navbar-nav {
+    .nav-link {
+      color: rgba(0, 0, 0, 0.8);
+      &.active {
+        color: rgb(22, 10, 10);
+      }
+    }
+  }
+}
+
+.nav-link {
+  &.active {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+  }
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
 }
 
 .btn {

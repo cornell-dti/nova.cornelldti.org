@@ -1,8 +1,10 @@
 <template>
   <page-section>
     <b-row align-h="center">
-      <b-col sm="12" md="8">
+      <b-col sm="12" md="11">
         <div class="text-hero-header text-center">{{ header }}</div>
+      </b-col>
+      <b-col sm="12" md="8">
         <div class="text-hero-header-subtext text-center">
           <slot />{{ subheader }}</div>
       </b-col>
@@ -28,10 +30,12 @@ export default {
 .text-hero-header {
   font-size: 3rem;
   font-weight: bold;
+  padding: 1rem 0;
 }
 
 .text-hero-header-subtext {
   font-size: 1.5rem;
+  padding: 1rem 0;
 }
 </style>
 
