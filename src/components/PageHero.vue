@@ -1,7 +1,8 @@
 <template>
-  <div :class="['page-header', 'page-hero', this.greyscale ? 'page-hero-greyscale' : '']">
+  <div :style="bg_()" :class="['page-header', 'page-hero', this.greyscale ? 'page-hero-greyscale' : '']">
+    <div class="navbar-padding" />
     <slot>
-      <slot name="inner-content" class="navbar-padding" />
+      <slot name="inner-content" />
     </slot>
   </div>
 </template>

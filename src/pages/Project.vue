@@ -12,7 +12,8 @@
           </b-row>
         </b-col>
         <b-col cols="6" class="project-hero-logo">
-          <b-img class="product" :src="Strings.get(`projects.${projectData.id}.image`, 'assets')" />
+          <b-img class="product" :src="Strings.get(`projects.${projectData.id}.hero-image`, 'assets')"
+          />
         </b-col>
       </b-row>
     </page-hero>
@@ -22,7 +23,7 @@
         <b-col md="10" sm="12">
           <page-section>
             <div class="project-header">Why we built this</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor
+            <div class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor
               sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur
               adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit</div>
           </page-section>
@@ -34,8 +35,8 @@
                 />
               </b-col>
               <b-col cols="5">
-                <div>Lorem ipsum dolor sit amet, consectetur</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
+                <div class="feature-header">Lorem ipsum dolor sit amet, consectetur</div>
+                <div class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
                   dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit
                   amet, consectetur adipiscing elit</div>
               </b-col>
@@ -43,8 +44,8 @@
             <b-row class="feature-padding" />
             <b-row>
               <b-col cols="5">
-                <div>Lorem ipsum dolor sit amet, consectetur</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
+                <div class="feature-header">Lorem ipsum dolor sit amet, consectetur</div>
+                <div class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
                   dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit
                   amet, consectetur adipiscing elit</div>
               </b-col>
@@ -60,8 +61,8 @@
                 />
               </b-col>
               <b-col cols="5">
-                <div>Lorem ipsum dolor sit amet, consectetur</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
+                <div class="feature-header">Lorem ipsum dolor sit amet, consectetur</div>
+                <div class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
                   dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit
                   amet, consectetur adipiscing elit</div>
               </b-col>
@@ -189,9 +190,35 @@ export default {
 }
 
 .project-header {
-  margin-bottom: 3rem;
-  font-size: 4.5rem;
-  font-weight: 400;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.project-description {
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.feature-header {
+  padding-bottom: 1.25rem;
+  font-size: 2.25rem;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
 }
 
 .product {
