@@ -10,46 +10,65 @@
         </b-col>
       </b-row>
       <b-row class="footer" align-v="center">
-        <b-col sm="12" md="6" class="my-auto">
-          <b-img class="wordmark" :src="Strings.get('branding.wordmark', 'assets')" />
-        </b-col>
-        <b-col sm="12" md="6">
-          <b-row align-h="end" align-v="center">
-            <b-col cols="auto">
-              <a href="https://www.facebook.com/cornelldti/">
-                <Facebook class="social-icon social-icon-blank" />
-              </a>
+        <b-col cols="12">
+          <b-row align-h="start" align-v="start" class="mobile-reversed">
+            <b-col md="6" sm="12">
+              <div class="find-us">Find Us</div>
             </b-col>
-            <b-col cols="auto">
-              <a href="https://github.com/cornell-dti/">
-                <Github class="social-icon social-icon-blank" />
-              </a>
+            <b-col md="6" sm="12" class="wordmark-container">
+              <b-img class="wordmark" :src="Strings.get('branding.wordmark', 'assets')" />
             </b-col>
-            <b-col cols="auto">
-              <a href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative">
-                <GooglePlay class="social-icon social-icon-blank" />
-              </a>
-            </b-col>
-            <b-col cols="auto">
+          </b-row>
+          <b-row align-h="start" align-v="end">
+            <b-col md="6" sm="12">
+              <b-row>
+                <b-col cols="auto">
+                  <a href="https://www.facebook.com/cornelldti/">
+                    <Facebook class="social-icon social-icon-blank" />
+                  </a>
+                </b-col>
+                <b-col cols="auto">
+                  <a href="https://github.com/cornell-dti/">
+                    <Github class="social-icon social-icon-blank" />
+                  </a>
+                </b-col>
+                <b-col cols="auto">
+                  <a href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative">
+                    <GooglePlay class="social-icon social-icon-blank" />
+                  </a>
+                </b-col>
 
-              <a href="http://appstore.com/cornelldti">
-                <!--TODO get the actual link-->
-                <AppStore class="social-icon social-icon-blank" />
-              </a>
+                <b-col cols="auto">
+
+                  <a href="http://appstore.com/cornelldti">
+                    <!--TODO get the actual link-->
+                    <AppStore class="social-icon social-icon-blank" />
+                  </a>
+                </b-col>
+                <b-col cols="auto">
+                  <a href="https://medium.com/cornell-design-tech-initiative/">
+                    <Medium class="social-icon social-icon-blank" />
+                  </a>
+                </b-col>
+              </b-row>
             </b-col>
-            <b-col cols="auto">
-              <a href="https://medium.com/cornell-design-tech-initiative/">
-                <Medium class="social-icon social-icon-blank" />
-              </a>
+            <b-col sm="12" md="6" class="my-auto">
+
+              <b-row align-h="end" align-v="end">
+                <b-col>
+                  <div class="copyright">&copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
+                    Initiative
+                  </div>
+                </b-col>
+              </b-row>
             </b-col>
+
           </b-row>
-          <b-row class="copyright" align-h="end" align-v="center">
-            <b-col cols="auto">
-              <div>&copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
-                Initiative
-              </div>
-            </b-col>
-          </b-row>
+        </b-col>
+      </b-row>
+      <b-row align-v="end" align-h="center" class="footer-graphic">
+        <b-col md="10" sm="11">
+          <Footer class="graphic" />
         </b-col>
       </b-row>
     </b-container>
@@ -63,6 +82,7 @@ import Github from '@/assets/social/github.svg';
 import GooglePlay from '@/assets/social/google-play.svg';
 import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
+import Footer from '@/assets/footer/footer.svg';
 
 export default {
   components: {
@@ -71,7 +91,8 @@ export default {
     Dribbble,
     Github,
     GooglePlay,
-    Medium
+    Medium,
+    Footer
   }
 };
 </script>
@@ -99,12 +120,50 @@ export default {
   }
 }
 
+.footer-graphic {
+  background-color: #4a4a4a;
+  overflow: hidden;
+
+  .graphic {
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-reversed {
+    flex-direction: column-reverse;
+  }
+}
+
 .footer {
   background-color: #4a4a4a;
   margin-top: auto;
   padding: 2rem;
   padding-left: 1rem;
   min-height: 20vh;
+
+  .find-us {
+    font-size: 2.25rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    color: #ffffff;
+    text-align: left;
+
+     @media (min-width: 768px) {
+      padding-bottom: 3.125rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .find-us {
+      align-self: center;
+      text-align: center;
+    }
+  }
 
   @media (max-width: 767px) {
     .row {
@@ -117,6 +176,22 @@ export default {
   .copyright {
     margin-top: 0.1rem;
     color: rgb(255, 255, 255);
+    font-size: 1.125rem;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    text-align: right;
+
+
+  }
+
+  @media (max-width: 767px) {
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+    }
   }
 
   .statement {
@@ -131,8 +206,21 @@ export default {
   }
 
   .wordmark {
-    max-height: 8vh;
-    height: 8vh;
+    max-height: 3.75rem;
+    height: 3.75rem;
+    padding-bottom: 0.5rem;
+    object-fit: contain;
+  }
+
+  .wordmark-container {
+    text-align: right;
+  }
+
+  @media (max-width: 767px) {
+    .wordmark-container {
+      display: none;
+      // text-align: center;
+    }
   }
 }
 .social-icon {
