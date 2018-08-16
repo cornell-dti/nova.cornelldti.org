@@ -1,32 +1,5 @@
 <template class="applyPage">
   <page-background>
-    <!-- <page-hero>
-      <b-row align-h="center" class="text-center no-gutters h-50">
-        <b-col cols="auto" class="my-auto">
-          <b-row align-h="center" class="no-gutters">
-            <b-col cols="auto">
-              <h2 class="text-header">Applications are currently closed.</h2>
-              <p>Subscribe to our newsletter to stay updated on the application process.</p>
-            </b-col>
-          </b-row>
-          <b-row align-h="center">
-            <b-form inline @submit="onSubscribe">
-              <b-input-group>
-                <label class="sr-only" for="newsletterEmailSubscribeInput">Email</label>
-                <b-input required id="newsletterEmailSubscribeInput" v-model="email" type="email"
-                  placeholder="Email" />
-              </b-input-group>
-              <b-button type="submit">Subscribe</b-button>
-            </b-form>
-          </b-row>
-          <b-row align-h="center">
-            <b-alert :show="msgShow" :variant="msgVariant" v-html="msgContent">
-            </b-alert>
-          </b-row>
-        </b-col>
-      </b-row>
-    </page-hero> -->
-
     <nova-hero header="Join Us" subheader="We are Cornell Design &amo; Tech Initiative. But indivdually, we are a talented, diverse group of students 
               from different colleges and countries striving to make a difference in our community. And that is really cool."
       page="apply" />
@@ -48,13 +21,11 @@
       </b-col>
     </b-row>
     <b-container>
-
-      <role-selector v-model="roleId" dropdownText="I want to be..." :bold="true" :showAll="false"
-      />
-
+      <role-selector v-model="roleId" dropdownText="I want to be..." :bold="true" :showAll="false" />
       <timeline-section v-for="child of Strings.childrenOf(`application-info.${roleId}`, `apply`)"
         :key="child" :header="Strings.get(`application-info.${roleId}.${child}.header`, `apply`)"
         :rightHeader="Strings.get(`application-info.${roleId}.${child}.right-header`, `apply`)">
+        
         <div v-if="Strings.exists(`application-info.${roleId}.${child}.sections.1`, 'apply')"
           v-for="section of Strings.childrenOf(`application-info.${roleId}.${child}.sections`, 'apply')"
           :key="section">

@@ -114,6 +114,11 @@
   }
 
   &:nth-child(odd) {
+    text-align: right;
+    .sponsor-row-img {
+      text-align: left;
+    }
+
     .sponsor-row-content-container {
       padding-left: 80px;
 
@@ -124,6 +129,12 @@
   }
 
   &:nth-child(even) {
+    text-align: left;
+
+    .sponsor-row-img {
+      text-align: right;
+    }
+
     .sponsor-row-content-container {
       padding-right: 80px;
 

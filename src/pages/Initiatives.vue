@@ -128,6 +128,10 @@ $dark-gray: #4a4a4a;
   &:nth-child(even) {
     text-align: right;
 
+    .initiative-row-img {
+      text-align: left;
+    }
+
     .initiative-row-content-container {
       padding-left: 80px;
 
@@ -140,6 +144,10 @@ $dark-gray: #4a4a4a;
   // Even rows (left aligned)
   &:nth-child(odd) {
     text-align: left;
+
+    img {
+      text-align: right;
+    }
 
     .initiative-row-content-container {
       padding-right: 80px;
@@ -198,10 +206,11 @@ $dark-gray: #4a4a4a;
   align-items: center;
   background-color: $dark-gray;
   border-radius: 10px;
+  font-size: 1.17em;
   display: inline-flex;
-  margin: 38px 0;
+  margin: 28px 0;
   justify-content: center;
-  padding: 10px 20px;
+  padding: 10px 15px;
 
   .social-button-text {
     border-left: 1px solid white;

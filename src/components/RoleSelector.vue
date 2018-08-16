@@ -1,4 +1,4 @@
- <template>
+<template>
   <div>
     <b-row class="filter-btn-group desktop-selector-container">
       <b-col v-if="showAll" :cols="density == 'compact' ? 'auto' : null" class="my-auto text-center">
