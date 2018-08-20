@@ -36,8 +36,13 @@
   width: 100%;
   max-width: 100%;
   object-fit: cover;
-
   box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.6);
+}
+
+.project-card:hover {
+  width: 101%;
+  max-width: 101%;
+  margin: 0.75vw -0.25vw;
 }
 </style>
 
