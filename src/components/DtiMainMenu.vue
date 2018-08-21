@@ -56,8 +56,9 @@ export default {
   },
   methods: {
     onScroll(window) {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
+      const yOffset =
+        window.pageYOffset || window.scrollY || pageYOffset || scrollY || document.documentElement.scrollTop;
+      const scrollTop = yOffset - (document.documentElement.clientTop || 0);
 
       if (typeof this.$refs.dtinavbar !== 'undefined') {
         this.transparent = scrollTop <= this.$refs.dtinavbar.clientHeight;
