@@ -1,31 +1,38 @@
 <template class="applyPage">
   <page-background>
-    <nova-hero header="Join Us" subheader="We are Cornell Design &amo; Tech Initiative. But indivdually, we are a talented, diverse group of students 
-              from different colleges and countries striving to make a difference in our community. And that is really cool."
+    <nova-hero :header="Strings.get('hero.header', 'apply')" :subheader="Strings.get('hero.subheader', 'apply')"
       page="apply" />
 
     <b-row class="justify-content-center apply-dates">
       <b-col sm="12" md="5" md-offset="1">
-        <h1>Info Sessions</h1>
-        <h3>Fall 2018</h3>
+        <h1>{{ Strings.get('info-session.header', 'apply') }}</h1>
+        <h3>{{ Strings.get('info-session.subheader', 'apply') }}</h3>
         <p>
-          We encourage all interested applicants to attend an info session to find out more
-          about what we do and talk to us in person. We hope to see you there!
+          {{ Strings.get('info-session.description', 'apply') }}
         </p>
       </b-col>
       <b-col sm="12" md="5" md-offset="1">
-        <h2>Tuesday, 9/10 • 5:30 PM</h2>
-        <h3>Upson Hall 216 • Facebook Event</h3>
-        <h2>Thursday, 9/12 • 5:30 PM</h2>
-        <h3>Goldwin Smith Hall 132 • Facebook Event</h3>
+        <h2>{{ Strings.get('info-sessions.1.time', 'apply') }}</h2>
+        <h3>{{ Strings.get('info-sessions.1.location', 'apply') }}
+          <a :href="Strings.get('info-sessions.1.link.url', 'apply')">
+            {{Strings.get('info-sessions.1.link.text', 'apply')}}
+          </a>
+        </h3>
+        <h2>{{ Strings.get('info-sessions.2.time', 'apply') }}</h2>
+        <h3>{{ Strings.get('info-sessions.2.location', 'apply') }}
+          <a :href="Strings.get('info-sessions.2.link.url', 'apply')">
+            {{Strings.get('info-sessions.2.link.text', 'apply')}}
+          </a>
+        </h3>
       </b-col>
     </b-row>
     <b-container>
-      <role-selector v-model="roleId" dropdownText="I want to be..." :bold="true" :showAll="false" />
+      <role-selector v-model="roleId" dropdownText="I want to be..." :bold="true" :showAll="false"
+      />
       <timeline-section v-for="child of Strings.childrenOf(`application-info.${roleId}`, `apply`)"
         :key="child" :header="Strings.get(`application-info.${roleId}.${child}.header`, `apply`)"
         :rightHeader="Strings.get(`application-info.${roleId}.${child}.right-header`, `apply`)">
-        
+
         <div v-if="Strings.exists(`application-info.${roleId}.${child}.sections.1`, 'apply')"
           v-for="section of Strings.childrenOf(`application-info.${roleId}.${child}.sections`, 'apply')"
           :key="section">
@@ -49,7 +56,8 @@
 
           <b-col sm v-for="col of ['left', 'right']" :key="col">
             <h2>{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`,
-              'apply')}}</h2>
+              'apply')}}
+            </h2>
 
             <p v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')"
               v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')"
