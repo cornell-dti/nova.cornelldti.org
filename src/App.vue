@@ -7,7 +7,7 @@
       </transition>
     </div>
     <!-- Load low quality heros before pages are loaded -->
-    <div v-for="page of ['home', 'projects', 'initiatives', 'team', 'sponsor', 'apply']"
+    <div v-for="page of ['projects', 'initiatives', 'team', 'sponsor', 'apply']"
       :key="page">
       <img style="display: none;" :src="Strings.get(`pages.${page}.hero.lazy`, `assets`)" />
     </div>

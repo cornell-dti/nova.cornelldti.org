@@ -1,6 +1,6 @@
 [
   { "id": "pm", "name": "Product" },
   { "id": "designer", "name": "Design" },
-  { "id": "developer", "name": "Develop" },
+  { "id": "developer", "name": "Development" },
   { "id": "business", "name": "Business" }
 ]

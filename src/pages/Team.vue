@@ -12,9 +12,7 @@
             <b-col sm="12" md="9">
               <div class="team-header diversity-header my-auto">Diversity</div>
               <div class="diversity-description my-auto lg-y-padding">More than just being inclusive, our team strives to bring as many backgrounds
-                and perspectives together to solve community problems. These statistics
-                come from recruiting across campus and seeking applicants with the
-                best skills and potential for growth on the team.</div>
+                and perspectives together to solve community problems.</div>
 
               <h3 class="graph-header text-center lg-y-padding">Gender Ratio</h3>
 
@@ -70,12 +68,16 @@
       <page-section>
         <div class="team-header">Team</div>
 
-        <role-selector density="normal" class="team-role-selector" v-model="roleId" />
-
         <!-- TODO actual padding --><br>
 
-        <headshot-grid :members="[...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
-        />
+        <b-row align-h="center">
+          <b-col cols="12">
+            <role-selector density="normal" class="team-role-selector" v-model="roleId" />
+
+            <headshot-grid :members="[...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
+            />
+          </b-col>
+        </b-row>
 
       </page-section>
     </b-container>
@@ -148,7 +150,7 @@ $secondary: #f6f6f6;
 }
 
 .graph-datum {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -164,6 +166,7 @@ $secondary: #f6f6f6;
 }
 
 .team-role-selector {
+   margin: 0 auto;
   padding: 0 1vw;
   font-size: 1.5rem;
   font-weight: 600;
@@ -235,11 +238,11 @@ $secondary: #f6f6f6;
   color: #fefefe !important;
 
   .diversity-inner-right {
-    padding: 4.5rem 4.5rem 4.5rem 0;
+    padding: 2rem 3.5rem 2rem 0;
   }
 
   .diversity-inner-left {
-    padding: 4.5rem 0 4.5rem 4.5rem;
+    padding: 2rem 0 2rem 3.5rem;
   }
 
   .sm-y-padding {
@@ -247,7 +250,7 @@ $secondary: #f6f6f6;
   }
 
   .lg-y-padding {
-    padding: 1.75rem 0;
+    padding: 1rem 0;
   }
 
   .diversity-stat-header {

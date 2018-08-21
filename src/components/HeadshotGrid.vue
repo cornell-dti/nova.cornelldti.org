@@ -1,5 +1,5 @@
 <template>
-  <div class="headshot-grid d-flex flex-row flex-wrap justify-content-center">
+  <div class="headshot-grid d-flex flex-row flex-wrap justify-content-start">
     <!-- v-for="row in rows()" :key="row.index" -->
     <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
       <div v-if="member.phantom" class="phantom-headshot-card ">
@@ -16,7 +16,6 @@
 
 <style lang="scss" scoped>
 .headshot-grid {
-  max-width: 88rem;
 }
 
 .phantom-headshot-card {

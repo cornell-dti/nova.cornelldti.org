@@ -2,7 +2,7 @@
   <div>
     <b-container fluid class="h-100">
       <b-row class="contact-us" align-h="center" align-v="center">
-        <b-col cols="auto" align-self="center">
+        <b-col sm="12" md="auto" align-self="center">
           <div class="contact-us-prompt">
             Have a question or a great idea? Let us know!
           </div>
@@ -103,6 +103,7 @@ export default {
   padding: 2vw 2rem 6vw;
   padding-left: 1rem;
   text-align: center;
+  overflow: hidden;
 
   .contact-us-prompt {
     font-size: 2rem;
@@ -110,6 +111,7 @@ export default {
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
+    text-overflow: wrap;
     letter-spacing: 0.3px;
     text-align: center;
     color: #000000;
@@ -139,8 +141,7 @@ export default {
 .footer {
   background-color: #4a4a4a;
   margin-top: auto;
-  padding: 2rem;
-  padding-left: 1rem;
+  padding: 2rem 3rem;
   min-height: 20vh;
 
   .find-us {

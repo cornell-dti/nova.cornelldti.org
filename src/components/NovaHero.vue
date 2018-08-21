@@ -29,18 +29,20 @@
   position: relative;
 }
 
+$height: 65vh;
+
 .nova-hero-overlay {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 80vh;
+  height: $height;
   width: 100vw;
 }
 
 .nova-hero-visual {
-  height: 80vh;
+  height: $height;
   width: 100vw;
   position: relative;
   overflow: hidden;

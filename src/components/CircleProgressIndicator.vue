@@ -18,8 +18,8 @@
 <script >
 import { PathTemplate } from '../path';
 
-const OUTER_RADIUS = 175;
-const INNER_RADIUS = 155;
+const OUTER_RADIUS = 150;
+const INNER_RADIUS = 135;
 
 const INNER_X_PARAM = 'innerX';
 const INNER_Y_PARAM = 'innerY';
@@ -201,8 +201,8 @@ export default {
 $circle-background-color: #ececec;
 $circle-fill-color: #ff324a;
 $circle-border-color: grey;
-$circle-size: 350px;
-$inset-size: 290px;
+$circle-size: 300px;
+$inset-size: 270px;
 $inset-color: #fefefe;
 
 .circle-progress {

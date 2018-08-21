@@ -16,16 +16,18 @@
         <div :class="selectorCSS(roleId === role.id, dark)" />
       </b-col>
     </b-row>
-    <b-row class="mobile-selector-container text-center">
-      <b-col>
+    <b-row align-h="center" class="mobile-selector-container text-center">
+      <b-col cols="auto">
         {{ dropdownText }}
         <b-form-select @change="handleMobileSelection" id="mobile-apply-dropdown" v-model="roleId">
+          <option v-if="showAll" :value="''">
+            All
+          </option>
           <option v-for="role of this.roles === null ? getRoles() : this.roles" :key="role.id"
             :value="role.id">
             {{role.name}}
           </option>
         </b-form-select>
-        <span>⇩</span>
       </b-col>
     </b-row>
   </div>
@@ -148,13 +150,18 @@
 
     #mobile-apply-dropdown {
       background: transparent;
-      border: 0;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      /* margin: 2rem 0.2rem; */
+      -webkit-box-shadow: none;
       box-shadow: none;
-      display: inline;
+      /* display: inline; */
       font-weight: bold;
-      padding: 0;
-      text-decoration: underline;
+      padding: 0.5rem 0.5rem;
       width: auto;
+      text-decoration: underline;
+      font-size: 2rem;
+      min-height: 4rem;
+      /* font-size: 1.8rem; */
     }
   }
 }
