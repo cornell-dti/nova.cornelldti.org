@@ -41,6 +41,7 @@
 .filter-btn,
 .selected-filter-btn {
   margin: 1rem;
+  margin-bottom: 0rem;
   background-color: transparent;
   display: inline-block;
   text-align: center;

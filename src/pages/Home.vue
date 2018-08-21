@@ -2,8 +2,8 @@
   <div>
     <div class="home">
       <visual :video="aws(Strings.get('pages.home.hero.video', 'assets'))" class="home-background home-preload-background home-background-video"
-        autoplay :fill="true" background="cover" :loop="true" :muted="true" preload=auto load-video='visible' :load-poster='true'
-      />
+        autoplay :fill="true" background="cover" :loop="true" :muted="true" preload=auto
+        load-video='visible' :load-poster='true' />
       <div class="home-background home-background-overlay" />
       <b-row>
         <h1 class="home-overlay-text">Cornell Design <br />&amp; Tech Initiative</h1>
@@ -13,11 +13,14 @@
     />
 
     <page-sublist :border-padding="true">
-      <quicklink link="/projects" image="/static/pages/projects/hero/hero-lazy.png" header="Projects" subheader="What we do >"
+      <quicklink :link="Strings.get('quicklinks.projects.link', 'home')" :image="Strings.get(`pages.projects.hero.lazy`, 'assets')"
+        :header="Strings.get('quicklinks.projects.header', 'home')" :subheader="Strings.get('quicklinks.projects.subheader', 'home')"
       />
-      <quicklink link="/hero" image="/static/pages/team/hero/hero-lazy.png" header="Team" subheader="Who we are >"
+      <quicklink :link="Strings.get('quicklinks.team.link', 'home')" :image="Strings.get(`pages.team.hero.lazy`, 'assets')"
+        :header="Strings.get('quicklinks.team.header', 'home')" :subheader="Strings.get('quicklinks.team.subheader', 'home')"
       />
-      <quicklink link="/initiatives" image="/static/pages/initiatives/hero/hero-lazy.png" header="Initiatives" subheader="Why we do it >"
+      <quicklink :link="Strings.get('quicklinks.initiatives.link', 'home')" :image="Strings.get(`pages.initiatives.hero.lazy`, 'assets')"
+        :header="Strings.get('quicklinks.initiatives.header', 'home')" :subheader="Strings.get('quicklinks.initiatives.subheader', 'home')"
       />
     </page-sublist>
 

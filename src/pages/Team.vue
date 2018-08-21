@@ -166,7 +166,8 @@ $secondary: #f6f6f6;
 }
 
 .team-role-selector {
-   margin: 0 auto;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
   padding: 0 1vw;
   font-size: 1.5rem;
   font-weight: 600;

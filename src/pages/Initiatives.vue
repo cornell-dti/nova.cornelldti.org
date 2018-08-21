@@ -14,7 +14,7 @@
             <h2>Ready, Set, Make!</h2>
             <h3>Inspiring future generations.</h3>
             <p class="initiative-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University
+              Cornell Design &amp; Tech Initiative is an student project team at Cornell University
               dedicated to creating web and mobile apps that iimprove the lives around
               us. We are a team fo 60 developers, designers, and product managers
               united in the goal to use our skills to make a positive impact in our
@@ -36,7 +36,7 @@
             <h2>DTI Blueprint</h2>
             <h3>Fostering Mentorship.</h3>
             <p class="initiative-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University
+              Cornell Design &amp; Tech Initiative is an student project team at Cornell University
               dedicated to creating web and mobile apps that iimprove the lives around
               us. We are a team fo 60 developers, designers, and product managers
               united in the goal to use our skills to make a positive impact in our
@@ -48,9 +48,9 @@
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="6" class="initiative-row-content-container" order-md="1" order-sm="2">
-            <h2>Events & Workshops</h2>
+            <h2>Events &amp; Workshops</h2>
             <p class="initiative-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University
+              Cornell Design &amp; Tech Initiative is an student project team at Cornell University
               dedicated to creating web and mobile apps that iimprove the lives around
               us. We are a team fo 60 developers, designers, and product managers
               united in the goal to use our skills to make a positive impact in our

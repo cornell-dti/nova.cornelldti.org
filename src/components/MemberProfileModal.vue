@@ -17,8 +17,8 @@
                 />
               </b-col>
               <b-col class="my-auto">
-                <h1>{{profile.name}}</h1>
-                <h4 class="text-dark">{{profile.role}}</h4>
+                <div class="profile-name-header">{{profile.name}}</div>
+                <div class="profile-role text-dark">{{profile.role}}</div>
               </b-col>
             </b-row>
           </b-col>
@@ -27,22 +27,14 @@
         <b-row class="modal-scroll">
           <b-col sm="12" md="8" class="about-section">
             <b-row>
-              <b-col>
-                <h3>About Me</h3>
-                <p>{{typeof profile.about !== 'undefined' ? profile.about : `Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Integer ut leo bibendum
-                  lorem vestibulum laoreet eget vitae tortor. Phasellus mauris ante,
-                  euismod quis feugiat dignissim, fringilla et arcu. Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Donec placerat accumsan
-                  nibh, eu imperdiet odio ornare et. Mauris feugiat magna a lacus
-                  tincidunt dapibus. Sed egestas, diam eget congue cursus, nibh ipsum
-                  lacinia nisl, nec imperdiet est ante vitae diam. Duis pulvinar
-                  vehicula fringilla.`}}</p>
+              <b-col v-if="typeof profile.about !== 'undefined'">
+                <div class="member-modal-header">About Me</div>
+                <p>{{profile.about}}</p>
               </b-col>
             </b-row>
             <b-row v-if="typeof profile.teams !== 'undefined' && profile.teams.length > 0">
               <b-col>
-                <h3>Team Work</h3>
+                <div class="member-modal-header">Team Work</div>
                 <b-row v-for="team in profile.teams" :key="team.name">
                   <b-col cols="2" class="my-auto">
                     <b-img :src="team.logo" :alt="team.name" height="64px" width="64px" />
@@ -138,6 +130,38 @@ export default {
 $radius: 25px;
 
 #memberModal {
+  .member-modal-header {
+    font-size: 2.25rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #000000;
+  }
+
+  .profile-name-header {
+    font-size: 3rem;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #000000;
+  }
+
+  .profile-role {
+    opacity: 0.8;
+    font-family: Raleway;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #000000;
+  }
+
   .modal-content {
     border: none !important;
     border-radius: ($radius + 5) !important;
@@ -146,6 +170,8 @@ $radius: 25px;
   .modal-close-button {
     opacity: 1;
     color: #4a4a4a;
+    background-color: transparent;
+    border: none;
     float: right;
     margin-left: auto;
   }
@@ -164,9 +190,9 @@ $radius: 25px;
     overflow: hidden;
 
     .profile-image {
-      height: 8.75rem;
-      width: 8.75rem;
-      border: 0.125rem white solid;
+      height: 9.375rem;
+      width: 9.375rem;
+      border: 0.05rem #979797 solid;
     }
 
     @media (min-width: 768px) {
