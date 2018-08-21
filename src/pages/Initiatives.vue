@@ -7,7 +7,7 @@
     <page-section>
       <b-container>
         <b-row align-h="center" align-v="center" class="initiative-row">
-          <b-col  align-h="left" sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="1">
+          <b-col sm="12" md="auto" class="initiative-row-img" order-md="2" order-sm="1">
             <b-img height="300" :src="Strings.get('promo.makeathon', 'assets')" />
           </b-col>
           <b-col sm="12" md="6" order-md="1" order-sm="2">
@@ -29,7 +29,7 @@
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
-          <b-col align-h="left" sm="12" md="6" class="initiative-row-img" order-md="1" order-sm="1">
+          <b-col sm="12" md="auto" class="initiative-row-img" order-md="1" order-sm="1">
             <b-img height="300" :src="Strings.get('promo.blueprint', 'assets')" />
           </b-col>
           <b-col sm="12" md="6" class="initiative-row-content-container" order-md="2" order-sm="2">
@@ -65,7 +65,7 @@
               </div>
             </b-button>
           </b-col>
-          <b-col  align-h="right" sm="12" md="6" class="initiative-row-img" order-md="2" order-sm="1">
+          <b-col sm="12" md="auto" class="initiative-row-img" order-md="2" order-sm="1">
             <b-img height="300" :src="Strings.get('promo.halfbaked', 'assets')" />
           </b-col>
         </b-row>
@@ -126,6 +126,7 @@ $dark-gray: #4a4a4a;
 
   // Odd rows (right aligned)
   &:nth-child(even) {
+    margin-left: auto;
     text-align: right;
 
     .initiative-row-img {
