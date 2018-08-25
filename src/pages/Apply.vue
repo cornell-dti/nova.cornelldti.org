@@ -3,32 +3,47 @@
     <nova-hero :header="Strings.get('hero.header', 'apply')" :subheader="Strings.get('hero.subheader', 'apply')"
       page="apply" />
 
-    <b-row class="justify-content-center apply-dates">
-      <b-col sm="12" md="5" md-offset="1">
-        <h1>{{ Strings.get('info-session.header', 'apply') }}</h1>
-        <h3>{{ Strings.get('info-session.subheader', 'apply') }}</h3>
-        <div class="apply-description">
+    <b-row class="justify-content-center info-session-interjection">
+      <b-col class="info-session-description" sm="12" md="4" md-offset="1">
+        <div class="header">{{ Strings.get('info-session.header', 'apply') }}</div>
+        <div class="subheader">{{ Strings.get('info-session.subheader', 'apply') }}</div>
+        <div class="description">
           {{ Strings.get('info-session.description', 'apply') }}
         </div>
       </b-col>
-      <b-col sm="12" md="5" md-offset="1">
-        <h2>{{ Strings.get('info-sessions.1.time', 'apply') }}</h2>
-        <h3>{{ `${Strings.get('info-sessions.1.location', 'apply')} • ` }}
-          <a class="apply-link" :href="Strings.get('info-sessions.1.link.url', 'apply')">
-            {{Strings.get('info-sessions.1.link.text', 'apply')}}
-          </a>
-        </h3>
-        <h2>{{ Strings.get('info-sessions.2.time', 'apply') }}</h2>
-        <h3>{{ `${Strings.get('info-sessions.2.location', 'apply')} • ` }}
-          <a class="apply-link" :href="Strings.get('info-sessions.2.link.url', 'apply')">
-            {{Strings.get('info-sessions.2.link.text', 'apply')}}
-          </a>
-        </h3>
+      <b-col class="info-session-details" sm="12" md="auto" md-offset="1">
+        <b-row class="h-100" align-h="center" align-v="center">
+          <b-col cols="auto">
+            <div class="info-session h-50">
+              <div class="time">{{ Strings.get('info-sessions.1.time', 'apply') }}</div>
+              <div class="location">{{ `${Strings.get('info-sessions.1.location', 'apply')}${Strings.exists('info-sessions.1.link.url',
+                'apply') ? ' • ' : ''}` }}
+                <a v-if="Strings.exists('info-sessions.1.link.url', 'apply')" class="apply-link"
+                  :href="Strings.get('info-sessions.1.link.url', 'apply')">
+                  {{Strings.get('info-sessions.1.link.text', 'apply')}}
+                </a>
+              </div>
+            </div>
+            <div class="info-session h-50">
+              <div class="time">{{ Strings.get('info-sessions.2.time', 'apply') }}</div>
+              <div class="location">{{ `${Strings.get('info-sessions.2.location', 'apply')}${Strings.exists('info-sessions.2.link.url',
+                'apply') ? ' • ' : ''}` }}
+                <a v-if="Strings.exists('info-sessions.2.link.url', 'apply')" class="apply-link"
+                  :href="Strings.get('info-sessions.2.link.url', 'apply')">
+                  {{Strings.get('info-sessions.2.link.text', 'apply')}}
+                </a>
+              </div>
+            </div>
+            </div>
+          </b-col>
+        </b-row>
       </b-col>
     </b-row>
+
     <b-container>
-      <role-selector v-model="roleId" dropdownText="I want to be..." :bold="true" :showAll="false"
+      <role-selector class="application-role-selector" v-model="roleId" dropdownText="I want to apply for..." :bold="true" :showAll="false"
       />
+
       <timeline-section v-for="child of Strings.childrenOf(`application-info.${roleId}`, `apply`)"
         :key="child" :header="Strings.get(`application-info.${roleId}.${child}.header`, `apply`)"
         :rightHeader="Strings.get(`application-info.${roleId}.${child}.right-header`, `apply`)">
@@ -36,9 +51,9 @@
         <div v-if="Strings.exists(`application-info.${roleId}.${child}.sections.1`, 'apply')"
           v-for="section of Strings.childrenOf(`application-info.${roleId}.${child}.sections`, 'apply')"
           :key="section">
-          <h2 class="apply-header" v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.header`, 'apply')">
+          <div class="apply-header" v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.header`, 'apply')">
             {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.header`, 'apply')}}
-          </h2>
+          </div>
 
           <div class="apply-list" v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.content.lines`, 'apply')">
             <div class="apply-list-item" v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${section}.content.lines`, 'apply')"
@@ -55,9 +70,9 @@
         <b-row v-else>
 
           <b-col sm v-for="col of ['left', 'right']" :key="col">
-            <h2 class="apply-header" >{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`,
+            <div class="apply-header">{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`,
               'apply')}}
-            </h2>
+            </div>
 
             <div class="apply-list" v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')">
               <div class="apply-list-item" v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')"
@@ -83,6 +98,8 @@
         </b-row>
       </timeline-section>
     </b-container>
+
+    <dti-footer page="apply" />
   </page-background>
 </template>
 
@@ -134,13 +151,86 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style scoped lang="scss">
+.application-role-selector {
+  margin: 2rem 0;
+}
+
+.info-session-interjection {
+  background-color: rgb(255, 71, 92);
+  color: #fff;
+  margin: 4vw 0;
+  padding: 5rem 4vw;
+
+  .info-session-description {
+    padding-right: 4vw;
+
+    .header {
+      font-size: 3rem;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.3px;
+    }
+
+    .subheader {
+      font-size: 20px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.4;
+      letter-spacing: 0.3px;
+    }
+
+    .description {
+      margin-top: 2.5rem;
+      font-size: 20px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.4;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  .info-session-details {
+    padding-left: 4vw;
+
+    .info-session {
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+
+      .time {
+        margin-bottom: 0.3125rem;
+        font-size: 2rem;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.3px;
+      }
+      .location {
+        margin-top: 0.3125rem;
+        font-size: 1.25rem;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.3px;
+        .apply-link {
+        }
+      }
+    }
+  }
+}
+
 .apply-link {
   color: #fff;
 }
 
 .apply-description {
-  margin: 0.25rem 0 1.5rem;
+  margin: 0.25rem 0 2.5rem;
 }
 
 .apply-list {
@@ -148,7 +238,14 @@ export default {
 }
 
 .apply-header {
-  margin-bottom: 0.25rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #000000;
 }
 .apply-list-item {
   margin-bottom: 0.1rem;
@@ -174,11 +271,6 @@ export default {
   }
 }
 .row.apply-dates {
-  background-color: #ff324a;
-  color: white;
-  margin: 4vw 0;
-  padding: 4vw;
-
   h1 {
     font-size: 48px;
   }

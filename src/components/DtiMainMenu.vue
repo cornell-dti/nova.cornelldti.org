@@ -57,7 +57,11 @@ export default {
   methods: {
     onScroll(window) {
       const yOffset =
-        window.pageYOffset || window.scrollY || pageYOffset || scrollY || document.documentElement.scrollTop;
+        window.pageYOffset ||
+        window.scrollY ||
+        pageYOffset ||
+        scrollY ||
+        document.documentElement.scrollTop;
       const scrollTop = yOffset - (document.documentElement.clientTop || 0);
 
       if (typeof this.$refs.dtinavbar !== 'undefined') {
@@ -88,6 +92,8 @@ export default {
 .brand-icon {
   width: 8vh;
   height: 8vh;
+  border-radius: 50%;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.3);
 }
 
 .navbar-dti {

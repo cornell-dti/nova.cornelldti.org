@@ -1,13 +1,16 @@
 <template>
   <section>
-    <b-row align-v="center">
+    <b-row class="timeline-header" align-v="center">
       <b-col class="left-col-text" sm>
-        <h1 class="container-section-heading">{{header}}
-          <slot name="header" />
-        </h1>
+        <div v-if="header" class="container-section-heading">
+          {{header}}
+        </div>
+        <slot v-else name="header" />
       </b-col>
-      <b-col class="right-col-text" sm>
+      <b-col cols="auto" align-self="end" v-if="rightHeader" class="right-col-text">
         {{rightHeader}}
+      </b-col>
+      <b-col cols="auto" align-self="end" v-else>
         <slot name="rightHeader" />
       </b-col>
     </b-row>
@@ -18,29 +21,35 @@
 </template>
 
 <style lang="scss" scoped>
+.right-col-text {
+  opacity: 0.8;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #000000;
+}
+
+.timeline-header {
+  margin-bottom: 2.5rem;
+}
+
+.container-section-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #000000;
+}
+
 .timeline-content {
   padding-left: 120px;
-  border-left: 5px solid black;
+  border-left: 0.625rem solid black;
 
-  h2,
-  p {
-    margin: 0;
-  }
-  h2 {
-    font-size: 22px;
-  }
-  p {
-    font-size: 18px;
-  }
-  h2 + p {
-    margin-top: 22px;
-  }
-  p + h2 {
-    margin-top: 40px;
-  }
-  & + .row {
-    margin-top: 52px;
-  }
   @media screen and (max-width: 768px) {
     padding-left: 30px;
   }

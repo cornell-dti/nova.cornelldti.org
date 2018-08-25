@@ -56,6 +56,11 @@ export default {
   padding: 2vh 1vw;
 }
 
+.headshot-card:hover {
+  box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
 .headshot-card {
   text-align: left;
   margin-left: auto;

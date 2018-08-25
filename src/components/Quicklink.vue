@@ -80,6 +80,7 @@ $height: 50vh;
       }
 
       &.quicklink-text-subheader {
+        margin-top: 1.25rem;
         font-size: 1.5rem;
         font-weight: 600;
         font-style: normal;

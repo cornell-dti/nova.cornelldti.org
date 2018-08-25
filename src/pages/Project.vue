@@ -107,7 +107,7 @@
       </b-row>
     </b-container>
 
-    <dti-footer />
+    <dti-footer page="project" />
   </page-background>
 </template>
 

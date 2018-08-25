@@ -4,7 +4,7 @@
               of students from different colleges and countries striving to make a difference in our community."
       page="projects" />
 
-    <page-section>
+    <page-section class="project-page-main-section">
       <b-row class="project-row" v-for="projectRow in projectRows" :key="projectRow.index"
         align-h="center">
         <b-col md="12" lg="4" class="justify-content" v-for="project in projectRow.members"
@@ -17,11 +17,15 @@
       </b-row>
     </page-section>
 
-    <dti-footer />
+    <dti-footer page="projects" />
   </page-background>
 </template>
 
 <style lang="scss" scoped>
+.project-page-main-section {
+  margin-top: 0 !important;
+}
+
 .projects-hero {
   height: 70vh;
   width: 100vw;

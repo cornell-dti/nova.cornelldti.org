@@ -59,7 +59,7 @@
         </b-row>
       </page-section>
     </b-container>
-    <dti-footer />
+    <dti-footer page="sponsor" />
   </page-background>
 </template>
 

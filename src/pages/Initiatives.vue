@@ -11,8 +11,8 @@
             <b-img height="300" :src="Strings.get('promo.makeathon', 'assets')" />
           </b-col>
           <b-col sm="12" md="6" order-md="1" order-sm="2">
-            <h2>Ready, Set, Make!</h2>
-            <h3>Inspiring future generations.</h3>
+            <div class="initiative-row-content-header">Ready, Set, Make!</div>
+            <div class="initiative-row-content-subheader">Inspiring future generations.</div>
             <p class="initiative-row-content">
               Cornell Design &amp; Tech Initiative is an student project team at Cornell University
               dedicated to creating web and mobile apps that iimprove the lives around
@@ -33,8 +33,8 @@
             <b-img height="300" :src="Strings.get('promo.blueprint', 'assets')" />
           </b-col>
           <b-col sm="12" md="6" class="initiative-row-content-container" order-md="2" order-sm="2">
-            <h2>DTI Blueprint</h2>
-            <h3>Fostering Mentorship.</h3>
+            <div class="initiative-row-content-header">DTI Blueprint</div>
+            <div class="initiative-row-content-subheader">Fostering Mentorship.</div>
             <p class="initiative-row-content">
               Cornell Design &amp; Tech Initiative is an student project team at Cornell University
               dedicated to creating web and mobile apps that iimprove the lives around
@@ -48,7 +48,8 @@
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="6" class="initiative-row-content-container" order-md="1" order-sm="2">
-            <h2>Events &amp; Workshops</h2>
+            <div class="initiative-row-content-header">Events &amp; Workshops</div>
+            <div class="initiative-row-content-subheader">Fun!</div>
             <p class="initiative-row-content">
               Cornell Design &amp; Tech Initiative is an student project team at Cornell University
               dedicated to creating web and mobile apps that iimprove the lives around
@@ -71,7 +72,7 @@
         </b-row>
       </b-container>
     </page-section>
-    <dti-footer />
+    <dti-footer page="initiatives" />
   </page-background>
 </template>
 
@@ -181,6 +182,19 @@ $dark-gray: #4a4a4a;
     font-weight: 500;
     letter-spacing: -0.4px;
     color: $dark-gray;
+  }
+
+  .initiative-row-content-subheader {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .initiative-row-content-header {
+    margin-bottom: 0.625rem;
+    font-weight: 600;
+    font-size: 2.25rem;
+    letter-spacing: -0.3px;
   }
 }
 

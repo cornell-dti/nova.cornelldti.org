@@ -1,25 +1,18 @@
 <template>
   <div>
     <b-container fluid class="h-100">
-      <b-row class="contact-us" align-h="center" align-v="center">
+      <b-row v-if="Strings.exists('footer', `${page}`)" class="contact-us" align-h="center" align-v="center">
         <b-col sm="12" md="auto" align-self="center">
           <div class="contact-us-prompt">
-            Have a question or a great idea? Let us know!
+            {{ (Strings.get('footer.prompt', `${page}`) || `Have a question or a great idea?
+            Let us know!`) }}
           </div>
-          <b-button class="contact-us-button">Contact Us</b-button>
+          <b-button class="contact-us-button">{{ (Strings.get('footer.prompt', `${page}`) || `Contact Us`) }}</b-button>
         </b-col>
       </b-row>
-      <b-row class="footer" align-v="center">
+      <b-row class="footer" align-v="top">
         <b-col cols="12">
-          <b-row align-h="start" align-v="start" class="mobile-reversed">
-            <b-col md="6" sm="12">
-              <div class="find-us">Find Us</div>
-            </b-col>
-            <b-col md="6" sm="12" class="wordmark-container">
-              <b-img class="wordmark" :src="Strings.get('branding.wordmark', 'assets')" />
-            </b-col>
-          </b-row>
-          <b-row align-h="start" align-v="end">
+          <b-row align-h="start" align-v="start">
             <b-col md="6" sm="12">
               <b-row>
                 <b-col cols="auto">
@@ -53,16 +46,17 @@
               </b-row>
             </b-col>
             <b-col sm="12" md="6" class="my-auto">
-
               <b-row align-h="end" align-v="end">
                 <b-col>
                   <div class="copyright">&copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
                     Initiative
                   </div>
+                  <div class="attribution">
+                    Made With Love in Ithaca
+                  </div>
                 </b-col>
               </b-row>
             </b-col>
-
           </b-row>
         </b-col>
       </b-row>
@@ -93,6 +87,11 @@ export default {
     GooglePlay,
     Medium,
     Footer
+  },
+  props: {
+    page: {
+      type: String
+    }
   }
 };
 </script>
@@ -154,7 +153,7 @@ export default {
     color: #ffffff;
     text-align: left;
 
-     @media (min-width: 768px) {
+    @media (min-width: 768px) {
       padding-bottom: 3.125rem;
     }
   }
@@ -174,7 +173,8 @@ export default {
     }
   }
 
-  .copyright {
+  .copyright,
+  .attribution {
     margin-top: 0.1rem;
     color: rgb(255, 255, 255);
     font-size: 1.125rem;
@@ -184,12 +184,11 @@ export default {
     line-height: normal;
     letter-spacing: 0.3px;
     text-align: right;
-
-
   }
 
   @media (max-width: 767px) {
-    .copyright {
+    .copyright,
+    .attribution {
       text-align: center;
       margin-top: 2rem;
     }

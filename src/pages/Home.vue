@@ -13,20 +13,20 @@
     />
 
     <page-sublist :border-padding="true">
-      <quicklink :link="Strings.get('quicklinks.projects.link', 'home')" :image="Strings.get(`pages.projects.hero.lazy`, 'assets')"
+      <quicklink :link="Strings.get('quicklinks.projects.link', 'home')" :image="Strings.get(`pages.home.quicklinks.projects`, 'assets')"
         :header="Strings.get('quicklinks.projects.header', 'home')" :subheader="Strings.get('quicklinks.projects.subheader', 'home')"
       />
-      <quicklink :link="Strings.get('quicklinks.team.link', 'home')" :image="Strings.get(`pages.team.hero.lazy`, 'assets')"
+      <quicklink :link="Strings.get('quicklinks.team.link', 'home')" :image="Strings.get(`pages.home.quicklinks.team`, 'assets')"
         :header="Strings.get('quicklinks.team.header', 'home')" :subheader="Strings.get('quicklinks.team.subheader', 'home')"
       />
-      <quicklink :link="Strings.get('quicklinks.initiatives.link', 'home')" :image="Strings.get(`pages.initiatives.hero.lazy`, 'assets')"
+      <quicklink :link="Strings.get('quicklinks.initiatives.link', 'home')" :image="Strings.get(`pages.home.quicklinks.initiatives`, 'assets')"
         :header="Strings.get('quicklinks.initiatives.header', 'home')" :subheader="Strings.get('quicklinks.initiatives.subheader', 'home')"
       />
     </page-sublist>
 
     <div style="padding-bottom:2vw" />
 
-    <dti-footer />
+    <dti-footer page="home" />
   </div>
 </template>
 

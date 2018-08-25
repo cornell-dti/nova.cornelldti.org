@@ -14,7 +14,7 @@
               <div class="diversity-description my-auto lg-y-padding">More than just being inclusive, our team strives to bring as many backgrounds
                 and perspectives together to solve community problems.</div>
 
-              <h3 class="graph-header text-center lg-y-padding">Gender Ratio</h3>
+              <h3 class="graph-header lg-y-padding">Gender Ratio</h3>
 
               <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
@@ -66,7 +66,7 @@
 
     <b-container fluid>
       <page-section>
-        <div class="team-header">Team</div>
+        <div class="team-header diversity-header">Team</div>
 
         <!-- TODO actual padding --><br>
 
@@ -82,7 +82,7 @@
       </page-section>
     </b-container>
 
-    <dti-footer />
+    <dti-footer page="team" />
   </page-background>
 </template>
 
@@ -297,7 +297,7 @@ $secondary: #f6f6f6;
   }
 
   &.diversity-background {
-    background-image: url('/static/img/candids/new-header-bg.jpg');
+    background-image: url('/static/diversity-background');
     background-size: cover;
   }
 
