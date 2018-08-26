@@ -136,6 +136,7 @@ $page-transition-duration: 0.5s;
 .slidedown-enter-active,
 .slideup-leave-active,
 .slideup-enter-active {
+  height: 100vh !important;
   max-height: 100vh;
   overflow: hidden;
   position: absolute;

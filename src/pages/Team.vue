@@ -344,13 +344,11 @@ $secondary: #f6f6f6;
 <script>
 import HeadshotGrid from '@/components/HeadshotGrid';
 import RoleSelector from '@/components/RoleSelector';
-import Marquee from '@/components/CompaniesMarquee';
 import CircleProgressIndicator from '@/components/CircleProgressIndicator';
 
 export default {
   components: {
     HeadshotGrid,
-    Marquee,
     CircleProgressIndicator,
     RoleSelector
   },

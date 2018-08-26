@@ -1,12 +1,13 @@
 <template>
   <div class="nova-hero">
     <div class="nova-hero-visual-container">
-      <div class="nova-hero-overlay" />
 
       <visual :video="aws(Strings.get(`pages.${page}.hero.video`, 'assets'))" :poster="Strings.get(`pages.${page}.hero.lazy`, 'assets')"
         background="cover" :fallback="aws(Strings.get(`pages.${page}.hero.image`, 'assets'))"
         class="nova-hero-visual" align="top left" autoplay :loop="true" :muted="true"
         preload=auto :fill="true" load-video='visible' :load-poster='true' />
+
+      <div class="nova-hero-overlay" />
 
     </div>
     <b-container fluid>
@@ -39,6 +40,7 @@ $height: 65vh;
   right: 0;
   height: $height;
   width: 100vw;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .nova-hero-visual {
