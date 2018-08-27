@@ -8,7 +8,7 @@
       <b-container>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
-            <b-img class="initiative-row-image" :src="Strings.get('promo.makeathon', 'assets')"
+            <b-img class="initiative-row-image" :src="Strings.get('pages.initiatives.promo.makeathon', 'assets')"
             />
           </b-col>
           <b-col sm="12" md="5" order-md="1" order-sm="2">
@@ -31,7 +31,7 @@
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="7" class="initiative-row-img" order-md="1" order-sm="1">
-            <b-img class="initiative-row-image" :src="Strings.get('promo.blueprint', 'assets')"
+            <b-img class="initiative-row-image" :src="Strings.get('pages.initiatives.promo.blueprint', 'assets')"
             />
           </b-col>
           <b-col sm="12" md="5" class="initiative-row-content-container" order-md="2" order-sm="2">
@@ -50,7 +50,7 @@
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
-            <b-img class="initiative-row-image" :src="Strings.get('promo.halfbaked', 'assets')"
+            <b-img class="initiative-row-image" :src="Strings.get('pages.initiatives.promo.halfbaked', 'assets')"
             />
           </b-col>
           <b-col sm="12" md="5" class="initiative-row-content-container" order-md="1" order-sm="2">

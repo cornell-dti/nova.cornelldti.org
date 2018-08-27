@@ -1,14 +1,14 @@
 <template>
   <div>
     <b-row class="filter-btn-group desktop-selector-container">
-      <b-col v-if="showAll" sm="12" :md="density == 'compact' ? 'auto' : null" class="my-auto text-center">
+      <b-col v-if="showAll" :md="density == 'compact' ? 'auto' : null" class="my-auto text-center">
         <div :class="btnCSS(roleId === '', density, bold, dark)" @click="roleId = ''">
           All
         </div>
         <div :class="selectorCSS(roleId === '', dark)" />
       </b-col>
       <!-- TODO: Cleanup the roles overriding -->
-      <b-col v-for="role of this.roles === null ? getRoles() : this.roles" sm="12" :md="density === 'compact' ? 'auto' : null"
+      <b-col v-for="role of this.roles === null ? getRoles() : this.roles" :md="density === 'compact' ? 'auto' : null"
         :key="role.id" class="my-auto text-center">
         <div :class="btnCSS(roleId === role.id, density, bold, dark)" @click="roleId = role.id">
           {{role.name}}
@@ -19,7 +19,7 @@
     <b-row align-h="center" class="mobile-selector-container text-center">
       <b-col sm="12" md="auto">
         {{ dropdownText }}
-        <b-form-select :class="mobileSelectorCSS(dark)" @change="handleMobileSelection" id="mobile-apply-dropdown"
+        <b-form-select :class="mobileSelectorCSS(centered, dark)" @change="handleMobileSelection" id="mobile-apply-dropdown"
           v-model="roleId">
           <option :class="mobileMenuCSS()" v-if="showAll" :value="''">
             All
@@ -164,6 +164,10 @@
         color: #fff;
       }
 
+      &.centered {
+        margin-left: auto;
+      }
+
       .fg-dark {
         color: #000;
       }
@@ -183,7 +187,6 @@
       font-size: 2rem;
       min-height: 4rem;
       margin-right: auto;
-      margin-left: auto;
       /* font-size: 1.8rem; */
     }
   }
@@ -198,6 +201,10 @@ export default {
     event: 'update:change'
   },
   props: {
+    centered: {
+      type: Boolean,
+      default: false
+    },
     rolePropId: {
       type: String,
       default: ''
@@ -258,8 +265,8 @@ export default {
         ? ['selector', 'selected', isDark ? 'fg-light' : 'fg-dark']
         : ['selector'];
     },
-    mobileSelectorCSS(isDark = false) {
-      return [isDark ? 'fg-light' : 'fg-dark'];
+    mobileSelectorCSS(centered, isDark = false) {
+      return [isDark ? 'fg-light' : 'fg-dark', centered ? 'centered' : null];
     },
     mobileMenuCSS() {
       return ['fg-dark'];

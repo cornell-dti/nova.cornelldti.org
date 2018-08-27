@@ -36,7 +36,7 @@
               </b-row>
               <b-row class="my-auto" align-h="center">
                 <b-col>
-                  <role-selector class="diversity-role-selector" v-model="divRoleId" :dark="true" density="compact"
+                  <role-selector class="diversity-role-selector" :centered="true" v-model="divRoleId" :dark="true" density="compact"
                   />
                 </b-col>
               </b-row>
@@ -208,7 +208,6 @@ $secondary: #f6f6f6;
 }
 
 .team-header {
-  margin-bottom: 3rem;
   font-size: 3rem;
   font-weight: 400;
 }
