@@ -9,6 +9,7 @@
       <b-row>
         <h1 class="home-overlay-text">Cornell Design <br />&amp; Tech Initiative</h1>
       </b-row>
+
     </div>
     <text-hero :header="Strings.get('text-hero.header', 'home')" :subheader="Strings.get('text-hero.subheader', 'home')"
     />
