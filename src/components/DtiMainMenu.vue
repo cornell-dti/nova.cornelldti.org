@@ -90,9 +90,9 @@ export default {
 
 <style lang="scss" scoped>
 .brand-icon {
-  width: 8vh;
-  height: 8vh;
-  border-radius: 50%;
+  width: 7.5vh;
+  height: 7.5vh;
+  border-radius: 25%;
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.3);
 }
 
