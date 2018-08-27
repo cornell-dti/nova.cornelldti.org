@@ -23,9 +23,7 @@
         <b-col md="10" sm="12">
           <page-section>
             <div class="project-header">Why we built this</div>
-            <div class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur
-              adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+            <div class="project-description">{{projectData.problem}}</div>
           </page-section>
           <page-section>
             <div class="project-header">Features</div>
@@ -35,19 +33,15 @@
                 />
               </b-col>
               <b-col cols="5">
-                <div class="feature-header">Lorem ipsum dolor sit amet, consectetur</div>
-                <div class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit</div>
+                <div class="feature-header">{{projectData.features.one.title}}</div>
+                <div class="project-description">{{projectData.features.one.description}}</div>
               </b-col>
             </b-row>
             <b-row class="feature-padding" />
             <b-row>
               <b-col cols="5">
-                <div class="feature-header">Lorem ipsum dolor sit amet, consectetur</div>
-                <div class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit</div>
+                <div class="feature-header">{{projectData.features.two.title}}</div>
+                <div class="project-description">{{projectData.features.two.description}}</div>
               </b-col>
               <b-col cols="7">
                 <b-img class="product" :src="Strings.get(`projects.${projectData.id}.features.2`, 'assets')"
@@ -61,10 +55,8 @@
                 />
               </b-col>
               <b-col cols="5">
-                <div class="feature-header">Lorem ipsum dolor sit amet, consectetur</div>
-                <div class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit</div>
+                <div class="feature-header">{{projectData.features.three.title}}</div>
+                <div class="project-description">{{projectData.features.three.description}}</div>
               </b-col>
             </b-row>
           </page-section>

@@ -28,7 +28,22 @@
     "heroStartingColor": "#d7fffe",
     "heroEndingColor": "rgba(216, 216, 216, 0.25)",
     "header": "Shout",
-    "subheader": "Reach Out. Find Out. Go Out."
+    "subheader": "Reach Out. Find Out. Go Out.",
+    "problem": "In order to raise awareness of sexual assault on campus and give survivors a voice to share their stories and locate regions on campus where incidents have occurred.",
+    "features": {
+      "one": {
+        "title": "Find Out",
+        "description": "Newsfeed that lists all of the reports and stories that are posted to the app. The reports include a title, brief description, date, and location and can be clicked on to see more information."
+      },
+      "two": {
+        "title": "Go Out",
+        "description": "The map interface that includes a search bar to find locations and reports on campus."
+      },
+      "three": {
+        "title": "Reach Out",
+        "description": "The Resources page that lists hotlines available for those in need and organizations and centers to contact on campus."
+      }
+    }
   },
   {
     "name": "CU Orientation",
@@ -60,7 +75,22 @@
     "heroStartingColor": "#a1c4fd",
     "heroEndingColor": "#c2e9fb",
     "header": "CU Orientation",
-    "subheader": "O-week, made simpler."
+    "subheader": "O-week, made simpler.",
+    "problem": "Cornell is big. Orientation week is messy. New students shouldn't have to worry about getting lost, losing track of events, or knowing which ones to go to.",
+    "features": {
+      "one": {
+        "title": "Find it",
+        "description": "Search for new events by keyword"
+      },
+      "two": {
+        "title": "Remind me",
+        "description": "Be notified 1 hour before any events required for your major"
+      },
+      "three": {
+        "title": "Get there",
+        "description": "Directions to any event only a single click away"
+      }
+    }
   },
   {
     "name": "CU Reviews",
@@ -76,7 +106,22 @@
     "heroStartingColor": "#a1c4fd",
     "heroEndingColor": "#c2e9fb",
     "header": "CU Reviews",
-    "subheader": "Classes are hard, knowing that they are shouldn't be!"
+    "subheader": "Classes are hard, knowing that they are shouldn't be!",
+    "problem": "\"Did you take this class?  Was homework difficult?  Who is the best professor?\"  Asking upperclassmen about classes every year is tedious and unreliable. We wanted an easy way to share experiences and find essential information about classes in one site.",
+    "features": {
+      "one": {
+        "title": "Search for Classes",
+        "description": "Search for Cornell classes using our fast search"
+      },
+      "two": {
+        "title": "Write a Review",
+        "description": "Write about the class and rate its difficulty and workload"
+      },
+      "three": {
+        "title": "Check Out Class Reviews",
+        "description": "Read what other students have to say about the class"
+      }
+    }
   },
   {
     "name": "Project Samwise",
@@ -92,7 +137,22 @@
     "heroStartingColor": "#efefef",
     "heroEndingColor": "#fefefe",
     "header": "Project Samwise",
-    "subheader": "Your student life. Visualized."
+    "subheader": "Your student life. Visualized.",
+    "problem": "Managing a full credit-load and a healthy life is difficult. As due dates approach, it becomes easy to misjudge the amount of work remaining for any given assignment. By creating your tangible timeline, completing work no longer means giving up sleep.",
+    "features": {
+      "one": {
+        "title": "Visualize Your Workload",
+        "description": "Seeing is believing. Samwise makes it easy to see all your tasks in one place. Take the guesswork out of homework."
+      },
+      "two": {
+        "title": "Add Classes With Ease",
+        "description": "Adding a class has never been easier! No more scouring syllabi and websites. Just type your course and let Samwise do the rest."
+      },
+      "three": {
+        "title": "Tasks and Events Made Easy",
+        "description": "It's hard to know what information is important when you write your tasks. Samwise employs meaningful queries to provoke proactive thoughts that enable students to capture important details. Spend less time planning and more time doing."
+      }
+    }
   },
   {
     "name": "Research Connect",
@@ -101,12 +161,26 @@
     "teamId": "research",
     "image": "img/portfolio/research-mockup.png",
     "description": "The abundance of undergraduate research opportunities is one of the great things about Cornell, yet unfortunately the process of finding these opportunities is still very unstructured. One must knock on doors, send countless emails to professors, and make do with obsolete web pages to seek research opportunities. Research Connect aims to bridge this gap by providing a structured platform where students can find opportunities, and research labs can find the students they are looking for.",
-
     "github": "https://github.com/cornell-dti/research-connect",
     "heroStartingColor": "#f5515f",
     "heroEndingColor": "#faaca8",
     "header": "Research Connect",
-    "subheader": "Handshake for Lab Research"
+    "subheader": "Handshake for Lab Research",
+    "problem": "The abundance of undergraduate research opportunities is one of the great things about Cornell, yet unfortunately the process of finding these opportunities is still very unstructured. One must knock on doors, send countless emails to professors, and make do with obsolete web pages to seek research opportunities. Research Connect aims to bridge this gap by providing a structured platform where students can find opportunities, and research labs can find the students they are looking for.",
+    "features": {
+      "one": {
+        "title": "Find Research Opportunities",
+        "description": "Instead of having to email a plethora of researchers (many of whom aren't even accepting undergrads), we streamline the process by showing undergrads all the opportunities available to them."
+      },
+      "two": {
+        "title": "View Requirements & Apply Online",
+        "description": "Find out exactly what requirements the lab is searching for so you don't waste your time applying for positions that don't match your background. You can also apply straight from our platform to avoid going back and forth with emails."
+      },
+      "three": {
+        "title": "Search Through All Faculty & See Who's Accepting (Coming Fall 2018)",
+        "description": "Search for faculty in all departments who are conducting research in a specific area so you don't miss out on those professors in other departments conducting work that you'd be interested in. Also see which professors are open to receiving undergrad research requests so you don't waste your time emailing uninterested labs."
+      }
+    }
   },
   {
     "name": "Queue Me In",
@@ -114,11 +188,26 @@
     "badge": "test1.png",
     "teamId": "officehours",
     "image": "img/portfolio/qmi-mockups.png",
-    "description": "With an exponential increase in enrollment in popular majors such as Computer Science and Information Science, TA office hours have become a relatively scarce resource. Long wait times and overcrowded rooms are the norm in these majors – hence, we’re building an online queuing solution, which is designed to bring some amount of order to this chaos.",
+    "description": "With an exponential increase in enrollment in popular majors such as Computer Science and Information Science, TA office hours have become a relatively scarce resource. Long wait times and overcrowded rooms are the norm in these majors – hence, we're building an online queuing solution, which is designed to bring some amount of order to this chaos.",
     "github": "https://github.com/cornell-dti/office-hours",
     "heroStartingColor": "#ddd6f3",
     "heroEndingColor": "#faaca8",
     "header": "Queue Me In",
-    "subheader": "The answer to all your office hour Q's."
+    "subheader": "The answer to all your office hour Q's.",
+    "problem": "Too often, office hours are crowded and unorganized. Queue Me In allows students to join the line from anywhere and track their position in real-time so they know when their turn is coming. Through our analytics, professors can gain insight into where and when students need the most help and how effective TAs are at answering questions. Queue Me In removes the frustration from office hours and empowers professors to use data to better help their students.",
+    "features": {
+      "one": {
+        "title": "Pick a session",
+        "description": "Browse upcoming office hours by day to pick one that works best for you. You can see whether or not the queue has opened, and how many students have already entered a question!"
+      },
+      "two": {
+        "title": "Add your question",
+        "description": "Join an office hour session! By adding your question, you can secure your place in line without worrying about other students cutting in."
+      },
+      "three": {
+        "title": "View the queue",
+        "description": "You can find an opportunity to listen in for a question you also have, or view other questions asked to understand overall problem areas."
+      }
+    }
   }
 ]
