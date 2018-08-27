@@ -1,7 +1,6 @@
 <template>
   <page-background>
-    <nova-hero header="Sponsor Us" subheader="We are Cornell Design &amp; Tech Initiative. But indivdually, we are a talented, diverse group
-              of students from different colleges and countries striving to make a difference in our community."
+    <nova-hero header="Sponsor Our Mission" subheader="We want to partner with organizations who have a similar vision of changing the world. Together, we can work towards improving our communities with technology."
       page="sponsor" />
     <b-container>
       <page-section>
@@ -10,13 +9,9 @@
             <b-img height="300" width="600" blank blank-color="#777" />
           </b-col>
           <b-col sm="12" md="6" order-md="1" order-sm="2">
-            <h2>Mentorship</h2>
+            <h2>Why Sponsor Us?</h2>
             <p class="sponsor-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University
-              dedicated to creating web and mobile apps that improve the lives around
-              us. We are a team of 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our
-              community.
+              We want sponsors to be as invested in partnering with us as we are with them. In addition to helping make community initiatives possible, we will help organizations create diverse talent pipeline, present information sessions, conduct workshops, and help establish a presence on our campus.
             </p>
           </b-col>
         </b-row>
@@ -27,18 +22,14 @@
           <b-col sm="12" md="6" class="sponsor-row-content-container" order-md="2" order-sm="2">
             <h2>Funding</h2>
             <p class="sponsor-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University
-              dedicated to creating web and mobile apps that improve the lives around
-              us. We are a team of 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our
-              community.
+              All of the funds we receive through sponsorships is directly invested back into the team. Through user research, software licenses, community outreach, and marketing, sponsorships help us grow our vision of helping out the community through technology.
             </p>
           </b-col>
         </b-row>
       </page-section>
       <page-section>
         <b-row class="justify-content-center sponsor-contact">
-          <h2>Sponsor an event, workshop or our team to help us make community impact.</h2>
+          <h2>Sponsor our team to help us make community impact.</h2>
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
           <b-button>Contact Us</b-button>
@@ -158,4 +149,3 @@
   }
 }
 </style>
-

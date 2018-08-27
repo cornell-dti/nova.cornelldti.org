@@ -1,7 +1,6 @@
 <template>
   <page-background>
-    <nova-hero header="See What We Do!" subheader="We are Cornell Design &amp; Tech Initiative. But indivdually, we are a talented, diverse group
-              of students from different colleges and countries striving to make a difference in our community."
+    <nova-hero header="We Are Our Products" subheader="We've learned that tackling the hardest problems is the only way to truly create value for the people around us. Each of our projects address an unfulfilled need that exists in our community using human-centered design and software engineering."
       page="projects" />
 
     <page-section class="project-page-main-section">

@@ -52,7 +52,7 @@
                     Initiative
                   </div>
                   <div class="attribution">
-                    Made With Love in Ithaca
+                    Made with love in Ithaca
                   </div>
                 </b-col>
               </b-row>
@@ -175,7 +175,7 @@ export default {
 
   .copyright,
   .attribution {
-    margin-top: 0.1rem;
+    margin-top: 0.25rem;
     color: rgb(255, 255, 255);
     font-size: 1.125rem;
     font-weight: 500;
