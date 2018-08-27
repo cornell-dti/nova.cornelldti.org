@@ -1,7 +1,8 @@
 <template>
   <div>
     <b-container fluid class="h-100">
-      <b-row v-if="Strings.exists('footer', `${page}`)" class="contact-us" align-h="center" align-v="center">
+      <b-row v-if="Strings.exists('footer', `${page}`)" class="contact-us" align-h="center"
+        align-v="center">
         <b-col sm="12" md="auto" align-self="center">
           <div class="contact-us-prompt">
             {{ (Strings.get('footer.prompt', `${page}`) || `Have a question or a great idea?
@@ -14,7 +15,7 @@
         <b-col cols="12">
           <b-row align-h="start" align-v="start">
             <b-col md="6" sm="12">
-              <b-row>
+              <b-row class="social-icons">
                 <b-col cols="auto">
                   <a href="https://www.facebook.com/cornelldti/">
                     <Facebook class="social-icon social-icon-blank" />
@@ -143,6 +144,10 @@ export default {
   padding: 2rem 3rem;
   min-height: 20vh;
 
+  @media (max-width: 767px) {
+    padding: 2rem 0.5rem;
+  }
+
   .find-us {
     font-size: 2.25rem;
     font-weight: bold;
@@ -223,10 +228,24 @@ export default {
     }
   }
 }
+
+@media (max-width: 767px) {
+  .social-icons {
+    div {
+      flex-basis: 33.3%;
+    }
+  }
+}
+
 .social-icon {
   width: 2rem;
   height: 2rem;
   margin-left: 0.2rem;
+
+  @media (max-width: 767px) {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
 
   &.social-icon-blank {
     fill: white;

@@ -147,6 +147,10 @@ $secondary: #f6f6f6;
   line-height: normal;
   letter-spacing: 0.6px;
   color: #ffffff;
+
+  @media (max-width: 767px) {
+    text-align: center;
+  }
 }
 
 .graph-datum {
@@ -240,10 +244,18 @@ $secondary: #f6f6f6;
 
   .diversity-inner-right {
     padding: 2rem 3.5rem 2rem 0;
+
+    @media (max-width: 767px) {
+      padding: 2rem 1rem;
+    }
   }
 
   .diversity-inner-left {
     padding: 2rem 0 2rem 3.5rem;
+
+    @media (max-width: 767px) {
+      padding: 2rem 1rem;
+    }
   }
 
   .sm-y-padding {

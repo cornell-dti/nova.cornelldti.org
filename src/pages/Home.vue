@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="home">
-      <visual :video="aws(Strings.get('pages.home.hero.video', 'assets'))" :poster="Strings.get(`pages.home.hero.lazy`, 'assets')" class="home-background home-preload-background home-background-video"
-        autoplay :fill="true" background="cover" :loop="true" :muted="true" preload=auto
-        load-video='visible' :load-poster='true' />
+      <visual :video="aws(Strings.get('pages.home.hero.video', 'assets'))" :poster="Strings.get(`pages.home.hero.lazy`, 'assets')"
+        class="home-background home-preload-background home-background-video" autoplay
+        :fill="true" background="cover" :loop="true" :muted="true" preload=auto load-video='visible'
+        :load-poster='true' />
       <div class="home-background home-background-overlay" />
       <b-row>
         <h1 class="home-overlay-text">Cornell Design <br />&amp; Tech Initiative</h1>
@@ -29,6 +30,17 @@
     <dti-footer page="home" />
   </div>
 </template>
+
+<script>
+import Quicklink from '@/components/Quicklink';
+
+export default {
+  components: {
+    Quicklink
+  }
+};
+</script>
+
 
 <style lang="scss" scoped>
 $hero-margin: 3vw;

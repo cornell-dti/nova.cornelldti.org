@@ -131,7 +131,7 @@ export default {
   },
   computed: {
     projectData() {
-      return this.getProject(this.project);
+      return this.Strings.get('', 'projects.queuemein');
     }
   },
   mounted() {
@@ -233,29 +233,5 @@ export default {
 
 .visit-btn {
   box-shadow: 0 10px 20px 0 rgba(216, 216, 216, 0.5);
-}
-</style>
-
-<style lang="scss">
-@import '../index.scss';
-
-$radius: 20px;
-
-#downloadModal {
-  @include media-breakpoint-up(md) {
-    max-width: 80vw;
-  }
-
-  max-width: 20vw;
-
-  .modal-content {
-    border: none !important;
-    border-radius: ($radius + 5) !important;
-  }
-
-  .modal-header,
-  .modal-footer {
-    display: none;
-  }
 }
 </style>

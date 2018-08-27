@@ -1,14 +1,14 @@
 <template>
   <div>
     <b-row class="filter-btn-group desktop-selector-container">
-      <b-col v-if="showAll" :cols="density == 'compact' ? 'auto' : null" class="my-auto text-center">
+      <b-col v-if="showAll" sm="12" :md="density == 'compact' ? 'auto' : null" class="my-auto text-center">
         <div :class="btnCSS(roleId === '', density, bold, dark)" @click="roleId = ''">
           All
         </div>
         <div :class="selectorCSS(roleId === '', dark)" />
       </b-col>
       <!-- TODO: Cleanup the roles overriding -->
-      <b-col v-for="role of this.roles === null ? getRoles() : this.roles" :cols="density === 'compact' ? 'auto' : null"
+      <b-col v-for="role of this.roles === null ? getRoles() : this.roles" sm="12" :md="density === 'compact' ? 'auto' : null"
         :key="role.id" class="my-auto text-center">
         <div :class="btnCSS(roleId === role.id, density, bold, dark)" @click="roleId = role.id">
           {{role.name}}
@@ -17,14 +17,15 @@
       </b-col>
     </b-row>
     <b-row align-h="center" class="mobile-selector-container text-center">
-      <b-col cols="auto">
+      <b-col sm="12" md="auto">
         {{ dropdownText }}
-        <b-form-select @change="handleMobileSelection" id="mobile-apply-dropdown" v-model="roleId">
-          <option v-if="showAll" :value="''">
+        <b-form-select :class="mobileSelectorCSS(dark)" @change="handleMobileSelection" id="mobile-apply-dropdown"
+          v-model="roleId">
+          <option :class="mobileMenuCSS()" v-if="showAll" :value="''">
             All
           </option>
-          <option v-for="role of this.roles === null ? getRoles() : this.roles" :key="role.id"
-            :value="role.id">
+          <option :class="mobileMenuCSS()" v-for="role of this.roles === null ? getRoles() : this.roles"
+            :key="role.id" :value="role.id">
             {{role.name}}
           </option>
         </b-form-select>
@@ -138,6 +139,7 @@
 
 .mobile-selector-container {
   display: none;
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -151,7 +153,25 @@
 
     #mobile-apply-dropdown {
       background: transparent;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+
+      &.fg-dark {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: #000;
+      }
+
+      &.fg-light {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+      }
+
+      .fg-dark {
+        color: #000;
+      }
+
+      .fg-light {
+        color: #fff;
+      }
+
       /* margin: 2rem 0.2rem; */
       -webkit-box-shadow: none;
       box-shadow: none;
@@ -162,6 +182,8 @@
       text-decoration: underline;
       font-size: 2rem;
       min-height: 4rem;
+      margin-right: auto;
+      margin-left: auto;
       /* font-size: 1.8rem; */
     }
   }
@@ -235,6 +257,12 @@ export default {
       return selected
         ? ['selector', 'selected', isDark ? 'fg-light' : 'fg-dark']
         : ['selector'];
+    },
+    mobileSelectorCSS(isDark = false) {
+      return [isDark ? 'fg-light' : 'fg-dark'];
+    },
+    mobileMenuCSS() {
+      return ['fg-dark'];
     },
     handleMobileSelection(val) {
       this.roleId = val;

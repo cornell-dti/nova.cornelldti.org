@@ -15,10 +15,6 @@
 </template>
 
 <style lang="scss" scoped>
-.headshot-grid {
-}
-
-
 .phantom-headshot-card {
   visibility: hidden;
   max-height: 0;

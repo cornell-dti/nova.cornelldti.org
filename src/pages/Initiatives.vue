@@ -4,13 +4,14 @@
               students and community members alike. Through annual makeathons, events, and workshops,
               we teach about design and technology to inspire others." page="initiatives"
     />
-    <page-section>
+    <page-section class="initiatives-main-section">
       <b-container>
         <b-row align-h="center" align-v="center" class="initiative-row">
-          <b-col sm="12" md="auto" class="initiative-row-img" order-md="2" order-sm="1">
-            <b-img height="300" :src="Strings.get('promo.makeathon', 'assets')" />
+          <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
+            <b-img class="initiative-row-image" :src="Strings.get('promo.makeathon', 'assets')"
+            />
           </b-col>
-          <b-col sm="12" md="6" order-md="1" order-sm="2">
+          <b-col sm="12" md="5" order-md="1" order-sm="2">
             <div class="initiative-row-content-header">Ready, Set, Make!</div>
             <div class="initiative-row-content-subheader">Inspiring future generations.</div>
             <p class="initiative-row-content">
@@ -29,15 +30,16 @@
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
-          <b-col sm="12" md="auto" class="initiative-row-img" order-md="1" order-sm="1">
-            <b-img height="300" :src="Strings.get('promo.blueprint', 'assets')" />
+          <b-col sm="12" md="7" class="initiative-row-img" order-md="1" order-sm="1">
+            <b-img class="initiative-row-image" :src="Strings.get('promo.blueprint', 'assets')"
+            />
           </b-col>
-          <b-col sm="12" md="6" class="initiative-row-content-container" order-md="2" order-sm="2">
+          <b-col sm="12" md="5" class="initiative-row-content-container" order-md="2" order-sm="2">
             <div class="initiative-row-content-header">DTI Blueprint</div>
             <div class="initiative-row-content-subheader">Fostering Mentorship.</div>
             <p class="initiative-row-content">
               Cornell Design &amp; Tech Initiative is an student project team at Cornell University
-              dedicated to creating web and mobile apps that iimprove the lives around
+              dedicated to creating web and mobile apps that improve the lives around
               us. We are a team fo 60 developers, designers, and product managers
               united in the goal to use our skills to make a positive impact in our
               community. We are a team fo 60 developers, designers, and product managers
@@ -47,7 +49,11 @@
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
-          <b-col sm="12" md="6" class="initiative-row-content-container" order-md="1" order-sm="2">
+          <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
+            <b-img class="initiative-row-image" :src="Strings.get('promo.halfbaked', 'assets')"
+            />
+          </b-col>
+          <b-col sm="12" md="5" class="initiative-row-content-container" order-md="1" order-sm="2">
             <div class="initiative-row-content-header">Events &amp; Workshops</div>
             <div class="initiative-row-content-subheader">Fun!</div>
             <p class="initiative-row-content">
@@ -66,9 +72,7 @@
               </div>
             </b-button>
           </b-col>
-          <b-col sm="12" md="auto" class="initiative-row-img" order-md="2" order-sm="1">
-            <b-img height="300" :src="Strings.get('promo.halfbaked', 'assets')" />
-          </b-col>
+
         </b-row>
       </b-container>
     </page-section>
@@ -78,6 +82,11 @@
 
 <style lang="scss" scoped>
 $dark-gray: #4a4a4a;
+
+.initiatives-main-section {
+  margin-top: 0 !important;
+}
+
 .initiatives-hero {
   height: 80vh;
   width: 100vw;
@@ -174,7 +183,16 @@ $dark-gray: #4a4a4a;
     color: $dark-gray;
   }
 
+  .initiative-row-image {
+    object-fit: cover;
+    height: 30rem;
+    width: 100%;
+    margin: 0.25rem 0;
+    box-shadow: 0 0 0.25rem 2px rgba(0, 0, 0, 0.3);
+  }
+
   .initiative-row-img {
+    height: 100%;
     overflow: hidden;
   }
 

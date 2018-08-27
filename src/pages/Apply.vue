@@ -16,8 +16,15 @@
           <b-col cols="auto">
             <div class="info-session h-50">
               <div class="time">{{ Strings.get('info-sessions.1.time', 'apply') }}</div>
-              <div class="location">{{ `${Strings.get('info-sessions.1.location', 'apply')}${Strings.exists('info-sessions.1.link.url',
+              <div class="location location-desktop">{{ `${Strings.get('info-sessions.1.location', 'apply')}${Strings.exists('info-sessions.1.link.url',
                 'apply') ? ' • ' : ''}` }}
+                <a v-if="Strings.exists('info-sessions.1.link.url', 'apply')" class="apply-link"
+                  :href="Strings.get('info-sessions.1.link.url', 'apply')">
+                  {{Strings.get('info-sessions.1.link.text', 'apply')}}
+                </a>
+              </div>
+              <div class="location location-mobile">{{ `${Strings.get('info-sessions.1.location', 'apply')}` }}
+                <br>
                 <a v-if="Strings.exists('info-sessions.1.link.url', 'apply')" class="apply-link"
                   :href="Strings.get('info-sessions.1.link.url', 'apply')">
                   {{Strings.get('info-sessions.1.link.text', 'apply')}}
@@ -26,14 +33,20 @@
             </div>
             <div class="info-session h-50">
               <div class="time">{{ Strings.get('info-sessions.2.time', 'apply') }}</div>
-              <div class="location">{{ `${Strings.get('info-sessions.2.location', 'apply')}${Strings.exists('info-sessions.2.link.url',
+              <div class="location location-desktop">{{ `${Strings.get('info-sessions.2.location', 'apply')}${Strings.exists('info-sessions.2.link.url',
                 'apply') ? ' • ' : ''}` }}
                 <a v-if="Strings.exists('info-sessions.2.link.url', 'apply')" class="apply-link"
                   :href="Strings.get('info-sessions.2.link.url', 'apply')">
                   {{Strings.get('info-sessions.2.link.text', 'apply')}}
                 </a>
               </div>
-            </div>
+              <div class="location location-mobile">{{ `${Strings.get('info-sessions.1.location', 'apply')}` }}
+                <br>
+                <a v-if="Strings.exists('info-sessions.1.link.url', 'apply')" class="apply-link"
+                  :href="Strings.get('info-sessions.1.link.url', 'apply')">
+                  {{Strings.get('info-sessions.1.link.text', 'apply')}}
+                </a>
+              </div>
             </div>
           </b-col>
         </b-row>
@@ -41,8 +54,8 @@
     </b-row>
 
     <b-container>
-      <role-selector class="application-role-selector" v-model="roleId" dropdownText="I want to apply for..." :bold="true" :showAll="false"
-      />
+      <role-selector class="application-role-selector" v-model="roleId" dropdownText="I want to apply for..."
+        :bold="true" :showAll="false" />
 
       <timeline-section v-for="child of Strings.childrenOf(`application-info.${roleId}`, `apply`)"
         :key="child" :header="Strings.get(`application-info.${roleId}.${child}.header`, `apply`)"
@@ -137,8 +150,7 @@ export default {
             this.msgVariant = 'success';
             this.msgShow = true;
           },
-          error => {
-            console.log(error);
+          () => {
             this.msgContent =
               'There was an error subscribing you to the email list!';
             this.msgVariant = 'error';
@@ -157,6 +169,7 @@ export default {
 }
 
 .info-session-interjection {
+  overflow: hidden;
   background-color: rgb(255, 71, 92);
   color: #fff;
   margin: 4vw 0;
@@ -209,7 +222,30 @@ export default {
         font-stretch: normal;
         line-height: normal;
         letter-spacing: 0.3px;
+
+        @media (max-width: 768px) {
+          letter-spacing: 0.5vw;
+          text-align: center;
+        }
+
+        @media (max-width: 500px) {
+          font-size: 5vw;
+          text-align: center;
+        }
       }
+
+      @media (max-width: 767px) {
+        .location-desktop {
+          display: none !important;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .location-mobile {
+          display: none !important; // TODO fix this
+        }
+      }
+
       .location {
         margin-top: 0.3125rem;
         font-size: 1.25rem;
@@ -218,7 +254,9 @@ export default {
         font-stretch: normal;
         line-height: normal;
         letter-spacing: 0.3px;
-        .apply-link {
+
+        @media (max-width: 768px) {
+          text-align: center;
         }
       }
     }

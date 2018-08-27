@@ -1,16 +1,16 @@
 <template>
   <section>
     <b-row class="timeline-header" align-v="center">
-      <b-col class="left-col-text" sm>
+      <b-col class="left-col-text" md="auto" sm="12">
         <div v-if="header" class="container-section-heading">
           {{header}}
         </div>
         <slot v-else name="header" />
       </b-col>
-      <b-col cols="auto" align-self="end" v-if="rightHeader" class="right-col-text">
+      <b-col sm="12" md align-self="end" v-if="rightHeader" class="right-col-text">
         {{rightHeader}}
       </b-col>
-      <b-col cols="auto" align-self="end" v-else>
+      <b-col sm="12" md align-self="end" v-else>
         <slot name="rightHeader" />
       </b-col>
     </b-row>
@@ -30,6 +30,12 @@
   line-height: normal;
   letter-spacing: 0.3px;
   color: #000000;
+  text-align: right;
+
+  @media (max-width: 767px) {
+    font-size: 1rem;
+    text-align: left;
+  }
 }
 
 .timeline-header {
@@ -47,11 +53,11 @@
 }
 
 .timeline-content {
-  padding-left: 120px;
+  padding-left: 7.5rem;
   border-left: 0.625rem solid black;
 
   @media screen and (max-width: 768px) {
-    padding-left: 30px;
+    padding-left: 1.5rem;
   }
 }
 </style>

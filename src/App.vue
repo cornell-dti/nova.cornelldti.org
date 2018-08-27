@@ -89,10 +89,6 @@ $page-transition-duration: 0.5s;
   height: 100%;
 
   .page-stack-element {
-    //position: absolute;
-    //left: 0;
-    // right: 0;
-    // top: 0;
     width: 100%;
     height: 100%;
   }

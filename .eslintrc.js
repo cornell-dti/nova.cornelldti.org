@@ -55,6 +55,8 @@ module.exports = {
     'no-mixed-operators': ['off'],
     'arrow-parens': ['warn', 'as-needed'],
     'comma-dangle': ['warn', 'never'],
+    'no-underscore-dangle': ['off'],
+    'no-continue': ['off'],
     'no-restricted-syntax': [
       'error',
       {
@@ -75,7 +77,7 @@ module.exports = {
         allowTemplateLiterals: true
       }
     ],
-    'max-len': ['warn', { code: 100 }],
+    'max-len': ['warn', { code: 200 }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }

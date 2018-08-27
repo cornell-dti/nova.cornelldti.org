@@ -247,7 +247,7 @@ $inset-color: #fefefe;
 </style>
 
 <style lang="scss">
-$circle-background-color: #ececec47;
+$circle-background-color: rgba(#ececec, 0.3);
 $circle-fill-color: #ff324a;
 $circle-border-color: grey;
 

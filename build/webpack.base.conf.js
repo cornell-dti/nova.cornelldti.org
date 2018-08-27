@@ -27,10 +27,8 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath:
-      process.env.NODE_ENV === 'production'
-        ? config.build.assetsPublicPath
-        : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ?
+      config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -47,7 +45,6 @@ module.exports = {
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
-
       {
         test: /\.scss$/,
         use: ['vue-style-loader', 'css-loader', 'sass-loader']
@@ -90,7 +87,11 @@ module.exports = {
         loader: 'vue-svg-loader',
         options: {
           svgo: {
-            plugins: [{ removeDoctype: true }, { removeComments: true }]
+            plugins: [{
+              removeDoctype: true
+            }, {
+              removeComments: true
+            }]
           }
         }
       }
