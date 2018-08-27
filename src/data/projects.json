@@ -26,7 +26,9 @@
     "ios-github": "https://github.com/cornell-dti/Rescuer",
     "android-github": "https://github.com/cornell-dti/resCUer-app-android",
     "heroStartingColor": "#d7fffe",
-    "heroEndingColor": "rgba(216, 216, 216, 0.25)"
+    "heroEndingColor": "rgba(216, 216, 216, 0.25)",
+    "header": "Shout",
+    "subheader": "Reach Out. Find Out. Go Out."
   },
   {
     "name": "CU Orientation",
@@ -56,7 +58,9 @@
     "ios-github": "https://github.com/cornell-dti/o-week-ios",
     "android-github": "https://github.com/cornell-dti/o-week-android",
     "heroStartingColor": "#a1c4fd",
-    "heroEndingColor": "#c2e9fb"
+    "heroEndingColor": "#c2e9fb",
+    "header": "CU Orientation",
+    "subheader": "O-week, made simpler."
   },
   {
     "name": "CU Reviews",
@@ -70,7 +74,9 @@
     "image": "img/portfolio/reviews/Posting.png",
     "description": "Honest feedback about courses that you're planning to take is hard to come by. CU Reviews solves precisely this problem, by giving students access to student-submitted reviews of Cornell courses from past semesters. Learn more about the difficulty, median grade, and quality of the classes that you're planning to take!",
     "heroStartingColor": "#a1c4fd",
-    "heroEndingColor": "#c2e9fb"
+    "heroEndingColor": "#c2e9fb",
+    "header": "CU Reviews",
+    "subheader": "Classes are hard, knowing that they are shouldn't be!"
   },
   {
     "name": "Project Samwise",
@@ -84,7 +90,9 @@
     "header": "Samwise",
     "subheader": "Lorem ipsum dolor sit amet, consectetur adipiscing",
     "heroStartingColor": "#efefef",
-    "heroEndingColor": "#fefefe"
+    "heroEndingColor": "#fefefe",
+    "header": "Project Samwise",
+    "subheader": "Your student life. Visualized."
   },
   {
     "name": "Research Connect",
@@ -96,7 +104,9 @@
 
     "github": "https://github.com/cornell-dti/research-connect",
     "heroStartingColor": " #f5515f",
-    "heroEndingColor": " #faaca8"
+    "heroEndingColor": " #faaca8",
+    "header": "Research Connect",
+    "subheader": "Handshake for Lab Research"
   },
   {
     "name": "Queue Me In",
@@ -105,6 +115,8 @@
     "teamId": "officehours",
     "image": "img/portfolio/qmi-mockups.png",
     "description": "With an exponential increase in enrollment in popular majors such as Computer Science and Information Science, TA office hours have become a relatively scarce resource. Long wait times and overcrowded rooms are the norm in these majors – hence, we’re building an online queuing solution, which is designed to bring some amount of order to this chaos.",
-    "github": "https://github.com/cornell-dti/office-hours"
+    "github": "https://github.com/cornell-dti/office-hours",
+    "header": "Queue Me In",
+    "subheader": "The answer to all your office hour Q's."
   }
 ]
