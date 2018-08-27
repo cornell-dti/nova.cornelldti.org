@@ -92,7 +92,7 @@ export default {
 .brand-icon {
   width: 7.5vh;
   height: 7.5vh;
-  border-radius: 25%;
+  border-radius: 12.5%;
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.3);
 }
 
