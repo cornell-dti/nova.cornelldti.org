@@ -1,9 +1,7 @@
 <template>
   <page-background>
-    <nova-hero header="Inspiring Change" subheader="What sets us apart from other project teams is our desire to share what we know with
-              students and community members alike. Through annual makeathons, events, and workshops,
-              we teach about design and technology to inspire others." page="initiatives"
-    />
+    <nova-hero header="Inspiring Change" subheader="What sets us apart from other project teams is our desire to share what we learn with other students and members of the greater Ithaca community."
+      page="initiatives" />
     <page-section class="initiatives-main-section">
       <b-container>
         <b-row align-h="center" align-v="center" class="initiative-row">
@@ -15,18 +13,20 @@
             <div class="initiative-row-content-header">Ready, Set, Make!</div>
             <div class="initiative-row-content-subheader">Inspiring future generations.</div>
             <p class="initiative-row-content">
-              Cornell Design &amp; Tech Initiative is an student project team at Cornell University
-              dedicated to creating web and mobile apps that iimprove the lives around
-              us. We are a team fo 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our
-              community. We are a team fo 60 developers, designers, blah blah blah...
+              Ready, Set, Make is an annual make-a-thon our team hosts for 5th and 6th grade students!
+              We invite students in the local community to Cornell and how they can
+              use design thinking to solve problems that they encounter. Their energy
+              and creativity was contagious, and team members and kids alike were
+              building incredible prototypes out of cardboard and craft supplies!
+              DTI partnered with Makerspace to give an introduction to 3D printing
+              using Tinkercad.
             </p>
-            <b-button class="social-button" href="https://google.com">
+            <!--<b-button class="social-button" href="https://google.com">
               <MediumIcon />
               <div class="social-button-text">
                 Read More
               </div>
-            </b-button>
+            </b-button>-->
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
@@ -38,13 +38,11 @@
             <div class="initiative-row-content-header">DTI Blueprint</div>
             <div class="initiative-row-content-subheader">Fostering Mentorship.</div>
             <p class="initiative-row-content">
-              Cornell Design &amp; Tech Initiative is an student project team at Cornell University
-              dedicated to creating web and mobile apps that improve the lives around
-              us. We are a team fo 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our
-              community. We are a team fo 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our
-              community.
+              DTI Blueprint is a training program designed to teach students about design and product
+              thinking from team members’ own experience. Over several weeks, DTI
+              team members gave workshops on concepts like user research, product
+              ideation, and minimum viable products. Students formed groups and brainstormed
+              a problem to solve on campus and came up with a testable solution.
             </p>
           </b-col>
         </b-row>
@@ -55,17 +53,13 @@
           </b-col>
           <b-col sm="12" md="5" class="initiative-row-content-container" order-md="1" order-sm="2">
             <div class="initiative-row-content-header">Events &amp; Workshops</div>
-            <div class="initiative-row-content-subheader">Fun!</div>
+            <div class="initiative-row-content-subheader">Our presence on campus.</div>
             <p class="initiative-row-content">
-              Cornell Design &amp; Tech Initiative is an student project team at Cornell University
-              dedicated to creating web and mobile apps that iimprove the lives around
-              us. We are a team fo 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our
-              community. We are a team fo 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our
-              community.
+              We are constantly trying to find ways to expand beyond our team and help the community
+              through holding workshops and events. In the past, we have held workshops
+              on UX Research, building a website portfolio, and more!
             </p>
-            <b-button class="social-button" href="https://facebook.com">
+            <b-button class="social-button" href="https://www.facebook.com/cornelldti/">
               <FacebookIcon />
               <div class="social-button-text">
                 See Events

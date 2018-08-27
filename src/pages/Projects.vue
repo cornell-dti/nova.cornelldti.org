@@ -1,7 +1,6 @@
 <template>
   <page-background>
-    <nova-hero header="See What We Do!" subheader="We are Cornell Design &amp; Tech Initiative. But indivdually, we are a talented, diverse group
-              of students from different colleges and countries striving to make a difference in our community."
+    <nova-hero :header="Strings.get('hero.header', 'projects')" :subheader="Strings.get('hero.subheader', 'projects')"
       page="projects" />
 
     <page-section class="project-page-main-section">

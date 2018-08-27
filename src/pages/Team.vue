@@ -1,8 +1,6 @@
 <template>
   <page-background>
-    <nova-hero header="Working Together" subheader="We are Cornell Design &amp; Tech Initiative. But individually, we are a talented,
-        diverse, group of students from different colleges and countries striving
-        to make a difference in our community." page="team" />
+    <nova-hero :header="Strings.get('hero.header', 'team')" :subheader="Strings.get('hero.subheader', 'team')" page="team" />
 
     <div class="diversity diversity-background">
       <!-- TODO bind formatting to actual elements-->
@@ -10,11 +8,10 @@
         <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
           <b-row>
             <b-col sm="12" md="9">
-              <div class="team-header diversity-header my-auto">Diversity</div>
-              <div class="diversity-description my-auto lg-y-padding">More than just being inclusive, our team strives to bring as many backgrounds
-                and perspectives together to solve community problems.</div>
+              <div class="team-header diversity-header my-auto">{{ Strings.get('diversity.header', 'team') }}</div>
+              <div class="diversity-description my-auto lg-y-padding">{{ Strings.get('diversity.description', 'team') }}</div>
 
-              <h3 class="graph-header lg-y-padding">Gender Ratio</h3>
+              <h3 class="graph-header lg-y-padding">{{ Strings.get('diversity.gender.header', 'team') }}</h3>
 
               <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
@@ -48,16 +45,16 @@
         <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
           <b-row>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">55%</div>
-              <div class="diversity-description diversity-stat-description">Percentage of underclassmen team members</div>
+              <div class="diversity-stat-header">{{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}</div>
+              <div class="diversity-description diversity-stat-description">{{ Strings.get('diversity.stats.underclassmen.description', 'team') }}</div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">14</div>
-              <div class="diversity-description diversity-stat-description">Number of different majors</div>
+              <div class="diversity-stat-header">{{ Strings.get('diversity.stats.majors.stat', 'team') }}</div>
+              <div class="diversity-description diversity-stat-description">{{ Strings.get('diversity.stats.majors.description', 'team') }}</div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">6</div>
-              <div class="diversity-description diversity-stat-description">Number of represented colleges</div>
+              <div class="diversity-stat-header">{{ Strings.get('diversity.stats.colleges.stat', 'team') }}</div>
+              <div class="diversity-description diversity-stat-description">{{ Strings.get('diversity.stats.colleges.description', 'team') }}</div>
             </b-col>
           </b-row>
         </b-col>
@@ -66,7 +63,7 @@
 
     <b-container fluid>
       <page-section>
-        <div class="team-header diversity-header">Team</div>
+        <div class="team-header diversity-header">{{ Strings.get('team.header', 'team') }}</div>
 
         <!-- TODO actual padding --><br>
 

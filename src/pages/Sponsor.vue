@@ -1,51 +1,45 @@
 <template>
   <page-background>
-    <nova-hero header="Sponsor Us" subheader="We are Cornell Design &amp; Tech Initiative. But indivdually, we are a talented, diverse group
-              of students from different colleges and countries striving to make a difference in our community."
+    <nova-hero :header="Strings.get('hero.header', 'sponsor')" :subheader="Strings.get('hero.subheader', 'sponsor')"
       page="sponsor" />
     <b-container>
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <b-col sm="12" md="6" class="sponsor-row-img" order-md="2" order-sm="1">
+          <!--<b-col sm="12" md="6" class="sponsor-row-img" order-md="2" order-sm="1">
             <b-img height="300" width="600" blank blank-color="#777" />
-          </b-col>
-          <b-col sm="12" md="6" order-md="1" order-sm="2">
-            <h2>Mentorship</h2>
+          </b-col>-->
+          <b-col sm="12" md="12" order-md="1" order-sm="2">
+            <h2>{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University
-              dedicated to creating web and mobile apps that improve the lives around
-              us. We are a team of 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our
-              community.
+              {{Strings.get('pitch.2.description', 'sponsor')}}
             </p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <b-col sm="12" md="6" class="sponsor-row-img" order-md="1" order-sm="1">
+          <!--<b-col sm="12" md="6" class="sponsor-row-img" order-md="1" order-sm="1">
             <b-img height="300" width="600" blank blank-color="#777" />
-          </b-col>
-          <b-col sm="12" md="6" class="sponsor-row-content-container" order-md="2" order-sm="2">
-            <h2>Funding</h2>
+          </b-col>-->
+          <b-col sm="12" md="12" class="sponsor-row-content-container" order-md="2" order-sm="2">
+            <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
-              Cornell Design & Tech Initiative is an student project team at Cornell University
-              dedicated to creating web and mobile apps that improve the lives around
-              us. We are a team of 60 developers, designers, and product managers
-              united in the goal to use our skills to make a positive impact in our
-              community.
+              {{Strings.get('pitch.2.description', 'sponsor')}}
             </p>
           </b-col>
         </b-row>
       </page-section>
       <page-section>
         <b-row class="justify-content-center sponsor-contact">
-          <h2>Sponsor an event, workshop or our team to help us make community impact.</h2>
+          <h2> {{Strings.get('call-to-action.description', 'sponsor')}}
+          </h2>
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
-          <b-button>Contact Us</b-button>
+          <b-button> {{Strings.get('call-to-action.button.text', 'sponsor')}}
+          </b-button>
         </b-row>
       </page-section>
       <page-section>
-        <h2 class="sponsor-list-heading">Current Sponsors</h2>
+        <h2 class="sponsor-list-heading"> {{Strings.get('current-sponsors.header', 'sponsor')}}
+        </h2>
         <b-row class="sponsor-list justify-content-sm-center">
           <b-col sm="12" md="4">
             Sponsor 1

@@ -36,12 +36,17 @@
               <b-col>
                 <div class="member-modal-header">Team Work</div>
                 <b-row v-for="team in profile.teams" :key="team.name">
-                  <b-col cols="2" class="my-auto">
+                  <b-col v-if="team.logo" cols="2" class="team-logo my-auto">
                     <b-img :src="team.logo" :alt="team.name" height="64px" width="64px" />
                   </b-col>
                   <b-col class="team-info my-auto">
-                    <h4>{{team.name}}</h4>
-                    <p>{{team.description}}</p>
+                    <h4 v-if="team.logo || team.description">{{team.name}}</h4>
+                    <p v-if="team.logo || team.description">{{team.description}}</p>
+                    <ul class="team-info-list" v-else>
+                      <li>
+                        <h4>{{team.name}}</h4>
+                      </li>
+                    </ul>
                   </b-col>
                 </b-row>
               </b-col>
@@ -225,8 +230,12 @@ $radius: 25px;
       }
     }
 
-    .team-info {
-      padding-left: 35px;
+    .team-logo {
+      padding-right: 2rem;
+    }
+
+    .team-info-list {
+      padding-top: 0.2rem;
     }
   }
 }
