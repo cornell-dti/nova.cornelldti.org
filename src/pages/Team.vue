@@ -20,12 +20,12 @@
                     <div class="text-center graph-data h-100">
                       <b-row align-v="center" class="h-100">
                         <b-col cols="6" class="graph-datum">
-                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
-                          <p class="graph-datum-description">Female</p>
-                        </b-col>
-                        <b-col cols="6" class="graph-datum">
                           <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
                           <p class="graph-datum-description">Male</p>
+                        </b-col>
+                        <b-col cols="6" class="graph-datum">
+                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
+                          <p class="graph-datum-description">Female</p>
                         </b-col>
                       </b-row>
                     </div>
