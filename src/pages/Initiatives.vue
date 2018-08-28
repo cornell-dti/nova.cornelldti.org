@@ -21,12 +21,12 @@
               DTI partnered with Makerspace to give an introduction to 3D printing
               using Tinkercad.
             </p>
-            <!--<b-button class="social-button" href="https://google.com">
+            <b-button class="social-button" href="https://medium.com/@alice.pham/5b9033aa7a6e">
               <MediumIcon />
               <div class="social-button-text">
                 Read More
               </div>
-            </b-button>-->
+            </b-button>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">

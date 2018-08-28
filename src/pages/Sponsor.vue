@@ -41,14 +41,14 @@
         <h2 class="sponsor-list-heading"> {{Strings.get('current-sponsors.header', 'sponsor')}}
         </h2>
         <b-row class="sponsor-list justify-content-sm-center">
-          <b-col sm="12" md="4">
-            Sponsor 1
+          <b-col class="my-auto" sm="12" md="4">
+            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.invision', 'assets')" />
           </b-col>
-          <b-col sm="12" md="4">
-            Sponsor 2
+          <b-col class="my-auto" sm="12" md="4">
+            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.google', 'assets')" />
           </b-col>
-          <b-col sm="12" md="4">
-            Sponsor 3
+          <b-col class="my-auto" sm="12" md="4">
+            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.cornell-engineering-alumni', 'assets')" />
           </b-col>
         </b-row>
       </page-section>
@@ -58,6 +58,10 @@
 </template>
 
 <style lang="scss" scoped>
+.sponsor-icon {
+  width: 100%;
+}
+
 .justify-content-center {
   text-align: center;
 }
@@ -73,10 +77,6 @@
 .sponsor-list {
   .col,
   div[class*='col-'] {
-    border-radius: 32px;
-    background-color: #d8d8d8;
-    border: solid 1px #979797;
-    height: 156px;
     font-size: 25px;
     margin: auto;
     text-align: center;

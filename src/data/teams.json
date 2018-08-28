@@ -117,7 +117,7 @@
         "linkedin": "https://www.linkedin.com/in/kaushikravikumar/"
       },
       {
-        "image": "evanw.png",
+        "image": "evanw.jpg",
         "name": "Evan Welsh",
         "role": "Developer",
         "roleCategory": "developer",
@@ -245,7 +245,7 @@
         "role": "Developer"
       },
       {
-        "image": "jillw.png",
+        "image": "jillw.jpg",
         "name": "Jill Wu",
         "role": "Developer",
         "roleCategory": "developer",
@@ -253,7 +253,7 @@
         "linkedin": "https://linkedin.com/in/jillwuu"
       },
       {
-        "image": "gautamm.png",
+        "image": "gautamm.jpg",
         "name": "Gautam Mekkat",
         "role": "Developer",
         "roleCategory": "developer",
@@ -344,7 +344,7 @@
         "role": "Designer"
       },
       {
-        "image": "ayeshag.png",
+        "image": "ayeshag.jpg",
         "name": "Ayesha Gagguturi",
         "role": "Designer",
         "roleCategory": "designer",
@@ -372,14 +372,9 @@
         "linkedin": "https://www.linkedin.com/in/karun17/"
       },
       {
-        "image": "horaceh.jpg",
-        "name": "Horace He",
-        "role": "Developer"
-      },
-      {
-        "image": "ryan_slama.png",
+        "image": "ryan_slama.jpg",
         "name": "Ryan Slama",
-        "role": "Front-End Developer",
+        "role": "Developer",
         "linkedin": "https://www.linkedin.com/in/ryan-slama-961738137/",
         "github": "https://github.com/glitched",
         "website": "http://ryanslama.com/"
@@ -399,13 +394,6 @@
         "roleCategory": "developer",
         "github": "https://github.com/Shefali-A",
         "linkedin": "https://www.linkedin.com/in/shefaliagarwal/"
-      },
-      {
-        "image": "sangwook.jpg",
-        "name": "Sangwoo (Sean) Kim",
-        "role": "Designer",
-        "roleCategory": "designer",
-        "linkedin": "https://www.linkedin.com/in/sangwoo-kim-2a520b119/"
       },
       {
         "image": "joyelleg.jpg",

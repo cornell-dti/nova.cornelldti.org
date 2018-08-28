@@ -1,6 +1,7 @@
 <template>
   <page-background>
-    <nova-hero :header="Strings.get('hero.header', 'team')" :subheader="Strings.get('hero.subheader', 'team')" page="team" />
+    <nova-hero :header="Strings.get('hero.header', 'team')" :subheader="Strings.get('hero.subheader', 'team')"
+      page="team" />
 
     <div class="diversity diversity-background">
       <!-- TODO bind formatting to actual elements-->
@@ -33,8 +34,8 @@
               </b-row>
               <b-row class="my-auto" align-h="center">
                 <b-col>
-                  <role-selector class="diversity-role-selector" :centered="true" v-model="divRoleId" :dark="true" density="compact"
-                  />
+                  <role-selector class="diversity-role-selector" :centered="true" v-model="divRoleId"
+                    :dark="true" density="compact" />
                 </b-col>
               </b-row>
             </b-col>
@@ -46,7 +47,8 @@
           <b-row>
             <b-col cols="12" class="diversity-description diversity-inner-text">
               <div class="diversity-stat-header">{{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}</div>
-              <div class="diversity-description diversity-stat-description">{{ Strings.get('diversity.stats.underclassmen.description', 'team') }}</div>
+              <div class="diversity-description diversity-stat-description">{{ Strings.get('diversity.stats.underclassmen.description', 'team')
+                }}</div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
               <div class="diversity-stat-header">{{ Strings.get('diversity.stats.majors.stat', 'team') }}</div>
@@ -71,7 +73,7 @@
           <b-col cols="12">
             <role-selector density="normal" class="team-role-selector" v-model="roleId" />
 
-            <headshot-grid :members="[...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
+            <headshot-grid :members="[...filterMembers(`${roleId}-colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
             />
           </b-col>
         </b-row>
@@ -389,16 +391,23 @@ export default {
     filterMembers(role = '') {
       let filtered;
       if (role === '') {
-        filtered = [...this.getMembers()].sort((a, b) => {
-          if (a.name < b.name) return -1;
-          if (a.name > b.name) return 1;
-          return 0;
-        });
+        filtered = this.getMembers()
+          .filter(
+            member =>
+              typeof member.roleId !== 'undefined' &&
+              !member.roleId.includes('-')
+          )
+          .sort((a, b) => {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+          });
       } else {
         filtered = this.getMembers()
           .filter(
             member =>
-              typeof member.roleId !== 'undefined' && member.roleId === role
+              typeof member.roleId !== 'undefined' &&
+              member.roleId.endsWith(role)
           )
           .sort((a, b) => {
             if (a.name < b.name) return -1;
@@ -406,6 +415,7 @@ export default {
             return 0;
           });
       }
+
       // todo fix this ugliness
 
       return filtered;

@@ -3,8 +3,8 @@
     "image": "matthewb.jpg",
     "name": "Matthew Barker",
     "id": "mb1",
-    "role": "Co-Lead and Co-Design Lead",
-    "roleId": "designer-lead",
+    "role": "Co-Team Lead, Design Lead",
+    "roleId": "designer-colead",
     "github": "https://github.com/mattbarker016",
     "website": "http://mattbarker.me/"
   },
@@ -212,8 +212,8 @@
     "image": "alicez.jpg",
     "name": "'Alice' Ran Zhou",
     "id": "arz1",
-    "role": "Co-Lead",
-    "roleId": "pm",
+    "role": "Co-Team Lead, Product Manager",
+    "roleId": "pm-colead",
     "github": "https://github.com/rz96",
     "linkedin": "https://www.linkedin.com/in/aranzhou/"
   },
@@ -340,8 +340,8 @@
     "image": "michaelh.jpg",
     "id": "mh1",
     "name": "Michael Huang",
-    "role": "Co-Design Lead",
-    "roleId": "designer"
+    "role": "Design Lead",
+    "roleId": "designer-lead"
   },
   {
     "image": "ayeshag.png",
@@ -360,18 +360,11 @@
     "linkedin": "https://www.linkedin.com/in/tiffany-wang-29ab2a127/"
   },
   {
-    "image": "horaceh.jpg",
-    "id": "hh1",
-    "name": "Horace He",
-    "roleId": "developer",
-    "role": "Alumni"
-  },
-  {
     "image": "ryan_slama.png",
     "id": "rs1",
     "name": "Ryan Slama",
     "roleId": "developer",
-    "role": "Front-End Developer",
+    "role": "Developer",
     "linkedin": "https://www.linkedin.com/in/ryan-slama-961738137/",
     "github": "https://github.com/glitched",
     "website": "http://ryanslama.com/"
@@ -393,14 +386,6 @@
     "roleId": "developer",
     "github": "https://github.com/Shefali-A",
     "linkedin": "https://www.linkedin.com/in/shefaliagarwal/"
-  },
-  {
-    "image": "sangwook.jpg",
-    "name": "Sangwoo (Sean) Kim",
-    "id": "ssk1",
-    "role": "Alumni",
-    "roleId": "designer",
-    "linkedin": "https://www.linkedin.com/in/sangwoo-kim-2a520b119/"
   },
   {
     "image": "joyelleg.jpg",
@@ -429,7 +414,7 @@
     "image": "glenik.jpg",
     "name": "Gleni Kodra",
     "id": "gk1",
-    "roleId": "business",
+    "roleId": "business-lead",
     "role": "Business Lead"
   },
   {
