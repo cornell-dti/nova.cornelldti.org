@@ -124,7 +124,7 @@
     "linkedin": "https://www.linkedin.com/in/kaushikravikumar/"
   },
   {
-    "image": "evanw.png",
+    "image": "evanw.jpg",
     "name": "Evan Welsh",
     "id": "ew1",
     "role": "Web Platforms Lead",
@@ -243,7 +243,7 @@
     "roleId": "developer"
   },
   {
-    "image": "jillw.png",
+    "image": "jillw.jpg",
     "name": "Jill Wu",
     "id": "jw1",
     "role": "Developer",
@@ -252,7 +252,7 @@
     "linkedin": "https://linkedin.com/in/jillwuu"
   },
   {
-    "image": "gautamm.png",
+    "image": "gautamm.jpg",
     "name": "Gautam Mekkat",
     "id": "gm1",
     "role": "Developer",
@@ -344,7 +344,7 @@
     "roleId": "designer-lead"
   },
   {
-    "image": "ayeshag.png",
+    "image": "ayeshag.jpg",
     "name": "Ayesha Gagguturi",
     "id": "ag3",
     "role": "Developer",
@@ -360,7 +360,7 @@
     "linkedin": "https://www.linkedin.com/in/tiffany-wang-29ab2a127/"
   },
   {
-    "image": "ryan_slama.png",
+    "image": "ryan_slama.jpg",
     "id": "rs1",
     "name": "Ryan Slama",
     "roleId": "developer",

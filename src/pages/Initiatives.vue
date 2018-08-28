@@ -59,7 +59,7 @@
               through holding workshops and events. In the past, we have held workshops
               on UX Research, building a website portfolio, and more!
             </p>
-            <b-button class="social-button" href="https://www.facebook.com/cornelldti/">
+            <b-button class="social-button" href="https://www.facebook.com/cornelldti/events/">
               <FacebookIcon />
               <div class="social-button-text">
                 See Events
