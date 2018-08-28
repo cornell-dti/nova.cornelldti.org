@@ -35,7 +35,7 @@
           <a :href="Strings.get(`github`, `projects.${projectId}`)">
             <Github class="connect-icon connect-icon-blank" />
           </a>
-          Main Repo
+          GitHub
         </b-col>
       </b-row>
     </b-col>
