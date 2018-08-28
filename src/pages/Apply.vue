@@ -103,7 +103,7 @@
 
         <b-row class="justify-content-center" v-if="Strings.exists(`application-info.${roleId}.${child}.call-to-action-button.content`, 'apply')">
           <b-col cols="auto">
-            <b-button size="lg" variant="secondary" class="text-center">
+            <b-button disabled :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.link`, 'apply')" size="lg" variant="secondary" class="text-center">
               {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
               'apply')}}
             </b-button>

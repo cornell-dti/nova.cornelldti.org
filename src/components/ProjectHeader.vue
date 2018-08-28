@@ -90,7 +90,7 @@ export default {
 }
 
 .product {
-  max-width: 100%;
+  max-width: 75%;
   object-fit: contain;
 }
 
