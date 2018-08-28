@@ -3,7 +3,7 @@
     "image": "matthewb.jpg",
     "name": "Matthew Barker",
     "id": "mb1",
-    "role": "Design Lead",
+    "role": "Co-Lead and Co-Design Lead",
     "roleId": "designer-lead",
     "github": "https://github.com/mattbarker016",
     "website": "http://mattbarker.me/"
@@ -39,8 +39,8 @@
     "image": "amandao.jpg",
     "name": "Amanda Ong",
     "id": "ao1",
-    "role": "Developer",
-    "roleId": "developer",
+    "role": "Product Manager",
+    "roleId": "pm",
     "github": "https://github.com/amandaong/",
     "linkedin": "https://www.linkedin.com/in/amandaong1/"
   },
@@ -75,8 +75,8 @@
     "image": "jessica_zhao.jpg",
     "name": "Jessica Zhao",
     "id": "jz1",
-    "role": "Designer",
-    "roleId": "designer",
+    "role": "Developer",
+    "roleId": "developer",
     "linkedin": "https://www.linkedin.com/in/jessica-zhao-cornell/",
     "github": "https://github.com/jess1cazhao/"
   },
@@ -170,8 +170,8 @@
     "image": "julianl.jpg",
     "name": "Julian Londono",
     "id": "jl1",
-    "role": "Developer",
-    "roleId": "developer",
+    "role": "Product Manager",
+    "roleId": "pm",
     "github": "https://github.com/julian-londono",
     "linkedin": "https://www.linkedin.com/in/julian-londono/"
   },
@@ -197,22 +197,22 @@
     "image": "jessem.jpg",
     "id": "jm1",
     "name": "Jesse Mansoor",
-    "role": "Designer (Away)",
+    "role": "Designer",
     "roleId": "designer"
   },
   {
     "image": "jessicap.jpg",
     "name": "Jessica Prague",
     "id": "jp2",
-    "role": "Designer",
-    "roleId": "designer",
+    "role": "Product Manager",
+    "roleId": "pm",
     "linkedin": "https://www.linkedin.com/in/jessica-prague-07a157149/"
   },
   {
     "image": "alicez.jpg",
     "name": "'Alice' Ran Zhou",
     "id": "arz1",
-    "role": "Product Manager (Away)",
+    "role": "Co-Lead",
     "roleId": "pm",
     "github": "https://github.com/rz96",
     "linkedin": "https://www.linkedin.com/in/aranzhou/"
@@ -288,7 +288,7 @@
     "image": "juliay.jpg",
     "name": "Julia Yang",
     "id": "jy1",
-    "role": "Developer (Away)",
+    "role": "Developer",
     "roleId": "developer",
     "linkedin": "http://linkedin.com/in/juliayangg"
   },
@@ -340,15 +340,15 @@
     "image": "michaelh.jpg",
     "id": "mh1",
     "name": "Michael Huang",
-    "role": "Designer",
+    "role": "Co-Design Lead",
     "roleId": "designer"
   },
   {
     "image": "ayeshag.png",
     "name": "Ayesha Gagguturi",
     "id": "ag3",
-    "role": "Designer",
-    "roleId": "designer",
+    "role": "Developer",
+    "roleId": "developer",
     "github": "https://github.com/Ayesha34/CS"
   },
   {
@@ -364,13 +364,13 @@
     "id": "hh1",
     "name": "Horace He",
     "roleId": "developer",
-    "role": "Developer"
+    "role": "Alumni"
   },
   {
     "image": "ryan_slama.png",
     "id": "rs1",
     "name": "Ryan Slama",
-    "roleId": "designer",
+    "roleId": "developer",
     "role": "Front-End Developer",
     "linkedin": "https://www.linkedin.com/in/ryan-slama-961738137/",
     "github": "https://github.com/glitched",
@@ -398,7 +398,7 @@
     "image": "sangwook.jpg",
     "name": "Sangwoo (Sean) Kim",
     "id": "ssk1",
-    "role": "Designer",
+    "role": "Alumni",
     "roleId": "designer",
     "linkedin": "https://www.linkedin.com/in/sangwoo-kim-2a520b119/"
   },
@@ -406,7 +406,8 @@
     "image": "joyelleg.jpg",
     "name": "Joyelle Gilbert",
     "id": "jg1",
-    "role": "Designer"
+    "role": "Designer",
+    "roleId": "designer"
   },
   {
     "image": "sophia_wang.jpg",
@@ -429,7 +430,7 @@
     "name": "Gleni Kodra",
     "id": "gk1",
     "roleId": "business",
-    "role": "Analyst"
+    "role": "Business Lead"
   },
   {
     "image": "ronni_mok.jpg",
