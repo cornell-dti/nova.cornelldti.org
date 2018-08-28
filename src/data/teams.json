@@ -1,7 +1,7 @@
 [
   {
     "name": "CU Orientation & Events",
-    "id": "orientation",
+    "id": "events",
     "members": [
       {
         "image": "juliak.jpg",
@@ -354,7 +354,7 @@
   },
   {
     "name": "Queue Me In",
-    "id": "officehours",
+    "id": "queue-me-in",
     "members": [
       {
         "image": "tiffanyw.jpg",

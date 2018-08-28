@@ -81,7 +81,7 @@ body {
 </style>
 
 <style lang="scss" scoped>
-$page-transition-duration: 0.5s;
+$page-transition-duration: 0s;
 
 .page-stack {
   position: relative;

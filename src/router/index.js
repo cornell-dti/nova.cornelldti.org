@@ -12,10 +12,10 @@ import NotFound from '@/pages/NotFound';
 import Events from '@/pages/projects/Events';
 import Orientation from '@/pages/projects/Orientation';
 import QueueMeIn from '@/pages/projects/QueueMeIn';
-import Rescuer from '@/pages/projects/Rescuer';
 import Reviews from '@/pages/projects/Reviews';
 import Samwise from '@/pages/projects/Samwise';
 import Shout from '@/pages/projects/Shout';
+import ResearchConnect from '@/pages/projects/ResearchConnect';
 
 import DiversityJson from '@/data/diversity.json';
 
@@ -54,16 +54,16 @@ export default new Router({
       name: 'QueueMeIn',
       component: QueueMeIn
     },
-    {
-      path: '/Projects/rescuer',
-      name: 'Rescuer',
-      component: Rescuer
-    },
     { path: '/Projects/cureviews', redirect: '/Projects/reviews' },
     {
       path: '/Projects/reviews',
       name: 'Reviews',
       component: Reviews
+    },
+    {
+      path: '/Projects/researchconnect',
+      name: 'Research Connect',
+      component: ResearchConnect
     },
     {
       path: '/Projects/samwise',
