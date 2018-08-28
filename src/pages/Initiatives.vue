@@ -239,6 +239,10 @@ $dark-gray: #4a4a4a;
   justify-content: center;
   padding: 10px 15px;
 
+  svg {
+    fill: #fff;
+  }
+
   .social-button-text {
     border-left: 1px solid white;
     margin-left: 15px;
