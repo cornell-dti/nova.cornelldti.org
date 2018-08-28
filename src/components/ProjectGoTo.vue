@@ -14,7 +14,7 @@
           />
         </b-col>
         <b-col cols="auto" v-if="Strings.exists(`appstore`, `projects.${projectId}`)">
-          <store-badge store="appstore" :url="Strings.exists(`appstore`, `projects.${projectId}`)"
+          <store-badge store="appstore" :url="Strings.get(`appstore`, `projects.${projectId}`)"
           />
         </b-col>
         <b-col class="connect-icon-container" cols="auto" v-if="Strings.exists(`ios-github`, `projects.${projectId}`) && !Strings.exists(`appstore`, `projects.${projectId}`) && !Strings.exists(`playstore`, `projects.${projectId}`) && !Strings.exists(`website`, `projects.${projectId}`)">
@@ -35,7 +35,7 @@
           <a :href="Strings.get(`github`, `projects.${projectId}`)">
             <Github class="connect-icon connect-icon-blank" />
           </a>
-
+          Main Repo
         </b-col>
       </b-row>
     </b-col>

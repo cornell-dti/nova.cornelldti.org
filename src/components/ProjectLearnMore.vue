@@ -24,7 +24,7 @@
             <a :href="Strings.get(`github`, `projects.${projectId}`)">
               <Github class="connect-icon connect-icon-blank" />
             </a>
-
+            Main Repo
           </b-col>
           <b-col class="connect-icon-container" cols="auto" v-if="Strings.exists(`medium`, `projects.${projectId}`)">
 

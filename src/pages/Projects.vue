@@ -59,8 +59,6 @@ export default {
 
       const projects = this.Strings.get('projects', 'projects');
 
-      console.log(projects);
-
       for (let i = 0; i < projects.length; i += 1) {
         row.push(projects[i]);
 
@@ -68,6 +66,10 @@ export default {
           rows.push({ index: i, members: row });
           row = [];
         }
+      }
+
+      if (row.length > 0) {
+        rows.push({ index: rows.length, members: row });
       }
 
       return rows;

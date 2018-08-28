@@ -7,8 +7,8 @@
         />
       </b-col>
       <b-col cols="5">
-        <div class="feature-header">{{Strings.get(`features.2.title`, `projects.${projectId}`)}}</div>
-        <div class="project-description">{{Strings.get(`features.2.description`, `projects.${projectId}`)}}</div>
+        <div class="feature-header">{{Strings.get(`features.1.title`, `projects.${projectId}`)}}</div>
+        <div class="project-description">{{Strings.get(`features.1.description`, `projects.${projectId}`)}}</div>
       </b-col>
     </b-row>
     <b-row class="feature-padding" />

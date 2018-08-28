@@ -1,5 +1,5 @@
 <template>
-    <a  v-if="store === 'appstore'" :href='url'>
+    <a v-if="store === 'appstore'" :href='url'>
         <AppStoreBadge>
         </AppStoreBadge>
     </a>
