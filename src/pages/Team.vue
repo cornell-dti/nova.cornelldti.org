@@ -146,6 +146,7 @@ $secondary: #f6f6f6;
   line-height: normal;
   letter-spacing: 0.6px;
   color: #ffffff;
+  text-align: center;
 
   @media (max-width: 767px) {
     text-align: center;
