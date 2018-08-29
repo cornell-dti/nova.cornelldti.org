@@ -21,7 +21,7 @@
     "image": "davidc.jpg",
     "name": "David Chu",
     "id": "dc1",
-    "role": "Mobile Platforms Lead",
+    "role": "Mobile Platforms Lead, Product Manager",
     "roleId": "developer-lead",
     "github": "https://github.com/davidchuyaya",
     "linkedin": "https://www.linkedin.com/in/davidchuyaya/"
@@ -162,7 +162,7 @@
     "image": "brooked.jpg",
     "name": "Brooke Docherty",
     "id": "bd1",
-    "role": "Product Manager",
+    "role": "Advisor",
     "roleId": "pm",
     "linkedin": "https://www.linkedin.com/in/brooke-docherty/"
   },
@@ -363,8 +363,8 @@
     "image": "ryan_slama.jpg",
     "id": "rs1",
     "name": "Ryan Slama",
-    "roleId": "developer",
-    "role": "Developer",
+    "roleId": "pm",
+    "role": "Product Manager",
     "linkedin": "https://www.linkedin.com/in/ryan-slama-961738137/",
     "github": "https://github.com/glitched",
     "website": "http://ryanslama.com/"
