@@ -198,8 +198,8 @@ export default {
 
     .description {
       margin-top: 2.5rem;
-      font-size: 20px;
-      font-weight: 500;
+      font-size: 18px;
+      font-weight: 600;
       font-style: normal;
       font-stretch: normal;
       line-height: 1.4;
@@ -216,8 +216,8 @@ export default {
 
       .time {
         margin-bottom: 0.3125rem;
-        font-size: 2rem;
-        font-weight: bold;
+        font-size: 24px;
+        font-weight: 600;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;
@@ -248,7 +248,7 @@ export default {
 
       .location {
         margin-top: 0.3125rem;
-        font-size: 1.25rem;
+        font-size: 18px;
         font-weight: 500;
         font-style: normal;
         font-stretch: normal;
