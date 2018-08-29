@@ -265,6 +265,7 @@ export default {
 
 .apply-link {
   color: #fff;
+  text-decoration: underline;
 }
 
 .apply-description {
@@ -341,7 +342,6 @@ export default {
       font-weight: 600;
       line-height: 1.06;
       letter-spacing: 0.3px;
-      text-decoration: none;
 
       &.active {
         border-bottom: 2px solid black;
