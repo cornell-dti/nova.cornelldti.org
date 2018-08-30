@@ -198,8 +198,8 @@ export default {
 
     .description {
       margin-top: 2.5rem;
-      font-size: 20px;
-      font-weight: 500;
+      font-size: 1.125rem;
+      font-weight: 600;
       font-style: normal;
       font-stretch: normal;
       line-height: 1.4;
@@ -216,7 +216,7 @@ export default {
 
       .time {
         margin-bottom: 0.3125rem;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
@@ -248,7 +248,7 @@ export default {
 
       .location {
         margin-top: 0.3125rem;
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         font-weight: 500;
         font-style: normal;
         font-stretch: normal;
@@ -265,6 +265,7 @@ export default {
 
 .apply-link {
   color: #fff;
+  text-decoration: underline;
 }
 
 .apply-description {
@@ -317,7 +318,7 @@ export default {
   }
   h3,
   p {
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 }
 .alert {
