@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import VueAnalytics from 'vue-analytics';
 import Router from 'vue-router';
 
 import Home from '@/pages/Home';
@@ -21,10 +20,6 @@ import ResearchConnect from '@/pages/projects/ResearchConnect';
 import DiversityJson from '@/data/diversity.json';
 
 Vue.use(Router);
-Vue.use(VueAnalytics, {
-  id: ['UA-115896141-1', 'UA-124837875-1'],
-  router: Router
-});
 
 export default new Router({
   mode: 'history',
