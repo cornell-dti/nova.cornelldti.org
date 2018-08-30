@@ -55,7 +55,7 @@
 
     <b-container>
       <role-selector class="application-role-selector" v-model="roleId" dropdownText="I want to apply for..."
-        :bold="true" :showAll="false" />
+       :centered="true" :bold="true" :showAll="false" />
 
       <timeline-section v-for="child of Strings.childrenOf(`application-info.${roleId}`, `apply`)"
         :key="child" :header="Strings.get(`application-info.${roleId}.${child}.header`, `apply`)"
@@ -102,18 +102,18 @@
         </b-row>
 
         <b-row class="justify-content-center" v-if="Strings.exists(`application-info.${roleId}.${child}.call-to-action-button.content`, 'apply')">
-          <b-col cols="auto">
+          <b-col cols="12">
             <b-row>
-              <b-col>
+              <b-col md="auto" sm="12">
                 <b-button :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.link`, 'apply')"
-                  size="lg" variant="secondary" class="text-center">
+                  size="lg" variant="secondary" class="call-to-action-button text-center">
                   {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
                   'apply')}}
                 </b-button>
               </b-col>
-              <b-col>
+              <b-col md="auto" sm="12">
                 <b-button :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')"
-                  size="lg" variant="secondary" class="text-center">
+                  size="lg" variant="secondary" class="call-to-action-button text-center">
                   {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.content`,
                   'apply')}}
                 </b-button>
@@ -178,6 +178,10 @@ export default {
 <style scoped lang="scss">
 .application-role-selector {
   margin: 2rem 0;
+}
+
+.call-to-action-button {
+  margin-top: 0.5rem;
 }
 
 .info-session-interjection {
