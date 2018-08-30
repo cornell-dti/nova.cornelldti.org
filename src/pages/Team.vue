@@ -20,12 +20,12 @@
                     <div class="text-center graph-data h-100">
                       <b-row align-v="center" class="h-100">
                         <b-col cols="6" class="graph-datum">
-                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
-                          <p class="graph-datum-description">Female</p>
-                        </b-col>
-                        <b-col cols="6" class="graph-datum">
                           <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
                           <p class="graph-datum-description">Male</p>
+                        </b-col>
+                        <b-col cols="6" class="graph-datum red">
+                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
+                          <p class="graph-datum-description">Female</p>
                         </b-col>
                       </b-row>
                     </div>
@@ -146,6 +146,7 @@ $secondary: #f6f6f6;
   line-height: normal;
   letter-spacing: 0.6px;
   color: #ffffff;
+  text-align: center;
 
   @media (max-width: 767px) {
     text-align: center;
@@ -153,6 +154,7 @@ $secondary: #f6f6f6;
 }
 
 .graph-datum {
+  filter: drop-shadow(2px 4px rgba(0,0,0,0.2));
   font-size: 2.5rem;
   font-weight: 500;
   font-style: normal;
@@ -165,6 +167,15 @@ $secondary: #f6f6f6;
     font-size: 1.5rem;
     font-size: 1.125rem;
     letter-spacing: 0.7px;
+  }
+
+  h3 {
+    font-family: Raleway;
+    font-weight: 500;
+  }
+
+  &.red h3 {
+    color: #ff324a;
   }
 }
 
