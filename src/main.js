@@ -2,9 +2,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 /* Node Modules */
-import BootstrapVue from 'bootstrap-vue';
+
 import Vue from 'vue';
-import VueAnalytics from 'vue-analytics';
+import BootstrapVue from 'bootstrap-vue';
 import VueVisual from 'vue-visual';
 
 /* CSS for Node Modules */
