@@ -1,12 +1,17 @@
 <template>
   <page-hero :overlay="false" :bg="`linear-gradient(282deg, ${Strings.get('heroStartingColor', `projects.${projectId}`)}, ${Strings.get('heroEndingColor', `projects.${projectId}`)})`">
-    <b-row align-h="center" class="h-100 no-gutters">
+    <b-row align-h="center" class="project-hero-header-left-mobile h-100 no-gutters">
       <b-col sm="auto" md="6" class="project-hero">
-        <b-row class="h-100 project-hero-header no-gutters" align-h="center" align-v="center">
-          <b-col class="project-hero-header-left" cols="auto">
-            <h3 class="project-hero-text-header">{{ Strings.get(`header`, `projects.${projectId}`) }}</h3>
-            <p class="project-hero-description">{{ Strings.get(`subheader`, `projects.${projectId}`) }}</p>
-            <project-go-to :projectId="projectId" />
+        <b-row class="h-100 project-hero-header no-gutters" align-h="end" align-v="center">
+          <b-col class="project-hero-header-left" md="10" sm="12">
+            <b-row class="no-gutters">
+              <b-col cols="12">
+                <h3 class="project-hero-text-header">{{ Strings.get(`header`, `projects.${projectId}`) }}</h3>
+                <p class="project-hero-description">{{ Strings.get(`subheader`, `projects.${projectId}`) }}</p>
+              </b-col>
+            </b-row>
+            <project-go-to class="no-gutters" v-if="!customGoTo" :projectId="projectId" />
+            <slot class="no-gutters" v-else />
           </b-col>
         </b-row>
       </b-col>
@@ -28,12 +33,22 @@ export default {
     projectId: {
       type: String,
       required: true
+    },
+    customGoTo: {
+      type: Boolean,
+      default: false
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.project-hero-header-left-mobile {
+  @media (max-width: 767px) {
+    margin-left: 10vw;
+  }
+}
+
 .project-hero {
   .project-hero-logo {
     margin: 1vw;
@@ -42,7 +57,8 @@ export default {
   .project-hero-description {
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 40vw;
+
+    max-width: 80vw;
     font-size: 1.25rem;
     font-weight: 500;
   }
@@ -92,6 +108,10 @@ export default {
 .product {
   max-width: 75%;
   object-fit: contain;
+
+  @media (max-width: 767px) {
+    display: none !important;
+  }
 }
 
 .feature-padding {

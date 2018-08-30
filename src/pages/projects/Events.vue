@@ -1,6 +1,20 @@
 <template>
   <page-background>
-    <project-header projectId="events" />
+    <project-header :customGoTo="true" projectId="events">
+      <b-row align-v="center">
+        <b-col md="8" sm="12">
+          <div class="events-interested-prompt">
+            Interested?
+          </div>
+          <div class="events-interested-prompt">
+            Sign up to join the beta test!
+          </div>
+        </b-col>
+        <b-col md="4" sm="12">
+          <b-button class="events-button" href="https://dticornell.typeform.com/to/B5Flgp">Sign Up</b-button>
+        </b-col>
+      </b-row>
+    </project-header>
     <b-container fluid>
       <b-row align-h="center">
         <b-col md="10" sm="12">
@@ -16,7 +30,7 @@
             <headshot-grid :members="getTeam(projectData.teamId).members" />
           </page-section>
 
-          <project-learn-more projectId="events" />
+          <project-learn-more :enableAll="true" projectId="events" />
         </b-col>
       </b-row>
     </b-container>
@@ -88,6 +102,23 @@ export default {
 
 
 <style lang="scss" scoped>
+.events-interested-prompt {
+  font-size: 1.5rem;
+}
+
+.events-button {
+  color: #fd4f54;
+  background-color: #fff;
+  border-radius: -5%;
+  padding: 0.5rem 1rem;
+  border: none;
+  box-shadow: 0 0 4px 3px rgba(255, 255, 255, 0.2);
+
+  @media (max-width: 767px) {
+    margin-top: 0.5rem;
+  }
+}
+
 .project-hero {
   .project-hero-logo {
     margin: 1vw;
