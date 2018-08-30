@@ -103,10 +103,22 @@
 
         <b-row class="justify-content-center" v-if="Strings.exists(`application-info.${roleId}.${child}.call-to-action-button.content`, 'apply')">
           <b-col cols="auto">
-            <b-button disabled :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.link`, 'apply')" size="lg" variant="secondary" class="text-center">
-              {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
-              'apply')}}
-            </b-button>
+            <b-row>
+              <b-col>
+                <b-button :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.link`, 'apply')"
+                  size="lg" variant="secondary" class="text-center">
+                  {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
+                  'apply')}}
+                </b-button>
+              </b-col>
+              <b-col>
+                <b-button :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')"
+                  size="lg" variant="secondary" class="text-center">
+                  {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.content`,
+                  'apply')}}
+                </b-button>
+              </b-col>
+            </b-row>
           </b-col>
         </b-row>
       </timeline-section>
