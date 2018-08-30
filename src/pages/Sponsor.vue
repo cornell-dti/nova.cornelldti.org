@@ -33,7 +33,8 @@
           </h2>
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
-          <b-button> {{Strings.get('call-to-action.button.text', 'sponsor')}}
+          <b-button :href="(Strings.get('call-to-action.button.link', `sponsor`) || 'mailto:hello@cornelldti.org')">
+          {{Strings.get('call-to-action.button.text', 'sponsor')}}
           </b-button>
         </b-row>
       </page-section>
@@ -42,13 +43,16 @@
         </h2>
         <b-row class="sponsor-list justify-content-sm-center">
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.invision', 'assets')" />
+            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.invision', 'assets')"
+            />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.google', 'assets')" />
+            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.google', 'assets')"
+            />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.cornell-engineering-alumni', 'assets')" />
+            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.cornell-engineering-alumni', 'assets')"
+            />
           </b-col>
         </b-row>
       </page-section>
