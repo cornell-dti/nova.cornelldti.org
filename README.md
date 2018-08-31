@@ -6,16 +6,25 @@
 
 ``` bash
 # install dependencies
-npm install
+yarn
 
 # serve with hot reload at localhost:8080
-npm run dev
+yarn dev
 
 # build for production with minification
-npm run build
+yarn build
 
 # build for production and view the bundle analyzer report
-npm run build --report
+yarn build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Deployment
+
+We deploy to Heroku. You will need [`heroku-cli`](https://devcenter.heroku.com/articles/heroku-cli).
+
+```bash
+# deploy
+git push heroku master
+```
