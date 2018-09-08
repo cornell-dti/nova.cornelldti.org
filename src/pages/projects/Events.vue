@@ -4,10 +4,7 @@
       <b-row align-v="center">
         <b-col md="8" sm="12">
           <div class="events-interested-prompt">
-            Interested?
-          </div>
-          <div class="events-interested-prompt">
-            Sign up to join the beta test!
+            Sign up for early access
           </div>
         </b-col>
         <b-col md="4" sm="12">
