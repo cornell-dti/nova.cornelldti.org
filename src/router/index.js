@@ -43,6 +43,7 @@ export default new Router({
       name: 'Projects',
       component: Projects
     },
+    { path: '/cue', redirect: '/Projects/events' },
     {
       path: '/Projects/events',
       name: 'Events',
