@@ -1,22 +1,71 @@
 <template>
-  <page-section v-if="enableAll || ((!Strings.exists(`website`, `projects.${projectId}`) && !Strings.exists(`playstore`, `projects.${projectId}`) && !Strings.exists(`appstore`, `projects.${projectId}`)) && (Strings.exists(`medium`, `projects.${projectId}`))) || (((Strings.exists(`playstore`, `projects.${projectId}`) || Strings.exists(`appstore`, `projects.${projectId}`) || Strings.exists(`website`, `projects.${projectId}`)) && (Strings.exists(`ios-github`, `projects.${projectId}`) || Strings.exists(`android-github`, `projects.${projectId}`) || Strings.exists(`github`, `projects.${projectId}`))))">
+  <page-section
+    v-if="enableAll
+      || (
+        (
+          !Strings.exists(`website`, `projects.${projectId}`)
+          && !Strings.exists(`playstore`, `projects.${projectId}`)
+          && !Strings.exists(`appstore`, `projects.${projectId}`)
+        ) && (
+          Strings.exists(`medium`, `projects.${projectId}`)
+        )
+      ) || (
+        (
+          (
+            Strings.exists(`playstore`, `projects.${projectId}`)
+            || Strings.exists(`appstore`, `projects.${projectId}`)
+            || Strings.exists(`website`, `projects.${projectId}`)
+          ) && (
+            Strings.exists(`ios-github`, `projects.${projectId}`)
+            || Strings.exists(`android-github`, `projects.${projectId}`)
+            || Strings.exists(`github`, `projects.${projectId}`)
+          )
+        )
+      )">
     <div class="project-header">Learn More</div>
     <b-row>
       <b-col cols="auto">
         <b-row>
-          <b-col class="connect-icon-container" cols="auto" v-if="(enableAll || (Strings.exists(`website`, `projects.${projectId}`) || Strings.exists(`playstore`, `projects.${projectId}`) || Strings.exists(`appstore`, `projects.${projectId}`))) && Strings.exists(`ios-github`, `projects.${projectId}`)">
-            <b-button class="align-content-center" :href="Strings.get(`ios-github`, `projects.${projectId}`)">
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="(enableAll
+              || (
+                Strings.exists(`website`, `projects.${projectId}`)
+                || Strings.exists(`playstore`, `projects.${projectId}`)
+                || Strings.exists(`appstore`, `projects.${projectId}`)
+              )
+            ) && Strings.exists(`ios-github`, `projects.${projectId}`)">
+            <b-button
+              class="align-content-center"
+              :href="Strings.get(`ios-github`, `projects.${projectId}`)">
               <Github class="connect-icon connect-icon-blank" />
               <span class="connect-text">iOS</span>
             </b-button>
           </b-col>
-          <b-col class="connect-icon-container" cols="auto" v-if="(enableAll || (Strings.exists(`website`, `projects.${projectId}`) || Strings.exists(`playstore`, `projects.${projectId}`) || Strings.exists(`appstore`, `projects.${projectId}`))) && Strings.exists(`android-github`, `projects.${projectId}`)">
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="(enableAll
+              || (
+                Strings.exists(`website`, `projects.${projectId}`)
+                || Strings.exists(`playstore`, `projects.${projectId}`)
+                || Strings.exists(`appstore`, `projects.${projectId}`)
+              )
+            ) && Strings.exists(`android-github`, `projects.${projectId}`)">
             <b-button class="align-content-center" :href="Strings.get(`android-github`, `projects.${projectId}`)">
               <Github class="connect-icon connect-icon-blank" />
               <span class="connect-text">Android</span>
             </b-button>
           </b-col>
-          <b-col class="connect-icon-container" cols="auto" v-if="(enableAll || (Strings.exists(`website`, `projects.${projectId}`) || Strings.exists(`playstore`, `projects.${projectId}`) || Strings.exists(`appstore`, `projects.${projectId}`))) && Strings.exists(`github`, `projects.${projectId}`)">
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="(enableAll ||
+              (Strings.exists(`website`, `projects.${projectId}`)
+              || Strings.exists(`playstore`, `projects.${projectId}`)
+              || Strings.exists(`appstore`, `projects.${projectId}`))
+            ) && Strings.exists(`github`, `projects.${projectId}`)">
             <b-button class="align-content-center" :href="Strings.get(`github`, `projects.${projectId}`)">
               <Github class="connect-icon connect-icon-blank" />
               <span class="connect-text">GitHub</span>

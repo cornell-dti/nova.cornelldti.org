@@ -4,7 +4,6 @@
 /* Node Modules */
 import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue';
-import VueAnalytics from 'vue-analytics';
 import VueVisual from 'vue-visual';
 
 /* CSS for Node Modules */
