@@ -5,27 +5,54 @@
     <b-container>
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <!--<b-col sm="12" md="6" class="sponsor-row-img" order-md="2" order-sm="1">
-            <b-img height="300" width="600" blank blank-color="#777" />
-          </b-col>-->
-          <b-col sm="12" md="12" order-md="1" order-sm="2">
+          <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
+            <b-img height="300" width="500" blank blank-color="#777" />
+          </b-col>
+          <b-col sm="12" md="5" order-md="1" order-sm="2">
             <h2>{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
-              {{Strings.get('pitch.2.description', 'sponsor')}}
+              {{Strings.get('pitch.1.description', 'sponsor')}}
             </p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <!--<b-col sm="12" md="6" class="sponsor-row-img" order-md="1" order-sm="1">
-            <b-img height="300" width="600" blank blank-color="#777" />
-          </b-col>-->
-          <b-col sm="12" md="12" class="sponsor-row-content-container" order-md="2" order-sm="2">
+          <b-col sm="12" md="5" class="sponsor-row-content-container" order-md="2" order-sm="2">
             <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
               {{Strings.get('pitch.2.description', 'sponsor')}}
             </p>
           </b-col>
+          <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order-sm="1">
+            <b-img height="300" width="500" blank blank-color="#777" />
+          </b-col>
         </b-row>
+        <b-row align-h="center" align-v="center" class="sponsor-row">
+          <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
+            <b-img height="300" width="500" blank blank-color="#777" />
+          </b-col>
+          <b-col sm="12" md="5" order-md="1" order-sm="2">
+            <h2>{{Strings.get('pitch.3.header', 'sponsor')}}</h2>
+            <p class="sponsor-row-content">
+              {{Strings.get('pitch.3.description', 'sponsor')}}
+            </p>
+          </b-col>
+        </b-row>
+      </page-section>
+      <page-section>
+        <h2 class="sponsor-tier-heading"> {{Strings.get('sponsor-tiers.header', 'sponsor')}} </h2>
+        <template>
+          <div class = "sponsor-tiers">
+          <b-table :striped="striped"
+             :outlined="outlined"
+             :bordered="bordered"
+             :hover="hover"
+             :fixed="fixed"
+             :small="small"
+             :items="items" 
+             :fields="fields"></b-table>
+          </div>
+      </template>
+
       </page-section>
       <page-section>
         <b-row class="justify-content-center sponsor-contact">
@@ -61,6 +88,56 @@
   </page-background>
 </template>
 
+<script>
+export default {
+  data() {
+    //this.Strings.get('', '')
+    return {
+      fields: ["benefits", "gold", "platinum"],
+      items: [
+        { benefits: "CDTI Resume Book", gold: "check", platinum: "check" },
+        {
+          benefits: "Access to CDTI product demonstrations",
+          gold: "check", //Strings.get("pages.sponsor.sponsors.Checkmark", "assets")
+          platinum: "check"
+        },
+        {
+          benefits: "Extensive company publicity",
+          gold: "check",
+          platinum: "check"
+        },
+        {
+          benefits: "Information session marketed by CDTI",
+          gold: "check",
+          platinum: "check"
+        },
+        {
+          benefits: "Collaboration on workships, marketed by CDTI",
+          gold: "check",
+          platinum: "check"
+        },
+        {
+          benefits: "Collaboration on “Study Break” activities",
+          gold: "not",
+          platinum: "check"
+        },
+        {
+          benefits: "Exclusive ability to request app developments",
+          gold: "not",
+          platinum: "check"
+        }
+      ],
+      striped: true,
+      outlined: true,
+      small: true,
+      hover: true,
+      fixed: true,
+      bordered: true
+    };
+  }
+};
+</script>
+
 <style lang="scss" scoped>
 .sponsor-icon {
   width: 100%;
@@ -78,9 +155,23 @@
 .sponsor-list-heading {
   font-size: 36px;
 }
+
+.sponsor-tier-heading {
+  font-size: 36px;
+}
+
+.sponsor-tiers {
+  display: flex;
+  flex-direction: column;
+  margin: 4em 0;
+  padding: 0 1.25em 0 0.75em;
+  border-radius: 2em;
+  min-width: 100%;
+}
+
 .sponsor-list {
   .col,
-  div[class*='col-'] {
+  div[class*="col-"] {
     font-size: 25px;
     margin: auto;
     text-align: center;
@@ -111,8 +202,12 @@
     text-align: left;
   }
 
-  &:nth-child(odd) {
+  &:nth-child(even) {
     text-align: right;
+    h2 {
+      color: #d0021b;
+    }
+
     .sponsor-row-img {
       text-align: left;
     }
@@ -126,8 +221,11 @@
     }
   }
 
-  &:nth-child(even) {
+  &:nth-child(odd) {
     text-align: left;
+    h2 {
+      color: #d0021b;
+    }
 
     .sponsor-row-img {
       text-align: right;
