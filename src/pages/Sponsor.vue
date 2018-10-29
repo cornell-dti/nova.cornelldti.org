@@ -11,7 +11,7 @@
           <b-col sm="12" md="12" order-md="1" order-sm="2">
             <h2>{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
-              {{Strings.get('pitch.2.description', 'sponsor')}}
+              {{Strings.get('pitch.1.description', 'sponsor')}}
             </p>
           </b-col>
         </b-row>
@@ -80,7 +80,7 @@
 }
 .sponsor-list {
   .col,
-  div[class*='col-'] {
+  div[class*="col-"] {
     font-size: 25px;
     margin: auto;
     text-align: center;
