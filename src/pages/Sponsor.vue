@@ -6,7 +6,7 @@
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
-            <b-img height="300" width="500" blank blank-color="#777" />
+            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.googleLunch', 'assets')" />
           </b-col>
           <b-col sm="12" md="5" order-md="1" order-sm="2">
             <h2>{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
@@ -16,17 +16,18 @@
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <b-col sm="12" md="5" class="sponsor-row-content-container" order-md="2" order-sm="2">
+          <b-col sm="12" md="5" class="sponsor-row-content-container" order-md="2" order-sm="1">
+          <!-- <b-col sm="12" md="5" order-md="2" order-sm="1"> -->
             <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
               {{Strings.get('pitch.2.description', 'sponsor')}}
             </p>
           </b-col>
-          <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order-sm="1">
-            <b-img height="300" width="500" blank blank-color="#777" />
+          <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order-sm="2"> <!-- sm="1"-->
+            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')" />
           </b-col>
         </b-row>
-        <b-row align-h="center" align-v="center" class="sponsor-row">
+        <!-- <b-row align-h="center" align-v="center" class="sponsor-row">
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
             <b-img height="300" width="500" blank blank-color="#777" />
           </b-col>
@@ -36,20 +37,21 @@
               {{Strings.get('pitch.3.description', 'sponsor')}}
             </p>
           </b-col>
-        </b-row>
+        </b-row> -->
       </page-section>
       <page-section>
         <h2 class="sponsor-tier-heading"> {{Strings.get('sponsor-tiers.header', 'sponsor')}} </h2>
         <template>
           <div class = "sponsor-tiers">
+            <!-- <tr>
+            </tr> -->
           <b-table :striped="striped"
              :outlined="outlined"
              :bordered="bordered"
-             :hover="hover"
-             :fixed="fixed"
-             :small="small"
              :items="items" 
-             :fields="fields"></b-table>
+             :fields="fields">
+               
+          </b-table>
           </div>
       </template>
 
@@ -92,47 +94,73 @@
 export default {
   data() {
     //this.Strings.get('', '')
+    //have benefits be keys and use arrays
+    //have table of benefits map to an array with key '0', '1', '2'.... that contains
+    //boolean
+    //  {
+    //  "0": {
+    //    'benefit',
+    //    tiers: {
+    //      "silver":true;
+    //    }
+    //  }
+    //  }
     return {
-      fields: ["benefits", "gold", "platinum"],
+      fields: ["benefits", "bronze", "silver", "gold", "platinum"],
       items: [
-        { benefits: "CDTI Resume Book", gold: "check", platinum: "check" },
         {
-          benefits: "Access to CDTI product demonstrations",
+          benefits: "Recognition on DTI Website",
+          bronze: "check",
+          silver: "check",
+          gold: "check",
+          platinum: "check"
+        },
+        {
+          benefits: "Campus-Wide Marketing & Publicity",
+          bronze: "check",
+          silver: "check",
           gold: "check", //Strings.get("pages.sponsor.sponsors.Checkmark", "assets")
           platinum: "check"
         },
         {
-          benefits: "Extensive company publicity",
+          benefits: "Resume Book Access",
+          bronze: "not",
+          silver: "check",
           gold: "check",
           platinum: "check"
         },
         {
-          benefits: "Information session marketed by CDTI",
+          benefits: "Flagship Initiative Co-Sponsor",
+          bronze: "not",
+          silver: "check",
           gold: "check",
           platinum: "check"
         },
         {
-          benefits: "Collaboration on workships, marketed by CDTI",
+          benefits: "Host One Standard Initiative",
+          bronze: "not",
+          silver: "not",
           gold: "check",
           platinum: "check"
         },
         {
-          benefits: "Collaboration on “Study Break” activities",
+          benefits: "Host Multiple Initiatives",
+          bronze: "not",
+          silver: "not",
           gold: "not",
           platinum: "check"
         },
         {
-          benefits: "Exclusive ability to request app developments",
+          benefits: "Tabling Slot in Engineering Hall",
+          bronze: "not",
+          silver: "not",
           gold: "not",
           platinum: "check"
         }
       ],
-      striped: true,
-      outlined: true,
-      small: true,
-      hover: true,
-      fixed: true,
-      bordered: true
+      striped: false,
+      outlined: false,
+      bordered: false
     };
   }
 };
@@ -158,6 +186,13 @@ export default {
 
 .sponsor-tier-heading {
   font-size: 36px;
+}
+
+.sponsor-row-image {
+  object-fit: cover;
+  height: 300px;
+  width: 500px;
+  margin: 0.25rem 0;
 }
 
 .sponsor-tiers {
@@ -198,13 +233,14 @@ export default {
     }
   }
 
-  .sponsor-row-content {
-    text-align: left;
-  }
+  // .sponsor-row-content {
+  //   text-align: left;
+  // }
 
   &:nth-child(even) {
     text-align: right;
     h2 {
+      text-align: right;
       color: #d0021b;
     }
 
@@ -213,7 +249,7 @@ export default {
     }
 
     .sponsor-row-content-container {
-      padding-left: 80px;
+      //padding-left: 80px;
 
       @media screen and (max-width: 768px) {
         padding-left: 15px;
@@ -232,7 +268,7 @@ export default {
     }
 
     .sponsor-row-content-container {
-      padding-right: 80px;
+      // paddiçng-right: 80px;
 
       @media screen and (max-width: 768px) {
         padding-right: 15px;
