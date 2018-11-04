@@ -19,8 +19,85 @@
     >
       <b-container fluid>
         <b-row>
-          <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
-          <!--TODO use actual icon, not text -->
+          <b-col>
+            <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
+            <!--TODO use actual icon, not text -->
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col cols="5">
+            <b-img center rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.image}`"/>
+            <b-row>
+              <b-col class="my-auto">
+                <div class="profile-name-header">{{profile.name}}</div>
+                <div class="profile-role text-dark">{{profile.role}}</div>
+              </b-col>
+            </b-row>
+            <b-row class="profile-facts">
+              <b-col cols="4" class="my-auto">
+                Major:
+                <br>
+                Year:
+                <br>
+                Hometown:
+                <div v-if="typeof profile.website !== 'undefined'">
+                  Website:
+                </div>
+              </b-col>
+              <b-col cols="8" id="profile-details" class="my-auto">
+                {{profile.major}}
+                <br>
+                {{profile.year}}
+                <br>
+                {{profile.hometown}}
+                <br>
+                <a v-if="typeof profile.website !== 'undefined'" :href="profile.website">{{profile.website}}</a>
+              </b-col>
+            </b-row>
+            <b-row>
+              <b-col class="social-media">
+                  <a v-if="typeof profile.github !== 'undefined'" :href="profile.github">
+                    <Github class="social-icon"/>
+                  </a>
+                  <a v-if="typeof profile.linkedin !== 'undefined'" :href="profile.linkedin">
+                    <LinkedIn class="social-icon"/>
+                  </a>
+              </b-col>
+            </b-row>
+          </b-col>
+          <v-divider vertical></v-divider>
+          <b-col class="modal-scroll">
+            <b-col sm="12" md="12" class="about-section">
+              <b-row>
+                <b-col>
+                  <div class="member-modal-header">About Me</div>
+                  <p id="about-p">{{profile.about}}</p>
+                </b-col>
+              </b-row>
+              <b-row>
+                <b-col>
+                  <div id="teamwork" class="member-modal-header">Team Work</div>
+                  <b-row v-for="team in profile.teams" :key="team.name">
+                    <b-col v-if="team.logo" cols="2" class="team-logo my-auto">
+                      <b-img :src="team.logo" :alt="team.name" height="64px" width="64px" />
+                    </b-col>
+                    <b-col class="team-info my-auto">
+                    <h4 v-if="team.logo || team.description">{{team.name}}</h4>
+                    <p v-if="team.logo || team.description">{{team.description}}</p>
+                    <ul class="team-info-list" v-else>
+                      <li>
+                        <h4>{{team.name}}</h4>
+                      </li>
+                    </ul>
+                  </b-col>
+                  </b-row>
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-col>
+        </b-row>
+<!--
           <b-col cols="12" class="my-auto">
             <b-row class="profile-header">
               <b-col lg="3" md="auto" sm="12">
@@ -30,14 +107,15 @@
                   :src="`${Strings.get('directories.members', 'assets')}/${profile.image}`"
                 />
               </b-col>
+              
               <b-col class="my-auto">
                 <div class="profile-name-header">{{profile.name}}</div>
                 <div class="profile-role text-dark">{{profile.role}}</div>
               </b-col>
             </b-row>
           </b-col>
-        </b-row>
-        <br>
+          -->
+<!--
         <b-row class="modal-scroll">
           <b-col sm="12" md="8" class="about-section">
             <b-row>
@@ -114,14 +192,22 @@
               </b-col>
             </b-row>
           </b-col>
-        </b-row>
+        </b-row> -->
+
       </b-container>
     </b-modal>
   </div>
 </template>
 
 <script>
+import Github from '@/assets/social/github.svg';
+import Medium from '@/assets/social/medium.svg';
+
 export default {
+    components: {
+    Github,
+    Medium,
+  },
   model: {
     prop: 'modalShow',
     event: 'update:change'
@@ -152,9 +238,17 @@ export default {
 <style lang="scss">
 $radius: 25px;
 
+#testing{
+  background-color: pink; 
+}
+
+#testing2{
+  background-color: blue; 
+}
+
 #memberModal {
   .member-modal-header {
-    font-size: 2.25rem;
+    font-size: 1.25rem;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -163,8 +257,41 @@ $radius: 25px;
     color: #000000;
   }
 
+  .about-section{
+    margin-top:10%;
+  }
+
+  #about-p{
+    margin-top:0.625rem;
+    font-size:0.875rem;
+    font-family:Raleway;
+  }
+
+  #teamwork{
+    margin-top:1.25rem;
+  }
+
+  .profile-text{
+    text-align: center; 
+  }
+
   .profile-name-header {
-    font-size: 3rem;
+    text-align:center;
+    margin-top: 0.625rem; 
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #000000; 
+  }
+
+  .profile-role {
+    text-align: center;
+    opacity: 0.8;
+    font-family: Raleway;
+    font-size: 1.0rem;
     font-weight: 600;
     font-style: normal;
     font-stretch: normal;
@@ -173,16 +300,26 @@ $radius: 25px;
     color: #000000;
   }
 
-  .profile-role {
-    opacity: 0.8;
-    font-family: Raleway;
-    font-size: 1.5rem;
-    font-weight: 600;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: 0.3px;
-    color: #000000;
+  .profile-facts{
+    margin-top:1.25rem;
+    font-family:Raleway;
+    font-size:0.875rem;
+    font-weight:600;
+  }
+
+  #profile-details{
+    margin-left:-0.625rem;
+  }
+
+  .social-media{
+    margin-top:1.25rem;
+  }
+
+  .social-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.2rem;
+  margin-right: 0.4rem;
   }
 
   .modal-content {
@@ -232,6 +369,7 @@ $radius: 25px;
     @media (max-width: 767px) {
       .profile-header {
         text-align: center;
+        background-color:pink;
       }
 
       .profile-header-md {
