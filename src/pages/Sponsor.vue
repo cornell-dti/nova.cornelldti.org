@@ -5,10 +5,10 @@
     <b-container>
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <!--<b-col sm="12" md="6" class="sponsor-row-img" order-md="2" order-sm="1">
-            <b-img height="300" width="600" blank blank-color="#777" />
-          </b-col>-->
-          <b-col sm="12" md="12" order-md="1" order-sm="2">
+          <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
+            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.googleLunch', 'assets')" />
+          </b-col>
+          <b-col sm="12" md="5" order-md="1" order-sm="2">
             <h2>{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
               {{Strings.get('pitch.1.description', 'sponsor')}}
@@ -16,14 +16,15 @@
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <!--<b-col sm="12" md="6" class="sponsor-row-img" order-md="1" order-sm="1">
-            <b-img height="300" width="600" blank blank-color="#777" />
-          </b-col>-->
-          <b-col sm="12" md="12" class="sponsor-row-content-container" order-md="2" order-sm="2">
+          <b-col sm="12" md="5" class="sponsor-row-content-container" order-md="2" order-sm="1">
+          <!-- <b-col sm="12" md="5" order-md="2" order-sm="1"> -->
             <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
               {{Strings.get('pitch.2.description', 'sponsor')}}
             </p>
+          </b-col>
+          <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order-sm="2"> <!-- sm="1"-->
+            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')" />
           </b-col>
         </b-row>
       </page-section>
@@ -87,6 +88,14 @@
     width: 90%;
   }
 }
+
+.sponsor-row-image {
+  object-fit: cover;
+  height: 300px;
+  width: 500px;
+  margin: 0.25rem 0;
+}
+
 .sponsor-row {
   h2 {
     font-size: 36px;
@@ -107,37 +116,42 @@
     }
   }
 
-  .sponsor-row-content {
-    text-align: left;
-  }
-
   &:nth-child(odd) {
-    text-align: right;
-    .sponsor-row-img {
-      text-align: left;
-    }
-
-    .sponsor-row-content-container {
-      padding-left: 80px;
-
-      @media screen and (max-width: 768px) {
-        padding-left: 15px;
-      }
-    }
-  }
-
-  &:nth-child(even) {
     text-align: left;
+    h2 {
+      color: #d0021b;
+    }
 
     .sponsor-row-img {
       text-align: right;
     }
 
     .sponsor-row-content-container {
-      padding-right: 80px;
+      // padding-right: 80px;
 
       @media screen and (max-width: 768px) {
         padding-right: 15px;
+      }
+    }
+  }
+
+  &:nth-child(even) {
+    text-align: right;
+
+    h2 {
+      text-align: right;
+      color: #d0021b;
+    }
+
+    .sponsor-row-img {
+      text-align: left;
+    }
+
+    .sponsor-row-content-container {
+      //padding-left: 80px;
+
+      @media screen and (max-width: 768px) {
+        padding-left: 15px;
       }
     }
   }
