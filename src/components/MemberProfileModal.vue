@@ -132,10 +132,14 @@
               </b-col>
               
               <b-col class="my-auto">
+<<<<<<< HEAD
                 <div class="profile-name-header">
                   <div v-if="profile.name === undefined">{{profile.firstName}} {{profile.lastName}}</div>
                   <div v-else>{{profile.name}}</div>
                 </div>
+=======
+                <div class="profile-name-header">{{profile.firstName}} {{profile.lastName}}</div>
+>>>>>>> modal profile name header updated
                 <div class="profile-role text-dark">{{profile.role}}</div>
               </b-col>
             </b-row>
