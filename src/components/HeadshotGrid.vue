@@ -5,13 +5,8 @@
       <div v-if="member.phantom" class="phantom-headshot-card">
         <headshot-card :name="member.id" :role="member.id" :image="``" @click.native="null"/>
       </div>
-      <headshot-card
-        v-else
-        :name="member.name"
-        :role="member.role"
-        :image="`${Strings.get('directories.members', 'assets')}/${member.image}`"
-        @click.native="memberClicked(member)"
-      />
+      <headshot-card v-else :firstName="member.firstName" :lastName="member.lastName" :role="member.role" :image="`${Strings.get('directories.members', 'assets')}/${member.image}`"
+        @click.native="memberClicked(member)" />
     </div>
 
     <member-profile-modal v-model="modalShow" :profile="currentProfile"/>
