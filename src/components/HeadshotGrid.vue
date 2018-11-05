@@ -46,7 +46,8 @@ export default {
 
       this.getTeams().forEach(team => {
         team.members.forEach(teamMember => {
-          if (teamMember.name === this.currentProfile.name) {
+          var name = this.currentProfile.firstName + " " + this.currentProfile.lastName;
+          if (teamMember.name === name) {
             this.currentProfile.teams.push(team);
           }
         });
