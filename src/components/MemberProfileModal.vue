@@ -109,7 +109,7 @@
               </b-col>
               
               <b-col class="my-auto">
-                <div class="profile-name-header">{{profile.name}}</div>
+                <div class="profile-name-header">{{profile.firstName}} {{profile.lastName}}</div>
                 <div class="profile-role text-dark">{{profile.role}}</div>
               </b-col>
             </b-row>
