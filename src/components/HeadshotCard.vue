@@ -11,7 +11,7 @@
           <b-col>
             <b-row class="h-75 no-gutters" align-v="start">
               <b-col align-self="start">
-                <div class="name">{{name}}</div>
+                <div class="name">{{firstName}} {{lastName}}</div>
               </b-col>
             </b-row>
             <b-row class="h-25 no-gutters">
@@ -33,7 +33,11 @@ export default {
       type: String,
       required: true
     },
-    name: {
+    firstName: {
+      type: String,
+      required: true
+    },
+    lastName:{
       type: String,
       required: true
     },
