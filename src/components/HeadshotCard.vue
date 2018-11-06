@@ -37,7 +37,7 @@ export default {
       type: String,
       required: true
     },
-    lastName:{
+    lastName: {
       type: String,
       required: true
     },
