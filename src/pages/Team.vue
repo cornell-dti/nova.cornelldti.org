@@ -402,7 +402,7 @@ export default {
     filterMembers(role = '') {
       let filtered;
       if (role === '') {
-        filtered = this.getMembers()
+        filtered = Object.values(this.getMembers())
           .filter(
             member =>
               typeof member.roleId !== 'undefined' &&
@@ -414,7 +414,7 @@ export default {
             return 0;
           });
       } else {
-        filtered = this.getMembers()
+        filtered = Object.values(this.getMembers())
           .filter(
             member =>
               typeof member.roleId !== 'undefined' &&
