@@ -1,10 +1,39 @@
 <template class="applyPage">
   <page-background>
-    <nova-hero 
-      :header="Strings.get('join-information.applications-open', 'apply') ? Strings.get('hero.header', 'apply') : Strings.get('hero-closed.header', 'apply')"
-      :subheader="Strings.get('join-information.applications-open', 'apply') ? Strings.get('hero.subheader', 'apply') : Strings.get('hero-closed.subheader', 'apply')"
+    <nova-hero
+      v-if="Strings.get('join-information.applications-open', 'apply')"
+      :header="Strings.get('hero.header', 'apply')"
+      :subheader="Strings.get('hero.subheader', 'apply')"
       page="apply" />
-
+    <nova-hero
+      v-else
+      :header="Strings.get('hero-closed.header', 'apply')"
+      :subheader="Strings.get('hero-closed.subheader', 'apply')"
+      page="apply" />
+    <b-container v-if="!Strings.get('join-information.applications-open', 'apply')" class="email-form">
+      <b-row align-h="center" class="no-gutters">
+        <b-col cols="auto">
+          <h2 class="email-header">Applications are currently closed.</h2>
+          <p>Subscribe to our newsletter to stay updated on the application process.</p>
+        </b-col>
+      </b-row>
+      <b-row align-h="center">
+        <b-alert :show="msgShow" :variant="msgVariant" v-html="msgContent">
+        </b-alert>
+      </b-row>
+      <b-row align-h="center">
+        <b-col cols="auto">
+          <b-form inline @submit="onSubscribe">
+            <b-input-group>
+              <label class="sr-only" for="newsletterEmailSubscribeInput">Email</label>
+              <b-input required id="newsletterEmailSubscribeInput" v-model="email" type="email"
+                placeholder="Email" />
+            </b-input-group>
+            <b-button type="submit">Subscribe</b-button>
+          </b-form>
+        </b-col>
+      </b-row>
+    </b-container>
     <b-row v-if="Strings.get('join-information.applications-open', 'apply')" class="justify-content-center info-session-interjection">
       <b-col class="info-session-description" sm="12" md="4" md-offset="1">
         <div class="header">{{ Strings.get('info-session.header', 'apply') }}</div>
@@ -194,6 +223,20 @@ export default {
 
 .call-to-action-button {
   margin-top: 0.5rem;
+}
+
+.email-form {
+  margin-bottom: 60px;
+
+  .email-header {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+
+    & + p {
+      font-size: 1.5rem;
+    }
+  }
 }
 
 .info-session-interjection {

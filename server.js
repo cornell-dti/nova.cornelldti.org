@@ -47,7 +47,7 @@ app.post('/email', (req, res) => {
     .then(result => {
       return res.status(200).json({
         success: true,
-        msg: 'Sucessfully subscribed!'
+        msg: 'Successfully subscribed!'
       });
     })
     .catch(error => {
