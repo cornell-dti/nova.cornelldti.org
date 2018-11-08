@@ -133,13 +133,19 @@
               
               <b-col class="my-auto">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fixed firstName lastName
                 <div class="profile-name-header">
                   <div v-if="profile.name === undefined">{{profile.firstName}} {{profile.lastName}}</div>
                   <div v-else>{{profile.name}}</div>
                 </div>
+<<<<<<< HEAD
 =======
                 <div class="profile-name-header">{{profile.firstName}} {{profile.lastName}}</div>
 >>>>>>> modal profile name header updated
+=======
+>>>>>>> fixed firstName lastName
                 <div class="profile-role text-dark">{{profile.role}}</div>
               </b-col>
             </b-row>
