@@ -25,8 +25,8 @@
           </b-col>
         </b-row>
 
-        <b-row>
-          <b-col cols="5">
+        <b-row class="mobile-modal-scroll">
+          <b-col md="5" sm="12">
             <b-img center rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.image}`"/>
             <b-row>
               <b-col class="my-auto">
@@ -39,23 +39,42 @@
             </b-row>
             <b-row class="profile-facts">
               <b-col cols="4" class="my-auto">
-                Major:
-                <br>
-                Year:
-                <br>
-                Hometown:
-                <div v-if="typeof profile.website !== 'undefined'">
-                  Website:
-                </div>
+                Major
               </b-col>
               <b-col cols="8" id="profile-details" class="my-auto">
                 {{profile.major}}
-                <br>
-                {{profile.year}}
-                <br>
+              </b-col>
+            </b-row>
+            <b-row class="profile-facts">
+              <b-col cols="4" class="my-auto">
+                Minor
+              </b-col>
+              <b-col cols="8" id="profile-details" class="my-auto">
+                {{profile.minor}}
+              </b-col>
+            </b-row>
+            <b-row class="profile-facts">
+              <b-col cols="4" class="my-auto">
+                Year
+              </b-col>
+              <b-col cols="8" id="profile-details" class="my-auto">
+                {{profile.graduation}}
+              </b-col>
+            </b-row>
+            <b-row class="profile-facts">
+              <b-col cols="4" class="my-auto">
+                Hometown
+              </b-col>
+              <b-col cols="8" id="profile-details" class="my-auto">
                 {{profile.hometown}}
-                <br>
-                <a v-if="typeof profile.website !== 'undefined'" :href="profile.website">{{profile.website}}</a>
+              </b-col>
+            </b-row>
+            <b-row class="profile-facts">
+              <b-col cols="4" class="my-auto">
+                <div v-if="typeof profile.website !== 'undefined'">Website</div>
+              </b-col>
+              <b-col cols="8" id="profile-details" class="my-auto">
+                <div v-if="typeof profile.website !== 'undefined'">{{profile.website}}</div>
               </b-col>
             </b-row>
             <b-row>
@@ -71,7 +90,7 @@
           </b-col>
           <v-divider vertical></v-divider>
           <b-col class="modal-scroll">
-            <b-col sm="12" md="12" class="about-section">
+            <b-col sm="0" md="12" class="about-section">
               <b-row>
                 <b-col>
                   <div class="member-modal-header">About Me</div>
@@ -307,7 +326,7 @@ $radius: 25px;
   }
 
   .profile-facts{
-    margin-top:1.25rem;
+    margin-top:0.625rem;
     font-family:Raleway;
     font-size:0.875rem;
     font-weight:600;
@@ -342,6 +361,12 @@ $radius: 25px;
     margin-left: auto;
   }
 
+  @media (max-width: 960px) {
+    .modal-dialog {
+      max-width: 750px;
+      margin: 10%; 
+    }
+  }
   .modal-header,
   .modal-footer {
     display: none;
@@ -361,7 +386,7 @@ $radius: 25px;
       border: 0.05rem #979797 solid;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 800px) {
       .about-section {
         overflow-y: scroll;
         max-height: 50vh;
@@ -372,7 +397,7 @@ $radius: 25px;
       }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 800px) {
       .profile-header {
         text-align: center;
         background-color:pink;
@@ -383,8 +408,13 @@ $radius: 25px;
       }
 
       .modal-scroll {
+        overflow-y: auto;
+        max-height: inherit;
+      }
+
+      .mobile-modal-scroll {
         overflow-y: scroll;
-        max-height: 30vh;
+        max-height: 200vh;
       }
 
       .link-list {
