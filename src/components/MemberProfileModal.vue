@@ -30,7 +30,10 @@
             <b-img center rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.image}`"/>
             <b-row>
               <b-col class="my-auto">
-                <div class="profile-name-header">{{profile.name}}</div>
+                <div class="profile-name-header">
+                  <div v-if="profile.name === undefined">{{profile.firstName}} {{profile.lastName}}</div>
+                  <div v-else>{{profile.name}}</div>
+                </div>
                 <div class="profile-role text-dark">{{profile.role}}</div>
               </b-col>
             </b-row>
