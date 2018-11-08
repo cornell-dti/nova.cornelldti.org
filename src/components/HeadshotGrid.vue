@@ -6,11 +6,11 @@
         <headshot-card :name="member.id" :role="member.id" :image='``' @click.native="null"
         />
       </div>
-      <headshot-card v-else :firstName="member.firstName" :lastName="member.lastName" :role="member.role" :image="`${Strings.get('directories.members', 'assets')}/${member.image}`"
+      <headshot-card v-else :name="name(member)" :role="member.role" :image="`${Strings.get('directories.members', 'assets')}/${member.image}`"
         @click.native="memberClicked(member)" />
     </div>
 
-    <member-profile-modal v-model="modalShow" :profile="currentProfile" />
+    <member-profile-modal v-model="modalShow" :profile="currentProfile"/>
   </div>
 </template>
 
@@ -76,6 +76,13 @@ export default {
       }
 
       return copy;
+    },
+    name(member){
+      if (member.name === undefined){
+        return member.firstName + " " + member.lastName
+      } else{
+        return member.name
+      }
     }
   }
 };
