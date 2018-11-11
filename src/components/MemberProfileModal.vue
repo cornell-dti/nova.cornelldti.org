@@ -26,7 +26,7 @@
         </b-row>
 
         <b-row class="mobile-modal-scroll">
-          <b-col md="5" sm="12">
+          <b-col md="5" sm="12" class="border border-dark border-top-0 border-bottom-0 border-left-0">
             <b-img center rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.image}`"/>
             <b-row>
               <b-col class="my-auto">
@@ -37,46 +37,48 @@
                 <div class="profile-role text-dark">{{profile.role}}</div>
               </b-col>
             </b-row>
-            <b-row class="profile-facts">
-              <b-col cols="4" class="my-auto">
-                Major
+            <b-row class="profile-facts" id="profile-spacing">
+              <b-col cols="5" class="profile-label">
+                Graduating
               </b-col>
-              <b-col cols="8" id="profile-details" class="my-auto">
-                {{profile.major}}
-              </b-col>
-            </b-row>
-            <b-row class="profile-facts">
-              <b-col cols="4" class="my-auto">
-                Minor
-              </b-col>
-              <b-col cols="8" id="profile-details" class="my-auto">
-                {{profile.minor}}
-              </b-col>
-            </b-row>
-            <b-row class="profile-facts">
-              <b-col cols="4" class="my-auto">
-                Year
-              </b-col>
-              <b-col cols="8" id="profile-details" class="my-auto">
+              <b-col cols="7" class="profile-details">
                 {{profile.graduation}}
               </b-col>
             </b-row>
             <b-row class="profile-facts">
-              <b-col cols="4" class="my-auto">
-                Hometown
+              <b-col cols="5" class="profile-label">
+                Major
               </b-col>
-              <b-col cols="8" id="profile-details" class="my-auto">
-                {{profile.hometown}}
+              <b-col cols="7" class="profile-details">
+                {{profile.major}}
               </b-col>
             </b-row>
             <b-row class="profile-facts">
-              <b-col cols="4" class="my-auto">
-                <div v-if="typeof profile.website !== 'undefined'">Website</div>
+              <b-col cols="5" class="profile-label">
+                Minor
               </b-col>
-              <b-col cols="8" id="profile-details" class="my-auto">
-                <div v-if="typeof profile.website !== 'undefined'">{{profile.website}}</div>
+              <b-col cols="7" class="profile-details">
+                {{profile.minor}}
               </b-col>
             </b-row>
+            <b-row class="profile-facts">
+              <b-col cols="5" class="profile-label">
+                Hometown
+              </b-col>
+              <b-col cols="7" class="profile-details">
+                {{profile.hometown}}
+              </b-col>
+            </b-row>
+            <div v-if="profile.website !== ''">
+              <b-row class="profile-facts">
+                <b-col cols="5" class="profile-label">
+                  Website
+                </b-col>
+                <b-col cols="7" class="profile-details">
+                  <a href="profile.website">{{profile.website}}</a>
+                </b-col>
+              </b-row>
+            </div>
             <b-row>
               <b-col class="social-media">
                   <a v-if="typeof profile.github !== 'undefined'" :href="profile.github">
@@ -88,9 +90,8 @@
               </b-col>
             </b-row>
           </b-col>
-          <v-divider vertical></v-divider>
-          <b-col class="modal-scroll">
-            <b-col sm="0" md="12" class="about-section">
+          <b-col md="7" sm="0" class="modal-scroll">
+            <b-col class="about-section">
               <b-row>
                 <b-col>
                   <div class="member-modal-header">About Me</div>
@@ -229,7 +230,7 @@ import Github from '@/assets/social/github.svg';
 import Medium from '@/assets/social/medium.svg';
 
 export default {
-    components: {
+  components: {
     Github,
     Medium,
   },
@@ -249,6 +250,7 @@ export default {
   },
   watch: {
     modalShow($event) {
+      console.log("show modal");
       this.$emit('update:change', $event);
     }
   },
@@ -325,15 +327,23 @@ $radius: 25px;
     color: #000000;
   }
 
+  #profile-spacing{
+    margin-top: 5%;
+  }
+
   .profile-facts{
-    margin-top:0.625rem;
+    margin-top:0.3125rem;
     font-family:Raleway;
     font-size:0.875rem;
+  }
+
+  .profile-label{
     font-weight:600;
   }
 
-  #profile-details{
-    margin-left:-0.625rem;
+  .profile-details{
+    margin-left:-1.875rem;
+    font-weight:400;
   }
 
   .social-media{
@@ -346,6 +356,8 @@ $radius: 25px;
   margin-left: 0.2rem;
   margin-right: 0.4rem;
   }
+  
+
 
   .modal-content {
     border: none !important;
@@ -361,12 +373,6 @@ $radius: 25px;
     margin-left: auto;
   }
 
-  @media (max-width: 960px) {
-    .modal-dialog {
-      max-width: 750px;
-      margin: 10%; 
-    }
-  }
   .modal-header,
   .modal-footer {
     display: none;
@@ -386,10 +392,14 @@ $radius: 25px;
       border: 0.05rem #979797 solid;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 768) {
+      .modal-dialog{
+        max-width:100%;
+        margin:10%
+      }
       .about-section {
-        overflow-y: scroll;
-        max-height: 50vh;
+        overflow-y: auto;
+        max-height: inherit;
       }
 
       .profile-header-sm {
@@ -397,7 +407,12 @@ $radius: 25px;
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 767px) {
+      .modal-dialog {
+        max-width: 800px;
+        margin: 10%; 
+      }
+
       .profile-header {
         text-align: center;
         background-color:pink;
@@ -413,15 +428,15 @@ $radius: 25px;
       }
 
       .mobile-modal-scroll {
-        overflow-y: scroll;
-        max-height: 200vh;
+        overflow-y: auto;
+        max-height: 70vh;
       }
 
       .link-list {
         padding-left: 50px;
       }
     }
-
+/*put position:fixed on the main page behind the modal */
     .team-logo {
       padding-right: 2rem;
     }
