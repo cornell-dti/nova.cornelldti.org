@@ -59,12 +59,32 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif)$/,
-        loader: 'url',
-        options: {
-          limit: 10000,
-          name: '[name].[ext]?[hash]'
-        }
+        test: /\.(png|jpe?g|gif|ico)(\?.*)?$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: 'img/[name].[hash:7].[ext]'
+          }
+        }, {
+          loader: 'image-webpack-loader',
+          query: {
+            progressive: true,
+            mozjpeg: {
+              quality: 65
+            },
+            gifsicle: {
+              interlaced: false
+            },
+            optipng: {
+              optimizationLevel: 7
+            },
+            pngquant: {
+              quality: '65-90',
+              speed: 1
+            }
+          }
+        }]
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
