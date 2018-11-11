@@ -226,7 +226,8 @@ export default {
 }
 
 .email-form {
-  margin-bottom: 60px;
+  padding-bottom: 3vh;
+  margin-bottom: 4vw;
 
   .email-header {
     font-size: 2rem;
