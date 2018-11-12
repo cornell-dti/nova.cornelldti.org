@@ -73,7 +73,7 @@
           <b-col cols="12">
             <role-selector density="normal" class="team-role-selector" v-model="roleId" />
 
-            <headshot-grid :members="[...filterMembers(`${roleId}-colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
+            <headshot-grid :members="[...filterMembers(`${roleId}-colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]" 
             />
           </b-col>
         </b-row>
@@ -402,33 +402,71 @@ export default {
     filterMembers(role = '') {
       let filtered;
       if (role === '') {
-        filtered = Object.values(this.getMembers())
+        filtered = Object.entries(this.getMembers())
           .filter(
             member =>
-              typeof member.roleId !== 'undefined' &&
-              !member.roleId.includes('-')
+              { 
+                if (typeof member.roleId ==='string'){
+                !member.roleId.includes('-')
+                } else if(typeof member.roleId === 'object'){
+                var unpackroles = ''
+                  for (x in member.roleId){
+                  unpackroles += x
+                  }
+                  !unpackroles.includes('-')
+                }
+              }
           )
           .sort((a, b) => {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
+            if (typeof a.name === 'undefined'){
+              var aname = a.firstName + ' ' + a.lastName
+            } else {
+              var aname = a.name
+            }
+            if (typeof b.name === 'undefined'){
+              var bname = b.firstName + ' ' + b.lastName
+            } else {
+              var bname = b.name
+            }
+            if (aname < bname) return -1;
+            if (aname > bname) return 1;
             return 0;
           });
       } else {
-        filtered = Object.values(this.getMembers())
+        filtered = Object.entries(this.getMembers())
           .filter(
             member =>
-              typeof member.roleId !== 'undefined' &&
-              member.roleId.endsWith(role)
+              {
+                if (typeof member.roleId === 'string'){
+                  member.roleId.endsWith(role)
+                } else if (typeof member.roleId === 'object'){
+                  var unpackroles = ''
+                  for (x in member.roleId){
+                    unpackroles += x
+                  }
+                  unpackroles.endsWith(role)
+                }
+              }
           )
           .sort((a, b) => {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
+            if (typeof a.name === 'undefined'){
+              var aname = a.firstName + ' ' + a.lastName
+            } else {
+              var aname = a.name
+            }
+            if (typeof b.name === 'undefined'){
+              var bname = b.firstName + ' ' + b.lastName
+            } else {
+              var bname = b.name
+            }
+            if (aname < bname) return -1;
+            if (aname > bname) return 1;
             return 0;
           });
       }
 
       // todo fix this ugliness
-
+      console.log(filtered)
       return filtered;
     }
   }

@@ -2,7 +2,7 @@
 
   <div>
     <b-modal lazy centered size="lg" ref="memberModal" id="memberModal" v-model="modalShow"
-      :title="profile.name" header-bg-variant="light" header-text-variant="dark" body-bg-variant="light"
+      :title="profile[1].name" header-bg-variant="light" header-text-variant="dark" body-bg-variant="light"
       body-text-variant="dark" footer-bg-variant="light" footer-text-variant="dark"
       header-border-variant="light" footer-border-variant="light">
       <b-container fluid>
@@ -13,15 +13,15 @@
           <b-col cols="12" class="my-auto">
             <b-row class="profile-header">
               <b-col lg="3" md="auto" sm="12">
-                <b-img rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.image}`"
+                <b-img rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile[0]+'.jpg'}`"
                 />
               </b-col>
               <b-col class="my-auto">
                 <div class="profile-name-header">
-                  <div v-if="profile.name === undefined">{{profile.firstName}} {{profile.lastName}}</div>
-                  <div v-else>{{profile.name}}</div>
+                  <div v-if="profile[1].name === undefined">{{profile[1].firstName}} {{profile[1].lastName}}</div>
+                  <div v-else>{{profile[1].name}}</div>
                 </div>
-                <div class="profile-role text-dark">{{profile.role}}</div>
+                <div class="profile-role text-dark">{{profile[1].role}}</div>
               </b-col>
             </b-row>
           </b-col>
@@ -30,15 +30,15 @@
         <b-row class="modal-scroll">
           <b-col sm="12" md="8" class="about-section">
             <b-row>
-              <b-col v-if="typeof profile.about !== 'undefined'">
+              <b-col v-if="typeof profile[1].about !== 'undefined'">
                 <div class="member-modal-header">About Me</div>
-                <p>{{profile.about}}</p>
+                <p>{{profile[1].about}}</p>
               </b-col>
             </b-row>
-            <b-row v-if="typeof profile.teams !== 'undefined' && profile.teams.length > 0">
+            <b-row v-if="typeof profile[1].teams !== 'undefined' && profile.teams.length > 0">
               <b-col>
                 <div class="member-modal-header">Team Work</div>
-                <b-row v-for="team in profile.teams" :key="team.name">
+                <b-row v-for="team in profile[1].teams" :key="team.name">
                   <b-col v-if="team.logo" cols="2" class="team-logo my-auto">
                     <b-img :src="team.logo" :alt="team.name" height="64px" width="64px" />
                   </b-col>
@@ -58,28 +58,28 @@
           <b-col>
             <h4 class="profile-header-md">Profile</h4>
             <h3 class="profile-header-sm">Profile</h3>
-            <b-row v-if="typeof profile.major !== 'undefined'">
+            <b-row v-if="typeof profile[1].major !== 'undefined'">
               <b-col>
                 Major
               </b-col>
               <b-col>
-                <p>{{profile.major}}</p>
+                <p>{{profile[1].major}}</p>
               </b-col>
             </b-row>
-            <b-row v-if="typeof profile.hometown !== 'undefined'">
+            <b-row v-if="typeof profile[1].hometown !== 'undefined'">
               <b-col>
                 Hometown
               </b-col>
               <b-col>
-                <p>{{profile.hometown}}</p>
+                <p>{{profile[1].hometown}}</p>
               </b-col>
             </b-row>
-            <b-row v-if="typeof profile.year !== 'undefined'">
+            <b-row v-if="typeof profile[1].year !== 'undefined'">
               <b-col>
                 Year
               </b-col>
               <b-col>
-                <p>{{profile.year}}</p>
+                <p>{{profile[1].year}}</p>
               </b-col>
             </b-row>
             <b-row>
@@ -88,13 +88,13 @@
               </b-col>
               <b-col class="link-list">
                 <b-row>
-                  <a v-if="typeof profile.website !== 'undefined'" class="text-dark" :href="profile.website">Website</a>
+                  <a v-if="typeof profile[1].website !== 'undefined'" class="text-dark" :href="profile[1].website">Website</a>
                 </b-row>
                 <b-row>
-                  <a v-if="typeof profile.linkedin !== 'undefined'" class="text-dark" :href="profile.linkedin">Linkedin</a>
+                  <a v-if="typeof profile[1].linkedin !== 'undefined'" class="text-dark" :href="profile[1].linkedin">Linkedin</a>
                 </b-row>
                 <b-row>
-                  <a v-if="typeof profile.github !== 'undefined'" class="text-dark" :href="profile.github">GitHub</a>
+                  <a v-if="typeof profile[1].github !== 'undefined'" class="text-dark" :href="profile[1].github">GitHub</a>
                 </b-row>
               </b-col>
             </b-row>
