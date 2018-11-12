@@ -1,15 +1,15 @@
 <template>
   <div class="headshot-grid d-flex flex-row flex-wrap justify-content-start">
     <!-- v-for="row in rows()" :key="row.index" -->
-    <div class="flexible-item" v-for="member in pad(members)" :key="member[0]">
+    <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
       <div v-if="member.phantom" class="phantom-headshot-card ">
         <headshot-card :name="member.id" :role="member.id" :image='``' @click.native="null" />
       </div>
-      <headshot-card v-else :name="name(member[1])" :role="member[1].role" :image="`${Strings.get('directories.members', 'assets')}/${member[0]+'.jpg'}`"
+      <headshot-card v-else :name="name(member)" :role="member.info.role" :image="`${Strings.get('directories.members', 'assets')}/${member.id+'.jpg'}`"
         @click.native="memberClicked(member)" />
     </div>
 
-    <member-profile-modal v-model="modalShow" :profile="currentProfile"/>
+    <member-profile-modal v-model="modalShow" :profile="currentProfile" />
   </div>
 </template>
 
@@ -45,7 +45,9 @@ export default {
 
       this.getTeams().forEach(team => {
         team.members.forEach(teamMember => {
-          var name = this.currentProfile.firstName + " " + this.currentProfile.lastName;
+          const name = `${this.currentProfile.firstName} ${
+            this.currentProfile.lastName
+          }`;
           if (teamMember.name === name) {
             this.currentProfile.teams.push(team);
           }
@@ -76,26 +78,11 @@ export default {
 
       return copy;
     },
-    name(member){
-      if (member.name === undefined){
-        return member.firstName + " " + member.lastName
-      } else{
-        return member.name
+    name(member) {
+      if (member.name === undefined) {
+        return member.info.firstName + ' ' + member.info.lastName;
       }
-    },
-    unpackrole(role){
-      if (typeof role === 'string'){
-        return role
-      } else {
-        var roles = ''
-        for (id in role){
-          if (roles === ''){
-            roles = id
-          } else {
-            roles = roles + ', ' + id
-          }
-        }
-      }
+      return member.info.name;
     }
   }
 };
