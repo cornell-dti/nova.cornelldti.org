@@ -34,7 +34,7 @@ app.post('/email', (req, res) => {
   const email = req.body.email;
   mailchimp
     .post({
-      path: `/lists/d12b7f1367`,
+      path: `/lists/839cc09118`,
       body: {
         members: [
           {
@@ -47,7 +47,7 @@ app.post('/email', (req, res) => {
     .then(result => {
       return res.status(200).json({
         success: true,
-        msg: 'Sucessfully subscribed!'
+        msg: 'Successfully subscribed!'
       });
     })
     .catch(error => {

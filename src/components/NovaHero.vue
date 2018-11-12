@@ -10,7 +10,7 @@
       <div class="nova-hero-overlay" />
 
     </div>
-    <b-container fluid>
+    <b-container v-if="header || subheader" fluid>
       <text-hero :header="header" :subheader="subheader" />
     </b-container>
   </div>
