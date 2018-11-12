@@ -95,7 +95,6 @@
 
 .sponsor-row-image {
   object-fit: cover;
-  height: 18.75rem;
   width: 31.25rem;
   margin: 0.25rem 0;
 }
@@ -124,7 +123,7 @@
   text-align: left;
 
   &:nth-child(odd) {
-    h2 {
+    .sponsor-row-content-header {
       color: #d0021b;
     }
 
@@ -133,8 +132,6 @@
     }
 
     .sponsor-row-content-container {
-      // padding-right: 80px;
-
       @media screen and (max-width: 768px) {
         padding-right: 0.9375rem;
       }
