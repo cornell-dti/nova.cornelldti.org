@@ -465,7 +465,6 @@ export default {
       }
 
       // todo fix this ugliness
-      console.log(filtered);
       return filtered;
     }
   }
