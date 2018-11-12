@@ -5,26 +5,29 @@
     <b-container>
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
-            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.googleLunch', 'assets')" />
+          <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order="1">
+            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.googleLunch', 'assets')"
+            />
           </b-col>
-          <b-col sm="12" md="5" order-md="1" order-sm="2">
-            <h2>{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
+          <b-col sm="12" md="5" order-md="1" order="2">
+            <h2 class="sponsor-row-content-header">{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
               {{Strings.get('pitch.1.description', 'sponsor')}}
             </p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <b-col sm="12" md="5" class="sponsor-row-content-container" order-md="2" order-sm="1">
-          <!-- <b-col sm="12" md="5" order-md="2" order-sm="1"> -->
-            <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
+          <b-col sm="12" md="5" class="sponsor-row-content-container" order-md="2" order="2">
+            <!-- <b-col sm="12" md="5" order-md="2" order-sm="1"> -->
+            <h2 class="sponsor-row-content-header">{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
               {{Strings.get('pitch.2.description', 'sponsor')}}
             </p>
           </b-col>
-          <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order-sm="2"> <!-- sm="1"-->
-            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')" />
+          <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order="1">
+            <!-- sm="1"-->
+            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')"
+            />
           </b-col>
         </b-row>
       </page-section>
@@ -35,7 +38,7 @@
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
           <b-button :href="(Strings.get('call-to-action.button.link', `sponsor`) || 'mailto:hello@cornelldti.org')">
-          {{Strings.get('call-to-action.button.text', 'sponsor')}}
+            {{Strings.get('call-to-action.button.text', 'sponsor')}}
           </b-button>
         </b-row>
       </page-section>
@@ -70,19 +73,20 @@
 .justify-content-center {
   text-align: center;
 }
+
 .sponsor-contact {
   h2 {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 600;
   }
 }
 .sponsor-list-heading {
-  font-size: 36px;
+  font-size: 2.25rem;
 }
 .sponsor-list {
   .col,
-  div[class*="col-"] {
-    font-size: 25px;
+  div[class*='col-'] {
+    font-size: 1.5625rem;
     margin: auto;
     text-align: center;
     width: 90%;
@@ -91,14 +95,15 @@
 
 .sponsor-row-image {
   object-fit: cover;
-  height: 300px;
-  width: 500px;
+  height: 18.75rem;
+  width: 31.25rem;
   margin: 0.25rem 0;
 }
 
 .sponsor-row {
-  h2 {
-    font-size: 36px;
+  .sponsor-row-content-header {
+    padding-top: 1rem;
+    font-size: 2.25rem;
     font-weight: bold;
     letter-spacing: -0.3px;
     text-align: left;
@@ -109,15 +114,16 @@
   }
 
   & + .sponsor-row {
-    margin-top: 120px;
+    margin-top: 7.5rem;
 
     @media screen and (max-width: 768px) {
-      margin-top: 10px;
+      margin-top: 0.625rem;
     }
   }
 
+  text-align: left;
+
   &:nth-child(odd) {
-    text-align: left;
     h2 {
       color: #d0021b;
     }
@@ -130,16 +136,21 @@
       // padding-right: 80px;
 
       @media screen and (max-width: 768px) {
-        padding-right: 15px;
+        padding-right: 0.9375rem;
       }
     }
   }
 
   &:nth-child(even) {
-    text-align: right;
+    @media screen and (min-width: 768px) {
+      text-align: right;
+
+      h2 {
+        text-align: right;
+      }
+    }
 
     h2 {
-      text-align: right;
       color: #d0021b;
     }
 
@@ -151,7 +162,7 @@
       //padding-left: 80px;
 
       @media screen and (max-width: 768px) {
-        padding-left: 15px;
+        padding-left: 0.9375rem;
       }
     }
   }
@@ -161,11 +172,11 @@
   text-align: center;
 
   h2 {
-    margin-bottom: 43px;
+    margin-bottom: 2.6875rem;
   }
 
   p {
-    font-size: 24px;
+    font-size: 1.5rem;
     letter-spacing: 0.4px;
   }
 }
