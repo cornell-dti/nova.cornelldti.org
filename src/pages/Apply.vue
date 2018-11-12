@@ -128,7 +128,15 @@
           </b-col>
         </b-row>
 
-        <b-row class="justify-content-center" v-if="Strings.get('join-information.applications-open', 'apply') && Strings.exists(`application-info.${roleId}.${child}.call-to-action-button.content`, 'apply')">
+        <b-row class="justify-content-center" v-if="
+        Strings.get(
+          'join-information.applications-open',
+          'apply'
+        ) && Strings.exists(
+          `application-info.${roleId}.${child}.call-to-action-button.content`,
+          'apply'
+        )
+        ">
           <b-col cols="12">
             <b-row>
               <b-col md="auto" sm="12">
