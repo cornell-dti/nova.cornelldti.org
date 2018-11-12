@@ -13,7 +13,7 @@
           <b-col cols="12" class="my-auto">
             <b-row class="profile-header">
               <b-col lg="3" md="auto" sm="12">
-                <b-img rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile[0]+'.jpg'}`"
+                <b-img rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"
                 />
               </b-col>
               <b-col class="my-auto">
@@ -28,7 +28,7 @@
         </b-row>
         <br />
         <b-row class="modal-scroll">
-          <b-col sm="12" md="8" class="about-section">
+          <b-col sm="12" md="7" class="about-section">
             <b-row>
               <b-col v-if="typeof profile.info.about !== 'undefined'">
                 <div class="member-modal-header">About Me</div>
