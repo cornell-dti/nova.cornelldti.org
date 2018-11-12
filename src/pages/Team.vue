@@ -48,7 +48,8 @@
             <b-col cols="12" class="diversity-description diversity-inner-text">
               <div class="diversity-stat-header">{{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}</div>
               <div class="diversity-description diversity-stat-description">{{ Strings.get('diversity.stats.underclassmen.description', 'team')
-                }}</div>
+                }}
+              </div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
               <div class="diversity-stat-header">{{ Strings.get('diversity.stats.majors.stat', 'team') }}</div>
@@ -73,7 +74,7 @@
           <b-col cols="12">
             <role-selector density="normal" class="team-role-selector" v-model="roleId" />
 
-            <headshot-grid :members="[...filterMembers(`${roleId}-colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]" 
+            <headshot-grid :members="[...filterMembers(`${roleId}-colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
             />
           </b-col>
         </b-row>
@@ -154,7 +155,7 @@ $secondary: #f6f6f6;
 }
 
 .graph-datum {
-  filter: drop-shadow(2px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(2px 4px rgba(0, 0, 0, 0.2));
   font-size: 2.5rem;
   font-weight: 500;
   font-style: normal;
@@ -403,70 +404,68 @@ export default {
       let filtered;
       if (role === '') {
         filtered = Object.entries(this.getMembers())
-          .filter(
-            member =>
-              { 
-                if (typeof member.roleId ==='string'){
-                !member.roleId.includes('-')
-                } else if(typeof member.roleId === 'object'){
-                var unpackroles = ''
-                  for (x in member.roleId){
-                  unpackroles += x
-                  }
-                  !unpackroles.includes('-')
-                }
-              }
-          )
+          .filter(([id, member]) => {
+            if (typeof member.roleId === 'string') {
+              return !(member.roleId === 'lead');
+            } else if (Array.isArray(member.roleId)) {
+              return !member.roleId.includes('lead');
+            }
+
+            return false;
+          })
           .sort((a, b) => {
-            if (typeof a.name === 'undefined'){
-              var aname = a.firstName + ' ' + a.lastName
+            let aname;
+            let bname;
+
+            if (typeof a.name === 'undefined') {
+              aname = `${a.firstName} ${a.lastName}`;
             } else {
-              var aname = a.name
+              aname = a.name;
             }
-            if (typeof b.name === 'undefined'){
-              var bname = b.firstName + ' ' + b.lastName
+            if (typeof b.name === 'undefined') {
+              bname = `${b.firstName} ${b.lastName}`;
             } else {
-              var bname = b.name
+              bname = b.name;
             }
+
             if (aname < bname) return -1;
             if (aname > bname) return 1;
             return 0;
-          });
+          })
+          .map(([id, member]) => ({ info: member, id }));
       } else {
         filtered = Object.entries(this.getMembers())
-          .filter(
-            member =>
-              {
-                if (typeof member.roleId === 'string'){
-                  member.roleId.endsWith(role)
-                } else if (typeof member.roleId === 'object'){
-                  var unpackroles = ''
-                  for (x in member.roleId){
-                    unpackroles += x
-                  }
-                  unpackroles.endsWith(role)
-                }
-              }
-          )
-          .sort((a, b) => {
-            if (typeof a.name === 'undefined'){
-              var aname = a.firstName + ' ' + a.lastName
-            } else {
-              var aname = a.name
+          .filter(([id, member]) => {
+            if (typeof member.roleId === 'string') {
+              return member.roleId === role;
+            } else if (Array.isArray(member.roleId)) {
+              return member.roleId.includes(role);
             }
-            if (typeof b.name === 'undefined'){
-              var bname = b.firstName + ' ' + b.lastName
+
+            return false;
+          })
+          .sort((a, b) => {
+            let aname;
+            let bname;
+            if (typeof a.name === 'undefined') {
+              aname = `${a.firstName} ${a.lastName}`;
             } else {
-              var bname = b.name
+              aname = a.name;
+            }
+            if (typeof b.name === 'undefined') {
+              bname = `${b.firstName} ${b.lastName}`;
+            } else {
+              bname = b.name;
             }
             if (aname < bname) return -1;
             if (aname > bname) return 1;
             return 0;
-          });
+          })
+          .map(([id, member]) => ({ member, id }));
       }
 
       // todo fix this ugliness
-      console.log(filtered)
+      console.log(filtered);
       return filtered;
     }
   }
