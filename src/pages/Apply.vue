@@ -1,39 +1,35 @@
 <template class="applyPage">
   <page-background>
-    <nova-hero
-      v-if="Strings.get('join-information.applications-open', 'apply')"
-      :header="Strings.get('hero.header', 'apply')"
-      :subheader="Strings.get('hero.subheader', 'apply')"
+    <nova-hero v-if="Strings.get('join-information.applications-open', 'apply')" :header="Strings.get('hero.header', 'apply')"
+      :subheader="Strings.get('hero.subheader', 'apply')" page="apply" />
+    <nova-hero v-else :header="Strings.get('hero-closed.header', 'apply')" :subheader="Strings.get('hero-closed.subheader', 'apply')"
       page="apply" />
-    <nova-hero
-      v-else
-      :header="Strings.get('hero-closed.header', 'apply')"
-      :subheader="Strings.get('hero-closed.subheader', 'apply')"
-      page="apply" />
-    <b-container v-if="!Strings.get('join-information.applications-open', 'apply')" class="email-form">
-      <b-row align-h="center" class="no-gutters">
-        <b-col cols="auto">
-          <h2 class="email-header">Applications are currently closed.</h2>
-          <p>Subscribe to our newsletter to stay updated on the application process.</p>
-        </b-col>
-      </b-row>
-      <b-row align-h="center">
-        <b-alert :show="msgShow" :variant="msgVariant" v-html="msgContent">
-        </b-alert>
-      </b-row>
-      <b-row align-h="center">
-        <b-col cols="auto">
-          <b-form inline @submit="onSubscribe">
-            <b-input-group>
-              <label class="sr-only" for="newsletterEmailSubscribeInput">Email</label>
-              <b-input required id="newsletterEmailSubscribeInput" v-model="email" type="email"
-                placeholder="Email" />
-            </b-input-group>
-            <b-button type="submit">Subscribe</b-button>
-          </b-form>
-        </b-col>
-      </b-row>
-    </b-container>
+    <page-section>
+      <b-container v-if="!Strings.get('join-information.applications-open', 'apply')" class="email-form">
+        <b-row align-h="center" class="no-gutters">
+          <b-col cols="auto">
+            <h2 class="email-header">Applications are currently closed.</h2>
+            <p>Subscribe to our newsletter to stay updated on the application process.</p>
+          </b-col>
+        </b-row>
+        <b-row align-h="center">
+          <b-alert :show="msgShow" :variant="msgVariant" v-html="msgContent">
+          </b-alert>
+        </b-row>
+        <b-row align-h="center">
+          <b-col cols="auto">
+            <b-form inline @submit="onSubscribe">
+              <b-input-group>
+                <label class="sr-only" for="newsletterEmailSubscribeInput">Email</label>
+                <b-input required id="newsletterEmailSubscribeInput" v-model="email" type="email"
+                  placeholder="Email" />
+              </b-input-group>
+              <b-button type="submit">Subscribe</b-button>
+            </b-form>
+          </b-col>
+        </b-row>
+      </b-container>
+    </page-section>
     <b-row v-if="Strings.get('join-information.applications-open', 'apply')" class="justify-content-center info-session-interjection">
       <b-col class="info-session-description" sm="12" md="4" md-offset="1">
         <div class="header">{{ Strings.get('info-session.header', 'apply') }}</div>
@@ -86,7 +82,7 @@
 
     <b-container>
       <role-selector class="application-role-selector" v-model="roleId" dropdownText="I want to apply for..."
-      :centered="true" :bold="true" :showAll="false" />
+        :centered="true" :bold="true" :showAll="false" />
 
       <timeline-section v-for="child of Strings.childrenOf(`application-info.${roleId}`, `apply`)"
         :key="child" :header="Strings.get(`application-info.${roleId}.${child}.header`, `apply`)"
@@ -154,9 +150,7 @@
         </b-row>
         <b-row v-else-if="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-closed.content`, 'apply')">
           <b-col cols="12">
-            <b-button
-              disabled
-              size="lg" variant="secondary" class="call-to-action-button text-center">
+            <b-button disabled size="lg" variant="secondary" class="call-to-action-button text-center">
               {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-closed.content`,
               'apply')}}
             </b-button>
@@ -226,9 +220,6 @@ export default {
 }
 
 .email-form {
-  padding-bottom: 3vh;
-  margin-bottom: 4vw;
-
   .email-header {
     font-size: 2rem;
     font-weight: bold;
