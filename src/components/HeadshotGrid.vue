@@ -1,11 +1,11 @@
 <template>
   <div class="headshot-grid d-flex flex-row flex-wrap justify-content-start">
     <!-- v-for="row in rows()" :key="row.index" -->
-    <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
+    <div class="flexible-item" v-for="member in pad(members)" :key="member[0]">
       <div v-if="member.phantom" class="phantom-headshot-card ">
         <headshot-card :name="member.id" :role="member.id" :image='``' @click.native="null" />
       </div>
-      <headshot-card v-else :name="name(member)" :role="member.role" :image="`${Strings.get('directories.members', 'assets')}/${member.image}`"
+      <headshot-card v-else :name="name(member[1])" :role="member[1].role" :image="`${Strings.get('directories.members', 'assets')}/${member[0]+'.jpg'}`"
         @click.native="memberClicked(member)" />
     </div>
 
@@ -81,6 +81,20 @@ export default {
         return member.firstName + " " + member.lastName
       } else{
         return member.name
+      }
+    },
+    unpackrole(role){
+      if (typeof role === 'string'){
+        return role
+      } else {
+        var roles = ''
+        for (id in role){
+          if (roles === ''){
+            roles = id
+          } else {
+            roles = roles + ', ' + id
+          }
+        }
       }
     }
   }
