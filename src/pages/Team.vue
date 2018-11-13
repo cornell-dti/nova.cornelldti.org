@@ -74,7 +74,7 @@
           <b-col cols="12">
             <role-selector density="normal" class="team-role-selector" v-model="roleId" />
 
-            <headshot-grid :members="[...filterMembers(`${roleId}-colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
+            <headshot-grid :members="[...filterMembers([`${roleId}colead`]), ...filterMembers([`${roleId}-lead`]), ...(filterMembers(roleId))]"
             />
           </b-col>
         </b-row>
@@ -432,7 +432,7 @@ export default {
             if (aname > bname) return 1;
             return 0;
           })
-          .map(([id, member]) => ({ info: member, id }));
+          .map(([id, member]) => ({ info: member, id: id }));
       } else {
         filtered = Object.entries(this.getMembers())
           .filter(([id, member]) => {
