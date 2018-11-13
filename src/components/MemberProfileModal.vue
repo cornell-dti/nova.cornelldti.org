@@ -25,35 +25,83 @@
           </b-col>
         </b-row>
 
-          <b-col cols="12" class="my-auto">
-            <b-row class="profile-header">
-              <b-col lg="3" md="auto" sm="12">
-                <b-img rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"
-                />
-              </b-col>
+        <b-row class="modal-scroll">
+          <b-col lg="5" cols="12" class="border border-dark border-top-0 border-bottom-0 border-left-0">
+            <b-img center rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"/>
+            <b-row>
               <b-col class="my-auto">
                 <div class="profile-name-header">
-                  <div
-                    v-if="typeof profile.info.name === 'undefined'"
-                  >{{profile.info.firstName}} {{profile.info.lastName}}</div>
+                  <div v-if="typeof profile.info.name === 'undefined'">{{profile.info.firstName}} {{profile.info.lastName}}</div>
                   <div v-else>{{profile.info.name}}</div>
                 </div>
                 <div class="profile-role text-dark">{{profile.info.role}}</div>
               </b-col>
             </b-row>
+            <b-row class="profile-facts" id="profile-spacing">
+              <b-col cols="5" class="profile-label">
+                Graduating
+              </b-col>
+              <b-col cols="7" class="profile-details">
+                {{profile.info.graduation}}
+              </b-col>
+            </b-row>
+            <b-row class="profile-facts">
+              <b-col cols="5" class="profile-label">
+                Major
+              </b-col>
+              <b-col cols="7" class="profile-details">
+                {{profile.info.major}}
+              </b-col>
+            </b-row>
+            <b-row class="profile-facts">
+              <b-col cols="5" class="profile-label">
+                Minor
+              </b-col>
+              <b-col cols="7" class="profile-details">
+                {{profile.info.minor}}
+              </b-col>
+            </b-row>
+            <b-row class="profile-facts">
+              <b-col cols="5" class="profile-label">
+                Hometown
+              </b-col>
+              <b-col cols="7" class="profile-details">
+                {{profile.info.hometown}}
+              </b-col>
+            </b-row>
+            <div v-if="profile.info.website !== ''">
+              <b-row class="profile-facts">
+                <b-col cols="5" class="profile-label">
+                  Website
+                </b-col>
+                <b-col cols="7" class="profile-details">
+                  <a href="profile.website">{{profile.info.website}}</a>
+                </b-col>
+              </b-row>
+            </div>
+            <b-row>
+              <b-col class="social-media">
+                  <a v-if="typeof profile.info.github !== 'undefined'" :href="profile.info.github">
+                    <Github class="social-icon"/>
+                  </a>
+                  <a v-if="typeof profile.info.linkedin !== 'undefined'" :href="profile.info.linkedin">
+                    <LinkedIn class="social-icon"/>
+                  </a>
+              </b-col>
+            </b-row>
           </b-col>
-          <b-col md="7" sm="0" class="modal-scroll">
+          <b-col md="7" sm="0">
             <b-col class="about-section">
               <b-row>
                 <b-col>
                   <div class="member-modal-header">About Me</div>
-                  <p id="about-p">{{profile.about}}</p>
+                  <p id="about-p">{{profile.info.about}}</p>
                 </b-col>
               </b-row>
               <b-row>
                 <b-col>
                   <div id="teamwork" class="member-modal-header">Team Work</div>
-                  <b-row v-for="team in profile.teams" :key="team.name">
+                  <b-row v-for="team in profile.info.teams" :key="team.name">
                     <b-col v-if="team.logo" cols="2" class="team-logo my-auto">
                       <b-img :src="team.logo" :alt="team.name" height="64px" width="64px"/>
                     </b-col>
@@ -72,84 +120,6 @@
             </b-col>
           </b-col>
         </b-row>
-        <!--
-          <b-col cols="12" class="my-auto">
-            <b-row class="profile-header">
-              <b-col lg="3" md="auto" sm="12">
-                <b-img
-   
-<!--
-        <b-row class="modal-scroll">
-          <b-col sm="12" md="7" class="about-section">
-            <b-row>
-              <b-col v-if="typeof profile.info.about !== 'undefined'">
-                <div class="member-modal-header">About Me</div>
-                <p>{{profile.info.about}}</p>
-              </b-col>
-            </b-row>
-            <b-row v-if="typeof profile.teams !== 'undefined' && profile.teams.length > 0">
-              <b-col>
-                <div class="member-modal-header">Team Work</div>
-                <b-row v-for="team in profile.teams" :key="team.name">
-                  <b-col v-if="team.logo" cols="2" class="team-logo my-auto">
-                    <b-img :src="team.logo" :alt="team.name" height="64px" width="64px"/>
-                  </b-col>
-                  <b-col class="team-info my-auto">
-                    <h4 v-if="team.logo || team.description">{{team.name}}</h4>
-                    <p v-if="team.logo || team.description">{{team.description}}</p>
-                    <ul class="team-info-list" v-else>
-                      <li>
-                        <h4>{{team.name}}</h4>
-                      </li>
-                    </ul>
-                  </b-col>
-                </b-row>
-              </b-col>
-            </b-row>
-          </b-col>
-          <b-col>
-            <h4 class="profile-header-md">Profile</h4>
-            <h3 class="profile-header-sm">Profile</h3>
-            <b-row v-if="typeof profile.info.major !== 'undefined'">
-              <b-col>
-                Major
-              </b-col>
-              <b-col>
-                <p>{{profile.info.major}}</p>
-              </b-col>
-            </b-row>
-            <b-row v-if="typeof profile.info.hometown !== 'undefined'">
-              <b-col>
-                Hometown
-              </b-col>
-              <b-col>
-                <p>{{profile.info.hometown}}</p>
-              </b-col>
-            </b-row>
-            <b-row v-if="typeof profile.info.year !== 'undefined'">
-              <b-col>
-                Year
-              </b-col>
-              <b-col>
-                <p>{{profile.info.year}}</p>
-              </b-col>
-            </b-row>
-            <b-row>
-              <b-col sm="2" md="auto">Links</b-col>
-              <b-col class="link-list">
-                <b-row>
-                  <a v-if="typeof profile.info.website !== 'undefined'" class="text-dark" :href="profile.info.website">Website</a>
-                </b-row>
-                <b-row>
-                  <a v-if="typeof profile.info.linkedin !== 'undefined'" class="text-dark" :href="profile.info.linkedin">Linkedin</a>
-                </b-row>
-                <b-row>
-                  <a v-if="typeof profile.info.github !== 'undefined'" class="text-dark" :href="profile.info.github">GitHub</a>
-                </b-row>
-              </b-col>
-            </b-row>
-          </b-col>
-        </b-row>-->
       </b-container>
     </b-modal>
   </div>
@@ -306,6 +276,11 @@ $radius: 25px;
     display: none;
   }
 
+  .modal-scroll {
+    overflow-y: auto;
+    max-height: 70vh;
+  }
+
   .modal-body {
     border-top-left-radius: $radius;
     border-top-right-radius: $radius;
@@ -321,9 +296,9 @@ $radius: 25px;
     }
 
     @media (min-width: 768) {
-      .modal-dialog {
-        max-width: 100%;
-        margin: 10%;
+      .modal-dialog{
+        max-width:960px;
+        margin:10%
       }
       .about-section {
         overflow-y: auto;
@@ -352,7 +327,7 @@ $radius: 25px;
 
       .modal-scroll {
         overflow-y: auto;
-        max-height: inherit;
+        max-height: 70vh;
       }
 
       .mobile-modal-scroll {
