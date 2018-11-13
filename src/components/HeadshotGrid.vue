@@ -5,7 +5,7 @@
       <div v-if="member.phantom" class="phantom-headshot-card ">
         <headshot-card :name="member.id" :role="member.id" :image='``' @click.native="null" />
       </div>
-      <headshot-card v-else :name="name(member)" :role="member.info.role" :image="`${Strings.get('directories.members', 'assets')}/${member.id+'.jpg'}`"
+      <headshot-card v-else :name="name(member)" :role="member.info.role" :image="`${Strings.get('directories.members', 'assets')}/${member.id}.jpg`"
         @click.native="memberClicked(member)" />
     </div>
 
@@ -80,7 +80,7 @@ export default {
     },
     name(member) {
       if (typeof member.info.name === 'undefined') {
-        return member.info.firstName + ' ' + member.info.lastName;
+        return `${member.info.firstName} ${member.info.lastName}`;
       }
       return member.info.name;
     }
