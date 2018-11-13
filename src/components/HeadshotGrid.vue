@@ -79,7 +79,7 @@ export default {
       return copy;
     },
     name(member) {
-      if (member.name === undefined) {
+      if (typeof member.info.name === 'undefined') {
         return member.info.firstName + ' ' + member.info.lastName;
       }
       return member.info.name;
