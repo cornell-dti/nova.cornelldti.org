@@ -406,33 +406,33 @@ export default {
         filtered = Object.entries(this.getMembers())
           .filter(([id, member]) => {
             if (typeof member.roleId === 'string') {
-              return !(member.roleId === 'lead');
+              return !(member.roleId === 'colead');
             } else if (Array.isArray(member.roleId)) {
-              return !member.roleId.includes('lead');
+              return !member.roleId.includes('colead');
             }
 
             return false;
           })
+          .map(([id, member]) => ({ info: member, id: id }))
           .sort((a, b) => {
             let aname;
             let bname;
 
-            if (typeof a.name === 'undefined') {
-              aname = `${a.firstName} ${a.lastName}`;
+            if (typeof a.member.name === 'undefined') {
+              aname = `${a.member.firstName} ${a.member.lastName}`;
             } else {
-              aname = a.name;
+              aname = a.member.name;
             }
-            if (typeof b.name === 'undefined') {
+            if (typeof b.member.name === 'undefined') {
               bname = `${b.firstName} ${b.lastName}`;
             } else {
-              bname = b.name;
+              bname = b.member.name;
             }
 
             if (aname < bname) return -1;
             if (aname > bname) return 1;
             return 0;
-          })
-          .map(([id, member]) => ({ info: member, id }));
+          });
       } else {
         filtered = Object.entries(this.getMembers())
           .filter(([id, member]) => {
@@ -444,10 +444,11 @@ export default {
 
             return false;
           })
+          .map(([id, member]) => ({ member, id }))
           .sort((a, b) => {
             let aname;
             let bname;
-            if (typeof a.name === 'undefined') {
+            if (typeof a.member.name === 'undefined') {
               aname = `${a.firstName} ${a.lastName}`;
             } else {
               aname = a.name;
@@ -460,8 +461,7 @@ export default {
             if (aname < bname) return -1;
             if (aname > bname) return 1;
             return 0;
-          })
-          .map(([id, member]) => ({ member, id }));
+          });
       }
 
       // todo fix this ugliness
