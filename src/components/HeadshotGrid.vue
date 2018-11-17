@@ -43,7 +43,7 @@ export default {
     memberClicked(member) {
       this.currentProfile = member;
       this.currentProfile.teams = [];
-
+      //change this
       this.getTeams().forEach(team => {
         team.members.forEach(teamMember => {
           const name = `${this.currentProfile.firstName} ${
