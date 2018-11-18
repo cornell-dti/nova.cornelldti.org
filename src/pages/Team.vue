@@ -74,7 +74,11 @@
           <b-col cols="12">
             <role-selector density="normal" class="team-role-selector" v-model="roleId" />
 
+<<<<<<< HEAD
             <headshot-grid :members="[...filterMembers(`${roleId}-colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
+=======
+            <headshot-grid :members="[...filterMembers(`${roleId}colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
+>>>>>>> fixed sorting, but still buggy
             />
           </b-col>
         </b-row>
@@ -406,9 +410,13 @@ export default {
         filtered = Object.entries(this.getMembers())
           .filter(([id, member]) => {
             if (typeof member.roleId === 'string') {
-              return !(member.roleId === 'colead');
+              return !member.roleId.includes('colead') || !member.roleId.includes('-lead');
             } else if (Array.isArray(member.roleId)) {
-              return !member.roleId.includes('colead');
+              let unpack;
+              for(let i=0; i<member.roleId.length; i++){
+                unpack += ' ' + member.roleId[i];
+              }
+              return !unpack.includes('colead') || !unpack.includes('-lead');
             }
 
             return false;
@@ -418,15 +426,15 @@ export default {
             let aname;
             let bname;
 
-            if (typeof a.member.name === 'undefined') {
-              aname = `${a.member.firstName} ${a.member.lastName}`;
+            if (typeof a.info.name === 'undefined') {
+              aname = `${a.info.firstName} ${a.info.lastName}`;
             } else {
-              aname = a.member.name;
+              aname = a.info.name;
             }
-            if (typeof b.member.name === 'undefined') {
-              bname = `${b.firstName} ${b.lastName}`;
+            if (typeof b.info.name === 'undefined') {
+              bname = `${b.info.firstName} ${b.info.lastName}`;
             } else {
-              bname = b.member.name;
+              bname = b.info.name;
             }
 
             if (aname < bname) return -1;
@@ -437,26 +445,39 @@ export default {
         filtered = Object.entries(this.getMembers())
           .filter(([id, member]) => {
             if (typeof member.roleId === 'string') {
-              return member.roleId === role;
+              if (role === 'colead' || role === '-lead'){
+                return member.roleId.includes(role)
+              } else {
+                return member.roleId === role
+              }
             } else if (Array.isArray(member.roleId)) {
-              return member.roleId.includes(role);
+                if (role === 'colead' || role === '-lead'){
+                  let unpack;
+                  for(let i=0; i<member.roleId.length; i++){
+                    if (member.roleId[i] === role || member.roleId[i].endsWith(role)){
+                      return true;
+                    }
+                  }
+                } else {
+                  return member.roleId.includes(role)
+                }
             }
 
             return false;
           })
-          .map(([id, member]) => ({ member, id }))
+          .map(([id, member]) => ({ info:member, id:id }))
           .sort((a, b) => {
             let aname;
             let bname;
-            if (typeof a.member.name === 'undefined') {
-              aname = `${a.firstName} ${a.lastName}`;
+            if (typeof a.info.name === 'undefined') {
+              aname = `${a.info.firstName} ${a.info.lastName}`;
             } else {
-              aname = a.name;
+              aname = a.info.name;
             }
-            if (typeof b.name === 'undefined') {
-              bname = `${b.firstName} ${b.lastName}`;
+            if (typeof b.info.name === 'undefined') {
+              bname = `${b.info.firstName} ${b.info.lastName}`;
             } else {
-              bname = b.name;
+              bname = b.info.name;
             }
             if (aname < bname) return -1;
             if (aname > bname) return 1;
