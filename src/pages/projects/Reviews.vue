@@ -69,8 +69,10 @@ export default {
             for(let i=0; i<member.teams.length; i++) {
               if (typeof member.teams[i] === 'string' && member.teams[i] === team){
                 return true;
-              } else if (typeof member.teams[i] === 'object' && member.teams[i].id === team){
-                return true;
+              } else if (typeof member.teams[i] === 'object'){
+                if (member.teams[i].id === team && member.teams[i].semesters.includes('fa18')){
+                  return true;
+                }
               }
             }
             return false;
