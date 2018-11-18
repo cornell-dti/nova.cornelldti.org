@@ -406,13 +406,14 @@ export default {
         filtered = Object.entries(this.getMembers())
           .filter(([id, member]) => {
             if (typeof member.roleId === 'string') {
-              return !member.roleId.includes('colead') || !member.roleId.includes('-lead');
+              return !member.roleId.endsWith('-lead');
             } else if (Array.isArray(member.roleId)) {
-              let unpack;
               for(let i=0; i<member.roleId.length; i++){
-                unpack += ' ' + member.roleId[i];
+                if (member.roleId[i] === 'colead' || member.roleId[i].endsWith('-lead')){
+                  return false;
+                }
               }
-              return !unpack.includes('colead') || !unpack.includes('-lead');
+              return true;
             }
 
             return false;
@@ -440,25 +441,31 @@ export default {
       } else {
         filtered = Object.entries(this.getMembers())
           .filter(([id, member]) => {
-            if (typeof member.roleId === 'string') {
-              if (role === 'colead' || role === '-lead'){
-                return member.roleId.includes(role)
+            if (typeof member.roleId === 'string'){
+              if (role === 'colead'){
+                return false;
+              } else if (role === '-lead') {
+                return member.roleId.endsWith(role)
               } else {
-                return member.roleId === role
+                return member.roleId === role; 
               }
-            } else if (Array.isArray(member.roleId)) {
-                if (role === 'colead' || role === '-lead'){
-                  let unpack;
-                  for(let i=0; i<member.roleId.length; i++){
-                    if (member.roleId[i] === role || member.roleId[i].endsWith(role)){
+            } else if (Array.isArray(member.roleId)){
+              if (role === 'colead'){
+                return member.roleId.includes(role)
+              } else if (role === '-lead'){
+                if (member.roleId.includes('colead')){
+                  return false;
+                } else {
+                  for (let i=0; i<member.roleId.length; i++){
+                    if (member.roleId[i].endsWith(role)){
                       return true;
                     }
                   }
-                } else {
-                  return member.roleId.includes(role)
                 }
+              } else {
+                 return member.roleId.includes(role)
+              }
             }
-
             return false;
           })
           .map(([id, member]) => ({ info:member, id:id }))
