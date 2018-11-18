@@ -24,7 +24,7 @@
 
           <page-section>
             <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.teamId).members" />
+            <headshot-grid :members="getTeam(projectData.teamId)" />
           </page-section>
 
           <project-learn-more :enableAll="true" projectId="events" />
@@ -47,7 +47,7 @@ export default {
   props: {
     project: {
       type: String,
-      required: true
+      required: false
     }
   },
   components: {
@@ -72,14 +72,21 @@ export default {
   },
   methods: {
     getTeam(team) {
-      let teamA = null;
-
-      this.getTeams().forEach(teamData => {
-        if (teamData.id === team) {
-          teamA = teamData;
-        }
-      });
-
+      let teamA = Object.entries(this.getMembers())
+        .filter(([id, member]) => {
+          if(Array.isArray(member.teams)){
+            for(let i=0; i<member.teams.length; i++) {
+              if (typeof member.teams[i] === 'string' && member.teams[i] === team){
+                return true;
+              } else if (typeof member.teams[i] === 'object' && member.teams[i].id === team){
+                return true;
+              }
+            }
+            return false;
+          }
+        })
+        .map(([id, member]) => ({ info: member, id: id }));
+        
       return teamA;
     },
     getProject(project) {

@@ -283,7 +283,7 @@
   },
   {
     "name": "Research Connect",
-    "id": "research",
+    "id": "researchconnect",
     "members": [
       {
         "image": "aramb.jpg",
@@ -354,7 +354,7 @@
   },
   {
     "name": "Queue Me In",
-    "id": "queue-me-in",
+    "id": "queuemein",
     "members": [
       {
         "image": "tiffanyw.jpg",
