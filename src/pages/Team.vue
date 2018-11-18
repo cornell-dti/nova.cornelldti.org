@@ -75,10 +75,14 @@
             <role-selector density="normal" class="team-role-selector" v-model="roleId" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             <headshot-grid :members="[...filterMembers(`${roleId}-colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
 =======
             <headshot-grid :members="[...filterMembers(`${roleId}colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
 >>>>>>> fixed sorting, but still buggy
+=======
+            <headshot-grid :members="[...filterMembers(`${roleId}colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
+>>>>>>> ad3c5af1fea9c1d9a0f2f1410e7515958a638d33
             />
           </b-col>
         </b-row>
