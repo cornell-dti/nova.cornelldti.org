@@ -5,7 +5,9 @@
     <b-container>
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order="1">
+
+          <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
+
             <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.googleLunch', 'assets')"
             />
           </b-col>
@@ -17,9 +19,12 @@
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <b-col sm="12" md="5" class="sponsor-row-content-container" order-md="2" order="2">
-            <!-- <b-col sm="12" md="5" order-md="2" order-sm="1"> -->
-            <h2 class="sponsor-row-content-header">{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
+          <b-col sm="12" md="7" class="sponsor-row-img" order="1">
+            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')"
+            />
+          </b-col>
+          <b-col sm="12" md="5" class="sponsor-row-content-container" order="2">
+            <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
               {{Strings.get('pitch.2.description', 'sponsor')}}
             </p>
@@ -29,8 +34,83 @@
             <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')"
             />
           </b-col>
+
+        </b-row>
+
+      </page-section>
+    </b-container>
+    <b-container fluid class="sponsor-tier-background">
+      <page-section>
+        <b-row>
+          <b-col>
+            <h2 class="sponsor-tier-heading"> {{Strings.get('tiers.header', 'sponsor')}} </h2>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <div class="sponsor-tiers">
+              <div class="sponsor-table">
+                <b-table :striped="striped" :outlined="outlined" :bordered="bordered" :dark="dark"
+                  :items="items" :fields="fields">
+
+                  <template slot="HEAD_benefits" slot-scope="row">
+                    <strong class="table-header">Benefits</strong>
+                  </template>
+                  <template slot="HEAD_bronze" slot-scope="row">
+                    <div class="bronze-header">Bronze</div>
+                  </template>
+                  <template slot="HEAD_silver" slot-scope="row">
+                    <div class="silver-header"> Silver</div>
+                  </template>
+                  <template slot="HEAD_gold" slot-scope="row">
+                    <div class="gold-header">Gold</div>
+                  </template>
+                  <template slot="HEAD_platinum" slot-scope="row">
+                    <div class="platinum-header">Platinum</div>
+                  </template>
+
+                  <template slot="benefits" slot-scope="row">
+                    <b-row>
+                      <b-col cols="12" class="text-sm-head"> {{row.item.benefits}}</b-col>
+                    </b-row>
+                    <b-row>
+
+                      <b-col cols="12" class="text-sm-left">{{ row.item.subheader}}</b-col>
+                    </b-row>
+                  </template>
+                  <template slot="bronze" slot-scope="row">
+                    <b-row class="bronze">
+                      <b-col>
+                        <wcheck v-if="row.value" class="checkmark bronze-checkmark" /> </b-col>
+                    </b-row>
+                  </template>
+                  <template slot="silver" slot-scope="row">
+                    <b-row class="silver">
+                      <b-col>
+                        <wcheck v-if="row.value" class="checkmark silver-checkmark" /> </b-col>
+                    </b-row>
+                  </template>
+                  <template slot="gold" slot-scope="row">
+                    <b-row class="gold">
+                      <b-col lg="3">
+                        <wcheck v-if="row.value" class="checkmark gold-checkmark" /> </b-col>
+                    </b-row>
+                  </template>
+                  <template slot="platinum" slot-scope="row">
+                    <b-row class="platinum">
+                      <b-col lg="3">
+                        <wcheck v-if="row.value" class="checkmark" /> </b-col>
+                    </b-row>
+                  </template>
+                </b-table>
+              </div>
+            </div>
+          </b-col>
         </b-row>
       </page-section>
+    </b-container>
+    <b-container>
       <page-section>
         <b-row class="justify-content-center sponsor-contact">
           <h2> {{Strings.get('call-to-action.description', 'sponsor')}}
@@ -65,6 +145,137 @@
   </page-background>
 </template>
 
+<script>
+import check from '@/assets/sponsor/check.svg';
+import wcheck from '@/assets/sponsor/whitecheck.svg';
+import Gcheck from '@/assets/sponsor/goldcheck.svg';
+import Pcheck from '@/assets/sponsor/platinumcheck.svg';
+
+export default {
+  components: {
+    check,
+    wcheck,
+    Gcheck,
+    Pcheck
+  },
+  computed: {
+    items() {
+      return [
+        {
+          benefits: 'Recognition on DTI Website',
+          subheader: this.Strings.get('tiers.sponsor.0.subheader', 'sponsor'),
+          bronze: true,
+          silver: true,
+          gold: true,
+          platinum: true
+        },
+        {
+          benefits: 'Campus-Wide Marketing & Publicity',
+          subheader: this.Strings.get('tiers.sponsor.1.subheader', 'sponsor'),
+          bronze: true,
+          silver: true,
+          gold: true,
+          platinum: true
+        },
+        {
+          benefits: 'Resume Book Access',
+          subheader: this.Strings.get('tiers.sponsor.2.subheader', 'sponsor'),
+          bronze: false,
+          silver: true,
+          gold: true,
+          platinum: true
+        },
+        {
+          benefits: 'Flagship Initiative Co-Sponsor',
+          subheader: this.Strings.get('tiers.sponsor.3.subheader', 'sponsor'),
+          bronze: false,
+          silver: true,
+          gold: true,
+          platinum: true
+        },
+        {
+          benefits: 'Host One Standard Initiative',
+          subheader: this.Strings.get('tiers.sponsor.4.subheader', 'sponsor'),
+          bronze: false,
+          silver: false,
+          gold: true,
+          platinum: true
+        },
+        {
+          benefits: 'Host Multiple Initiatives',
+          subheader: this.Strings.get('tiers.sponsor.5.subheader', 'sponsor'),
+          bronze: false,
+          silver: false,
+          gold: false,
+          platinum: true
+        },
+        {
+          benefits: 'Tabling Slot in Engineering Hall',
+          subheader: this.Strings.get('tiers.sponsor.6.subheader', 'sponsor'),
+          bronze: false,
+          silver: false,
+          gold: false,
+          platinum: true
+        }
+      ];
+    }
+  },
+  data() {
+    return {
+      fields: ['benefits', 'bronze', 'silver', 'gold', 'platinum'],
+
+      striped: false,
+      outlined: false,
+      bordered: false,
+      dark: false
+    };
+  }
+};
+</script>
+
+<style lang="scss">
+.sponsor-tier-background {
+  .sponsor-tiers {
+    background-color: #454545;
+  }
+
+  .sponsor-table table th {
+    border-top: none;
+  }
+
+  .sponsor-table {
+    padding: 0 0.8rem;
+    background-color: #454545;
+    border: 1px solid #454545;
+
+    .checkmark {
+      width: 3rem;
+      height: 2.5rem;
+      margin-left: 2.5em;
+      margin-top: 0.25em;
+
+      path {
+        fill: #ffffff;
+        stroke: #ffffff;
+      }
+
+      &.bronze-checkmark path {
+        fill: #deaf81;
+        stroke: #deaf81;
+      }
+      &.silver-checkmark path {
+        fill: #d3d3d3;
+        stroke: #d3d3d3;
+      }
+      &.gold-checkmark path {
+        fill: #f2e588;
+        stroke: #f2e588;
+      }
+    }
+  }
+}
+</style>
+
 <style lang="scss" scoped>
 .sponsor-icon {
   width: 100%;
@@ -83,6 +294,105 @@
 .sponsor-list-heading {
   font-size: 2.25rem;
 }
+
+.sponsor-tier-heading {
+  font-size: 36px;
+  color: #fff;
+  padding: 0.5rem 0.5rem 0.8rem 0.8rem;
+}
+
+.sponsor-row-image {
+  object-fit: cover;
+  max-height: 500px;
+  width: 100%;
+  margin: 0.25rem 0;
+}
+
+.sponsor-tiers {
+  border-radius: 2rem;
+  color: #ffffff;
+}
+
+.table-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.bronze-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #e7b584;
+}
+
+.silver-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #e6e6e6;
+}
+
+.gold-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #f2e588;
+}
+
+.platinum-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bronze {
+  background-color: #454545;
+  width: 10.5rem;
+  height: 3.5rem;
+}
+
+.silver {
+  background-color: #454545;
+  width: 10.5rem;
+  height: 3.5rem;
+  margin: 0;
+}
+
+.gold {
+  background-color: #454545;
+  width: 10.5rem;
+  height: 3.5rem;
+}
+
+.platinum {
+  background-color: #454545;
+  width: 10.5rem;
+  height: 3.5rem;
+  margin: 0;
+}
+
+.text-sm-head {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.text-sm-left {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.sponsor-tier-background {
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+
+  background-color: #454545;
+  position: relative;
+  height: 100%;
+  min-width: 100%;
+  overflow: hidden;
+}
+
 .sponsor-list {
   .col,
   div[class*='col-'] {
@@ -100,8 +410,7 @@
 }
 
 .sponsor-row {
-  .sponsor-row-content-header {
-    padding-top: 1rem;
+  h2 {
     font-size: 2.25rem;
     font-weight: bold;
     letter-spacing: -0.3px;
@@ -120,10 +429,10 @@
     }
   }
 
-  text-align: left;
-
-  &:nth-child(odd) {
-    .sponsor-row-content-header {
+  &:nth-child(even) {
+    text-align: left;
+    h2 {
+      text-align: left;
       color: #d0021b;
     }
 
@@ -156,8 +465,6 @@
     }
 
     .sponsor-row-content-container {
-      //padding-left: 80px;
-
       @media screen and (max-width: 768px) {
         padding-left: 0.9375rem;
       }
@@ -165,7 +472,7 @@
   }
 }
 .sponsor-top {
-  font-size: 48px;
+  font-size: 3rem;
   text-align: center;
 
   h2 {
@@ -174,7 +481,7 @@
 
   p {
     font-size: 1.5rem;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.025rem;
   }
 }
 </style>
