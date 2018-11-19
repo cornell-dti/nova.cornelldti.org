@@ -70,7 +70,7 @@ export default {
               if (typeof member.teams[i] === 'string' && member.teams[i] === team){
                 return true;
               } else if (typeof member.teams[i] === 'object'){
-                  if (member.teams[i].id === team && member.teams[i].semesters.includes('fa18')){
+                  if (member.teams[i].id === team){
                     return true;
                 }
               }

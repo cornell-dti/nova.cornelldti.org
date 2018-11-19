@@ -26,7 +26,7 @@
         </b-row>
 
         <b-row class="modal-scroll">
-          <b-col lg="5" cols="12" class="border border-dark border-top-0 border-bottom-0 border-left-0">
+          <b-col lg="5" cols="12" class="border border-dark border-left-0 border-top-0 border-bottom-0">
             <b-img center rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"/>
             <b-row>
               <b-col class="my-auto">
@@ -78,46 +78,55 @@
                   <a href="profile.website">{{profile.info.website}}</a>
                 </b-col>
               </b-row>
-            </div>
-            <b-row>
+              <b-row>
               <b-col class="social-media">
-                  <a v-if="typeof profile.info.github !== 'undefined'" :href="profile.info.github">
-                    <Github class="social-icon"/>
-                  </a>
-                  <a v-if="typeof profile.info.linkedin !== 'undefined'" :href="profile.info.linkedin">
-                    <LinkedIn class="social-icon"/>
-                  </a>
+                <a v-if="typeof profile.info.github !== 'undefined'" :href="profile.info.github">
+                  <Github class="social-icon"/>
+                </a>
+                <a v-if="typeof profile.info.linkedin !== 'undefined'" :href="profile.info.linkedin">
+                  <LinkedIn class="social-icon"/>
+                </a>
+              </b-col>
+              </b-row>
+            </div>
+          </b-col>
+          <b-col lg="7" cols="0">
+            <b-row class="about-section">
+              <b-col class="member-modal-header left-space">About Me</b-col>
+            </b-row>
+            <b-row>
+              <b-col class="about-p left-space">{{profile.info.about}}</b-col>
+            </b-row>
+            <b-row>
+              <b-col>
+                <div id="teamwork" class="member-modal-header left-space">Team Work</div>
+                <b-row v-for="team in profile.info.teams" :key="team.id">
+                  <b-col class="team-info my-auto" v-for="project in getTeamName(team)" :key="project.id">
+                    <ul class="team-info-list">
+                      <li>
+                        <h4>{{project}}</h4>
+                      </li>
+                    </ul>
+                  </b-col>
+
+                  <!--
+                  <b-col v-if="team.logo" cols="2" class="team-logo my-auto">
+                    <b-img :src="team.logo" :alt="team.name" height="64px" width="64px" />
+                  </b-col>
+                  <b-col class="team-info my-auto">
+                    
+                  <h4 v-if="team.logo || team.description">{{team.name}}</h4>
+                  <p v-if="team.logo || team.description">{{team.description}}</p>
+                  <ul class="team-info-list" v-else>
+                    <li>
+                      <h4>{{team}}</h4>
+                    </li>
+                  </ul>
+                </b-col>
+                -->
+                </b-row>
               </b-col>
             </b-row>
-          </b-col>
-          <b-col md="7" sm="0">
-            <b-col class="about-section">
-              <b-row>
-                <b-col>
-                  <div class="member-modal-header">About Me</div>
-                  <p id="about-p">{{profile.info.about}}</p>
-                </b-col>
-              </b-row>
-              <b-row>
-                <b-col>
-                  <div id="teamwork" class="member-modal-header">Team Work</div>
-                  <b-row v-for="team in profile.info.teams" :key="team.name">
-                    <b-col v-if="team.logo" cols="2" class="team-logo my-auto">
-                      <b-img :src="team.logo" :alt="team.name" height="64px" width="64px"/>
-                    </b-col>
-                    <b-col class="team-info my-auto">
-                      <h4 v-if="team.logo || team.description">{{team.name}}</h4>
-                      <p v-if="team.logo || team.description">{{team.description}}</p>
-                      <ul class="team-info-list" v-else>
-                        <li>
-                          <h4>{{team.name}}</h4>
-                        </li>
-                      </ul>
-                    </b-col>
-                  </b-row>
-                </b-col>
-              </b-row>
-            </b-col>
           </b-col>
         </b-row>
       </b-container>
@@ -127,12 +136,12 @@
 
 <script>
 import Github from '@/assets/social/github.svg';
-import Medium from '@/assets/social/medium.svg';
+import LinkedIn from '@/assets/social/linkedin.svg';
 
 export default {
   components: {
     Github,
-    Medium
+    LinkedIn,
   },
   model: {
     prop: 'modalShow',
@@ -157,6 +166,20 @@ export default {
   methods: {
     modalClose() {
       this.$refs.memberModal.hide();
+    },
+    getTeamName(team){
+      let teamNames = []
+
+      this.getTeams().forEach(teamData => {
+        if(typeof team === 'string' && teamData.id === team){
+          teamNames.push(teamData.name)
+        }
+        else if (typeof team === 'object' && teamData.id === team.id){
+          teamNames.push(teamData.name);
+        }
+      });
+
+      return teamNames;
     }
   }
 };
@@ -164,14 +187,6 @@ export default {
 
 <style lang="scss">
 $radius: 25px;
-
-#testing {
-  background-color: pink;
-}
-
-#testing2 {
-  background-color: blue;
-}
 
 #memberModal {
   .member-modal-header {
@@ -188,10 +203,15 @@ $radius: 25px;
     margin-top: 10%;
   }
 
-  #about-p {
-    margin-top: 0.625rem;
-    font-size: 0.875rem;
-    font-family: Raleway;
+  .left-space{
+    margin-left:0.625rem;
+  }
+
+  .about-p{
+    margin-top:0.625rem;
+    font-size:0.875rem;
+    font-family:Raleway;
+    margin-right:0.625rem;
   }
 
   #teamwork {
@@ -246,15 +266,15 @@ $radius: 25px;
     font-weight: 400;
   }
 
-  .social-media {
-    margin-top: 1.25rem;
+  .social-media{
+    margin-top:1rem;
+    margin-left:30%;
+    margin-right:30%;
   }
 
   .social-icon {
     width: 2rem;
     height: 2rem;
-    margin-left: 0.2rem;
-    margin-right: 0.4rem;
   }
 
   .modal-content {
@@ -304,10 +324,6 @@ $radius: 25px;
         overflow-y: auto;
         max-height: inherit;
       }
-
-      .profile-header-sm {
-        display: none;
-      }
     }
 
     @media (max-width: 767px) {
@@ -316,18 +332,13 @@ $radius: 25px;
         margin: 10%;
       }
 
-      .profile-header {
-        text-align: center;
-        background-color: pink;
-      }
-
-      .profile-header-md {
-        display: none;
-      }
-
       .modal-scroll {
         overflow-y: auto;
         max-height: 70vh;
+      }
+
+      .left-space{
+        margin-left:0rem;
       }
 
       .mobile-modal-scroll {
