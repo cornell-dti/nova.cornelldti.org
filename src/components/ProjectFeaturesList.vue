@@ -1,7 +1,7 @@
 <template>
   <page-section>
     <div class="project-header">Features</div>
-    <b-row align-v="center">
+    <b-row align-v="center" class="mobile-space">
       <b-col md="7">
         <div class="feature-header" id="mobile">{{Strings.get(`features.1.title`, `projects.${projectId}`)}}</div>
         <b-img class="product" :src="Strings.get(`projects.${projectId}.features.1`, 'assets')"
@@ -12,8 +12,8 @@
         <div class="project-description">{{Strings.get(`features.1.description`, `projects.${projectId}`)}}</div>
       </b-col>
     </b-row>
-    <b-row class="feature-padding"/>
-    <b-row align-v="center">
+    <b-row class="feature-padding" />
+    <b-row align-v="center" class="mobile-space">
       <b-col md="5" class="switch1">
         <div class="feature-header" id="hide">{{Strings.get(`features.2.title`, `projects.${projectId}`)}}</div>
         <div class="project-description">{{Strings.get(`features.2.description`, `projects.${projectId}`)}}</div>
@@ -24,8 +24,8 @@
         />
       </b-col>
     </b-row>
-    <b-row class="feature-padding"/>
-    <b-row align-v="center">
+    <b-row class="feature-padding" />
+    <b-row align-v="center" class="mobile-space">
       <b-col md="7">
         <div class="feature-header" id="mobile">{{Strings.get(`features.3.title`, `projects.${projectId}`)}}</div>
         <b-img class="product" :src="Strings.get(`projects.${projectId}.features.3`, 'assets')"
@@ -129,6 +129,10 @@ export default {
 
   #mobile{
     display:unset;
+  }
+
+  .mobile-space{
+    margin-top:20%;
   }
 
   .switch1{
