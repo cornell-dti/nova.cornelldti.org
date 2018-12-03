@@ -26,7 +26,7 @@
         </b-row>
 
         <b-row class="modal-scroll">
-          <b-col lg="5" cols="12" class="border border-dark border-left-0 border-top-0 border-bottom-0">
+          <b-col lg="5" cols="12" >
             <b-img center rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"/>
             <b-row>
               <b-col class="my-auto">
@@ -90,7 +90,10 @@
               </b-row>
             </div>
           </b-col>
-          <b-col lg="7" cols="0">
+         <b-col lg="1" cols="0">
+          <div class="divider"/>
+         </b-col>   
+          <b-col lg="6" cols="0" class="left-shift">
             <b-row class="about-section">
               <b-col class="member-modal-header left-space">About Me</b-col>
             </b-row>
@@ -214,8 +217,12 @@ $radius: 25px;
     margin-right:0.625rem;
   }
 
-  #teamwork {
-    margin-top: 1.25rem;
+  .left-shift{
+    margin-left:-2.5%;
+  }
+
+  #teamwork{
+    margin-top:1.25rem;
   }
 
   .profile-text {
@@ -267,14 +274,24 @@ $radius: 25px;
   }
 
   .social-media{
-    margin-top:1rem;
-    margin-left:30%;
-    margin-right:30%;
+    display:inline;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+  }
+
+  .divider{
+    background-color:black;
+    width:0.125rem;
+    height:100%;
   }
 
   .social-icon {
     width: 2rem;
     height: 2rem;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:5%;
   }
 
   .modal-content {
@@ -315,7 +332,7 @@ $radius: 25px;
       border: 0.05rem #979797 solid;
     }
 
-    @media (min-width: 768) {
+    @media (min-width: 992) {
       .modal-dialog{
         max-width:960px;
         margin:10%
@@ -326,7 +343,16 @@ $radius: 25px;
       }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
+
+      .divider{
+        background-color:white;
+      }
+
+      .about-section{
+        margin-top:5%;
+      }
+      
       .modal-dialog {
         max-width: 800px;
         margin: 10%;
@@ -350,7 +376,8 @@ $radius: 25px;
         padding-left: 50px;
       }
     }
-    /*put position:fixed on the main page behind the modal */
+
+/*put position:fixed on the main page behind the modal */
     .team-logo {
       padding-right: 2rem;
     }

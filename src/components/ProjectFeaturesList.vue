@@ -123,6 +123,11 @@ export default {
 }
 
 @media (max-width: 767px) {
+  .product{
+    margin-top:10%;
+    margin-bottom:10%;
+  }
+
   #hide{
     display:none;
   }
