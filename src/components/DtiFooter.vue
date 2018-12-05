@@ -8,7 +8,10 @@
             {{ (Strings.get('footer.prompt', `${page}`) || `Have a question or a great idea?
             Let us know!`) }}
           </div>
-          <b-button :href="(Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org')" class="contact-us-button">{{ (Strings.get('footer.prompt', `${page}`) || `Contact Us`) }}</b-button>
+          <b-button :href="(Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org')"
+            class="contact-us-button">
+            {{ (Strings.get('footer.prompt', `${page}`) || `Contact Us`) }}
+          </b-button>
         </b-col>
       </b-row>
       <b-row class="footer" align-v="top">

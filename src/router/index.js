@@ -21,12 +21,8 @@ import ResearchConnect from '@/pages/projects/ResearchConnect';
 import DiversityJson from '@/data/diversity.json';
 
 Vue.use(Router);
-Vue.use(VueAnalytics, {
-  id: ['UA-115896141-1', 'UA-124837875-1'],
-  router: Router
-});
 
-export default new Router({
+const dtiRouter = new Router({
   mode: 'history',
   routes: [
     {
@@ -106,3 +102,10 @@ export default new Router({
     }
   ]
 });
+
+Vue.use(VueAnalytics, {
+  id: ['UA-115896141-1', 'UA-124837875-1'],
+  router: dtiRouter
+});
+
+export default dtiRouter;

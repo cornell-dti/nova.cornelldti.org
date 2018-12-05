@@ -14,27 +14,27 @@
               :src="Strings.get('pages.sponsor.events.googleLunch', 'assets')"
             />
           </b-col>
-          <b-col sm="12" md="5" order-md="1" order-sm="2">
+          <b-col class="sponsor-row-content-container" sm="12" md="5" order-md="1" order="2">
             <h2>{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">{{Strings.get('pitch.1.description', 'sponsor')}}</p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order-sm="2">
+          <b-col sm="12" md="5" class="sponsor-row-content-container" order-md="2" order="2">
+            <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
+            <p class="sponsor-row-content">{{Strings.get('pitch.2.description', 'sponsor')}}</p>
+          </b-col>
+          <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order="1">
             <!-- sm="1"-->
             <b-img
               class="sponsor-row-image"
               :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')"
             />
           </b-col>
-          <b-col sm="12" md="5" class="sponsor-row-content-container" order-md="2" order-sm="1">
-            <!-- <b-col sm="12" md="5" order-md="2" order-sm="1"> -->
-            <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
-            <p class="sponsor-row-content">{{Strings.get('pitch.2.description', 'sponsor')}}</p>
-          </b-col>
         </b-row>
       </page-section>
     </b-container>
+
     <div class="desktop-visible">
       <!-- .d-none .d-md-block-->
       <b-container fluid class="sponsor-tier-background">
@@ -48,9 +48,7 @@
           <b-row>
             <b-col>
               <div class="sponsor-tiers">
-                <!-- <tr>
-                </tr>-->
-                <b-container class="sponsor-table">
+                <div class="sponsor-table">
                   <b-table
                     :striped="striped"
                     :outlined="outlined"
@@ -74,33 +72,33 @@
                     <template slot="HEAD_platinum" slot-scope="row">
                       <div class="platinum-header">Platinum</div>
                     </template>
+
                     <template slot="benefits" slot-scope="row">
                       <b-row>
                         <b-col cols="12" class="text-sm-head">{{row.item.benefits}}</b-col>
                       </b-row>
                       <b-row>
-                        <!--try deleting class/change attributes of this class-->
                         <b-col cols="12" class="text-sm-left">{{ row.item.subheader}}</b-col>
                       </b-row>
                     </template>
                     <template slot="bronze" slot-scope="row">
                       <b-row class="bronze">
                         <b-col>
-                          <wcheck v-if="row.value" class="bronze-checkmark"/>
+                          <wcheck v-if="row.value" class="checkmark bronze-checkmark"/>
                         </b-col>
                       </b-row>
                     </template>
                     <template slot="silver" slot-scope="row">
                       <b-row class="silver">
                         <b-col>
-                          <wcheck v-if="row.value" class="silver-checkmark"/>
+                          <wcheck v-if="row.value" class="checkmark silver-checkmark"/>
                         </b-col>
                       </b-row>
                     </template>
                     <template slot="gold" slot-scope="row">
                       <b-row class="gold">
                         <b-col lg="3">
-                          <wcheck v-if="row.value" class="gold-checkmark"/>
+                          <wcheck v-if="row.value" class="checkmark gold-checkmark"/>
                         </b-col>
                       </b-row>
                     </template>
@@ -112,7 +110,7 @@
                       </b-row>
                     </template>
                   </b-table>
-                </b-container>
+                </div>
               </div>
             </b-col>
           </b-row>
@@ -374,81 +372,47 @@ export default {
 </script>
 
 <style lang="scss">
-.sponsor-tier-background .sponsor-tiers {
-  background-color: hsl(0, 0%, 27%);
-}
-
-.sponsor-tier-background .sponsor-table {
-  background-color: #454545;
-  border: 1px solid #454545;
-}
-
-.sponsor-tier-background .sponsor-table table th {
-  border-top: none;
-}
-
-.sponsor-tier-background .bronze-checkmark {
-  width: 3rem;
-  height: 2.5rem;
-  margin-left: 2.5em;
-  margin-top: 0.25em;
-  path {
-    fill: #deaf81;
-    stroke: #deaf81;
-  }
-}
-
-.sponsor-tier-background .silver-checkmark {
-  width: 3rem;
-  height: 2.5rem;
-  margin-left: 2.5em;
-  margin-top: 0.25em;
-  path {
-    fill: #d3d3d3;
-    stroke: #d3d3d3;
-  }
-}
-
-.sponsor-tier-background .gold-checkmark {
-  width: 3rem;
-  height: 2.5rem;
-  margin-left: 2.5em;
-  margin-top: 0.25em;
-  path {
-    fill: #f2e588;
-    stroke: #f2e588;
-  }
-}
-
-.sponsor-tier-background .checkmark {
-  width: 3rem;
-  height: 2.5rem;
-  margin-left: 2.5em;
-  margin-top: 0.25em;
-  path {
-    fill: #ffffff;
-    stroke: #ffffff;
+.sponsor-tier-background {
+  .sponsor-tiers {
+    background-color: #454545;
   }
 
-  // @media (max-width: 767px) {
-  //   margin-top: 1.5rem;
-  //   margin-bottom: 0.5rem;
-  // }
+  .sponsor-table table th {
+    border-top: none;
+  }
 
-  // &.social-icon-blank {
-  //   fill: white;
-  // }
+  .sponsor-table {
+    padding: 0 0.8rem;
+    background-color: #454545;
+    border: 1px solid #454545;
 
-  // &.social-icon-circle {
-  //   fill: #4a4a4a;
-  //   background-color: white;
-  //   border-radius: 50%;
-  //   padding: 0.5rem;
-  // }
+    .checkmark {
+      width: 3rem;
+      height: 2.5rem;
+      margin-left: 2.5em;
+      margin-top: 0.25em;
+
+      path {
+        fill: #ffffff;
+        stroke: #ffffff;
+      }
+
+      &.bronze-checkmark path {
+        fill: #deaf81;
+        stroke: #deaf81;
+      }
+      &.silver-checkmark path {
+        fill: #d3d3d3;
+        stroke: #d3d3d3;
+      }
+      &.gold-checkmark path {
+        fill: #f2e588;
+        stroke: #f2e588;
+      }
+    }
+  }
 }
 </style>
-
-
 
 <style lang="scss" scoped>
 .desktop-visible {
@@ -535,14 +499,101 @@ export default {
 .justify-content-center {
   text-align: center;
 }
+
 .sponsor-contact {
   h2 {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 600;
   }
 }
 .sponsor-list-heading {
+  font-size: 2.25rem;
+}
+
+.sponsor-tier-heading {
   font-size: 36px;
+  color: #fff;
+  padding: 0.5rem 0.5rem 0.8rem 0.8rem;
+}
+
+.sponsor-row-image {
+  object-fit: cover;
+  max-height: 500px;
+  width: 100%;
+  margin: 0.25rem 0;
+}
+
+.sponsor-tiers {
+  border-radius: 2rem;
+  color: #ffffff;
+}
+
+.table-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.bronze-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #e7b584;
+}
+
+.silver-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #e6e6e6;
+}
+
+.gold-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #f2e588;
+}
+
+.platinum-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bronze {
+  background-color: #454545;
+  width: 10.5rem;
+  height: 3.5rem;
+}
+
+.silver {
+  background-color: #454545;
+  width: 10.5rem;
+  height: 3.5rem;
+  margin: 0;
+}
+
+.gold {
+  background-color: #454545;
+  width: 10.5rem;
+  height: 3.5rem;
+}
+
+.platinum {
+  background-color: #454545;
+  width: 10.5rem;
+  height: 3.5rem;
+  margin: 0;
+}
+
+.text-sm-head {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.text-sm-left {
+  font-style: italic;
+  font-size: 0.9rem;
 }
 
 .sponsor-tier-heading {
@@ -637,7 +688,10 @@ export default {
 }
 
 .sponsor-tier-background {
-  //#4a4a4a
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+
   background-color: #454545;
   position: relative;
   height: 100%;
@@ -648,15 +702,22 @@ export default {
 .sponsor-list {
   .col,
   div[class*="col-"] {
-    font-size: 25px;
+    font-size: 1.5625rem;
     margin: auto;
     text-align: center;
     width: 90%;
   }
 }
+
+.sponsor-row-image {
+  object-fit: cover;
+  width: 31.25rem;
+  margin: 0.25rem 0;
+}
+
 .sponsor-row {
   h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
     font-weight: bold;
     letter-spacing: -0.3px;
     text-align: left;
@@ -667,40 +728,17 @@ export default {
   }
 
   & + .sponsor-row {
-    margin-top: 120px;
+    margin-top: 7.5rem;
 
     @media screen and (max-width: 768px) {
-      margin-top: 10px;
-    }
-  }
-
-  // .sponsor-row-content {
-  //   text-align: left;
-  // }
-
-  &:nth-child(even) {
-    text-align: left;
-    h2 {
-      text-align: left;
-      color: #d0021b;
-    }
-
-    .sponsor-row-img {
-      text-align: left;
-    }
-
-    .sponsor-row-content-container {
-      //padding-left: 80px;
-
-      @media screen and (max-width: 768px) {
-        padding-left: 15px;
-      }
+      margin-top: 0.625rem;
     }
   }
 
   &:nth-child(odd) {
     text-align: left;
     h2 {
+      text-align: left;
       color: #d0021b;
     }
 
@@ -709,25 +747,49 @@ export default {
     }
 
     .sponsor-row-content-container {
-      // paddiçng-right: 80px;
-
       @media screen and (max-width: 768px) {
-        padding-right: 15px;
+        padding-right: 0.9375rem;
+      }
+    }
+  }
+
+  &:nth-child(even) {
+    @media screen and (min-width: 768px) {
+      text-align: right;
+
+      h2 {
+        text-align: right;
+        color: #d0021b;
+      }
+    }
+
+    .sponsor-row-img {
+      text-align: left;
+    }
+
+    .sponsor-row-content-container {
+      @media screen and (max-width: 768px) {
+        padding-left: 0.9375rem;
+        text-align: left;
+        h2 {
+          text-align: left;
+          color: #d0021b;
+        }
       }
     }
   }
 }
 .sponsor-top {
-  font-size: 48px;
+  font-size: 3rem;
   text-align: center;
 
   h2 {
-    margin-bottom: 43px;
+    margin-bottom: 2.6875rem;
   }
 
   p {
-    font-size: 24px;
-    letter-spacing: 0.4px;
+    font-size: 1.5rem;
+    letter-spacing: 0.025rem;
   }
 }
 </style>
