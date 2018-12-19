@@ -345,12 +345,16 @@ $radius: 25px;
 
     @media (max-width: 991px) {
 
+      .social-icon{
+        margin-top:10%;
+      }
+
       .divider{
         background-color:white;
       }
 
       .about-section{
-        margin-top:5%;
+        margin-top:10%;
       }
       
       .modal-dialog {
