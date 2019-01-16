@@ -4,8 +4,8 @@
       :subheader="Strings.get('hero.subheader', 'apply')" page="apply" />
     <nova-hero v-else :header="Strings.get('hero-closed.header', 'apply')" :subheader="Strings.get('hero-closed.subheader', 'apply')"
       page="apply" />
-    <page-section>
-      <b-container v-if="!Strings.get('join-information.applications-open', 'apply')" class="email-form">
+    <page-section v-if="!Strings.get('join-information.applications-open', 'apply')">
+      <b-container  class="email-form">
         <b-row align-h="center" class="no-gutters">
           <b-col cols="auto">
             <h2 class="email-header">Applications are currently closed.</h2>
@@ -146,7 +146,7 @@
                   'apply')}}
                 </b-button>
               </b-col>
-              <b-col md="auto" sm="12">
+              <b-col v-if="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')" md="auto" sm="12">
                 <b-button :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')"
                   size="lg" variant="secondary" class="call-to-action-button text-center">
                   {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.content`,

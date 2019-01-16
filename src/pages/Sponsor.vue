@@ -11,7 +11,7 @@
             <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.googleLunch', 'assets')"
             />
           </b-col>
-          <b-col sm="12" md="5" order-md="1" order="2">
+          <b-col class="sponsor-row-content-container" sm="12" md="5" order-md="1" order="2">
             <h2 class="sponsor-row-content-header">{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
               {{Strings.get('pitch.1.description', 'sponsor')}}
@@ -19,10 +19,6 @@
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-          <b-col sm="12" md="7" class="sponsor-row-img" order="1">
-            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')"
-            />
-          </b-col>
           <b-col sm="12" md="5" class="sponsor-row-content-container" order="2">
             <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
             <p class="sponsor-row-content">
@@ -30,7 +26,6 @@
             </p>
           </b-col>
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order="1">
-            <!-- sm="1"-->
             <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')"
             />
           </b-col>
@@ -112,7 +107,7 @@
     </b-container>
     <b-container>
       <page-section>
-        <b-row class="justify-content-center sponsor-contact">
+        <b-row class="text-center justify-content-center sponsor-contact">
           <h2> {{Strings.get('call-to-action.description', 'sponsor')}}
           </h2>
         </b-row>
@@ -125,7 +120,7 @@
       <page-section>
         <h2 class="sponsor-list-heading"> {{Strings.get('current-sponsors.header', 'sponsor')}}
         </h2>
-        <b-row class="sponsor-list justify-content-sm-center">
+        <b-row class="sponsor-list justify-content-center">
           <b-col class="my-auto" sm="12" md="4">
             <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.invision', 'assets')"
             />
@@ -281,16 +276,13 @@ export default {
   width: 100%;
 }
 
-.justify-content-center {
-  text-align: center;
-}
-
 .sponsor-contact {
   h2 {
     font-size: 2rem;
     font-weight: 600;
   }
 }
+
 .sponsor-list-heading {
   font-size: 2.25rem;
 }
@@ -405,7 +397,8 @@ export default {
 
 .sponsor-row-image {
   object-fit: cover;
-  width: 31.25rem;
+  height: 30rem;
+  width: 100%;
   margin: 0.25rem 0;
 }
 
@@ -428,60 +421,61 @@ export default {
       margin-top: 0.625rem;
     }
   }
-
-  &:nth-child(even) {
-    text-align: left;
-    h2 {
-      text-align: left;
-      color: #d0021b;
-    }
-
-    .sponsor-row-img {
-      text-align: right;
-    }
-
-    .sponsor-row-content-container {
-      @media screen and (max-width: 768px) {
-        padding-right: 0.9375rem;
-      }
-    }
-  }
-
-  &:nth-child(even) {
-    @media screen and (min-width: 768px) {
-      text-align: right;
-
-      h2 {
-        text-align: right;
-      }
-    }
-
-    h2 {
-      color: #d0021b;
-    }
-
-    .sponsor-row-img {
-      text-align: left;
-    }
-
-    .sponsor-row-content-container {
-      @media screen and (max-width: 768px) {
-        padding-left: 0.9375rem;
-      }
-    }
-  }
-}
-.sponsor-top {
-  font-size: 3rem;
-  text-align: center;
-
+  text-align: left;
   h2 {
-    margin-bottom: 2.6875rem;
+    text-align: left;
+    color: #d0021b;
   }
 
-  p {
-    font-size: 1.5rem;
-    letter-spacing: 0.025rem;
+  & + .sponsor-row {
+    margin-top: 120px;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 10px;
+    }
+  }
+
+  &:nth-child(even) {
+    .sponsor-row-img {
+      text-align: right;
+      margin-right: auto;
+    }
+
+    .sponsor-row-content-container {
+      padding-left: 80px;
+      @media screen and (max-width: 768px) {
+        padding-left: 15px;
+      }
+    }
+  }
+
+  &:nth-child(odd) {
+    .sponsor-row-img {
+      text-align: left;
+      margin-left: auto;
+    }
+
+    .sponsor-row-content-container {
+      padding-right: 80px;
+
+      @media screen and (max-width: 768px) {
+        padding-right: 15px;
+      }
+    }
+  }
+
+  .sponsor-top {
+    font-size: 3rem;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 2.6875rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      letter-spacing: 0.025rem;
+    }
   }
 }
 </style>
