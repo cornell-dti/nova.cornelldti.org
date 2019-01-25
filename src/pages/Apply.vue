@@ -141,14 +141,14 @@
             <b-row>
               <b-col md="auto" sm="12">
                 <b-button :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.link`, 'apply')"
-                  size="lg" variant="secondary" class="call-to-action-button text-center">
+                  size="lg" variant="primary" class="call-to-action-button text-center">
                   {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
                   'apply')}}
                 </b-button>
               </b-col>
               <b-col v-if="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')" md="auto" sm="12">
                 <b-button :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')"
-                  size="lg" variant="secondary" class="call-to-action-button text-center">
+                  size="lg" variant="primary" class="call-to-action-button text-center">
                   {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.content`,
                   'apply')}}
                 </b-button>
