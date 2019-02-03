@@ -59,9 +59,14 @@
         <b-nav-item to="/Initiatives">Initiatives</b-nav-item>
         <b-nav-item to="/Team">Team</b-nav-item>
         <b-nav-item to="/Sponsor">Sponsor</b-nav-item>
-        <b-nav-item to="/Apply" class="override-apply-color">
+        <b-nav-item
+          v-if="Strings.get('main-menu.advertisement.open', 'apply')"
+          to="/Apply"
+          class="override-apply-color"
+        >
           <b-button class="apply-button" variant="primary">Apply Now!</b-button>
         </b-nav-item>
+        <b-nav-item v-else to="/Apply">Apply</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
