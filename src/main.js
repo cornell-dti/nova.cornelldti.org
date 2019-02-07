@@ -19,7 +19,7 @@ import BootstrapVueCSS from 'bootstrap-vue/dist/bootstrap-vue.css';
 
 import Members from '@/data/strings/members.json';
 import Companies from '@/data/companies.json';
-import Teams from '@/data/teams.json';
+import Teams from '@/data/strings/teams.json';
 import Roles from '@/data/roles.json';
 
 /* Core Files */

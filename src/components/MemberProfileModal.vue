@@ -26,73 +26,67 @@
         </b-row>
 
         <b-row class="modal-scroll">
-          <b-col lg="5" cols="12" >
-            <b-img center rounded="circle" class="profile-image" :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"/>
+          <b-col lg="5" cols="12">
+            <b-img
+              center
+              rounded="circle"
+              class="profile-image"
+              :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"
+            />
             <b-row>
               <b-col class="my-auto">
                 <div class="profile-name-header">
-                  <div v-if="typeof profile.info.name === 'undefined'">{{profile.info.firstName}} {{profile.info.lastName}}</div>
+                  <div
+                    v-if="typeof profile.info.name === 'undefined'"
+                  >{{profile.info.firstName}} {{profile.info.lastName}}</div>
                   <div v-else>{{profile.info.name}}</div>
                 </div>
                 <div class="profile-role text-dark">{{profile.info.role}}</div>
               </b-col>
             </b-row>
             <b-row class="profile-facts" id="profile-spacing">
-              <b-col cols="5" class="profile-label">
-                Graduating
-              </b-col>
-              <b-col cols="7" class="profile-details">
-                {{profile.info.graduation}}
-              </b-col>
+              <b-col cols="5" class="profile-label">Graduating</b-col>
+              <b-col cols="7" class="profile-details">{{profile.info.graduation}}</b-col>
             </b-row>
             <b-row class="profile-facts">
-              <b-col cols="5" class="profile-label">
-                Major
-              </b-col>
-              <b-col cols="7" class="profile-details">
-                {{profile.info.major}}
-              </b-col>
+              <b-col cols="5" class="profile-label">Major</b-col>
+              <b-col cols="7" class="profile-details">{{profile.info.major}}</b-col>
             </b-row>
+            <template v-if="profile.info.minor  && profile.info.minor !== ''">
+              <b-row class="profile-facts">
+                <b-col cols="5" class="profile-label">Minor</b-col>
+                <b-col cols="7" class="profile-details">{{profile.info.minor}}</b-col>
+              </b-row>
+            </template>
             <b-row class="profile-facts">
-              <b-col cols="5" class="profile-label">
-                Minor
-              </b-col>
-              <b-col cols="7" class="profile-details">
-                {{profile.info.minor}}
-              </b-col>
-            </b-row>
-            <b-row class="profile-facts">
-              <b-col cols="5" class="profile-label">
-                Hometown
-              </b-col>
-              <b-col cols="7" class="profile-details">
-                {{profile.info.hometown}}
-              </b-col>
+              <b-col cols="5" class="profile-label">Hometown</b-col>
+              <b-col cols="7" class="profile-details">{{profile.info.hometown}}</b-col>
             </b-row>
             <div v-if="profile.info.website !== ''">
               <b-row class="profile-facts">
-                <b-col cols="5" class="profile-label">
-                  Website
-                </b-col>
+                <b-col cols="5" class="profile-label">Website</b-col>
                 <b-col cols="7" class="profile-details">
                   <a href="profile.website">{{profile.info.website}}</a>
                 </b-col>
               </b-row>
               <b-row>
-              <b-col class="social-media">
-                <a v-if="typeof profile.info.github !== 'undefined'" :href="profile.info.github">
-                  <Github class="social-icon"/>
-                </a>
-                <a v-if="typeof profile.info.linkedin !== 'undefined'" :href="profile.info.linkedin">
-                  <LinkedIn class="social-icon"/>
-                </a>
-              </b-col>
+                <b-col class="social-media">
+                  <a v-if="typeof profile.info.github !== 'undefined'" :href="profile.info.github">
+                    <Github class="social-icon"/>
+                  </a>
+                  <a
+                    v-if="typeof profile.info.linkedin !== 'undefined'"
+                    :href="profile.info.linkedin"
+                  >
+                    <LinkedIn class="social-icon"/>
+                  </a>
+                </b-col>
               </b-row>
             </div>
           </b-col>
-         <b-col lg="1" cols="0">
-          <div class="divider"/>
-         </b-col>   
+          <b-col lg="1" cols="0">
+            <div class="divider"/>
+          </b-col>
           <b-col lg="6" cols="0" class="left-shift">
             <b-row class="about-section">
               <b-col class="member-modal-header left-space">About Me</b-col>
@@ -104,7 +98,11 @@
               <b-col>
                 <div id="teamwork" class="member-modal-header left-space">Team Work</div>
                 <b-row v-for="team in profile.info.teams" :key="team.id">
-                  <b-col class="team-info my-auto" v-for="project in getTeamName(team)" :key="project.id">
+                  <b-col
+                    class="team-info my-auto"
+                    v-for="project in getTeamName(team)"
+                    :key="project.id"
+                  >
                     <ul class="team-info-list">
                       <li>
                         <h4>{{project}}</h4>
@@ -126,7 +124,7 @@
                     </li>
                   </ul>
                 </b-col>
-                -->
+                  -->
                 </b-row>
               </b-col>
             </b-row>
@@ -138,17 +136,17 @@
 </template>
 
 <script>
-import Github from '@/assets/social/github.svg';
-import LinkedIn from '@/assets/social/linkedin.svg';
+import Github from "@/assets/social/github.svg";
+import LinkedIn from "@/assets/social/linkedin.svg";
 
 export default {
   components: {
     Github,
-    LinkedIn,
+    LinkedIn
   },
   model: {
-    prop: 'modalShow',
-    event: 'update:change'
+    prop: "modalShow",
+    event: "update:change"
   },
   props: {
     profile: {
@@ -162,22 +160,21 @@ export default {
   },
   watch: {
     modalShow($event) {
-      console.log('show modal');
-      this.$emit('update:change', $event);
+      console.log("show modal");
+      this.$emit("update:change", $event);
     }
   },
   methods: {
     modalClose() {
       this.$refs.memberModal.hide();
     },
-    getTeamName(team){
-      let teamNames = []
+    getTeamName(team) {
+      let teamNames = [];
 
       this.getTeams().forEach(teamData => {
-        if(typeof team === 'string' && teamData.id === team){
-          teamNames.push(teamData.name)
-        }
-        else if (typeof team === 'object' && teamData.id === team.id){
+        if (typeof team === "string" && teamData.id === team) {
+          teamNames.push(teamData.name);
+        } else if (typeof team === "object" && teamData.id === team.id) {
           teamNames.push(teamData.name);
         }
       });
@@ -206,23 +203,23 @@ $radius: 25px;
     margin-top: 10%;
   }
 
-  .left-space{
-    margin-left:0.625rem;
+  .left-space {
+    margin-left: 0.625rem;
   }
 
-  .about-p{
-    margin-top:0.625rem;
-    font-size:0.875rem;
-    font-family:Raleway;
-    margin-right:0.625rem;
+  .about-p {
+    margin-top: 0.625rem;
+    font-size: 0.875rem;
+    font-family: Raleway;
+    margin-right: 0.625rem;
   }
 
-  .left-shift{
-    margin-left:-2.5%;
+  .left-shift {
+    margin-left: -2.5%;
   }
 
-  #teamwork{
-    margin-top:1.25rem;
+  #teamwork {
+    margin-top: 1.25rem;
   }
 
   .profile-text {
@@ -273,25 +270,25 @@ $radius: 25px;
     font-weight: 400;
   }
 
-  .social-media{
-    display:inline;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center;
+  .social-media {
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 
-  .divider{
-    background-color:black;
-    width:0.125rem;
-    height:100%;
+  .divider {
+    background-color: black;
+    width: 0.125rem;
+    height: 100%;
   }
 
   .social-icon {
     width: 2rem;
     height: 2rem;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:5%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
   }
 
   .modal-content {
@@ -330,12 +327,13 @@ $radius: 25px;
       height: 9.375rem;
       width: 9.375rem;
       border: 0.05rem #979797 solid;
+      object-fit: cover;
     }
 
     @media (min-width: 992) {
-      .modal-dialog{
-        max-width:960px;
-        margin:10%
+      .modal-dialog {
+        max-width: 960px;
+        margin: 10%;
       }
       .about-section {
         overflow-y: auto;
@@ -344,19 +342,18 @@ $radius: 25px;
     }
 
     @media (max-width: 991px) {
-
-      .social-icon{
-        margin-top:10%;
+      .social-icon {
+        margin-top: 10%;
       }
 
-      .divider{
-        background-color:white;
+      .divider {
+        background-color: white;
       }
 
-      .about-section{
-        margin-top:10%;
+      .about-section {
+        margin-top: 10%;
       }
-      
+
       .modal-dialog {
         max-width: 800px;
         margin: 10%;
@@ -367,8 +364,8 @@ $radius: 25px;
         max-height: 70vh;
       }
 
-      .left-space{
-        margin-left:0rem;
+      .left-space {
+        margin-left: 0rem;
       }
 
       .mobile-modal-scroll {
@@ -381,7 +378,7 @@ $radius: 25px;
       }
     }
 
-/*put position:fixed on the main page behind the modal */
+    /*put position:fixed on the main page behind the modal */
     .team-logo {
       padding-right: 2rem;
     }

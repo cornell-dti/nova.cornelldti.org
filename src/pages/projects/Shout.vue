@@ -15,7 +15,7 @@
 
           <page-section>
             <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.id)" />
+            <headshot-grid :members="getTeam(projectData.id)"/>
           </page-section>
 
           <project-learn-more projectId="shout"/>
@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import HeadshotGrid from '@/components/HeadshotGrid';
-import EventBus from '@/eventbus';
-import ProjectFeaturesList from '@/components/ProjectFeaturesList';
-import ProjectLearnMore from '@/components/ProjectLearnMore';
-import ProjectHeader from '@/components/ProjectHeader';
+import HeadshotGrid from "@/components/HeadshotGrid";
+import EventBus from "@/eventbus";
+import ProjectFeaturesList from "@/components/ProjectFeaturesList";
+import ProjectLearnMore from "@/components/ProjectLearnMore";
+import ProjectHeader from "@/components/ProjectHeader";
 
 export default {
   props: {
@@ -49,36 +49,39 @@ export default {
   },
   data() {
     return {
-      currentFeatureDescription: '',
-      currentScreenshot: ''
+      currentFeatureDescription: "",
+      currentScreenshot: ""
     };
   },
   computed: {
     projectData() {
-      return this.Strings.get('', 'projects.shout');
+      return this.Strings.get("", "projects.shout");
     }
   },
   mounted() {
-    EventBus.$emit('set-navbar-light', {});
+    EventBus.$emit("set-navbar-light", {});
   },
   methods: {
     getTeam(team) {
-      let teamA = Object.entries(this.getMembers())
-        .filter(([id, member]) => {
-          if(Array.isArray(member.teams)){
-            for(let i=0; i<member.teams.length; i++) {
-              if (typeof member.teams[i] === 'string' && member.teams[i] === team){
+      const teamA = Object.entries(this.getMembers())
+        .filter(([, member]) => {
+          if (Array.isArray(member.teams)) {
+            for (let i = 0; i < member.teams.length; i += 1) {
+              if (
+                typeof member.teams[i] === "string" &&
+                member.teams[i] === team
+              ) {
                 return true;
-              } else if (typeof member.teams[i] === 'object'){
-                  if (member.teams[i].id === team){
-                    return true;
+              } else if (typeof member.teams[i] === "object") {
+                if (member.teams[i].id === team) {
+                  return true;
                 }
               }
             }
-            return false;
           }
+          return false;
         })
-        .map(([id, member]) => ({ info: member, id: id }));
+        .map(([id, member]) => ({ info: member, id }));
 
       return teamA;
     },
