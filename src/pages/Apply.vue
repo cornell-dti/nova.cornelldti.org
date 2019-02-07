@@ -195,7 +195,7 @@
                   :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.link`, 'apply')"
                   size="lg"
                   variant="primary"
-                  class="call-to-action-button text-center"
+                  class="call-to-action-button text-start"
                 >
                   {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
                   'apply')}}
@@ -210,7 +210,7 @@
                   :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')"
                   size="lg"
                   variant="primary"
-                  class="call-to-action-button text-center"
+                  class="call-to-action-button"
                 >
                   {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.content`,
                   'apply')}}
@@ -295,6 +295,9 @@ export default {
 
 .call-to-action-button {
   margin-top: 0.5rem;
+  word-wrap: break-word;
+  max-width: 90%;
+  white-space: normal;
 }
 
 .email-form {
