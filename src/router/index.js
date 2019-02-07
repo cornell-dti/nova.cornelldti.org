@@ -35,6 +35,12 @@ const dtiRouter = new Router({
       component: Home
     },
     {
+      path: '/ehub',
+      redirect: {
+        name: 'Home'
+      }
+    },
+    {
       path: '/Projects/',
       name: 'Projects',
       component: Projects
