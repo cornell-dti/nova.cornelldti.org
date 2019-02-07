@@ -129,6 +129,7 @@
                     <b-card-header header-tag="header" class="p-1" role="tab">
                       <b-btn block href="#" v-b-toggle.accordion1 class="collapse-header">
                         <span class="bronze-closed">Bronze</span>
+                        <barrow class="up-down-arrow"/>
                       </b-btn>
                     </b-card-header>
                     <b-collapse
@@ -140,7 +141,10 @@
                       <b-card-body>
                         <div class="card-text">
                           <ul id="accord-list">
-                            <li v-for="item in items" v-bind:key="item.value" v-if="item.bronze">
+                            <li
+                              v-for="item in getItemsByCategory('bronze')"
+                              v-bind:key="item.value"
+                            >
                               <div class="mobile-benefit">{{ item.benefits }}</div>
                               <div class="mobile-subheader">{{ item.subheader }}</div>
                             </li>
@@ -153,8 +157,7 @@
                     <b-card-header header-tag="header" class="p-1" role="tab">
                       <b-btn block href="#" v-b-toggle.accordion2 class="collapse-header">
                         <span class="silver-closed">Silver</span>
-                        <!-- <darrow class="down-arrow" v-if="expanded != true"/>
-                        <sarrow class="up-arrow" v-if="expanded"/>-->
+                        <sarrow class="up-down-arrow"/>
                       </b-btn>
                     </b-card-header>
                     <b-collapse
@@ -166,7 +169,10 @@
                       <b-card-body>
                         <div class="card-text">
                           <ul id="accord-list">
-                            <li v-for="item in items" v-bind:key="item.value" v-if="item.silver">
+                            <li
+                              v-for="item in getItemsByCategory('silver')"
+                              v-bind:key="item.value"
+                            >
                               <div class="mobile-benefit">{{ item.benefits }}</div>
                               <div class="mobile-subheader">{{ item.subheader }}</div>
                             </li>
@@ -179,6 +185,7 @@
                     <b-card-header header-tag="header" class="p-1" role="tab">
                       <b-btn block href="#" v-b-toggle.accordion3 class="collapse-header">
                         <span class="gold-closed">Gold</span>
+                        <garrow class="up-down-arrow"/>
                       </b-btn>
                     </b-card-header>
                     <b-collapse
@@ -191,7 +198,7 @@
                         <!-- cannot have div tags within p tag, which only takes text -->
                         <div class="card-text">
                           <ul id="accord-list">
-                            <li v-for="item in items" v-bind:key="item.value" v-if="item.gold">
+                            <li v-for="item in getItemsByCategory('gold')" v-bind:key="item.value">
                               <div class="mobile-benefit">{{ item.benefits }}</div>
                               <div class="mobile-subheader">{{ item.subheader }}</div>
                             </li>
@@ -204,6 +211,7 @@
                     <b-card-header header-tag="header" class="p-1" role="tab">
                       <b-btn block href="#" v-b-toggle.accordion4 class="collapse-header">
                         <span class="platinum-closed">Platinum</span>
+                        <parrow class="up-down-arrow"/>
                       </b-btn>
                     </b-card-header>
                     <b-collapse
@@ -215,7 +223,10 @@
                       <b-card-body>
                         <div class="card-text">
                           <ul id="accord-list">
-                            <li v-for="item in items" v-bind:key="item.value" v-if="item.platinum">
+                            <li
+                              v-for="item in getItemsByCategory('platinum')"
+                              v-bind:key="item.value"
+                            >
                               <div class="mobile-benefit">{{ item.benefits }}</div>
                               <div class="mobile-subheader">{{ item.subheader }}</div>
                             </li>
@@ -294,7 +305,6 @@ export default {
     parrow
   },
   computed: {
-    //occurs after the page is loaded so you can pull from apis and other aspects of website
     items() {
       return [
         {
@@ -304,7 +314,6 @@ export default {
           silver: true,
           gold: true,
           platinum: true
-          // _showDetails: true
         },
         {
           benefits: this.Strings.get("tiers.sponsor.1.benefit", "sponsor"),
@@ -357,11 +366,14 @@ export default {
       ];
     }
   },
+  methods: {
+    getItemsByCategory(category) {
+      return this.items.filter(e => e[category]);
+    }
+  },
   data() {
-    //static, better for variables that don't change (?)
     return {
       fields: ["benefits", "bronze", "silver", "gold", "platinum"],
-
       striped: false,
       outlined: false,
       bordered: false,
@@ -431,17 +443,19 @@ export default {
   }
 }
 
-.down-arrow {
+:not(.collapsed) .up-down-arrow {
   width: 2.5rem;
   height: 2.25rem;
-  margin-left: 9.5rem;
+  margin-left: 0.5rem;
   text-align: right;
+  transform: rotate(360deg);
 }
 
-.up-arrow {
+.collapsed .up-down-arrow {
   width: 2.5rem;
   height: 2.25rem;
-  margin-left: 9.5rem;
+  margin-left: 0.5rem;
+  transform: rotate(180deg);
 }
 
 :not(.collapsed) > .silver-closed {
@@ -755,10 +769,10 @@ export default {
 
   &:nth-child(even) {
     @media screen and (min-width: 768px) {
-      text-align: right;
+      text-align: left;
 
       h2 {
-        text-align: right;
+        text-align: left;
         color: #d0021b;
       }
     }

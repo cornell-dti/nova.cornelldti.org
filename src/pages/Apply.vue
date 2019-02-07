@@ -242,9 +242,9 @@
 </template>
 
 <script>
-import axios from "axios";
-import TimelineSection from "@/components/TimelineSection";
-import RoleSelector from "@/components/RoleSelector";
+import axios from 'axios';
+import TimelineSection from '@/components/TimelineSection';
+import RoleSelector from '@/components/RoleSelector';
 
 export default {
   components: {
@@ -253,12 +253,12 @@ export default {
   },
   data() {
     return {
-      email: "",
-      msgContent: "banana",
+      email: '',
+      msgContent: 'banana',
       msgShow: false,
-      msgVariant: "success",
+      msgVariant: 'success',
       tabIndex: 0,
-      roleId: ""
+      roleId: ''
     };
   },
   computed: {},
@@ -266,19 +266,19 @@ export default {
     onSubscribe(event) {
       event.preventDefault();
       axios
-        .post("/email", {
+        .post('/email', {
           email: this.email
         })
         .then(
           response => {
             this.msgContent = response.data.msg;
-            this.msgVariant = "success";
+            this.msgVariant = 'success';
             this.msgShow = true;
           },
           () => {
             this.msgContent =
-              "There was an error subscribing you to the email list!";
-            this.msgVariant = "error";
+              'There was an error subscribing you to the email list!';
+            this.msgVariant = 'error';
             this.msgShow = true;
           }
         );
