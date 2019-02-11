@@ -7,7 +7,7 @@
       </transition>
     </div>
     <!-- Load low quality heros before pages are loaded -->
-    <div v-for="page of ['projects', 'initiatives', 'team', 'sponsor', 'apply']"
+    <div v-for="page of ['team', 'projects', 'initiatives', 'sponsor', 'courses' 'apply']"
       :key="page">
       <img style="display: none;" :src="Strings.get(`pages.${page}.hero.lazy`, `assets`)" />
     </div>
@@ -17,7 +17,7 @@
 <script>
 import EventBus from '@/eventbus';
 
-const Pages = ['Home', 'Projects', 'Initiatives', 'Team', 'Sponsor', 'Apply'];
+const Pages = ['Home', 'Team', 'Projects', 'Initiatives', 'Courses', 'Sponsor', 'Apply'];
 
 export default {
   name: 'App',
