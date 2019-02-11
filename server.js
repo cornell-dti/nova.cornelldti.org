@@ -8,7 +8,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const app = express();
-const mailchimp = new Mailchimp(process.env.mailchimpkey);
+// const mailchimp = new Mailchimp(process.env.mailchimpkey);
 
 if (process.env.environment === 'production') {
   console.log('Production environment detected, enforcing HTTPS & SSL.');

@@ -7,6 +7,7 @@ import Projects from '@/pages/Projects';
 import Team from '@/pages/Team';
 import Apply from '@/pages/Apply';
 import Sponsor from '@/pages/Sponsor';
+import Courses from '@/pages/Courses';
 import Initiatives from '@/pages/Initiatives';
 import NotFound from '@/pages/NotFound';
 
@@ -100,6 +101,11 @@ const dtiRouter = new Router({
       path: '/Sponsor',
       name: 'Sponsor',
       component: Sponsor
+    },
+    {
+      path: '/Courses',
+      name: 'Courses',
+      component: Courses
     },
     {
       path: '/Apply',
