@@ -55,9 +55,10 @@
       <b-navbar-nav class="ml-auto">
         <!-- todo look into ml-auto variants, also move routes to an actual file -->
         <b-nav-item to="/" exact>Home</b-nav-item>
+        <b-nav-item to="/Team">Team</b-nav-item>
         <b-nav-item to="/Projects">Projects</b-nav-item>
         <b-nav-item to="/Initiatives">Initiatives</b-nav-item>
-        <b-nav-item to="/Team">Team</b-nav-item>
+        <b-nav-item to="/Courses">Courses</b-nav-item>
         <b-nav-item to="/Sponsor">Sponsor</b-nav-item>
         <b-nav-item
           v-if="Strings.get('main-menu.advertisement.open', 'apply')"
@@ -136,8 +137,8 @@ export default {
 }
 
 .brand-icon {
-  width: 7.5vh;
-  height: 7.5vh;
+  width: 7vh;
+  height: 7vh;
   border-radius: 12.5%;
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.3);
 }
@@ -190,4 +191,3 @@ export default {
   }
 }
 </style>
-
