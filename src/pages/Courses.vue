@@ -244,7 +244,7 @@ $dark-gray: #4a4a4a;
 
 <script>
 import GitHubIcon from '@/assets/social/github.svg';
-import ApplyIcon from '@/assets/other/apply4.svg';
+import ApplyIcon from '@/assets/other/apply.svg';
 
 export default {
   components: {
