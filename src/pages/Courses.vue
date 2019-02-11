@@ -230,6 +230,8 @@ $dark-gray: #4a4a4a;
 
   svg {
     fill: #fff;
+    min-width: 21px;
+    min-height: 25px;
   }
 
   .social-button-text {

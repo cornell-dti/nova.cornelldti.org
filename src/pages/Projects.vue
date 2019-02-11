@@ -69,7 +69,7 @@ export default {
       }
 
       if (row.length > 0) {
-        rows.push({ index: rows.length, members: row });
+        rows.push({ index: rows.length + 4, members: row });
       }
 
       return rows;
