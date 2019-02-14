@@ -3,8 +3,8 @@
     "image": "matthewb.jpg",
     "name": "Matthew Barker",
     "id": "mb1",
-    "role": "Co-Team Lead, Design Lead",
-    "roleId": "designer-colead",
+    "role": "Co-Team Lead",
+    "roleId": "-colead",
     "github": "https://github.com/mattbarker016",
     "website": "http://mattbarker.me/"
   },
@@ -21,7 +21,7 @@
     "image": "davidc.jpg",
     "name": "David Chu",
     "id": "dc1",
-    "role": "Mobile Platforms Lead, Product Manager",
+    "role": "Mobile Platforms Lead",
     "roleId": "developer-lead",
     "github": "https://github.com/davidchuyaya",
     "linkedin": "https://www.linkedin.com/in/davidchuyaya/"
@@ -92,8 +92,8 @@
     "image": "cedricc.jpg",
     "name": "Cedric Castillo",
     "id": "cc1",
-    "role": "Designer",
-    "roleId": "designer",
+    "role": "Design Lead",
+    "roleId": "designer-lead",
     "linkedin": "https://www.linkedin.com/in/cedric-castillo-7b081a131/"
   },
   {
@@ -212,8 +212,8 @@
     "image": "alicez.jpg",
     "name": "'Alice' Ran Zhou",
     "id": "arz1",
-    "role": "Co-Team Lead, Product Manager",
-    "roleId": "pm-colead",
+    "role": "Co-Team Lead",
+    "roleId": "-colead",
     "github": "https://github.com/rz96",
     "linkedin": "https://www.linkedin.com/in/aranzhou/"
   },
@@ -255,8 +255,8 @@
     "image": "alexa_bren.jpg",
     "name": "Alexa Bren",
     "id": "ab1",
-    "role": "Designer",
-    "roleId": "designer",
+    "role": "Design Lead",
+    "roleId": "designer-lead",
     "linkedin": "https://www.linkedin.com/in/alexa-bren-117520b8/",
     "website": "https://www.alexabren.com/"
   },
@@ -332,8 +332,8 @@
     "image": "michaelh.jpg",
     "id": "mh1",
     "name": "Michael Huang",
-    "role": "Design Lead",
-    "roleId": "designer-lead"
+    "role": "Designer",
+    "roleId": "designer"
   },
   {
     "image": "ayeshag.jpg",
