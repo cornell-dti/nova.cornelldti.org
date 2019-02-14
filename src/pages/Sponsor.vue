@@ -57,28 +57,28 @@
                     :items="items"
                     :fields="fields"
                   >
-                    <template slot="HEAD_benefits" slot-scope="row">
+                    <template slot="HEAD_benefits">
                       <strong class="table-header">Benefits</strong>
                     </template>
-                    <template slot="HEAD_bronze" slot-scope="row">
+                    <template slot="HEAD_bronze">
                       <div class="bronze-header">Bronze</div>
                     </template>
-                    <template slot="HEAD_silver" slot-scope="row">
+                    <template slot="HEAD_silver">
                       <div class="silver-header">Silver</div>
                     </template>
-                    <template slot="HEAD_gold" slot-scope="row">
+                    <template slot="HEAD_gold">
                       <div class="gold-header">Gold</div>
                     </template>
-                    <template slot="HEAD_platinum" slot-scope="row">
+                    <template slot="HEAD_platinum">
                       <div class="platinum-header">Platinum</div>
                     </template>
 
                     <template slot="benefits" slot-scope="row">
                       <b-row>
-                        <b-col cols="12" class="text-sm-head">{{row.item.benefits}}</b-col>
+                        <b-col class="text-head">{{row.item.benefits}}</b-col>
                       </b-row>
                       <b-row>
-                        <b-col cols="12" class="text-sm-left">{{ row.item.subheader}}</b-col>
+                        <b-col class="text-left">{{ row.item.subheader}}</b-col>
                       </b-row>
                     </template>
                     <template slot="bronze" slot-scope="row">
@@ -97,14 +97,14 @@
                     </template>
                     <template slot="gold" slot-scope="row">
                       <b-row class="gold">
-                        <b-col lg="3">
+                        <b-col>
                           <wcheck v-if="row.value" class="checkmark gold-checkmark"/>
                         </b-col>
                       </b-row>
                     </template>
                     <template slot="platinum" slot-scope="row">
                       <b-row class="platinum">
-                        <b-col lg="3">
+                        <b-col>
                           <wcheck v-if="row.value" class="checkmark"/>
                         </b-col>
                       </b-row>
@@ -118,7 +118,6 @@
       </b-container>
     </div>
     <div class="mobile-visible">
-      <!-- .d-block .d-md-none -->
       <b-container>
         <page-section>
           <b-row>
@@ -129,6 +128,7 @@
                     <b-card-header header-tag="header" class="p-1" role="tab">
                       <b-btn block href="#" v-b-toggle.accordion1 class="collapse-header">
                         <span class="bronze-closed">Bronze</span>
+                        <darrow class="expand_caret"/>
                       </b-btn>
                     </b-card-header>
                     <b-collapse
@@ -140,7 +140,10 @@
                       <b-card-body>
                         <div class="card-text">
                           <ul id="accord-list">
-                            <li v-for="item in items" v-bind:key="item.value" v-if="item.bronze">
+                            <li
+                              v-for="item in getItemsByCategory('bronze')"
+                              v-bind:key="item.value"
+                            >
                               <div class="mobile-benefit">{{ item.benefits }}</div>
                               <div class="mobile-subheader">{{ item.subheader }}</div>
                             </li>
@@ -153,8 +156,7 @@
                     <b-card-header header-tag="header" class="p-1" role="tab">
                       <b-btn block href="#" v-b-toggle.accordion2 class="collapse-header">
                         <span class="silver-closed">Silver</span>
-                        <!-- <darrow class="down-arrow" v-if="expanded != true"/>
-                        <sarrow class="up-arrow" v-if="expanded"/>-->
+                        <darrow class="expand_caret"/>
                       </b-btn>
                     </b-card-header>
                     <b-collapse
@@ -166,7 +168,10 @@
                       <b-card-body>
                         <div class="card-text">
                           <ul id="accord-list">
-                            <li v-for="item in items" v-bind:key="item.value" v-if="item.silver">
+                            <li
+                              v-for="item in getItemsByCategory('silver')"
+                              v-bind:key="item.value"
+                            >
                               <div class="mobile-benefit">{{ item.benefits }}</div>
                               <div class="mobile-subheader">{{ item.subheader }}</div>
                             </li>
@@ -179,6 +184,7 @@
                     <b-card-header header-tag="header" class="p-1" role="tab">
                       <b-btn block href="#" v-b-toggle.accordion3 class="collapse-header">
                         <span class="gold-closed">Gold</span>
+                        <darrow class="expand_caret"/>
                       </b-btn>
                     </b-card-header>
                     <b-collapse
@@ -191,7 +197,7 @@
                         <!-- cannot have div tags within p tag, which only takes text -->
                         <div class="card-text">
                           <ul id="accord-list">
-                            <li v-for="item in items" v-bind:key="item.value" v-if="item.gold">
+                            <li v-for="item in getItemsByCategory('gold')" v-bind:key="item.value">
                               <div class="mobile-benefit">{{ item.benefits }}</div>
                               <div class="mobile-subheader">{{ item.subheader }}</div>
                             </li>
@@ -204,6 +210,7 @@
                     <b-card-header header-tag="header" class="p-1" role="tab">
                       <b-btn block href="#" v-b-toggle.accordion4 class="collapse-header">
                         <span class="platinum-closed">Platinum</span>
+                        <darrow class="expand_caret"/>
                       </b-btn>
                     </b-card-header>
                     <b-collapse
@@ -215,7 +222,10 @@
                       <b-card-body>
                         <div class="card-text">
                           <ul id="accord-list">
-                            <li v-for="item in items" v-bind:key="item.value" v-if="item.platinum">
+                            <li
+                              v-for="item in getItemsByCategory('platinum')"
+                              v-bind:key="item.value"
+                            >
                               <div class="mobile-benefit">{{ item.benefits }}</div>
                               <div class="mobile-subheader">{{ item.subheader }}</div>
                             </li>
@@ -275,11 +285,13 @@ import check from "@/assets/sponsor/check.svg";
 import wcheck from "@/assets/sponsor/whitecheck.svg";
 import Gcheck from "@/assets/sponsor/goldcheck.svg";
 import Pcheck from "@/assets/sponsor/platinumcheck.svg";
-import Darrow from "@/assets/sponsor/collapse-arrow.svg";
+import Darrow from "@/assets/sponsor/down-arrow.svg";
 import barrow from "@/assets/sponsor/bronze-arrow.svg";
 import garrow from "@/assets/sponsor/gold-arrow.svg";
 import sarrow from "@/assets/sponsor/silver-arrow.svg";
 import parrow from "@/assets/sponsor/platinum-arrow.svg";
+import uarrow from "@/assets/sponsor/upArrow.svg";
+import rarrow from "@/assets/sponsor/red-up-arrow.svg";
 
 export default {
   components: {
@@ -291,7 +303,9 @@ export default {
     barrow,
     garrow,
     sarrow,
-    parrow
+    parrow,
+    uarrow,
+    rarrow
   },
   computed: {
     //occurs after the page is loaded so you can pull from apis and other aspects of website
@@ -357,6 +371,11 @@ export default {
       ];
     }
   },
+  methods: {
+    getItemsByCategory(category) {
+      return this.items.filter(e => e[category]);
+    }
+  },
   data() {
     //static, better for variables that don't change (?)
     return {
@@ -416,9 +435,8 @@ export default {
 
 <style lang="scss" scoped>
 .desktop-visible {
-  display: none;
-
-  @media (min-width: 768px) {
+  display: unset;
+  @media (min-width: 980px) {
     display: unset;
   }
 }
@@ -426,26 +444,33 @@ export default {
 .mobile-visible {
   display: none;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1000px) {
     display: unset;
   }
 }
 
-.down-arrow {
-  width: 2.5rem;
-  height: 2.25rem;
-  margin-left: 9.5rem;
-  text-align: right;
+.expand_caret {
+  transform: scale(0.55);
+  float: right;
+  display: inline;
+}
+a[aria-expanded="true"] > .expand_caret {
+  transform: scale(0.55) rotate(-180deg);
+  display: inline;
 }
 
-.up-arrow {
-  width: 2.5rem;
-  height: 2.25rem;
-  margin-left: 9.5rem;
-}
+// .red-arrow_silver {
+//   transform: scale(0.55);
+//   margin-left: 19.5rem;
+//   display: none;
+// }
+// a[aria-expanded="true"] > .red-arrow_silver {
+//   transform: scale(0.55);
+//   display: none;
+// }
 
 :not(.collapsed) > .silver-closed {
-  color: #999999;
+  color: white;
 }
 
 .collapsed > .silver-closed {
@@ -453,15 +478,15 @@ export default {
 }
 
 :not(.collapsed) > .bronze-closed {
-  color: #deaf81;
+  color: white;
 }
 
 :not(.collapsed) > .gold-closed {
-  color: #f2e588;
+  color: white;
 }
 
 :not(.collapsed) > .platinum-closed {
-  color: #cfcfcf;
+  color: white;
 }
 
 .mobile-subheader {
@@ -586,12 +611,12 @@ export default {
   margin: 0;
 }
 
-.text-sm-head {
+.text-head {
   font-size: 1.15rem;
   font-weight: bold;
 }
 
-.text-sm-left {
+.text-left {
   font-style: italic;
   font-size: 0.9rem;
 }
@@ -616,7 +641,7 @@ export default {
   // padding: 0.75em 0 0.75em 0;
   border-radius: 2em;
   color: #ffffff;
-  // min-width: 100%;
+  min-width: 100%;
 }
 
 .table-header {
@@ -675,16 +700,6 @@ export default {
   width: 10.5rem;
   height: 3.5rem;
   margin: 0em 0em;
-}
-
-.text-sm-head {
-  font-size: 1.15em;
-  font-weight: bold;
-}
-
-.text-sm-left {
-  font-style: italic;
-  font-size: 0.9em;
 }
 
 .sponsor-tier-background {
