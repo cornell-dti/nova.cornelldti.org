@@ -232,6 +232,8 @@ $dark-gray: #4a4a4a;
     fill: #fff;
     min-width: 21px;
     min-height: 25px;
+    max-height: 25px;
+    max-width: 30px;
   }
 
   .social-button-text {
