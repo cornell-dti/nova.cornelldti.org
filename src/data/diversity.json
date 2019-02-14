@@ -1,9 +1,9 @@
 {
   "femalePercentage": {
-    "": 0.52,
-    "business": 0.6,
-    "developer": 0.36,
-    "designer": 0.71,
-    "pm": 0.64
+    "": 0.53,
+    "business": 0.8,
+    "developer": 0.43,
+    "designer": 0.75,
+    "pm": 0.43
   }
 }

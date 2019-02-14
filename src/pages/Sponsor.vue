@@ -308,7 +308,6 @@ export default {
     rarrow
   },
   computed: {
-    //occurs after the page is loaded so you can pull from apis and other aspects of website
     items() {
       return [
         {
@@ -318,7 +317,6 @@ export default {
           silver: true,
           gold: true,
           platinum: true
-          // _showDetails: true
         },
         {
           benefits: this.Strings.get("tiers.sponsor.1.benefit", "sponsor"),
@@ -377,10 +375,8 @@ export default {
     }
   },
   data() {
-    //static, better for variables that don't change (?)
     return {
       fields: ["benefits", "bronze", "silver", "gold", "platinum"],
-
       striped: false,
       outlined: false,
       bordered: false,
@@ -770,10 +766,10 @@ a[aria-expanded="true"] > .expand_caret {
 
   &:nth-child(even) {
     @media screen and (min-width: 768px) {
-      text-align: right;
+      text-align: left;
 
       h2 {
-        text-align: right;
+        text-align: left;
         color: #d0021b;
       }
     }
@@ -808,4 +804,3 @@ a[aria-expanded="true"] > .expand_caret {
   }
 }
 </style>
-

@@ -9,7 +9,7 @@
             <b-img class="initiative-row-image" :src="Strings.get('pages.initiatives.promo.makeathon', 'assets')"
             />
           </b-col>
-          <b-col sm="12" md="5" order-md="1" order-sm="2">
+          <b-col class="initiative-row-content-container" sm="12" md="5" order-md="1" order-sm="2">
             <div class="initiative-row-content-header">Ready, Set, Make!</div>
             <div class="initiative-row-content-subheader">Inspiring future generations.</div>
             <p class="initiative-row-content">
@@ -66,7 +66,6 @@
               </div>
             </b-button>
           </b-col>
-
         </b-row>
       </b-container>
     </page-section>
@@ -131,7 +130,7 @@ $dark-gray: #4a4a4a;
   // Odd rows (right aligned)
   &:nth-child(even) {
     margin-left: auto;
-    text-align: right;
+    text-align: left;
 
     .initiative-row-img {
       text-align: left;
@@ -182,7 +181,6 @@ $dark-gray: #4a4a4a;
     height: 30rem;
     width: 100%;
     margin: 0.25rem 0;
-    box-shadow: 0 0 0.25rem 2px rgba(0, 0, 0, 0.3);
   }
 
   .initiative-row-img {
@@ -207,6 +205,7 @@ $dark-gray: #4a4a4a;
     font-weight: 600;
     font-size: 2.25rem;
     letter-spacing: -0.3px;
+    color: #d0021b;
   }
 }
 
