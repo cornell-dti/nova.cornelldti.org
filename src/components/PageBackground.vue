@@ -1,8 +1,8 @@
 <template>
-    <div class="page-background">
-        <div class="nav-listener" :id="this.$route.path" />
-        <slot />
-    </div>
+  <div class="page-background">
+    <div class="nav-listener" :id="this.$route.path"/>
+    <slot/>
+  </div>
 </template>
 
 <style lang="scss" scoped>

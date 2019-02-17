@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <dti-main-menu />
+    <dti-main-menu/>
     <div class="page-stack">
       <transition :name="transition">
-        <router-view class="page-stack-element" />
+        <router-view class="page-stack-element"/>
       </transition>
     </div>
     <!-- Load low quality heros before pages are loaded -->
-    <div v-for="page of ['team', 'projects', 'initiatives', 'sponsor', 'courses', 'apply']"
-      :key="page">
-      <img style="display: none;" :src="Strings.get(`pages.${page}.hero.lazy`, `assets`)" />
+    <div
+      v-for="page of ['team', 'projects', 'initiatives', 'sponsor', 'courses', 'apply']"
+      :key="page"
+    >
+      <img style="display: none;" :src="Strings.get(`pages.${page}.hero.lazy`, `assets`)">
     </div>
   </div>
 </template>
@@ -17,7 +19,15 @@
 <script>
 import EventBus from '@/eventbus';
 
-const Pages = ['Home', 'Team', 'Projects', 'Initiatives', 'Courses', 'Sponsor', 'Apply'];
+const Pages = [
+  'Home',
+  'Team',
+  'Projects',
+  'Initiatives',
+  'Courses',
+  'Sponsor',
+  'Apply'
+];
 
 export default {
   name: 'App',

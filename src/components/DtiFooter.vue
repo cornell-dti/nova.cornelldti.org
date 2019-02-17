@@ -1,17 +1,21 @@
 <template>
   <div>
     <b-container fluid class="h-100">
-      <b-row v-if="Strings.exists('footer', `${page}`)" class="contact-us" align-h="center"
-        align-v="center">
+      <b-row
+        v-if="Strings.exists('footer', `${page}`)"
+        class="contact-us"
+        align-h="center"
+        align-v="center"
+      >
         <b-col sm="12" md="auto" align-self="center">
           <div class="contact-us-prompt">
             {{ (Strings.get('footer.prompt', `${page}`) || `Have a question or a great idea?
             Let us know!`) }}
           </div>
-          <b-button :href="(Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org')"
-            class="contact-us-button">
-            {{ (Strings.get('footer.prompt', `${page}`) || `Contact Us`) }}
-          </b-button>
+          <b-button
+            :href="(Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org')"
+            class="contact-us-button"
+          >{{ (Strings.get('footer.prompt', `${page}`) || `Contact Us`) }}</b-button>
         </b-col>
       </b-row>
       <b-row class="footer" align-v="top">
@@ -21,30 +25,31 @@
               <b-row class="social-icons">
                 <b-col cols="auto">
                   <a href="https://www.facebook.com/cornelldti/">
-                    <Facebook class="social-icon social-icon-blank" />
+                    <Facebook class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
                 <b-col cols="auto">
                   <a href="https://github.com/cornell-dti/">
-                    <Github class="social-icon social-icon-blank" />
+                    <Github class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
                 <b-col cols="auto">
-                  <a href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative">
-                    <GooglePlay class="social-icon social-icon-blank" />
+                  <a
+                    href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative"
+                  >
+                    <GooglePlay class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
 
                 <b-col cols="auto">
-
                   <a href="http://appstore.com/cornelldti">
                     <!--TODO get the actual link-->
-                    <AppStore class="social-icon social-icon-blank" />
+                    <AppStore class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
                 <b-col cols="auto">
                   <a href="https://medium.com/cornell-design-tech-initiative/">
-                    <Medium class="social-icon social-icon-blank" />
+                    <Medium class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
               </b-row>
@@ -52,12 +57,11 @@
             <b-col sm="12" md="6" class="my-auto">
               <b-row align-h="end" align-v="end">
                 <b-col>
-                  <div class="copyright">&copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
+                  <div class="copyright">
+                    &copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
                     Initiative
                   </div>
-                  <div class="attribution">
-                    Made with love in Ithaca
-                  </div>
+                  <div class="attribution">Made with love in Ithaca</div>
                 </b-col>
               </b-row>
             </b-col>
@@ -66,7 +70,7 @@
       </b-row>
       <b-row align-v="end" align-h="center" class="footer-graphic">
         <b-col md="10" sm="11">
-          <Footer class="graphic" />
+          <Footer class="graphic"/>
         </b-col>
       </b-row>
     </b-container>

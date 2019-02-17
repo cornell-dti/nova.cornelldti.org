@@ -3,12 +3,12 @@
     <div class="circle-progress">
       <div class="circle">
         <div class="mask full">
-          <svg xmlns="http://www.w3.org/2000/svg" class="fill circle-svg" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="fill circle-svg"></svg>
         </div>
       </div>
       <div class="inset">
         <div class="inset-content">
-          <slot class="inset-centered" />
+          <slot class="inset-centered"/>
         </div>
       </div>
     </div>

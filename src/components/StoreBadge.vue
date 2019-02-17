@@ -1,12 +1,10 @@
 <template>
-    <a v-if="store === 'appstore'" :href='url'>
-        <AppStoreBadge>
-        </AppStoreBadge>
-    </a>
-    <a v-else :href='url'>
-        <GooglePlayBadge>
-        </GooglePlayBadge>
-    </a>
+  <a v-if="store === 'appstore'" :href="url">
+    <AppStoreBadge></AppStoreBadge>
+  </a>
+  <a v-else :href="url">
+    <GooglePlayBadge></GooglePlayBadge>
+  </a>
 </template>
 
 <script>

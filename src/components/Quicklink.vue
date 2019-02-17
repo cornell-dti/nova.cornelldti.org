@@ -2,8 +2,13 @@
   <b-row :no-gutters="true">
     <b-col cols="12">
       <div class="quicklink-container">
-        <div class="quicklink-overlay" />
-        <visual class="quicklink-visual-dimensions" background="cover" :image="image" align="middle center">
+        <div class="quicklink-overlay"/>
+        <visual
+          class="quicklink-visual-dimensions"
+          background="cover"
+          :image="image"
+          align="middle center"
+        >
           <div class="quicklink-internal">
             <a :href="link">
               <div class="quicklink-text quicklink-text-header">{{header}}</div>

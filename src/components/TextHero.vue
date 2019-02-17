@@ -6,7 +6,8 @@
       </b-col>
       <b-col sm="12" md="8">
         <div class="text-hero-header-subtext text-center">
-          <slot />{{ subheader }}
+          <slot/>
+          {{ subheader }}
         </div>
       </b-col>
     </b-row>

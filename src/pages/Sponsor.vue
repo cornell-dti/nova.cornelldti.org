@@ -1,44 +1,43 @@
 <template>
   <page-background>
-    <nova-hero :header="Strings.get('hero.header', 'sponsor')" :subheader="Strings.get('hero.subheader', 'sponsor')"
-      page="sponsor" />
+    <nova-hero
+      :header="Strings.get('hero.header', 'sponsor')"
+      :subheader="Strings.get('hero.subheader', 'sponsor')"
+      page="sponsor"
+    />
     <b-container>
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
-
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
-
-            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.googleLunch', 'assets')"
+            <b-img
+              class="sponsor-row-image"
+              :src="Strings.get('pages.sponsor.events.googleLunch', 'assets')"
             />
           </b-col>
           <b-col class="sponsor-row-content-container" sm="12" md="5" order-md="1" order="2">
             <h2 class="sponsor-row-content-header">{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
-            <p class="sponsor-row-content">
-              {{Strings.get('pitch.1.description', 'sponsor')}}
-            </p>
+            <p class="sponsor-row-content">{{Strings.get('pitch.1.description', 'sponsor')}}</p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
           <b-col sm="12" md="5" class="sponsor-row-content-container" order="2">
             <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
-            <p class="sponsor-row-content">
-              {{Strings.get('pitch.2.description', 'sponsor')}}
-            </p>
+            <p class="sponsor-row-content">{{Strings.get('pitch.2.description', 'sponsor')}}</p>
           </b-col>
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order="1">
-            <b-img class="sponsor-row-image" :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')"
+            <b-img
+              class="sponsor-row-image"
+              :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')"
             />
           </b-col>
-
         </b-row>
-
       </page-section>
     </b-container>
     <b-container fluid class="sponsor-tier-background">
       <page-section>
         <b-row>
           <b-col>
-            <h2 class="sponsor-tier-heading"> {{Strings.get('tiers.header', 'sponsor')}} </h2>
+            <h2 class="sponsor-tier-heading">{{Strings.get('tiers.header', 'sponsor')}}</h2>
           </b-col>
         </b-row>
 
@@ -46,9 +45,14 @@
           <b-col>
             <div class="sponsor-tiers">
               <div class="sponsor-table">
-                <b-table :striped="striped" :outlined="outlined" :bordered="bordered" :dark="dark"
-                  :items="items" :fields="fields">
-
+                <b-table
+                  :striped="striped"
+                  :outlined="outlined"
+                  :bordered="bordered"
+                  :dark="dark"
+                  :items="items"
+                  :fields="fields"
+                >
                   <template slot="HEAD_benefits" slot-scope="row">
                     <strong class="table-header">Benefits</strong>
                   </template>
@@ -56,7 +60,7 @@
                     <div class="bronze-header">Bronze</div>
                   </template>
                   <template slot="HEAD_silver" slot-scope="row">
-                    <div class="silver-header"> Silver</div>
+                    <div class="silver-header">Silver</div>
                   </template>
                   <template slot="HEAD_gold" slot-scope="row">
                     <div class="gold-header">Gold</div>
@@ -67,35 +71,38 @@
 
                   <template slot="benefits" slot-scope="row">
                     <b-row>
-                      <b-col cols="12" class="text-sm-head"> {{row.item.benefits}}</b-col>
+                      <b-col cols="12" class="text-sm-head">{{row.item.benefits}}</b-col>
                     </b-row>
                     <b-row>
-
                       <b-col cols="12" class="text-sm-left">{{ row.item.subheader}}</b-col>
                     </b-row>
                   </template>
                   <template slot="bronze" slot-scope="row">
                     <b-row class="bronze">
                       <b-col>
-                        <wcheck v-if="row.value" class="checkmark bronze-checkmark" /> </b-col>
+                        <wcheck v-if="row.value" class="checkmark bronze-checkmark"/>
+                      </b-col>
                     </b-row>
                   </template>
                   <template slot="silver" slot-scope="row">
                     <b-row class="silver">
                       <b-col>
-                        <wcheck v-if="row.value" class="checkmark silver-checkmark" /> </b-col>
+                        <wcheck v-if="row.value" class="checkmark silver-checkmark"/>
+                      </b-col>
                     </b-row>
                   </template>
                   <template slot="gold" slot-scope="row">
                     <b-row class="gold">
                       <b-col lg="3">
-                        <wcheck v-if="row.value" class="checkmark gold-checkmark" /> </b-col>
+                        <wcheck v-if="row.value" class="checkmark gold-checkmark"/>
+                      </b-col>
                     </b-row>
                   </template>
                   <template slot="platinum" slot-scope="row">
                     <b-row class="platinum">
                       <b-col lg="3">
-                        <wcheck v-if="row.value" class="checkmark" /> </b-col>
+                        <wcheck v-if="row.value" class="checkmark"/>
+                      </b-col>
                     </b-row>
                   </template>
                 </b-table>
@@ -108,35 +115,39 @@
     <b-container>
       <page-section>
         <b-row class="text-center justify-content-center sponsor-contact">
-          <h2> {{Strings.get('call-to-action.description', 'sponsor')}}
-          </h2>
+          <h2>{{Strings.get('call-to-action.description', 'sponsor')}}</h2>
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
-          <b-button :href="(Strings.get('call-to-action.button.link', `sponsor`) || 'mailto:hello@cornelldti.org')">
-            {{Strings.get('call-to-action.button.text', 'sponsor')}}
-          </b-button>
+          <b-button
+            :href="(Strings.get('call-to-action.button.link', `sponsor`) || 'mailto:hello@cornelldti.org')"
+          >{{Strings.get('call-to-action.button.text', 'sponsor')}}</b-button>
         </b-row>
       </page-section>
       <page-section>
-        <h2 class="sponsor-list-heading"> {{Strings.get('current-sponsors.header', 'sponsor')}}
-        </h2>
+        <h2 class="sponsor-list-heading">{{Strings.get('current-sponsors.header', 'sponsor')}}</h2>
         <b-row class="sponsor-list justify-content-center">
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.invision', 'assets')"
+            <b-img
+              class="sponsor-icon"
+              :src="Strings.get('pages.sponsor.sponsors.invision', 'assets')"
             />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.google', 'assets')"
+            <b-img
+              class="sponsor-icon"
+              :src="Strings.get('pages.sponsor.sponsors.google', 'assets')"
             />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="Strings.get('pages.sponsor.sponsors.cornell-engineering-alumni', 'assets')"
+            <b-img
+              class="sponsor-icon"
+              :src="Strings.get('pages.sponsor.sponsors.cornell-engineering-alumni', 'assets')"
             />
           </b-col>
         </b-row>
       </page-section>
     </b-container>
-    <dti-footer page="sponsor" />
+    <dti-footer page="sponsor"/>
   </page-background>
 </template>
 

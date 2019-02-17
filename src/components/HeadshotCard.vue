@@ -4,7 +4,7 @@
       <b-col>
         <b-row class="image-row no-gutters">
           <b-col>
-            <img :src="image" />
+            <img :src="image">
           </b-col>
         </b-row>
         <b-row class="info no-gutters">

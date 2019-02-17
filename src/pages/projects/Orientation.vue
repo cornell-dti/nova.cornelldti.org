@@ -1,27 +1,29 @@
 <template>
   <page-background>
-    <project-header projectId="orientation" />
+    <project-header projectId="orientation"/>
     <b-container fluid>
       <b-row align-h="center">
         <b-col md="10" sm="12">
           <b-container fluid>
-            <text-hero :header="Strings.get('hero.header', 'projects.orientation')" :subheader="Strings.get('hero.subheader', 'projects.orientation')"
+            <text-hero
+              :header="Strings.get('hero.header', 'projects.orientation')"
+              :subheader="Strings.get('hero.subheader', 'projects.orientation')"
             />
           </b-container>
 
-          <project-features-list projectId="orientation" />
+          <project-features-list projectId="orientation"/>
 
           <page-section>
             <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.teamId).members" />
+            <headshot-grid :members="getTeam(projectData.teamId).members"/>
           </page-section>
 
-          <project-learn-more projectId="orientation" />
+          <project-learn-more projectId="orientation"/>
         </b-col>
       </b-row>
     </b-container>
 
-    <dti-footer page="project" />
+    <dti-footer page="project"/>
   </page-background>
 </template>
 

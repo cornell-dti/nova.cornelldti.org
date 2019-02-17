@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import EventBus from "@/eventbus";
+import EventBus from '@/eventbus';
 
 export default {
   data() {
@@ -94,7 +94,7 @@ export default {
         document.documentElement.scrollTop;
       const scrollTop = yOffset - (document.documentElement.clientTop || 0);
 
-      if (typeof this.$refs.dtinavbar !== "undefined") {
+      if (typeof this.$refs.dtinavbar !== 'undefined') {
         this.transparent = scrollTop <= this.$refs.dtinavbar.clientHeight;
       } else {
         this.transparent = false;
@@ -102,16 +102,16 @@ export default {
     }
   },
   destroy() {
-    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener('scroll', this.onScroll);
   },
   mounted() {
-    window.addEventListener("scroll", this.onScroll);
+    window.addEventListener('scroll', this.onScroll);
 
-    EventBus.$on("set-navbar-light", () => {
+    EventBus.$on('set-navbar-light', () => {
       this.light = true;
     });
 
-    EventBus.$on("reset-navbar", () => {
+    EventBus.$on('reset-navbar', () => {
       this.light = false;
     });
   }

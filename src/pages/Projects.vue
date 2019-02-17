@@ -1,22 +1,33 @@
 <template>
   <page-background>
-    <nova-hero :header="Strings.get('hero.header', 'projects')" :subheader="Strings.get('hero.subheader', 'projects')"
-      page="projects" />
+    <nova-hero
+      :header="Strings.get('hero.header', 'projects')"
+      :subheader="Strings.get('hero.subheader', 'projects')"
+      page="projects"
+    />
 
     <page-section class="project-page-main-section">
-      <b-row class="project-row" v-for="projectRow in projectRows" :key="projectRow.index"
-        align-h="center">
-        <b-col md="12" lg="4" class="justify-content" v-for="project in projectRow.members"
-          :key="project">
+      <b-row
+        class="project-row"
+        v-for="projectRow in projectRows"
+        :key="projectRow.index"
+        align-h="center"
+      >
+        <b-col
+          md="12"
+          lg="4"
+          class="justify-content"
+          v-for="project in projectRow.members"
+          :key="project"
+        >
           <router-link :to="{ path: project }" append>
-            <b-img :src="Strings.get(`projects.${project}.card`, 'assets')" class="project-card"
-            />
+            <b-img :src="Strings.get(`projects.${project}.card`, 'assets')" class="project-card"/>
           </router-link>
         </b-col>
       </b-row>
     </page-section>
 
-    <dti-footer page="projects" />
+    <dti-footer page="projects"/>
   </page-background>
 </template>
 

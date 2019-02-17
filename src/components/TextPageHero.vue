@@ -1,15 +1,15 @@
 <template>
-    <page-hero :bg="bg" :greyscale="greyscale" :overlay="overlay">
-        <b-row align-h="center" class="h-50 no-gutters">
-            <b-col cols="auto" class="my-auto">
-                <h2 class="text-header" v-if="header !== ''" :v-html="header" />
-                <h2 class="text-header" v-else>
-                    <slot />
-                </h2>
-                <p class="text-subheader" v-if="subheader !== ''" :v-html="subheader" />
-            </b-col>
-        </b-row>
-    </page-hero>
+  <page-hero :bg="bg" :greyscale="greyscale" :overlay="overlay">
+    <b-row align-h="center" class="h-50 no-gutters">
+      <b-col cols="auto" class="my-auto">
+        <h2 class="text-header" v-if="header !== ''" :v-html="header"/>
+        <h2 class="text-header" v-else>
+          <slot/>
+        </h2>
+        <p class="text-subheader" v-if="subheader !== ''" :v-html="subheader"/>
+      </b-col>
+    </b-row>
+  </page-hero>
 </template>
 
 <style lang="scss" scoped>

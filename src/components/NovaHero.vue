@@ -1,17 +1,26 @@
 <template>
   <div class="nova-hero">
     <div class="nova-hero-visual-container">
+      <visual
+        :video="aws(Strings.get(`pages.${page}.hero.video`, 'assets'))"
+        :poster="Strings.get(`pages.${page}.hero.lazy`, 'assets')"
+        background="cover"
+        :fallback="aws(Strings.get(`pages.${page}.hero.image`, 'assets'))"
+        class="nova-hero-visual"
+        align="top left"
+        autoplay
+        :loop="true"
+        :muted="true"
+        preload="auto"
+        :fill="true"
+        load-video="visible"
+        :load-poster="true"
+      />
 
-      <visual :video="aws(Strings.get(`pages.${page}.hero.video`, 'assets'))" :poster="Strings.get(`pages.${page}.hero.lazy`, 'assets')"
-        background="cover" :fallback="aws(Strings.get(`pages.${page}.hero.image`, 'assets'))"
-        class="nova-hero-visual" align="top left" autoplay :loop="true" :muted="true"
-        preload=auto :fill="true" load-video='visible' :load-poster='true' />
-
-      <div class="nova-hero-overlay" />
-
+      <div class="nova-hero-overlay"/>
     </div>
     <b-container v-if="header || subheader" fluid>
-      <text-hero :header="header" :subheader="subheader" />
+      <text-hero :header="header" :subheader="subheader"/>
     </b-container>
   </div>
 </template>

@@ -1,27 +1,29 @@
 <template>
   <page-background>
-    <project-header projectId="shout" />
+    <project-header projectId="shout"/>
     <b-container fluid>
       <b-row align-h="center">
         <b-col md="10" sm="12">
           <b-container fluid>
-            <text-hero :header="Strings.get('hero.header', 'projects.shout')" :subheader="Strings.get('hero.subheader', 'projects.shout')"
+            <text-hero
+              :header="Strings.get('hero.header', 'projects.shout')"
+              :subheader="Strings.get('hero.subheader', 'projects.shout')"
             />
           </b-container>
 
-          <project-features-list projectId="shout" />
+          <project-features-list projectId="shout"/>
 
           <page-section>
             <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.teamId).members" />
+            <headshot-grid :members="getTeam(projectData.teamId).members"/>
           </page-section>
 
-          <project-learn-more projectId="shout" />
+          <project-learn-more projectId="shout"/>
         </b-col>
       </b-row>
     </b-container>
 
-    <dti-footer page="project" />
+    <dti-footer page="project"/>
   </page-background>
 </template>
 

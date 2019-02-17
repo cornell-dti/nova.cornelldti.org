@@ -3,34 +3,37 @@
     <div class="project-header">Features</div>
     <b-row align-v="center">
       <b-col cols="7">
-        <b-img class="product" :src="Strings.get(`projects.${projectId}.features.1`, 'assets')"
-        />
+        <b-img class="product" :src="Strings.get(`projects.${projectId}.features.1`, 'assets')"/>
       </b-col>
       <b-col cols="5">
         <div class="feature-header">{{Strings.get(`features.1.title`, `projects.${projectId}`)}}</div>
-        <div class="project-description">{{Strings.get(`features.1.description`, `projects.${projectId}`)}}</div>
+        <div
+          class="project-description"
+        >{{Strings.get(`features.1.description`, `projects.${projectId}`)}}</div>
       </b-col>
     </b-row>
-    <b-row class="feature-padding" />
+    <b-row class="feature-padding"/>
     <b-row align-v="center">
       <b-col cols="5">
         <div class="feature-header">{{Strings.get(`features.2.title`, `projects.${projectId}`)}}</div>
-        <div class="project-description">{{Strings.get(`features.2.description`, `projects.${projectId}`)}}</div>
+        <div
+          class="project-description"
+        >{{Strings.get(`features.2.description`, `projects.${projectId}`)}}</div>
       </b-col>
       <b-col cols="7">
-        <b-img class="product" :src="Strings.get(`projects.${projectId}.features.2`, 'assets')"
-        />
+        <b-img class="product" :src="Strings.get(`projects.${projectId}.features.2`, 'assets')"/>
       </b-col>
     </b-row>
-    <b-row class="feature-padding" />
+    <b-row class="feature-padding"/>
     <b-row align-v="center">
       <b-col cols="7">
-        <b-img class="product" :src="Strings.get(`projects.${projectId}.features.3`, 'assets')"
-        />
+        <b-img class="product" :src="Strings.get(`projects.${projectId}.features.3`, 'assets')"/>
       </b-col>
       <b-col cols="5">
         <div class="feature-header">{{Strings.get(`features.3.title`, `projects.${projectId}`)}}</div>
-        <div class="project-description">{{Strings.get(`features.3.description`, `projects.${projectId}`)}}</div>
+        <div
+          class="project-description"
+        >{{Strings.get(`features.3.description`, `projects.${projectId}`)}}</div>
       </b-col>
     </b-row>
   </page-section>

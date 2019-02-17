@@ -1,27 +1,29 @@
 <template>
   <page-background>
-    <project-header projectId="researchconnect" />
+    <project-header projectId="researchconnect"/>
     <b-container fluid>
       <b-row align-h="center">
         <b-col md="10" sm="12">
           <b-container fluid>
-            <text-hero :header="Strings.get('hero.header', 'projects.researchconnect')" :subheader="Strings.get('hero.subheader', 'projects.researchconnect')"
+            <text-hero
+              :header="Strings.get('hero.header', 'projects.researchconnect')"
+              :subheader="Strings.get('hero.subheader', 'projects.researchconnect')"
             />
           </b-container>
 
-          <project-features-list projectId="researchconnect" />
+          <project-features-list projectId="researchconnect"/>
 
           <page-section>
             <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.teamId).members" />
+            <headshot-grid :members="getTeam(projectData.teamId).members"/>
           </page-section>
 
-          <project-learn-more projectId="researchconnect" />
+          <project-learn-more projectId="researchconnect"/>
         </b-col>
       </b-row>
     </b-container>
 
-    <dti-footer page="project" />
+    <dti-footer page="project"/>
   </page-background>
 </template>
 

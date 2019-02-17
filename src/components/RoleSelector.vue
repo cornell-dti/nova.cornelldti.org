@@ -2,32 +2,39 @@
   <div>
     <b-row class="filter-btn-group desktop-selector-container">
       <b-col v-if="showAll" :md="density == 'compact' ? 'auto' : null" class="my-auto text-center">
-        <div :class="btnCSS(roleId === '', density, bold, dark)" @click="roleId = ''">
-          All
-        </div>
-        <div :class="selectorCSS(roleId === '', dark)" />
+        <div :class="btnCSS(roleId === '', density, bold, dark)" @click="roleId = ''">All</div>
+        <div :class="selectorCSS(roleId === '', dark)"/>
       </b-col>
       <!-- TODO: Cleanup the roles overriding -->
-      <b-col v-for="role of this.roles === null ? getRoles() : this.roles" :md="density === 'compact' ? 'auto' : null"
-        :key="role.id" class="my-auto text-center">
-        <div :class="btnCSS(roleId === role.id, density, bold, dark)" @click="roleId = role.id">
-          {{role.name}}
-        </div>
-        <div :class="selectorCSS(roleId === role.id, dark)" />
+      <b-col
+        v-for="role of this.roles === null ? getRoles() : this.roles"
+        :md="density === 'compact' ? 'auto' : null"
+        :key="role.id"
+        class="my-auto text-center"
+      >
+        <div
+          :class="btnCSS(roleId === role.id, density, bold, dark)"
+          @click="roleId = role.id"
+        >{{role.name}}</div>
+        <div :class="selectorCSS(roleId === role.id, dark)"/>
       </b-col>
     </b-row>
     <b-row align-h="center" class="mobile-selector-container text-center">
       <b-col sm="12" md="auto">
         {{ dropdownText }}
-        <b-form-select :class="mobileSelectorCSS(centered, dark)" @change="handleMobileSelection" id="mobile-apply-dropdown"
-          v-model="roleId">
-          <option :class="mobileMenuCSS()" v-if="showAll" :value="''">
-            All
-          </option>
-          <option :class="mobileMenuCSS()" v-for="role of this.roles === null ? getRoles() : this.roles"
-            :key="role.id" :value="role.id">
-            {{role.name}}
-          </option>
+        <b-form-select
+          :class="mobileSelectorCSS(centered, dark)"
+          @change="handleMobileSelection"
+          id="mobile-apply-dropdown"
+          v-model="roleId"
+        >
+          <option :class="mobileMenuCSS()" v-if="showAll" :value="''">All</option>
+          <option
+            :class="mobileMenuCSS()"
+            v-for="role of this.roles === null ? getRoles() : this.roles"
+            :key="role.id"
+            :value="role.id"
+          >{{role.name}}</option>
         </b-form-select>
       </b-col>
     </b-row>

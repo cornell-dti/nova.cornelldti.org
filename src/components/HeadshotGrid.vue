@@ -2,15 +2,19 @@
   <div class="headshot-grid d-flex flex-row flex-wrap justify-content-start">
     <!-- v-for="row in rows()" :key="row.index" -->
     <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
-      <div v-if="member.phantom" class="phantom-headshot-card ">
-        <headshot-card :name="member.id" :role="member.id" :image='``' @click.native="null"
-        />
+      <div v-if="member.phantom" class="phantom-headshot-card">
+        <headshot-card :name="member.id" :role="member.id" :image="``" @click.native="null"/>
       </div>
-      <headshot-card v-else :name="member.name" :role="member.role" :image="`${Strings.get('directories.members', 'assets')}/${member.image}`"
-        @click.native="memberClicked(member)" />
+      <headshot-card
+        v-else
+        :name="member.name"
+        :role="member.role"
+        :image="`${Strings.get('directories.members', 'assets')}/${member.image}`"
+        @click.native="memberClicked(member)"
+      />
     </div>
 
-    <member-profile-modal v-model="modalShow" :profile="currentProfile" />
+    <member-profile-modal v-model="modalShow" :profile="currentProfile"/>
   </div>
 </template>
 
@@ -59,9 +63,9 @@ export default {
 
       if (copy.length % 5 !== 0 || copy.length % 6 !== 0) {
         const max = Math.max(
-          5 - copy.length % 5,
+          5 - (copy.length % 5),
           copy.length % 5,
-          6 - copy.length % 6,
+          6 - (copy.length % 6),
           copy.length % 6
         );
 

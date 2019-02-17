@@ -1,12 +1,17 @@
 <template>
   <page-background>
-    <nova-hero header="Inspiring Change" subheader="What sets us apart from other project teams is our desire to share what we learn with other students and members of the greater Ithaca community."
-      page="initiatives" />
+    <nova-hero
+      header="Inspiring Change"
+      subheader="What sets us apart from other project teams is our desire to share what we learn with other students and members of the greater Ithaca community."
+      page="initiatives"
+    />
     <page-section class="initiatives-main-section">
       <b-container>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
-            <b-img class="initiative-row-image" :src="Strings.get('pages.initiatives.promo.makeathon', 'assets')"
+            <b-img
+              class="initiative-row-image"
+              :src="Strings.get('pages.initiatives.promo.makeathon', 'assets')"
             />
           </b-col>
           <b-col class="initiative-row-content-container" sm="12" md="5" order-md="1" order-sm="2">
@@ -22,16 +27,16 @@
               using Tinkercad.
             </p>
             <b-button class="social-button" href="https://medium.com/@alice.pham/5b9033aa7a6e">
-              <MediumIcon />
-              <div class="social-button-text">
-                Read More
-              </div>
+              <MediumIcon/>
+              <div class="social-button-text">Read More</div>
             </b-button>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="7" class="initiative-row-img" order-md="1" order-sm="1">
-            <b-img class="initiative-row-image" :src="Strings.get('pages.initiatives.promo.blueprint', 'assets')"
+            <b-img
+              class="initiative-row-image"
+              :src="Strings.get('pages.initiatives.promo.blueprint', 'assets')"
             />
           </b-col>
           <b-col sm="12" md="5" class="initiative-row-content-container" order-md="2" order-sm="2">
@@ -48,7 +53,9 @@
         </b-row>
         <b-row align-h="center" align-v="center" class="initiative-row">
           <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
-            <b-img class="initiative-row-image" :src="Strings.get('pages.initiatives.promo.halfbaked', 'assets')"
+            <b-img
+              class="initiative-row-image"
+              :src="Strings.get('pages.initiatives.promo.halfbaked', 'assets')"
             />
           </b-col>
           <b-col sm="12" md="5" class="initiative-row-content-container" order-md="1" order-sm="2">
@@ -60,16 +67,14 @@
               on UX Research, building a website portfolio, and more!
             </p>
             <b-button class="social-button" href="https://www.facebook.com/cornelldti/events/">
-              <FacebookIcon />
-              <div class="social-button-text">
-                See Events
-              </div>
+              <FacebookIcon/>
+              <div class="social-button-text">See Events</div>
             </b-button>
           </b-col>
         </b-row>
       </b-container>
     </page-section>
-    <dti-footer page="initiatives" />
+    <dti-footer page="initiatives"/>
   </page-background>
 </template>
 

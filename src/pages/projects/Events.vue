@@ -3,9 +3,7 @@
     <project-header :customGoTo="true" projectId="events">
       <b-row align-v="center">
         <b-col md="8" sm="12">
-          <div class="events-interested-prompt">
-            Sign up for early access
-          </div>
+          <div class="events-interested-prompt">Sign up for early access</div>
         </b-col>
         <b-col md="4" sm="12">
           <b-button class="events-button" href="https://dticornell.typeform.com/to/B5Flgp">Sign Up</b-button>
@@ -16,23 +14,25 @@
       <b-row align-h="center">
         <b-col md="10" sm="12">
           <b-container fluid>
-            <text-hero :header="Strings.get('hero.header', 'projects.events')" :subheader="Strings.get('hero.subheader', 'projects.events')"
+            <text-hero
+              :header="Strings.get('hero.header', 'projects.events')"
+              :subheader="Strings.get('hero.subheader', 'projects.events')"
             />
           </b-container>
 
-          <project-features-list projectId="events" />
+          <project-features-list projectId="events"/>
 
           <page-section>
             <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.teamId).members" />
+            <headshot-grid :members="getTeam(projectData.teamId).members"/>
           </page-section>
 
-          <project-learn-more :enableAll="true" projectId="events" />
+          <project-learn-more :enableAll="true" projectId="events"/>
         </b-col>
       </b-row>
     </b-container>
 
-    <dti-footer page="project" />
+    <dti-footer page="project"/>
   </page-background>
 </template>
 
