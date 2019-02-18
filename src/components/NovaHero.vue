@@ -60,7 +60,6 @@ $height: 65vh;
 }
 
 .nova-hero {
-  width: 100vw;
   position: relative;
   overflow: hidden;
 }
