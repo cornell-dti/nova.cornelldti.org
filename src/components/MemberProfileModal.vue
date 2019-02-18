@@ -69,6 +69,8 @@
                   <a href="profile.website">{{profile.info.website}}</a>
                 </b-col>
               </b-row>
+            </div>
+            <div v-if="typeof profile.info.github !== 'undefined' || typeof profile.info.linkedin !== 'undefined'">
               <b-row>
                 <b-col class="social-media">
                   <a v-if="typeof profile.info.github !== 'undefined'" :href="profile.info.github">
