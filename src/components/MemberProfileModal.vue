@@ -70,16 +70,13 @@
                 </b-col>
               </b-row>
             </div>
-            <div v-if="typeof profile.info.github !== 'undefined' || typeof profile.info.linkedin !== 'undefined'">
+            <div v-if="profile.info.github !== '' || profile.info.linkedin !== ''">
               <b-row>
                 <b-col class="social-media">
-                  <a v-if="typeof profile.info.github !== 'undefined'" :href="profile.info.github">
+                  <a v-if="profile.info.github !== ''" :href="profile.info.github">
                     <Github class="social-icon"/>
                   </a>
-                  <a
-                    v-if="typeof profile.info.linkedin !== 'undefined'"
-                    :href="profile.info.linkedin"
-                  >
+                  <a v-if="profile.info.linkedin !== ''" :href="profile.info.linkedin">
                     <LinkedIn class="social-icon"/>
                   </a>
                 </b-col>
