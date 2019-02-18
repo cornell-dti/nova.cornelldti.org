@@ -66,7 +66,7 @@
               <b-row class="profile-facts">
                 <b-col cols="5" class="profile-label">Website</b-col>
                 <b-col cols="7" class="profile-details">
-                  <a href="profile.website">{{profile.info.website}}</a>
+                  <a class="personalwebsite" :href="profile.info.website">{{profile.info.website}}</a>
                 </b-col>
               </b-row>
             </div>
@@ -256,6 +256,13 @@ $radius: 25px;
   .profile-details {
     margin-left: -1.875rem;
     font-weight: 400;
+  }
+
+  .personalwebsite{
+    display:block;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
   }
 
   .social-media {
