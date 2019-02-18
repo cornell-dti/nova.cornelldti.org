@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="profile && profile.info">
     <b-modal
       lazy
       centered
