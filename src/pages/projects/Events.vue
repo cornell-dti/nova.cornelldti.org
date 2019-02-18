@@ -24,7 +24,7 @@
 
           <page-section>
             <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.teamId)" />
+            <headshot-grid :members="getTeam(projectData.teamId)"/>
           </page-section>
 
           <project-learn-more :enableAll="true" projectId="events"/>
@@ -37,70 +37,13 @@
 </template>
 
 <script>
-import HeadshotGrid from '@/components/HeadshotGrid';
-import EventBus from '@/eventbus';
-import ProjectFeaturesList from '@/components/ProjectFeaturesList';
-import ProjectLearnMore from '@/components/ProjectLearnMore';
-import ProjectHeader from '@/components/ProjectHeader';
+import TeamBaseVue from './TeamBase';
 
 export default {
-  props: {
-    project: {
-      type: String,
-      required: false
-    }
-  },
-  components: {
-    HeadshotGrid,
-    ProjectFeaturesList,
-    ProjectLearnMore,
-    ProjectHeader
-  },
-  data() {
-    return {
-      currentFeatureDescription: '',
-      currentScreenshot: ''
-    };
-  },
+  extends: TeamBaseVue,
   computed: {
     projectData() {
       return this.Strings.get('', 'projects.events');
-    }
-  },
-  mounted() {
-    EventBus.$emit('set-navbar-light', {});
-  },
-  methods: {
-    getTeam(team) {
-      let teamA = Object.entries(this.getMembers())
-        .filter(([id, member]) => {
-          if(Array.isArray(member.teams)){
-            for(let i=0; i<member.teams.length; i++) {
-              if (typeof member.teams[i] === 'string' && member.teams[i] === team){
-                return true;
-              } else if (typeof member.teams[i] === 'object'){
-                if (member.teams[i].id === team && member.teams[i].semesters.includes('fa18')){
-                  return true;
-                }
-              }
-            }
-            return false;
-          }
-        })
-        .map(([id, member]) => ({ info: member, id: id }));
-        
-      return teamA;
-    },
-    getProject(project) {
-      let projectA = null;
-
-      this.getProjects().forEach(projectData => {
-        if (projectData.id === project) {
-          projectA = projectData;
-        }
-      });
-
-      return projectA;
     }
   }
 };

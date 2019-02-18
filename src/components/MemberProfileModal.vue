@@ -97,7 +97,10 @@
             <b-row>
               <b-col>
                 <div id="teamwork" class="member-modal-header left-space">Team Work</div>
-                <b-row v-for="team in profile.info.teams" :key="team.id">
+                <b-row
+                  v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
+                  :key="team.id"
+                >
                   <b-col
                     class="team-info my-auto"
                     v-for="project in getTeamName(team)"
@@ -109,22 +112,6 @@
                       </li>
                     </ul>
                   </b-col>
-
-                  <!--
-                  <b-col v-if="team.logo" cols="2" class="team-logo my-auto">
-                    <b-img :src="team.logo" :alt="team.name" height="64px" width="64px" />
-                  </b-col>
-                  <b-col class="team-info my-auto">
-                    
-                  <h4 v-if="team.logo || team.description">{{team.name}}</h4>
-                  <p v-if="team.logo || team.description">{{team.description}}</p>
-                  <ul class="team-info-list" v-else>
-                    <li>
-                      <h4>{{team}}</h4>
-                    </li>
-                  </ul>
-                </b-col>
-                  -->
                 </b-row>
               </b-col>
             </b-row>
@@ -136,8 +123,8 @@
 </template>
 
 <script>
-import Github from "@/assets/social/github.svg";
-import LinkedIn from "@/assets/social/linkedin.svg";
+import Github from '@/assets/social/github.svg';
+import LinkedIn from '@/assets/social/linkedin.svg';
 
 export default {
   components: {
@@ -145,8 +132,8 @@ export default {
     LinkedIn
   },
   model: {
-    prop: "modalShow",
-    event: "update:change"
+    prop: 'modalShow',
+    event: 'update:change'
   },
   props: {
     profile: {
@@ -160,8 +147,7 @@ export default {
   },
   watch: {
     modalShow($event) {
-      console.log("show modal");
-      this.$emit("update:change", $event);
+      this.$emit('update:change', $event);
     }
   },
   methods: {
@@ -169,12 +155,12 @@ export default {
       this.$refs.memberModal.hide();
     },
     getTeamName(team) {
-      let teamNames = [];
+      const teamNames = [];
 
       this.getTeams().forEach(teamData => {
-        if (typeof team === "string" && teamData.id === team) {
+        if (typeof team === 'string' && teamData.id === team) {
           teamNames.push(teamData.name);
-        } else if (typeof team === "object" && teamData.id === team.id) {
+        } else if (typeof team === 'object' && teamData.id === team.id) {
           teamNames.push(teamData.name);
         }
       });

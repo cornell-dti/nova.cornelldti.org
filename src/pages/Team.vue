@@ -59,8 +59,11 @@
         <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
           <b-row>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">{{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}</div>
-              <div class="diversity-description diversity-stat-description">{{ Strings.get('diversity.stats.underclassmen.description', 'team')
+              <div
+                class="diversity-stat-header"
+              >{{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}</div>
+              <div class="diversity-description diversity-stat-description">
+                {{ Strings.get('diversity.stats.underclassmen.description', 'team')
                 }}
               </div>
             </b-col>
@@ -96,7 +99,8 @@
           <b-col cols="12">
             <role-selector density="normal" class="team-role-selector" v-model="roleId"/>
 
-            <headshot-grid :members="[...filterMembers(`${roleId}colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
+            <headshot-grid
+              :members="[...filterMembers(`${roleId}colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
             />
           </b-col>
         </b-row>
@@ -424,13 +428,16 @@ export default {
     filterMembers(role = '') {
       let filtered;
       if (role === '') {
-        filtered = Object.entries(this.getMembers())
-          .filter(([id, member]) => {
+        filtered = this.getMembers()
+          .filter(member => {
             if (typeof member.roleId === 'string') {
               return !member.roleId.endsWith('-lead');
             } else if (Array.isArray(member.roleId)) {
-              for(let i=0; i<member.roleId.length; i++){
-                if (member.roleId[i] === 'colead' || member.roleId[i].endsWith('-lead')){
+              for (let i = 0; i < member.roleId.length; i += 1) {
+                if (
+                  member.roleId[i] === 'colead' ||
+                  member.roleId[i].endsWith('-lead')
+                ) {
                   return false;
                 }
               }
@@ -439,7 +446,7 @@ export default {
 
             return false;
           })
-          .map(([id, member]) => ({ info: member, id: id }))
+          .map(member => ({ info: member, id: member.netid }))
           .sort((a, b) => {
             let aname;
             let bname;
@@ -460,36 +467,36 @@ export default {
             return 0;
           });
       } else {
-        filtered = Object.entries(this.getMembers())
-          .filter(([id, member]) => {
-            if (typeof member.roleId === 'string'){
-              if (role === 'colead'){
+        filtered = this.getMembers()
+          .filter(member => {
+            if (typeof member.roleId === 'string') {
+              if (role === 'colead') {
                 return false;
               } else if (role === '-lead') {
-                return member.roleId.endsWith(role)
-              } else {
-                return member.roleId === role; 
+                return member.roleId.endsWith(role);
               }
-            } else if (Array.isArray(member.roleId)){
-              if (role === 'colead'){
-                return member.roleId.includes(role)
-              } else if (role === '-lead'){
-                if (member.roleId.includes('colead')){
+
+              return member.roleId === role;
+            } else if (Array.isArray(member.roleId)) {
+              if (role === 'colead') {
+                return member.roleId.includes(role);
+              } else if (role === '-lead') {
+                if (member.roleId.includes('colead')) {
                   return false;
-                } else {
-                  for (let i=0; i<member.roleId.length; i++){
-                    if (member.roleId[i].endsWith(role)){
-                      return true;
-                    }
+                }
+
+                for (let i = 0; i < member.roleId.length; i += 1) {
+                  if (member.roleId[i].endsWith(role)) {
+                    return true;
                   }
                 }
               } else {
-                 return member.roleId.includes(role)
+                return member.roleId.includes(role);
               }
             }
             return false;
           })
-          .map(([id, member]) => ({ info:member, id:id }))
+          .map(member => ({ info: member, id: member.netid }))
           .sort((a, b) => {
             let aname;
             let bname;

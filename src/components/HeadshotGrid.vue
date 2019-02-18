@@ -14,7 +14,7 @@
       />
     </div>
 
-    <member-profile-modal v-model="modalShow" :profile="currentProfile" />
+    <member-profile-modal v-model="modalShow" :profile="currentProfile"/>
   </div>
 </template>
 
@@ -27,8 +27,8 @@
 </style>
 
 <script>
-import HeadshotCard from "@/components/HeadshotCard";
-import MemberProfileModal from "@/components/MemberProfileModal";
+import HeadshotCard from '@/components/HeadshotCard';
+import MemberProfileModal from '@/components/MemberProfileModal';
 
 export default {
   props: {
@@ -47,7 +47,6 @@ export default {
     memberClicked(member) {
       this.currentProfile = member;
       this.currentProfile.teams = [];
-      //change this
 
       member.teams.forEach(team => {
         this.currentProfile.teams.push(team);
@@ -69,7 +68,7 @@ export default {
         for (let i = 0; i < max; i += 1) {
           copy.push({
             // TODO
-            id: "phantom-" + i, //eslint-disable-line
+            id: 'phantom-' + i, //eslint-disable-line
             phantom: true
           });
         }
@@ -78,7 +77,7 @@ export default {
       return copy;
     },
     name(member) {
-      if (typeof member.info.name === "undefined") {
+      if (typeof member.info.name === 'undefined') {
         return `${member.info.firstName} ${member.info.lastName}`;
       }
       return member.info.name;
