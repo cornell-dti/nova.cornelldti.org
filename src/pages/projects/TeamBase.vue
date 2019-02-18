@@ -60,23 +60,10 @@ export default {
     getTeam(team) {
       const teamA = this.getMembers()
         .filter(member => {
-          if (Array.isArray(member.teams)) {
-            for (let i = 0; i < member.teams.length; i += 1) {
-              if (
-                typeof member.teams[i] === 'string' &&
-                member.teams[i] === team
-              ) {
-                return true;
-              } else if (typeof member.teams[i] === 'object') {
-                if (member.teams[i].id === team) {
-                  return true;
-                }
-              }
-            }
-          }
-          return false;
+          return typeof member.subteam === 'string' &&
+                member.subteam === team;
         })
-        .map(([id, member]) => ({ info: member, id }));
+        .map(obj => ({ info: obj, id: obj.netid }));
 
       return teamA;
     },
