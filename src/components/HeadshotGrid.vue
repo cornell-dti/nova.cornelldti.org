@@ -8,7 +8,7 @@
       <headshot-card
         v-else
         :name="name(member)"
-        :role="member.info.role"
+        :role="member.info.roleDescription"
         :image="`${Strings.get('directories.members', 'assets')}/${member.id}.jpg`"
         @click.native="memberClicked(member)"
       />

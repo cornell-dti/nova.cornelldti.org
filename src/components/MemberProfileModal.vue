@@ -41,7 +41,7 @@
                   >{{profile.info.firstName}} {{profile.info.lastName}}</div>
                   <div v-else>{{profile.info.name}}</div>
                 </div>
-                <div class="profile-role text-dark">{{profile.info.role}}</div>
+                <div class="profile-role text-dark">{{profile.info.roleDescription}}</div>
               </b-col>
             </b-row>
             <b-row class="profile-facts" id="profile-spacing">
