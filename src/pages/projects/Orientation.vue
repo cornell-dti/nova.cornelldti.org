@@ -34,7 +34,7 @@ export default {
   extends: TeamBaseVue,
   computed: {
     projectData() {
-      return this.Strings.get('', 'projects.oweek');
+      return this.Strings.get('', 'projects.orientation');
     }
   }
 };

@@ -59,10 +59,7 @@ export default {
   methods: {
     getTeam(team) {
       const teamA = this.getMembers()
-        .filter(member => {
-          return typeof member.subteam === 'string' &&
-                member.subteam === team;
-        })
+        .filter(member => typeof member.subteam === 'string' && member.subteam === team)
         .map(obj => ({ info: obj, id: obj.netid }));
 
       return teamA;
