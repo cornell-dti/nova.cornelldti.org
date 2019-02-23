@@ -8,7 +8,7 @@
       <headshot-card
         v-b-modal.memberModal
         v-else
-        :name="name(member)"
+        :name="member.info.name"
         :role="member.info.roleDescription"
         :image="`${Strings.get('directories.members', 'assets')}/${member.id}.jpg`"
         @click.native="memberClicked(member)"
@@ -74,12 +74,6 @@ export default {
       }
 
       return copy;
-    },
-    name(member) {
-      if (typeof member.info.name === 'undefined') {
-        return `${member.info.firstName} ${member.info.lastName}`;
-      }
-      return member.info.name;
     }
   }
 };

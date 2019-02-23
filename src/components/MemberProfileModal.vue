@@ -52,7 +52,7 @@
               <b-col cols="5" class="profile-label">Major</b-col>
               <b-col cols="7" class="profile-details">{{profile.info.major}}</b-col>
             </b-row>
-            <template v-if="profile.info.minor  && profile.info.minor !== ''">
+            <template v-if="profile.info.minor && profile.info.minor !== ''">
               <b-row class="profile-facts">
                 <b-col cols="5" class="profile-label">Minor</b-col>
                 <b-col cols="7" class="profile-details">{{profile.info.minor}}</b-col>
