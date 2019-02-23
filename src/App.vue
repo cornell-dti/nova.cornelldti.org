@@ -17,18 +17,9 @@
 <script>
 import EventBus from '@/eventbus';
 
-const Pages = [
-  'Home',
-  'Team',
-  'Projects',
-  'Initiatives',
-  'Courses',
-  'Sponsor',
-  'Apply'
-];
-
 export default {
   name: 'App',
+
   mounted() {
     this.$root.$on('bv::modal::show', () => {
       const root = document.getElementsByTagName('html')[0];
@@ -44,6 +35,12 @@ export default {
       }
     });
 
+    this.$router.beforeEach((to, from, next) => {
+      EventBus.$emit('reset-navbar', {});
+
+      next();
+    });
+
     for (const element of Array.from(document.getElementsByTagName('title'))) {
       if (typeof this.$route.name !== 'undefined') {
         element.innerText = `${this.$route.name} | Cornell DTI`;
@@ -52,17 +49,10 @@ export default {
       }
     }
 
-    // TODO clean this up
-    this.$router.beforeEach((to, from, next) => {
-      EventBus.$emit('reset-navbar', {});
-
-      next();
-    });
-
     this.$router.afterEach(to => {
-      for (const element of Array.from(
-        document.getElementsByTagName('title')
-      )) {
+      const titleElements = Array.from(document.getElementsByTagName('title'));
+
+      for (const element of titleElements) {
         if (typeof to.name !== 'undefined') {
           element.innerText = `${to.name} | Cornell DTI`;
         } else {
