@@ -2,11 +2,11 @@
   <div v-if="profile && profile.info">
     <b-modal
       lazy
+      no-fade
       centered
       size="lg"
-      ref="memberModal"
+      ref="memberModalRef"
       id="memberModal"
-      v-model="modalShow"
       :title="profile.info.name"
       header-bg-variant="light"
       header-text-variant="dark"
@@ -130,10 +130,6 @@ export default {
     Github,
     LinkedIn
   },
-  model: {
-    prop: 'modalShow',
-    event: 'update:change'
-  },
   props: {
     profile: {
       type: Object,
@@ -141,17 +137,11 @@ export default {
       default() {
         return {};
       }
-    },
-    modalShow: { type: Boolean, default: false }
-  },
-  watch: {
-    modalShow($event) {
-      this.$emit('update:change', $event);
     }
   },
   methods: {
     modalClose() {
-      this.$refs.memberModal.hide();
+      this.$refs.memberModalRef.hide();
     },
     getTeamName(team) {
       const teamNames = [];
@@ -255,11 +245,11 @@ $radius: 25px;
     font-weight: 400;
   }
 
-  .personalwebsite{
-    display:block;
-    overflow:hidden;
+  .personalwebsite {
+    display: block;
+    overflow: hidden;
     white-space: nowrap;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
   }
 
   .social-media {

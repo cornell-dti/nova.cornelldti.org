@@ -6,6 +6,7 @@
         <headshot-card :name="member.id" :role="member.id" :image="``" @click.native="null"/>
       </div>
       <headshot-card
+        v-b-modal.memberModal
         v-else
         :name="name(member)"
         :role="member.info.roleDescription"
@@ -14,7 +15,7 @@
       />
     </div>
 
-    <member-profile-modal v-model="modalShow" :profile="currentProfile"/>
+    <member-profile-modal :profile="currentProfile"/>
   </div>
 </template>
 
@@ -51,8 +52,6 @@ export default {
       member.teams.forEach(team => {
         this.currentProfile.teams.push(team);
       });
-
-      this.modalShow = true;
     },
     pad(members) {
       const copy = [...members];
