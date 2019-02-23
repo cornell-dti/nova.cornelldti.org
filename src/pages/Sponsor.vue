@@ -312,6 +312,10 @@ export default {
 }
 
 .sponsor-tiers {
+  .table {
+    color: #fff;
+  }
+
   border-radius: 2rem;
   color: #ffffff;
 }
