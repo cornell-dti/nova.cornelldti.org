@@ -98,22 +98,13 @@
               <b-row>
                 <b-col>
                   <div id="teamwork" class="member-modal-header left-space">Team Work</div>
-                  <b-row
-                    v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
-                    :key="team.id"
-                  >
-                    <b-col
-                      class="team-info my-auto"
-                      v-for="project in getTeamName(team)"
-                      :key="project.id"
-                    >
-                      <ul class="team-info-list">
-                        <li>
-                          <h4>{{project}}</h4>
-                        </li>
-                      </ul>
-                    </b-col>
-                  </b-row>
+                  <ul class="team-info-list left-space">
+                    <li class="team-info-item my-auto"
+                      v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
+                      :key="getTeamName(team).id">
+                      {{getTeamName(team)[0]}}
+                    </li>
+                  </ul>
                 </b-col>
               </b-row>
             </b-col>
@@ -190,10 +181,6 @@ $radius: 25px;
     line-height: normal;
     letter-spacing: 0.3px;
     color: #000000;
-  }
-
-  .about-section {
-    margin-top: 10%;
   }
 
   .left-space {
@@ -278,7 +265,8 @@ $radius: 25px;
   }
 
   .divider {
-    background-color: black;
+    background-color: #4a4a4a;
+    opacity: .5;
     width: 0.125rem;
     height: 100%;
   }
@@ -385,6 +373,13 @@ $radius: 25px;
 
     .team-info-list {
       padding-top: 0.2rem;
+      list-style-type: none;
+      margin-bottom: 0;
+      padding-left: 0;
+    }
+
+    .team-info-item {
+      margin-bottom: 0;
     }
   }
 }
