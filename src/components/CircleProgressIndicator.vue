@@ -89,7 +89,11 @@ export default {
     }
   },
   data() {
-    return { interval: -1, lastPercentage: 0 };
+    return {
+      interval: -1,
+      goalPercentage: 0,
+      currentPercentage: 0
+    };
   },
   beforeDestroy() {
     if (this.interval !== -1) {
@@ -133,17 +137,18 @@ export default {
         INVERSE_ARC_TEMPLATE.commands(params)
       ];
     },
-    setPercentage(percentage = 0.5) {
+    setPercentage(percentage1 = 0.5) {
       if (this.interval !== -1) {
         clearInterval(this.interval);
         this.interval = -1;
       }
 
-      let currentPercentage = this.lastPercentage;
-      this.lastPercentage = percentage;
+      this.goalPercentage = percentage1;
 
       this.interval = setInterval(() => {
-        const [commands, inverseCommands] = this.getPaths(currentPercentage);
+        const [commands, inverseCommands] = this.getPaths(
+          this.currentPercentage
+        );
 
         let pathData = '';
 
@@ -181,16 +186,19 @@ export default {
 
         path.setAttributeNS(null, 'd', pathData);
         inversePath.setAttributeNS(null, 'd', inversePathData);
+        const diff = Math.abs(this.goalPercentage - this.currentPercentage);
 
-        if (Math.abs(currentPercentage - percentage) < 0.01) {
+        if (diff <= 0.005) {
           clearInterval(this.interval);
           this.interval = -1;
-        } else if (currentPercentage < percentage) {
-          currentPercentage += 0.02;
+
+          this.currentPercentage = this.goalPercentage;
+        } else if (this.currentPercentage < this.goalPercentage) {
+          this.currentPercentage += Math.min(0.01, diff);
         } else {
-          currentPercentage -= 0.02;
+          this.currentPercentage -= Math.min(0.01, diff);
         }
-      }, 10);
+      }, 5);
     }
   }
 };

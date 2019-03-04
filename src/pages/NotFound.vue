@@ -1,7 +1,5 @@
 <template>
   <page-background>
-    <text-page-hero>Whoops...</text-page-hero>
-
-    <h1 class="text-center my-auto mx-auto">Doesn't look like this page exists</h1>
+    <text-page-hero style="height: 100vh;">Whoops... it doesn't look like this page exists.</text-page-hero>
   </page-background>
 </template>

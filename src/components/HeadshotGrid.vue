@@ -6,15 +6,16 @@
         <headshot-card :name="member.id" :role="member.id" :image="``" @click.native="null"/>
       </div>
       <headshot-card
+        v-b-modal.memberModal
         v-else
-        :name="name(member)"
+        :name="member.info.name"
         :role="member.info.roleDescription"
         :image="`${Strings.get('directories.members', 'assets')}/${member.id}.jpg`"
         @click.native="memberClicked(member)"
       />
     </div>
 
-    <member-profile-modal v-model="modalShow" :profile="currentProfile"/>
+    <member-profile-modal :profile="currentProfile"/>
   </div>
 </template>
 
@@ -51,8 +52,6 @@ export default {
       member.teams.forEach(team => {
         this.currentProfile.teams.push(team);
       });
-
-      this.modalShow = true;
     },
     pad(members) {
       const copy = [...members];
@@ -75,12 +74,6 @@ export default {
       }
 
       return copy;
-    },
-    name(member) {
-      if (typeof member.info.name === 'undefined') {
-        return `${member.info.firstName} ${member.info.lastName}`;
-      }
-      return member.info.name;
     }
   }
 };
