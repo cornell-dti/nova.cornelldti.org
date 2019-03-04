@@ -13,10 +13,7 @@
 
           <project-features-list projectId="queuemein"/>
 
-          <page-section>
-            <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.teamId)"/>
-          </page-section>
+          <team-members :projectData="projectData"></team-members>
 
           <project-learn-more projectId="queuemein"/>
         </b-col>

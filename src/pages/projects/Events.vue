@@ -22,10 +22,7 @@
 
           <project-features-list projectId="events"/>
 
-          <page-section>
-            <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.teamId)"/>
-          </page-section>
+          <team-members :projectData="projectData"></team-members>
 
           <project-learn-more :enableAll="true" projectId="events"/>
         </b-col>

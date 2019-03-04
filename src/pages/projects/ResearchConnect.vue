@@ -13,10 +13,7 @@
 
           <project-features-list projectId="researchconnect"/>
 
-          <page-section>
-            <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.id)" />
-          </page-section>
+          <team-members :projectData="projectData"></team-members>
 
           <project-learn-more projectId="researchconnect"/>
         </b-col>

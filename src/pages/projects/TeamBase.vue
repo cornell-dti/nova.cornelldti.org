@@ -13,10 +13,7 @@
 
           <project-features-list projectId="shout"/>
 
-          <page-section>
-            <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.id)"/>
-          </page-section>
+          <team-members :projectData="projectData"></team-members>
 
           <project-learn-more projectId="shout"/>
         </b-col>
@@ -33,6 +30,7 @@ import EventBus from '@/eventbus';
 import ProjectFeaturesList from '@/components/ProjectFeaturesList';
 import ProjectLearnMore from '@/components/ProjectLearnMore';
 import ProjectHeader from '@/components/ProjectHeader';
+import TeamMembers from '@/components/TeamMembers';
 
 export default {
   props: {
@@ -45,7 +43,8 @@ export default {
     HeadshotGrid,
     ProjectFeaturesList,
     ProjectLearnMore,
-    ProjectHeader
+    ProjectHeader,
+    TeamMembers
   },
   data() {
     return {
