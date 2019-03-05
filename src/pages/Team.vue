@@ -430,21 +430,24 @@ export default {
       if (role === '') {
         filtered = this.getMembers()
           .filter(member => {
-            if (typeof member.roleId === 'string') {
-              return !member.roleId.endsWith('-lead');
-            } else if (Array.isArray(member.roleId)) {
-              for (let i = 0; i < member.roleId.length; i += 1) {
-                if (
-                  member.roleId[i] === 'colead' ||
-                  member.roleId[i].endsWith('-lead')
-                ) {
-                  return false;
-                }
-              }
-              return true;
+            if (typeof member.roleId != 'string'){
+              member.roleId = ''; 
+              member.source = ''; 
+              member.graduation = ''; 
+              member.major = ''; 
+              member.doubleMajor = ''; 
+              member.minor = ''; 
+              member.hometown = ''; 
+              member.github = ''; 
+              member.linkedin = ''; 
+              member.other = ''; 
+              member.website = ''; 
+              member.about = ''; 
+              member.subteam = ''; 
+              member.otherSubteams = ''; 
+              member.roleDescription = ''; 
             }
-
-            return false;
+            return !member.roleId.endsWith('-lead');
           })
           .map(member => ({ info: member, id: member.netid }))
           .sort((a, b) => {

@@ -47,11 +47,6 @@ export default {
   methods: {
     memberClicked(member) {
       this.currentProfile = member;
-      this.currentProfile.teams = [];
-
-      member.teams.forEach(team => {
-        this.currentProfile.teams.push(team);
-      });
     },
     pad(members) {
       const copy = [...members];
