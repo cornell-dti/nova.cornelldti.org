@@ -4,7 +4,10 @@
       <b-col>
         <b-row class="image-row no-gutters">
           <b-col>
-            <img :src="image">
+            <img v-if="foundPic" :src="image" @error="foundPic = !foundPic">
+            <div v-if="!foundPic" class="profile-image">
+              <MissingImage class = "profile-image-missing" />
+            </div>
           </b-col>
         </b-row>
         <b-row class="info no-gutters">
@@ -27,7 +30,15 @@
 </template>
 
 <script>
+import MissingImage from '@/assets/other/missing.svg';
+
 export default {
+  components: {
+    MissingImage
+  },
+  data() {
+    return { foundPic: true };
+  },
   props: {
     image: {
       type: String,

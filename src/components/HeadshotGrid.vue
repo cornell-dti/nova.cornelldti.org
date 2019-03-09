@@ -15,7 +15,7 @@
       />
     </div>
 
-    <member-profile-modal :profile="currentProfile"/>
+    <member-profile-modal :profile="currentProfile" :display="true"/>
   </div>
 </template>
 

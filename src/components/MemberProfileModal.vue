@@ -30,11 +30,20 @@
           <b-row class="modal-scroll">
             <b-col lg="5" cols="12">
               <b-img
+                v-if="display"
                 center
                 rounded="circle"
                 class="profile-image"
                 :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"
-              />
+                @error="display = !display" >
+              </b-img>
+              <div 
+                v-if="!display"
+                center
+                rounded="circle"
+                class="profile-image rounded-circle mx-auto">
+                <MissingImage class = "profile-image-missing" />
+              </div>
               <b-row class = "profile-main">
                 <b-col class="my-auto">
                   <div class="profile-name-header">
@@ -120,11 +129,13 @@
 <script>
 import Github from '@/assets/social/github.svg';
 import LinkedIn from '@/assets/social/linkedin.svg';
+import MissingImage from '@/assets/other/missing.svg';
 
 export default {
   components: {
     Github,
-    LinkedIn
+    LinkedIn,
+    MissingImage
   },
   data() {
     return { isShowing: false };
@@ -132,6 +143,13 @@ export default {
   props: {
     profile: {
       type: Object,
+      required: false,
+      default() {
+        return {};
+      }
+    },
+    display: {
+      type: Boolean,
       required: false,
       default() {
         return {};
@@ -318,6 +336,12 @@ $radius: 25px;
       width: 9.375rem;
       border: 0.05rem #979797 solid;
       object-fit: cover;
+    }
+
+    .profile-image-missing {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
     }
 
     .about-section {
