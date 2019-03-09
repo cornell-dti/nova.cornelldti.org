@@ -51,21 +51,14 @@ export default {
     pad(members) {
       const copy = [...members];
 
-      if (copy.length % 5 !== 0 || copy.length % 6 !== 0) {
-        const max = Math.max(
-          5 - (copy.length % 5),
-          copy.length % 5,
-          6 - (copy.length % 6),
-          copy.length % 6
-        );
+      const max = 16;
 
-        for (let i = 0; i < max; i += 1) {
-          copy.push({
-            // TODO
-            id: 'phantom-' + i, //eslint-disable-line
-            phantom: true
-          });
-        }
+      for (let i = 0; i < max; i += 1) {
+        copy.push({
+          // TODO
+          id: 'phantom-' + i, //eslint-disable-line
+          phantom: true
+        });
       }
 
       return copy;
