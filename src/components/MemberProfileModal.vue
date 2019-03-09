@@ -35,7 +35,7 @@
                 class="profile-image"
                 :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"
               />
-              <b-row>
+              <b-row class = "profile-main">
                 <b-col class="my-auto">
                   <div class="profile-name-header">
                     <div
@@ -46,11 +46,11 @@
                   <div class="profile-role text-dark">{{profile.info.roleDescription}}</div>
                 </b-col>
               </b-row>
-              <b-row class="profile-facts" id="profile-spacing">
+              <b-row v-if="profile.info.graduation" class="profile-facts" id="profile-spacing">
                 <b-col cols="5" class="profile-label">Graduating</b-col>
                 <b-col cols="7" class="profile-details">{{profile.info.graduation}}</b-col>
               </b-row>
-              <b-row class="profile-facts">
+              <b-row v-if="profile.info.major" class="profile-facts">
                 <b-col cols="5" class="profile-label">Major</b-col>
                 <b-col cols="7" class="profile-details">{{profile.info.major}}</b-col>
               </b-row>
@@ -60,7 +60,7 @@
                   <b-col cols="7" class="profile-details">{{profile.info.minor}}</b-col>
                 </b-row>
               </template>
-              <b-row class="profile-facts">
+              <b-row v-if="profile.info.hometown" class="profile-facts">
                 <b-col cols="5" class="profile-label">Hometown</b-col>
                 <b-col cols="7" class="profile-details">{{profile.info.hometown}}</b-col>
               </b-row>
@@ -89,13 +89,15 @@
               <div class="divider"/>
             </b-col>
             <b-col lg="6" cols="0" class="left-shift">
-              <b-row class="about-section">
-                <b-col class="member-modal-header left-space">About Me</b-col>
-              </b-row>
-              <b-row>
-                <b-col class="about-p left-space">{{profile.info.about}}</b-col>
-              </b-row>
-              <b-row>
+              <div v-if="profile.info.about" class="about-section">
+                <b-row class="about-title">
+                  <b-col class="member-modal-header left-space">About Me</b-col>
+                </b-row>
+                <b-row>
+                  <b-col class="about-p left-space">{{profile.info.about}}</b-col>
+                </b-row>
+              </div>
+              <b-row v-if="profile.info.subteam || profile.info.otherSubteams">
                 <b-col>
                   <div id="teamwork" class="member-modal-header left-space">Team Work</div>
                   <ul class="team-info-list left-space">
@@ -198,12 +200,12 @@ $radius: 25px;
     margin-left: -2.5%;
   }
 
-  #teamwork {
-    margin-top: 1.25rem;
-  }
-
   .profile-text {
     text-align: center;
+  }
+
+  .profile-main {
+    margin-bottom: 5%;
   }
 
   .profile-name-header {
@@ -318,12 +320,16 @@ $radius: 25px;
       object-fit: cover;
     }
 
+    .about-section {
+      margin-bottom: 1.25rem;
+    }
+
     @media (min-width: 992) {
       .modal-dialog {
         max-width: 960px;
         margin: 10%;
       }
-      .about-section {
+      .about-title {
         overflow-y: auto;
         max-height: inherit;
       }
@@ -338,7 +344,7 @@ $radius: 25px;
         background-color: white;
       }
 
-      .about-section {
+      .about-title {
         margin-top: 10%;
       }
 
