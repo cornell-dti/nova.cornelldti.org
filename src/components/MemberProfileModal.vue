@@ -66,7 +66,7 @@
                 <b-col cols="5" class="profile-label">Major</b-col>
                 <b-col cols="7" class="profile-details">{{profile.info.major}}</b-col>
               </b-row>
-              <template v-if="profile.info.minor && profile.info.minor !== ''">
+              <template v-if="profile.info.minor && profile.info.minor">
                 <b-row class="profile-facts">
                   <b-col cols="5" class="profile-label">Minor</b-col>
                   <b-col cols="7" class="profile-details">{{profile.info.minor}}</b-col>
@@ -76,7 +76,7 @@
                 <b-col cols="5" class="profile-label">Hometown</b-col>
                 <b-col cols="7" class="profile-details">{{profile.info.hometown}}</b-col>
               </b-row>
-              <div v-if="profile.info.website !== ''">
+              <div v-if="profile.info.website">
                 <b-row class="profile-facts">
                   <b-col cols="5" class="profile-label">Website</b-col>
                   <b-col cols="7" class="profile-details">
@@ -84,13 +84,13 @@
                   </b-col>
                 </b-row>
               </div>
-              <div v-if="profile.info.github !== '' || profile.info.linkedin !== ''">
+              <div v-if="profile.info.github || profile.info.linkedin ">
                 <b-row>
                   <b-col class="social-media">
-                    <a v-if="profile.info.github !== ''" :href="profile.info.github">
+                    <a v-if="profile.info.github" :href="profile.info.github">
                       <Github class="social-icon"/>
                     </a>
-                    <a v-if="profile.info.linkedin !== ''" :href="profile.info.linkedin">
+                    <a v-if="profile.info.linkedin" :href="profile.info.linkedin">
                       <LinkedIn class="social-icon"/>
                     </a>
                   </b-col>
