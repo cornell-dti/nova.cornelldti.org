@@ -2,22 +2,9 @@ import Vue from 'vue';
 import VueAnalytics from 'vue-analytics';
 import Router from 'vue-router';
 
-import Home from '@/pages/Home';
-import Projects from '@/pages/Projects';
-import Team from '@/pages/Team';
-import Apply from '@/pages/Apply';
-import Sponsor from '@/pages/Sponsor';
-import Courses from '@/pages/Courses';
-import Initiatives from '@/pages/Initiatives';
-import NotFound from '@/pages/NotFound';
-
-import Events from '@/pages/projects/Events';
-import Orientation from '@/pages/projects/Orientation';
-import QueueMeIn from '@/pages/projects/QueueMeIn';
-import Reviews from '@/pages/projects/Reviews';
-import Samwise from '@/pages/projects/Samwise';
-import Shout from '@/pages/projects/Shout';
-import ResearchConnect from '@/pages/projects/ResearchConnect';
+import { AsyncHome, AsyncProjects, AsyncTeam, AsyncApply, AsyncCourses, AsyncInitiatives,
+  AsyncSponsor, AsyncNotFound, AsyncEvents, AsyncOrientation, AsyncQueueMeIn,
+  AsyncResearchConnect, AsyncReviews, AsyncSamwise, AsyncShout } from '@/components/AsyncComponents';
 
 import DiversityJson from '@/data/diversity.json';
 
@@ -31,12 +18,12 @@ const dtiRouter = new Router({
   routes: [
     {
       path: '*',
-      component: NotFound
+      component: AsyncNotFound
     },
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: AsyncHome
     },
     {
       path: '/ehub',
@@ -47,55 +34,55 @@ const dtiRouter = new Router({
     {
       path: '/Projects/',
       name: 'Projects',
-      component: Projects
+      component: AsyncProjects
     },
     { path: '/cue', redirect: '/Projects/events' },
     {
       path: '/Projects/events',
       name: 'Events',
-      component: Events
+      component: AsyncEvents
     },
     {
       path: '/Projects/orientation',
       name: 'Orientation',
-      component: Orientation
+      component: AsyncOrientation
     },
     { path: '/Projects/officehours', redirect: '/Projects/queuemein' },
     {
       path: '/Projects/queuemein',
       name: 'QueueMeIn',
-      component: QueueMeIn
+      component: AsyncQueueMeIn
     },
     { path: '/Projects/cureviews', redirect: '/Projects/reviews' },
     {
       path: '/Projects/reviews',
       name: 'Reviews',
-      component: Reviews
+      component: AsyncReviews
     },
     {
       path: '/Projects/researchconnect',
       name: 'Research Connect',
-      component: ResearchConnect
+      component: AsyncResearchConnect
     },
     {
       path: '/Projects/samwise',
       name: 'Samwise',
-      component: Samwise
+      component: AsyncSamwise
     },
     {
       path: '/Projects/shout',
       name: 'Shout',
-      component: Shout
+      component: AsyncShout
     },
     {
       path: '/Initiatives',
       name: 'Initiatives',
-      component: Initiatives
+      component: AsyncInitiatives
     },
     {
       path: '/Team',
       name: 'Team',
-      component: Team,
+      component: AsyncTeam,
       props: {
         diversity: DiversityJson
       }
@@ -103,17 +90,17 @@ const dtiRouter = new Router({
     {
       path: '/Sponsor',
       name: 'Sponsor',
-      component: Sponsor
+      component: AsyncSponsor
     },
     {
       path: '/Courses',
       name: 'Courses',
-      component: Courses
+      component: AsyncCourses
     },
     {
       path: '/Apply',
       name: 'Apply',
-      component: Apply
+      component: AsyncApply
     }
   ]
 });
