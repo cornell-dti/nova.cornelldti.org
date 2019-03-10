@@ -55,11 +55,11 @@ export default {
   }
 }
 
-.project-hero {
-  .project-hero-logo {
-    margin: 1vw;
-  }
+.project-hero-logo {
+  height: 50vh;
+}
 
+.project-hero {
   .project-hero-description {
     overflow: hidden;
     text-overflow: ellipsis;

@@ -27,20 +27,28 @@ export default {
   computed: {
     getTeam() {
       const teamA = this.getMembers()
-        .filter(member => (typeof member.subteam === 'string' && member.subteam === this.projectData.id))
+        .filter(
+          member =>
+            typeof member.subteam === 'string' &&
+            member.subteam === this.projectData.id
+        )
         .map(obj => ({ info: obj, id: obj.netid }));
 
       return teamA;
     },
     getFormerTeam() {
       const teamA = this.getMembers()
-        .filter(member => (Array.isArray(member.otherSubteams) && member.otherSubteams.includes(this.projectData.id)))
+        .filter(
+          member =>
+            Array.isArray(member.otherSubteams) &&
+            member.otherSubteams.includes(this.projectData.id)
+        )
         .map(obj => ({ info: obj, id: obj.netid }));
 
       return teamA;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

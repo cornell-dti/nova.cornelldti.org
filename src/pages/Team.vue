@@ -99,9 +99,7 @@
           <b-col cols="12">
             <role-selector density="normal" class="team-role-selector" v-model="roleId"/>
 
-            <headshot-grid
-              :members="[...filterMembers(`${roleId}colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
-            />
+            <headshot-grid :members="[...filterMembers(roleId, true), ...(filterMembers(roleId))]"/>
           </b-col>
         </b-row>
       </page-section>
@@ -425,102 +423,24 @@ export default {
     femalePercentage(roleId) {
       return this.diversity.femalePercentage[roleId];
     },
-    filterMembers(role = '') {
-      let filtered;
-      if (role === '') {
-        filtered = this.getMembers()
-          .filter(member => {
-            if (typeof member.roleId != 'string'){
-              member.roleId = ''; 
-              member.source = ''; 
-              member.graduation = ''; 
-              member.major = ''; 
-              member.doubleMajor = ''; 
-              member.minor = ''; 
-              member.hometown = ''; 
-              member.github = ''; 
-              member.linkedin = ''; 
-              member.other = ''; 
-              member.website = ''; 
-              member.about = ''; 
-              member.subteam = ''; 
-              member.otherSubteams = ''; 
-              member.roleDescription = ''; 
-            }
-            return !member.roleId.endsWith('-lead');
-          })
-          .map(member => ({ info: member, id: member.netid }))
-          .sort((a, b) => {
-            let aname;
-            let bname;
+    filterMembers(role = '', isLead = false) {
+      return this.getMembers()
+        .filter(
+          member =>
+            ((typeof member.roleId === 'string' && member.roleId === role) ||
+              role === '') &&
+            (member.isLead != null && member.isLead === true) === isLead
+        )
+        .map(member => ({ info: member, id: member.netid }))
+        .sort((a, b) => {
+          const aname = a.info.name;
+          const bname = b.info.name;
 
-            if (typeof a.info.name === 'undefined') {
-              aname = `${a.info.firstName} ${a.info.lastName}`;
-            } else {
-              aname = a.info.name;
-            }
-            if (typeof b.info.name === 'undefined') {
-              bname = `${b.info.firstName} ${b.info.lastName}`;
-            } else {
-              bname = b.info.name;
-            }
+          if (aname < bname) return -1;
+          if (aname > bname) return 1;
 
-            if (aname < bname) return -1;
-            if (aname > bname) return 1;
-            return 0;
-          });
-      } else {
-        filtered = this.getMembers()
-          .filter(member => {
-            if (typeof member.roleId === 'string') {
-              if (role === 'colead') {
-                return false;
-              } else if (role === '-lead') {
-                return member.roleId.endsWith(role);
-              }
-
-              return member.roleId === role;
-            } else if (Array.isArray(member.roleId)) {
-              if (role === 'colead') {
-                return member.roleId.includes(role);
-              } else if (role === '-lead') {
-                if (member.roleId.includes('colead')) {
-                  return false;
-                }
-
-                for (let i = 0; i < member.roleId.length; i += 1) {
-                  if (member.roleId[i].endsWith(role)) {
-                    return true;
-                  }
-                }
-              } else {
-                return member.roleId.includes(role);
-              }
-            }
-            return false;
-          })
-          .map(member => ({ info: member, id: member.netid }))
-          .sort((a, b) => {
-            let aname;
-            let bname;
-            if (typeof a.info.name === 'undefined') {
-              aname = `${a.info.firstName} ${a.info.lastName}`;
-            } else {
-              aname = a.info.name;
-            }
-            if (typeof b.info.name === 'undefined') {
-              bname = `${b.info.firstName} ${b.info.lastName}`;
-            } else {
-              bname = b.info.name;
-            }
-            if (aname < bname) return -1;
-            if (aname > bname) return 1;
-            return 0;
-          });
-      }
-
-      // todo fix this ugliness
-      return filtered;
+          return 0;
+        });
     }
   }
 };
