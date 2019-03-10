@@ -52,8 +52,7 @@
                     >{{profile.info.firstName}} {{profile.info.lastName}}</div>
                     <div v-else>{{profile.info.name}}</div>
                   </div>
-                  <div v-if="profile.info.roleId" class="profile-role text-dark">{{profile.info.roleDescription}}</div>
-                  <div v-else class="profile-role text-dark">{{"No Profile Available"}}</div>
+                  <div class="profile-role text-dark">{{profile.info.roleDescription}}</div>
                 </b-col>
               </b-row>
               <b-row v-if="profile.info.graduation" class="profile-facts" id="profile-spacing">
@@ -95,10 +94,10 @@
                 </b-row>
               </div>
             </b-col>
-            <b-col lg="1" cols="0" v-if="profile.info.about || profile.info.subteam || profile.info.otherSubteams">
+            <b-col lg="1" cols="0">
               <div class="divider"/>
             </b-col>
-            <b-col lg="6" cols="0" class="left-shift" v-if="profile.info.about || profile.info.subteam || profile.info.otherSubteams">
+            <b-col lg="6" cols="0" class="left-shift">
               <div v-if="profile.info.about" class="about-section">
                 <b-row class="about-title">
                   <b-col class="member-modal-header left-space">About Me</b-col>
@@ -322,8 +321,6 @@ $radius: 25px;
   .modal-scroll {
     overflow-y: auto;
     max-height: 70vh;
-    display: flex;
-    justify-content: center;
   }
 
   .modal-body {
