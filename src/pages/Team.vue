@@ -433,11 +433,12 @@ export default {
         )
         .map(member => ({ info: member, id: member.netid }))
         .sort((a, b) => {
-          let aname = a.info.name;
-          let bname = b.info.name;
+          const aname = a.info.name;
+          const bname = b.info.name;
 
           if (aname < bname) return -1;
           if (aname > bname) return 1;
+
           return 0;
         });
     }
