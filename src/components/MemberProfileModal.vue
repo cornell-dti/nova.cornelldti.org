@@ -28,23 +28,24 @@
           </b-row>
 
           <b-row class="modal-scroll">
-            <b-col lg="5" cols="12">
+            <b-col col>
               <b-img
                 v-if="display"
                 center
                 rounded="circle"
                 class="profile-image"
                 :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"
-                @error="display = !display" >
-              </b-img>
-              <div 
+                @error="display = !display"
+              ></b-img>
+              <div
                 v-if="!display"
                 center
                 rounded="circle"
-                class="profile-image rounded-circle mx-auto">
-                <MissingImage class = "profile-image-missing" />
+                class="profile-image rounded-circle mx-auto"
+              >
+                <MissingImage class="profile-image-missing"/>
               </div>
-              <b-row class = "profile-main">
+              <b-row class="profile-main">
                 <b-col class="my-auto">
                   <div class="profile-name-header">
                     <div
@@ -52,7 +53,9 @@
                     >{{profile.info.firstName}} {{profile.info.lastName}}</div>
                     <div v-else>{{profile.info.name}}</div>
                   </div>
-                  <div class="profile-role text-dark">{{profile.info.roleDescription}}</div>
+                  <div
+                    class="profile-role text-dark"
+                  >{{profile.info.roleDescription || 'No Profile Available'}}</div>
                 </b-col>
               </b-row>
               <b-row v-if="profile.info.graduation" class="profile-facts" id="profile-spacing">
@@ -94,31 +97,33 @@
                 </b-row>
               </div>
             </b-col>
-            <b-col lg="1" cols="0">
-              <div class="divider"/>
-            </b-col>
-            <b-col lg="6" cols="0" class="left-shift">
-              <div v-if="profile.info.about" class="about-section">
-                <b-row class="about-title">
-                  <b-col class="member-modal-header left-space">About Me</b-col>
+            <template v-if="profile.info.about || profile.info.subteam">
+              <b-col lg="1" cols="0">
+                <div class="divider"/>
+              </b-col>
+              <b-col lg="6" cols="0" class="left-shift">
+                <div v-if="profile.info.about" class="about-section">
+                  <b-row class="about-title">
+                    <b-col class="member-modal-header left-space">About Me</b-col>
+                  </b-row>
+                  <b-row>
+                    <b-col class="about-p left-space">{{profile.info.about}}</b-col>
+                  </b-row>
+                </div>
+                <b-row v-if="profile.info.subteam || profile.info.otherSubteams">
+                  <b-col>
+                    <div id="teamwork" class="member-modal-header left-space">Team Work</div>
+                    <ul class="team-info-list left-space">
+                      <li
+                        class="team-info-item my-auto"
+                        v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
+                        :key="getTeamName(team).id"
+                      >{{getTeamName(team)[0]}}</li>
+                    </ul>
+                  </b-col>
                 </b-row>
-                <b-row>
-                  <b-col class="about-p left-space">{{profile.info.about}}</b-col>
-                </b-row>
-              </div>
-              <b-row v-if="profile.info.subteam || profile.info.otherSubteams">
-                <b-col>
-                  <div id="teamwork" class="member-modal-header left-space">Team Work</div>
-                  <ul class="team-info-list left-space">
-                    <li class="team-info-item my-auto"
-                      v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
-                      :key="getTeamName(team).id">
-                      {{getTeamName(team)[0]}}
-                    </li>
-                  </ul>
-                </b-col>
-              </b-row>
-            </b-col>
+              </b-col>
+            </template>
           </b-row>
         </b-container>
       </b-modal>
@@ -286,7 +291,7 @@ $radius: 25px;
 
   .divider {
     background-color: #4a4a4a;
-    opacity: .5;
+    opacity: 0.5;
     width: 0.125rem;
     height: 100%;
   }
