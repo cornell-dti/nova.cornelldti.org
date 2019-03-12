@@ -16,8 +16,14 @@
       />
       <div class="home-background home-background-overlay"/>
       <b-row>
-        <h1 class="home-overlay-text">Cornell Design
-          <br>&amp; Tech Initiative
+        <h1 class="givingDayheader">Help Us Make An Impact</h1>
+        <p class="givingDaytext">This <strong>Giving Day</strong>, a donation <strong>as little as $5</strong> can fund our projects,
+        jumpstart our initiatives, and help our team <strong>create technology for community impact</strong>.
+        </p>
+        <b-button class="give" href="https://givingday.cornell.edu/campaigns/cu-design-and-tech-initiative">Give</b-button>
+      </b-row>
+      <b-row>
+        <h1 class="home-overlay-text">Cornell Design &amp; Tech Initiative
         </h1>
       </b-row>
     </div>
@@ -95,6 +101,59 @@ $hero-margin: 3vw;
   }
 }
 
+.givingDayheader {
+  position: absolute;
+  top: $hero-margin + 9vw;
+  left: $hero-margin;
+  right: $hero-margin;
+  text-align: center;
+  font-weight: bolder;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  color: #fff;
+  font-size: 3rem;
+  text-shadow: 0.125rem 0.125rem 0.3125rem black;
+}
+
+.givingDaytext{
+  position: absolute;
+  top: $hero-margin + 14.5vw;
+  left: $hero-margin + 25vw;
+  right: $hero-margin + 25vw; 
+  text-align: center;
+  font-weight: bolder;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  color: #fff;
+  font-size: 1rem;
+  text-shadow: 0.125rem 0.125rem 0.3125rem black;
+}
+
+button{
+  position: absolute;
+  top: $hero-margin + 22.5vw;
+  min-width:8rem;
+  border-style:none;
+  color:white;
+}
+
+.give{
+  left:$hero-margin + 41vw;
+  right:$hero-margin; 
+  background-color: #FF324A;
+  padding-top:.5rem;
+  padding-bottom:.5rem;
+  border-radius: .5rem;
+  text-align:center;
+  font-size:1.125rem;
+}
+
 .home-overlay-text {
   position: absolute;
   bottom: $hero-margin - 1vw;
@@ -114,7 +173,7 @@ $hero-margin: 3vw;
   }
 
   @media (min-width: 768px) {
-    font-size: 4.5rem;
+    font-size: 3rem;
   }
 }
 </style>
