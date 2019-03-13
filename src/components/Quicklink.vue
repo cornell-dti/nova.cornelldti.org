@@ -48,13 +48,11 @@ $height: 50vh;
   position: relative;
 
   .quicklink-visual-dimensions {
-    width: 100vw;
     height: $height;
   }
 
   .quicklink-overlay {
     height: $height;
-    width: 100vw;
     position: absolute;
     top: 0;
     left: 0;

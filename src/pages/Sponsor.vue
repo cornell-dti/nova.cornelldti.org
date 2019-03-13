@@ -53,19 +53,19 @@
                   :items="items"
                   :fields="fields"
                 >
-                  <template slot="HEAD_benefits" slot-scope="row">
+                  <template slot="HEAD_benefits">
                     <strong class="table-header">Benefits</strong>
                   </template>
-                  <template slot="HEAD_bronze" slot-scope="row">
+                  <template slot="HEAD_bronze">
                     <div class="bronze-header">Bronze</div>
                   </template>
-                  <template slot="HEAD_silver" slot-scope="row">
+                  <template slot="HEAD_silver">
                     <div class="silver-header">Silver</div>
                   </template>
-                  <template slot="HEAD_gold" slot-scope="row">
+                  <template slot="HEAD_gold">
                     <div class="gold-header">Gold</div>
                   </template>
-                  <template slot="HEAD_platinum" slot-scope="row">
+                  <template slot="HEAD_platinum">
                     <div class="platinum-header">Platinum</div>
                   </template>
 
@@ -312,6 +312,10 @@ export default {
 }
 
 .sponsor-tiers {
+  .table {
+    color: #fff;
+  }
+
   border-radius: 2rem;
   color: #ffffff;
 }

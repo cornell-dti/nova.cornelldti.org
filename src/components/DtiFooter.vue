@@ -18,7 +18,7 @@
           >{{ (Strings.get('footer.prompt', `${page}`) || `Contact Us`) }}</b-button>
         </b-col>
       </b-row>
-      <b-row class="footer" align-v="top">
+      <b-row class="footer" align-v="start">
         <b-col cols="12">
           <b-row align-h="start" align-v="start">
             <b-col md="6" sm="12">

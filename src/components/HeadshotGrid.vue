@@ -6,15 +6,16 @@
         <headshot-card :name="member.id" :role="member.id" :image="``" @click.native="null"/>
       </div>
       <headshot-card
+        v-b-modal.memberModal
         v-else
-        :name="member.name"
-        :role="member.role"
-        :image="`${Strings.get('directories.members', 'assets')}/${member.image}`"
+        :name="member.info.name"
+        :role="member.info.roleDescription"
+        :image="`${Strings.get('directories.members', 'assets')}/${member.id}.jpg`"
         @click.native="memberClicked(member)"
       />
     </div>
 
-    <member-profile-modal v-model="modalShow" :profile="currentProfile"/>
+    <member-profile-modal :profile="currentProfile" :display="true"/>
   </div>
 </template>
 
@@ -46,36 +47,18 @@ export default {
   methods: {
     memberClicked(member) {
       this.currentProfile = member;
-      this.currentProfile.teams = [];
-
-      this.getTeams().forEach(team => {
-        team.members.forEach(teamMember => {
-          if (teamMember.name === this.currentProfile.name) {
-            this.currentProfile.teams.push(team);
-          }
-        });
-      });
-
-      this.modalShow = true;
     },
     pad(members) {
       const copy = [...members];
 
-      if (copy.length % 5 !== 0 || copy.length % 6 !== 0) {
-        const max = Math.max(
-          5 - (copy.length % 5),
-          copy.length % 5,
-          6 - (copy.length % 6),
-          copy.length % 6
-        );
+      const max = 16;
 
-        for (let i = 0; i < max; i += 1) {
-          copy.push({
-            // TODO
-            id: 'phantom-' + i, //eslint-disable-line
-            phantom: true
-          });
-        }
+      for (let i = 0; i < max; i += 1) {
+        copy.push({
+          // TODO
+          id: 'phantom-' + i, //eslint-disable-line
+          phantom: true
+        });
       }
 
       return copy;

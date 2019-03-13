@@ -22,10 +22,7 @@
 
           <project-features-list projectId="events"/>
 
-          <page-section>
-            <div class="project-header">Team</div>
-            <headshot-grid :members="getTeam(projectData.teamId).members"/>
-          </page-section>
+          <team-members :projectData="projectData"></team-members>
 
           <project-learn-more :enableAll="true" projectId="events"/>
         </b-col>
@@ -37,61 +34,13 @@
 </template>
 
 <script>
-import HeadshotGrid from '@/components/HeadshotGrid';
-import EventBus from '@/eventbus';
-import ProjectFeaturesList from '@/components/ProjectFeaturesList';
-import ProjectLearnMore from '@/components/ProjectLearnMore';
-import ProjectHeader from '@/components/ProjectHeader';
+import TeamBaseVue from './TeamBase';
 
 export default {
-  props: {
-    project: {
-      type: String,
-      required: true
-    }
-  },
-  components: {
-    HeadshotGrid,
-    ProjectFeaturesList,
-    ProjectLearnMore,
-    ProjectHeader
-  },
-  data() {
-    return {
-      currentFeatureDescription: '',
-      currentScreenshot: ''
-    };
-  },
+  extends: TeamBaseVue,
   computed: {
     projectData() {
       return this.Strings.get('', 'projects.events');
-    }
-  },
-  mounted() {
-    EventBus.$emit('set-navbar-light', {});
-  },
-  methods: {
-    getTeam(team) {
-      let teamA = null;
-
-      this.getTeams().forEach(teamData => {
-        if (teamData.id === team) {
-          teamA = teamData;
-        }
-      });
-
-      return teamA;
-    },
-    getProject(project) {
-      let projectA = null;
-
-      this.getProjects().forEach(projectData => {
-        if (projectData.id === project) {
-          projectA = projectData;
-        }
-      });
-
-      return projectA;
     }
   }
 };

@@ -95,7 +95,7 @@ export default {
       const scrollTop = yOffset - (document.documentElement.clientTop || 0);
 
       if (typeof this.$refs.dtinavbar !== 'undefined') {
-        this.transparent = scrollTop <= this.$refs.dtinavbar.clientHeight;
+        this.transparent = scrollTop <= this.$refs.dtinavbar.offsetHeight;
       } else {
         this.transparent = false;
       }

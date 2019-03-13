@@ -12,15 +12,16 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
+    "@babel/runtime": "^7.3.1",
     "axios": "^0.18.0",
-    "bootstrap-vue": "^2.0.0-rc.11",
+    "bootstrap-vue": "^2.0.0-rc.12",
     "connect-history-api-fallback": "^1.5.0",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-sslify": "^1.2.0",
+    "image-webpack-loader": "^4.5.0",
     "mailchimp-api-v3": "^1.12.0",
     "morgan": "^1.9.0",
-    "node": "^9.11.0",
     "vue": "^2.5.2",
     "vue-analytics": "^5.16.0",
     "vue-router": "^3.0.1",

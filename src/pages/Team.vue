@@ -99,9 +99,7 @@
           <b-col cols="12">
             <role-selector density="normal" class="team-role-selector" v-model="roleId"/>
 
-            <headshot-grid
-              :members="[...filterMembers(`${roleId}-colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
-            />
+            <headshot-grid :members="[...filterMembers(roleId, true), ...(filterMembers(roleId))]"/>
           </b-col>
         </b-row>
       </page-section>
@@ -425,37 +423,25 @@ export default {
     femalePercentage(roleId) {
       return this.diversity.femalePercentage[roleId];
     },
-    filterMembers(role = '') {
-      let filtered;
-      if (role === '') {
-        filtered = this.getMembers()
-          .filter(
-            member =>
-              typeof member.roleId !== 'undefined' &&
-              !member.roleId.includes('-')
-          )
-          .sort((a, b) => {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
-            return 0;
-          });
-      } else {
-        filtered = this.getMembers()
-          .filter(
-            member =>
-              typeof member.roleId !== 'undefined' &&
-              member.roleId.endsWith(role)
-          )
-          .sort((a, b) => {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
-            return 0;
-          });
-      }
+    filterMembers(role = '', isLead = false) {
+      return this.getMembers()
+        .filter(
+          member =>
+            ((typeof member.roleId === 'string' &&
+              member.roleId.endsWith(role)) ||
+              role === '') &&
+            (member.isLead != null && member.isLead === true) === isLead
+        )
+        .map(member => ({ info: member, id: member.netid }))
+        .sort((a, b) => {
+          const aname = a.info.name;
+          const bname = b.info.name;
 
-      // todo fix this ugliness
+          if (aname < bname) return -1;
+          if (aname > bname) return 1;
 
-      return filtered;
+          return 0;
+        });
     }
   }
 };
