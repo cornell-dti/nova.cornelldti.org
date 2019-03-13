@@ -5,7 +5,7 @@
       <headshot-grid :members="getTeam"/>
     </page-section>
     <page-section v-if="getFormerTeam.length > 0">
-      <div class="project-header">Former Team</div>
+      <div class="project-header">Former Members</div>
       <headshot-grid :members="getFormerTeam"/>
     </page-section>
   </div>
