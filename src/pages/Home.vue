@@ -15,16 +15,18 @@
         :load-poster="true"
       />
       <div class="home-background home-background-overlay"/>
-      <b-row>
-        <h1 class="givingDayheader">Help Us Make An Impact</h1>
-        <p class="givingDaytext">This <strong>Giving Day</strong>, a donation <strong>as little as $5</strong> can fund our projects,
-        jumpstart our initiatives, and help our team <strong>create technology for community impact</strong>.
-        </p>
-        <b-button class="give" href="https://givingday.cornell.edu/campaigns/cu-design-and-tech-initiative">Give</b-button>
+      <b-row class="givingDay">
+        <b-col>
+          <h1 class="givingDayheader">Help Us Make An Impact</h1>
+          <p class="givingDaytext">This <strong>Giving Day</strong>, a donation <strong>as little as $5</strong> can fund our projects,
+          jumpstart our initiatives, and help our team <strong>create technology for community impact</strong>.
+          </p>
+          <b-button class="give" href="https://givingday.cornell.edu/campaigns/cu-design-and-tech-initiative">Give</b-button>
+        </b-col>
       </b-row>
       <b-row>
-        <h1 class="home-overlay-text">Cornell Design &amp; Tech Initiative
-        </h1>
+          <h1 class="home-overlay-text">Cornell Design &amp; Tech Initiative
+          </h1>
       </b-row>
     </div>
     <text-hero
@@ -101,12 +103,15 @@ $hero-margin: 3vw;
   }
 }
 
-.givingDayheader {
+.givingDay{
   position: absolute;
   top: $hero-margin + 9vw;
   left: $hero-margin;
   right: $hero-margin;
   text-align: center;
+}
+
+.givingDayheader {
   font-weight: bolder;
   font-weight: 600;
   font-style: normal;
@@ -119,11 +124,9 @@ $hero-margin: 3vw;
 }
 
 .givingDaytext{
-  position: absolute;
-  top: $hero-margin + 14.5vw;
-  left: $hero-margin + 25vw;
-  right: $hero-margin + 25vw; 
-  text-align: center;
+  margin-left:27.5%;
+  margin-right:27.5%;
+  margin-top:1rem;
   font-weight: bolder;
   font-weight: 400;
   font-style: normal;
@@ -135,23 +138,18 @@ $hero-margin: 3vw;
   text-shadow: 0.125rem 0.125rem 0.3125rem black;
 }
 
-button{
-  position: absolute;
-  top: $hero-margin + 22.5vw;
+.give{
   min-width:8rem;
+  margin-top:1.5rem;
+  background-color: #FF324A;
+  font-size:1.125rem;
+  padding:.75rem;
+  padding-left:1rem;
+  padding-right:1rem;
+  border-radius: .5rem;
   border-style:none;
   color:white;
-}
-
-.give{
-  left:$hero-margin + 41vw;
-  right:$hero-margin; 
-  background-color: #FF324A;
-  padding-top:.5rem;
-  padding-bottom:.5rem;
-  border-radius: .5rem;
   text-align:center;
-  font-size:1.125rem;
 }
 
 .home-overlay-text {
