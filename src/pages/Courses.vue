@@ -17,10 +17,10 @@
             <p class="courses-row-content">
               {{Strings.get('content.1.description', 'courses')}}
             </p>
-            <b-button class="social-button" :href="Strings.get('content.1.secondary_button.link', 'courses')">
+            <b-button class="social-button" :href="Strings.get('content.1.buttons.github.link', 'courses')">
               <GitHubIcon />
               <div class="social-button-text">
-                {{Strings.get('content.1.secondary_button.title', 'courses')}}
+                {{Strings.get('content.1.buttons.github.title', 'courses')}}
               </div>
             </b-button>
           </b-col>
