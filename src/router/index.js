@@ -45,6 +45,15 @@ const dtiRouter = new Router({
       }
     },
     {
+      path: '/give',
+      component: {
+        template: '<div/>',
+        mounted() {
+          window.location.href = "https://givingday.cornell.edu/campaigns/cu-design-and-tech-initiative";
+        }
+      }
+    },
+    {
       path: '/Projects/',
       name: 'Projects',
       component: Projects
