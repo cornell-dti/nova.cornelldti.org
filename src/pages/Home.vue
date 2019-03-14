@@ -15,10 +15,24 @@
         :load-poster="true"
       />
       <div class="home-background home-background-overlay"/>
+      <b-row class="givingDay">
+        <b-col>
+          <h1 class="givingDayheader">Help Us Make An Impact</h1>
+          <p class="givingDaytext">
+            This
+            <strong>Giving Day</strong>, a donation
+            <strong>as little as $5</strong> can fund our projects,
+            jumpstart our initiatives, and help our team
+            <strong>create technology for community impact</strong>.
+          </p>
+          <b-button
+            class="give"
+            href="https://givingday.cornell.edu/campaigns/cu-design-and-tech-initiative"
+          >Give</b-button>
+        </b-col>
+      </b-row>
       <b-row>
-        <h1 class="home-overlay-text">Cornell Design
-          <br>&amp; Tech Initiative
-        </h1>
+        <h1 class="home-overlay-text">Cornell Design &amp; Tech Initiative</h1>
       </b-row>
     </div>
     <text-hero
@@ -95,6 +109,55 @@ $hero-margin: 3vw;
   }
 }
 
+.givingDay {
+  position: absolute;
+  top: 27.5vh;
+  left: $hero-margin;
+  right: $hero-margin;
+  text-align: center;
+}
+
+.givingDayheader {
+  font-weight: bolder;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  color: #fff;
+  font-size: 3rem;
+  text-shadow: 0.125rem 0.125rem 0.3125rem black;
+}
+
+.givingDaytext {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 1rem;
+  font-weight: bolder;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  color: #fff;
+  font-size: 1.3rem;
+  text-shadow: 0.125rem 0.125rem 0.3125rem black;
+}
+
+.give {
+  min-width: 8rem;
+  margin-top: 1.5rem;
+  background-color: #ff324a;
+  font-size: 1.125rem;
+  padding: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.5rem;
+  border-style: none;
+  color: white;
+  text-align: center;
+}
+
 .home-overlay-text {
   position: absolute;
   bottom: $hero-margin - 1vw;
@@ -111,10 +174,11 @@ $hero-margin: 3vw;
 
   @media (max-width: 767px) {
     font-size: 3rem;
+    display: none;
   }
 
   @media (min-width: 768px) {
-    font-size: 4.5rem;
+    font-size: 3rem;
   }
 }
 </style>
