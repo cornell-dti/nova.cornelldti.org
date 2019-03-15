@@ -6,8 +6,8 @@
         <b-col md="10" sm="12">
           <b-container fluid>
             <text-hero
-              :header="Strings.get('hero.header', 'projects.orientation')"
-              :subheader="Strings.get('hero.subheader', 'projects.orientation')"
+              :header="Strings.get('hero.header')"
+              :subheader="Strings.get('hero.subheader')"
             />
           </b-container>
 
@@ -27,11 +27,21 @@
 <script>
 import TeamBaseVue from './TeamBase';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const Strings = new StringsFrontend(new JSONStringsBackend('projects.orientation'));
+
 export default {
   extends: TeamBaseVue,
   computed: {
     projectData() {
-      return this.Strings.get('', 'projects.orientation');
+      return Strings.get('');
+    }
+  },
+  data() {
+    return {
+      Strings: Strings
     }
   }
 };

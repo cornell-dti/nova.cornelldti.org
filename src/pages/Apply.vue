@@ -1,18 +1,18 @@
 <template class="applyPage">
   <page-background>
     <nova-hero
-      v-if="Strings.get('join-information.applications-open', 'apply')"
-      :header="Strings.get('hero.header', 'apply')"
-      :subheader="Strings.get('hero.subheader', 'apply')"
+      v-if="Strings.get('join-information.applications-open')"
+      :header="Strings.get('hero.header')"
+      :subheader="Strings.get('hero.subheader')"
       page="apply"
     />
     <nova-hero
       v-else
-      :header="Strings.get('hero-closed.header', 'apply')"
-      :subheader="Strings.get('hero-closed.subheader', 'apply')"
+      :header="Strings.get('hero-closed.header')"
+      :subheader="Strings.get('hero-closed.subheader')"
       page="apply"
     />
-    <page-section v-if="!Strings.get('join-information.applications-open', 'apply')">
+    <page-section v-if="!Strings.get('join-information.applications-open')">
       <b-container class="email-form">
         <b-row align-h="center" class="no-gutters">
           <b-col cols="auto">
@@ -43,57 +43,57 @@
       </b-container>
     </page-section>
     <b-row
-      v-if="Strings.get('join-information.applications-open', 'apply')"
+      v-if="Strings.get('join-information.applications-open')"
       class="justify-content-center info-session-interjection"
     >
       <b-col class="info-session-description" sm="12" md="4" md-offset="1">
-        <div class="header">{{ Strings.get('info-session.header', 'apply') }}</div>
-        <div class="subheader">{{ Strings.get('info-session.subheader', 'apply') }}</div>
-        <div class="description">{{ Strings.get('info-session.description', 'apply') }}</div>
+        <div class="header">{{ Strings.get('info-session.header') }}</div>
+        <div class="subheader">{{ Strings.get('info-session.subheader') }}</div>
+        <div class="description">{{ Strings.get('info-session.description') }}</div>
       </b-col>
       <b-col class="info-session-details" sm="12" md="auto" md-offset="1">
         <b-row class="h-100" align-h="center" align-v="center">
           <b-col cols="auto">
             <div class="info-session h-50">
-              <div class="time">{{ Strings.get('info-sessions.1.time', 'apply') }}</div>
+              <div class="time">{{ Strings.get('info-sessions.1.time') }}</div>
               <div class="location location-desktop">
-                {{ `${Strings.get('info-sessions.1.location', 'apply')}${Strings.exists('info-sessions.1.link.url',
-                'apply') ? ' • ' : ''}` }}
+                {{ `${Strings.get('info-sessions.1.location')}${Strings.exists('info-sessions.1.link.url'
+                ) ? ' • ' : ''}` }}
                 <a
-                  v-if="Strings.exists('info-sessions.1.link.url', 'apply')"
+                  v-if="Strings.exists('info-sessions.1.link.url')"
                   class="apply-link"
-                  :href="Strings.get('info-sessions.1.link.url', 'apply')"
-                >{{Strings.get('info-sessions.1.link.text', 'apply')}}</a>
+                  :href="Strings.get('info-sessions.1.link.url')"
+                >{{Strings.get('info-sessions.1.link.text')}}</a>
               </div>
               <div class="location location-mobile">
-                {{ `${Strings.get('info-sessions.1.location', 'apply')}` }}
+                {{ `${Strings.get('info-sessions.1.location')}` }}
                 <br>
                 <a
-                  v-if="Strings.exists('info-sessions.1.link.url', 'apply')"
+                  v-if="Strings.exists('info-sessions.1.link.url')"
                   class="apply-link"
-                  :href="Strings.get('info-sessions.1.link.url', 'apply')"
-                >{{Strings.get('info-sessions.1.link.text', 'apply')}}</a>
+                  :href="Strings.get('info-sessions.1.link.url')"
+                >{{Strings.get('info-sessions.1.link.text')}}</a>
               </div>
             </div>
             <div class="info-session h-50">
-              <div class="time">{{ Strings.get('info-sessions.2.time', 'apply') }}</div>
+              <div class="time">{{ Strings.get('info-sessions.2.time') }}</div>
               <div class="location location-desktop">
-                {{ `${Strings.get('info-sessions.2.location', 'apply')}${Strings.exists('info-sessions.2.link.url',
-                'apply') ? ' • ' : ''}` }}
+                {{ `${Strings.get('info-sessions.2.location')}${Strings.exists('info-sessions.2.link.url'
+                ) ? ' • ' : ''}` }}
                 <a
-                  v-if="Strings.exists('info-sessions.2.link.url', 'apply')"
+                  v-if="Strings.exists('info-sessions.2.link.url')"
                   class="apply-link"
-                  :href="Strings.get('info-sessions.2.link.url', 'apply')"
-                >{{Strings.get('info-sessions.2.link.text', 'apply')}}</a>
+                  :href="Strings.get('info-sessions.2.link.url')"
+                >{{Strings.get('info-sessions.2.link.text')}}</a>
               </div>
               <div class="location location-mobile">
-                {{ `${Strings.get('info-sessions.1.location', 'apply')}` }}
+                {{ `${Strings.get('info-sessions.1.location')}` }}
                 <br>
                 <a
-                  v-if="Strings.exists('info-sessions.1.link.url', 'apply')"
+                  v-if="Strings.exists('info-sessions.1.link.url')"
                   class="apply-link"
-                  :href="Strings.get('info-sessions.1.link.url', 'apply')"
-                >{{Strings.get('info-sessions.1.link.text', 'apply')}}</a>
+                  :href="Strings.get('info-sessions.1.link.url')"
+                >{{Strings.get('info-sessions.1.link.text')}}</a>
               </div>
             </div>
           </b-col>
@@ -112,64 +112,60 @@
       />
 
       <timeline-section
-        v-for="child of Strings.childrenOf(`application-info.${roleId}`, `apply`)"
+        v-for="child of Strings.childrenOf(`application-info.${roleId}`)"
         :key="child"
-        :header="Strings.get(`application-info.${roleId}.${child}.header`, `apply`)"
-        :rightHeader="Strings.get('join-information.applications-open', 'apply') ? Strings.get(`application-info.${roleId}.${child}.right-header`, `apply`) : ''"
+        :header="Strings.get(`application-info.${roleId}.${child}.header`)"
+        :rightHeader="Strings.get('join-information.applications-open') ? Strings.get(`application-info.${roleId}.${child}.right-header`) : ''"
       >
         <div
-          v-if="Strings.exists(`application-info.${roleId}.${child}.sections.1`, 'apply')"
-          v-for="section of Strings.childrenOf(`application-info.${roleId}.${child}.sections`, 'apply')"
+          v-if="Strings.exists(`application-info.${roleId}.${child}.sections.1`)"
+          v-for="section of Strings.childrenOf(`application-info.${roleId}.${child}.sections`)"
           :key="section"
         >
           <div
             class="apply-header"
-            v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.header`, 'apply')"
-          >{{Strings.get(`application-info.${roleId}.${child}.sections.${section}.header`, 'apply')}}</div>
+            v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.header`)"
+          >{{Strings.get(`application-info.${roleId}.${child}.sections.${section}.header`)}}</div>
 
           <div
             class="apply-list"
-            v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.content.lines`, 'apply')"
+            v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.content.lines`)"
           >
             <div
               class="apply-list-item"
-              v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${section}.content.lines`, 'apply')"
+              v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${section}.content.lines`)"
               :key="line"
             >
-              {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content.lines.${line}`,
-              'apply')}}
+              {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content.lines.${line}`)}}
             </div>
           </div>
           <div class="apply-description" v-else>
-            {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content`,
-            'apply')}}
+            {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content`)}}
           </div>
         </div>
         <b-row v-else>
           <b-col sm v-for="col of ['left', 'right']" :key="col">
             <div class="apply-header">
-              {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`,
-              'apply')}}
+              {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`)}}
             </div>
 
             <div
               class="apply-list"
-              v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')"
+              v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${col}.content.lines`)"
             >
               <div
                 class="apply-list-item"
-                v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')"
+                v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${col}.content.lines`)"
                 :key="line"
               >
-                {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content.lines.${line}`,
-                'apply')}}
+                {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content.lines.${line}`)}}
               </div>
             </div>
 
             <div
               class="apply-description"
               v-else
-            >{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content`, 'apply')}}</div>
+            >{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content`)}}</div>
           </b-col>
         </b-row>
 
@@ -177,14 +173,11 @@
           class="justify-content-center"
           v-if="
         Strings.get(
-          'join-information.applications-open',
-          'apply'
+          'join-information.applications-open'
         ) && Strings.exists(
-          `application-info.${roleId}.${child}.call-to-action-button.closed`,
-          'apply'
+          `application-info.${roleId}.${child}.call-to-action-button.closed`
         ) && !Strings.get(
-          `application-info.${roleId}.${child}.call-to-action-button.closed`,
-          'apply'
+          `application-info.${roleId}.${child}.call-to-action-button.closed`
         )
         "
         >
@@ -192,35 +185,33 @@
             <b-row>
               <b-col md="auto" sm="12">
                 <b-button
-                  :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.link`, 'apply')"
+                  :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.link`)"
                   size="lg"
                   variant="primary"
                   class="call-to-action-button text-start"
                 >
-                  {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
-                  'apply')}}
+                  {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`)}}
                 </b-button>
               </b-col>
               <b-col
-                v-if="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')"
+                v-if="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`)"
                 md="auto"
                 sm="12"
               >
                 <b-button
-                  :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')"
+                  :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`)"
                   size="lg"
                   variant="primary"
                   class="call-to-action-button"
                 >
-                  {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.content`,
-                  'apply')}}
+                  {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.content`)}}
                 </b-button>
               </b-col>
             </b-row>
           </b-col>
         </b-row>
         <b-row
-          v-else-if="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.closed`, 'apply')"
+          v-else-if="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.closed`)"
         >
           <b-col cols="12">
             <b-button
@@ -229,8 +220,8 @@
               variant="secondary"
               class="call-to-action-button text-center"
             >
-              {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
-              'apply')}} (Closed)
+              {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`
+              )}} (Closed)
             </b-button>
           </b-col>
         </b-row>
@@ -246,6 +237,11 @@ import axios from 'axios';
 import TimelineSection from '@/components/TimelineSection';
 import RoleSelector from '@/components/RoleSelector';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const Strings = new StringsFrontend(new JSONStringsBackend('apply'));
+
 export default {
   components: {
     TimelineSection,
@@ -253,6 +249,7 @@ export default {
   },
   data() {
     return {
+      Strings: Strings,
       email: '',
       msgContent: 'banana',
       msgShow: false,

@@ -34,7 +34,7 @@
                 center
                 rounded="circle"
                 class="profile-image"
-                :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"
+                :src="`${AssetStrings.get('directories.members')}/${profile.id+'.jpg'}`"
                 @error="display = !display"
               ></b-img>
               <div
@@ -136,6 +136,11 @@ import Github from '@/assets/social/github.svg';
 import LinkedIn from '@/assets/social/linkedin.svg';
 import MissingImage from '@/assets/other/missing.svg';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
+
 export default {
   components: {
     Github,
@@ -143,7 +148,10 @@ export default {
     MissingImage
   },
   data() {
-    return { isShowing: false };
+    return { 
+      AssetStrings: AssetStrings,
+      isShowing: false 
+    };
   },
   props: {
     profile: {

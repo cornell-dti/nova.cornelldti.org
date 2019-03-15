@@ -11,7 +11,7 @@
           <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
             <b-img
               class="initiative-row-image"
-              :src="Strings.get('pages.initiatives.promo.makeathon', 'assets')"
+              :src="AssetStrings.get('pages.initiatives.promo.makeathon')"
             />
           </b-col>
           <b-col class="initiative-row-content-container" sm="12" md="5" order-md="1" order-sm="2">
@@ -36,7 +36,7 @@
           <b-col sm="12" md="7" class="initiative-row-img" order-md="1" order-sm="1">
             <b-img
               class="initiative-row-image"
-              :src="Strings.get('pages.initiatives.promo.blueprint', 'assets')"
+              :src="AssetStrings.get('pages.initiatives.promo.blueprint')"
             />
           </b-col>
           <b-col sm="12" md="5" class="initiative-row-content-container" order-md="2" order-sm="2">
@@ -55,7 +55,7 @@
           <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
             <b-img
               class="initiative-row-image"
-              :src="Strings.get('pages.initiatives.promo.halfbaked', 'assets')"
+              :src="AssetStrings.get('pages.initiatives.promo.halfbaked')"
             />
           </b-col>
           <b-col sm="12" md="5" class="initiative-row-content-container" order-md="1" order-sm="2">
@@ -259,10 +259,20 @@ $dark-gray: #4a4a4a;
 import FacebookIcon from '@/assets/social/facebook-white.svg';
 import MediumIcon from '@/assets/social/medium-white-m.svg';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
+
 export default {
   components: {
     FacebookIcon,
     MediumIcon
+  },
+  data() {
+    return {
+      AssetStrings: AssetStrings
+    }
   }
 };
 </script>

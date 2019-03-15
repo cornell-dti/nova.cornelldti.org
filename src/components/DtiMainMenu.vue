@@ -7,7 +7,7 @@
     type="none"
   >
     <b-navbar-brand class="navbar-branding-dti" href="#">
-      <b-img class="brand-icon" :src="Strings.get('branding.icon', 'assets')"/>
+      <b-img class="brand-icon" :src="AssetStrings.get('branding.icon')"/>
     </b-navbar-brand>
 
     <b-nav-text :style="{display: navShown ? '' : 'none'}" v-html="this.$route.name"/>
@@ -61,7 +61,7 @@
         <b-nav-item to="/Courses">Courses</b-nav-item>
         <b-nav-item to="/Sponsor">Sponsor</b-nav-item>
         <b-nav-item
-          v-if="Strings.get('main-menu.advertisement.open', 'apply')"
+          v-if="Strings.get('main-menu.advertisement.open')"
           to="/Apply"
           class="override-apply-color"
         >
@@ -76,9 +76,17 @@
 <script>
 import EventBus from '@/eventbus';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const Strings = new StringsFrontend(new JSONStringsBackend('apply'));
+const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
+
 export default {
   data() {
     return {
+      Strings: Strings,
+      AssetStrings: AssetStrings,
       transparent: true,
       navShown: false,
       light: false

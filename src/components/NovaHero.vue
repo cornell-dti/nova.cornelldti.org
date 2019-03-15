@@ -2,10 +2,10 @@
   <div class="nova-hero">
     <div class="nova-hero-visual-container">
       <visual
-        :video="aws(Strings.get(`pages.${page}.hero.video`, 'assets'))"
-        :poster="Strings.get(`pages.${page}.hero.lazy`, 'assets')"
+        :video="aws(AssetStrings.get(`pages.${page}.hero.video`))"
+        :poster="AssetStrings.get(`pages.${page}.hero.lazy`)"
         background="cover"
-        :fallback="aws(Strings.get(`pages.${page}.hero.image`, 'assets'))"
+        :fallback="aws(AssetStrings.get(`pages.${page}.hero.image`))"
         class="nova-hero-visual"
         align="top left"
         autoplay
@@ -67,6 +67,12 @@ $height: 65vh;
 
 
 <script>
+
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
+
 export default {
   props: {
     page: {
@@ -77,6 +83,11 @@ export default {
     },
     subheader: {
       type: String
+    }
+  },
+  data() {
+    return {
+      AssetStrings: AssetStrings
     }
   }
 };

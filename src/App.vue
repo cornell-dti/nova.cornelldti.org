@@ -9,12 +9,17 @@
       v-for="page of ['team', 'projects', 'initiatives', 'sponsor', 'courses', 'apply']"
       :key="page"
     >
-      <img style="display: none;" :src="Strings.get(`pages.${page}.hero.lazy`, `assets`)">
+      <img style="display: none;" :src="AssetStrings.get(`pages.${page}.hero.lazy`)">
     </div>
   </div>
 </template>
 
 <script>
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
+
 import EventBus from '@/eventbus';
 
 export default {
@@ -60,6 +65,11 @@ export default {
         }
       }
     });
+  },
+  data() {
+    return {
+      AssetStrings: AssetStrings
+    };
   }
 };
 </script>

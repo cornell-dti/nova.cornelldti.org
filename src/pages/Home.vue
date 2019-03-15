@@ -2,8 +2,8 @@
   <div>
     <div class="home">
       <visual
-        :video="aws(Strings.get('pages.home.hero.video', 'assets'))"
-        :poster="Strings.get(`pages.home.hero.lazy`, 'assets')"
+        :video="aws(AssetStrings.get('pages.home.hero.video'))"
+        :poster="AssetStrings.get(`pages.home.hero.lazy`)"
         class="home-background home-preload-background home-background-video"
         autoplay
         :fill="true"
@@ -22,28 +22,28 @@
       </b-row>
     </div>
     <text-hero
-      :header="Strings.get('text-hero.header', 'home')"
-      :subheader="Strings.get('text-hero.subheader', 'home')"
+      :header="Strings.get('text-hero.header')"
+      :subheader="Strings.get('text-hero.subheader')"
     />
 
     <page-sublist :border-padding="true">
       <quicklink
-        :link="Strings.get('quicklinks.projects.link', 'home')"
-        :image="Strings.get(`pages.home.quicklinks.projects`, 'assets')"
-        :header="Strings.get('quicklinks.projects.header', 'home')"
-        :subheader="Strings.get('quicklinks.projects.subheader', 'home')"
+        :link="Strings.get('quicklinks.projects.link')"
+        :image="AssetStrings.get(`pages.home.quicklinks.projects`)"
+        :header="Strings.get('quicklinks.projects.header')"
+        :subheader="Strings.get('quicklinks.projects.subheader')"
       />
       <quicklink
-        :link="Strings.get('quicklinks.team.link', 'home')"
-        :image="Strings.get(`pages.home.quicklinks.team`, 'assets')"
-        :header="Strings.get('quicklinks.team.header', 'home')"
-        :subheader="Strings.get('quicklinks.team.subheader', 'home')"
+        :link="Strings.get('quicklinks.team.link')"
+        :image="AssetStrings.get(`pages.home.quicklinks.team`)"
+        :header="Strings.get('quicklinks.team.header')"
+        :subheader="Strings.get('quicklinks.team.subheader')"
       />
       <quicklink
-        :link="Strings.get('quicklinks.initiatives.link', 'home')"
-        :image="Strings.get(`pages.home.quicklinks.initiatives`, 'assets')"
-        :header="Strings.get('quicklinks.initiatives.header', 'home')"
-        :subheader="Strings.get('quicklinks.initiatives.subheader', 'home')"
+        :link="Strings.get('quicklinks.initiatives.link')"
+        :image="AssetStrings.get(`pages.home.quicklinks.initiatives`)"
+        :header="Strings.get('quicklinks.initiatives.header')"
+        :subheader="Strings.get('quicklinks.initiatives.subheader')"
       />
     </page-sublist>
 
@@ -56,9 +56,21 @@
 <script>
 import Quicklink from '@/components/Quicklink';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const Strings = new StringsFrontend(new JSONStringsBackend('home'));
+const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
+
 export default {
   components: {
     Quicklink
+  },
+  data() {
+    return {
+      Strings: Strings,
+      AssetStrings: AssetStrings
+    }
   }
 };
 </script>

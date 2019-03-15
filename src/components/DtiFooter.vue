@@ -2,20 +2,20 @@
   <div>
     <b-container fluid class="h-100">
       <b-row
-        v-if="Strings.exists('footer', `${page}`)"
+        v-if="Strings.exists('footer')"
         class="contact-us"
         align-h="center"
         align-v="center"
       >
         <b-col sm="12" md="auto" align-self="center">
           <div class="contact-us-prompt">
-            {{ (Strings.get('footer.prompt', `${page}`) || `Have a question or a great idea?
+            {{ (Strings.get('footer.prompt') || `Have a question or a great idea?
             Let us know!`) }}
           </div>
           <b-button
-            :href="(Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org')"
+            :href="(Strings.get('footer.link') || 'mailto:hello@cornelldti.org')"
             class="contact-us-button"
-          >{{ (Strings.get('footer.prompt', `${page}`) || `Contact Us`) }}</b-button>
+          >{{ (Strings.get('footer.prompt') || `Contact Us`) }}</b-button>
         </b-col>
       </b-row>
       <b-row class="footer" align-v="start">
@@ -86,6 +86,9 @@ import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
 import Footer from '@/assets/footer/footer.svg';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
 export default {
   components: {
     AppStore,
@@ -99,6 +102,11 @@ export default {
   props: {
     page: {
       type: String
+    }
+  },
+  data() {
+    return {
+      Strings: new StringsFrontend(new JSONStringsBackend(this.page))
     }
   }
 };

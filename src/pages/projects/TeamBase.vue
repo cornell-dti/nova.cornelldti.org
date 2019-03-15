@@ -6,8 +6,8 @@
         <b-col md="10" sm="12">
           <b-container fluid>
             <text-hero
-              :header="Strings.get('hero.header', 'projects.shout')"
-              :subheader="Strings.get('hero.subheader', 'projects.shout')"
+              :header="Strings.get('hero.header')"
+              :subheader="Strings.get('hero.subheader')"
             />
           </b-container>
 
@@ -32,6 +32,11 @@ import ProjectLearnMore from '@/components/ProjectLearnMore';
 import ProjectHeader from '@/components/ProjectHeader';
 import TeamMembers from '@/components/TeamMembers';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const Strings = new StringsFrontend(new JSONStringsBackend('projects.shout'));
+
 export default {
   props: {
     project: {
@@ -48,6 +53,7 @@ export default {
   },
   data() {
     return {
+      Strings: Strings,
       currentFeatureDescription: '',
       currentScreenshot: ''
     };

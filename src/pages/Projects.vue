@@ -1,8 +1,8 @@
 <template>
   <page-background>
     <nova-hero
-      :header="Strings.get('hero.header', 'projects')"
-      :subheader="Strings.get('hero.subheader', 'projects')"
+      :header="Strings.get('hero.header')"
+      :subheader="Strings.get('hero.subheader')"
       page="projects"
     />
 
@@ -21,7 +21,7 @@
           :key="project"
         >
           <router-link :to="{ path: project }" append>
-            <b-img :src="Strings.get(`projects.${project}.card`, 'assets')" class="project-card"/>
+            <b-img :src="AssetStrings.get(`projects.${project}.card`)" class="project-card"/>
           </router-link>
         </b-col>
       </b-row>
@@ -62,13 +62,19 @@
 
 
 <script>
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const Strings = new StringsFrontend(new JSONStringsBackend('projects'));
+const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
+
 export default {
   computed: {
     projectRows() {
       const rows = [];
       let row = [];
 
-      const projects = this.Strings.get('projects', 'projects');
+      const projects = Strings.get('projects');
 
       for (let i = 0; i < projects.length; i += 1) {
         row.push(projects[i]);
@@ -84,6 +90,12 @@ export default {
       }
 
       return rows;
+    }
+  },
+  data() {
+    return {
+      AssetStrings: AssetStrings,
+      Strings: Strings
     }
   }
 };

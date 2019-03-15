@@ -10,7 +10,7 @@
         v-else
         :name="member.info.name"
         :role="member.info.roleDescription"
-        :image="`${Strings.get('directories.members', 'assets')}/${member.id}.jpg`"
+        :image="`${AssetStrings.get('directories.members')}/${member.id}.jpg`"
         @click.native="memberClicked(member)"
       />
     </div>
@@ -31,6 +31,11 @@
 import HeadshotCard from '@/components/HeadshotCard';
 import MemberProfileModal from '@/components/MemberProfileModal';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
+
 export default {
   props: {
     members: {
@@ -42,7 +47,11 @@ export default {
   },
   components: { HeadshotCard, MemberProfileModal },
   data() {
-    return { modalShow: false, currentProfile: {} };
+    return { 
+      AssetStrings, AssetStrings,
+      modalShow: false, 
+      currentProfile: {} 
+    };
   },
   methods: {
     memberClicked(member) {

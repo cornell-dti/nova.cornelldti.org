@@ -1,8 +1,8 @@
 <template>
   <page-background>
     <nova-hero
-      :header="Strings.get('hero.header', 'sponsor')"
-      :subheader="Strings.get('hero.subheader', 'sponsor')"
+      :header="Strings.get('hero.header')"
+      :subheader="Strings.get('hero.subheader')"
       page="sponsor"
     />
     <b-container>
@@ -11,23 +11,23 @@
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
             <b-img
               class="sponsor-row-image"
-              :src="Strings.get('pages.sponsor.events.googleLunch', 'assets')"
+              :src="AssetStrings.get('pages.sponsor.events.googleLunch')"
             />
           </b-col>
           <b-col class="sponsor-row-content-container" sm="12" md="5" order-md="1" order="2">
-            <h2 class="sponsor-row-content-header">{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
-            <p class="sponsor-row-content">{{Strings.get('pitch.1.description', 'sponsor')}}</p>
+            <h2 class="sponsor-row-content-header">{{Strings.get('pitch.1.header')}}</h2>
+            <p class="sponsor-row-content">{{Strings.get('pitch.1.description')}}</p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
           <b-col sm="12" md="5" class="sponsor-row-content-container" order="2">
-            <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
-            <p class="sponsor-row-content">{{Strings.get('pitch.2.description', 'sponsor')}}</p>
+            <h2>{{Strings.get('pitch.2.header')}}</h2>
+            <p class="sponsor-row-content">{{Strings.get('pitch.2.description')}}</p>
           </b-col>
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order="1">
             <b-img
               class="sponsor-row-image"
-              :src="Strings.get('pages.sponsor.events.infoSesh', 'assets')"
+              :src="AssetStrings.get('pages.sponsor.events.infoSesh')"
             />
           </b-col>
         </b-row>
@@ -37,7 +37,7 @@
       <page-section>
         <b-row>
           <b-col>
-            <h2 class="sponsor-tier-heading">{{Strings.get('tiers.header', 'sponsor')}}</h2>
+            <h2 class="sponsor-tier-heading">{{Strings.get('tiers.header')}}</h2>
           </b-col>
         </b-row>
 
@@ -115,33 +115,33 @@
     <b-container>
       <page-section>
         <b-row class="text-center justify-content-center sponsor-contact">
-          <h2>{{Strings.get('call-to-action.description', 'sponsor')}}</h2>
+          <h2>{{Strings.get('call-to-action.description')}}</h2>
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
           <b-button
             :href="(Strings.get('call-to-action.button.link', `sponsor`) || 'mailto:hello@cornelldti.org')"
-          >{{Strings.get('call-to-action.button.text', 'sponsor')}}</b-button>
+          >{{Strings.get('call-to-action.button.text')}}</b-button>
         </b-row>
       </page-section>
       <page-section>
-        <h2 class="sponsor-list-heading">{{Strings.get('current-sponsors.header', 'sponsor')}}</h2>
+        <h2 class="sponsor-list-heading">{{Strings.get('current-sponsors.header')}}</h2>
         <b-row class="sponsor-list justify-content-center">
           <b-col class="my-auto" sm="12" md="4">
             <b-img
               class="sponsor-icon"
-              :src="Strings.get('pages.sponsor.sponsors.invision', 'assets')"
+              :src="AssetStrings.get('pages.sponsor.sponsors.invision')"
             />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
             <b-img
               class="sponsor-icon"
-              :src="Strings.get('pages.sponsor.sponsors.google', 'assets')"
+              :src="AssetStrings.get('pages.sponsor.sponsors.google')"
             />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
             <b-img
               class="sponsor-icon"
-              :src="Strings.get('pages.sponsor.sponsors.cornell-engineering-alumni', 'assets')"
+              :src="AssetStrings.get('pages.sponsor.sponsors.cornell-engineering-alumni')"
             />
           </b-col>
         </b-row>
@@ -157,19 +157,25 @@ import wcheck from '@/assets/sponsor/whitecheck.svg';
 import Gcheck from '@/assets/sponsor/goldcheck.svg';
 import Pcheck from '@/assets/sponsor/platinumcheck.svg';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const Strings = new StringsFrontend(new JSONStringsBackend('sponsor'));
+const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
+
 export default {
   components: {
     check,
     wcheck,
     Gcheck,
-    Pcheck
+    Pcheck,
   },
   computed: {
     items() {
       return [
         {
           benefits: 'Recognition on DTI Website',
-          subheader: this.Strings.get('tiers.sponsor.0.subheader', 'sponsor'),
+          subheader: Strings.get('tiers.sponsor.0.subheader'),
           bronze: true,
           silver: true,
           gold: true,
@@ -177,7 +183,7 @@ export default {
         },
         {
           benefits: 'Campus-Wide Marketing & Publicity',
-          subheader: this.Strings.get('tiers.sponsor.1.subheader', 'sponsor'),
+          subheader: Strings.get('tiers.sponsor.1.subheader'),
           bronze: true,
           silver: true,
           gold: true,
@@ -185,7 +191,7 @@ export default {
         },
         {
           benefits: 'Resume Book Access',
-          subheader: this.Strings.get('tiers.sponsor.2.subheader', 'sponsor'),
+          subheader: Strings.get('tiers.sponsor.2.subheader'),
           bronze: false,
           silver: true,
           gold: true,
@@ -193,7 +199,7 @@ export default {
         },
         {
           benefits: 'Flagship Initiative Co-Sponsor',
-          subheader: this.Strings.get('tiers.sponsor.3.subheader', 'sponsor'),
+          subheader: Strings.get('tiers.sponsor.3.subheader'),
           bronze: false,
           silver: true,
           gold: true,
@@ -201,7 +207,7 @@ export default {
         },
         {
           benefits: 'Host One Standard Initiative',
-          subheader: this.Strings.get('tiers.sponsor.4.subheader', 'sponsor'),
+          subheader: Strings.get('tiers.sponsor.4.subheader'),
           bronze: false,
           silver: false,
           gold: true,
@@ -209,7 +215,7 @@ export default {
         },
         {
           benefits: 'Host Multiple Initiatives',
-          subheader: this.Strings.get('tiers.sponsor.5.subheader', 'sponsor'),
+          subheader: Strings.get('tiers.sponsor.5.subheader'),
           bronze: false,
           silver: false,
           gold: false,
@@ -217,7 +223,7 @@ export default {
         },
         {
           benefits: 'Tabling Slot in Engineering Hall',
-          subheader: this.Strings.get('tiers.sponsor.6.subheader', 'sponsor'),
+          subheader: Strings.get('tiers.sponsor.6.subheader'),
           bronze: false,
           silver: false,
           gold: false,
@@ -228,6 +234,8 @@ export default {
   },
   data() {
     return {
+      Strings: Strings,
+      AssetStrings: AssetStrings,
       fields: ['benefits', 'bronze', 'silver', 'gold', 'platinum'],
 
       striped: false,

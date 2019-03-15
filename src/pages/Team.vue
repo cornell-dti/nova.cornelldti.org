@@ -1,8 +1,8 @@
 <template>
   <page-background>
     <nova-hero
-      :header="Strings.get('hero.header', 'team')"
-      :subheader="Strings.get('hero.subheader', 'team')"
+      :header="Strings.get('hero.header')"
+      :subheader="Strings.get('hero.subheader')"
       page="team"
     />
 
@@ -14,14 +14,14 @@
             <b-col sm="12" md="9">
               <div
                 class="team-header diversity-header my-auto"
-              >{{ Strings.get('diversity.header', 'team') }}</div>
+              >{{ Strings.get('diversity.header') }}</div>
               <div
                 class="diversity-description my-auto lg-y-padding"
-              >{{ Strings.get('diversity.description', 'team') }}</div>
+              >{{ Strings.get('diversity.description') }}</div>
 
               <h3
                 class="graph-header lg-y-padding"
-              >{{ Strings.get('diversity.gender.header', 'team') }}</h3>
+              >{{ Strings.get('diversity.gender.header') }}</h3>
 
               <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
@@ -61,27 +61,27 @@
             <b-col cols="12" class="diversity-description diversity-inner-text">
               <div
                 class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}</div>
+              >{{ Strings.get('diversity.stats.underclassmen.stat') }}</div>
               <div class="diversity-description diversity-stat-description">
-                {{ Strings.get('diversity.stats.underclassmen.description', 'team')
+                {{ Strings.get('diversity.stats.underclassmen.description')
                 }}
               </div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
               <div
                 class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.majors.stat', 'team') }}</div>
+              >{{ Strings.get('diversity.stats.majors.stat') }}</div>
               <div
                 class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.majors.description', 'team') }}</div>
+              >{{ Strings.get('diversity.stats.majors.description') }}</div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
               <div
                 class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.colleges.stat', 'team') }}</div>
+              >{{ Strings.get('diversity.stats.colleges.stat') }}</div>
               <div
                 class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.colleges.description', 'team') }}</div>
+              >{{ Strings.get('diversity.stats.colleges.description') }}</div>
             </b-col>
           </b-row>
         </b-col>
@@ -90,7 +90,7 @@
 
     <b-container fluid>
       <page-section>
-        <div class="team-header diversity-header">{{ Strings.get('team.header', 'team') }}</div>
+        <div class="team-header diversity-header">{{ Strings.get('team.header') }}</div>
 
         <!-- TODO actual padding -->
         <br>
@@ -391,6 +391,11 @@ import HeadshotGrid from '@/components/HeadshotGrid';
 import RoleSelector from '@/components/RoleSelector';
 import CircleProgressIndicator from '@/components/CircleProgressIndicator';
 
+import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import StringsFrontend from '@/data/strings/strings';
+
+const Strings = new StringsFrontend(new JSONStringsBackend('team'));
+
 export default {
   components: {
     HeadshotGrid,
@@ -404,6 +409,7 @@ export default {
   },
   data() {
     return {
+      Strings, Strings,
       currentProfile: {},
       roleId: 'none',
       divRoleId: ''
