@@ -86,7 +86,7 @@ import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
 import Footer from '@/assets/footer/footer.svg';
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
+import SingleBackend from '@/data/strings';
 import StringsFrontend from '@/data/strings/strings';
 
 export default {
@@ -106,7 +106,7 @@ export default {
   },
   data() {
     return {
-      Strings: new StringsFrontend(new JSONStringsBackend(this.page))
+      Strings: new StringsFrontend(this.page, SingleBackend)
     }
   }
 };

@@ -56,22 +56,10 @@
 <script>
 import Quicklink from '@/components/Quicklink';
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
-import StringsFrontend from '@/data/strings/strings';
-
-const Strings = new StringsFrontend(new JSONStringsBackend('home'));
-const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
-
 export default {
   components: {
     Quicklink
   },
-  data() {
-    return {
-      Strings: Strings,
-      AssetStrings: AssetStrings
-    }
-  }
 };
 </script>
 

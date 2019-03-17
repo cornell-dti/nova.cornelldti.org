@@ -32,11 +32,6 @@ import ProjectLearnMore from '@/components/ProjectLearnMore';
 import ProjectHeader from '@/components/ProjectHeader';
 import TeamMembers from '@/components/TeamMembers';
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
-import StringsFrontend from '@/data/strings/strings';
-
-const Strings = new StringsFrontend(new JSONStringsBackend('projects.shout'));
-
 export default {
   props: {
     project: {
@@ -53,7 +48,6 @@ export default {
   },
   data() {
     return {
-      Strings: Strings,
       currentFeatureDescription: '',
       currentScreenshot: ''
     };

@@ -391,11 +391,6 @@ import HeadshotGrid from '@/components/HeadshotGrid';
 import RoleSelector from '@/components/RoleSelector';
 import CircleProgressIndicator from '@/components/CircleProgressIndicator';
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
-import StringsFrontend from '@/data/strings/strings';
-
-const Strings = new StringsFrontend(new JSONStringsBackend('team'));
-
 export default {
   components: {
     HeadshotGrid,
@@ -409,7 +404,6 @@ export default {
   },
   data() {
     return {
-      Strings, Strings,
       currentProfile: {},
       roleId: 'none',
       divRoleId: ''

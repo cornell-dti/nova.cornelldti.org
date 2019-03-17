@@ -259,20 +259,10 @@ $dark-gray: #4a4a4a;
 import FacebookIcon from '@/assets/social/facebook-white.svg';
 import MediumIcon from '@/assets/social/medium-white-m.svg';
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
-import StringsFrontend from '@/data/strings/strings';
-
-const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
-
 export default {
   components: {
     FacebookIcon,
     MediumIcon
-  },
-  data() {
-    return {
-      AssetStrings: AssetStrings
-    }
   }
 };
 </script>

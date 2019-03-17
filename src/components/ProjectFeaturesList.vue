@@ -41,10 +41,8 @@
 
 <script>
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
 import StringsFrontend from '@/data/strings/strings';
-
-const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
+import SingleBackend from '@/data/strings';
 
 export default {
   props: {
@@ -55,8 +53,8 @@ export default {
   },
   data() {
     return {
-      AssetStrings: AssetStrings,
-      Strings: new StringsFrontend(new JSONStringsBackend('projects.' + this.projectId))
+      
+      Strings: new StringsFrontend('projects.' + this.projectId, SingleBackend)
     }
   }
 };

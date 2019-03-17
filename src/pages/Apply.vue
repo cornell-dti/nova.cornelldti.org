@@ -237,11 +237,6 @@ import axios from 'axios';
 import TimelineSection from '@/components/TimelineSection';
 import RoleSelector from '@/components/RoleSelector';
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
-import StringsFrontend from '@/data/strings/strings';
-
-const Strings = new StringsFrontend(new JSONStringsBackend('apply'));
-
 export default {
   components: {
     TimelineSection,
@@ -249,7 +244,6 @@ export default {
   },
   data() {
     return {
-      Strings: Strings,
       email: '',
       msgContent: 'banana',
       msgShow: false,

@@ -62,19 +62,13 @@
 
 
 <script>
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
-import StringsFrontend from '@/data/strings/strings';
-
-const Strings = new StringsFrontend(new JSONStringsBackend('projects'));
-const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
-
 export default {
   computed: {
     projectRows() {
       const rows = [];
       let row = [];
 
-      const projects = Strings.get('projects');
+      const projects = this.Strings.get('projects');
 
       for (let i = 0; i < projects.length; i += 1) {
         row.push(projects[i]);
@@ -90,12 +84,6 @@ export default {
       }
 
       return rows;
-    }
-  },
-  data() {
-    return {
-      AssetStrings: AssetStrings,
-      Strings: Strings
     }
   }
 };

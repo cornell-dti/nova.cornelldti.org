@@ -68,11 +68,6 @@ $height: 65vh;
 
 <script>
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
-import StringsFrontend from '@/data/strings/strings';
-
-const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
-
 export default {
   props: {
     page: {
@@ -83,11 +78,6 @@ export default {
     },
     subheader: {
       type: String
-    }
-  },
-  data() {
-    return {
-      AssetStrings: AssetStrings
     }
   }
 };

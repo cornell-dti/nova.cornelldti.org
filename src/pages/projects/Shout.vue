@@ -26,21 +26,12 @@
 
 <script>
 import TeamBaseVue from './TeamBase';
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
-import StringsFrontend from '@/data/strings/strings';
-
-const Strings = new StringsFrontend(new JSONStringsBackend('projects.shout'));
 
 export default {
   extends: TeamBaseVue,
   computed: {
     projectData() {
-      return Strings.get('');
-    }
-  },
-  data() {
-    return {
-      Strings: Strings
+      return this.Strings.get('');
     }
   }
 };

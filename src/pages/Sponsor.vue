@@ -157,12 +157,6 @@ import wcheck from '@/assets/sponsor/whitecheck.svg';
 import Gcheck from '@/assets/sponsor/goldcheck.svg';
 import Pcheck from '@/assets/sponsor/platinumcheck.svg';
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
-import StringsFrontend from '@/data/strings/strings';
-
-const Strings = new StringsFrontend(new JSONStringsBackend('sponsor'));
-const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
-
 export default {
   components: {
     check,
@@ -175,7 +169,7 @@ export default {
       return [
         {
           benefits: 'Recognition on DTI Website',
-          subheader: Strings.get('tiers.sponsor.0.subheader'),
+          subheader: this.Strings.get('tiers.sponsor.0.subheader'),
           bronze: true,
           silver: true,
           gold: true,
@@ -183,7 +177,7 @@ export default {
         },
         {
           benefits: 'Campus-Wide Marketing & Publicity',
-          subheader: Strings.get('tiers.sponsor.1.subheader'),
+          subheader: this.Strings.get('tiers.sponsor.1.subheader'),
           bronze: true,
           silver: true,
           gold: true,
@@ -191,7 +185,7 @@ export default {
         },
         {
           benefits: 'Resume Book Access',
-          subheader: Strings.get('tiers.sponsor.2.subheader'),
+          subheader: this.Strings.get('tiers.sponsor.2.subheader'),
           bronze: false,
           silver: true,
           gold: true,
@@ -199,7 +193,7 @@ export default {
         },
         {
           benefits: 'Flagship Initiative Co-Sponsor',
-          subheader: Strings.get('tiers.sponsor.3.subheader'),
+          subheader: this.Strings.get('tiers.sponsor.3.subheader'),
           bronze: false,
           silver: true,
           gold: true,
@@ -207,7 +201,7 @@ export default {
         },
         {
           benefits: 'Host One Standard Initiative',
-          subheader: Strings.get('tiers.sponsor.4.subheader'),
+          subheader: this.Strings.get('tiers.sponsor.4.subheader'),
           bronze: false,
           silver: false,
           gold: true,
@@ -215,7 +209,7 @@ export default {
         },
         {
           benefits: 'Host Multiple Initiatives',
-          subheader: Strings.get('tiers.sponsor.5.subheader'),
+          subheader: this.Strings.get('tiers.sponsor.5.subheader'),
           bronze: false,
           silver: false,
           gold: false,
@@ -223,7 +217,7 @@ export default {
         },
         {
           benefits: 'Tabling Slot in Engineering Hall',
-          subheader: Strings.get('tiers.sponsor.6.subheader'),
+          subheader: this.Strings.get('tiers.sponsor.6.subheader'),
           bronze: false,
           silver: false,
           gold: false,
@@ -234,10 +228,7 @@ export default {
   },
   data() {
     return {
-      Strings: Strings,
-      AssetStrings: AssetStrings,
       fields: ['benefits', 'bronze', 'silver', 'gold', 'platinum'],
-
       striped: false,
       outlined: false,
       bordered: false,

@@ -93,8 +93,8 @@
 import Github from '@/assets/social/github.svg';
 import Medium from '@/assets/social/medium.svg';
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
 import StringsFrontend from '@/data/strings/strings';
+import SingleBackend from '@/data/strings';
 
 export default {
   components: {
@@ -113,7 +113,7 @@ export default {
   },
   data() {
     return {
-      Strings: new StringsFrontend(new JSONStringsBackend('projects.' + this.projectId))
+      Strings: new StringsFrontend('projects.' + this.projectId, SingleBackend)
     }
   }
 };

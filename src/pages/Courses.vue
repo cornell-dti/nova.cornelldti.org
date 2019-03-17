@@ -256,22 +256,10 @@ $dark-gray: #4a4a4a;
 import GitHubIcon from '@/assets/social/github.svg';
 import ApplyIcon from '@/assets/other/apply.svg';
 
-import JSONStringsBackend from '@/data/strings/jsonStringsBackend';
-import StringsFrontend from '@/data/strings/strings';
-
-const Strings = new StringsFrontend(new JSONStringsBackend('courses'));
-const AssetStrings = new StringsFrontend(new JSONStringsBackend('assets'));
-
 export default {
   components: {
     GitHubIcon,
     ApplyIcon
-  },
-  data() {
-    return {
-      Strings: Strings,
-      AssetStrings: AssetStrings
-    }
   }
 };
 </script>
