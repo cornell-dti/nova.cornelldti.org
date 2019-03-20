@@ -120,7 +120,7 @@ new Vue({
   components: {
     App: () => ({
       component: AssetStrings.initialize().then(() => App),
-      timeout: 3000
+      timeout: 5000
     })
   },
   template: '<App/>'

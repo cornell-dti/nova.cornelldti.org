@@ -33,11 +33,6 @@ export default {
     projectData() {
       return this.Strings.get('');
     }
-  },
-  data() {
-    return {
-      Strings: Strings,
-    }
   }
 };
 </script>
