@@ -110,15 +110,15 @@
                     <b-col class="about-p left-space">{{profile.info.about}}</b-col>
                   </b-row>
                 </div>
-                <b-row v-if="profile.info.subteam || profile.info.otherSubteams">
+                <b-row
+                  v-if="(profile.info.subteam) || (profile.info.otherSubteams && profile.info.otherSubteams.length > 0)"
+                >
                   <b-col>
                     <div id="teamwork" class="member-modal-header left-space">Team Work</div>
                     <ul class="team-info-list left-space">
-                      <li
-                        class="team-info-item my-auto"
-                        v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
-                        :key="getTeamName(team).id"
-                      >{{getTeamName(team)[0]}}</li>
+                      <template v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]">
+                        <li class="team-info-item my-auto" :key="team">{{ getTeamName(team)[0] }}</li>
+                      </template>
                     </ul>
                   </b-col>
                 </b-row>
@@ -143,9 +143,7 @@ export default {
     MissingImage
   },
   data() {
-    return {
-      isShowing: false 
-    };
+    return { isShowing: false };
   },
   props: {
     profile: {

@@ -427,7 +427,8 @@ export default {
       return this.getMembers()
         .filter(
           member =>
-            ((typeof member.roleId === 'string' && member.roleId === role) ||
+            ((typeof member.roleId === 'string' &&
+              member.roleId.endsWith(role)) ||
               role === '') &&
             (member.isLead != null && member.isLead === true) === isLead
         )

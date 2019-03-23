@@ -1,0 +1,30 @@
+{
+  "name": "Shout",
+  "id": "shout",
+  "teamId": "shout",
+  "header": "Shout",
+  "subheader": "Find Out. Go Out. Reach Out.",
+  "hero" : {
+    "header" : "What We Do",
+    "subheader" : "Shout helps raise awareness of sexual assault on campus and gives survivors a voice to share their stories and locate regions on campus where incidents have occurred."
+  },
+  "ios-github": "https://github.com/cornell-dti/shout-ios",
+  "android-github": "https://github.com/cornell-dti/shout-android",
+  "heroStartingColor": "#A1F6F4",
+  "heroEndingColor": "#FAFAFA",
+  "heroUseDarkText": true,
+  "features": {
+    "1": {
+      "title": "Find Out.",
+      "description": "Newsfeed that lists all of the reports and stories that are posted to the app. The reports include a title, brief description, date, and location and can be clicked on to see more information."
+    },
+    "2": {
+      "title": "Go Out.",
+      "description": "The map interface that includes a search bar to find locations and reports on campus."
+    },
+    "3": {
+      "title": "Reach Out.",
+      "description": "The Resources page that lists hotlines available for those in need and organizations and centers to contact on campus."
+    }
+  }
+}
