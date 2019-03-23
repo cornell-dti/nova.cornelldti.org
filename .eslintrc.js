@@ -75,6 +75,7 @@ module.exports = {
         allowTemplateLiterals: true
       }
     ],
+    'linebreak-style': ['off'],
     'max-len': ['warn', { code: 200 }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
