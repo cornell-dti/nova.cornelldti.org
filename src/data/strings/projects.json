@@ -1,0 +1,20 @@
+{
+  "hero": {
+    "header": "We Are Our Products",
+    "subheader": "We've learned that tackling the hardest problems is the only way to truly create value for the people around us. Each of our projects address an unfulfilled need that exists in our community using human-centered design and software engineering."
+  },
+  "footer": {},
+  "projects": {
+    "events": "projects.events",
+    "orientation": "projects.orientation",
+    "queuemein": "projects.queuemein",
+    "researchconnect": "projects.researchconnect",
+    "reviews": "projects.reviews",
+    "samwise": "projects.samwise",
+    "shout": "projects.shout"
+  },
+  "not-ready-projects": {
+    "rescuer": "projects.rescuer"
+
+  }
+}

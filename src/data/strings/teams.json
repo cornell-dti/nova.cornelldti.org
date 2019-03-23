@@ -1,0 +1,45 @@
+[
+  {
+    "name": "CUEvents",
+    "id": "cue"
+  },
+  {
+    "name": "Business",
+    "id": "business"
+  },
+  {
+    "name": "Shout",
+    "id": "shout"
+  },
+  {
+    "name": "CU Reviews",
+    "id": "reviews"
+  },
+  {
+    "name": "Project Samwise",
+    "id": "samwise"
+  },
+  {
+    "name": "Research Connect",
+    "id": "researchconnect"
+  },
+  {
+    "name": "Queue Me In",
+    "id": "queuemein"
+  },
+  {
+    "name": "Website",
+    "id": "website"
+  },
+  {
+    "name":"Flux",
+    "id":"flux"
+  },
+  {"name":"O-Week",
+    "id":"orientation"
+  },
+  {
+    "name": "Rescuer",
+    "id":"rescuer"
+  }
+]

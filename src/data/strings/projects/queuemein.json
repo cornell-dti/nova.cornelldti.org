@@ -1,0 +1,31 @@
+{
+  "name": "Queue Me In",
+  "id": "queuemein",
+  "teamId":"queuemein",
+  "header": "Queue Me In",
+  "subheader": "Office Hours. Simplified.",
+  "hero": {
+    "header": "What We Do",
+    "subheader": "Office hours are too crowded and unorganized. Queue Me In removes the frustration from office hours by helping students get support and professors better understand their class."
+  },
+  "github": "https://github.com/cornell-dti/office-hours",
+  "website": "https://queueme.in",
+  "website-title": "QueueMe.in",
+  "heroStartingColor": "#7D82FF",
+  "heroEndingColor": "#FFFFFF",
+  "heroUseDarkText": false,
+  "features": {
+    "1": {
+      "title": "Pick a Session.",
+      "description": "Browse upcoming office hours by day to pick one that works best for you. You can see whether or not the queue has opened, and how many students have already entered a question!"
+    },
+    "2": {
+      "title": "Add Your Question.",
+      "description": "Join an office hour session! By adding your question, you can secure your place in line without worrying about other students cutting in."
+    },
+    "3": {
+      "title": "View the Queue.",
+      "description": "You can find an opportunity to listen in for a question you also have, or view other questions asked to understand overall problem areas."
+    }
+  }
+}
