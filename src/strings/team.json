@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "header": "Working Together",
+    "subheader": "We are Cornell Design & Tech Initiative. But individually, we are a talented, diverse group of students from different colleges and countries striving to make a difference in our community."
+  },
+  "diversity": {
+    "header": "Diversity",
+    "description": "More than just being inclusive, our team strives to bring as many backgrounds and perspectives together to solve community problems. These statistics come from recruiting across campus and seeking applicants with the best skills and potential for growth on the team. Updated Spring 2019.",
+    "gender": {
+      "header": "Gender Ratio"
+    },
+    "stats": {
+      "underclassmen": {
+        "stat": "58%",
+        "description": "Percentage of underclassmen team members"
+      },
+      "majors": {
+        "stat": "13",
+        "description": "Number of different majors"
+      },
+      "colleges": {
+        "stat": "6",
+        "description": "Number of represented colleges"
+      }
+    }
+  },
+  "team": {
+    "header": "Team"
+  }
+}

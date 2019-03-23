@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "header": "Teaching The Community",
+    "subheader": "A project team is meant, above all, to be a learning experience. Given our mission of community impact, we want to help everyone learn and grow through our training courses in design, technology, and product development."
+  },
+  "content": {
+    "1": {
+      "header": "Trends in Web Development",
+      "subtitle": "Modern Industry-Leading Technologies",
+      "description": "Trends in Web Development is a 2-credit S/U course that showcases modern web development languages and practices used within the industry. We cover technologies like React, Node.js, Heroku deployment, and more, all based on what we use on the team and what leading tech companies use. The course is specifically designed to fill in the gaps of college classes and prepare you for your next project or internship.",
+      "image": "../static/pages/courses/trends.png",
+      "buttons": {
+        "apply": {
+          "title": "Apply",
+          "link": "https://bit.ly/dti-web-dev",
+          "icon": "apply"
+        },
+        "github": {
+          "title": "GitHub",
+          "link": "https://github.com/cornell-dti/web-dev-class-sp19",
+          "icon": "github"
+        }
+      }
+    },
+    "2": {
+      "header": "Blueprint",
+      "subtitle": "Product Development & Management",
+      "description": "Blueprint is a 1-credit S/U course created by Cornell DTI that teaches students how to develop an idea and bring it to life using concepts from product design, product management, and entrepreneurship. Students will work in groups to solve a problem they identify, and then ideate and iterate to create a minimum viable product. We teach what we've learned from our experiences within DTI on a project team, as well as industry experience at leading tech companies.",
+      "image": "../static/pages/courses/blueprint.png",
+      "buttons": {
+        "apply": {
+          "title": "Apply",
+          "link": "https://bit.ly/dti-blueprint",
+          "icon": "apply"
+        }
+      }
+    }
+  }
+}

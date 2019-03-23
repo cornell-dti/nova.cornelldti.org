@@ -1,0 +1,32 @@
+{
+  "name": "O-Week",
+  "id": "orientation",
+  "teamId": "events",
+  "header": "O-Week",
+  "subheader": "Orientation Week. Made Simple.",
+  "hero" : {
+    "header" : "What We Do",
+    "subheader" : "Cornell is big. Orientation week is messy. With O-Week, new students can find orientation week events, keep track of their favorites, and know where and when to go."
+  },
+  "appstore" : "https://itunes.apple.com/us/app/cu-orientation/id1244530142?mt=8",
+  "playstore" : "https://play.google.com/store/apps/details?id=com.cornellsatech.o_week",
+  "ios-github" : "https://github.com/cornell-dti/o-week-ios",
+  "android-github" : "https://github.com/cornell-dti/o-week-android",
+  "heroStartingColor" : "#FF324A",
+  "heroEndingColor" : "#FFFFFF",
+  "heroUseDarkText" : false,
+  "features": {
+    "1": {
+      "title": "Find It.",
+      "description": "Search for new events by keyword."
+    },
+    "2": {
+      "title": "Remind Me.",
+      "description": "Be notified before any events required for your major."
+    },
+    "3": {
+      "title": "Get There.",
+      "description": "Directions to any event are just a tap away."
+    }
+  }
+}
