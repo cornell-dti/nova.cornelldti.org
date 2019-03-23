@@ -1,0 +1,29 @@
+{
+  "name": "Team Website",
+  "id": "website",
+  "teamId": "website",
+  "header": "Team Website",
+  "subheader": "Our Home Online.",
+  "hero" : {
+    "header" : "What We Do",
+    "subheader" : "Building websites is in our DNA, so we wanted to made our own online presence extra special. That’s why we designed and developed everything ourselves, so anyone from students and community members to interested applicants and recruiters can find out more about us."
+  },
+  "github" : "https://github.com/cornell-dti/nova.cornelldti.org",
+  "heroStartingColor" : "#373737",
+  "heroEndingColor" : "#FF324A",
+  "heroUseDarkText" : false,
+  "features": {
+    "1": {
+      "title": "Simple, But Bold.",
+      "description": "All of our feature pages include an autoplaying video to take users inside what it’s like to be a DTI member. Each of our pages follows a consistent design language that conveys the content of the page at a glance. Between each of these features, users are drawn to scroll and experience more of the website and find out more about our team."
+    },
+    "2": {
+      "title": "Showcasing Diversity.",
+      "description": "We especially care about having a diverse team full of unique perspectives, and we wanted to highlight our commitment on our Team page. View our statistics at a glance with our interactive chart visual."
+    },
+    "3": {
+      "title": "Apply Online.",
+      "description": "One of our biggest requests was a dedicated application page for students applying to our team. We made it easy for all interested applicants to find out about the recruitment process year-round."
+    }
+  }
+}
