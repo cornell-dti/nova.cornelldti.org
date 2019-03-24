@@ -53,9 +53,8 @@ export default {
   },
   data() {
     return {
-      
-      Strings: new StringsFrontend('projects.' + this.projectId, SingleBackend)
-    }
+      Strings: new StringsFrontend(`projects.${this.projectId}`, SingleBackend)
+    };
   }
 };
 </script>

@@ -42,9 +42,9 @@ export default {
   },
   components: { HeadshotCard, MemberProfileModal },
   data() {
-    return { 
-      modalShow: false, 
-      currentProfile: {} 
+    return {
+      modalShow: false,
+      currentProfile: {}
     };
   },
   methods: {

@@ -162,7 +162,7 @@ export default {
     check,
     wcheck,
     Gcheck,
-    Pcheck,
+    Pcheck
   },
   computed: {
     items() {

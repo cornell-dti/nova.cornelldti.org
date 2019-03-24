@@ -59,7 +59,7 @@ import Quicklink from '@/components/Quicklink';
 export default {
   components: {
     Quicklink
-  },
+  }
 };
 </script>
 

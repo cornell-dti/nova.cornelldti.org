@@ -31,10 +31,9 @@
 
 
 <script>
-import ProjectGoTo from './ProjectGoTo';
-
 import StringsFrontend from '@/data/strings/strings';
 import SingleBackend from '@/data/strings';
+import ProjectGoTo from './ProjectGoTo';
 
 export default {
   components: { ProjectGoTo },
@@ -50,8 +49,8 @@ export default {
   },
   data() {
     return {
-      Strings: new StringsFrontend('projects.' + this.projectId, SingleBackend)
-    }
+      Strings: new StringsFrontend(`projects.${this.projectId}`, SingleBackend)
+    };
   }
 };
 </script>

@@ -107,7 +107,7 @@ export default {
   data() {
     return {
       Strings: new StringsFrontend(this.page, SingleBackend)
-    }
+    };
   }
 };
 </script>
