@@ -2,9 +2,7 @@ import Vue from 'vue';
 import VueAnalytics from 'vue-analytics';
 import Router from 'vue-router';
 
-import { AsyncHome, AsyncProjects, AsyncTeam, AsyncApply, AsyncCourses, AsyncInitiatives,
-  AsyncSponsor, AsyncNotFound, AsyncEvents, AsyncOrientation, AsyncQueueMeIn,
-  AsyncResearchConnect, AsyncReviews, AsyncSamwise, AsyncShout } from '@/components/AsyncComponents';
+import createAsyncPage from '@/components/AsyncComponents';
 
 import DiversityJson from '@/data/diversity.json';
 
@@ -18,12 +16,12 @@ const dtiRouter = new Router({
   routes: [
     {
       path: '*',
-      component: AsyncNotFound
+      component: createAsyncPage('notfound', () => import('@/pages/NotFound'))
     },
     {
       path: '/',
       name: 'Home',
-      component: AsyncHome
+      component: createAsyncPage('home', () => import('@/pages/Home'))
     },
     {
       path: '/ehub',
@@ -34,55 +32,55 @@ const dtiRouter = new Router({
     {
       path: '/Projects/',
       name: 'Projects',
-      component: AsyncProjects
+      component: createAsyncPage('projects', () => import('@/pages/Projects'))
     },
     { path: '/cue', redirect: '/Projects/events' },
     {
       path: '/Projects/events',
       name: 'Events',
-      component: AsyncEvents
+      component: createAsyncPage('projects.events', () => import('@/pages/projects/Events'))
     },
     {
       path: '/Projects/orientation',
       name: 'Orientation',
-      component: AsyncOrientation
+      component: createAsyncPage('projects.orientation', () => import('@/pages/projects/Orientation'))
     },
     { path: '/Projects/officehours', redirect: '/Projects/queuemein' },
     {
       path: '/Projects/queuemein',
       name: 'QueueMeIn',
-      component: AsyncQueueMeIn
+      component: createAsyncPage('projects.queuemein', () => import('@/pages/projects/QueueMeIn'))
     },
     { path: '/Projects/cureviews', redirect: '/Projects/reviews' },
     {
       path: '/Projects/reviews',
       name: 'Reviews',
-      component: AsyncReviews
+      component: createAsyncPage('projects.reviews', () => import('@/pages/projects/Reviews'))
     },
     {
       path: '/Projects/researchconnect',
       name: 'Research Connect',
-      component: AsyncResearchConnect
+      component: createAsyncPage('projects.researchconnect', () => import('@/pages/projects/ResearchConnect'))
     },
     {
       path: '/Projects/samwise',
       name: 'Samwise',
-      component: AsyncSamwise
+      component: createAsyncPage('projects.samwise', () => import('@/pages/projects/Samwise'))
     },
     {
       path: '/Projects/shout',
       name: 'Shout',
-      component: AsyncShout
+      component: createAsyncPage('projects.shout', () => import('@/pages/projects/Shout'))
     },
     {
       path: '/Initiatives',
       name: 'Initiatives',
-      component: AsyncInitiatives
+      component: createAsyncPage('initiatives', () => import('@/pages/Initiatives'))
     },
     {
       path: '/Team',
       name: 'Team',
-      component: AsyncTeam,
+      component: createAsyncPage('team', () => import('@/pages/Team')),
       props: {
         diversity: DiversityJson
       }
@@ -90,17 +88,17 @@ const dtiRouter = new Router({
     {
       path: '/Sponsor',
       name: 'Sponsor',
-      component: AsyncSponsor
+      component: createAsyncPage('sponsor', () => import('@/pages/Sponsor'))
     },
     {
       path: '/Courses',
       name: 'Courses',
-      component: AsyncCourses
+      component: createAsyncPage('courses', () => import('@/pages/Courses'))
     },
     {
       path: '/Apply',
       name: 'Apply',
-      component: AsyncApply
+      component: createAsyncPage('apply', () => import('@/pages/Apply'))
     }
   ]
 });
