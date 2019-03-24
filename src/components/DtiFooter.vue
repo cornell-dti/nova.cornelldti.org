@@ -18,11 +18,36 @@
           >{{ (Strings.get('footer.prompt', `${page}`) || `Contact Us`) }}</b-button>
         </b-col>
       </b-row>
+      <b-row class="subfooter" align-v="start">
+        <b-col cols="12">
+          <b-row align-h="end" align-v="start" class="subfooter-wrapper">
+            <b-col class="subfooter-col" md="6" sm="12">
+              <div class="subfooter-text subfooter-text-gray">{{`Have a great idea? Let us know!`}}</div>
+              <div class="button-wrapper">
+                <button class="subfooter-button subfooter-button-gray">{{`Contact Us`}}</button>
+              </div>
+            </b-col>
+            <b-col class="subfooter-col" md="6" sm="12">
+              <div
+                class="subfooter-text subfooter-text-red"
+              >{{`Want to learn more about DTI? Sign up for our newsletter!`}}</div>
+              <div class="button-wrapper">
+                <button class="subfooter-button subfooter-button-red">{{`Subscribe`}}</button>
+              </div>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
       <b-row class="footer" align-v="start">
         <b-col cols="12">
           <b-row align-h="start" align-v="start">
+            <b-col sm="12" md="6">
+              <b-row align-h="start">
+                <img class="brand" :src="Strings.get('branding.wordmark', 'assets')">
+              </b-row>
+            </b-col>
             <b-col md="6" sm="12">
-              <b-row class="social-icons">
+              <b-row class="social-icons" align-h="end">
                 <b-col cols="auto">
                   <a href="https://www.facebook.com/cornelldti/">
                     <Facebook class="social-icon social-icon-blank"/>
@@ -54,23 +79,18 @@
                 </b-col>
               </b-row>
             </b-col>
-            <b-col sm="12" md="6" class="my-auto">
-              <b-row align-h="end" align-v="end">
-                <b-col>
-                  <div class="copyright">
-                    &copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
-                    Initiative
-                  </div>
-                  <div class="attribution">Made with love in Ithaca</div>
-                </b-col>
-              </b-row>
-            </b-col>
+            <b-row align-h="end" class="bottom">
+              <div class="copyright">
+                &copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
+                Initiative
+              </div>
+              <div class="attribution">
+                {{`Made with`}}
+                <Heart class="heart" alt="love"/>
+                {{` in Ithaca`}}
+              </div>
+            </b-row>
           </b-row>
-        </b-col>
-      </b-row>
-      <b-row align-v="end" align-h="center" class="footer-graphic">
-        <b-col md="10" sm="11">
-          <Footer class="graphic"/>
         </b-col>
       </b-row>
     </b-container>
@@ -84,7 +104,7 @@ import Github from '@/assets/social/github.svg';
 import GooglePlay from '@/assets/social/google-play.svg';
 import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
-import Footer from '@/assets/footer/footer.svg';
+import Heart from '@/assets/footer/heart.svg';
 
 export default {
   components: {
@@ -94,7 +114,7 @@ export default {
     Github,
     GooglePlay,
     Medium,
-    Footer
+    Heart
   },
   props: {
     page: {
@@ -105,6 +125,58 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.subfooter {
+  margin-bottom: 20px;
+}
+.subfooter-col {
+  text-align: center;
+
+  &:first-of-type {
+    border-right: 2px solid #6b6b6b;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.subfooter-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.subfooter-text {
+  font-weight: 600;
+  color: #4f4f4f;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  margin-bottom: 20px;
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+
+  &-red {
+    color: #c93b4c;
+  }
+}
+
+.subfooter-button {
+  border-radius: 10px;
+  background: #505050;
+  color: white;
+  min-width: 125px;
+  min-height: 40px;
+
+  &-red {
+    background: #c93b4c;
+  }
+}
+
 .contact-us {
   min-height: 20vh;
   padding: 2vw 2rem 6vw;
@@ -126,16 +198,6 @@ export default {
 
   .contact-us-button {
     margin-top: 1.2rem;
-  }
-}
-
-.footer-graphic {
-  background-color: #4a4a4a;
-  overflow: hidden;
-
-  .graphic {
-    object-fit: contain;
-    width: 100%;
   }
 }
 
@@ -185,12 +247,21 @@ export default {
     }
   }
 
+  .copyright {
+    padding-right: 10px;
+    border-right: 1px solid white;
+  }
+
+  .attribution {
+    padding-left: 10px;
+  }
+
   .copyright,
   .attribution {
-    margin-top: 0.25rem;
+    display: inline;
     color: rgb(255, 255, 255);
-    font-size: 1.125rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 300;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
@@ -215,6 +286,11 @@ export default {
     .statement {
       display: none;
     }
+  }
+
+  .bottom {
+    margin-top: 30px;
+    width: 100%;
   }
 
   .wordmark {
