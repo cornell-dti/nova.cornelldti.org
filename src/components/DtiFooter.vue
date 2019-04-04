@@ -47,18 +47,18 @@
               </b-row>
             </b-col>
             <b-col md="6" sm="12">
-              <b-row class="social-icons" align-h="end">
-                <b-col cols="auto">
+              <b-row class="social-icons">
+                <b-col cols="auto" class="social-icon-wrapper">
                   <a href="https://www.facebook.com/cornelldti/">
                     <Facebook class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
-                <b-col cols="auto">
+                <b-col cols="auto" class="social-icon-wrapper">
                   <a href="https://github.com/cornell-dti/">
                     <Github class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
-                <b-col cols="auto">
+                <b-col cols="auto" class="social-icon-wrapper">
                   <a
                     href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative"
                   >
@@ -66,13 +66,13 @@
                   </a>
                 </b-col>
 
-                <b-col cols="auto">
+                <b-col cols="auto" class="social-icon-wrapper">
                   <a href="http://appstore.com/cornelldti">
                     <!--TODO get the actual link-->
                     <AppStore class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
-                <b-col cols="auto">
+                <b-col cols="auto" class="social-icon-wrapper">
                   <a href="https://medium.com/cornell-design-tech-initiative/">
                     <Medium class="social-icon social-icon-blank"/>
                   </a>
@@ -126,13 +126,15 @@ export default {
 
 <style lang="scss" scoped>
 .subfooter {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: 24px;
 }
+
 .subfooter-col {
   text-align: center;
 
   &:first-of-type {
-    border-right: 2px solid #6b6b6b;
+    border-right: 5px solid #6b6b6b;
     height: 100%;
     width: 50%;
     position: absolute;
@@ -147,7 +149,6 @@ export default {
 .subfooter-wrapper {
   overflow: hidden;
   position: relative;
-  width: 100%;
 }
 
 .subfooter-text {
@@ -156,7 +157,7 @@ export default {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-align: center;
   margin-bottom: 20px;
-  max-width: 75%;
+  max-width: 400px;
   margin-left: auto;
   margin-right: auto;
 
@@ -166,14 +167,17 @@ export default {
 }
 
 .subfooter-button {
-  border-radius: 10px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  border: 4px solid #505050;
   background: #505050;
   color: white;
-  min-width: 125px;
-  min-height: 40px;
+  min-width: 220px;
+  min-height: 65px;
 
   &-red {
     background: #c93b4c;
+    border: 4px solid #c93b4c;
   }
 }
 
@@ -207,10 +211,15 @@ export default {
   }
 }
 
+.brand {
+  max-height: 110px;
+}
+
 .footer {
+  font-size: 24px;
   background-color: #4a4a4a;
   margin-top: auto;
-  padding: 2rem 3rem;
+  padding: 45px 30px 15px 30px;
   min-height: 20vh;
 
   @media (max-width: 767px) {
@@ -249,24 +258,28 @@ export default {
 
   .copyright {
     padding-right: 10px;
-    border-right: 1px solid white;
+    border-right: 3px solid white;
   }
 
   .attribution {
     padding-left: 10px;
+    margin-right: -15px;
   }
 
   .copyright,
   .attribution {
     display: inline;
     color: rgb(255, 255, 255);
-    font-size: 1rem;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: 0.3px;
     text-align: right;
+  }
+
+  .heart {
+    margin-bottom: 2.5px;
   }
 
   @media (max-width: 767px) {
@@ -289,7 +302,7 @@ export default {
   }
 
   .bottom {
-    margin-top: 30px;
+    margin-top: 90px;
     width: 100%;
   }
 
@@ -320,10 +333,19 @@ export default {
   }
 }
 
+.social-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .social-icon {
-  width: 2rem;
-  height: 2rem;
-  margin-left: 0.2rem;
+  width: 55px;
+  height: 55px;
+  padding: 0;
+
+  &-wrapper {
+    padding: 0;
+  }
 
   @media (max-width: 767px) {
     margin-top: 0.5rem;
