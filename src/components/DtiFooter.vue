@@ -40,13 +40,13 @@
       </b-row>
       <b-row class="footer" align-v="start">
         <b-col cols="12">
-          <b-row align-h="start" align-v="start">
+          <b-row class="footer-row" align-v="start">
             <b-col sm="12" md="6">
               <b-row align-h="start">
                 <img class="brand" :src="Strings.get('branding.wordmark', 'assets')">
               </b-row>
             </b-col>
-            <b-col md="6" sm="12">
+            <b-col md="6" sm="12" class="social-icons-wrapper">
               <b-row class="social-icons">
                 <b-col cols="auto" class="social-icon-wrapper">
                   <a href="https://www.facebook.com/cornelldti/">
@@ -59,13 +59,10 @@
                   </a>
                 </b-col>
                 <b-col cols="auto" class="social-icon-wrapper">
-                  <a
-                    href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative"
-                  >
-                    <GooglePlay class="social-icon social-icon-blank"/>
+                  <a href="https://medium.com/cornell-design-tech-initiative/">
+                    <Medium class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
-
                 <b-col cols="auto" class="social-icon-wrapper">
                   <a href="http://appstore.com/cornelldti">
                     <!--TODO get the actual link-->
@@ -73,8 +70,10 @@
                   </a>
                 </b-col>
                 <b-col cols="auto" class="social-icon-wrapper">
-                  <a href="https://medium.com/cornell-design-tech-initiative/">
-                    <Medium class="social-icon social-icon-blank"/>
+                  <a
+                    href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative"
+                  >
+                    <GooglePlay class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
               </b-row>
@@ -84,6 +83,7 @@
                 &copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
                 Initiative
               </div>
+              <span class="divider"></span>
               <div class="attribution">
                 {{`Made with`}}
                 <Heart class="heart" alt="love"/>
@@ -154,10 +154,9 @@ export default {
 .subfooter-text {
   font-weight: 600;
   color: #4f4f4f;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-align: center;
   margin-bottom: 20px;
-  max-width: 400px;
+  max-width: 350px;
   margin-left: auto;
   margin-right: auto;
 
@@ -212,18 +211,22 @@ export default {
 }
 
 .brand {
-  max-height: 110px;
+  max-height: 85px;
 }
 
 .footer {
   font-size: 24px;
   background-color: #4a4a4a;
   margin-top: auto;
-  padding: 45px 30px 15px 30px;
+  padding: 45px 45px 15px 45px;
   min-height: 20vh;
 
   @media (max-width: 767px) {
     padding: 2rem 0.5rem;
+  }
+
+  .footer-row {
+    justify-content: space-between;
   }
 
   .find-us {
@@ -258,12 +261,20 @@ export default {
 
   .copyright {
     padding-right: 10px;
-    border-right: 3px solid white;
   }
 
   .attribution {
     padding-left: 10px;
     margin-right: -15px;
+  }
+
+  .divider {
+    display: inline-block;
+    width: 0;
+    margin-top: 6px;
+    height: 18px;
+    border-left: 1.5px solid #fff;
+    border-right: 1.5px solid #fff;
   }
 
   .copyright,
@@ -280,6 +291,8 @@ export default {
 
   .heart {
     margin-bottom: 2.5px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   @media (max-width: 767px) {
@@ -336,6 +349,11 @@ export default {
 .social-icons {
   display: flex;
   justify-content: space-between;
+}
+
+.social-icons-wrapper {
+  min-width: 400px;
+  max-width: 500px;
 }
 
 .social-icon {
