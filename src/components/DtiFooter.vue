@@ -124,12 +124,13 @@ export default {
 
 <style lang="scss" scoped>
 .subfooter {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 24px;
 }
 
 .subfooter-col {
   text-align: center;
+  padding-bottom: 30px;
 
   &:first-of-type {
     border-right: 5px solid #6b6b6b;
@@ -164,13 +165,15 @@ export default {
 }
 
 .subfooter-button {
-  border-radius: 20px;
+  border-radius: 12px;
   box-sizing: border-box;
   border: 4px solid #505050;
   background: #505050;
   color: white;
-  min-width: 220px;
-  min-height: 65px;
+  min-width: 170px;
+  min-height: 50px;
+  font-weight: 600;
+  font-size: 24px;
 
   &-red {
     background: #c93b4c;
