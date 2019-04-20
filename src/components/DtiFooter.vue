@@ -21,13 +21,13 @@
       <b-row class="subfooter" align-v="start">
         <b-col cols="12">
           <b-row align-h="end" align-v="start" class="subfooter-wrapper">
-            <b-col class="subfooter-col" md="6" sm="12">
+            <b-col class="subfooter-col" md="6" sm="6">
               <div class="subfooter-text subfooter-text-gray">{{`Have a great idea?`}}</div>
               <div class="button-wrapper">
                 <button class="subfooter-button subfooter-button-gray">{{`Contact Us`}}</button>
               </div>
             </b-col>
-            <b-col class="subfooter-col" md="6" sm="12">
+            <b-col class="subfooter-col" md="6" sm="6">
               <div class="subfooter-text subfooter-text-red">{{`Sign up for our newsletter!`}}</div>
               <div class="button-wrapper">
                 <button class="subfooter-button subfooter-button-red">{{`Subscribe`}}</button>
@@ -85,7 +85,8 @@
             <span class="divider"></span>
             <div class="attribution">
               {{`Made with`}}
-              <Heart class="heart" alt="love"/>
+              <Heart class="heart-desktop" alt="love"/>
+              <HeartMobile class="heart-mobile" alt="love"/>
               {{` in Ithaca`}}
             </div>
           </b-row>
@@ -103,6 +104,7 @@ import GooglePlay from '@/assets/social/google-play.svg';
 import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
 import Heart from '@/assets/footer/heart.svg';
+import HeartMobile from '@/assets/footer/heart-mobile.svg';
 
 export default {
   components: {
@@ -112,7 +114,8 @@ export default {
     Github,
     GooglePlay,
     Medium,
-    Heart
+    Heart,
+    HeartMobile
   },
   props: {
     page: {
@@ -124,16 +127,25 @@ export default {
 
 <style lang="scss" scoped>
 .subfooter {
-  margin-bottom: 20px;
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+  }
   font-size: 24px;
 }
 
 .subfooter-col {
+  @media (max-width: 767px) {
+    padding: 0;
+  }
+
   text-align: center;
   padding-bottom: 30px;
 
   &:first-of-type {
-    border-right: 5px solid #6b6b6b;
+    @media (min-width: 768px) {
+      border-right: 5px solid #6b6b6b;
+    }
+
     height: 100%;
     width: 50%;
     position: absolute;
@@ -162,6 +174,10 @@ export default {
   &-red {
     color: #c93b4c;
   }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .subfooter-button {
@@ -174,6 +190,14 @@ export default {
   min-height: 50px;
   font-weight: 600;
   font-size: 24px;
+
+  @media (max-width: 767px) {
+    background: #6f6f6f;
+    height: 95px;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+  }
 
   &-red {
     background: #c93b4c;
@@ -213,6 +237,11 @@ export default {
 
 .brand {
   max-height: 110px;
+  @media (max-width: 767px) {
+    max-height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .footer {
@@ -220,10 +249,9 @@ export default {
   background-color: #4a4a4a;
   margin-top: auto;
   padding: 40px 40px 40px 40px;
-  min-height: 20vh;
 
   @media (max-width: 767px) {
-    padding: 2rem 0.5rem;
+    padding: 1rem 0.5rem;
   }
 
   .footer-row {
@@ -252,21 +280,21 @@ export default {
     }
   }
 
-  @media (max-width: 767px) {
-    .row {
-      margin: 0.5rem;
-      justify-content: center !important;
-      text-align: center;
+  .copyright {
+    padding-right: 10px;
+
+    @media (max-width: 767px) {
+      order: 1;
+      margin-top: 20px;
     }
   }
 
-  .copyright {
-    padding-right: 10px;
-  }
-
   .attribution {
-    padding-left: 10px;
-    margin-right: -15px;
+    @media (min-width: 768px) {
+      padding-left: 10px;
+      margin-right: -15px;
+      margin-top: 0;
+    }
   }
 
   .divider {
@@ -276,6 +304,10 @@ export default {
     height: 18px;
     border-left: 1.5px solid #fff;
     border-right: 1.5px solid #fff;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 
   .copyright,
@@ -288,19 +320,38 @@ export default {
     line-height: normal;
     letter-spacing: 0.3px;
     text-align: right;
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
   }
 
-  .heart {
+  .heart-desktop {
     margin-bottom: 2.5px;
     margin-left: 5px;
     margin-right: 5px;
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .heart-mobile {
+    margin-bottom: 2.5px;
+    margin-left: 2px;
+    margin-right: 2px;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
   }
 
   @media (max-width: 767px) {
     .copyright,
     .attribution {
       text-align: center;
-      margin-top: 2rem;
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
     }
   }
 
@@ -316,9 +367,13 @@ export default {
   }
 
   .bottom {
-    margin-top: 90px;
+    @media (max-width: 768px) {
+      margin-top: 0;
+      justify-content: center !important;
+    }
     width: 100%;
     margin-left: 0;
+    margin-top: 90px;
   }
 
   .wordmark {
@@ -340,22 +395,24 @@ export default {
   }
 }
 
-@media (max-width: 767px) {
-  .social-icons {
-    div {
-      flex-basis: 33.3%;
-    }
-  }
-}
-
 .social-icons {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 767px) {
+    max-width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
 }
 
 .social-icons-wrapper {
-  min-width: 400px;
-  max-width: 450px;
+  @media (min-width: 768px) {
+    min-width: 400px;
+    max-width: 450px;
+  }
 }
 
 .social-icon {
@@ -368,8 +425,8 @@ export default {
   }
 
   @media (max-width: 767px) {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    width: 18px;
+    height: 18px;
   }
 
   &.social-icon-blank {
