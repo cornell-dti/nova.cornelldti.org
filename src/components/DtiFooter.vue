@@ -22,15 +22,13 @@
         <b-col cols="12">
           <b-row align-h="end" align-v="start" class="subfooter-wrapper">
             <b-col class="subfooter-col" md="6" sm="12">
-              <div class="subfooter-text subfooter-text-gray">{{`Have a great idea? Let us know!`}}</div>
+              <div class="subfooter-text subfooter-text-gray">{{`Have a great idea?`}}</div>
               <div class="button-wrapper">
                 <button class="subfooter-button subfooter-button-gray">{{`Contact Us`}}</button>
               </div>
             </b-col>
             <b-col class="subfooter-col" md="6" sm="12">
-              <div
-                class="subfooter-text subfooter-text-red"
-              >{{`Want to learn more about DTI? Sign up for our newsletter!`}}</div>
+              <div class="subfooter-text subfooter-text-red">{{`Sign up for our newsletter!`}}</div>
               <div class="button-wrapper">
                 <button class="subfooter-button subfooter-button-red">{{`Subscribe`}}</button>
               </div>
@@ -40,7 +38,7 @@
       </b-row>
       <b-row class="footer" align-v="start">
         <b-col cols="12">
-          <b-row class="footer-row" align-v="start">
+          <b-row class="footer-row" align-v="center">
             <b-col sm="12" md="6">
               <b-row align-h="start">
                 <img class="brand" :src="Strings.get('branding.wordmark', 'assets')">
@@ -78,18 +76,18 @@
                 </b-col>
               </b-row>
             </b-col>
-            <b-row align-h="end" class="bottom">
-              <div class="copyright">
-                &copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
-                Initiative
-              </div>
-              <span class="divider"></span>
-              <div class="attribution">
-                {{`Made with`}}
-                <Heart class="heart" alt="love"/>
-                {{` in Ithaca`}}
-              </div>
-            </b-row>
+          </b-row>
+          <b-row align-h="end" class="bottom">
+            <div class="copyright">
+              &copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
+              Initiative
+            </div>
+            <span class="divider"></span>
+            <div class="attribution">
+              {{`Made with`}}
+              <Heart class="heart" alt="love"/>
+              {{` in Ithaca`}}
+            </div>
           </b-row>
         </b-col>
       </b-row>
@@ -211,14 +209,14 @@ export default {
 }
 
 .brand {
-  max-height: 85px;
+  max-height: 110px;
 }
 
 .footer {
   font-size: 24px;
   background-color: #4a4a4a;
   margin-top: auto;
-  padding: 45px 45px 15px 45px;
+  padding: 40px 40px 40px 40px;
   min-height: 20vh;
 
   @media (max-width: 767px) {
@@ -317,6 +315,7 @@ export default {
   .bottom {
     margin-top: 90px;
     width: 100%;
+    margin-left: 0;
   }
 
   .wordmark {
@@ -353,12 +352,12 @@ export default {
 
 .social-icons-wrapper {
   min-width: 400px;
-  max-width: 500px;
+  max-width: 450px;
 }
 
 .social-icon {
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   padding: 0;
 
   &-wrapper {
