@@ -1,37 +1,23 @@
 <template>
   <div>
     <b-container fluid class="h-100">
-      <b-row
-        v-if="Strings.exists('footer', `${page}`)"
-        class="contact-us"
-        align-h="center"
-        align-v="center"
-      >
-        <b-col sm="12" md="auto" align-self="center">
-          <div class="contact-us-prompt">
-            {{ (Strings.get('footer.prompt', `${page}`) || `Have a question or a great idea?
-            Let us know!`) }}
-          </div>
-          <b-button
-            :href="(Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org')"
-            class="contact-us-button"
-          >{{ (Strings.get('footer.prompt', `${page}`) || `Contact Us`) }}</b-button>
-        </b-col>
-      </b-row>
       <b-row class="subfooter" align-v="start">
         <b-col cols="12">
           <b-row align-h="end" align-v="start" class="subfooter-wrapper">
             <b-col class="subfooter-col" md="6" sm="6">
               <div class="subfooter-text subfooter-text-gray">{{`Have a great idea?`}}</div>
-              <div class="button-wrapper">
+              <a
+                class="button-wrapper"
+                :href="(Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org')"
+              >
                 <button class="subfooter-button subfooter-button-gray">{{`Contact Us`}}</button>
-              </div>
+              </a>
             </b-col>
             <b-col class="subfooter-col" md="6" sm="6">
               <div class="subfooter-text subfooter-text-red">{{`Sign up for our newsletter!`}}</div>
-              <div class="button-wrapper">
+              <a class="button-wrapper">
                 <button class="subfooter-button subfooter-button-red">{{`Subscribe`}}</button>
-              </div>
+              </a>
             </b-col>
           </b-row>
         </b-col>
@@ -39,12 +25,12 @@
       <b-row class="footer" align-v="start">
         <b-col cols="12">
           <b-row class="footer-row" align-v="center">
-            <b-col sm="12" md="6">
+            <b-col md="12" lg="6">
               <b-row align-h="start">
                 <img class="brand" :src="Strings.get('branding.wordmark', 'assets')">
               </b-row>
             </b-col>
-            <b-col md="6" sm="12" class="social-icons-wrapper">
+            <b-col md="12" lg="6" class="social-icons-wrapper">
               <b-row class="social-icons">
                 <b-col cols="auto" class="social-icon-wrapper">
                   <a href="https://www.facebook.com/cornelldti/">
@@ -127,33 +113,33 @@ export default {
 
 <style lang="scss" scoped>
 .subfooter {
-  @media (min-width: 768px) {
+  @media (min-width: 993px) {
     margin-bottom: 20px;
   }
   font-size: 24px;
 }
 
 .subfooter-col {
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     padding: 0;
   }
 
   text-align: center;
   padding-bottom: 30px;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &:first-of-type {
-    @media (min-width: 768px) {
+    @media (min-width: 993px) {
       border-right: 5px solid #6b6b6b;
     }
 
-    height: 100%;
-    width: 50%;
     position: absolute;
     left: 0;
     top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 }
 
@@ -175,23 +161,26 @@ export default {
     color: #c93b4c;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     display: none;
   }
 }
 
 .subfooter-button {
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
   border-radius: 12px;
   box-sizing: border-box;
-  border: 4px solid #505050;
   background: #505050;
   color: white;
-  min-width: 170px;
-  min-height: 50px;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 1.5rem;
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     background: #6f6f6f;
     height: 95px;
     width: 100%;
@@ -201,7 +190,6 @@ export default {
 
   &-red {
     background: #c93b4c;
-    border: 4px solid #c93b4c;
   }
 }
 
@@ -229,15 +217,15 @@ export default {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .mobile-reversed {
     flex-direction: column-reverse;
   }
 }
 
 .brand {
-  max-height: 110px;
-  @media (max-width: 767px) {
+  max-height: 90px;
+  @media (max-width: 992px) {
     max-height: 40px;
     margin-left: auto;
     margin-right: auto;
@@ -250,7 +238,7 @@ export default {
   margin-top: auto;
   padding: 40px 40px 40px 40px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     padding: 1rem 0.5rem;
   }
 
@@ -268,12 +256,12 @@ export default {
     color: #ffffff;
     text-align: left;
 
-    @media (min-width: 768px) {
+    @media (min-width: 993px) {
       padding-bottom: 3.125rem;
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     .find-us {
       align-self: center;
       text-align: center;
@@ -283,14 +271,14 @@ export default {
   .copyright {
     padding-right: 10px;
 
-    @media (max-width: 767px) {
+    @media (max-width: 992px) {
       order: 1;
       margin-top: 20px;
     }
   }
 
   .attribution {
-    @media (min-width: 768px) {
+    @media (min-width: 993px) {
       padding-left: 10px;
       margin-right: -15px;
       margin-top: 0;
@@ -305,7 +293,7 @@ export default {
     border-left: 1.5px solid #fff;
     border-right: 1.5px solid #fff;
 
-    @media (max-width: 767px) {
+    @media (max-width: 992px) {
       display: none;
     }
   }
@@ -314,14 +302,14 @@ export default {
   .attribution {
     display: inline;
     color: rgb(255, 255, 255);
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: 0.3px;
     text-align: right;
 
-    @media (max-width: 767px) {
+    @media (max-width: 992px) {
       font-size: 14px;
     }
   }
@@ -330,7 +318,7 @@ export default {
     margin-bottom: 2.5px;
     margin-left: 5px;
     margin-right: 5px;
-    @media (max-width: 767px) {
+    @media (max-width: 992px) {
       display: none;
     }
   }
@@ -340,12 +328,12 @@ export default {
     margin-left: 2px;
     margin-right: 2px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 993px) {
       display: none;
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     .copyright,
     .attribution {
       text-align: center;
@@ -360,14 +348,14 @@ export default {
     color: rgba(255, 255, 255, 0.7);
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     .statement {
       display: none;
     }
   }
 
   .bottom {
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       margin-top: 0;
       justify-content: center !important;
     }
@@ -387,7 +375,7 @@ export default {
     text-align: right;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     .wordmark-container {
       display: none;
       // text-align: center;
@@ -399,7 +387,7 @@ export default {
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     max-width: 160px;
     margin-left: auto;
     margin-right: auto;
@@ -409,7 +397,7 @@ export default {
 }
 
 .social-icons-wrapper {
-  @media (min-width: 768px) {
+  @media (min-width: 993px) {
     min-width: 400px;
     max-width: 450px;
   }
@@ -424,7 +412,7 @@ export default {
     padding: 0;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 992px) {
     width: 18px;
     height: 18px;
   }
