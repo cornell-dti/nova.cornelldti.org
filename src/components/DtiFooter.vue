@@ -226,7 +226,7 @@ export default {
 .brand {
   max-height: 90px;
   @media (max-width: 992px) {
-    max-height: 40px;
+    max-height: 32px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -273,7 +273,7 @@ export default {
 
     @media (max-width: 992px) {
       order: 1;
-      margin-top: 20px;
+      margin-top: 19px;
     }
   }
 
