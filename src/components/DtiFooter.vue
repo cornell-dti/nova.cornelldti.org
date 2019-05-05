@@ -116,7 +116,7 @@ export default {
   @media (min-width: 993px) {
     margin-bottom: 20px;
   }
-  font-size: 24px;
+  font-size: 2.5rem;
 }
 
 .subfooter-col {
@@ -125,7 +125,8 @@ export default {
   }
 
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
   height: 100%;
   width: 50%;
   display: flex;
@@ -153,7 +154,6 @@ export default {
   color: #4f4f4f;
   text-align: center;
   margin-bottom: 20px;
-  max-width: 350px;
   margin-left: auto;
   margin-right: auto;
 
@@ -224,16 +224,18 @@ export default {
 }
 
 .brand {
-  max-height: 90px;
+  max-height: 5.5rem;
   @media (max-width: 992px) {
-    max-height: 32px;
+    max-height: 3.5rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
   }
 }
 
 .footer {
-  font-size: 24px;
+  font-size: 1.5rem;
   background-color: #4a4a4a;
   margin-top: auto;
   padding: 40px 40px 40px 40px;
@@ -273,7 +275,6 @@ export default {
 
     @media (max-width: 992px) {
       order: 1;
-      margin-top: 19px;
     }
   }
 
@@ -310,7 +311,8 @@ export default {
     text-align: right;
 
     @media (max-width: 992px) {
-      font-size: 14px;
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
     }
   }
 
@@ -388,11 +390,9 @@ export default {
   justify-content: space-between;
 
   @media (max-width: 992px) {
-    max-width: 160px;
+    max-width: 18rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10px;
-    margin-top: 10px;
   }
 }
 
@@ -404,8 +404,8 @@ export default {
 }
 
 .social-icon {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   padding: 0;
 
   &-wrapper {
@@ -413,8 +413,8 @@ export default {
   }
 
   @media (max-width: 992px) {
-    width: 18px;
-    height: 18px;
+    width: 2.25rem;
+    height: 2.25rem;
   }
 
   &.social-icon-blank {
