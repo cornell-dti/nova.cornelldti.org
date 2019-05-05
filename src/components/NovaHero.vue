@@ -67,7 +67,6 @@ $height: 65vh;
 
 
 <script>
-
 export default {
   props: {
     page: {

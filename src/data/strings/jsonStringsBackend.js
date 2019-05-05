@@ -112,8 +112,10 @@ export default class JSONStringsBackend extends StringsBackend {
         return json;
       }
       const AssetsJSON = JSONMap.assets;
-      if (context === 'assets' && AssetsJSON) { // TODO should we error out if null?
+      if (context === 'assets' && AssetsJSON) {
         return `/static${searchKey(key, AssetsJSON)}`;
+      } else if (context === 'assets') {
+        throw new Error('No assets JSON initialized');
       }
 
       return searchKey(key, json);

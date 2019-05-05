@@ -4,8 +4,6 @@
     <div class="page-stack">
       <router-view/>
     </div>
-    <!-- Load low quality heros before pages are loaded -->
-
   </div>
 </template>
 

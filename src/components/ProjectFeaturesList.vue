@@ -4,15 +4,14 @@
     <b-row align-v="center" class="mobile-space">
       <b-col md="7">
         <div class="feature-header" id="mobile">{{Strings.get(`features.1.title`)}}</div>
-        <b-img class="product" :src="AssetStrings.get(`projects.${projectId}.features.1`)"
-        />
+        <b-img class="product" :src="AssetStrings.get(`projects.${projectId}.features.1`)"/>
       </b-col>
       <b-col md="5">
         <div class="feature-header" id="hide">{{Strings.get(`features.1.title`)}}</div>
         <div class="project-description">{{Strings.get(`features.1.description`)}}</div>
       </b-col>
     </b-row>
-    <b-row class="feature-padding" />
+    <b-row class="feature-padding"/>
     <b-row align-v="center" class="mobile-space">
       <b-col md="5" class="switch1">
         <div class="feature-header" id="hide">{{Strings.get(`features.2.title`)}}</div>
@@ -20,16 +19,14 @@
       </b-col>
       <b-col md="7" class="switch2">
         <div class="feature-header" id="mobile">{{Strings.get(`features.2.title`)}}</div>
-        <b-img class="product" :src="AssetStrings.get(`projects.${projectId}.features.2`)"
-        />
+        <b-img class="product" :src="AssetStrings.get(`projects.${projectId}.features.2`)"/>
       </b-col>
     </b-row>
-    <b-row class="feature-padding" />
+    <b-row class="feature-padding"/>
     <b-row align-v="center" class="mobile-space">
       <b-col md="7">
         <div class="feature-header" id="mobile">{{Strings.get(`features.3.title`)}}</div>
-        <b-img class="product" :src="AssetStrings.get(`projects.${projectId}.features.3`)"
-        />
+        <b-img class="product" :src="AssetStrings.get(`projects.${projectId}.features.3`)"/>
       </b-col>
       <b-col md="5">
         <div class="feature-header" id="hide">{{Strings.get(`features.3.title`)}}</div>
@@ -40,7 +37,6 @@
 </template>
 
 <script>
-
 import StringsFrontend from '@/data/strings/strings';
 import SingleBackend from '@/data/strings';
 
@@ -95,7 +91,7 @@ export default {
 }
 
 .project-description {
-  order:3;
+  order: 3;
   font-size: 1.5rem;
   font-weight: normal;
   font-style: normal;
@@ -106,7 +102,7 @@ export default {
 }
 
 .feature-header {
-  order:2;
+  order: 2;
   padding-bottom: 1.25rem;
   font-size: 2.25rem;
   font-weight: 600;
@@ -118,7 +114,7 @@ export default {
 }
 
 .product {
-  order:1;
+  order: 1;
   max-width: 100%;
   object-fit: contain;
 }
@@ -127,34 +123,34 @@ export default {
   margin: 3vh;
 }
 
-#mobile{
-  display:none;
+#mobile {
+  display: none;
 }
 
 @media (max-width: 767px) {
-  .product{
-    margin-top:10%;
-    margin-bottom:10%;
+  .product {
+    margin-top: 10%;
+    margin-bottom: 10%;
   }
 
-  #hide{
-    display:none;
+  #hide {
+    display: none;
   }
 
-  #mobile{
-    display:unset;
+  #mobile {
+    display: unset;
   }
 
-  .mobile-space{
-    margin-top:20%;
+  .mobile-space {
+    margin-top: 20%;
   }
 
-  .switch1{
-    order:2;
+  .switch1 {
+    order: 2;
   }
 
-  .switch2{
-    order:1;
+  .switch2 {
+    order: 1;
   }
 }
 </style>

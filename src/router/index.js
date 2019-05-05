@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueAnalytics from 'vue-analytics';
 import Router from 'vue-router';
 
-import createAsyncPage from '@/components/AsyncComponents';
+import createAsyncPage from '@/AsyncComponents';
 
 import DiversityJson from '@/data/diversity.json';
 
