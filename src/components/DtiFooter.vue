@@ -114,9 +114,9 @@ export default {
 <style lang="scss" scoped>
 .subfooter {
   @media (min-width: 993px) {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
   }
-  font-size: 2.5rem;
+  font-size: 2.25rem;
 }
 
 .subfooter-col {
@@ -153,7 +153,7 @@ export default {
   font-weight: 600;
   color: #4f4f4f;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   margin-left: auto;
   margin-right: auto;
 
@@ -182,7 +182,7 @@ export default {
 
   @media (max-width: 992px) {
     background: #6f6f6f;
-    height: 95px;
+    height: 6rem;
     width: 100%;
     border-radius: 0;
     border: none;
@@ -229,7 +229,7 @@ export default {
     max-height: 3.5rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     margin-top: 2rem;
   }
 }
@@ -238,7 +238,7 @@ export default {
   font-size: 1.5rem;
   background-color: #4a4a4a;
   margin-top: auto;
-  padding: 40px 40px 40px 40px;
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
 
   @media (max-width: 992px) {
     padding: 1rem 0.5rem;
@@ -271,7 +271,7 @@ export default {
   }
 
   .copyright {
-    padding-right: 10px;
+    padding-right: .75rem;
 
     @media (max-width: 992px) {
       order: 1;
@@ -280,8 +280,8 @@ export default {
 
   .attribution {
     @media (min-width: 993px) {
-      padding-left: 10px;
-      margin-right: -15px;
+      padding-left: .75rem;
+      margin-right: -1rem;
       margin-top: 0;
     }
   }
@@ -289,8 +289,8 @@ export default {
   .divider {
     display: inline-block;
     width: 0;
-    margin-top: 6px;
-    height: 18px;
+    margin-top: .5rem;
+    height: 1rem;
     border-left: 1.5px solid #fff;
     border-right: 1.5px solid #fff;
 
@@ -317,18 +317,18 @@ export default {
   }
 
   .heart-desktop {
-    margin-bottom: 2.5px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-bottom: .25rem;
+    margin-left: .25rem;
+    margin-right: .25rem;
     @media (max-width: 992px) {
       display: none;
     }
   }
 
   .heart-mobile {
-    margin-bottom: 2.5px;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-bottom: .25rem;
+    margin-left: .2rem;
+    margin-right: .2rem;
 
     @media (min-width: 993px) {
       display: none;
@@ -398,8 +398,8 @@ export default {
 
 .social-icons-wrapper {
   @media (min-width: 993px) {
-    min-width: 400px;
-    max-width: 450px;
+    min-width: 25rem;
+    max-width: 28rem;
   }
 }
 
