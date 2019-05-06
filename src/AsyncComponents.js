@@ -1,10 +1,11 @@
 import StringsFrontend from '@/data/strings/strings';
 import SingleBackend from '@/data/strings';
 import ErrorComponent from '@/components/ErrorComponent';
+import LoadingComponent from '@/components/LoadingComponent';
 
 function createAsyncPage(context, pageName) {
   const StringInstance = new StringsFrontend(context, SingleBackend);
-  return () => ({
+  const AsyncHandler = () => ({
     component: StringInstance.initialize()
       .then(() => pageName())
       .then(cmp => ({
@@ -13,10 +14,16 @@ function createAsyncPage(context, pageName) {
           return { Strings: StringInstance };
         }
       })),
-    loading: ErrorComponent, // TODO
-    error: ErrorComponent, // TODO
-    delay: 0,
-    timeout: 0 // The error component will be displayed if a timeout is exceeded
+    loading: LoadingComponent,
+    error: ErrorComponent,
+    delay: 200,
+    timeout: 5000
+  });
+  return Promise.resolve({
+    functional: true,
+    render(h, { data, children }) {
+      return h(AsyncHandler, data, children);
+    }
   });
 }
 

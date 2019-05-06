@@ -16,12 +16,12 @@ const dtiRouter = new Router({
   routes: [
     {
       path: '*',
-      component: createAsyncPage('notfound', () => import('@/pages/NotFound'))
+      component: () => createAsyncPage('notfound', () => import('@/pages/NotFound'))
     },
     {
       path: '/',
       name: 'Home',
-      component: createAsyncPage('home', () => import('@/pages/Home'))
+      component: () => createAsyncPage('home', () => import('@/pages/Home'))
     },
     {
       path: '/ehub',
@@ -32,55 +32,55 @@ const dtiRouter = new Router({
     {
       path: '/Projects/',
       name: 'Projects',
-      component: createAsyncPage('projects', () => import('@/pages/Projects'))
+      component: () => createAsyncPage('projects', () => import('@/pages/Projects'))
     },
     { path: '/cue', redirect: '/Projects/events' },
     {
       path: '/Projects/events',
       name: 'Events',
-      component: createAsyncPage('projects.events', () => import('@/pages/projects/Events'))
+      component: () => createAsyncPage('projects.events', () => import('@/pages/projects/Events'))
     },
     {
       path: '/Projects/orientation',
       name: 'Orientation',
-      component: createAsyncPage('projects.orientation', () => import('@/pages/projects/Orientation'))
+      component: () => createAsyncPage('projects.orientation', () => import('@/pages/projects/Orientation'))
     },
     { path: '/Projects/officehours', redirect: '/Projects/queuemein' },
     {
       path: '/Projects/queuemein',
       name: 'QueueMeIn',
-      component: createAsyncPage('projects.queuemein', () => import('@/pages/projects/QueueMeIn'))
+      component: () => createAsyncPage('projects.queuemein', () => import('@/pages/projects/QueueMeIn'))
     },
     { path: '/Projects/cureviews', redirect: '/Projects/reviews' },
     {
       path: '/Projects/reviews',
       name: 'Reviews',
-      component: createAsyncPage('projects.reviews', () => import('@/pages/projects/Reviews'))
+      component: () => createAsyncPage('projects.reviews', () => import('@/pages/projects/Reviews'))
     },
     {
       path: '/Projects/researchconnect',
       name: 'Research Connect',
-      component: createAsyncPage('projects.researchconnect', () => import('@/pages/projects/ResearchConnect'))
+      component: () => createAsyncPage('projects.researchconnect', () => import('@/pages/projects/ResearchConnect'))
     },
     {
       path: '/Projects/samwise',
       name: 'Samwise',
-      component: createAsyncPage('projects.samwise', () => import('@/pages/projects/Samwise'))
+      component: () => createAsyncPage('projects.samwise', () => import('@/pages/projects/Samwise'))
     },
     {
       path: '/Projects/shout',
       name: 'Shout',
-      component: createAsyncPage('projects.shout', () => import('@/pages/projects/Shout'))
+      component: () => createAsyncPage('projects.shout', () => import('@/pages/projects/Shout'))
     },
     {
       path: '/Initiatives',
       name: 'Initiatives',
-      component: createAsyncPage('initiatives', () => import('@/pages/Initiatives'))
+      component: () => createAsyncPage('initiatives', () => import('@/pages/Initiatives'))
     },
     {
       path: '/Team',
       name: 'Team',
-      component: createAsyncPage('team', () => import('@/pages/Team')),
+      component: () => createAsyncPage('team', () => import('@/pages/Team')),
       props: {
         diversity: DiversityJson
       }
@@ -88,17 +88,17 @@ const dtiRouter = new Router({
     {
       path: '/Sponsor',
       name: 'Sponsor',
-      component: createAsyncPage('sponsor', () => import('@/pages/Sponsor'))
+      component: () => createAsyncPage('sponsor', () => import('@/pages/Sponsor'))
     },
     {
       path: '/Courses',
       name: 'Courses',
-      component: createAsyncPage('courses', () => import('@/pages/Courses'))
+      component: () => createAsyncPage('courses', () => import('@/pages/Courses'))
     },
     {
       path: '/Apply',
       name: 'Apply',
-      component: createAsyncPage('apply', () => import('@/pages/Apply'))
+      component: () => createAsyncPage('apply', () => import('@/pages/Apply'))
     }
   ]
 });
