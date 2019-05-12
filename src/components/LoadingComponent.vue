@@ -8,7 +8,7 @@
 
 <style lang="scss">
 .page-header {
-  background-color: #a9a9a9 !important;
+  background-color: white !important;
 }
 
 @keyframes play30 {
