@@ -25,12 +25,12 @@
       <b-row class="footer" align-v="start">
         <b-col cols="12">
           <b-row class="footer-row" align-v="center">
-            <b-col md="12" lg="6">
+            <b-col lg="12" xl="6">
               <b-row align-h="start">
                 <img class="brand" :src="Strings.get('branding.wordmark', 'assets')">
               </b-row>
             </b-col>
-            <b-col md="12" lg="6" class="social-icons-wrapper">
+            <b-col lg="12" xl="6" class="social-icons-wrapper">
               <b-row class="social-icons">
                 <b-col cols="auto" class="social-icon-wrapper">
                   <a href="https://www.facebook.com/cornelldti/">
@@ -113,14 +113,14 @@ export default {
 
 <style lang="scss" scoped>
 .subfooter {
-  @media (min-width: 993px) {
-    margin-bottom: 1rem;
+  @media (min-width: 1201px) {
+    margin-bottom: 4vh;
   }
   font-size: 2.25rem;
 }
 
 .subfooter-col {
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     padding: 0;
   }
 
@@ -134,8 +134,8 @@ export default {
   justify-content: space-between;
 
   &:first-of-type {
-    @media (min-width: 993px) {
-      border-right: 5px solid #6b6b6b;
+    @media (min-width: 1201px) {
+      border-right: 3px solid #6b6b6b;
     }
 
     position: absolute;
@@ -161,7 +161,7 @@ export default {
     color: #c93b4c;
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 }
@@ -180,7 +180,7 @@ export default {
   font-weight: 600;
   font-size: 1.5rem;
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     background: #6f6f6f;
     height: 6rem;
     width: 100%;
@@ -217,7 +217,7 @@ export default {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .mobile-reversed {
     flex-direction: column-reverse;
   }
@@ -225,7 +225,7 @@ export default {
 
 .brand {
   max-height: 5.5rem;
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     max-height: 3.5rem;
     margin-left: auto;
     margin-right: auto;
@@ -240,7 +240,7 @@ export default {
   margin-top: auto;
   padding: 2.5rem 2.5rem 2.5rem 2.5rem;
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     padding: 1rem 0.5rem;
   }
 
@@ -258,12 +258,12 @@ export default {
     color: #ffffff;
     text-align: left;
 
-    @media (min-width: 993px) {
+    @media (min-width: 1201px) {
       padding-bottom: 3.125rem;
     }
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     .find-us {
       align-self: center;
       text-align: center;
@@ -273,13 +273,13 @@ export default {
   .copyright {
     padding-right: .75rem;
 
-    @media (max-width: 992px) {
+    @media (max-width: 1200px) {
       order: 1;
     }
   }
 
   .attribution {
-    @media (min-width: 993px) {
+    @media (min-width: 1201px) {
       padding-left: .75rem;
       margin-right: -1rem;
       margin-top: 0;
@@ -294,7 +294,7 @@ export default {
     border-left: 1.5px solid #fff;
     border-right: 1.5px solid #fff;
 
-    @media (max-width: 992px) {
+    @media (max-width: 1200px) {
       display: none;
     }
   }
@@ -310,7 +310,7 @@ export default {
     letter-spacing: 0.3px;
     text-align: right;
 
-    @media (max-width: 992px) {
+    @media (max-width: 1200px) {
       font-size: 1.25rem;
       margin-top: 1.5rem;
     }
@@ -320,7 +320,7 @@ export default {
     margin-bottom: .25rem;
     margin-left: .25rem;
     margin-right: .25rem;
-    @media (max-width: 992px) {
+    @media (max-width: 1200px) {
       display: none;
     }
   }
@@ -330,12 +330,12 @@ export default {
     margin-left: .2rem;
     margin-right: .2rem;
 
-    @media (min-width: 993px) {
+    @media (min-width: 1201px) {
       display: none;
     }
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     .copyright,
     .attribution {
       text-align: center;
@@ -350,14 +350,14 @@ export default {
     color: rgba(255, 255, 255, 0.7);
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     .statement {
       display: none;
     }
   }
 
   .bottom {
-    @media (max-width: 992px) {
+    @media (max-width: 1200px) {
       margin-top: 0;
       justify-content: center !important;
     }
@@ -377,7 +377,7 @@ export default {
     text-align: right;
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     .wordmark-container {
       display: none;
       // text-align: center;
@@ -389,7 +389,7 @@ export default {
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     max-width: 18rem;
     margin-left: auto;
     margin-right: auto;
@@ -397,7 +397,7 @@ export default {
 }
 
 .social-icons-wrapper {
-  @media (min-width: 993px) {
+  @media (min-width: 1201px) {
     min-width: 25rem;
     max-width: 28rem;
   }
@@ -412,7 +412,7 @@ export default {
     padding: 0;
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     width: 2.25rem;
     height: 2.25rem;
   }
