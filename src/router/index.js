@@ -12,6 +12,7 @@ import Initiatives from '@/pages/Initiatives';
 import NotFound from '@/pages/NotFound';
 
 import Events from '@/pages/projects/Events';
+import Flux from '@/pages/projects/Flux';
 import Orientation from '@/pages/projects/Orientation';
 import QueueMeIn from '@/pages/projects/QueueMeIn';
 import Reviews from '@/pages/projects/Reviews';
@@ -87,6 +88,12 @@ const dtiRouter = new Router({
       name: 'Shout',
       component: Shout
     },
+    {
+      path: '/Projects/flux',
+      name: 'Flux',
+      component: Flux
+    },
+    { path: '/Projects/density', redirect: '/Projects/flux' },
     {
       path: '/Initiatives',
       name: 'Initiatives',
