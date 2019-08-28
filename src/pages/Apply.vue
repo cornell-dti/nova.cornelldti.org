@@ -230,7 +230,7 @@
               class="call-to-action-button text-center"
             >
               {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
-              'apply')}} (Available Soon)
+              'apply')}} (Opens 9/3)
             </b-button>
           </b-col>
         </b-row>
