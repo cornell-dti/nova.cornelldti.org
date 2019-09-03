@@ -35,7 +35,7 @@
                 </b-col>
                 <b-col cols="auto">
                   <a
-                    href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative"
+                    href="https://play.google.com/store/apps/dev?id=8943927778040647949"
                   >
                     <GooglePlay class="social-icon social-icon-blank"/>
                   </a>
