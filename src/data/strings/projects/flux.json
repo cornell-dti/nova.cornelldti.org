@@ -11,6 +11,8 @@
   "ios-github": "https://github.com/cornell-dti/campus-density-ios",
   "android-github": "https://github.com/cornell-dti/campus-density-android",
   "github": "https://github.com/cornell-dti/campus-density-backend",
+  "playstore": "https://play.google.com/store/apps/details?id=org.cornelldti.density.density",
+  "appstore": "https://apps.apple.com/us/app/flux-skip-the-crowd/id1454265033",
   "heroStartingColor": "#FFF",
   "heroEndingColor": "#FFA01E",
   "heroUseDarkText": false,
