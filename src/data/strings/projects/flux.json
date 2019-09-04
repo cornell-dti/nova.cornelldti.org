@@ -6,7 +6,7 @@
   "subheader": "Real time traffic flow.",
   "hero": {
     "header": "What We Do",
-    "subheader": "Nobody wants to go eat at a dining hall only to find that there are no places to sit. With Density real-time data reporting, you can now avoid crowded dining halls and find the best places and times to eat on campus."
+    "subheader": "Nobody wants to go eat at a dining hall only to find that there are no places to sit. With Flux real-time data reporting, you can now avoid crowded dining halls and find the best places and times to eat on campus."
   },
   "ios-github": "https://github.com/cornell-dti/campus-density-ios",
   "android-github": "https://github.com/cornell-dti/campus-density-android",
