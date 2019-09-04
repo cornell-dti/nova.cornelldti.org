@@ -4,7 +4,7 @@
   },
   "main-menu": {
     "advertisement": {
-      "open": false
+      "open": true
     }
   },
   "hero": {
@@ -42,9 +42,9 @@
           }
         },
         "call-to-action-button": {
-          "closed": true,
+          "closed": false,
           "content": "Product Design Application",
-          "link": "https://goo.gl/forms/TFkzooxKUnV1LURs2"
+          "link": "https://forms.gle/dJ1ToNVSoT5SWmZt9"
         }
       },
       "next-steps": {
@@ -87,9 +87,9 @@
           }
         },
         "call-to-action-button": {
-          "closed": true,
+          "closed": false,
           "content": "Software Developer Application",
-          "link": "https://goo.gl/forms/y7RMarKJ4ErVE5BN2"
+          "link": "https://forms.gle/NbkwGxYzE9TPFArXA"
         }
       },
       "next-steps": {
@@ -132,9 +132,9 @@
           }
         },
         "call-to-action-button": {
-          "closed": true,
+          "closed": false,
           "content": "Business Analyst Application",
-          "link": "https://goo.gl/forms/SQD2fuZcJClV4d3G3"
+          "link": "https://forms.gle/uaGmukgFHpzu15QV6"
         }
       },
       "next-steps": {
@@ -177,9 +177,9 @@
           }
         },
         "call-to-action-button": {
-          "closed": true,
+          "closed": false,
           "content": "Product Management Application",
-          "link": "https://goo.gl/forms/rXTtxfFlIv0WtiXo1"
+          "link": "https://forms.gle/mpwN5YcEjrosHfmd7"
         }
       },
       "next-steps": {
