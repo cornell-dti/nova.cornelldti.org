@@ -87,13 +87,13 @@
                 >{{Strings.get('info-sessions.2.link.text', 'apply')}}</a>
               </div>
               <div class="location location-mobile">
-                {{ `${Strings.get('info-sessions.1.location', 'apply')}` }}
+                {{ `${Strings.get('info-sessions.2.location', 'apply')}` }}
                 <br>
                 <a
-                  v-if="Strings.exists('info-sessions.1.link.url', 'apply')"
+                  v-if="Strings.exists('info-sessions.2.link.url', 'apply')"
                   class="apply-link"
-                  :href="Strings.get('info-sessions.1.link.url', 'apply')"
-                >{{Strings.get('info-sessions.1.link.text', 'apply')}}</a>
+                  :href="Strings.get('info-sessions.2.link.url', 'apply')"
+                >{{Strings.get('info-sessions.2.link.text', 'apply')}}</a>
               </div>
             </div>
           </b-col>
