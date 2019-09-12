@@ -10,6 +10,7 @@ import SponsorJSON from './sponsor.json';
 import CoursesJSON from './courses.json';
 
 import EventsJSON from './projects/events.json';
+import FluxJSON from './projects/flux.json';
 import OrientationJSON from './projects/orientation.json';
 import QueueMeInJSON from './projects/queuemein.json';
 import ResearchConnectJSON from './projects/researchconnect.json';
@@ -35,7 +36,8 @@ const JSONMap = {
   'projects.researchconnect': ResearchConnectJSON,
   'projects.reviews': ReviewsJSON,
   'projects.samwise': SamwiseJSON,
-  'projects.shout': ShoutJSON
+  'projects.shout': ShoutJSON,
+  'projects.flux': FluxJSON
 };
 
 

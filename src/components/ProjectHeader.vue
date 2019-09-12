@@ -23,7 +23,7 @@
         </b-row>
       </b-col>
       <b-col cols="6" class="project-hero-logo">
-        <b-img class="product" :src="Strings.get(`projects.${projectId}.hero-image`, 'assets')"/>
+        <b-img :class="['product', `product-${projectId}`]" :src="Strings.get(`projects.${projectId}.hero-image`, 'assets')"/>
       </b-col>
     </b-row>
   </page-hero>

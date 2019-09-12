@@ -6,7 +6,7 @@
           <div class="events-interested-prompt">Sign up for early access</div>
         </b-col>
         <b-col md="4" sm="12">
-          <b-button class="events-button" href="https://dticornell.typeform.com/to/B5Flgp">Sign Up</b-button>
+          <b-button class="events-button" href="https://dticornell.typeform.com/to/RfyNiq">Sign Up</b-button>
         </b-col>
       </b-row>
     </project-header>

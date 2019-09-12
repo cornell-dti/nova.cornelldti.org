@@ -1,0 +1,29 @@
+{
+  "name": "Flux",
+  "id": "flux",
+  "teamId": "flux",
+  "header": "flux",
+  "subheader": "Real time traffic flow.",
+  "hero": {
+    "header": "What We Do",
+    "subheader": "Nobody wants to go eat at a dining hall only to find that there are no places to sit. With Flux real-time data reporting, you can now avoid crowded dining halls and find the best places and times to eat on campus."
+  },
+  "ios-github": "https://github.com/cornell-dti/campus-density-ios",
+  "android-github": "https://github.com/cornell-dti/campus-density-android",
+  "github": "https://github.com/cornell-dti/campus-density-backend",
+  "playstore": "https://play.google.com/store/apps/details?id=org.cornelldti.density.density",
+  "appstore": "https://apps.apple.com/us/app/flux-skip-the-crowd/id1454265033",
+  "heroStartingColor": "#FFF",
+  "heroEndingColor": "#FFA01E",
+  "heroUseDarkText": false,
+  "features": {
+    "1": {
+      "title": "Browse.",
+      "description": "Filter dining halls by location or crowdedness."
+    },
+    "2": {
+      "title": "Plan.",
+      "description": "Know ahead of time the best places to be."
+    }
+  }
+}

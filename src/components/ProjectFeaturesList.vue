@@ -25,7 +25,7 @@
       </b-col>
     </b-row>
     <b-row class="feature-padding" />
-    <b-row align-v="center" class="mobile-space">
+    <b-row v-if="Strings.get(`features.3.title`, `projects.${projectId}`)" align-v="center" class="mobile-space">
       <b-col md="7">
         <div class="feature-header" id="mobile">{{Strings.get(`features.3.title`, `projects.${projectId}`)}}</div>
         <b-img class="product" :src="Strings.get(`projects.${projectId}.features.3`, 'assets')"

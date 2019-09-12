@@ -42,9 +42,11 @@
                     <Github class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
-                <b-col cols="auto" class="social-icon-wrapper">
-                  <a href="https://medium.com/cornell-design-tech-initiative/">
-                    <Medium class="social-icon social-icon-blank"/>
+                <b-col cols="auto">
+                  <a
+                    href="https://play.google.com/store/apps/dev?id=8943927778040647949"
+                  >
+                    <GooglePlay class="social-icon social-icon-blank"/>
                   </a>
                 </b-col>
                 <b-col cols="auto" class="social-icon-wrapper">
