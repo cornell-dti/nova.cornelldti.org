@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-container fluid class="h-100">
-      <b-row class="subfooter" align-v="start">
+      <b-row v-if="!hideSubfooter" class="subfooter" align-v="start">
         <b-col cols="12">
           <b-row align-h="end" align-v="start" class="subfooter-wrapper">
             <b-col class="subfooter-col" md="6" sm="6">
@@ -16,7 +16,10 @@
             <b-col class="subfooter-col" md="6" sm="6">
               <div class="subfooter-text subfooter-text-red">{{`Sign up for our newsletter!`}}</div>
               <a class="button-wrapper">
-                <button class="subfooter-button subfooter-button-red">{{`Subscribe`}}</button>
+                <button
+                  @click="subscritionClick"
+                  class="subfooter-button subfooter-button-red"
+                >{{`Subscribe`}}</button>
               </a>
             </b-col>
           </b-row>
@@ -27,39 +30,37 @@
           <b-row class="footer-row" align-v="center">
             <b-col lg="12" xl="6">
               <b-row align-h="start">
-                <img class="brand" :src="Strings.get('branding.wordmark', 'assets')">
+                <img class="brand" :src="Strings.get('branding.wordmark', 'assets')" />
               </b-row>
             </b-col>
             <b-col lg="12" xl="6" class="social-icons-wrapper">
               <b-row class="social-icons">
                 <b-col cols="auto" class="social-icon-wrapper">
                   <a href="https://www.facebook.com/cornelldti/">
-                    <Facebook class="social-icon social-icon-blank"/>
+                    <Facebook class="social-icon social-icon-blank" />
                   </a>
                 </b-col>
                 <b-col cols="auto" class="social-icon-wrapper">
                   <a href="https://github.com/cornell-dti/">
-                    <Github class="social-icon social-icon-blank"/>
+                    <Github class="social-icon social-icon-blank" />
                   </a>
                 </b-col>
                 <b-col cols="auto">
-                  <a
-                    href="https://play.google.com/store/apps/dev?id=8943927778040647949"
-                  >
-                    <GooglePlay class="social-icon social-icon-blank"/>
+                  <a href="https://play.google.com/store/apps/dev?id=8943927778040647949">
+                    <GooglePlay class="social-icon social-icon-blank" />
                   </a>
                 </b-col>
                 <b-col cols="auto" class="social-icon-wrapper">
                   <a href="http://appstore.com/cornelldti">
                     <!--TODO get the actual link-->
-                    <AppStore class="social-icon social-icon-blank"/>
+                    <AppStore class="social-icon social-icon-blank" />
                   </a>
                 </b-col>
                 <b-col cols="auto" class="social-icon-wrapper">
                   <a
                     href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative"
                   >
-                    <GooglePlay class="social-icon social-icon-blank"/>
+                    <GooglePlay class="social-icon social-icon-blank" />
                   </a>
                 </b-col>
               </b-row>
@@ -73,13 +74,28 @@
             <span class="divider"></span>
             <div class="attribution">
               {{`Made with`}}
-              <Heart class="heart-desktop" alt="love"/>
-              <HeartMobile class="heart-mobile" alt="love"/>
+              <Heart class="heart-desktop" alt="love" />
+              <HeartMobile class="heart-mobile" alt="love" />
               {{` in Ithaca`}}
             </div>
           </b-row>
         </b-col>
       </b-row>
+      <b-modal v-model="isSubscribing" :hide-footer="true" :hide-header="true">
+        <b-form inline @submit="onSubscribe">
+          <b-input-group>
+            <label class="sr-only" for="newsletterEmailSubscribeInput">Email</label>
+            <b-input
+              required
+              id="newsletterEmailSubscribeInput"
+              v-model="email"
+              type="email"
+              placeholder="Email"
+            />
+          </b-input-group>
+          <b-button type="submit">Subscribe</b-button>
+        </b-form>
+      </b-modal>
     </b-container>
   </div>
 </template>
@@ -93,6 +109,8 @@ import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
 import Heart from '@/assets/footer/heart.svg';
 import HeartMobile from '@/assets/footer/heart-mobile.svg';
+
+import axios from 'axios';
 
 export default {
   components: {
@@ -108,7 +126,42 @@ export default {
   props: {
     page: {
       type: String
+    },
+    hideSubfooter: {
+      type: Boolean,
+      default: false
     }
+  },
+  methods: {
+    subscritionClick() {
+      this.isSubscribing = !this.isSubscribing;
+    },
+    onSubscribe(event) {
+      event.preventDefault();
+      axios
+        .post('/email', {
+          email: this.email
+        })
+        .then(
+          response => {
+            this.msgContent = response.data.msg;
+            this.msgVariant = 'success';
+            this.msgShow = true;
+          },
+          () => {
+            this.msgContent =
+              'There was an error subscribing you to the email list!';
+            this.msgVariant = 'error';
+            this.msgShow = true;
+          }
+        );
+    }
+  },
+  data() {
+    return {
+      isSubscribing: false,
+      email: ''
+    };
   }
 };
 </script>
@@ -180,7 +233,7 @@ export default {
   background: #505050;
   color: white;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 
   @media (max-width: 1200px) {
     background: #6f6f6f;
@@ -226,7 +279,7 @@ export default {
 }
 
 .brand {
-  max-height: 5.5rem;
+  max-height: 4.5rem;
   @media (max-width: 1200px) {
     max-height: 3.5rem;
     margin-left: auto;
@@ -237,7 +290,7 @@ export default {
 }
 
 .footer {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   background-color: #4a4a4a;
   margin-top: auto;
   padding: 2.5rem 2.5rem 2.5rem 2.5rem;
@@ -273,7 +326,7 @@ export default {
   }
 
   .copyright {
-    padding-right: .75rem;
+    padding-right: 0.75rem;
 
     @media (max-width: 1200px) {
       order: 1;
@@ -282,7 +335,7 @@ export default {
 
   .attribution {
     @media (min-width: 1201px) {
-      padding-left: .75rem;
+      padding-left: 0.75rem;
       margin-right: -1rem;
       margin-top: 0;
     }
@@ -291,7 +344,7 @@ export default {
   .divider {
     display: inline-block;
     width: 0;
-    margin-top: .5rem;
+    margin-top: 0.25rem;
     height: 1rem;
     border-left: 1.5px solid #fff;
     border-right: 1.5px solid #fff;
@@ -319,18 +372,18 @@ export default {
   }
 
   .heart-desktop {
-    margin-bottom: .25rem;
-    margin-left: .25rem;
-    margin-right: .25rem;
+    margin-bottom: 0.25rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
     @media (max-width: 1200px) {
       display: none;
     }
   }
 
   .heart-mobile {
-    margin-bottom: .25rem;
-    margin-left: .2rem;
-    margin-right: .2rem;
+    margin-bottom: 0.25rem;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
 
     @media (min-width: 1201px) {
       display: none;
@@ -406,8 +459,8 @@ export default {
 }
 
 .social-icon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   padding: 0;
 
   &-wrapper {

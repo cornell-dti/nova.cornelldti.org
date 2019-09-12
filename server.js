@@ -1,4 +1,7 @@
-require('dotenv').load();
+if (process.env.environment !== 'production') {
+  console.log('Development environment detected, loading environment from available .env files.');
+  require('dotenv').load();
+}
 
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -7,8 +10,10 @@ const Mailchimp = require('mailchimp-api-v3');
 const morgan = require('morgan');
 const path = require('path');
 
+const mailchimp = new Mailchimp(process.env.mailchimp_key);
+const mailchimp_path = `/lists/${process.env.mailchimp_audience}`;
+
 const app = express();
-const mailchimp = new Mailchimp(process.env.mailchimpkey);
 
 if (process.env.environment === 'production') {
   console.log('Production environment detected, enforcing HTTPS & SSL.');
@@ -30,12 +35,15 @@ const port = process.env.PORT || 5001;
 
 app.post('/email', (req, res) => {
   //TODO: Validate email address
-  //TODO: Convert List ID to environment variable
-  const email = req.body.email;
+  const { email } = req.body;
+
   mailchimp
     .post({
-      path: `/lists/839cc09118`,
+      path: mailchimp_path,
       body: {
+        tags: [
+          'Monthly Newsletter'
+        ],
         members: [
           {
             email_address: email,
@@ -44,7 +52,7 @@ app.post('/email', (req, res) => {
         ]
       }
     })
-    .then(result => {
+    .then(() => {
       return res.status(200).json({
         success: true,
         msg: 'Successfully subscribed!'
@@ -52,6 +60,7 @@ app.post('/email', (req, res) => {
     })
     .catch(error => {
       console.log(error);
+
       return res.status(500).json({
         success: false,
         msg: error
