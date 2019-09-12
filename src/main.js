@@ -17,7 +17,7 @@ import BootstrapVueCSS from 'bootstrap-vue/dist/bootstrap-vue.css';
 
 /* Data */
 
-import Members from '@/data/strings/members-sp19.json';
+import Members from '@/data/strings/members-fa19.json';
 import Companies from '@/data/companies.json';
 import Teams from '@/data/strings/teams.json';
 import Roles from '@/data/roles.json';
