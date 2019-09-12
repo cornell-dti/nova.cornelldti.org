@@ -8,6 +8,8 @@
       "header" : "What We Do",
       "subheader" : "Managing a full credit-load and a healthy life is difficult. As due dates approach, it becomes easy to misjudge the amount of work remaining for any given assignment. By creating your tangible timeline, completing work no longer means giving up sleep."
     },
+    "website" : "https://samwise.today",
+    "website-title" : "Samwise",
     "github": "https://github.com/cornell-dti/samwise",
     "heroStartingColor": "#FF7A02",
     "heroEndingColor": "#FFF7E8",
