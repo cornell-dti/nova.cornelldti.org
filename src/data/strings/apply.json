@@ -14,16 +14,12 @@
   "info-session": {
     "header": "Freshman Apps!",
     "subheader": "Fall 2019",
-    "description": "First-year applications are now available to view! Submissions will open at 12:01 a.m. on September 17th."
+    "description": "First-year applications are now available to submit! Submissions will close at 11:59 p.m. on September 23rd."
   },
   "info-sessions": {
     "1": {
-      "time": "View Applications Now!",
-      "location": "Applications",
-      "link": {
-        "url": "https://bit.ly/2kAx2LF",
-        "text": "Click Here!"
-      }
+      "time": "Submit Applications Now!",
+      "location": "(links below)"
     },
     "2": {
       "time": "Information Sessions",
@@ -46,14 +42,14 @@
           }
         },
         "call-to-action-button": {
-          "closed": true,
-          "content": "Product Design Application (closed)",
-          "link": "https://forms.gle/dJ1ToNVSoT5SWmZt9"
+          "closed": false,
+          "content": "Product Design Application (freshman)",
+          "link": "https://forms.gle/H8yERyzvj97dLNT6A"
         }
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Friday 9/13 through Saturday 9/21",
+        "right-header": "Tuesday 9/17 through Monday 9/30",
         "sections": {
           "1": {
             "header": "Application Review",
@@ -67,7 +63,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 11:59 PM on Saturday 9/21",
+        "right-header": "by 12:01 AM on Tuesday 10/1",
         "sections": {
           "1": {
             "header": "Notification",
@@ -91,14 +87,14 @@
           }
         },
         "call-to-action-button": {
-          "closed": true,
-          "content": "Software Developer Application (closed)",
-          "link": "https://forms.gle/NbkwGxYzE9TPFArXA"
+          "closed": false,
+          "content": "Software Developer Application (freshman)",
+          "link": "https://forms.gle/H7SA4vZpjGD6e5nA6"
         }
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Friday 9/13 through Saturday 9/21",
+        "right-header": "Tuesday 9/17 through Monday 9/30",
         "sections": {
           "1": {
             "header": "Application Review",
@@ -112,7 +108,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 11:59 PM on Saturday 9/21",
+        "right-header": "by 12:01 AM on Tuesday 10/1",
         "sections": {
           "1": {
             "header": "Notification",
@@ -136,14 +132,14 @@
           }
         },
         "call-to-action-button": {
-          "closed": true,
-          "content": "Business Analyst Application (closed)",
-          "link": "https://forms.gle/uaGmukgFHpzu15QV6"
+          "closed": false,
+          "content": "Business Analyst Application (freshman)",
+          "link": "https://forms.gle/eYsUg9FmoDu3bUam6"
         }
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Friday 9/13 through Saturday 9/21",
+        "right-header": "Tuesday 9/17 through Monday 9/30",
         "sections": {
           "1": {
             "header": "Application Review",
@@ -157,7 +153,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 11:59 PM on Saturday 9/21",
+        "right-header": "by 12:01 AM on Tuesday 10/1",
         "sections": {
           "1": {
             "header": "Notification",
@@ -169,26 +165,22 @@
     "pm": {
       "apply": {
         "header": "Product Management Role",
-        "right-header": "due 11:59 PM on Thursday 9/12",
+        "right-header": "not open for freshman submissions",
         "sections": {
           "1": {
-            "header": "What We're Looking For",
-            "content": "Someone with excellent analytical, problem-solving, organizational, verbal, written and presentation communication and interpersonal skills. You should have an eye for finding impactful problems to solve using technology. With some general understanding of product and design thinking and how the technical stack works, you should be able to find a well-defined problem and guide designers and developers towards building out the right solution."
-          },
-          "2": {
-            "header": "What You'll Do",
-            "content": "You will be taking on the responsibility of successfully delivering the product by guiding products throughout their execution cycle, from problem defining, market/user research, road mapping, to defining product requirements and overseeing the final deployment of product. You will be working closely with designers and developers throughout the product cycle, bridging the gap between design and tech through excellent communication and an understanding of how to prioritize requirements for delivery. Outside of working with your team members, you will be also expected to fill in the gap for any roles necessary, from scheduling meetings, creating relationships with administrations, collaborating with other student organizations, to helping unblock your designers and developers."
+            "header": "Not accepting submissions",
+            "content": "Unfortunately, all available product management positions have been filled. We encourage interested first-year applicants to consider other roles and look at our Blueprint course, an excellent training course for all things product management!"
           }
         },
         "call-to-action-button": {
           "closed": true,
           "content": "Product Management Application (closed)",
-          "link": "https://forms.gle/mpwN5YcEjrosHfmd7"
+          "link": ""
         }
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Friday 9/13 through Saturday 9/21",
+        "right-header": "",
         "sections": {
           "1": {
             "header": "Application Review",
@@ -202,7 +194,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 11:59 PM on Saturday 9/21",
+        "right-header": "",
         "sections": {
           "1": {
             "header": "Notification",
