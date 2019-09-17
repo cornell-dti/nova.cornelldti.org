@@ -147,7 +147,7 @@
         </b-row>
       </page-section>
     </b-container>
-    <dti-footer page="sponsor"/>
+    <dti-footer :hide-subfooter="true" page="sponsor"/>
   </page-background>
 </template>
 
