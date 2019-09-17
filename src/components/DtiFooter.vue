@@ -84,33 +84,21 @@
       <b-modal ref="emailModalRef" v-model="isSubscribing" :hide-footer="true" :hide-header="true">
         <b-container fluid>
           <b-row>
+            <b-col cols="auto">
+              <h2 class="form-header">Subscribe to our newsletter!</h2>
+            </b-col>
             <b-col>
-              <div
-                class="email-description"
-              >Subscribe to learn more about all the fun and interesting things we do!</div>
+              <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
+              <!--TODO use actual icon, not text -->
             </b-col>
           </b-row>
+
           <b-row>
             <b-col>
-              <b-form @submit="onSubscribe">
-                <b-form-group id="email-input-group">
-                  <!-- <label class="sr-only" for="newsletterEmailSubscribeInput">Email</label> -->
-                  <b-form-input
-                    required
-                    id="newsletterEmailSubscribeInput"
-                    v-model="email"
-                    type="email"
-                    placeholder="Email"
-                  />
-                </b-form-group>
-                <b-button class="subscribe-button" type="submit">Subscribe!</b-button>
-                <b-button
-                  variant="danger"
-                  @click="modalClose()"
-                  class="subscribe-button"
-                  type="cancel"
-                >Cancel</b-button>
-              </b-form>
+              <!-- Begin Mailchimp Signup Form -->
+              <mail-chimp-form />
+
+              <!--End mc_embed_signup-->
             </b-col>
           </b-row>
         </b-container>
@@ -128,10 +116,10 @@ import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
 import Heart from '@/assets/footer/heart.svg';
 import HeartMobile from '@/assets/footer/heart-mobile.svg';
+import MailChimpForm from '@/components/MailChimpForm';
+import { Component, Prop } from 'vue-property-decorator';
 
-import axios from 'axios';
-
-export default {
+@Component({
   components: {
     AppStore,
     Facebook,
@@ -140,60 +128,27 @@ export default {
     GooglePlay,
     Medium,
     Heart,
-    HeartMobile
-  },
-  props: {
-    page: {
-      type: String
-    },
-    hideSubfooter: {
-      type: Boolean,
-      default: false
-    }
-  },
-  methods: {
-    modalClose() {
-      this.$refs.emailModalRef.hide();
-    },
-    subscritionClick() {
-      this.isSubscribing = !this.isSubscribing;
-    },
-    onSubscribe(event) {
-      event.preventDefault();
-
-      if (!this.email || this.email === '') {
-        this.msgContent = 'No email was provided.';
-        this.msgVariant = 'error';
-        this.msgShow = true;
-        return;
-      }
-
-      axios
-        .post('/email', {
-          email: this.email
-        })
-        .then(
-          response => {
-            this.msgContent = response.data.msg;
-            this.msgVariant = 'success';
-            this.msgShow = true;
-          },
-          () => {
-            this.msgContent =
-              'There was an error subscribing you to the email list!';
-            this.msgVariant = 'error';
-            this.msgShow = true;
-          }
-        );
-    }
-  },
-  data() {
-    return {
-      isSubscribing: false,
-      email: ''
-    };
+    HeartMobile,
+    MailChimpForm
   }
-};
+})
+export default class DtiFooter {
+  @Prop({ type: String })
+  page = '';
+  @Prop({ type: Boolean, default: false })
+  hideSubfooter = false;
+
+  isSubscribing = false;
+  email = '';
+
+  modalClose() {
+    this.$refs.emailModalRef.hide();
+  }
+
+  subscritionClick() {
+    this.isSubscribing = true;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -204,6 +159,10 @@ export default {
 .email-description {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
+}
+
+.form-header {
+  margin: 0.5rem;
 }
 
 .modal-close-button {
