@@ -58,9 +58,9 @@
                 </b-col>
                 <b-col cols="auto" class="social-icon-wrapper">
                   <a
-                    href="https://play.google.com/store/apps/developer?id=Cornell+Design+%26+Tech+Initiative"
+                    href="https://medium.com/cornelldti"
                   >
-                    <GooglePlay class="social-icon social-icon-blank" />
+                    <Medium class="social-icon social-icon-blank" />
                   </a>
                 </b-col>
               </b-row>
