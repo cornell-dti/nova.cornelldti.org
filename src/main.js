@@ -25,7 +25,7 @@ import Roles from '@/data/roles.json';
 /* Core Files */
 
 import App from '@/App';
-import Strings from '@/data/strings';
+import Strings from '@/data/strings/lib';
 import router from '@/router';
 
 /* Global Components */
@@ -41,30 +41,9 @@ import TextHero from '@/components/TextHero';
 import PageSection from '@/components/PageSection';
 import StoreBadge from '@/components/StoreBadge';
 
-Vue.use(BootstrapVue);
-
-Vue.component('visual', VueVisual).options.setDefaults({
-  load: 'visible',
-  loadPoster: true,
-  transition: 'vv-fade'
-});
-
-Vue.component('PageSublist', PageSublist);
-Vue.component('DtiMainMenu', DtiMainMenu);
-Vue.component('DtiFooter', DtiFooter);
-Vue.component('PageBackground', PageBackground);
-Vue.component('PageSection', PageSection);
-Vue.component('PageHero', PageHero);
-Vue.component('NovaHero', NovaHero);
-Vue.component('StoreBadge', StoreBadge);
-Vue.component('TextPageHero', TextPageHero);
-Vue.component('TextHero', TextHero);
-
 Vue.mixin({
   data() {
-    return {
-      Strings
-    };
+    return { Strings };
   },
   methods: {
     joinPath(...parts) {
@@ -85,8 +64,7 @@ Vue.mixin({
         .slice(1)
         .join('/')
         .split('/')
-        .filter(value => value !== '')
-      );
+        .filter(value => value !== ''));
 
       return url.join('/');
     },
@@ -108,14 +86,27 @@ Vue.mixin({
   }
 });
 
+Vue.use(BootstrapVue);
+
+
+Vue.component('visual', VueVisual).options.setDefaults({
+  load: 'visible',
+  loadPoster: true,
+  transition: 'vv-fade'
+});
+
+Vue.component('PageSublist', PageSublist);
+Vue.component('DtiMainMenu', DtiMainMenu);
+Vue.component('DtiFooter', DtiFooter);
+Vue.component('PageBackground', PageBackground);
+Vue.component('PageSection', PageSection);
+Vue.component('PageHero', PageHero);
+Vue.component('NovaHero', NovaHero);
+Vue.component('StoreBadge', StoreBadge);
+Vue.component('TextPageHero', TextPageHero);
+Vue.component('TextHero', TextHero);
+
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: {
-    App
-  },
-  template: '<App/>'
-});
+// eslint-disable-next-line
+new Vue({ el: '#app', router, render: h => h(App) });

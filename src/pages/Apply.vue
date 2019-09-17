@@ -67,7 +67,7 @@
               </div>
               <div class="location location-mobile">
                 {{ `${Strings.get('info-sessions.1.location', 'apply')}` }}
-                <br>
+                <br />
                 <a
                   v-if="Strings.exists('info-sessions.1.link.url', 'apply')"
                   class="apply-link"
@@ -88,7 +88,7 @@
               </div>
               <div class="location location-mobile">
                 {{ `${Strings.get('info-sessions.2.location', 'apply')}` }}
-                <br>
+                <br />
                 <a
                   v-if="Strings.exists('info-sessions.2.link.url', 'apply')"
                   class="apply-link"
@@ -237,7 +237,7 @@
       </timeline-section>
     </b-container>
 
-    <dti-footer page="apply"/>
+    <dti-footer page="apply" />
   </page-background>
 </template>
 

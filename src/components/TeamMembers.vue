@@ -2,11 +2,11 @@
   <div v-if="projectData">
     <page-section v-if="getTeam.length > 0">
       <div class="project-header">Team</div>
-      <headshot-grid :members="getTeam"/>
+      <headshot-grid :members="getTeam" />
     </page-section>
     <page-section v-if="getFormerTeam.length > 0">
       <div class="project-header">Former Members</div>
-      <headshot-grid :members="getFormerTeam"/>
+      <headshot-grid :members="getFormerTeam" />
     </page-section>
   </div>
 </template>
@@ -28,9 +28,8 @@ export default {
     getTeam() {
       const teamA = this.getMembers()
         .filter(
-          member =>
-            typeof member.subteam === 'string' &&
-            member.subteam === this.projectData.id
+          member => typeof member.subteam === 'string'
+            && member.subteam === this.projectData.id
         )
         .map(obj => ({ info: obj, id: obj.netid }));
 
@@ -39,9 +38,8 @@ export default {
     getFormerTeam() {
       const teamA = this.getMembers()
         .filter(
-          member =>
-            Array.isArray(member.otherSubteams) &&
-            member.otherSubteams.includes(this.projectData.id)
+          member => Array.isArray(member.otherSubteams)
+            && member.otherSubteams.includes(this.projectData.id)
         )
         .map(obj => ({ info: obj, id: obj.netid }));
 
