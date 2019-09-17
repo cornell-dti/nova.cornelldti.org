@@ -108,6 +108,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import Facebook from '@/assets/social/facebook.svg';
 import Dribbble from '@/assets/social/dribbble.svg';
 import Github from '@/assets/social/github.svg';
@@ -132,11 +133,11 @@ import { Component, Prop } from 'vue-property-decorator';
     MailChimpForm
   }
 })
-export default class DtiFooter {
+export default class DtiFooter extends Vue {
   @Prop({ type: String })
-  page = '';
+  page;
   @Prop({ type: Boolean, default: false })
-  hideSubfooter = false;
+  hideSubfooter;
 
   isSubscribing = false;
   email = '';
