@@ -81,20 +81,39 @@
           </b-row>
         </b-col>
       </b-row>
-      <b-modal v-model="isSubscribing" :hide-footer="true" :hide-header="true">
-        <b-form inline @submit="onSubscribe">
-          <b-input-group>
-            <label class="sr-only" for="newsletterEmailSubscribeInput">Email</label>
-            <b-input
-              required
-              id="newsletterEmailSubscribeInput"
-              v-model="email"
-              type="email"
-              placeholder="Email"
-            />
-          </b-input-group>
-          <b-button type="submit">Subscribe</b-button>
-        </b-form>
+      <b-modal ref="emailModalRef" v-model="isSubscribing" :hide-footer="true" :hide-header="true">
+        <b-container fluid>
+          <b-row>
+            <b-col>
+              <div
+                class="email-description"
+              >Subscribe to learn more about all the fun and interesting things we do!</div>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <b-form @submit="onSubscribe">
+                <b-form-group id="email-input-group">
+                  <!-- <label class="sr-only" for="newsletterEmailSubscribeInput">Email</label> -->
+                  <b-form-input
+                    required
+                    id="newsletterEmailSubscribeInput"
+                    v-model="email"
+                    type="email"
+                    placeholder="Email"
+                  />
+                </b-form-group>
+                <b-button class="subscribe-button" type="submit">Subscribe!</b-button>
+                <b-button
+                  variant="danger"
+                  @click="modalClose()"
+                  class="subscribe-button"
+                  type="cancel"
+                >Cancel</b-button>
+              </b-form>
+            </b-col>
+          </b-row>
+        </b-container>
       </b-modal>
     </b-container>
   </div>
@@ -133,11 +152,22 @@ export default {
     }
   },
   methods: {
+    modalClose() {
+      this.$refs.emailModalRef.hide();
+    },
     subscritionClick() {
       this.isSubscribing = !this.isSubscribing;
     },
     onSubscribe(event) {
       event.preventDefault();
+
+      if (!this.email || this.email === '') {
+        this.msgContent = 'No email was provided.';
+        this.msgVariant = 'error';
+        this.msgShow = true;
+        return;
+      }
+
       axios
         .post('/email', {
           email: this.email
@@ -167,6 +197,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.subscribe-button {
+  font-size: 1.25rem;
+}
+
+.email-description {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-close-button {
+  opacity: 1;
+  color: #4a4a4a;
+  background-color: transparent;
+  border: none;
+  float: right;
+  margin-left: auto;
+}
+
 .subfooter {
   @media (min-width: 1201px) {
     margin-bottom: 4vh;
