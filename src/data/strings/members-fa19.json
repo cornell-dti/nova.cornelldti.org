@@ -155,7 +155,6 @@
     "hometown": "Los Altos, CA",
     "about": "When I'm not in Duffield working on a CS pset or DTI, I enjoy working on creative writing pieces and going to the gym. I am also Co-Director of Hack4Impact, a nonprofit, social impact CS group on campus. In my free time, I like playing games with friends and showing people unsolicited pet photos.",
     "subteam": "reviews",
-    "otherSubteams": "reviews",
     "roleId": "developer",
     "roleDescription": "Developer"
   },
@@ -215,7 +214,6 @@
     "hometown": "Naperville, IL",
     "about": "I love exploring/developing ways that technology can contribute to community impact. Aside from CDTI, I am also the philanthropy chair for Alpha Omega Epsilon (Cornell's engineering sorority), a member of the club tennis team, an AEW facilitator, and a Cornell Engineering Ambassador! In my free time, I enjoy hiking, hammocking, adventuring, eating, and chasing sunsets.",
     "subteam": "reviews",
-    "otherSubteams": "reviews",
     "roleId": "developer",
     "roleDescription": "Developer"
   },
@@ -247,7 +245,7 @@
     "hometown": "Bayside, NY",
     "about": "I love working with people. DTI allows me to do this while also solving greater community problems. I also get to do what I love when I am nature walking, creative writing, and exploring new music with others. Apart from DTI, I am a member of the Assorted Aces Dance Team and the WICC Photo Committee. When I'm not working in Upson Hall, I'm finding the best study spots on campus or rediscovering my love for Brooklyn Nine-Nine!",
     "subteam": "reviews",
-    "otherSubteams": "reviews, Website (Nova)",
+    "otherSubteams": ["nova"],
     "roleId": "developer",
     "roleDescription": "Developer"
   },
@@ -261,7 +259,7 @@
     "linkedin": "https://www.linkedin.com/in/aram-baghdassarian/",
     "github": "https://github.com/abagh0703/",
     "hometown": "Great Neck, NY",
-    "about": "Gosh, I feel like these always come off as so generic and cliche and have always wondered what I can do to make them seem less trite. Do people even read these? I'm genuinely curious, so if you're reading this then click <a href=\"http://bit.ly/yes-i-actually-read-the-bio\" target=\"_blank\">here!</a> When you click on the link, you'll find instructions to see how many people also clicked the link!",
+    "about": "Gosh, I feel like these always come off as so generic and cliche and have always wondered what I can do to make them seem less trite. Do people even read these? I'm genuinely curious, so if you're reading this then click http://bit.ly/yes-i-actually-read-the-bio. When you open the link, you'll find instructions to see how many people also clicked the link!",
     "subteam": "cue",
     "otherSubteams": "researchconnect",
     "website": "http://bit.ly/yes-i-actually-read-the-bio",
@@ -311,7 +309,7 @@
     "minor": "Law and Society",
     "linkedin": "https://www.linkedin.com/in/lisa-labarbera-9983ab13b/",
     "hometown": "Highland Mills, NY",
-    "about": "I am a junior majoring in Information Science with a minor in Law and Society. I am from the small town by NYC. On campus, I am an Arts and Sciences Peer Advisor, a teaching assistant, and a member of APO and WICC. Last summer, I worked as a software development intern for Fiserv. My interests include photography, traveling and design, and in my free time she loves to explore, play music, and take pictures!",
+    "about": "I am a senior majoring in Information Science with a minor in Law and Society. I am from the small town by NYC. On campus, I am an Arts and Sciences Peer Advisor, a teaching assistant, and a member of APO and WICC. Last summer, I worked as a software development intern for Fiserv. My interests include photography, traveling and design, and in my free time she loves to explore, play music, and take pictures!",
     "subteam": "cue",
     "roleId": "designer",
     "roleDescription": "Designer"
@@ -664,7 +662,8 @@
     "linkedin": "https://www.linkedin.com/in/yeonsukkim2015/",
     "hometown": "Seoul, South Korea",
     "about": "I'm a Product Designer currently studying Information Science at Cornell University. I became more involved in design after taking a course at Cornell called \"Designing Technology for Social Impact.\"\n\nI love solving problems, coming up with awesome solutions, then sometimes discovering I was wrong, and going back to the beginning to solve the issue from a new perspective. \n\nTo me, design is like a game. A game which we can play with forever! A solution to a (design) problem will only be temporary, it will have to be solved again from a new point of view. Allowing us to play with it forever. I aim to learn from a diverse group of people, changers, influencers who love tackling challenges, share how to love others, and stay in bed with my dogs for as long as they allow me to.",
-    "subteam": "queuemein",
+    "subteam": "carriage",
+    "otherSubteams": ["queuemein"],
     "roleId": "designer",
     "roleDescription": "Designer"
   },
@@ -806,7 +805,7 @@
     "website": "https://developersam.com",
     "linkedin": "https://www.linkedin.com/in/sam-zhou-30b91610b/",
     "github": "https://github.com/SamChou19815",
-    "website": "https://blog.developersam.com",
+    "website": "https://developersam.com",
     "hometown": "Shanghai, China",
     "about": "I am a full stack web developer with extensive experience in backend development in Kotlin/Java/NodeJS and frontend development with React/Angular Framework. Sam is interested in designing and developing extensible and scalable software systems as well as programming languages.",
     "subteam": "samwise",
