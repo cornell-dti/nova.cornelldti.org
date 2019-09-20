@@ -1,5 +1,4 @@
 module.exports = {
-  publicPath: '/static/',
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg');
 
