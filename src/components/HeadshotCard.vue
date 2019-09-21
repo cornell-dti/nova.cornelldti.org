@@ -6,7 +6,7 @@
           <b-col>
             <img v-if="foundPic" :src="image" @error="foundPic = !foundPic">
             <div v-if="!foundPic" class="profile-image">
-              <MissingImage class = "profile-image-missing" />
+              <MissingImage class="profile-image-missing"/>
             </div>
           </b-col>
         </b-row>
@@ -119,7 +119,7 @@ export default {
   img {
     object-fit: cover;
     width: 100%;
-    height: 100%;
+    height: 12rem;
     background-color: #d8d8d8;
   }
 }

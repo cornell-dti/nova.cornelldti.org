@@ -17,7 +17,7 @@ import BootstrapVueCSS from 'bootstrap-vue/dist/bootstrap-vue.css';
 
 /* Data */
 
-import Members from '@/data/strings/members2.json';
+import Members from '@/data/strings/members-sp19.json';
 import Companies from '@/data/companies.json';
 import Teams from '@/data/strings/teams.json';
 import Roles from '@/data/roles.json';
@@ -25,7 +25,8 @@ import Roles from '@/data/roles.json';
 /* Core Files */
 
 import App from '@/App';
-import Strings from '@/data/strings';
+import StringsFrontend from '@/data/strings/strings';
+import SingleBackend from '@/data/strings';
 import router from '@/router';
 
 /* Global Components */
@@ -40,6 +41,8 @@ import TextPageHero from '@/components/TextPageHero';
 import TextHero from '@/components/TextHero';
 import PageSection from '@/components/PageSection';
 import StoreBadge from '@/components/StoreBadge';
+
+const AssetStrings = new StringsFrontend('assets', SingleBackend);
 
 Vue.use(BootstrapVue);
 
@@ -63,7 +66,7 @@ Vue.component('TextHero', TextHero);
 Vue.mixin({
   data() {
     return {
-      Strings
+      AssetStrings
     };
   },
   methods: {
@@ -115,7 +118,10 @@ new Vue({
   el: '#app',
   router,
   components: {
-    App
+    App: () => ({
+      component: AssetStrings.initialize().then(() => App),
+      timeout: 5000
+    })
   },
   template: '<App/>'
 });

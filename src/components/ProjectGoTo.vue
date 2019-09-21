@@ -2,32 +2,31 @@
   <b-row>
     <b-col cols="auto">
       <b-row>
-        <b-col cols="auto" v-if="Strings.exists(`website`, `projects.${projectId}`)">
-          <b-button :href="Strings.get(`website`, `projects.${projectId}`)">
-            {{`Go to ${(Strings.get(`website-title`, `projects.${projectId}`) || Strings.get(`website`,
-            `projects.${projectId}`))}`}}
+        <b-col cols="auto" v-if="Strings.exists(`website`)">
+          <b-button :href="Strings.get(`website`)">
+            {{`Go to ${(Strings.get(`website-title`) || Strings.get(`website`))}`}}
           </b-button>
         </b-col>
 
-        <b-col cols="auto" v-if="Strings.exists(`playstore`, `projects.${projectId}`)">
-          <store-badge store="playstore" :url="Strings.get(`playstore`, `projects.${projectId}`)"/>
+        <b-col cols="auto" v-if="Strings.exists(`playstore`)">
+          <store-badge store="playstore" :url="Strings.get(`playstore`)"/>
         </b-col>
-        <b-col cols="auto" v-if="Strings.exists(`appstore`, `projects.${projectId}`)">
-          <store-badge store="appstore" :url="Strings.get(`appstore`, `projects.${projectId}`)"/>
+        <b-col cols="auto" v-if="Strings.exists(`appstore`)">
+          <store-badge store="appstore" :url="Strings.get(`appstore`)"/>
         </b-col>
         <b-col
           class="connect-icon-container"
           cols="auto"
           v-if="
-        Strings.exists(`ios-github`, `projects.${projectId}`)
-        && !Strings.exists(`appstore`, `projects.${projectId}`)
-        && !Strings.exists(`playstore`, `projects.${projectId}`)
-        && !Strings.exists(`website`, `projects.${projectId}`)
+        Strings.exists(`ios-github`)
+        && !Strings.exists(`appstore`)
+        && !Strings.exists(`playstore`)
+        && !Strings.exists(`website`)
         "
         >
           <b-button
             class="align-content-center"
-            :href="Strings.get(`ios-github`, `projects.${projectId}`)"
+            :href="Strings.get(`ios-github`)"
           >
             <Github class="connect-icon connect-icon-blank"/>
             <span class="connect-text">iOS</span>
@@ -37,15 +36,15 @@
           class="connect-icon-container"
           cols="auto"
           v-if="
-        Strings.exists(`android-github`, `projects.${projectId}`)
-        && !Strings.exists(`appstore`, `projects.${projectId}`)
-        && !Strings.exists(`playstore`, `projects.${projectId}`)
-        && !Strings.exists(`website`, `projects.${projectId}`)
+        Strings.exists(`android-github`)
+        && !Strings.exists(`appstore`)
+        && !Strings.exists(`playstore`)
+        && !Strings.exists(`website`)
         "
         >
           <b-button
             class="align-content-center"
-            :href="Strings.get(`android-github`, `projects.${projectId}`)"
+            :href="Strings.get(`android-github`)"
           >
             <Github class="connect-icon connect-icon-blank"/>
             <span class="connect-text">Android</span>
@@ -55,15 +54,15 @@
           class="connect-icon-container"
           cols="auto"
           v-if="
-        Strings.exists(`github`, `projects.${projectId}`)
-        && !Strings.exists(`appstore`, `projects.${projectId}`)
-        && !Strings.exists(`playstore`, `projects.${projectId}`)
-        && !Strings.exists(`website`, `projects.${projectId}`)
+        Strings.exists(`github`)
+        && !Strings.exists(`appstore`)
+        && !Strings.exists(`playstore`)
+        && !Strings.exists(`website`)
         "
         >
           <b-button
             class="align-content-center"
-            :href="Strings.get(`github`, `projects.${projectId}`)"
+            :href="Strings.get(`github`)"
           >
             <Github class="connect-icon connect-icon-blank"/>
             <span class="connect-text">GitHub</span>
@@ -97,6 +96,9 @@
 <script>
 import Github from '@/assets/social/github.svg';
 
+import StringsFrontend from '@/data/strings/strings';
+import SingleBackend from '@/data/strings';
+
 export default {
   components: {
     Github
@@ -106,6 +108,11 @@ export default {
       type: String,
       required: true
     }
+  },
+  data() {
+    return {
+      Strings: new StringsFrontend(`projects.${this.projectId}`, SingleBackend)
+    };
   }
 };
 </script>

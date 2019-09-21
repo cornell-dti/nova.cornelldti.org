@@ -6,8 +6,8 @@
         <b-col md="10" sm="12">
           <b-container fluid>
             <text-hero
-              :header="Strings.get('hero.header', 'projects.researchconnect')"
-              :subheader="Strings.get('hero.subheader', 'projects.researchconnect')"
+              :header="Strings.get('hero.header')"
+              :subheader="Strings.get('hero.subheader')"
             />
           </b-container>
 
@@ -31,7 +31,7 @@ export default {
   extends: TeamBaseVue,
   computed: {
     projectData() {
-      return this.Strings.get('', 'projects.researchconnect');
+      return this.Strings.get('');
     }
   }
 };

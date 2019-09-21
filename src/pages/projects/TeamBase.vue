@@ -6,8 +6,8 @@
         <b-col md="10" sm="12">
           <b-container fluid>
             <text-hero
-              :header="Strings.get('hero.header', 'projects.shout')"
-              :subheader="Strings.get('hero.subheader', 'projects.shout')"
+              :header="Strings.get('hero.header')"
+              :subheader="Strings.get('hero.subheader')"
             />
           </b-container>
 
@@ -58,7 +58,12 @@ export default {
   methods: {
     getTeam(team) {
       const teamA = this.getMembers()
-        .filter(member => (typeof member.subteam === 'string' && member.subteam === team) || (Array.isArray(member.otherSubteams) && member.otherSubteams.includes(team)))
+        .filter(
+          member =>
+            (typeof member.subteam === 'string' && member.subteam === team) ||
+            (Array.isArray(member.otherSubteams) &&
+              member.otherSubteams.includes(team))
+        )
         .map(obj => ({ info: obj, id: obj.netid }));
 
       return teamA;

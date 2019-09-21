@@ -1,0 +1,32 @@
+{
+  "name": "Research Connect",
+  "id": "researchconnect",
+  "teamId": "research",
+  "header": "Research Connect",
+  "subheader": "Handshake for Lab Research.",
+  "hero" : {
+    "header" : "What We Do",
+    "subheader" : "Large universities have so many research opportunities, but few ways to find out about them. Research Connect is a platform where students can find opportunities and research labs can find students they’re looking for."
+  },
+  "website" : "https://www.research-connect.com",
+  "website-title" : "Research Connect",
+  "github" : "https://github.com/cornell-dti/research-connect",
+  "external" : "http://cornellsun.com/2018/04/24/cornellians-share-business-plans-in-competition-promoting-entrepreneurship/",
+  "heroStartingColor" : "#FAACA8",
+  "heroEndingColor" : "#FAACA8",
+  "heroUseDarkText" : false,
+  "features": {
+    "1": {
+      "title": "Find Research Opportunities.",
+      "description": "Instead of having to email researchers, we streamline the process by showing undergrads all of the opportunities available to them."
+    },
+    "2": {
+      "title": "View Requirements. Apply Online.",
+      "description": "Find out exactly what requirements a lab is searching for that match your background."
+    },
+    "3": {
+      "title": "Search Faculty.",
+      "description": "Search for faculty across all departments to find out who is conducting research and whether they’re looking for students. (Coming Soon)"
+    }
+  }
+}

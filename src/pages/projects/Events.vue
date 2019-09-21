@@ -15,8 +15,8 @@
         <b-col md="10" sm="12">
           <b-container fluid>
             <text-hero
-              :header="Strings.get('hero.header', 'projects.events')"
-              :subheader="Strings.get('hero.subheader', 'projects.events')"
+              :header="Strings.get('hero.header')"
+              :subheader="Strings.get('hero.subheader')"
             />
           </b-container>
 
@@ -40,7 +40,7 @@ export default {
   extends: TeamBaseVue,
   computed: {
     projectData() {
-      return this.Strings.get('', 'projects.events');
+      return this.Strings.get('');
     }
   }
 };

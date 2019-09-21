@@ -1,7 +1,7 @@
 <template>
   <page-hero
     :overlay="false"
-    :bg="`linear-gradient(282deg, ${Strings.get('heroStartingColor', `projects.${projectId}`)}, ${Strings.get('heroEndingColor', `projects.${projectId}`)})`"
+    :bg="`linear-gradient(282deg, ${Strings.get('heroStartingColor')}, ${Strings.get('heroEndingColor')})`"
   >
     <b-row align-h="center" class="project-hero-header-left-mobile h-100 no-gutters">
       <b-col sm="auto" md="6" class="project-hero">
@@ -11,10 +11,10 @@
               <b-col cols="12">
                 <h3
                   class="project-hero-text-header"
-                >{{ Strings.get(`header`, `projects.${projectId}`) }}</h3>
+                >{{ Strings.get(`header`) }}</h3>
                 <p
                   class="project-hero-description"
-                >{{ Strings.get(`subheader`, `projects.${projectId}`) }}</p>
+                >{{ Strings.get(`subheader`) }}</p>
               </b-col>
             </b-row>
             <project-go-to class="no-gutters" v-if="!customGoTo" :projectId="projectId"/>
@@ -23,7 +23,7 @@
         </b-row>
       </b-col>
       <b-col cols="6" class="project-hero-logo">
-        <b-img class="product" :src="Strings.get(`projects.${projectId}.hero-image`, 'assets')"/>
+        <b-img class="product" :src="AssetStrings.get(`projects.${projectId}.hero-image`)"/>
       </b-col>
     </b-row>
   </page-hero>
@@ -31,6 +31,8 @@
 
 
 <script>
+import StringsFrontend from '@/data/strings/strings';
+import SingleBackend from '@/data/strings';
 import ProjectGoTo from './ProjectGoTo';
 
 export default {
@@ -44,6 +46,11 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  data() {
+    return {
+      Strings: new StringsFrontend(`projects.${this.projectId}`, SingleBackend)
+    };
   }
 };
 </script>
@@ -55,11 +62,11 @@ export default {
   }
 }
 
-.project-hero {
-  .project-hero-logo {
-    margin: 1vw;
-  }
+.project-hero-logo {
+  height: 50vh;
+}
 
+.project-hero {
   .project-hero-description {
     overflow: hidden;
     text-overflow: ellipsis;

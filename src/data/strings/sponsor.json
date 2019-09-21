@@ -1,0 +1,104 @@
+{
+  "hero": {
+    "header": "Sponsor Our Mission",
+    "subheader": "We want to partner with organizations who have a similar vision of changing the world. Together, we can work towards improving our communities with technology."
+  },
+  "pitch": {
+    "1": {
+      "header": "Build Relationships",
+      "description": "We want sponsors to be as invested in partnering with us as we are with them. In addition to helping make community initiatives possible, we will help organizations create diverse talent pipeline, present information sessions, conduct workshops, and help establish a presence on our campus."
+    },
+    "2": {
+      "header": "Impact",
+      "description": "All of the funds we receive through sponsorships is directly invested back into the team. Through user research, software licenses, community outreach, and marketing, sponsorships help us grow our vision of helping out the community through technology."
+    },
+    "3": {
+      "header": "Get Involved",
+      "description": "All of the funds we receive through sponsorships is directly invested back into the team. Through user research, software licenses, community outreach, and marketing, sponsorships help us grow our vision of helping out the community through technology."
+    }
+  },
+  "call-to-action": {
+    "description": "Sponsor us to help make community impact!",
+    "button": {
+      "text": "Contact Us"
+    }
+  },
+  "current-sponsors": {
+    "header": "Current Sponsors"
+  },
+  "tiers": {
+    "header": "Sponsorship Tiers",
+    "sponsor": {
+      "0": {
+        "benefit": "Recognition on DTI Website",
+        "subheader": "Logo placement on sponsorship materials",
+        "tiers": {
+          "bronze": true,
+          "silver": true,
+          "gold": true,
+          "platinum": true
+        }
+      },
+      "1": {
+        "benefit": "Campus-Wide Marketing & Publicity",
+        "subheader": "Support and usage of company products on campus",
+        "tiers": {
+          "bronze": true,
+          "silver": true,
+          "gold": true,
+          "platinum": true
+        }
+      },
+      "2": {
+        "benefit": "Resume Book Access",
+        "subheader": "Access to our talent pipeline for recruitment",
+        "tiers": {
+          "bronze": false,
+          "silver": true,
+          "gold": true,
+          "platinum": true
+        }
+      },
+      "3": {
+        "benefit": "Flagship Initiative Co-Sponsor",
+        "subheader": "Company specific publicity and swag distribution",
+        "tiers": {
+          "bronze": false,
+          "silver": true,
+          "gold": true,
+          "platinum": true
+        }
+      },
+      "4": {
+        "benefit": "Host One Standard Initiative",
+        "subheader": "One per semester; Includes technical workshops, career chats",
+        "tiers": {
+          "bronze": false,
+          "silver": false,
+          "gold": true,
+          "platinum": true
+        }
+      },
+      "5": {
+        "benefit": "Host Multiple Initiatives",
+        "subheader": "Up to three events per semester with priority scheduling Every additional event costs $250",
+        "tiers": {
+          "bronze": false,
+          "silver": false,
+          "gold": true,
+          "platinum": true
+        }
+      },
+      "6": {
+        "benefit": "Tabling Slot in Engineering Hall",
+        "subheader": "Reserve space in Duffield Hall, a central engineering hub  Ideal for networking, swag distributions, and branding",
+        "tiers": {
+          "bronze": false,
+          "silver": false,
+          "gold": false,
+          "platinum": true
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 <template>
   <page-background>
     <nova-hero
-      :header="Strings.get('hero.header', 'team')"
-      :subheader="Strings.get('hero.subheader', 'team')"
+      :header="Strings.get('hero.header')"
+      :subheader="Strings.get('hero.subheader')"
       page="team"
     />
 
@@ -14,14 +14,12 @@
             <b-col sm="12" md="9">
               <div
                 class="team-header diversity-header my-auto"
-              >{{ Strings.get('diversity.header', 'team') }}</div>
+              >{{ Strings.get('diversity.header') }}</div>
               <div
                 class="diversity-description my-auto lg-y-padding"
-              >{{ Strings.get('diversity.description', 'team') }}</div>
+              >{{ Strings.get('diversity.description') }}</div>
 
-              <h3
-                class="graph-header lg-y-padding"
-              >{{ Strings.get('diversity.gender.header', 'team') }}</h3>
+              <h3 class="graph-header lg-y-padding">{{ Strings.get('diversity.gender.header') }}</h3>
 
               <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
@@ -61,27 +59,23 @@
             <b-col cols="12" class="diversity-description diversity-inner-text">
               <div
                 class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}</div>
+              >{{ Strings.get('diversity.stats.underclassmen.stat') }}</div>
               <div class="diversity-description diversity-stat-description">
-                {{ Strings.get('diversity.stats.underclassmen.description', 'team')
+                {{ Strings.get('diversity.stats.underclassmen.description')
                 }}
               </div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div
-                class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.majors.stat', 'team') }}</div>
+              <div class="diversity-stat-header">{{ Strings.get('diversity.stats.majors.stat') }}</div>
               <div
                 class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.majors.description', 'team') }}</div>
+              >{{ Strings.get('diversity.stats.majors.description') }}</div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div
-                class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.colleges.stat', 'team') }}</div>
+              <div class="diversity-stat-header">{{ Strings.get('diversity.stats.colleges.stat') }}</div>
               <div
                 class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.colleges.description', 'team') }}</div>
+              >{{ Strings.get('diversity.stats.colleges.description') }}</div>
             </b-col>
           </b-row>
         </b-col>
@@ -90,7 +84,7 @@
 
     <b-container fluid>
       <page-section>
-        <div class="team-header diversity-header">{{ Strings.get('team.header', 'team') }}</div>
+        <div class="team-header diversity-header">{{ Strings.get('team.header') }}</div>
 
         <!-- TODO actual padding -->
         <br>
@@ -99,9 +93,7 @@
           <b-col cols="12">
             <role-selector density="normal" class="team-role-selector" v-model="roleId"/>
 
-            <headshot-grid
-              :members="[...filterMembers(`${roleId}colead`), ...filterMembers(`${roleId}-lead`), ...(filterMembers(roleId))]"
-            />
+            <headshot-grid :members="[...filterMembers(roleId, true), ...(filterMembers(roleId))]"/>
           </b-col>
         </b-row>
       </page-section>
@@ -425,102 +417,25 @@ export default {
     femalePercentage(roleId) {
       return this.diversity.femalePercentage[roleId];
     },
-    filterMembers(role = '') {
-      let filtered;
-      if (role === '') {
-        filtered = this.getMembers()
-          .filter(member => {
-            if (typeof member.roleId != 'string'){
-              member.roleId = ''; 
-              member.source = ''; 
-              member.graduation = ''; 
-              member.major = ''; 
-              member.doubleMajor = ''; 
-              member.minor = ''; 
-              member.hometown = ''; 
-              member.github = ''; 
-              member.linkedin = ''; 
-              member.other = ''; 
-              member.website = ''; 
-              member.about = ''; 
-              member.subteam = ''; 
-              member.otherSubteams = ''; 
-              member.roleDescription = ''; 
-            }
-            return !member.roleId.endsWith('-lead');
-          })
-          .map(member => ({ info: member, id: member.netid }))
-          .sort((a, b) => {
-            let aname;
-            let bname;
+    filterMembers(role = '', isLead = false) {
+      return this.getMembers()
+        .filter(
+          member =>
+            ((typeof member.roleId === 'string' &&
+              member.roleId.endsWith(role)) ||
+              role === '') &&
+            (member.isLead != null && member.isLead === true) === isLead
+        )
+        .map(member => ({ info: member, id: member.netid }))
+        .sort((a, b) => {
+          const aname = a.info.name;
+          const bname = b.info.name;
 
-            if (typeof a.info.name === 'undefined') {
-              aname = `${a.info.firstName} ${a.info.lastName}`;
-            } else {
-              aname = a.info.name;
-            }
-            if (typeof b.info.name === 'undefined') {
-              bname = `${b.info.firstName} ${b.info.lastName}`;
-            } else {
-              bname = b.info.name;
-            }
+          if (aname < bname) return -1;
+          if (aname > bname) return 1;
 
-            if (aname < bname) return -1;
-            if (aname > bname) return 1;
-            return 0;
-          });
-      } else {
-        filtered = this.getMembers()
-          .filter(member => {
-            if (typeof member.roleId === 'string') {
-              if (role === 'colead') {
-                return false;
-              } else if (role === '-lead') {
-                return member.roleId.endsWith(role);
-              }
-
-              return member.roleId === role;
-            } else if (Array.isArray(member.roleId)) {
-              if (role === 'colead') {
-                return member.roleId.includes(role);
-              } else if (role === '-lead') {
-                if (member.roleId.includes('colead')) {
-                  return false;
-                }
-
-                for (let i = 0; i < member.roleId.length; i += 1) {
-                  if (member.roleId[i].endsWith(role)) {
-                    return true;
-                  }
-                }
-              } else {
-                return member.roleId.includes(role);
-              }
-            }
-            return false;
-          })
-          .map(member => ({ info: member, id: member.netid }))
-          .sort((a, b) => {
-            let aname;
-            let bname;
-            if (typeof a.info.name === 'undefined') {
-              aname = `${a.info.firstName} ${a.info.lastName}`;
-            } else {
-              aname = a.info.name;
-            }
-            if (typeof b.info.name === 'undefined') {
-              bname = `${b.info.firstName} ${b.info.lastName}`;
-            } else {
-              bname = b.info.name;
-            }
-            if (aname < bname) return -1;
-            if (aname > bname) return 1;
-            return 0;
-          });
-      }
-
-      // todo fix this ugliness
-      return filtered;
+          return 0;
+        });
     }
   }
 };
