@@ -6,7 +6,6 @@ const DEFAULT_CONTEXT = 'default';
 const base = 'https://dti-nova-cms-api.herokuapp.com/';
 const JSONMap = {};
 
-
 function searchKey(key, json) {
   let val = json[key];
 

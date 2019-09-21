@@ -21,7 +21,7 @@
               class="social-button"
               :href="Strings.get('content.1.buttons.apply.link')"
             >
-              <ApplyIcon/>
+              <ApplyIcon />
               <div
                 class="social-button-text"
               >{{Strings.get('content.1.buttons.apply.title')}}</div>
@@ -48,7 +48,7 @@
               class="social-button"
               :href="Strings.get('content.2.buttons.apply.link')"
             >
-              <ApplyIcon/>
+              <ApplyIcon />
               <div
                 class="social-button-text"
               >{{Strings.get('content.2.buttons.apply.title')}}</div>
@@ -64,7 +64,7 @@
       </page-section>
     </b-container>
 
-    <dti-footer page="courses"/>
+    <dti-footer page="courses" />
   </page-background>
 </template>
 

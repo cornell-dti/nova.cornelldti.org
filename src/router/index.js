@@ -73,6 +73,12 @@ const dtiRouter = new Router({
       component: () => createAsyncPage('projects.shout', () => import('@/pages/projects/Shout'))
     },
     {
+      path: '/Projects/flux',
+      name: 'Flux',
+      component: Flux
+    },
+    { path: '/Projects/density', redirect: '/Projects/flux' },
+    {
       path: '/Initiatives',
       name: 'Initiatives',
       component: () => createAsyncPage('initiatives', () => import('@/pages/Initiatives'))

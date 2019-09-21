@@ -12,13 +12,8 @@
       "buttons": {
         "apply": {
           "title": "Apply",
-          "link": "https://bit.ly/dti-web-dev",
+          "link": "https://bit.ly/web-dev-fa19",
           "icon": "apply"
-        },
-        "github": {
-          "title": "GitHub",
-          "link": "https://github.com/cornell-dti/web-dev-class-sp19",
-          "icon": "github"
         }
       }
     },
@@ -30,7 +25,7 @@
       "buttons": {
         "apply": {
           "title": "Apply",
-          "link": "https://bit.ly/dti-blueprint",
+          "link": "https://bit.ly/applytoblueprint",
           "icon": "apply"
         }
       }

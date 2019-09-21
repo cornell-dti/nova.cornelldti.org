@@ -1,0 +1,25 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "description": "",
+  "env": {
+    "mailchimpkey": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "nova.cornelldti.org",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
