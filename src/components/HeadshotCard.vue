@@ -4,9 +4,9 @@
       <b-col>
         <b-row class="image-row no-gutters">
           <b-col>
-            <img v-if="foundPic" :src="image" @error="foundPic = !foundPic">
+            <img v-if="foundPic" :src="aws(image)" @error="foundPic = !foundPic" />
             <div v-if="!foundPic" class="profile-image">
-              <MissingImage class="profile-image-missing"/>
+              <MissingImage class="profile-image-missing" />
             </div>
           </b-col>
         </b-row>
