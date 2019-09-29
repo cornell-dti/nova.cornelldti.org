@@ -57,9 +57,7 @@
                   </a>
                 </b-col>
                 <b-col cols="auto" class="social-icon-wrapper">
-                  <a
-                    href="https://medium.com/cornelldti"
-                  >
+                  <a href="https://medium.com/cornelldti">
                     <Medium class="social-icon social-icon-blank" />
                   </a>
                 </b-col>
@@ -109,6 +107,7 @@
 
 <script>
 import Vue from 'vue';
+import { Component, Prop } from 'vue-property-decorator';
 import Facebook from '@/assets/social/facebook.svg';
 import Dribbble from '@/assets/social/dribbble.svg';
 import Github from '@/assets/social/github.svg';
@@ -118,7 +117,6 @@ import Medium from '@/assets/social/medium.svg';
 import Heart from '@/assets/footer/heart.svg';
 import HeartMobile from '@/assets/footer/heart-mobile.svg';
 import MailChimpForm from '@/components/MailChimpForm';
-import { Component, Prop } from 'vue-property-decorator';
 
 @Component({
   components: {
@@ -140,6 +138,7 @@ export default class DtiFooter extends Vue {
   hideSubfooter;
 
   isSubscribing = false;
+
   email = '';
 
   modalClose() {

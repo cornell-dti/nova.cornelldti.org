@@ -2,22 +2,16 @@
 
 module.exports = {
   root: true,
+  extends: [
+    'plugin:vue/essential',
+    '@vue/airbnb'
+  ],
   parserOptions: {
     parser: 'babel-eslint'
   },
   env: {
-    browser: true
-  },
-  extends: ['eslint:recommended', 'plugin:vue/essential', 'airbnb-base'],
-  // required to lint *.vue files
-  plugins: ['vue'],
-  // check if imports actually resolve
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: 'build/webpack.base.conf.js'
-      }
-    }
+    browser: true,
+    node: true
   },
   // add your custom rules here
   rules: {

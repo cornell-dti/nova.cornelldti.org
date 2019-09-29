@@ -342,7 +342,7 @@ $secondary: #f6f6f6;
   }
 
   &.diversity-background {
-    background-image: url('/static/pages/team/diversity-background.jpg'); // todo convert to v-visual
+    background-image: url('/public/pages/team/diversity-background.jpg'); // todo convert to v-visual
     background-size: cover;
   }
 
