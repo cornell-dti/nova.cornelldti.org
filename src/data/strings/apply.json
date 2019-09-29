@@ -1,10 +1,10 @@
 {
   "join-information": {
-    "applications-open": true
+    "applications-open": false
   },
   "main-menu": {
     "advertisement": {
-      "open": true
+      "open": false
     }
   },
   "hero": {
@@ -42,9 +42,8 @@
           }
         },
         "call-to-action-button": {
-          "closed": false,
-          "content": "Product Design Application (freshman)",
-          "link": "https://forms.gle/H8yERyzvj97dLNT6A"
+          "closed": true,
+          "content": "Product Design Application (closed)"
         }
       },
       "next-steps": {
@@ -87,9 +86,8 @@
           }
         },
         "call-to-action-button": {
-          "closed": false,
-          "content": "Software Developer Application (freshman)",
-          "link": "https://forms.gle/H7SA4vZpjGD6e5nA6"
+          "closed": true,
+          "content": "Software Developer Application (closed)"
         }
       },
       "next-steps": {
@@ -132,9 +130,8 @@
           }
         },
         "call-to-action-button": {
-          "closed": false,
-          "content": "Business Analyst Application (freshman)",
-          "link": "https://forms.gle/eYsUg9FmoDu3bUam6"
+          "closed": true,
+          "content": "Business Analyst Application (closed)"
         }
       },
       "next-steps": {
@@ -168,14 +165,17 @@
         "right-header": "not open for freshman submissions",
         "sections": {
           "1": {
-            "header": "Not accepting submissions",
-            "content": "Unfortunately, all available product management positions have been filled. We encourage interested first-year applicants to consider other roles and look at our Blueprint course, an excellent training course for all things product management!"
+            "header": "What We're Looking For",
+            "content": "Someone with excellent analytical, problem-solving, organizational, verbal, written and presentation communication and interpersonal skills. You should have an eye for finding impactful problems to solve using technology. With some general understanding of product and design thinking and how the technical stack works, you should be able to find a well-defined problem and guide designers and developers towards building out the right solution."
+          },
+          "2": {
+            "header": "What You'll Do",
+            "content": "You will be taking on the responsibility of successfully delivering the product by guiding products throughout their execution cycle, from problem defining, market/user research, road mapping, to defining product requirements and overseeing the final deployment of product. You will be working closely with designers and developers throughout the product cycle, bridging the gap between design and tech through excellent communication and an understanding of how to prioritize requirements for delivery. Outside of working with your team members, you will be also expected to fill in the gap for any roles necessary, from scheduling meetings, creating relationships with administrations, collaborating with other student organizations, to helping unblock your designers and developers."
           }
         },
         "call-to-action-button": {
           "closed": true,
-          "content": "Product Management Application (closed)",
-          "link": ""
+          "content": "Product Management Application (closed)"
         }
       },
       "next-steps": {
