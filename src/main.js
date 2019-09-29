@@ -69,7 +69,7 @@ Vue.mixin({
       return url.join('/');
     },
     aws(asset) {
-      return this.joinPath(`https://s3.us-east-2.amazonaws.com/dti-nova-website/`, `${asset}`);
+      return this.joinPath(`https://s3.us-east-2.amazonaws.com/dti-nova-website/static/`, `${asset.replace('/public', '')}`);
     },
     getMembers() {
       return Members;
