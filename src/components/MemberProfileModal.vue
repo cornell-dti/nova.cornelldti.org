@@ -34,7 +34,7 @@
                 center
                 rounded="circle"
                 class="profile-image"
-                :src="`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`"
+                :src="aws(`${Strings.get('directories.members', 'assets')}/${profile.id+'.jpg'}`)"
                 @error="display = !display"
               ></b-img>
               <div
