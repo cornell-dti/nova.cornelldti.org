@@ -63,7 +63,7 @@
     "vue-style-loader": "^4.1.2",
     "vue-svg-loader": "^0.5.0",
     "vue-template-compiler": "^2.6.10",
-    "webpack-cli": "^3.3.8"
+    "webpack-cli": "^3.3.9"
   },
   "engines": {
     "node": "10.x",
