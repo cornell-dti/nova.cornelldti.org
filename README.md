@@ -1,6 +1,6 @@
 # Cornell DTI Website
 
-_Last updated **9/22/2018**_.
+_Last updated **10/01/2019**_.
 ​
 #### Contents
   - [About](#about)
@@ -16,22 +16,23 @@ A web app for informing the general public about the Cornell Design & Tech Initi
 ## Getting Started
 You will need **a text editor (VS Code, Atom, Brackets, Webstorm)** to run the latest version of this app, which uses the following **packages**:
 ​
- * Node.js version 9.11.1
-   * NPM version 5.6.0
-   * Yarn version 1.9.2
+ * Node.js v10.x
+ * NPM version 6.x
+ * Yarn version >= 1.13.x
 
 ### Directory Structure
 The entire site is built with Vue.js utilizing single page components comprising of JavaScript, SCSS, and Vue HTML templates.
 
 - static
   - branding: _all global branding assets go here_
-  - members: _member specific assets (profile images, etc) live here_
   - pages: _assets for particular pages live here_
+- public
+  - index.html: the base file for the entire site.
 - src: _all dynamic files live here_
   - assets:  _primarily hosts SVGs which will be inlined in our build system and image files that will be compressed_
   - components:  _all Vue components which will be used across multiple page components_
   - data: _contains all string-based data which will be used for the website_
-    - [strings](): _a git [submodule]() which hosts strings to populate the website with_
+    - [strings]: all strings to render the website
   - eventbus: _an instance of [Vue] which is utilized as a global eventbus. You can see an example of this utilization here._
   - pages: _Vue components that comprise entire pages on the site._
     - projects: _Page components for specific projects_
@@ -48,35 +49,24 @@ The entire site is built with Vue.js utilizing single page components comprising
 # install dependencies
 yarn
 
-# serve with hot reload at localhost:8080
-yarn dev
-
 # build for production with minification
 yarn build
-
-# build for production and view the bundle analyzer report
-yarn build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ### Deploy Setup
 
-We deploy to Heroku. You will need [`heroku-cli`].
-
-```bash
-# deploy
-git push heroku master
-```
+Our `master` branch automatically deploys to our staging Heroku instance.
 ​
 ## Dependencies & Libraries
- * [Vue](https://vuejs.org) 2.5.2 - A JavaScript front-end framework for building component-driven web applications. Vue offers a flexible, strong developer framework that is more well structured and powerful than Angular, and has a better learning curve than React. 
+ * [Vue](https://vuejs.org) 2.6.x - A JavaScript front-end framework for building component-driven web applications. Vue offers a flexible, strong developer framework that is more well structured and powerful than Angular, and has a better learning curve than React. 
 
- * [Express](https://expressjs.com) 4.16.3 - A back-end library that implements a web server for our back-end. We use it to route initial requests to our front-end (Vue).
+ * [Express](https://expressjs.com) 4.16.x+ - A back-end library that implements a web server for our back-end. We use it to route initial requests to our front-end (Vue).
 
  * [Bootstrap](https://bootstrap-vue.js.org) 2.0 - An implementation of Bootstrap that provides developers with a comprehensive set of components and integrations with Vue.
 
- * [Webpack](https://webpack.js.org) 3.6.0 -  A module bundler that manages dependency usage, compression of CSS & JavaScript code, compilation of Vue to JavaScript, and management of assets.
+ * [Webpack](https://webpack.js.org) 4.1.0+ -  A module bundler that manages dependency usage, compression of CSS & JavaScript code, compilation of Vue to JavaScript, and management of assets.
 
  * [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) - A command-line tool for deploying applications to Heroku.
 ​
@@ -88,6 +78,14 @@ git push heroku master
 ​
 ## Contributors
 ​
+**2019**
+ * **Evan Welsh** - Product Manager
+ * **Will Spencer** - Frontend Developer
+ * **Andrew Yates** - Backend Developer
+ * **Kathleen Xu** - Business Represenative + Developer/Designer
+ * **Sanjana Seshadri** - Designer
+ * **Ishika Jain** - Designer
+
 **2018**
  * **Alice Pham** - Product Manager
  * **Evan Welsh** - Developer
