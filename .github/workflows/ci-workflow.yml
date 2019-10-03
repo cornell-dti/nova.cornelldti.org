@@ -15,7 +15,7 @@ jobs:
       - name: Check Format
         run: yarn format:check || echo "Ignore format error."
       - name: Run Linter
-        run: yarn lint || echo "Ignore format error."
+        run: yarn lint || echo "Ignore linter error."
       - name: Build
         run: yarn build
       - name: Upload Built Static Assets
