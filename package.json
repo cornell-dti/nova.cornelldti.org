@@ -9,7 +9,9 @@
     "start": "node server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "format": "prettier --write '**/*.{js,vue,scss,css,html}'",
+    "format:check": "prettier --check '**/*.{js,vue,scss,css,html}'"
   },
   "dependencies": {
     "@babel/runtime": "^7.3.1",
@@ -35,8 +37,8 @@
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
-    "babel-eslint": "^8.2.5",
     "autoprefixer": "^7.1.2",
+    "babel-eslint": "^8.2.5",
     "chalk": "^2.0.1",
     "concurrently": "^3.6.0",
     "copy-webpack-plugin": "^4.5.2",
@@ -54,6 +56,7 @@
     "postcss-import": "^12.0.1",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
+    "prettier": "^1.18.2",
     "rimraf": "^2.6.0",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
