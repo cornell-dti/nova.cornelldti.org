@@ -26,7 +26,7 @@ import Roles from '@/data/roles.json';
 
 import App from '@/App';
 import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings';
+import SingleBackend from '@/data/strings/jsonStringsBackend';
 import router from '@/router';
 
 /* Global Components */

@@ -98,18 +98,19 @@
 
 <script>
 import Vue from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
 import Facebook from '@/assets/social/facebook.svg';
 import Dribbble from '@/assets/social/dribbble.svg';
 import Github from '@/assets/social/github.svg';
 import GooglePlay from '@/assets/social/google-play.svg';
 import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
+import Footer from '@/assets/footer/footer.svg';
 import Heart from '@/assets/footer/heart.svg';
 import HeartMobile from '@/assets/footer/heart-mobile.svg';
 import MailChimpForm from '@/components/MailChimpForm';
 
-import SingleBackend from '@/data/strings';
+import SingleBackend from '@/data/strings/jsonStringsBackend';
 import StringsFrontend from '@/data/strings/strings';
 
 export default {

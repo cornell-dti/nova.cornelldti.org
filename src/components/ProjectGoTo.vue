@@ -3,9 +3,9 @@
     <b-col cols="auto">
       <b-row>
         <b-col cols="auto" v-if="Strings.exists(`website`)">
-          <b-button :href="Strings.get(`website`)">
-            {{ `Go to ${Strings.get(`website-title`) || Strings.get(`website`)}` }}
-          </b-button>
+          <b-button :href="Strings.get(`website`)">{{
+            `Go to ${Strings.get(`website-title`) || Strings.get(`website`)}`
+          }}</b-button>
         </b-col>
 
         <b-col cols="auto" v-if="Strings.exists(`playstore`)">
@@ -87,7 +87,7 @@
 import Github from '@/assets/social/github.svg';
 
 import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings';
+import SingleBackend from '@/data/strings/jsonStringsBackend';
 
 export default {
   components: {

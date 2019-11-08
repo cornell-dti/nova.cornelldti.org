@@ -1,5 +1,5 @@
 import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings';
+import SingleBackend from '@/data/strings/jsonStringsBackend';
 import ErrorComponent from '@/components/ErrorComponent';
 import LoadingComponent from '@/components/LoadingComponent';
 

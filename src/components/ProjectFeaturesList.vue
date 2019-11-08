@@ -38,7 +38,7 @@
 
 <script>
 import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings';
+import SingleBackend from '@/data/strings/jsonStringsBackend';
 
 export default {
   props: {
