@@ -12,10 +12,8 @@ jobs:
           node-version: '10.x'
       - name: Yarn Install
         run: yarn install
-      - name: Check Format
-        run: yarn format:check || echo "Ignore format error."
       - name: Run Linter
-        run: yarn lint || echo "Ignore linter error."
+        run: yarn lint
       - name: Build
         run: yarn build
       - name: Upload Built Static Assets
