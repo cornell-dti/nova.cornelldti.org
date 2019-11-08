@@ -3,7 +3,7 @@
     <!-- v-for="row in rows()" :key="row.index" -->
     <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
       <div v-if="member.phantom" class="phantom-headshot-card">
-        <headshot-card :name="member.id" :role="member.id" :image="``" @click.native="null"/>
+        <headshot-card :name="member.id" :role="member.id" :image="``" @click.native="null" />
       </div>
       <headshot-card
         v-b-modal.memberModal
@@ -15,7 +15,7 @@
       />
     </div>
 
-    <member-profile-modal :profile="currentProfile" :display="true"/>
+    <member-profile-modal :profile="currentProfile" :display="true" />
   </div>
 </template>
 

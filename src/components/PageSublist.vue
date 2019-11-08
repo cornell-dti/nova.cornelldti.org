@@ -1,6 +1,6 @@
 <template>
   <div :class="['page-sublist', borderPadding ? '' : 'page-sublist-no-padding']">
-    <slot/>
+    <slot />
   </div>
 </template>
 
@@ -30,4 +30,3 @@ export default {
   margin-bottom: 0;
 }
 </style>
-

@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <project-header projectId="queuemein"/>
+    <project-header projectId="queuemein" />
     <b-container fluid>
       <b-row align-h="center">
         <b-col md="10" sm="12">
@@ -11,16 +11,16 @@
             />
           </b-container>
 
-          <project-features-list projectId="queuemein"/>
+          <project-features-list projectId="queuemein" />
 
           <team-members :projectData="projectData"></team-members>
 
-          <project-learn-more projectId="queuemein"/>
+          <project-learn-more projectId="queuemein" />
         </b-col>
       </b-row>
     </b-container>
 
-    <dti-footer page="project"/>
+    <dti-footer page="project" />
   </page-background>
 </template>
 

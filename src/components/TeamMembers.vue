@@ -28,8 +28,7 @@ export default {
     getTeam() {
       const teamA = this.getMembers()
         .filter(
-          member => typeof member.subteam === 'string'
-            && member.subteam === this.projectData.id
+          member => typeof member.subteam === 'string' && member.subteam === this.projectData.id
         )
         .map(obj => ({ info: obj, id: obj.netid }));
 
@@ -38,8 +37,9 @@ export default {
     getFormerTeam() {
       const teamA = this.getMembers()
         .filter(
-          member => Array.isArray(member.otherSubteams)
-            && member.otherSubteams.includes(this.projectData.id)
+          member =>
+            Array.isArray(member.otherSubteams) &&
+            member.otherSubteams.includes(this.projectData.id)
         )
         .map(obj => ({ info: obj, id: obj.netid }));
 

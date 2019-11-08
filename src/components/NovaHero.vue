@@ -17,10 +17,10 @@
         :load-poster="true"
       />
 
-      <div class="nova-hero-overlay"/>
+      <div class="nova-hero-overlay" />
     </div>
     <b-container v-if="header || subheader" fluid>
-      <text-hero :header="header" :subheader="subheader"/>
+      <text-hero :header="header" :subheader="subheader" />
     </b-container>
   </div>
 </template>
@@ -65,7 +65,6 @@ $height: 65vh;
 }
 </style>
 
-
 <script>
 export default {
   props: {
@@ -81,4 +80,3 @@ export default {
   }
 };
 </script>
-

@@ -54,22 +54,32 @@ Vue.mixin({
       if (first.length > 1) {
         url.push(`${beginning}://`);
         const slice = first.slice(1);
-        url.push(...slice.join('://').split('/').filter(value => value !== ''));
+        url.push(
+          ...slice
+            .join('://')
+            .split('/')
+            .filter(value => value !== '')
+        );
       } else {
         url.push(`${beginning}`);
         url.push(...beginning.split('/').filter(value => value !== ''));
       }
 
-      url.push(...parts
-        .slice(1)
-        .join('/')
-        .split('/')
-        .filter(value => value !== ''));
+      url.push(
+        ...parts
+          .slice(1)
+          .join('/')
+          .split('/')
+          .filter(value => value !== '')
+      );
 
       return url.join('/');
     },
     aws(asset) {
-      return this.joinPath(`https://s3.us-east-2.amazonaws.com/dti-nova-website/static/`, `${asset.replace('/public', '')}`);
+      return this.joinPath(
+        `https://s3.us-east-2.amazonaws.com/dti-nova-website/static/`,
+        `${asset.replace('/public', '')}`
+      );
     },
     getMembers() {
       return Members;
@@ -87,7 +97,6 @@ Vue.mixin({
 });
 
 Vue.use(BootstrapVue);
-
 
 Vue.component('visual', VueVisual).options.setDefaults({
   load: 'visible',

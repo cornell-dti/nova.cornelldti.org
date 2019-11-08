@@ -2,7 +2,7 @@
   <b-row :no-gutters="true">
     <b-col cols="12">
       <div class="quicklink-container">
-        <div class="quicklink-overlay"/>
+        <div class="quicklink-overlay" />
         <visual
           class="quicklink-visual-dimensions"
           background="cover"
@@ -11,8 +11,8 @@
         >
           <div class="quicklink-internal">
             <a :href="link">
-              <div class="quicklink-text quicklink-text-header">{{header}}</div>
-              <div class="quicklink-text quicklink-text-subheader">{{subheader}}</div>
+              <div class="quicklink-text quicklink-text-header">{{ header }}</div>
+              <div class="quicklink-text quicklink-text-subheader">{{ subheader }}</div>
             </a>
           </div>
         </visual>
@@ -39,7 +39,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="scss" scoped>
 $height: 50vh;

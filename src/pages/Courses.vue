@@ -12,37 +12,41 @@
             <b-img class="courses-row-image" :src="Strings.get('pages.courses.trends', 'assets')" />
           </b-col>
           <b-col class="courses-row-content-container" sm="12" md="5" order-md="1" order="2">
-            <h2 class="courses-row-content-header">{{Strings.get('content.1.header', 'courses')}}</h2>
-            <div
-              class="courses-row-content-subheader"
-            >{{Strings.get('content.1.subtitle', 'courses')}}</div>
-            <p class="courses-row-content">{{Strings.get('content.1.description', 'courses')}}</p>
+            <h2 class="courses-row-content-header">
+              {{ Strings.get('content.1.header', 'courses') }}
+            </h2>
+            <div class="courses-row-content-subheader">
+              {{ Strings.get('content.1.subtitle', 'courses') }}
+            </div>
+            <p class="courses-row-content">{{ Strings.get('content.1.description', 'courses') }}</p>
             <b-button
               class="social-button"
               :href="Strings.get('content.1.buttons.apply.link', 'courses')"
             >
               <ApplyIcon />
-              <div
-                class="social-button-text"
-              >{{Strings.get('content.1.buttons.apply.title', 'courses')}}</div>
+              <div class="social-button-text">
+                {{ Strings.get('content.1.buttons.apply.title', 'courses') }}
+              </div>
             </b-button>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="courses-row">
           <b-col sm="12" md="5" class="courses-row-content-container" order="2">
-            <h2 class="courses-row-content-header">{{Strings.get('content.2.header', 'courses')}}</h2>
-            <div
-              class="courses-row-content-subheader"
-            >{{Strings.get('content.2.subtitle', 'courses')}}</div>
-            <p class="courses-row-content">{{Strings.get('content.2.description', 'courses')}}</p>
+            <h2 class="courses-row-content-header">
+              {{ Strings.get('content.2.header', 'courses') }}
+            </h2>
+            <div class="courses-row-content-subheader">
+              {{ Strings.get('content.2.subtitle', 'courses') }}
+            </div>
+            <p class="courses-row-content">{{ Strings.get('content.2.description', 'courses') }}</p>
             <b-button
               class="social-button"
               :href="Strings.get('content.2.buttons.apply.link', 'courses')"
             >
               <ApplyIcon />
-              <div
-                class="social-button-text"
-              >{{Strings.get('content.1.buttons.apply.title', 'courses')}}</div>
+              <div class="social-button-text">
+                {{ Strings.get('content.1.buttons.apply.title', 'courses') }}
+              </div>
             </b-button>
           </b-col>
           <b-col sm="12" md="7" class="courses-row-img" order-md="1" order="1">

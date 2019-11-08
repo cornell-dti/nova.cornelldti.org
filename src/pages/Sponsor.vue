@@ -15,14 +15,16 @@
             />
           </b-col>
           <b-col class="sponsor-row-content-container" sm="12" md="5" order-md="1" order="2">
-            <h2 class="sponsor-row-content-header">{{Strings.get('pitch.1.header', 'sponsor')}}</h2>
-            <p class="sponsor-row-content">{{Strings.get('pitch.1.description', 'sponsor')}}</p>
+            <h2 class="sponsor-row-content-header">
+              {{ Strings.get('pitch.1.header', 'sponsor') }}
+            </h2>
+            <p class="sponsor-row-content">{{ Strings.get('pitch.1.description', 'sponsor') }}</p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
           <b-col sm="12" md="5" class="sponsor-row-content-container" order="2">
-            <h2>{{Strings.get('pitch.2.header', 'sponsor')}}</h2>
-            <p class="sponsor-row-content">{{Strings.get('pitch.2.description', 'sponsor')}}</p>
+            <h2>{{ Strings.get('pitch.2.header', 'sponsor') }}</h2>
+            <p class="sponsor-row-content">{{ Strings.get('pitch.2.description', 'sponsor') }}</p>
           </b-col>
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order="1">
             <b-img
@@ -37,7 +39,7 @@
       <page-section>
         <b-row>
           <b-col>
-            <h2 class="sponsor-tier-heading">{{Strings.get('tiers.header', 'sponsor')}}</h2>
+            <h2 class="sponsor-tier-heading">{{ Strings.get('tiers.header', 'sponsor') }}</h2>
           </b-col>
         </b-row>
 
@@ -71,10 +73,10 @@
 
                   <template v-slot:cell(benefits)="row">
                     <b-row>
-                      <b-col cols="12" class="text-sm-head">{{row.item.benefits}}</b-col>
+                      <b-col cols="12" class="text-sm-head">{{ row.item.benefits }}</b-col>
                     </b-row>
                     <b-row>
-                      <b-col cols="12" class="text-sm-left">{{ row.item.subheader}}</b-col>
+                      <b-col cols="12" class="text-sm-left">{{ row.item.subheader }}</b-col>
                     </b-row>
                   </template>
                   <template v-slot:cell(bronze)="row">
@@ -115,16 +117,21 @@
     <b-container>
       <page-section>
         <b-row class="text-center justify-content-center sponsor-contact">
-          <h2>{{Strings.get('call-to-action.description', 'sponsor')}}</h2>
+          <h2>{{ Strings.get('call-to-action.description', 'sponsor') }}</h2>
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
           <b-button
-            :href="(Strings.get('call-to-action.button.link', `sponsor`) || 'mailto:hello@cornelldti.org')"
-          >{{Strings.get('call-to-action.button.text', 'sponsor')}}</b-button>
+            :href="
+              Strings.get('call-to-action.button.link', `sponsor`) || 'mailto:hello@cornelldti.org'
+            "
+            >{{ Strings.get('call-to-action.button.text', 'sponsor') }}</b-button
+          >
         </b-row>
       </page-section>
       <page-section>
-        <h2 class="sponsor-list-heading">{{Strings.get('current-sponsors.header', 'sponsor')}}</h2>
+        <h2 class="sponsor-list-heading">
+          {{ Strings.get('current-sponsors.header', 'sponsor') }}
+        </h2>
         <b-row class="sponsor-list justify-content-center">
           <b-col class="my-auto" sm="12" md="4">
             <b-img

@@ -5,21 +5,22 @@
         <b-col cols="12">
           <b-row align-h="end" align-v="start" class="subfooter-wrapper">
             <b-col class="subfooter-col" md="6" sm="6">
-              <div class="subfooter-text subfooter-text-gray">{{`Have a great idea?`}}</div>
+              <div class="subfooter-text subfooter-text-gray">{{ `Have a great idea?` }}</div>
               <a
                 class="button-wrapper"
-                :href="(Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org')"
+                :href="Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org'"
               >
-                <button class="subfooter-button subfooter-button-gray">{{`Contact Us`}}</button>
+                <button class="subfooter-button subfooter-button-gray">{{ `Contact Us` }}</button>
               </a>
             </b-col>
             <b-col class="subfooter-col" md="6" sm="6">
-              <div class="subfooter-text subfooter-text-red">{{`Sign up for our newsletter!`}}</div>
+              <div class="subfooter-text subfooter-text-red">
+                {{ `Sign up for our newsletter!` }}
+              </div>
               <a class="button-wrapper">
-                <button
-                  @click="subscritionClick"
-                  class="subfooter-button subfooter-button-red"
-                >{{`Subscribe`}}</button>
+                <button @click="subscritionClick" class="subfooter-button subfooter-button-red">
+                  {{ `Subscribe` }}
+                </button>
               </a>
             </b-col>
           </b-row>
@@ -66,15 +67,14 @@
           </b-row>
           <b-row align-h="end" class="bottom">
             <div class="copyright">
-              &copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
-              Initiative
+              &copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech Initiative
             </div>
             <span class="divider"></span>
             <div class="attribution">
-              {{`Made with`}}
+              {{ `Made with` }}
               <Heart class="heart-desktop" alt="love" />
               <HeartMobile class="heart-mobile" alt="love" />
-              {{` in Ithaca`}}
+              {{ ` in Ithaca` }}
             </div>
           </b-row>
         </b-col>
