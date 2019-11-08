@@ -9,9 +9,7 @@
     "start": "node server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "format": "prettier --write '**/*.{js,vue,scss,css,html}'",
-    "format:check": "prettier --check '**/*.{js,vue,scss,css,html}'"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.19.0",
