@@ -14,12 +14,12 @@
           <b-col>
             <b-row class="h-75 no-gutters" align-v="start">
               <b-col align-self="start">
-                <div class="name">{{name}}</div>
+                <div class="name">{{ name }}</div>
               </b-col>
             </b-row>
             <b-row class="h-25 no-gutters">
               <b-col align-self="end">
-                <div class="role" v-if="role !== ''">{{role}}</div>
+                <div class="role" v-if="role !== ''">{{ role }}</div>
               </b-col>
             </b-row>
           </b-col>
@@ -124,4 +124,3 @@ export default {
   }
 }
 </style>
-

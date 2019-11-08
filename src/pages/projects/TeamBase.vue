@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <project-header projectId="shout"/>
+    <project-header projectId="shout" />
     <b-container fluid>
       <b-row align-h="center">
         <b-col md="10" sm="12">
@@ -11,16 +11,16 @@
             />
           </b-container>
 
-          <project-features-list projectId="shout"/>
+          <project-features-list projectId="shout" />
 
           <team-members :projectData="projectData"></team-members>
 
-          <project-learn-more projectId="shout"/>
+          <project-learn-more projectId="shout" />
         </b-col>
       </b-row>
     </b-container>
 
-    <dti-footer page="project"/>
+    <dti-footer page="project" />
   </page-background>
 </template>
 
@@ -61,8 +61,7 @@ export default {
         .filter(
           member =>
             (typeof member.subteam === 'string' && member.subteam === team) ||
-            (Array.isArray(member.otherSubteams) &&
-              member.otherSubteams.includes(team))
+            (Array.isArray(member.otherSubteams) && member.otherSubteams.includes(team))
         )
         .map(obj => ({ info: obj, id: obj.netid }));
 
@@ -82,7 +81,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="scss" scoped>
 .project-hero {

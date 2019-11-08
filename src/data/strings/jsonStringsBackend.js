@@ -20,7 +20,6 @@ import ShoutJSON from './projects/shout.json';
 
 const DEFAULT_CONTEXT = 'default';
 
-
 const JSONMap = {
   home: HomeJSON,
   assets: AssetsJSON,
@@ -40,7 +39,6 @@ const JSONMap = {
   'projects.flux': FluxJSON
 };
 
-
 function searchKey(key, json) {
   let val = json[key];
 
@@ -54,10 +52,7 @@ function searchKey(key, json) {
     let currentChild = json;
 
     for (const childKey of keys) {
-      if (
-        typeof currentChild[childKey] === 'undefined' ||
-        currentChild[childKey] === null
-      ) {
+      if (typeof currentChild[childKey] === 'undefined' || currentChild[childKey] === null) {
         if (typeof currentChild['*'] !== 'undefined') {
           path += `/${childKey}`;
           replacements.push(childKey);
@@ -88,20 +83,14 @@ function searchKey(key, json) {
     }
 
     let replacementIndex = 1;
-    let newStr = val.replace(
-      `$${replacementIndex}$`,
-      replacements[replacementIndex - 1]
-    );
+    let newStr = val.replace(`$${replacementIndex}$`, replacements[replacementIndex - 1]);
 
     replacementIndex += 1;
 
     while (val !== newStr) {
       val = newStr;
 
-      newStr = val.replace(
-        `$${replacementIndex}$`,
-        replacements[replacementIndex - 1]
-      );
+      newStr = val.replace(`$${replacementIndex}$`, replacements[replacementIndex - 1]);
 
       replacementIndex += 1;
     }
@@ -130,13 +119,13 @@ export default class JSONStringsBackend extends StringsBackend {
   _getString(key, context) {
     const json = this.resolveContext(context);
 
-
     if (json) {
       if (key === '' || key === null) {
         return json;
       }
 
-      if (context === 'assets') { // TODO should we error out if null?
+      if (context === 'assets') {
+        // TODO should we error out if null?
         return `/public${searchKey(key, AssetsJSON)}`;
       }
 

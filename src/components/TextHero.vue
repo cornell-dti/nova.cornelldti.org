@@ -6,7 +6,7 @@
       </b-col>
       <b-col sm="12" md="8">
         <div class="text-hero-header-subtext text-center">
-          <slot/>
+          <slot />
           {{ subheader }}
         </div>
       </b-col>
@@ -27,7 +27,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
 .text-hero-header {
   font-size: 3rem;
@@ -40,4 +39,3 @@ export default {
   padding-top: 0.5rem;
 }
 </style>
-

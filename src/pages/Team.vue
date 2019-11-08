@@ -12,16 +12,16 @@
         <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
           <b-row>
             <b-col sm="12" md="9">
-              <div
-                class="team-header diversity-header my-auto"
-              >{{ Strings.get('diversity.header', 'team') }}</div>
-              <div
-                class="diversity-description my-auto lg-y-padding"
-              >{{ Strings.get('diversity.description', 'team') }}</div>
+              <div class="team-header diversity-header my-auto">
+                {{ Strings.get('diversity.header', 'team') }}
+              </div>
+              <div class="diversity-description my-auto lg-y-padding">
+                {{ Strings.get('diversity.description', 'team') }}
+              </div>
 
-              <h3
-                class="graph-header lg-y-padding"
-              >{{ Strings.get('diversity.gender.header', 'team') }}</h3>
+              <h3 class="graph-header lg-y-padding">
+                {{ Strings.get('diversity.gender.header', 'team') }}
+              </h3>
 
               <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
@@ -29,11 +29,11 @@
                     <div class="text-center graph-data h-100">
                       <b-row align-v="center" class="h-100">
                         <b-col cols="6" class="graph-datum">
-                          <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`"/>
+                          <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
                           <p class="graph-datum-description">Male</p>
                         </b-col>
                         <b-col cols="6" class="graph-datum red">
-                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`"/>
+                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
                           <p class="graph-datum-description">Female</p>
                         </b-col>
                       </b-row>
@@ -59,29 +59,28 @@
         <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
           <b-row>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div
-                class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}</div>
+              <div class="diversity-stat-header">
+                {{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}
+              </div>
               <div class="diversity-description diversity-stat-description">
-                {{ Strings.get('diversity.stats.underclassmen.description', 'team')
-                }}
+                {{ Strings.get('diversity.stats.underclassmen.description', 'team') }}
               </div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div
-                class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.majors.stat', 'team') }}</div>
-              <div
-                class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.majors.description', 'team') }}</div>
+              <div class="diversity-stat-header">
+                {{ Strings.get('diversity.stats.majors.stat', 'team') }}
+              </div>
+              <div class="diversity-description diversity-stat-description">
+                {{ Strings.get('diversity.stats.majors.description', 'team') }}
+              </div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div
-                class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.colleges.stat', 'team') }}</div>
-              <div
-                class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.colleges.description', 'team') }}</div>
+              <div class="diversity-stat-header">
+                {{ Strings.get('diversity.stats.colleges.stat', 'team') }}
+              </div>
+              <div class="diversity-description diversity-stat-description">
+                {{ Strings.get('diversity.stats.colleges.description', 'team') }}
+              </div>
             </b-col>
           </b-row>
         </b-col>
@@ -93,19 +92,19 @@
         <div class="team-header diversity-header">{{ Strings.get('team.header', 'team') }}</div>
 
         <!-- TODO actual padding -->
-        <br>
+        <br />
 
         <b-row align-h="center">
           <b-col cols="12">
-            <role-selector density="normal" class="team-role-selector" v-model="roleId"/>
+            <role-selector density="normal" class="team-role-selector" v-model="roleId" />
 
-            <headshot-grid :members="[...filterMembers(roleId, true), ...(filterMembers(roleId))]"/>
+            <headshot-grid :members="[...filterMembers(roleId, true), ...filterMembers(roleId)]" />
           </b-col>
         </b-row>
       </page-section>
     </b-container>
 
-    <dti-footer page="team"/>
+    <dti-footer page="team" />
   </page-background>
 </template>
 
@@ -427,9 +426,7 @@ export default {
       return this.getMembers()
         .filter(
           member =>
-            ((typeof member.roleId === 'string' &&
-              member.roleId.endsWith(role)) ||
-              role === '') &&
+            ((typeof member.roleId === 'string' && member.roleId.endsWith(role)) || role === '') &&
             (member.isLead != null && member.isLead === true) === isLead
         )
         .map(member => ({ info: member, id: member.netid }))

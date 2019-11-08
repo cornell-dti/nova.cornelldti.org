@@ -18,16 +18,15 @@
             <div class="initiative-row-content-header">Ready, Set, Make!</div>
             <div class="initiative-row-content-subheader">Inspiring future generations.</div>
             <p class="initiative-row-content">
-              Ready, Set, Make is an annual make-a-thon our team hosts for 5th and 6th grade students!
-              We invite students in the local community to Cornell and how they can
-              use design thinking to solve problems that they encounter. Their energy
-              and creativity was contagious, and team members and kids alike were
-              building incredible prototypes out of cardboard and craft supplies!
-              DTI partnered with Makerspace to give an introduction to 3D printing
-              using Tinkercad.
+              Ready, Set, Make is an annual make-a-thon our team hosts for 5th and 6th grade
+              students! We invite students in the local community to Cornell and how they can use
+              design thinking to solve problems that they encounter. Their energy and creativity was
+              contagious, and team members and kids alike were building incredible prototypes out of
+              cardboard and craft supplies! DTI partnered with Makerspace to give an introduction to
+              3D printing using Tinkercad.
             </p>
             <b-button class="social-button" href="https://medium.com/@alice.pham/5b9033aa7a6e">
-              <MediumIcon/>
+              <MediumIcon />
               <div class="social-button-text">Read More</div>
             </b-button>
           </b-col>
@@ -43,11 +42,11 @@
             <div class="initiative-row-content-header">DTI Blueprint</div>
             <div class="initiative-row-content-subheader">Fostering Mentorship.</div>
             <p class="initiative-row-content">
-              DTI Blueprint is a training program designed to teach students about design and product
-              thinking from team members’ own experience. Over several weeks, DTI
-              team members gave workshops on concepts like user research, product
-              ideation, and minimum viable products. Students formed groups and brainstormed
-              a problem to solve on campus and came up with a testable solution.
+              DTI Blueprint is a training program designed to teach students about design and
+              product thinking from team members’ own experience. Over several weeks, DTI team
+              members gave workshops on concepts like user research, product ideation, and minimum
+              viable products. Students formed groups and brainstormed a problem to solve on campus
+              and came up with a testable solution.
             </p>
           </b-col>
         </b-row>
@@ -63,18 +62,18 @@
             <div class="initiative-row-content-subheader">Our presence on campus.</div>
             <p class="initiative-row-content">
               We are constantly trying to find ways to expand beyond our team and help the community
-              through holding workshops and events. In the past, we have held workshops
-              on UX Research, building a website portfolio, and more!
+              through holding workshops and events. In the past, we have held workshops on UX
+              Research, building a website portfolio, and more!
             </p>
             <b-button class="social-button" href="https://www.facebook.com/cornelldti/events/">
-              <FacebookIcon/>
+              <FacebookIcon />
               <div class="social-button-text">See Events</div>
             </b-button>
           </b-col>
         </b-row>
       </b-container>
     </page-section>
-    <dti-footer page="initiatives"/>
+    <dti-footer page="initiatives" />
   </page-background>
 </template>
 

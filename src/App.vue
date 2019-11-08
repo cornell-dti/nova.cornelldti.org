@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <dti-main-menu/>
+    <dti-main-menu />
     <div class="page-stack">
-      <router-view/>
+      <router-view />
     </div>
     <!-- Load low quality heros before pages are loaded -->
     <div
       v-for="page of ['team', 'projects', 'initiatives', 'sponsor', 'courses', 'apply']"
       :key="page"
     >
-      <img style="display: none;" :src="Strings.get(`pages.${page}.hero.lazy`, `assets`)">
+      <img style="display: none;" :src="Strings.get(`pages.${page}.hero.lazy`, `assets`)" />
     </div>
   </div>
 </template>

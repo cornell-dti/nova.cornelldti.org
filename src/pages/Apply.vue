@@ -45,13 +45,17 @@
             <div class="info-session h-50">
               <div class="time">{{ Strings.get('info-sessions.1.time', 'apply') }}</div>
               <div class="location location-desktop">
-                {{ `${Strings.get('info-sessions.1.location', 'apply')}${Strings.exists('info-sessions.1.link.url',
-                'apply') ? ' • ' : ''}` }}
+                {{
+                  `${Strings.get('info-sessions.1.location', 'apply')}${
+                    Strings.exists('info-sessions.1.link.url', 'apply') ? ' • ' : ''
+                  }`
+                }}
                 <a
                   v-if="Strings.exists('info-sessions.1.link.url', 'apply')"
                   class="apply-link"
                   :href="Strings.get('info-sessions.1.link.url', 'apply')"
-                >{{Strings.get('info-sessions.1.link.text', 'apply')}}</a>
+                  >{{ Strings.get('info-sessions.1.link.text', 'apply') }}</a
+                >
               </div>
               <div class="location location-mobile">
                 {{ `${Strings.get('info-sessions.1.location', 'apply')}` }}
@@ -60,19 +64,24 @@
                   v-if="Strings.exists('info-sessions.1.link.url', 'apply')"
                   class="apply-link"
                   :href="Strings.get('info-sessions.1.link.url', 'apply')"
-                >{{Strings.get('info-sessions.1.link.text', 'apply')}}</a>
+                  >{{ Strings.get('info-sessions.1.link.text', 'apply') }}</a
+                >
               </div>
             </div>
             <div class="info-session h-50">
               <div class="time">{{ Strings.get('info-sessions.2.time', 'apply') }}</div>
               <div class="location location-desktop">
-                {{ `${Strings.get('info-sessions.2.location', 'apply')}${Strings.exists('info-sessions.2.link.url',
-                'apply') ? ' • ' : ''}` }}
+                {{
+                  `${Strings.get('info-sessions.2.location', 'apply')}${
+                    Strings.exists('info-sessions.2.link.url', 'apply') ? ' • ' : ''
+                  }`
+                }}
                 <a
                   v-if="Strings.exists('info-sessions.2.link.url', 'apply')"
                   class="apply-link"
                   :href="Strings.get('info-sessions.2.link.url', 'apply')"
-                >{{Strings.get('info-sessions.2.link.text', 'apply')}}</a>
+                  >{{ Strings.get('info-sessions.2.link.text', 'apply') }}</a
+                >
               </div>
               <div class="location location-mobile">
                 {{ `${Strings.get('info-sessions.2.location', 'apply')}` }}
@@ -81,7 +90,8 @@
                   v-if="Strings.exists('info-sessions.2.link.url', 'apply')"
                   class="apply-link"
                   :href="Strings.get('info-sessions.2.link.url', 'apply')"
-                >{{Strings.get('info-sessions.2.link.text', 'apply')}}</a>
+                  >{{ Strings.get('info-sessions.2.link.text', 'apply') }}</a
+                >
               </div>
             </div>
           </b-col>
@@ -103,112 +113,182 @@
         v-for="child of Strings.childrenOf(`application-info.${roleId}`, `apply`)"
         :key="child"
         :header="Strings.get(`application-info.${roleId}.${child}.header`, `apply`)"
-        :rightHeader="Strings.get('join-information.applications-open', 'apply') ? Strings.get(`application-info.${roleId}.${child}.right-header`, `apply`) : ''"
+        :rightHeader="
+          Strings.get('join-information.applications-open', 'apply')
+            ? Strings.get(`application-info.${roleId}.${child}.right-header`, `apply`)
+            : ''
+        "
       >
         <div
           v-if="Strings.exists(`application-info.${roleId}.${child}.sections.1`, 'apply')"
-          v-for="section of Strings.childrenOf(`application-info.${roleId}.${child}.sections`, 'apply')"
+          v-for="section of Strings.childrenOf(
+            `application-info.${roleId}.${child}.sections`,
+            'apply'
+          )"
           :key="section"
         >
           <div
             class="apply-header"
-            v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.header`, 'apply')"
-          >{{Strings.get(`application-info.${roleId}.${child}.sections.${section}.header`, 'apply')}}</div>
+            v-if="
+              Strings.exists(
+                `application-info.${roleId}.${child}.sections.${section}.header`,
+                'apply'
+              )
+            "
+          >
+            {{
+              Strings.get(`application-info.${roleId}.${child}.sections.${section}.header`, 'apply')
+            }}
+          </div>
 
           <div
             class="apply-list"
-            v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.content.lines`, 'apply')"
+            v-if="
+              Strings.exists(
+                `application-info.${roleId}.${child}.sections.${section}.content.lines`,
+                'apply'
+              )
+            "
           >
             <div
               class="apply-list-item"
-              v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${section}.content.lines`, 'apply')"
+              v-for="line of Strings.childrenOf(
+                `application-info.${roleId}.${child}.sections.${section}.content.lines`,
+                'apply'
+              )"
               :key="line"
             >
-              {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content.lines.${line}`,
-              'apply')}}
+              {{
+                Strings.get(
+                  `application-info.${roleId}.${child}.sections.${section}.content.lines.${line}`,
+                  'apply'
+                )
+              }}
             </div>
           </div>
           <div class="apply-description" v-else>
-            {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content`,
-            'apply')}}
+            {{
+              Strings.get(
+                `application-info.${roleId}.${child}.sections.${section}.content`,
+                'apply'
+              )
+            }}
           </div>
         </div>
         <b-row v-else>
           <b-col sm v-for="col of ['left', 'right']" :key="col">
             <div class="apply-header">
-              {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`,
-              'apply')}}
+              {{
+                Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`, 'apply')
+              }}
             </div>
 
             <div
               class="apply-list"
-              v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')"
+              v-if="
+                Strings.exists(
+                  `application-info.${roleId}.${child}.sections.${col}.content.lines`,
+                  'apply'
+                )
+              "
             >
               <div
                 class="apply-list-item"
-                v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${col}.content.lines`, 'apply')"
+                v-for="line of Strings.childrenOf(
+                  `application-info.${roleId}.${child}.sections.${col}.content.lines`,
+                  'apply'
+                )"
                 :key="line"
               >
-                {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content.lines.${line}`,
-                'apply')}}
+                {{
+                  Strings.get(
+                    `application-info.${roleId}.${child}.sections.${col}.content.lines.${line}`,
+                    'apply'
+                  )
+                }}
               </div>
             </div>
 
-            <div
-              class="apply-description"
-              v-else
-            >{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content`, 'apply')}}</div>
+            <div class="apply-description" v-else>
+              {{
+                Strings.get(`application-info.${roleId}.${child}.sections.${col}.content`, 'apply')
+              }}
+            </div>
           </b-col>
         </b-row>
 
         <b-row
           class="justify-content-center"
           v-if="
-        Strings.get(
-          'join-information.applications-open',
-          'apply'
-        ) && Strings.exists(
-          `application-info.${roleId}.${child}.call-to-action-button.closed`,
-          'apply'
-        ) && !Strings.get(
-          `application-info.${roleId}.${child}.call-to-action-button.closed`,
-          'apply'
-        )
-        "
+            Strings.get('join-information.applications-open', 'apply') &&
+              Strings.exists(
+                `application-info.${roleId}.${child}.call-to-action-button.closed`,
+                'apply'
+              ) &&
+              !Strings.get(
+                `application-info.${roleId}.${child}.call-to-action-button.closed`,
+                'apply'
+              )
+          "
         >
           <b-col cols="12">
             <b-row>
               <b-col md="auto" sm="12">
                 <b-button
-                  :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.link`, 'apply')"
+                  :href="
+                    Strings.get(
+                      `application-info.${roleId}.${child}.call-to-action-button.link`,
+                      'apply'
+                    )
+                  "
                   size="lg"
                   variant="primary"
                   class="call-to-action-button text-start"
                 >
-                  {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
-                  'apply')}}
+                  {{
+                    Strings.get(
+                      `application-info.${roleId}.${child}.call-to-action-button.content`,
+                      'apply'
+                    )
+                  }}
                 </b-button>
               </b-col>
               <b-col
-                v-if="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')"
+                v-if="
+                  Strings.get(
+                    `application-info.${roleId}.${child}.call-to-action-button-2.link`,
+                    'apply'
+                  )
+                "
                 md="auto"
                 sm="12"
               >
                 <b-button
-                  :href="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`, 'apply')"
+                  :href="
+                    Strings.get(
+                      `application-info.${roleId}.${child}.call-to-action-button-2.link`,
+                      'apply'
+                    )
+                  "
                   size="lg"
                   variant="primary"
                   class="call-to-action-button"
                 >
-                  {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.content`,
-                  'apply')}}
+                  {{
+                    Strings.get(
+                      `application-info.${roleId}.${child}.call-to-action-button-2.content`,
+                      'apply'
+                    )
+                  }}
                 </b-button>
               </b-col>
             </b-row>
           </b-col>
         </b-row>
         <b-row
-          v-else-if="Strings.get(`application-info.${roleId}.${child}.call-to-action-button.closed`, 'apply')"
+          v-else-if="
+            Strings.get(`application-info.${roleId}.${child}.call-to-action-button.closed`, 'apply')
+          "
         >
           <b-col cols="12">
             <b-button
@@ -217,8 +297,12 @@
               variant="secondary"
               class="call-to-action-button text-center"
             >
-              {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`,
-              'apply')}}
+              {{
+                Strings.get(
+                  `application-info.${roleId}.${child}.call-to-action-button.content`,
+                  'apply'
+                )
+              }}
             </b-button>
           </b-col>
         </b-row>
@@ -258,7 +342,6 @@ export default {
   }
 };
 </script>
-
 
 <style scoped lang="scss">
 .application-role-selector {

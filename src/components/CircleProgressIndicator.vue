@@ -8,14 +8,14 @@
       </div>
       <div class="inset">
         <div class="inset-content">
-          <slot class="inset-centered"/>
+          <slot class="inset-centered" />
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script >
+<script>
 import { PathTemplate } from '../path';
 
 const OUTER_RADIUS = 150;
@@ -44,8 +44,7 @@ const INVERSE_ARC_TEMPLATE = new PathTemplate()
   ) // todo toggle var
   .line(
     OUTER_RADIUS_PARAM,
-    parameters =>
-      parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
+    parameters => parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
   )
   .circulararc(
     INNER_RADIUS_PARAM,
@@ -59,25 +58,17 @@ const INVERSE_ARC_TEMPLATE = new PathTemplate()
 const ARC_TEMPLATE = new PathTemplate()
   .move(
     OUTER_RADIUS_PARAM,
-    parameters =>
-      parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
+    parameters => parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
   )
   .line(OUTER_RADIUS_PARAM, PathTemplate.ZERO)
-  .circulararc(
-    OUTER_RADIUS_PARAM,
-    LARGE_ARC_PARAM,
-    PathTemplate.ONE,
-    OUTER_X_PARAM,
-    OUTER_Y_PARAM
-  ) // todo toggle var
+  .circulararc(OUTER_RADIUS_PARAM, LARGE_ARC_PARAM, PathTemplate.ONE, OUTER_X_PARAM, OUTER_Y_PARAM) // todo toggle var
   .line(INNER_X_PARAM, INNER_Y_PARAM)
   .circulararc(
     INNER_RADIUS_PARAM,
     LARGE_ARC_PARAM,
     PathTemplate.ZERO,
     OUTER_RADIUS_PARAM,
-    parameters =>
-      parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
+    parameters => parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
   )
   .end();
 
@@ -132,10 +123,7 @@ export default {
     getPaths(percentage = 0.5) {
       const params = this.getTemplateParameters(percentage);
 
-      return [
-        ARC_TEMPLATE.commands(params),
-        INVERSE_ARC_TEMPLATE.commands(params)
-      ];
+      return [ARC_TEMPLATE.commands(params), INVERSE_ARC_TEMPLATE.commands(params)];
     },
     setPercentage(percentage1 = 0.5) {
       if (this.interval !== -1) {
@@ -146,9 +134,7 @@ export default {
       this.goalPercentage = percentage1;
 
       this.interval = setInterval(() => {
-        const [commands, inverseCommands] = this.getPaths(
-          this.currentPercentage
-        );
+        const [commands, inverseCommands] = this.getPaths(this.currentPercentage);
 
         let pathData = '';
 
@@ -176,10 +162,7 @@ export default {
         }
 
         if (inversePath == null) {
-          inversePath = document.createElementNS(
-            'http://www.w3.org/2000/svg',
-            'path'
-          );
+          inversePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
           inversePath.id = 'circle-path-inverse';
           svg.appendChild(inversePath);
         }
@@ -203,7 +186,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="scss" scoped>
 $circle-background-color: #ececec;
@@ -267,4 +249,3 @@ $circle-border-color: grey;
   fill: rgb(236, 236, 236);
 }
 </style>
-
