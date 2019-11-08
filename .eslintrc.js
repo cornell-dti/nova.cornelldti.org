@@ -8,7 +8,10 @@ module.exports = {
     '@vue/prettier'
   ],
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    ecmaFeatures: {
+      legacyDecorators: true
+    }
   },
   env: {
     browser: true,
@@ -75,6 +78,8 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // TODO: fix these problems and turn them into error again.
     'vue/no-use-v-if-with-v-for': 'warn',
-    'vue/no-unused-components': 'warn'
+    'vue/no-unused-components': 'warn',
+    'vue/no-unused-vars': 'warn',
+    'no-restricted-globals': 'warn'
   }
 };

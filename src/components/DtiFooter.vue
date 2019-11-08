@@ -134,6 +134,7 @@ import MailChimpForm from '@/components/MailChimpForm';
 export default class DtiFooter extends Vue {
   @Prop({ type: String })
   page;
+
   @Prop({ type: Boolean, default: false })
   hideSubfooter;
 
