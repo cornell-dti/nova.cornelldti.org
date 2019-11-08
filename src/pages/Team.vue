@@ -12,14 +12,16 @@
         <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
           <b-row>
             <b-col sm="12" md="9">
-              <div
-                class="team-header diversity-header my-auto"
-              >{{ Strings.get('diversity.header') }}</div>
-              <div
-                class="diversity-description my-auto lg-y-padding"
-              >{{ Strings.get('diversity.description') }}</div>
+              <div class="team-header diversity-header my-auto">
+                {{ Strings.get('diversity.header') }}
+              </div>
+              <div class="diversity-description my-auto lg-y-padding">
+                {{ Strings.get('diversity.description') }}
+              </div>
 
-              <h3 class="graph-header lg-y-padding">{{ Strings.get('diversity.gender.header') }}</h3>
+              <h3 class="graph-header lg-y-padding">
+                {{ Strings.get('diversity.gender.header') }}
+              </h3>
 
               <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
@@ -57,25 +59,28 @@
         <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
           <b-row>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div
-                class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.underclassmen.stat') }}</div>
+              <div class="diversity-stat-header">
+                {{ Strings.get('diversity.stats.underclassmen.stat') }}
+              </div>
               <div class="diversity-description diversity-stat-description">
-                {{ Strings.get('diversity.stats.underclassmen.description')
-                }}
+                {{ Strings.get('diversity.stats.underclassmen.description') }}
               </div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">{{ Strings.get('diversity.stats.majors.stat') }}</div>
-              <div
-                class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.majors.description') }}</div>
+              <div class="diversity-stat-header">
+                {{ Strings.get('diversity.stats.majors.stat') }}
+              </div>
+              <div class="diversity-description diversity-stat-description">
+                {{ Strings.get('diversity.stats.majors.description') }}
+              </div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">{{ Strings.get('diversity.stats.colleges.stat') }}</div>
-              <div
-                class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.colleges.description') }}</div>
+              <div class="diversity-stat-header">
+                {{ Strings.get('diversity.stats.colleges.stat') }}
+              </div>
+              <div class="diversity-description diversity-stat-description">
+                {{ Strings.get('diversity.stats.colleges.description') }}
+              </div>
             </b-col>
           </b-row>
         </b-col>

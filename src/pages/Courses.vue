@@ -9,56 +9,40 @@
       <page-section>
         <b-row align-h="center" align-v="center" class="courses-row">
           <b-col sm="12" md="7" class="courses-row-img" order-md="2" order-sm="1">
-            <b-img class="courses-row-image" :src="AssetStrings.get('pages.courses.trends')"/>
+            <b-img class="courses-row-image" :src="AssetStrings.get('pages.courses.trends')" />
           </b-col>
           <b-col class="courses-row-content-container" sm="12" md="5" order-md="1" order="2">
-            <h2 class="courses-row-content-header">{{Strings.get('content.1.header')}}</h2>
-            <div
-              class="courses-row-content-subheader"
-            >{{Strings.get('content.1.subtitle')}}</div>
-            <p class="courses-row-content">{{Strings.get('content.1.description')}}</p>
-            <b-button
-              class="social-button"
-              :href="Strings.get('content.1.buttons.apply.link')"
-            >
-              <ApplyIcon/>
-              <div
-                class="social-button-text"
-              >{{Strings.get('content.1.buttons.apply.title')}}</div>
+            <h2 class="courses-row-content-header">{{ Strings.get('content.1.header') }}</h2>
+            <div class="courses-row-content-subheader">{{ Strings.get('content.1.subtitle') }}</div>
+            <p class="courses-row-content">{{ Strings.get('content.1.description') }}</p>
+            <b-button class="social-button" :href="Strings.get('content.1.buttons.apply.link')">
+              <ApplyIcon />
+              <div class="social-button-text">
+                {{ Strings.get('content.1.buttons.apply.title') }}
+              </div>
             </b-button>
-            <b-button
-              class="social-button"
-              :href="Strings.get('content.1.buttons.github.link')"
-            >
-              <GitHubIcon/>
-              <div
-                class="social-button-text"
-              >{{Strings.get('content.1.buttons.github.title')}}</div>
+            <b-button class="social-button" :href="Strings.get('content.1.buttons.github.link')">
+              <GitHubIcon />
+              <div class="social-button-text">
+                {{ Strings.get('content.1.buttons.github.title') }}
+              </div>
             </b-button>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="courses-row">
           <b-col sm="12" md="5" class="courses-row-content-container" order="2">
-            <h2 class="courses-row-content-header">{{Strings.get('content.2.header')}}</h2>
-            <div
-              class="courses-row-content-subheader"
-            >{{Strings.get('content.2.subtitle')}}</div>
-            <p class="courses-row-content">{{Strings.get('content.2.description')}}</p>
-            <b-button
-              class="social-button"
-              :href="Strings.get('content.2.buttons.apply.link')"
-            >
-              <ApplyIcon/>
-              <div
-                class="social-button-text"
-              >{{Strings.get('content.2.buttons.apply.title')}}</div>
+            <h2 class="courses-row-content-header">{{ Strings.get('content.2.header') }}</h2>
+            <div class="courses-row-content-subheader">{{ Strings.get('content.2.subtitle') }}</div>
+            <p class="courses-row-content">{{ Strings.get('content.2.description') }}</p>
+            <b-button class="social-button" :href="Strings.get('content.2.buttons.apply.link')">
+              <ApplyIcon />
+              <div class="social-button-text">
+                {{ Strings.get('content.2.buttons.apply.title') }}
+              </div>
             </b-button>
           </b-col>
           <b-col sm="12" md="7" class="courses-row-img" order-md="1" order="1">
-            <b-img
-              class="courses-row-image"
-              :src="AssetStrings.get('pages.courses.blueprint')"
-            />
+            <b-img class="courses-row-image" :src="AssetStrings.get('pages.courses.blueprint')" />
           </b-col>
         </b-row>
       </page-section>

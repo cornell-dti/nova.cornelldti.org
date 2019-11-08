@@ -12,7 +12,7 @@
     type="none"
   >
     <b-navbar-brand class="navbar-branding-dti" href="#">
-      <b-img class="brand-icon" :src="AssetStrings.get('branding.icon')"/>
+      <b-img class="brand-icon" :src="AssetStrings.get('branding.icon')" />
     </b-navbar-brand>
 
     <b-nav-text :style="{ display: navShown ? '' : 'none' }" v-html="this.$route.name" />

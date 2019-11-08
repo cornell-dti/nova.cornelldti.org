@@ -1,21 +1,20 @@
 <template>
   <div>
     <b-container fluid class="h-100">
-      <b-row
-        v-if="Strings.exists('footer')"
-        class="contact-us"
-        align-h="center"
-        align-v="center"
-      >
+      <b-row v-if="Strings.exists('footer')" class="contact-us" align-h="center" align-v="center">
         <b-col sm="12" md="auto" align-self="center">
           <div class="contact-us-prompt">
-            {{ (Strings.get('footer.prompt') || `Have a question or a great idea?
-            Let us know!`) }}
+            {{
+              Strings.get('footer.prompt') ||
+                `Have a question or a great idea?
+            Let us know!`
+            }}
           </div>
           <b-button
-            :href="(Strings.get('footer.link') || 'mailto:hello@cornelldti.org')"
+            :href="Strings.get('footer.link') || 'mailto:hello@cornelldti.org'"
             class="contact-us-button"
-          >{{ (Strings.get('footer.prompt') || `Contact Us`) }}</b-button>
+            >{{ Strings.get('footer.prompt') || `Contact Us` }}</b-button
+          >
         </b-col>
       </b-row>
       <b-row class="footer" align-v="start">
@@ -136,7 +135,7 @@ export default {
   subscritionClick() {
     this.isSubscribing = true;
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

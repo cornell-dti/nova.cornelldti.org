@@ -78,20 +78,18 @@ export default class JSONStringsBackend extends StringsBackend {
   resolveContext(context) {
     const splitArr = context.split('.');
     if (context === 'assets') {
-      return axios.get(`${base}global/`)
-        .then(response => {
-          JSONMap[context] = response.data;
-        });
-    } else if (splitArr.length > 1 && splitArr[0] === 'projects') {
-      return axios.get(`${base}project/${splitArr[1]}`)
-        .then(response => {
-          JSONMap[context] = response.data;
-        });
-    }
-    return axios.get(`${base}page/${context}`)
-      .then(response => {
+      return axios.get(`${base}global/`).then(response => {
         JSONMap[context] = response.data;
       });
+    }
+    if (splitArr.length > 1 && splitArr[0] === 'projects') {
+      return axios.get(`${base}project/${splitArr[1]}`).then(response => {
+        JSONMap[context] = response.data;
+      });
+    }
+    return axios.get(`${base}page/${context}`).then(response => {
+      JSONMap[context] = response.data;
+    });
   }
 
   _getString(key, context) {
@@ -104,7 +102,8 @@ export default class JSONStringsBackend extends StringsBackend {
       const AssetsJSON = JSONMap.assets;
       if (context === 'assets' && AssetsJSON) {
         return `/static${searchKey(key, AssetsJSON)}`;
-      } else if (context === 'assets') {
+      }
+      if (context === 'assets') {
         throw new Error('No assets JSON initialized');
       }
 

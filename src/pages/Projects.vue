@@ -21,7 +21,7 @@
           :key="project"
         >
           <router-link :to="{ path: project }" append>
-            <b-img :src="AssetStrings.get(`projects.${project}.card`)" class="project-card"/>
+            <b-img :src="AssetStrings.get(`projects.${project}.card`)" class="project-card" />
           </router-link>
         </b-col>
       </b-row>

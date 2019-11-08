@@ -43,13 +43,15 @@ const dtiRouter = new Router({
     {
       path: '/Projects/orientation',
       name: 'Orientation',
-      component: () => createAsyncPage('projects.orientation', () => import('@/pages/projects/Orientation'))
+      component: () =>
+        createAsyncPage('projects.orientation', () => import('@/pages/projects/Orientation'))
     },
     { path: '/Projects/officehours', redirect: '/Projects/queuemein' },
     {
       path: '/Projects/queuemein',
       name: 'QueueMeIn',
-      component: () => createAsyncPage('projects.queuemein', () => import('@/pages/projects/QueueMeIn'))
+      component: () =>
+        createAsyncPage('projects.queuemein', () => import('@/pages/projects/QueueMeIn'))
     },
     { path: '/Projects/cureviews', redirect: '/Projects/reviews' },
     {
@@ -60,7 +62,10 @@ const dtiRouter = new Router({
     {
       path: '/Projects/researchconnect',
       name: 'Research Connect',
-      component: () => createAsyncPage('projects.researchconnect', () => import('@/pages/projects/ResearchConnect'))
+      component: () =>
+        createAsyncPage('projects.researchconnect', () =>
+          import('@/pages/projects/ResearchConnect')
+        )
     },
     {
       path: '/Projects/samwise',
