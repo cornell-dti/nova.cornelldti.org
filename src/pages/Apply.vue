@@ -314,7 +314,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import TimelineSection from '@/components/TimelineSection';
 import RoleSelector from '@/components/RoleSelector';
 
