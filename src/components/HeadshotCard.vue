@@ -4,9 +4,9 @@
       <b-col>
         <b-row class="image-row no-gutters">
           <b-col>
-            <img v-if="foundPic" :src="image" @error="foundPic = !foundPic">
+            <img v-if="foundPic" :src="aws(image)" @error="foundPic = !foundPic" />
             <div v-if="!foundPic" class="profile-image">
-              <MissingImage class="profile-image-missing"/>
+              <MissingImage class="profile-image-missing" />
             </div>
           </b-col>
         </b-row>
@@ -14,12 +14,12 @@
           <b-col>
             <b-row class="h-75 no-gutters" align-v="start">
               <b-col align-self="start">
-                <div class="name">{{name}}</div>
+                <div class="name">{{ name }}</div>
               </b-col>
             </b-row>
             <b-row class="h-25 no-gutters">
               <b-col align-self="end">
-                <div class="role" v-if="role !== ''">{{role}}</div>
+                <div class="role" v-if="role !== ''">{{ role }}</div>
               </b-col>
             </b-row>
           </b-col>
@@ -124,4 +124,3 @@ export default {
   }
 }
 </style>
-

@@ -27,7 +27,7 @@
       </b-row>
     </page-section>
 
-    <dti-footer page="projects"/>
+    <dti-footer page="projects" />
   </page-background>
 </template>
 
@@ -59,7 +59,6 @@
   margin: 0.75vw -0.25vw;
 }
 </style>
-
 
 <script>
 export default {

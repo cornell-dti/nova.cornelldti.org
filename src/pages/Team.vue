@@ -27,11 +27,11 @@
                     <div class="text-center graph-data h-100">
                       <b-row align-v="center" class="h-100">
                         <b-col cols="6" class="graph-datum">
-                          <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`"/>
+                          <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
                           <p class="graph-datum-description">Male</p>
                         </b-col>
                         <b-col cols="6" class="graph-datum red">
-                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`"/>
+                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
                           <p class="graph-datum-description">Female</p>
                         </b-col>
                       </b-row>
@@ -87,19 +87,19 @@
         <div class="team-header diversity-header">{{ Strings.get('team.header') }}</div>
 
         <!-- TODO actual padding -->
-        <br>
+        <br />
 
         <b-row align-h="center">
           <b-col cols="12">
-            <role-selector density="normal" class="team-role-selector" v-model="roleId"/>
+            <role-selector density="normal" class="team-role-selector" v-model="roleId" />
 
-            <headshot-grid :members="[...filterMembers(roleId, true), ...(filterMembers(roleId))]"/>
+            <headshot-grid :members="[...filterMembers(roleId, true), ...filterMembers(roleId)]" />
           </b-col>
         </b-row>
       </page-section>
     </b-container>
 
-    <dti-footer page="team"/>
+    <dti-footer page="team" />
   </page-background>
 </template>
 
@@ -336,7 +336,7 @@ $secondary: #f6f6f6;
   }
 
   &.diversity-background {
-    background-image: url('/static/pages/team/diversity-background.jpg'); // todo convert to v-visual
+    background-image: url('/public/pages/team/diversity-background.jpg'); // todo convert to v-visual
     background-size: cover;
   }
 
@@ -421,9 +421,7 @@ export default {
       return this.getMembers()
         .filter(
           member =>
-            ((typeof member.roleId === 'string' &&
-              member.roleId.endsWith(role)) ||
-              role === '') &&
+            ((typeof member.roleId === 'string' && member.roleId.endsWith(role)) || role === '') &&
             (member.isLead != null && member.isLead === true) === isLead
         )
         .map(member => ({ info: member, id: member.netid }))

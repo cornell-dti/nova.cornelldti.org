@@ -12,33 +12,25 @@
     "subheader": "In every applicant, we above all look for people that want to use their talents and skills to make a difference. No matter your experience, we also strive to be as inclusive as possible and give passionate people a chance to grow and learn with us."
   },
   "info-session": {
-    "header": "Info Sessions",
-    "subheader": "Spring 2019",
-    "description": "We encourage all interested applicants to attend an info session to find out more about what we do and talk to us in person. We hope to see you there!"
+    "header": "Freshman Apps!",
+    "subheader": "Fall 2019",
+    "description": "First-year applications are now available to submit! Submissions will close at 11:59 p.m. on September 23rd."
   },
   "info-sessions": {
     "1": {
-      "time": "Monday, 1/28 • 6:00 PM",
-      "location": "Klarman Auditorium",
-      "link": {
-        "url": "https://www.facebook.com/events/224044511877876",
-        "text": "Facebook Event"
-      }
+      "time": "Submit Applications Now!",
+      "location": "(links below)"
     },
     "2": {
-      "time": "Tuesday, 1/29 • 6:00 PM",
-      "location": "Lewis Auditorium - Goldwin Smith Hall",
-      "link": {
-        "url": "https://www.facebook.com/events/224044515211209",
-        "text": "Facebook Event"
-      }
+      "time": "Information Sessions",
+      "location": "Klarman Auditorium • 9/3 + 9/9 • 5:00 PM"
     }
   },
   "application-info": {
     "designer": {
       "apply": {
         "header": "Product Design Role",
-        "right-header": "due 11:59 PM on Thursday 1/31",
+        "right-header": "due 11:59 PM on Monday 9/23",
         "sections": {
           "1": {
             "header": "What We're Looking For",
@@ -51,17 +43,16 @@
         },
         "call-to-action-button": {
           "closed": true,
-          "content": "Product Design Application",
-          "link": "https://goo.gl/forms/TFkzooxKUnV1LURs2"
+          "content": "Product Design Application (closed)"
         }
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Friday 2/1 through Tuesday 2/5",
+        "right-header": "Tuesday 9/17 through Monday 9/30",
         "sections": {
           "1": {
             "header": "Application Review",
-            "content": "We look through every single application we receive. We fully understand and don’t expect that everyone has a significant amount of past experience. Taking into account your year and pass coursework, we will assess your interest in being a part of Cornell Design & Tech Initiative and willingness to learn and make a significant contribution."
+            "content": "We look through every single application we receive. We fully understand and don’t expect that everyone has a significant amount of past experience. Taking into account your year and past coursework, we will assess your interest in being a part of Cornell Design & Tech Initiative and willingness to learn and make a significant contribution."
           },
           "2": {
             "header": "Interview",
@@ -71,7 +62,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 11:59 PM on Wednesday 2/6",
+        "right-header": "by 12:01 AM on Tuesday 10/1",
         "sections": {
           "1": {
             "header": "Notification",
@@ -83,7 +74,7 @@
     "developer": {
       "apply": {
         "header": "Software Development Role",
-        "right-header": "due 11:59 PM on Thursday 1/31",
+        "right-header": "due 11:59 PM on Monday 9/23",
         "sections": {
           "1": {
             "header": "What We're Looking For",
@@ -96,17 +87,16 @@
         },
         "call-to-action-button": {
           "closed": true,
-          "content": "Software Developer Application",
-          "link": "https://goo.gl/forms/y7RMarKJ4ErVE5BN2"
+          "content": "Software Developer Application (closed)"
         }
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Friday 2/1 through Tuesday 2/5",
+        "right-header": "Tuesday 9/17 through Monday 9/30",
         "sections": {
           "1": {
             "header": "Application Review",
-            "content": "We look through every single application we receive. We fully understand and don’t expect that everyone has a significant amount of past experience. Taking into account your year and pass coursework, we will assess your interest in being a part of Cornell Design & Tech Initiative and willingness to learn and make a significant contribution."
+            "content": "We look through every single application we receive. We fully understand and don’t expect that everyone has a significant amount of past experience. Taking into account your year and past coursework, we will assess your interest in being a part of Cornell Design & Tech Initiative and willingness to learn and make a significant contribution."
           },
           "2": {
             "header": "Interview",
@@ -116,7 +106,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 11:59 PM on Wednesday 2/6",
+        "right-header": "by 12:01 AM on Tuesday 10/1",
         "sections": {
           "1": {
             "header": "Notification",
@@ -128,7 +118,7 @@
     "business": {
       "apply": {
         "header": "Business Analyst Role",
-        "right-header": "due 11:59 PM on Thursday 1/31",
+        "right-header": "due 11:59 PM on Monday 9/23",
         "sections": {
           "1": {
             "header": "What We're Looking For",
@@ -141,17 +131,16 @@
         },
         "call-to-action-button": {
           "closed": true,
-          "content": "Business Analyst Application",
-          "link": "https://goo.gl/forms/SQD2fuZcJClV4d3G3"
+          "content": "Business Analyst Application (closed)"
         }
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Friday 2/1 through Tuesday 2/5",
+        "right-header": "Tuesday 9/17 through Monday 9/30",
         "sections": {
           "1": {
             "header": "Application Review",
-            "content": "We look through every single application we receive. We fully understand and don’t expect that everyone has a significant amount of past experience. Taking into account your year and pass coursework, we will assess your interest in being a part of Cornell Design & Tech Initiative and willingness to learn and make a significant contribution."
+            "content": "We look through every single application we receive. We fully understand and don’t expect that everyone has a significant amount of past experience. Taking into account your year and past coursework, we will assess your interest in being a part of Cornell Design & Tech Initiative and willingness to learn and make a significant contribution."
           },
           "2": {
             "header": "Interview",
@@ -161,7 +150,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 11:59 PM on Wednesday 2/6",
+        "right-header": "by 12:01 AM on Tuesday 10/1",
         "sections": {
           "1": {
             "header": "Notification",
@@ -173,7 +162,7 @@
     "pm": {
       "apply": {
         "header": "Product Management Role",
-        "right-header": "due 11:59 PM on Thursday 1/31",
+        "right-header": "not open for freshman submissions",
         "sections": {
           "1": {
             "header": "What We're Looking For",
@@ -186,17 +175,16 @@
         },
         "call-to-action-button": {
           "closed": true,
-          "content": "Product Management Application",
-          "link": "https://goo.gl/forms/rXTtxfFlIv0WtiXo1"
+          "content": "Product Management Application (closed)"
         }
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Friday 2/1 through Tuesday 2/5",
+        "right-header": "",
         "sections": {
           "1": {
             "header": "Application Review",
-            "content": "We look through every single application we receive. We fully understand and don’t expect that everyone has a significant amount of past experience. Taking into account your year and pass coursework, we will assess your interest in being a part of Cornell Design & Tech Initiative and willingness to learn and make a significant contribution."
+            "content": "We look through every single application we receive. We fully understand and don’t expect that everyone has a significant amount of past experience. Taking into account your year and past coursework, we will assess your interest in being a part of Cornell Design & Tech Initiative and willingness to learn and make a significant contribution."
           },
           "2": {
             "header": "Interview",
@@ -206,7 +194,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 11:59 PM on Wednesday 2/6",
+        "right-header": "",
         "sections": {
           "1": {
             "header": "Notification",

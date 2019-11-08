@@ -64,7 +64,7 @@
       </page-section>
     </b-container>
 
-    <dti-footer page="courses"/>
+    <dti-footer page="courses" />
   </page-background>
 </template>
 

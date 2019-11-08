@@ -2,9 +2,11 @@ export class PathTemplate {
   constructor() {
     this.pathData = [];
   }
+
   static ZERO() {
     return 0;
   }
+
   static ONE() {
     return 1;
   }
@@ -12,45 +14,35 @@ export class PathTemplate {
   line(x, y) {
     this.pathData.push({
       template: parameters =>
-        `L ${
-          typeof x === 'string' ? parameters[x] : x.call(this, parameters)
-        } ${typeof y === 'string' ? parameters[y] : y.call(this, parameters)}`
-    });
-
-    return this;
-  }
-  circulararc(radius, largeArc, sweep, x, y) {
-    this.pathData.push({
-      template: parameters =>
-        `A ${
-          typeof radius === 'string'
-            ? parameters[radius]
-            : radius.call(this, parameters)
-        } ${
-          typeof radius === 'string'
-            ? parameters[radius]
-            : radius.call(this, parameters)
-        } 0 ${
-          typeof largeArc === 'string'
-            ? parameters[largeArc]
-            : largeArc.call(this, parameters)
-        } ${
-          typeof sweep === 'string'
-            ? parameters[sweep]
-            : sweep.call(this, parameters)
-        } ${typeof x === 'string' ? parameters[x] : x.call(this, parameters)} ${
+        `L ${typeof x === 'string' ? parameters[x] : x.call(this, parameters)} ${
           typeof y === 'string' ? parameters[y] : y.call(this, parameters)
         }`
     });
 
     return this;
   }
+
+  circulararc(radius, largeArc, sweep, x, y) {
+    this.pathData.push({
+      template: parameters =>
+        `A ${typeof radius === 'string' ? parameters[radius] : radius.call(this, parameters)} ${
+          typeof radius === 'string' ? parameters[radius] : radius.call(this, parameters)
+        } 0 ${
+          typeof largeArc === 'string' ? parameters[largeArc] : largeArc.call(this, parameters)
+        } ${typeof sweep === 'string' ? parameters[sweep] : sweep.call(this, parameters)} ${
+          typeof x === 'string' ? parameters[x] : x.call(this, parameters)
+        } ${typeof y === 'string' ? parameters[y] : y.call(this, parameters)}`
+    });
+
+    return this;
+  }
+
   move(x, y) {
     this.pathData.push({
       template: parameters =>
-        `M ${
-          typeof x === 'string' ? parameters[x] : x.call(this, parameters)
-        } ${typeof y === 'string' ? parameters[y] : y.call(this, parameters)}`
+        `M ${typeof x === 'string' ? parameters[x] : x.call(this, parameters)} ${
+          typeof y === 'string' ? parameters[y] : y.call(this, parameters)
+        }`
     });
 
     return this;
@@ -79,18 +71,19 @@ export default class Path {
   constructor() {
     this.pathData = [];
   }
+
   line(x, y) {
     this.pathData.push(`L ${x} ${y}`);
 
     return this;
   }
+
   circulararc(radius, largeArc, sweep, x, y) {
-    this.pathData.push(
-      `A ${radius} ${radius} 0 ${largeArc} ${sweep} ${x} ${y}`
-    );
+    this.pathData.push(`A ${radius} ${radius} 0 ${largeArc} ${sweep} ${x} ${y}`);
 
     return this;
   }
+
   move(x, y) {
     this.pathData.push(`M ${x} ${y}`);
 

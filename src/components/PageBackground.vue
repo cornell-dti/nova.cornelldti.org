@@ -1,7 +1,7 @@
 <template>
   <div class="page-background">
-    <div class="nav-listener" :id="this.$route.path"/>
-    <slot/>
+    <div class="nav-listener" :id="this.$route.path" />
+    <slot />
   </div>
 </template>
 
@@ -10,4 +10,3 @@
   background-color: #fff;
 }
 </style>
-

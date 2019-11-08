@@ -14,11 +14,9 @@
         load-video="visible"
         :load-poster="true"
       />
-      <div class="home-background home-background-overlay"/>
+      <div class="home-background home-background-overlay" />
       <b-row>
-        <h1 class="home-overlay-text">Cornell Design
-          <br>&amp; Tech Initiative
-        </h1>
+        <h1 class="home-overlay-text">Cornell Design <br />&amp; Tech Initiative</h1>
       </b-row>
     </div>
     <text-hero
@@ -47,9 +45,9 @@
       />
     </page-sublist>
 
-    <div style="padding-bottom:2vw"/>
+    <div style="padding-bottom:2vw" />
 
-    <dti-footer page="home"/>
+    <dti-footer page="home" />
   </div>
 </template>
 
@@ -62,7 +60,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="scss" scoped>
 $hero-margin: 3vw;

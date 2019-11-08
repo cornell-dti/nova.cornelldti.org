@@ -25,19 +25,7 @@
         </b-row>
         <b-row align-h="center">
           <b-col cols="auto">
-            <b-form inline @submit="onSubscribe">
-              <b-input-group>
-                <label class="sr-only" for="newsletterEmailSubscribeInput">Email</label>
-                <b-input
-                  required
-                  id="newsletterEmailSubscribeInput"
-                  v-model="email"
-                  type="email"
-                  placeholder="Email"
-                />
-              </b-input-group>
-              <b-button type="submit">Subscribe</b-button>
-            </b-form>
+            <b-button @click="onSubscribe" type="submit">Subscribe</b-button>
           </b-col>
         </b-row>
       </b-container>
@@ -228,12 +216,11 @@
       </timeline-section>
     </b-container>
 
-    <dti-footer page="apply"/>
+    <dti-footer ref="footerRef" page="apply" />
   </page-background>
 </template>
 
 <script>
-import axios from 'axios';
 import TimelineSection from '@/components/TimelineSection';
 import RoleSelector from '@/components/RoleSelector';
 
@@ -256,28 +243,11 @@ export default {
   methods: {
     onSubscribe(event) {
       event.preventDefault();
-      axios
-        .post('/email', {
-          email: this.email
-        })
-        .then(
-          response => {
-            this.msgContent = response.data.msg;
-            this.msgVariant = 'success';
-            this.msgShow = true;
-          },
-          () => {
-            this.msgContent =
-              'There was an error subscribing you to the email list!';
-            this.msgVariant = 'error';
-            this.msgShow = true;
-          }
-        );
+      this.$refs.footerRef.subscritionClick();
     }
   }
 };
 </script>
-
 
 <style scoped lang="scss">
 .application-role-selector {

@@ -17,8 +17,8 @@
                 >{{ Strings.get(`subheader`) }}</p>
               </b-col>
             </b-row>
-            <project-go-to class="no-gutters" v-if="!customGoTo" :projectId="projectId"/>
-            <slot class="no-gutters" v-else/>
+            <project-go-to class="no-gutters" v-if="!customGoTo" :projectId="projectId" />
+            <slot class="no-gutters" v-else />
           </b-col>
         </b-row>
       </b-col>
@@ -28,7 +28,6 @@
     </b-row>
   </page-hero>
 </template>
-
 
 <script>
 import StringsFrontend from '@/data/strings/strings';

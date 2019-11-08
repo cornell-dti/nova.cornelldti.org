@@ -17,7 +17,7 @@ import BootstrapVueCSS from 'bootstrap-vue/dist/bootstrap-vue.css';
 
 /* Data */
 
-import Members from '@/data/strings/members-sp19.json';
+import Members from '@/data/strings/members-fa19.json';
 import Companies from '@/data/companies.json';
 import Teams from '@/data/strings/teams.json';
 import Roles from '@/data/roles.json';
@@ -78,23 +78,32 @@ Vue.mixin({
       if (first.length > 1) {
         url.push(`${beginning}://`);
         const slice = first.slice(1);
-        url.push(...slice.join('://').split('/').filter(value => value !== ''));
+        url.push(
+          ...slice
+            .join('://')
+            .split('/')
+            .filter(value => value !== '')
+        );
       } else {
         url.push(`${beginning}`);
         url.push(...beginning.split('/').filter(value => value !== ''));
       }
 
-      url.push(...parts
-        .slice(1)
-        .join('/')
-        .split('/')
-        .filter(value => value !== '')
+      url.push(
+        ...parts
+          .slice(1)
+          .join('/')
+          .split('/')
+          .filter(value => value !== '')
       );
 
       return url.join('/');
     },
     aws(asset) {
-      return this.joinPath(`https://s3.us-east-2.amazonaws.com/dti-nova-website/`, `${asset}`);
+      return this.joinPath(
+        `https://s3.us-east-2.amazonaws.com/dti-nova-website/static/`,
+        `${asset.replace('/public', '')}`
+      );
     },
     getMembers() {
       return Members;
@@ -111,7 +120,7 @@ Vue.mixin({
   }
 });
 
-Vue.config.productionTip = false;
+Vue.use(BootstrapVue);
 
 /* eslint-disable no-new */
 new Vue({
@@ -125,3 +134,19 @@ new Vue({
   },
   template: '<App/>'
 });
+
+Vue.component('PageSublist', PageSublist);
+Vue.component('DtiMainMenu', DtiMainMenu);
+Vue.component('DtiFooter', DtiFooter);
+Vue.component('PageBackground', PageBackground);
+Vue.component('PageSection', PageSection);
+Vue.component('PageHero', PageHero);
+Vue.component('NovaHero', NovaHero);
+Vue.component('StoreBadge', StoreBadge);
+Vue.component('TextPageHero', TextPageHero);
+Vue.component('TextHero', TextHero);
+
+Vue.config.productionTip = false;
+
+// eslint-disable-next-line
+new Vue({ el: '#app', router, render: h => h(App) });

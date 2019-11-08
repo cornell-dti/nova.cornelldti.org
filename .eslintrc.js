@@ -2,22 +2,20 @@
 
 module.exports = {
   root: true,
+  extends: [
+    'plugin:vue/essential',
+    '@vue/airbnb',
+    '@vue/prettier'
+  ],
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    ecmaFeatures: {
+      legacyDecorators: true
+    }
   },
   env: {
-    browser: true
-  },
-  extends: ['eslint:recommended', 'plugin:vue/essential', 'airbnb-base'],
-  // required to lint *.vue files
-  plugins: ['vue'],
-  // check if imports actually resolve
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: 'build/webpack.base.conf.js'
-      }
-    }
+    browser: true,
+    node: true
   },
   // add your custom rules here
   rules: {
@@ -77,6 +75,11 @@ module.exports = {
     ],
     'max-len': ['warn', { code: 200 }],
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // TODO: fix these problems and turn them into error again.
+    'vue/no-use-v-if-with-v-for': 'warn',
+    'vue/no-unused-components': 'warn',
+    'vue/no-unused-vars': 'warn',
+    'no-restricted-globals': 'warn'
   }
 };

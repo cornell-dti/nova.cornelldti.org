@@ -45,7 +45,7 @@
           <b-col>
             <div class="sponsor-tiers">
               <div class="sponsor-table">
-                <b-table
+                <b-table-lite
                   :striped="striped"
                   :outlined="outlined"
                   :bordered="bordered"
@@ -53,59 +53,59 @@
                   :items="items"
                   :fields="fields"
                 >
-                  <template slot="HEAD_benefits">
+                  <template v-slot:head(benefits)="row">
                     <strong class="table-header">Benefits</strong>
                   </template>
-                  <template slot="HEAD_bronze">
+                  <template v-slot:head(bronze)="row">
                     <div class="bronze-header">Bronze</div>
                   </template>
-                  <template slot="HEAD_silver">
+                  <template v-slot:head(silver)="row">
                     <div class="silver-header">Silver</div>
                   </template>
-                  <template slot="HEAD_gold">
+                  <template v-slot:head(gold)="row">
                     <div class="gold-header">Gold</div>
                   </template>
-                  <template slot="HEAD_platinum">
+                  <template v-slot:head(platinum)="row">
                     <div class="platinum-header">Platinum</div>
                   </template>
 
-                  <template slot="benefits" slot-scope="row">
+                  <template v-slot:cell(benefits)="row">
                     <b-row>
-                      <b-col cols="12" class="text-sm-head">{{row.item.benefits}}</b-col>
+                      <b-col cols="12" class="text-sm-head">{{ row.item.benefits }}</b-col>
                     </b-row>
                     <b-row>
-                      <b-col cols="12" class="text-sm-left">{{ row.item.subheader}}</b-col>
+                      <b-col cols="12" class="text-sm-left">{{ row.item.subheader }}</b-col>
                     </b-row>
                   </template>
-                  <template slot="bronze" slot-scope="row">
+                  <template v-slot:cell(bronze)="row">
                     <b-row class="bronze">
                       <b-col>
-                        <wcheck v-if="row.value" class="checkmark bronze-checkmark"/>
+                        <wcheck v-if="row.value" class="checkmark bronze-checkmark" />
                       </b-col>
                     </b-row>
                   </template>
-                  <template slot="silver" slot-scope="row">
+                  <template v-slot:cell(silver)="row">
                     <b-row class="silver">
                       <b-col>
-                        <wcheck v-if="row.value" class="checkmark silver-checkmark"/>
+                        <wcheck v-if="row.value" class="checkmark silver-checkmark" />
                       </b-col>
                     </b-row>
                   </template>
-                  <template slot="gold" slot-scope="row">
+                  <template v-slot:cell(gold)="row">
                     <b-row class="gold">
                       <b-col lg="3">
-                        <wcheck v-if="row.value" class="checkmark gold-checkmark"/>
+                        <wcheck v-if="row.value" class="checkmark gold-checkmark" />
                       </b-col>
                     </b-row>
                   </template>
-                  <template slot="platinum" slot-scope="row">
+                  <template v-slot:cell(platinum)="row">
                     <b-row class="platinum">
                       <b-col lg="3">
-                        <wcheck v-if="row.value" class="checkmark"/>
+                        <wcheck v-if="row.value" class="checkmark" />
                       </b-col>
                     </b-row>
                   </template>
-                </b-table>
+                </b-table-lite>
               </div>
             </div>
           </b-col>
@@ -147,22 +147,16 @@
         </b-row>
       </page-section>
     </b-container>
-    <dti-footer page="sponsor"/>
+    <dti-footer :hide-subfooter="true" page="sponsor" />
   </page-background>
 </template>
 
 <script>
-import check from '@/assets/sponsor/check.svg';
 import wcheck from '@/assets/sponsor/whitecheck.svg';
-import Gcheck from '@/assets/sponsor/goldcheck.svg';
-import Pcheck from '@/assets/sponsor/platinumcheck.svg';
 
 export default {
   components: {
-    check,
-    wcheck,
-    Gcheck,
-    Pcheck
+    wcheck
   },
   computed: {
     items() {
@@ -493,4 +487,3 @@ export default {
   }
 }
 </style>
-
