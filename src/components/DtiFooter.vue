@@ -13,8 +13,16 @@
           <b-button
             :href="Strings.get('footer.link') || 'mailto:hello@cornelldti.org'"
             class="contact-us-button"
-            >{{ Strings.get('footer.prompt') || `Contact Us` }}</b-button
-          >
+          >{{ Strings.get('footer.prompt') || `Contact Us` }}</b-button>
+        </b-col>
+        <b-col class="subfooter-col" md="6" sm="6">
+          <div class="subfooter-text subfooter-text-red">{{ `Sign up for our newsletter!` }}</div>
+          <a class="button-wrapper">
+            <button
+              @click="subscritionClick"
+              class="subfooter-button subfooter-button-red"
+            >{{ `Subscribe` }}</button>
+          </a>
         </b-col>
       </b-row>
       <b-row class="footer" align-v="start">
