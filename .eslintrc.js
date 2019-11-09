@@ -80,6 +80,7 @@ module.exports = {
     'vue/no-use-v-if-with-v-for': 'warn',
     'vue/no-unused-components': 'warn',
     'vue/no-unused-vars': 'warn',
+    'prettier/prettier': 'error',
     'no-unused-vars': 'warn',
     'no-restricted-globals': 'warn'
   }

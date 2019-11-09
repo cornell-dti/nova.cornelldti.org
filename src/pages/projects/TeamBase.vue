@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import HeadshotGrid from '@/components/HeadshotGrid';
 import EventBus from '@/eventbus';
 import ProjectFeaturesList from '@/components/ProjectFeaturesList';
 import ProjectLearnMore from '@/components/ProjectLearnMore';
@@ -40,7 +39,6 @@ export default {
     }
   },
   components: {
-    HeadshotGrid,
     ProjectFeaturesList,
     ProjectLearnMore,
     ProjectHeader,

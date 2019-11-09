@@ -13,15 +13,15 @@
           <b-button
             :href="Strings.get('footer.link') || 'mailto:hello@cornelldti.org'"
             class="contact-us-button"
-          >{{ Strings.get('footer.prompt') || `Contact Us` }}</b-button>
+            >{{ Strings.get('footer.prompt') || `Contact Us` }}</b-button
+          >
         </b-col>
         <b-col class="subfooter-col" md="6" sm="6">
           <div class="subfooter-text subfooter-text-red">{{ `Sign up for our newsletter!` }}</div>
           <a class="button-wrapper">
-            <button
-              @click="subscritionClick"
-              class="subfooter-button subfooter-button-red"
-            >{{ `Subscribe` }}</button>
+            <button @click="subscritionClick" class="subfooter-button subfooter-button-red">
+              {{ `Subscribe` }}
+            </button>
           </a>
         </b-col>
       </b-row>
@@ -105,18 +105,11 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
 import Facebook from '@/assets/social/facebook.svg';
-import Dribbble from '@/assets/social/dribbble.svg';
 import Github from '@/assets/social/github.svg';
 import GooglePlay from '@/assets/social/google-play.svg';
 import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
-import Footer from '@/assets/footer/footer.svg';
-import Heart from '@/assets/footer/heart.svg';
-import HeartMobile from '@/assets/footer/heart-mobile.svg';
-import MailChimpForm from '@/components/MailChimpForm';
 
 import SingleBackend from '@/data/strings/jsonStringsBackend';
 import StringsFrontend from '@/data/strings/strings';
@@ -125,11 +118,9 @@ export default {
   components: {
     AppStore,
     Facebook,
-    Dribbble,
     Github,
     GooglePlay,
-    Medium,
-    Footer
+    Medium
   },
   props: {
     page: {
