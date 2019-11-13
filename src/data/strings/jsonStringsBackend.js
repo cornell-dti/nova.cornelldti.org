@@ -103,7 +103,7 @@ export default class JSONStringsBackend extends StringsBackend {
       }
       const AssetsJSON = JSONMap.assets;
       if (context === 'assets' && AssetsJSON) {
-        return `/static${searchKey(key, AssetsJSON)}`;
+        return `/public${searchKey(key, AssetsJSON)}`;
       }
 
       if (context === 'assets') {
