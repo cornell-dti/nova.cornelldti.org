@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <dti-main-menu/>
+    <dti-main-menu />
     <div class="page-stack">
-      <router-view/>
+      <router-view />
     </div>
   </div>
 </template>

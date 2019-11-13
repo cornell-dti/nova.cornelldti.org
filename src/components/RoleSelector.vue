@@ -3,7 +3,7 @@
     <b-row class="filter-btn-group desktop-selector-container">
       <b-col v-if="showAll" :md="density == 'compact' ? 'auto' : null" class="my-auto text-center">
         <div :class="btnCSS(roleId === '', density, bold, dark)" @click="roleId = ''">All</div>
-        <div :class="selectorCSS(roleId === '', dark)"/>
+        <div :class="selectorCSS(roleId === '', dark)" />
       </b-col>
       <!-- TODO: Cleanup the roles overriding -->
       <b-col
@@ -12,11 +12,10 @@
         :key="role.id"
         class="my-auto text-center"
       >
-        <div
-          :class="btnCSS(roleId === role.id, density, bold, dark)"
-          @click="roleId = role.id"
-        >{{role.name}}</div>
-        <div :class="selectorCSS(roleId === role.id, dark)"/>
+        <div :class="btnCSS(roleId === role.id, density, bold, dark)" @click="roleId = role.id">
+          {{ role.name }}
+        </div>
+        <div :class="selectorCSS(roleId === role.id, dark)" />
       </b-col>
     </b-row>
     <b-row align-h="center" class="mobile-selector-container text-center">
@@ -34,7 +33,8 @@
             v-for="role of this.roles === null ? getRoles() : this.roles"
             :key="role.id"
             :value="role.id"
-          >{{role.name}}</option>
+            >{{ role.name }}</option
+          >
         </b-form-select>
       </b-col>
     </b-row>
@@ -200,7 +200,6 @@
 }
 </style>
 
-
 <script>
 export default {
   model: {
@@ -268,9 +267,7 @@ export default {
       ];
     },
     selectorCSS(selected, isDark = false) {
-      return selected
-        ? ['selector', 'selected', isDark ? 'fg-light' : 'fg-dark']
-        : ['selector'];
+      return selected ? ['selector', 'selected', isDark ? 'fg-light' : 'fg-dark'] : ['selector'];
     },
     mobileSelectorCSS(centered, isDark = false) {
       return [isDark ? 'fg-light' : 'fg-dark', centered ? 'centered' : null];

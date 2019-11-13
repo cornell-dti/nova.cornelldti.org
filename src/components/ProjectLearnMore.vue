@@ -29,7 +29,7 @@
               class="align-content-center"
               :href="Strings.get(`ios-github`)"
             >
-              <Github class="connect-icon connect-icon-blank"/>
+              <Github class="connect-icon connect-icon-blank" />
               <span class="connect-text">iOS</span>
             </b-button>
           </b-col>
@@ -47,7 +47,7 @@
               class="align-content-center"
               :href="Strings.get(`android-github`)"
             >
-              <Github class="connect-icon connect-icon-blank"/>
+              <Github class="connect-icon connect-icon-blank" />
               <span class="connect-text">Android</span>
             </b-button>
           </b-col>
@@ -65,7 +65,7 @@
               class="align-content-center"
               :href="Strings.get(`github`)"
             >
-              <Github class="connect-icon connect-icon-blank"/>
+              <Github class="connect-icon connect-icon-blank" />
               <span class="connect-text">GitHub</span>
             </b-button>
           </b-col>
@@ -78,7 +78,7 @@
               class="align-content-center"
               :href="Strings.get(`medium`)"
             >
-              <Medium class="connect-icon connect-icon-blank"/>
+              <Medium class="connect-icon connect-icon-blank" />
               <span class="connect-text">Medium</span>
             </b-button>
           </b-col>
@@ -87,7 +87,6 @@
     </b-row>
   </page-section>
 </template>
-
 
 <script>
 import Github from '@/assets/social/github.svg';

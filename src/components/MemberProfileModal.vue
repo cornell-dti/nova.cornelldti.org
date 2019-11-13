@@ -34,7 +34,7 @@
                 center
                 rounded="circle"
                 class="profile-image"
-                :src="`${AssetStrings.get('directories.members')}/${profile.id+'.jpg'}`"
+                :src="aws(`${Strings.get('directories.members')}/${profile.id + '.jpg'}`)"
                 @error="display = !display"
               ></b-img>
               <div
@@ -43,55 +43,57 @@
                 rounded="circle"
                 class="profile-image rounded-circle mx-auto"
               >
-                <MissingImage class="profile-image-missing"/>
+                <MissingImage class="profile-image-missing" />
               </div>
               <b-row class="profile-main">
                 <b-col class="my-auto">
                   <div class="profile-name-header">
-                    <div
-                      v-if="typeof profile.info.name === 'undefined'"
-                    >{{profile.info.firstName}} {{profile.info.lastName}}</div>
-                    <div v-else>{{profile.info.name}}</div>
+                    <div v-if="typeof profile.info.name === 'undefined'">
+                      {{ profile.info.firstName }} {{ profile.info.lastName }}
+                    </div>
+                    <div v-else>{{ profile.info.name }}</div>
                   </div>
-                  <div
-                    class="profile-role text-dark"
-                  >{{profile.info.roleDescription || 'No Profile Available'}}</div>
+                  <div class="profile-role text-dark">
+                    {{ profile.info.roleDescription || 'No Profile Available' }}
+                  </div>
                 </b-col>
               </b-row>
               <b-row v-if="profile.info.graduation" class="profile-facts" id="profile-spacing">
                 <b-col cols="5" class="profile-label">Graduating</b-col>
-                <b-col cols="7" class="profile-details">{{profile.info.graduation}}</b-col>
+                <b-col cols="7" class="profile-details">{{ profile.info.graduation }}</b-col>
               </b-row>
               <b-row v-if="profile.info.major" class="profile-facts">
                 <b-col cols="5" class="profile-label">Major</b-col>
-                <b-col cols="7" class="profile-details">{{profile.info.major}}</b-col>
+                <b-col cols="7" class="profile-details">{{ profile.info.major }}</b-col>
               </b-row>
               <template v-if="profile.info.minor && profile.info.minor">
                 <b-row class="profile-facts">
                   <b-col cols="5" class="profile-label">Minor</b-col>
-                  <b-col cols="7" class="profile-details">{{profile.info.minor}}</b-col>
+                  <b-col cols="7" class="profile-details">{{ profile.info.minor }}</b-col>
                 </b-row>
               </template>
               <b-row v-if="profile.info.hometown" class="profile-facts">
                 <b-col cols="5" class="profile-label">Hometown</b-col>
-                <b-col cols="7" class="profile-details">{{profile.info.hometown}}</b-col>
+                <b-col cols="7" class="profile-details">{{ profile.info.hometown }}</b-col>
               </b-row>
               <div v-if="profile.info.website">
                 <b-row class="profile-facts">
                   <b-col cols="5" class="profile-label">Website</b-col>
                   <b-col cols="7" class="profile-details">
-                    <a class="personalwebsite" :href="profile.info.website">{{profile.info.website}}</a>
+                    <a class="personalwebsite" :href="profile.info.website">{{
+                      profile.info.website
+                    }}</a>
                   </b-col>
                 </b-row>
               </div>
-              <div v-if="profile.info.github || profile.info.linkedin ">
+              <div v-if="profile.info.github || profile.info.linkedin">
                 <b-row>
                   <b-col class="social-media">
                     <a v-if="profile.info.github" :href="profile.info.github">
-                      <Github class="social-icon"/>
+                      <Github class="social-icon" />
                     </a>
                     <a v-if="profile.info.linkedin" :href="profile.info.linkedin">
-                      <LinkedIn class="social-icon"/>
+                      <LinkedIn class="social-icon" />
                     </a>
                   </b-col>
                 </b-row>
@@ -99,7 +101,7 @@
             </b-col>
             <template v-if="profile.info.about || profile.info.subteam">
               <b-col lg="1" cols="0">
-                <div class="divider"/>
+                <div class="divider" />
               </b-col>
               <b-col lg="6" cols="0" class="left-shift">
                 <div v-if="profile.info.about" class="about-section">
@@ -107,17 +109,24 @@
                     <b-col class="member-modal-header left-space">About Me</b-col>
                   </b-row>
                   <b-row>
-                    <b-col class="about-p left-space">{{profile.info.about}}</b-col>
+                    <b-col class="about-p left-space">{{ profile.info.about }}</b-col>
                   </b-row>
                 </div>
                 <b-row
-                  v-if="(profile.info.subteam) || (profile.info.otherSubteams && profile.info.otherSubteams.length > 0)"
+                  v-if="
+                    profile.info.subteam ||
+                      (profile.info.otherSubteams && profile.info.otherSubteams.length > 0)
+                  "
                 >
                   <b-col>
                     <div id="teamwork" class="member-modal-header left-space">Team Work</div>
                     <ul class="team-info-list left-space">
-                      <template v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]">
-                        <li class="team-info-item my-auto" :key="team">{{ getTeamName(team)[0] }}</li>
+                      <template
+                        v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
+                      >
+                        <li class="team-info-item my-auto" :key="team">
+                          {{ getTeamName(team)[0] }}
+                        </li>
                       </template>
                     </ul>
                   </b-col>

@@ -17,7 +17,7 @@ import BootstrapVueCSS from 'bootstrap-vue/dist/bootstrap-vue.css';
 
 /* Data */
 
-import Members from '@/data/strings/members-sp19.json';
+import Members from '@/data/strings/members-fa19.json';
 import Companies from '@/data/companies.json';
 import Teams from '@/data/strings/teams.json';
 import Roles from '@/data/roles.json';
@@ -44,6 +44,61 @@ import StoreBadge from '@/components/StoreBadge';
 
 const AssetStrings = new StringsFrontend('assets', SingleBackend);
 
+Vue.mixin({
+  data() {
+    return { Strings };
+  },
+  methods: {
+    joinPath(...parts) {
+      const first = parts[0].split('://');
+      const beginning = first[0];
+      const url = [];
+
+      if (first.length > 1) {
+        url.push(`${beginning}://`);
+        const slice = first.slice(1);
+        url.push(
+          ...slice
+            .join('://')
+            .split('/')
+            .filter(value => value !== '')
+        );
+      } else {
+        url.push(`${beginning}`);
+        url.push(...beginning.split('/').filter(value => value !== ''));
+      }
+
+      url.push(
+        ...parts
+          .slice(1)
+          .join('/')
+          .split('/')
+          .filter(value => value !== '')
+      );
+
+      return url.join('/');
+    },
+    aws(asset) {
+      return this.joinPath(
+        `https://s3.us-east-2.amazonaws.com/dti-nova-website/static/`,
+        `${asset.replace('/public', '')}`
+      );
+    },
+    getMembers() {
+      return Members;
+    },
+    getRoles() {
+      return Roles;
+    },
+    getTeams() {
+      return Teams;
+    },
+    getCompanies() {
+      return Companies;
+    }
+  }
+});
+
 Vue.use(BootstrapVue);
 
 Vue.component('visual', VueVisual).options.setDefaults({
@@ -63,65 +118,15 @@ Vue.component('StoreBadge', StoreBadge);
 Vue.component('TextPageHero', TextPageHero);
 Vue.component('TextHero', TextHero);
 
-Vue.mixin({
-  data() {
-    return {
-      AssetStrings
-    };
-  },
-  methods: {
-    joinPath(...parts) {
-      const first = parts[0].split('://');
-      const beginning = first[0];
-      const url = [];
-
-      if (first.length > 1) {
-        url.push(`${beginning}://`);
-        const slice = first.slice(1);
-        url.push(...slice.join('://').split('/').filter(value => value !== ''));
-      } else {
-        url.push(`${beginning}`);
-        url.push(...beginning.split('/').filter(value => value !== ''));
-      }
-
-      url.push(...parts
-        .slice(1)
-        .join('/')
-        .split('/')
-        .filter(value => value !== '')
-      );
-
-      return url.join('/');
-    },
-    aws(asset) {
-      return this.joinPath(`https://s3.us-east-2.amazonaws.com/dti-nova-website/`, `${asset}`);
-    },
-    getMembers() {
-      return Members;
-    },
-    getRoles() {
-      return Roles;
-    },
-    getTeams() {
-      return Teams;
-    },
-    getCompanies() {
-      return Companies;
-    }
-  }
-});
-
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
+// eslint-disable-next-line
 new Vue({
-  el: '#app',
-  router,
-  components: {
+  el: '#app', router, components: {
     App: () => ({
       component: AssetStrings.initialize().then(() => App),
       timeout: 5000
     })
   },
-  template: '<App/>'
+  template: '<App/>', render: h => h(App)
 });

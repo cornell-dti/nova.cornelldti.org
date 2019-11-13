@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <project-header projectId="orientation"/>
+    <project-header projectId="orientation" />
     <b-container fluid>
       <b-row align-h="center">
         <b-col md="10" sm="12">
@@ -11,16 +11,16 @@
             />
           </b-container>
 
-          <project-features-list projectId="orientation"/>
+          <project-features-list projectId="orientation" />
 
           <team-members :projectData="projectData"></team-members>
 
-          <project-learn-more projectId="orientation"/>
+          <project-learn-more projectId="orientation" />
         </b-col>
       </b-row>
     </b-container>
 
-    <dti-footer page="project"/>
+    <dti-footer page="project" />
   </page-background>
 </template>
 

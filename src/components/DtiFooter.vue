@@ -5,21 +5,22 @@
         <b-col cols="12">
           <b-row align-h="end" align-v="start" class="subfooter-wrapper">
             <b-col class="subfooter-col" md="6" sm="6">
-              <div class="subfooter-text subfooter-text-gray">{{`Have a great idea?`}}</div>
+              <div class="subfooter-text subfooter-text-gray">{{ `Have a great idea?` }}</div>
               <a
                 class="button-wrapper"
-                :href="(Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org')"
+                :href="Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org'"
               >
-                <button class="subfooter-button subfooter-button-gray">{{`Contact Us`}}</button>
+                <button class="subfooter-button subfooter-button-gray">{{ `Contact Us` }}</button>
               </a>
             </b-col>
             <b-col class="subfooter-col" md="6" sm="6">
-              <div class="subfooter-text subfooter-text-red">{{`Sign up for our newsletter!`}}</div>
+              <div class="subfooter-text subfooter-text-red">
+                {{ `Sign up for our newsletter!` }}
+              </div>
               <a class="button-wrapper">
-                <button
-                  @click="subscritionClick"
-                  class="subfooter-button subfooter-button-red"
-                >{{`Subscribe`}}</button>
+                <button @click="subscritionClick" class="subfooter-button subfooter-button-red">
+                  {{ `Subscribe` }}
+                </button>
               </a>
             </b-col>
           </b-row>
@@ -57,9 +58,7 @@
                   </a>
                 </b-col>
                 <b-col cols="auto" class="social-icon-wrapper">
-                  <a
-                    href="https://medium.com/cornelldti"
-                  >
+                  <a href="https://medium.com/cornelldti">
                     <Medium class="social-icon social-icon-blank" />
                   </a>
                 </b-col>
@@ -68,15 +67,14 @@
           </b-row>
           <b-row align-h="end" class="bottom">
             <div class="copyright">
-              &copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech
-              Initiative
+              &copy; {{ new Date().getUTCFullYear() }} Cornell Design &amp; Tech Initiative
             </div>
             <span class="divider"></span>
             <div class="attribution">
-              {{`Made with`}}
+              {{ `Made with` }}
               <Heart class="heart-desktop" alt="love" />
               <HeartMobile class="heart-mobile" alt="love" />
-              {{` in Ithaca`}}
+              {{ ` in Ithaca` }}
             </div>
           </b-row>
         </b-col>
@@ -109,6 +107,7 @@
 
 <script>
 import Vue from 'vue';
+import { Component, Prop } from 'vue-property-decorator';
 import Facebook from '@/assets/social/facebook.svg';
 import Dribbble from '@/assets/social/dribbble.svg';
 import Github from '@/assets/social/github.svg';
@@ -118,7 +117,6 @@ import Medium from '@/assets/social/medium.svg';
 import Heart from '@/assets/footer/heart.svg';
 import HeartMobile from '@/assets/footer/heart-mobile.svg';
 import MailChimpForm from '@/components/MailChimpForm';
-import { Component, Prop } from 'vue-property-decorator';
 
 @Component({
   components: {
@@ -136,10 +134,12 @@ import { Component, Prop } from 'vue-property-decorator';
 export default class DtiFooter extends Vue {
   @Prop({ type: String })
   page;
+
   @Prop({ type: Boolean, default: false })
   hideSubfooter;
 
   isSubscribing = false;
+
   email = '';
 
   modalClose() {

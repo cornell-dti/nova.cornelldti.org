@@ -1,6 +1,6 @@
 <template>
   <page-background>
-    <project-header projectId="flux"/>
+    <project-header projectId="flux" />
     <b-container fluid>
       <b-row align-h="center">
         <b-col md="10" sm="12">
@@ -11,25 +11,23 @@
             />
           </b-container>
 
-          <project-features-list projectId="flux"/>
+          <project-features-list projectId="flux" />
 
           <team-members :projectData="projectData"></team-members>
 
-          <project-learn-more projectId="flux"/>
+          <project-learn-more projectId="flux" />
         </b-col>
       </b-row>
     </b-container>
 
-    <dti-footer page="project"/>
+    <dti-footer page="project" />
   </page-background>
 </template>
 
 <style lang="scss">
-
 .product-flux {
   margin-top: -50%;
 }
-
 </style>
 
 <script>

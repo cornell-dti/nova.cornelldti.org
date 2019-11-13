@@ -2,16 +2,18 @@
   <section>
     <b-row class="timeline-header" align-v="center">
       <b-col class="left-col-text" md="auto" sm="12">
-        <div v-if="header" class="container-section-heading">{{header}}</div>
-        <slot v-else name="header"/>
+        <div v-if="header" class="container-section-heading">{{ header }}</div>
+        <slot v-else name="header" />
       </b-col>
-      <b-col sm="12" md align-self="end" v-if="rightHeader" class="right-col-text">{{rightHeader}}</b-col>
+      <b-col sm="12" md align-self="end" v-if="rightHeader" class="right-col-text">{{
+        rightHeader
+      }}</b-col>
       <b-col sm="12" md align-self="end" v-else>
-        <slot name="rightHeader"/>
+        <slot name="rightHeader" />
       </b-col>
     </b-row>
     <div class="timeline-content">
-      <slot/>
+      <slot />
     </div>
   </section>
 </template>
@@ -70,4 +72,3 @@ export default {
   }
 };
 </script>
-

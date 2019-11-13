@@ -19,10 +19,7 @@ function searchKey(key, json) {
     let currentChild = json;
 
     for (const childKey of keys) {
-      if (
-        typeof currentChild[childKey] === 'undefined' ||
-        currentChild[childKey] === null
-      ) {
+      if (typeof currentChild[childKey] === 'undefined' || currentChild[childKey] === null) {
         if (typeof currentChild['*'] !== 'undefined') {
           path += `/${childKey}`;
           replacements.push(childKey);
@@ -53,20 +50,14 @@ function searchKey(key, json) {
     }
 
     let replacementIndex = 1;
-    let newStr = val.replace(
-      `$${replacementIndex}$`,
-      replacements[replacementIndex - 1]
-    );
+    let newStr = val.replace(`$${replacementIndex}$`, replacements[replacementIndex - 1]);
 
     replacementIndex += 1;
 
     while (val !== newStr) {
       val = newStr;
 
-      newStr = val.replace(
-        `$${replacementIndex}$`,
-        replacements[replacementIndex - 1]
-      );
+      newStr = val.replace(`$${replacementIndex}$`, replacements[replacementIndex - 1]);
 
       replacementIndex += 1;
     }

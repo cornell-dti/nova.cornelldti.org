@@ -3,9 +3,7 @@ import StringsBackend from './stringsBackend';
 export default class StringsFrontend {
   constructor(backend) {
     if (typeof backend === 'undefined' || backend === null) {
-      throw new Error(
-        'Undefined or null passed for backend to a StringsFrontend instance.'
-      );
+      throw new Error('Undefined or null passed for backend to a StringsFrontend instance.');
     }
 
     if (backend instanceof StringsBackend) {

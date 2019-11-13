@@ -1,6 +1,6 @@
 [
   {
-    "name": "CUEvents",
+    "name": "CUE",
     "id": "cue"
   },
   {
@@ -29,17 +29,30 @@
   },
   {
     "name": "Website",
-    "id": "website"
+    "id": "nova"
   },
   {
-    "name":"Flux",
-    "id":"flux"
+    "name": "Flux",
+    "id": "flux"
   },
-  {"name":"O-Week",
-    "id":"orientation"
+  {
+    "name": "O-Week",
+    "id": "orientation"
   },
   {
     "name": "Rescuer",
-    "id":"rescuer"
+    "id": "rescuer"
+  },
+  {
+    "name": "Course Plan (upcoming)",
+    "id": "courseplan"
+  },
+  {
+    "name": "Carriage (upcoming)",
+    "id": "carriage"
+  },
+  {
+    "name": "Leads (2019-20)",
+    "id": "leads"
   }
 ]

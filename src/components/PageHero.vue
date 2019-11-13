@@ -3,9 +3,9 @@
     :style="bg_()"
     :class="['page-header', 'page-hero', this.greyscale ? 'page-hero-greyscale' : '']"
   >
-    <div class="navbar-padding"/>
+    <div class="navbar-padding" />
     <slot>
-      <slot name="inner-content"/>
+      <slot name="inner-content" />
     </slot>
   </div>
 </template>
@@ -33,7 +33,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="scss" scoped>
 .navbar-padding {

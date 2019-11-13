@@ -1,6 +1,11 @@
 <template>
   <b-navbar
-    :class="['navbar-dti ', ...(transparent && !navShown ? [ (light ? 'navbar-light' : 'navbar-dark'), 'bg-transparent'] : ['navbar-dti-light', 'navbar-light', 'bg-light'])]"
+    :class="[
+      'navbar-dti ',
+      ...(transparent && !navShown
+        ? [light ? 'navbar-light' : 'navbar-dark', 'bg-transparent']
+        : ['navbar-dti-light', 'navbar-light', 'bg-light'])
+    ]"
     ref="dtinavbar"
     fixed="top"
     toggleable="md"
@@ -10,7 +15,7 @@
       <b-img class="brand-icon" :src="AssetStrings.get('branding.icon')"/>
     </b-navbar-brand>
 
-    <b-nav-text :style="{display: navShown ? '' : 'none'}" v-html="this.$route.name"/>
+    <b-nav-text :style="{ display: navShown ? '' : 'none' }" v-html="this.$route.name" />
 
     <b-btn
       @click="navShown = !navShown"

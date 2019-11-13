@@ -1,6 +1,6 @@
 <template>
   <section class="page-section">
-    <slot/>
+    <slot />
   </section>
 </template>
 
@@ -9,4 +9,3 @@
   margin: 4vw 4vw 2vw 4vw;
 }
 </style>
-
