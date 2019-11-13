@@ -31,7 +31,7 @@
 
 <script>
 import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings';
+import SingleBackend from '@/data/strings/lib';
 import ProjectGoTo from './ProjectGoTo';
 
 export default {

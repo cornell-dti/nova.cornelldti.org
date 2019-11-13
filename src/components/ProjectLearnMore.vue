@@ -93,7 +93,7 @@ import Github from '@/assets/social/github.svg';
 import Medium from '@/assets/social/medium.svg';
 
 import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings';
+import SingleBackend from '@/data/strings/lib';
 
 export default {
   components: {

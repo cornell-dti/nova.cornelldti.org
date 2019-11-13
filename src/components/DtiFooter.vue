@@ -8,7 +8,7 @@
               <div class="subfooter-text subfooter-text-gray">{{ `Have a great idea?` }}</div>
               <a
                 class="button-wrapper"
-                :href="Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org'"
+                :href="AssetStrings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org'"
               >
                 <button class="subfooter-button subfooter-button-gray">{{ `Contact Us` }}</button>
               </a>
@@ -31,7 +31,7 @@
           <b-row class="footer-row" align-v="center">
             <b-col lg="12" xl="6">
               <b-row align-h="start">
-                <img class="brand" :src="Strings.get('branding.wordmark', 'assets')" />
+                <img class="brand" :src="AssetStrings.get('branding.wordmark')" />
               </b-row>
             </b-col>
             <b-col lg="12" xl="6" class="social-icons-wrapper">

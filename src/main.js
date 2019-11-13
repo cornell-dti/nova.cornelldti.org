@@ -26,7 +26,7 @@ import Roles from '@/data/roles.json';
 
 import App from '@/App';
 import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings';
+import SingleBackend from '@/data/strings/lib';
 import router from '@/router';
 
 /* Global Components */
@@ -46,7 +46,9 @@ const AssetStrings = new StringsFrontend('assets', SingleBackend);
 
 Vue.mixin({
   data() {
-    return { Strings };
+    return {
+      AssetStrings
+    }
   },
   methods: {
     joinPath(...parts) {
@@ -120,13 +122,20 @@ Vue.component('TextHero', TextHero);
 
 Vue.config.productionTip = false;
 
+const AsyncApp = Vue.component('AsyncApp', () => ({
+  component: AssetStrings.initialize().then(() => App),
+  loading: Vue.component('AsyncAppLoading', {
+    template: '<p>Loading...</p>'
+  }),
+  error: Vue.component('AsyncAppError', {
+    template: '<p>Error!</p>'
+  }),
+  timeout: 5000
+}));
+
 // eslint-disable-next-line
 new Vue({
-  el: '#app', router, components: {
-    App: () => ({
-      component: AssetStrings.initialize().then(() => App),
-      timeout: 5000
-    })
-  },
-  template: '<App/>', render: h => h(App)
+  el: '#app',
+  router,
+  render: h => h(AsyncApp)
 });

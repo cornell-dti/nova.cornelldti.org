@@ -1,7 +1,9 @@
 import StringsBackend from './stringsBackend';
 
 export default class StringsFrontend {
-  constructor(backend) {
+  constructor(context, backend) {
+    this.context = context;
+
     if (typeof backend === 'undefined' || backend === null) {
       throw new Error('Undefined or null passed for backend to a StringsFrontend instance.');
     }
