@@ -37,7 +37,7 @@ export default {
       });
     }
 
-    console.log(`Loading profile with name: ${name}`);
+    console.log(`Loading profile with name: ${info.name}`);
 
     return (
       <div>

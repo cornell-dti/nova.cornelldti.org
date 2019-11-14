@@ -1,6 +1,6 @@
 <template>
   <div class="page-background">
-    <div class="nav-listener" :id="this.$route.path" />
+    <div class="nav-listener" :id="(this.$route && this.$route.path) || 'unknown'" />
     <slot />
   </div>
 </template>

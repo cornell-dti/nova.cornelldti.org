@@ -122,7 +122,7 @@ export default class APIStringsBackend extends StringsBackend {
   }
 
   _getChildrenKeysFor(key, context) {
-    const json = this.resolveContext(context);
+    const json = JSONMap[context];
 
     if (json) {
       return searchKey(key, json);

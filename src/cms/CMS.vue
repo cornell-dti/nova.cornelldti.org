@@ -7,16 +7,14 @@ import './netlifyConfig';
 
 import { VueInReact } from 'vuera';
 import CMS from 'netlify-cms'; // -app/dist/esm
-import Profile from './profile.jsx';
+import Profile from './previews/profile.jsx';
+import ApplyPage from './previews/apply';
 
 export default {
   mounted() {
     CMS.registerPreviewTemplate('member', VueInReact(Profile));
+    CMS.registerPreviewTemplate('page-apply', VueInReact(ApplyPage));
     CMS.init();
-
-    // TODO This is a hack!
-    // Essentially to fit the admin panel within the current website we have to
-    // convert the "fixed" toolbar to be absolute.
   }
 };
 </script>

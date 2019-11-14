@@ -7,6 +7,9 @@ module.exports = {
     '@vue/airbnb',
     '@vue/prettier'
   ],
+  plugins: [
+    "import"
+  ],
   parserOptions: {
     parser: 'babel-eslint',
     ecmaFeatures: {

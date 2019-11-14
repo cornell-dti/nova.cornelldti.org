@@ -1,13 +1,13 @@
 import StringsBackend from './stringsBackend';
 
-const HomeJSON = () => import('#/home.json');
+const HomeJSON = () => import('#/pages/home.json');
 const $AssetsJSON = () => import('#/assets.json');
-const ApplyJSON = () => import('#/apply.json');
-const InitiativesJSON = () => import('#/initiatives.json');
-const TeamJSON = () => import('#/team.json');
-const ProjectsJSON = () => import('#/projects.json');
-const SponsorJSON = () => import('#/sponsor.json');
-const CoursesJSON = () => import('#/courses.json');
+const ApplyJSON = () => import('#/pages/apply.json');
+const InitiativesJSON = () => import('#/pages/initiatives.json');
+const TeamJSON = () => import('#/pages/team.json');
+const ProjectsJSON = () => import('#/pages/projects.json');
+const SponsorJSON = () => import('#/pages/sponsor.json');
+const CoursesJSON = () => import('#/pages/courses.json');
 
 const EventsJSON = () => import('#/projects/events.json');
 const FluxJSON = () => import('#/projects/flux.json');
@@ -111,10 +111,14 @@ export default class JSONStringsBackend extends StringsBackend {
   }
 
   resolveContext(context) {
-     return JSONImports[context]().then(json => {
-       JSONMap.set(context, json);
-       return json;
-     });
+    if (!JSONMap.has(context)) {
+      return JSONImports[context]().then(json => {
+        JSONMap.set(context, json);
+        return json;
+      });
+    }
+
+    return Promise.resolve(JSONMap.get(context));
   }
 
   _getString(key, context) {
@@ -145,12 +149,24 @@ export default class JSONStringsBackend extends StringsBackend {
   }
 
   _getChildrenKeysFor(key, context) {
-    const json = this.resolveContext(context);
+    const json = JSONMap.get(context);
 
     if (json) {
       return searchKey(key, json);
     }
 
     return null;
+  }
+}
+
+
+export class JSONStringsBackendPreview extends JSONStringsBackend {
+  resolveContext(context, json) {
+    JSONMap.set(context, json);
+    return json;
+  }
+
+  unresolve(context) {
+    JSONMap.delete(context);
   }
 }

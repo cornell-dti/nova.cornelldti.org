@@ -55,7 +55,7 @@
               </div>
               <div class="location location-mobile">
                 {{ `${Strings.get('info-sessions.1.location')}` }}
-                <br>
+                <br />
                 <a
                   v-if="Strings.exists('info-sessions.1.link.url')"
                   class="apply-link"
@@ -76,7 +76,7 @@
               </div>
               <div class="location location-mobile">
                 {{ `${Strings.get('info-sessions.1.location')}` }}
-                <br>
+                <br />
                 <a
                   v-if="Strings.exists('info-sessions.1.link.url')"
                   class="apply-link"
@@ -103,7 +103,11 @@
         v-for="child of Strings.childrenOf(`application-info.${roleId}`)"
         :key="child"
         :header="Strings.get(`application-info.${roleId}.${child}.header`)"
-        :rightHeader="Strings.get('join-information.applications-open') ? Strings.get(`application-info.${roleId}.${child}.right-header`) : ''"
+        :rightHeader="
+          Strings.get('join-information.applications-open')
+            ? Strings.get(`application-info.${roleId}.${child}.right-header`)
+            : ''
+        "
       >
         <div
           v-if="Strings.exists(`application-info.${roleId}.${child}.sections.1`)"
@@ -113,29 +117,34 @@
           <div
             class="apply-header"
             v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.header`)"
-          >{{Strings.get(`application-info.${roleId}.${child}.sections.${section}.header`)}}</div>
+          >{{ Strings.get(`application-info.${roleId}.${child}.sections.${section}.header`) }}</div>
 
           <div
             class="apply-list"
-            v-if="Strings.exists(`application-info.${roleId}.${child}.sections.${section}.content.lines`)"
+            v-if="
+              Strings.exists(
+                `application-info.${roleId}.${child}.sections.${section}.content.lines`
+              )
+            "
           >
             <div
               class="apply-list-item"
-              v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${section}.content.lines`)"
+              v-for="line of Strings.childrenOf(
+                 `application-info.${roleId}.${child}.sections.${section}.content.lines`
+              )"
               :key="line"
-            >
-              {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content.lines.${line}`)}}
-            </div>
+            >{{ Strings.get(`application-info.${roleId}.${child}.sections.${section}.content.lines.${line}`) }}</div>
           </div>
-          <div class="apply-description" v-else>
-            {{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content`)}}
-          </div>
+          <div
+            class="apply-description"
+            v-else
+          >{{Strings.get(`application-info.${roleId}.${child}.sections.${section}.content`)}}</div>
         </div>
         <b-row v-else>
           <b-col sm v-for="col of ['left', 'right']" :key="col">
-            <div class="apply-header">
-              {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`)}}
-            </div>
+            <div
+              class="apply-header"
+            >{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.header`)}}</div>
 
             <div
               class="apply-list"
@@ -145,9 +154,7 @@
                 class="apply-list-item"
                 v-for="line of Strings.childrenOf(`application-info.${roleId}.${child}.sections.${col}.content.lines`)"
                 :key="line"
-              >
-                {{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content.lines.${line}`)}}
-              </div>
+              >{{Strings.get(`application-info.${roleId}.${child}.sections.${col}.content.lines.${line}`)}}</div>
             </div>
 
             <div
@@ -177,9 +184,7 @@
                   size="lg"
                   variant="primary"
                   class="call-to-action-button text-start"
-                >
-                  {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`)}}
-                </b-button>
+                >{{Strings.get(`application-info.${roleId}.${child}.call-to-action-button.content`)}}</b-button>
               </b-col>
               <b-col
                 v-if="Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.link`)"
@@ -191,9 +196,7 @@
                   size="lg"
                   variant="primary"
                   class="call-to-action-button"
-                >
-                  {{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.content`)}}
-                </b-button>
+                >{{Strings.get(`application-info.${roleId}.${child}.call-to-action-button-2.content`)}}</b-button>
               </b-col>
             </b-row>
           </b-col>

@@ -1,4 +1,5 @@
 import StringsBackend from './stringsBackend';
+import { JSONStringsBackendPreview } from './jsonStringsBackend';
 
 export default class StringsFrontend {
   constructor(context, backend) {
@@ -47,5 +48,24 @@ export default class StringsFrontend {
    */
   childrenOf(key) {
     return this.backend.getChildrenKeysFor(key, this.context);
+  }
+}
+
+export class StringsFrontendPreview extends StringsFrontend {
+  constructor(context, backend) {
+    super(`preview-${context}`, backend);
+
+    if (!(this.backend instanceof JSONStringsBackendPreview)) {
+      throw new Error('Backend passed is not an instance of JSONStringsBackendPreview');
+    }
+  }
+
+  initialize(json) {
+    return this.backend.resolveContext(this.context, json);
+  }
+
+  get(key) {
+    const value = super.get(key);
+    return value;
   }
 }
