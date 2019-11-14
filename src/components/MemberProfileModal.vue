@@ -34,7 +34,7 @@
                 center
                 rounded="circle"
                 class="profile-image"
-                :src="aws(`${Strings.get('directories.members')}/${profile.id + '.jpg'}`)"
+                :src="aws(`${AssetStrings.get('directories.members')}/${profile.id + '.jpg'}`)"
                 @error="display = !display"
               ></b-img>
               <div
@@ -48,14 +48,14 @@
               <b-row class="profile-main">
                 <b-col class="my-auto">
                   <div class="profile-name-header">
-                    <div v-if="typeof profile.info.name === 'undefined'">
-                      {{ profile.info.firstName }} {{ profile.info.lastName }}
-                    </div>
+                    <div
+                      v-if="typeof profile.info.name === 'undefined'"
+                    >{{ profile.info.firstName }} {{ profile.info.lastName }}</div>
                     <div v-else>{{ profile.info.name }}</div>
                   </div>
-                  <div class="profile-role text-dark">
-                    {{ profile.info.roleDescription || 'No Profile Available' }}
-                  </div>
+                  <div
+                    class="profile-role text-dark"
+                  >{{ profile.info.roleDescription || 'No Profile Available' }}</div>
                 </b-col>
               </b-row>
               <b-row v-if="profile.info.graduation" class="profile-facts" id="profile-spacing">
@@ -80,9 +80,11 @@
                 <b-row class="profile-facts">
                   <b-col cols="5" class="profile-label">Website</b-col>
                   <b-col cols="7" class="profile-details">
-                    <a class="personalwebsite" :href="profile.info.website">{{
+                    <a class="personalwebsite" :href="profile.info.website">
+                      {{
                       profile.info.website
-                    }}</a>
+                      }}
+                    </a>
                   </b-col>
                 </b-row>
               </div>
@@ -124,9 +126,7 @@
                       <template
                         v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
                       >
-                        <li class="team-info-item my-auto" :key="team">
-                          {{ getTeamName(team)[0] }}
-                        </li>
+                        <li class="team-info-item my-auto" :key="team">{{ getTeamName(team)[0] }}</li>
                       </template>
                     </ul>
                   </b-col>
@@ -173,6 +173,12 @@ export default {
   methods: {
     modalClose() {
       this.$refs.memberModalRef.hide();
+    },
+    showModal() {
+      this.$refs.memberModalRef.show();
+    },
+    toggleModal() {
+      this.$refs.memberModalRef.toggle();
     },
     getTeamName(team) {
       const teamNames = [];

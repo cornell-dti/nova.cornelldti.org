@@ -1,0 +1,37 @@
+backend:
+  name: github
+  repo: cornell-dti/nova.cornelldti.org
+  branch: netlify
+publish_mode: editorial_workflow
+media_folder: "static/uploads"
+collections:
+  - name: "member"
+    label: "Member Profile"
+    folder: "src/data/strings/members"
+    slug: "{{netid}}"
+    widget: "member"
+    create: true
+    fields:
+      - { label: "netid", name: "netid", widget: "string"}
+      - { label: "firstName", name: "firstName", widget: "string"}
+      - { label: "lastName", name: "lastName", widget: "string"}
+      - { label: "name", name: "name", widget: "string"}
+      - label: "Graduation (pick any date)"
+        name: "graduation"
+        widget: "datetime"
+        default: ""
+        format: "MM/YYYY"
+      - { label: "major", name: "major", widget: "string"}
+      - { label: "minor", name: "minor", widget: "string"}
+      - { label: "linkedin", name: "linkedin", widget: "string"}
+      - { label: "github", name: "github", widget: "string"}
+      - { label: "hometown", name: "hometown", widget: "string"}
+      - { label: "about", name: "about", widget: "string"}
+      - { label: "Subteam", name: "subteam", widget: "string"}
+      - label: "Other Subteams?"
+        name: "otherSubteams"
+        widget: "select"
+        multiple: true
+        options: ["flux", "website", "samwise", "researchconnect", "cue"]
+      - { label: "Role", name: "roleId", widget: "string"}
+      - { label: "Role Label", name: "roleDescription", widget: "string"}
