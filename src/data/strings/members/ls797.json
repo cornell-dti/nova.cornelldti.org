@@ -1,0 +1,17 @@
+{
+    "netid": "ls797",
+    "firstName": "Laura",
+    "lastName": "Sizemore",
+    "name": "Laura Sizemore",
+    "graduation": "05/2021",
+    "major": "Computer Science",
+    "minor": "Public Policy",
+    "linkedin": "https://www.linkedin.com/in/laura-sizemore/",
+    "github": "https://github.com/lsizemore8",
+    "hometown": "Burke, VA",
+    "about": "I am a junior studying Computer Science in the College of Engineering. I enjoy using technology to cause a positive impact in my community and beyond. In addition to technical project management, I have experience in full-stack development and data analysis. When I'm not coding, I enjoy reading sci-fi novels, playing board games, and spending time with friends.",
+    "subteam": "carriage",
+    "otherSubteams": "researchconnect",
+    "roleId": "developer",
+    "roleDescription": "Technical PM"
+}

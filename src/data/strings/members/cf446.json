@@ -1,0 +1,15 @@
+{
+    "netid": "cf446",
+    "firstName": "Ciaran",
+    "lastName": "Farley",
+    "name": "Dray Farley",
+    "graduation": "12/2020",
+    "major": "Computer Science",
+    "linkedin": "https://linkedin.com/in/dray-c-f-555770125/",
+    "github": "https://github.com/draycfarley",
+    "hometown": "Staten Island, NY",
+    "about": "I love working on software that solves real problems, whether it be on campus, in the fitness industry, or in social impact. I primarily work on back-end but love to explore new frameworks and tech stacks! Outside of tech, I am an RA on north campus and a huge (unfortunately) New York Knicks fan. I also enjoy reading and going to the gym in my free time.",
+    "subteam": "reviews",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}

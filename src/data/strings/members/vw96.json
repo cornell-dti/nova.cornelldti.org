@@ -1,0 +1,16 @@
+{
+    "netid": "vw96",
+    "firstName": "Vanessa",
+    "lastName": "Wang",
+    "name": "Vanessa Wang",
+    "graduation": "05/2021",
+    "major": "Computer Science",
+    "minor": "Electrical and Computer Engineering",
+    "linkedin": "https://www.linkedin.com/in/vanessa-w-381939102/",
+    "github": "https://github.com/vanessaw1",
+    "hometown": "Richfield, MN",
+    "about": "Hi! I'm a junior studying computer science and minoring in electrical and computer engineering. Being on DTI has shown me how much of a positive impact I can make on the community using technology. Around campus, I devote my free time to volunteering with Alpha Phi Omega and helping out the Cornell Origami Club. You can also find me practicing my photography skills or crocheting away at home.",
+    "subteam": "queuemein",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}

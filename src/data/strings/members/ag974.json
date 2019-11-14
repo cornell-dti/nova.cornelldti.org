@@ -1,0 +1,17 @@
+{
+    "netid": "ag974",
+    "firstName": "Andrew",
+    "lastName": "Gao",
+    "name": "Andrew Gao",
+    "graduation": "05/2022",
+    "major": "Computer Science",
+    "doubleMajor": "Statistical Science",
+    "website": "https://www.andrewgao.org/",
+    "linkedin": "https://www.linkedin.com/in/andrewxgao/",
+    "github": "https://github.com/kungpaogao",
+    "hometown": "Southborough, MA",
+    "about": "I'm a sophomore in the College of Arts & Sciences majoring in CS and Stats. I'm currently most experienced in Android and web/full-stack, but I'm always trying to explore and learn more. In my free time, I enjoy photography (hmu for headshots), graphic design, basketball, volleyball, and learning new things.",
+    "subteam": "flux",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}

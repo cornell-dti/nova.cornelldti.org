@@ -1,0 +1,16 @@
+{
+    "netid": "dc788",
+    "firstName": "David",
+    "lastName": "Chu",
+    "name": "David Chu",
+    "graduation": "12/2019",
+    "major": "Computer Science",
+    "website": "https://u.nu/dc788",
+    "github": "https://github.com/davidchuyaya",
+    "hometown": "Taipei, Taiwan",
+    "about": "In senior year, I have finally found my purpose at Cornell: to research distributed systems (with Alvisi!!!), to perform piano (recital on 11/24), to make friends, to teach, and to make memes. Sidenote: give Beethoven's Appassionata a listen if you want to spice up your life.",
+    "subteam": "leads",
+    "roleId": "developer",
+    "roleDescription": "Developer Lead",
+    "isLead": true
+}

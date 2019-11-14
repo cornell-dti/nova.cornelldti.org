@@ -1,0 +1,18 @@
+{
+    "netid": "tz66",
+    "firstName": "Sam",
+    "lastName": "Zhou",
+    "name": "Sam Zhou",
+    "graduation": "05/2021",
+    "major": "Computer Science",
+    "minor": "Math",
+    "website": "https://developersam.com",
+    "linkedin": "https://www.linkedin.com/in/sam-zhou-30b91610b/",
+    "github": "https://github.com/SamChou19815",
+    "hometown": "Shanghai, China",
+    "about": "I am a full stack web developer with extensive experience in backend development in Kotlin/Java/NodeJS and frontend development with React/Angular Framework. Sam is interested in designing and developing extensible and scalable software systems as well as programming languages.",
+    "subteam": "samwise",
+    "roleId": "developer",
+    "roleDescription": "Developer Lead",
+    "isLead": true
+}

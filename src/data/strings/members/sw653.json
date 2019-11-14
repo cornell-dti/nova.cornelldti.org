@@ -1,0 +1,15 @@
+{
+    "netid": "sw653",
+    "firstName": "Stacy",
+    "lastName": "Wei",
+    "name": "Stacy Wei",
+    "graduation": "05/2021",
+    "major": "Computer Science",
+    "linkedin": "www.linkedin.com/in/stacy-wei",
+    "github": "https://github.com/stacywei",
+    "hometown": "Naperville, IL",
+    "about": "Hi! I am currently a junior studying CS. On campus, I am Engineering Peer Advisor and involved with Assorted Aces Dance Team, SWE, and CSA. Outside of class, I am either jamming to music, exploring Ithaca, or learning how to cook.",
+    "subteam": "cue",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}
