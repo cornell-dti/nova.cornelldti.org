@@ -4,9 +4,10 @@ module.exports = {
   configureWebpack: {
     plugins: [new CopyPlugin([
       { from: 'static', to: 'public' },
-    ])],
+    ])]
   },
   chainWebpack: (config) => {
+    config.resolve.alias.set('#', '@/../data');
     const svgRule = config.module.rule('svg');
 
     svgRule.uses.clear();

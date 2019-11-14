@@ -1,45 +1,10 @@
+import axios from 'axios';
 import StringsBackend from './stringsBackend';
-
-const HomeJSON = () => import('#/home.json');
-const $AssetsJSON = () => import('#/assets.json');
-const ApplyJSON = () => import('#/apply.json');
-const InitiativesJSON = () => import('#/initiatives.json');
-const TeamJSON = () => import('#/team.json');
-const ProjectsJSON = () => import('#/projects.json');
-const SponsorJSON = () => import('#/sponsor.json');
-const CoursesJSON = () => import('#/courses.json');
-
-const EventsJSON = () => import('#/projects/events.json');
-const FluxJSON = () => import('#/projects/flux.json');
-const OrientationJSON = () => import('#/projects/orientation.json');
-const QueueMeInJSON = () => import('#/projects/queuemein.json');
-const ResearchConnectJSON = () => import('#/projects/researchconnect.json');
-const ReviewsJSON = () => import('#/projects/reviews.json');
-const SamwiseJSON = () => import('#/projects/samwise.json');
-const ShoutJSON = () => import('#/projects/shout.json');
 
 const DEFAULT_CONTEXT = 'default';
 
-const JSONImports = {
-  home: HomeJSON,
-  assets: $AssetsJSON,
-  apply: ApplyJSON,
-  projects: ProjectsJSON,
-  initiatives: InitiativesJSON,
-  team: TeamJSON,
-  courses: CoursesJSON,
-  sponsor: SponsorJSON,
-  'projects.events': EventsJSON,
-  'projects.orientation': OrientationJSON,
-  'projects.queuemein': QueueMeInJSON,
-  'projects.researchconnect': ResearchConnectJSON,
-  'projects.reviews': ReviewsJSON,
-  'projects.samwise': SamwiseJSON,
-  'projects.shout': ShoutJSON,
-  'projects.flux': FluxJSON
-};
-
-const JSONMap = new Map();
+const base = 'https://dti-nova-cms-api.herokuapp.com/';
+const JSONMap = {};
 
 function searchKey(key, json) {
   let val = json[key];
@@ -105,26 +70,38 @@ function searchKey(key, json) {
 
 /* eslint-disable class-methods-use-this */
 
-export default class JSONStringsBackend extends StringsBackend {
+export default class APIStringsBackend extends StringsBackend {
   getDefaultContext() {
     return DEFAULT_CONTEXT;
   }
 
   resolveContext(context) {
-     return JSONImports[context]().then(json => {
-       JSONMap.set(context, json);
-       return json;
-     });
+    const splitArr = context.split('.');
+    if (context === 'assets') {
+      return axios.get(`${base}global/`).then(response => {
+        JSONMap[context] = response.data;
+      });
+    }
+
+    if (splitArr.length > 1 && splitArr[0] === 'projects') {
+      return axios.get(`${base}project/${splitArr[1]}`).then(response => {
+        JSONMap[context] = response.data;
+      });
+    }
+
+    return axios.get(`${base}page/${context}`).then(response => {
+      JSONMap[context] = response.data;
+    });
   }
 
   _getString(key, context) {
-    const json = JSONMap.get(context);
+    const json = JSONMap[context];
 
     if (json) {
       if (key === '' || key === null) {
         return json;
       }
-      const AssetsJSON = JSONMap.get('assets');
+      const AssetsJSON = JSONMap.assets;
       if (context === 'assets' && AssetsJSON) {
         return `/public${searchKey(key, AssetsJSON)}`;
       }

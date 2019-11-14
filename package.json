@@ -8,7 +8,7 @@
     "dev": "./node_modules/.bin/concurrently \"yarn start\" \"vue-cli-service serve\"",
     "start": "node server.js",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "node build.js && vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

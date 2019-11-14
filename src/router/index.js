@@ -4,7 +4,7 @@ import Router from 'vue-router';
 
 import createAsyncPage from '@/AsyncComponents';
 
-import DiversityJson from '@/data/diversity.json';
+import DiversityJson from '#/diversity.json';
 
 Vue.use(Router);
 
