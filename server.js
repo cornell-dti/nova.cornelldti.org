@@ -23,9 +23,6 @@ app.use(history());
 app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, '/dist')));
-app.use('/public', express.static(path.join(__dirname, '/static')));
-app.use('/admin', express.static(path.join(__dirname, '/admin')));
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

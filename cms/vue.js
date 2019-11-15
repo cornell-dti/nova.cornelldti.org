@@ -1,10 +1,9 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+// TODO Unify this and main.js
 
-/* Node Modules */
-import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue';
+
 import VueVisual from 'vue-visual';
+import BootstrapVue from 'bootstrap-vue';
 
 /* CSS for Node Modules */
 
@@ -15,24 +14,15 @@ import BootstrapVueCSS from 'bootstrap-vue/dist/bootstrap-vue.css';
 
 /* eslint-enable */
 
-/* Data */
+import StringsFrontend from '../src/data/strings/strings';
+import SingleBackend from '../src/data/strings/lib';
 
 import Members from '#/generated/members.json';
 import Companies from '#/sets/companies.json';
 import Teams from '#/sets/teams.json';
 import Roles from '#/sets/roles.json';
 
-/* Core Files */
-
-import App from '@/App';
-import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings/lib';
-import router from '@/router';
-
-/* Global Components */
-
 import DtiMainMenu from '@/components/DtiMainMenu';
-import DtiFooter from '@/components/DtiFooter';
 import PageBackground from '@/components/PageBackground';
 import PageHero from '@/components/PageHero';
 import NovaHero from '@/components/NovaHero';
@@ -42,7 +32,12 @@ import TextHero from '@/components/TextHero';
 import PageSection from '@/components/PageSection';
 import StoreBadge from '@/components/StoreBadge';
 
+import DtiFooter from './fillers/DtiFooter';
+
 const AssetStrings = new StringsFrontend('assets', SingleBackend);
+
+// polyfill because the CMS lacks Vue Router
+Vue.prototype.$route = { name: 'Preview', path: 'nowhere/' };
 
 Vue.mixin({
   data() {
@@ -81,6 +76,10 @@ Vue.mixin({
       return url.join('/');
     },
     aws(asset) {
+      // Prevent issuesfor now...
+      if (!asset) {
+        return '';
+      }
       return this.joinPath(
         `https://s3.us-east-2.amazonaws.com/dti-nova-website/static/`,
         `${asset.replace('/public', '')}`
@@ -109,6 +108,7 @@ Vue.component('visual', VueVisual).options.setDefaults({
   transition: 'vv-fade'
 });
 
+
 Vue.component('PageSublist', PageSublist);
 Vue.component('DtiMainMenu', DtiMainMenu);
 Vue.component('DtiFooter', DtiFooter);
@@ -121,15 +121,3 @@ Vue.component('TextPageHero', TextPageHero);
 Vue.component('TextHero', TextHero);
 
 Vue.config.productionTip = false;
-
-const AsyncApp = Vue.component('AsyncApp', () => ({
-  component: AssetStrings.initialize().then(() => App),
-  timeout: 5000
-}));
-
-// eslint-disable-next-line
-new Vue({
-  el: '#app',
-  router,
-  render: h => h(AsyncApp)
-});

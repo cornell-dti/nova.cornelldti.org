@@ -105,11 +105,6 @@ const dtiRouter = new Router({
       path: '/Apply',
       name: 'Apply',
       component: () => createAsyncPage('apply', () => import('@/pages/Apply'))
-    },
-    {
-      path: '/admin',
-      name: 'Admin',
-      component: () => import('@/cms/CMS')
     }
   ]
 });
