@@ -241,6 +241,25 @@ collections:
             fields:
               - {label: "header", name: "header", widget: "string"}
               - {label: "description", name: "description", widget: "text"}
+          - label: "tiers"
+            name: "tiers"
+            widget: "object"
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - label: "Sponsor Tier"
+                name: "sponsor"
+                widget: "list"
+                fields:
+                  - {label: "benefit", name: "benefit", widget: "string"}
+                  - {label: "subheader", name: "subheader", widget: "string"}
+                  - label: "Tiers"
+                    name: "tiers"
+                    widget: "object"
+                    fields:
+                      - {label: "Bronze", name: "bronze", widget: "boolean"}
+                      - {label: "Silver", name: "silver", widget: "boolean"}
+                      - {label: "Gold", name: "gold", widget: "boolean"}
+                      - {label: "Platinum", name: "platinum", widget: "boolean"}
           - label: "call-to-action"
             name: "call-to-action"
             widget: "object"
@@ -256,25 +275,6 @@ collections:
             widget: "object"
             fields:
               - {label: "header", name: "header", widget: "string"}
-          - label: "tiers"
-            name: "tiers"
-            widget: "object"
-            fields:
-              - {label: "header", name: "header", widget: "string"}
-              - label: "sponsor"
-                name: "sponsor"
-                widget: "list"
-                fields:
-                  - {label: "benefit", name: "benefit", widget: "string"}
-                  - {label: "subheader", name: "subheader", widget: "string"}
-                  - label: "tiers"
-                    name: "tiers"
-                    widget: "object"
-                    fields:
-                      - {label: "bronze", name: "bronze", widget: "boolean"}
-                      - {label: "silver", name: "silver", widget: "boolean"}
-                      - {label: "gold", name: "gold", widget: "boolean"}
-                      - {label: "platinum", name: "platinum", widget: "boolean"}
       - label: "team"
         name: "page-team"
         file: "data/pages/team.json"
