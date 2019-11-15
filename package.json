@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "./node_modules/.bin/concurrently \"yarn start\" \"vue-cli-service serve\"",
     "start": "node server.js",
-    "serve": "vue-cli-service serve",
+    "serve": "yarn build-cms-styles && yarn build-member-data && vue-cli-service serve",
     "build-cms-styles": "webpack --config csspack.config.js",
     "build-member-data": "node build.js",
     "build": "yarn build-cms-styles && yarn build-member-data && vue-cli-service build",

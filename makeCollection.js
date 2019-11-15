@@ -37,7 +37,42 @@ class NCTime extends NCBase { }
 class NCFile extends NCBase { }
 class NCHidden extends NCBase { }
 class NCImage extends NCBase { }
-class NCList extends NCBase { }
+class NCList extends NCBase {
+
+  static fromJSON(name, label, json) {
+    const list = new NCList(name, label);
+
+    list.members = json.map(
+      (value) => {
+        if (typeof value === 'boolean') {
+          return new NCBoolean("none", "none");
+        }
+
+        if (typeof value === 'string') {
+          if (value.length > 200) {
+            return new NCText("none", "none");
+          } else {
+            return new NCString("none", "none");
+          }
+        }
+
+        if (typeof value === 'number') {
+          return new NCNumber("none", "none");
+        }
+
+        if (typeof value === 'object') {
+          if (Array.isArray(value)) {
+            return NCList.fromJSON("none", "none", value);
+          } else {
+            return NCObject.fromJSON("none", "none", value);
+          }
+        }
+      }
+    )
+    return list;
+  }
+
+}
 class NCMap extends NCBase { }
 class NCMarkdown extends NCBase { }
 class NCNumber extends NCBase {

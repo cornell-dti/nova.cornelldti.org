@@ -4,10 +4,31 @@ import './vue';
 import { VueInReact } from 'vuera';
 import CMS from 'netlify-cms'; // -app/dist/esm
 import Profile from './previews/Profile';
-import ApplyPage from './previews/Apply';
+import Apply from '@/pages/Apply';
+import Sponsor from '@/pages/Sponsor';
+
+import wrap from './previews/preview';
+
+const ApplyPage = wrap('apply', [
+  'join-information',
+  'main-menu',
+  'hero',
+  'info-session',
+  'info-sessions',
+  'application-info'
+], Apply);
+
+const SponsorPage = wrap('sponsor', [
+  'hero',
+  'pitch',
+  'call-to-action',
+  'current-sponsors',
+  'tiers'
+], Sponsor);
 
 CMS.registerPreviewTemplate('member', VueInReact(Profile));
 CMS.registerPreviewTemplate('page-apply', VueInReact(ApplyPage));
+CMS.registerPreviewTemplate('page-sponsor', VueInReact(SponsorPage));
 
 // Vendor Styles (easier to load from unpkg)
 

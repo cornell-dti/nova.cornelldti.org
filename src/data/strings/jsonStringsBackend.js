@@ -41,6 +41,10 @@ const JSONImports = {
 
 const JSONMap = new Map();
 
+/**
+ * @param {string} key 
+ * @param {*} json 
+ */
 function searchKey(key, json) {
   let val = json[key];
 
@@ -55,7 +59,7 @@ function searchKey(key, json) {
 
     for (let childKey of keys) {
       const asInt = Number.parseInt(`${childKey}`, 10);
-      
+
       if (Number.isInteger(asInt)) {
         childKey = asInt - 1;
       }
@@ -67,11 +71,21 @@ function searchKey(key, json) {
           currentChild = currentChild['*'];
 
           continue;
-        } else {
-          currentChild = null;
-          path = null;
-          break;
+        } else if (Array.isArray(currentChild) && typeof childKey === 'string' && childKey.includes('=')) {
+          const [k, v] = childKey.split('=');
+
+          const found = currentChild.find(m => m[k] === v);
+
+          if (typeof found !== 'undefined' && found !== null) {
+            path += `/${v}`;
+            currentChild = found;
+            continue;
+          }
         }
+
+        currentChild = null;
+        path = null;
+        break;
       }
 
       path += `/${childKey}`;
@@ -103,7 +117,7 @@ function searchKey(key, json) {
       replacementIndex += 1;
     }
   } else if (typeof val === 'object') {
-    val = Object.keys(val);
+    val = JSON.parse(JSON.stringify(val));
   }
 
   return val;
@@ -158,7 +172,13 @@ export default class JSONStringsBackend extends StringsBackend {
     const json = JSONMap.get(context);
 
     if (json) {
-      return searchKey(key, json);
+      const obj = searchKey(key, json);
+
+      if (typeof obj === 'object') {
+        return Object.keys(obj);
+      }
+
+      return [];
     }
 
     return null;
