@@ -26,8 +26,9 @@
       "location": "Klarman Auditorium • 9/3 + 9/9 • 5:00 PM"
     }
   ],
-  "application-info": {
-    "designer": {
+  "application-info": [
+    {
+      "id": "designer",
       "apply": {
         "header": "Product Design Role",
         "right-header": "due 11:59 PM on Monday 9/23",
@@ -71,7 +72,8 @@
         ]
       }
     },
-    "developer": {
+    {
+      "id": "developer",
       "apply": {
         "header": "Software Development Role",
         "right-header": "due 11:59 PM on Monday 9/23",
@@ -115,7 +117,8 @@
         ]
       }
     },
-    "business": {
+    {
+      "id": "business",
       "apply": {
         "header": "Business Analyst Role",
         "right-header": "due 11:59 PM on Monday 9/23",
@@ -159,7 +162,8 @@
         ]
       }
     },
-    "pm": {
+    {
+      "id": "pm",
       "apply": {
         "header": "Product Management Role",
         "right-header": "not open for freshman submissions",
@@ -203,5 +207,5 @@
         ]
       }
     }
-  }
+  ]
 }

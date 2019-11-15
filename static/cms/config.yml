@@ -80,192 +80,51 @@ collections:
               - {label: "location", name: "location", widget: "string"}
           - label: "application-info"
             name: "application-info"
-            widget: "object"
+            widget: "list"
             fields:
-              - label: "designer"
-                name: "designer"
+              - label: "apply"
+                name: "apply"
                 widget: "object"
                 fields:
-                  - label: "apply"
-                    name: "apply"
-                    widget: "object"
+                  - {label: "Role", name: "id", widget: "string"}
+                  - {label: "header", name: "header", widget: "string"}
+                  - {label: "right-header", name: "right-header", widget: "string"}
+                  - label: "sections"
+                    name: "sections"
+                    widget: "list"         
                     fields:
                       - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"         
-                        fields:
-                          - {label: "header", name: "header", widget: "string"}
-                          - {label: "content", name: "content", widget: "text"}        
-                      - label: "call-to-action-button"
-                        name: "call-to-action-button"
-                        widget: "object"
-                        fields:
-                          - {label: "closed", name: "closed", widget: "boolean"}
-                          - {label: "content", name: "content", widget: "string"}
-                  - label: "next-steps"
-                    name: "next-steps"
+                      - {label: "content", name: "content", widget: "text"}        
+                  - label: "call-to-action-button"
+                    name: "call-to-action-button"
                     widget: "object"
                     fields:
-                      - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"
-                        fields:
-                          - {label: "header", name: "header", widget: "string"}
-                          - {label: "content", name: "content", widget: "text"}
-                  - label: "decision"
-                    name: "decision"
-                    widget: "object"
-                    fields:
-                      - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"
-                        fields:
-                          - {label: "header", name: "header", widget: "string"}
-                          - {label: "content", name: "content", widget: "text"}
-              - label: "developer"
-                name: "developer"
+                      - {label: "closed", name: "closed", widget: "boolean"}
+                      - {label: "content", name: "content", widget: "string"}
+              - label: "next-steps"
+                name: "next-steps"
                 widget: "object"
                 fields:
-                  - label: "apply"
-                    name: "apply"
-                    widget: "object"
+                  - {label: "header", name: "header", widget: "string"}
+                  - {label: "right-header", name: "right-header", widget: "string"}
+                  - label: "sections"
+                    name: "sections"
+                    widget: "list"
                     fields:
                       - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"
-                        fields:
-                          - {label: "header", name: "header", widget: "string"}
-                          - {label: "content", name: "content", widget: "text"}
-                      - label: "call-to-action-button"
-                        name: "call-to-action-button"
-                        widget: "object"
-                        fields:
-                          - {label: "closed", name: "closed", widget: "boolean"}
-                          - {label: "content", name: "content", widget: "string"}
-                  - label: "next-steps"
-                    name: "next-steps"
-                    widget: "object"
-                    fields:
-                      - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"
-                        fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                  - label: "decision"
-                    name: "decision"
-                    widget: "object"
-                    fields:
-                      - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"
-                        fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-              - label: "business"
-                name: "business"
+                      - {label: "content", name: "content", widget: "text"}
+              - label: "decision"
+                name: "decision"
                 widget: "object"
                 fields:
-                  - label: "apply"
-                    name: "apply"
-                    widget: "object"
+                  - {label: "header", name: "header", widget: "string"}
+                  - {label: "right-header", name: "right-header", widget: "string"}
+                  - label: "sections"
+                    name: "sections"
+                    widget: "list"
                     fields:
                       - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "object"
-                        fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                      - label: "call-to-action-button"
-                        name: "call-to-action-button"
-                        widget: "object"
-                        fields:
-                          - {label: "closed", name: "closed", widget: "boolean"}
-                          - {label: "content", name: "content", widget: "string"}
-                  - label: "next-steps"
-                    name: "next-steps"
-                    widget: "object"
-                    fields:
-                      - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"
-                        fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                  - label: "decision"
-                    name: "decision"
-                    widget: "object"
-                    fields:
-                      - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"
-                        fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-              - label: "pm"
-                name: "pm"
-                widget: "object"
-                fields:
-                  - label: "apply"
-                    name: "apply"
-                    widget: "object"
-                    fields:
-                      - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"
-                        fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                      - label: "call-to-action-button"
-                        name: "call-to-action-button"
-                        widget: "object"
-                        fields:
-                          - {label: "closed", name: "closed", widget: "boolean"}
-                          - {label: "content", name: "content", widget: "string"}
-                  - label: "next-steps"
-                    name: "next-steps"
-                    widget: "object"
-                    fields:
-                      - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"
-                        fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                  - label: "decision"
-                    name: "decision"
-                    widget: "object"
-                    fields:
-                      - {label: "header", name: "header", widget: "string"}
-                      - {label: "right-header", name: "right-header", widget: "string"}
-                      - label: "sections"
-                        name: "sections"
-                        widget: "list"
-                        fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
+                      - {label: "content", name: "content", widget: "text"}
       - label: "Home"
         name: "page-home"
         file: "data/pages/home.json"
