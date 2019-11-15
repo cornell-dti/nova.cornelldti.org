@@ -38,6 +38,7 @@ collections:
       - { label: "Role Label", name: "roleDescription", widget: "string"}
   - label: "Pages"
     name: "pages"
+    format: "json"
     files:
       - label: "apply"
         name: "page-apply"
@@ -73,20 +74,10 @@ collections:
               - {label: "description", name: "description", widget: "string"}
           - label: "info-sessions"
             name: "info-sessions"
-            widget: "object"
+            widget: "list"
             fields:
-              - label: "1"
-                name: "1"
-                widget: "object"
-                fields:
-                  - {label: "time", name: "time", widget: "string"}
-                  - {label: "location", name: "location", widget: "string"}
-              - label: "2"
-                name: "2"
-                widget: "object"
-                fields:
-                  - {label: "time", name: "time", widget: "string"}
-                  - {label: "location", name: "location", widget: "string"}
+              - {label: "time", name: "time", widget: "string"}
+              - {label: "location", name: "location", widget: "string"}
           - label: "application-info"
             name: "application-info"
             widget: "object"
@@ -103,20 +94,10 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"         
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                          - label: "2"
-                            name: "2"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
+                          - {label: "header", name: "header", widget: "string"}
+                          - {label: "content", name: "content", widget: "text"}        
                       - label: "call-to-action-button"
                         name: "call-to-action-button"
                         widget: "object"
@@ -131,20 +112,10 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                          - label: "2"
-                            name: "2"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
+                          - {label: "header", name: "header", widget: "string"}
+                          - {label: "content", name: "content", widget: "text"}
                   - label: "decision"
                     name: "decision"
                     widget: "object"
@@ -153,14 +124,10 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
+                          - {label: "header", name: "header", widget: "string"}
+                          - {label: "content", name: "content", widget: "text"}
               - label: "developer"
                 name: "developer"
                 widget: "object"
@@ -173,20 +140,10 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                          - label: "2"
-                            name: "2"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
+                          - {label: "header", name: "header", widget: "string"}
+                          - {label: "content", name: "content", widget: "text"}
                       - label: "call-to-action-button"
                         name: "call-to-action-button"
                         widget: "object"
@@ -201,18 +158,8 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                          - label: "2"
-                            name: "2"
-                            widget: "object"
-                            fields:
                               - {label: "header", name: "header", widget: "string"}
                               - {label: "content", name: "content", widget: "text"}
                   - label: "decision"
@@ -223,12 +170,8 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
                               - {label: "header", name: "header", widget: "string"}
                               - {label: "content", name: "content", widget: "text"}
               - label: "business"
@@ -245,16 +188,6 @@ collections:
                         name: "sections"
                         widget: "object"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                          - label: "2"
-                            name: "2"
-                            widget: "object"
-                            fields:
                               - {label: "header", name: "header", widget: "string"}
                               - {label: "content", name: "content", widget: "text"}
                       - label: "call-to-action-button"
@@ -271,18 +204,8 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                          - label: "2"
-                            name: "2"
-                            widget: "object"
-                            fields:
                               - {label: "header", name: "header", widget: "string"}
                               - {label: "content", name: "content", widget: "text"}
                   - label: "decision"
@@ -293,12 +216,8 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
                               - {label: "header", name: "header", widget: "string"}
                               - {label: "content", name: "content", widget: "text"}
               - label: "pm"
@@ -313,18 +232,8 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                          - label: "2"
-                            name: "2"
-                            widget: "object"
-                            fields:
                               - {label: "header", name: "header", widget: "string"}
                               - {label: "content", name: "content", widget: "text"}
                       - label: "call-to-action-button"
@@ -341,18 +250,8 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
-                              - {label: "header", name: "header", widget: "string"}
-                              - {label: "content", name: "content", widget: "text"}
-                          - label: "2"
-                            name: "2"
-                            widget: "object"
-                            fields:
                               - {label: "header", name: "header", widget: "string"}
                               - {label: "content", name: "content", widget: "text"}
                   - label: "decision"
@@ -363,11 +262,206 @@ collections:
                       - {label: "right-header", name: "right-header", widget: "string"}
                       - label: "sections"
                         name: "sections"
-                        widget: "object"
+                        widget: "list"
                         fields:
-                          - label: "1"
-                            name: "1"
-                            widget: "object"
-                            fields:
                               - {label: "header", name: "header", widget: "string"}
                               - {label: "content", name: "content", widget: "text"}
+      - label: "Home"
+        name: "page-home"
+        file: "data/pages/home.json"
+        widget: "object"
+        fields:
+          - {label: "text-hero.header", name: "text-hero.header", widget: "string"}
+          - {label: "text-hero.subheader", name: "text-hero.subheader", widget: "text"}
+          - label: "quicklinks"
+            name: "quicklinks"
+            widget: "object"
+            fields:
+              - label: "team"
+                name: "team"
+                widget: "object"
+                fields:
+                  - {label: "header", name: "header", widget: "string"}
+                  - {label: "subheader", name: "subheader", widget: "string"}
+                  - {label: "link", name: "link", widget: "string"}
+              - label: "projects"
+                name: "projects"
+                widget: "object"
+                fields:
+                  - {label: "header", name: "header", widget: "string"}
+                  - {label: "subheader", name: "subheader", widget: "string"}
+                  - {label: "link", name: "link", widget: "string"}
+              - label: "initiatives"
+                name: "initiatives"
+                widget: "object"
+                fields:
+                  - {label: "header", name: "header", widget: "string"}
+                  - {label: "subheader", name: "subheader", widget: "string"}
+                  - {label: "link", name: "link", widget: "string"}
+      - label: "courses"
+        name: "page-courses"
+        file: "data/pages/courses.json"
+        widget: "object"
+        fields:
+          - label: "hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
+          - label: "content"
+            name: "content"
+            widget: "list"
+            fields:
+            - {label: "header", name: "header", widget: "string"}
+            - {label: "subtitle", name: "subtitle", widget: "string"}
+            - {label: "description", name: "description", widget: "text"}
+            - {label: "image", name: "image", widget: "string"}
+            - label: "buttons"
+              name: "buttons"
+              widget: "object"
+              fields:
+              - label: "apply"
+                name: "apply"
+                widget: "object"
+                fields:
+                  - {label: "title", name: "title", widget: "string"}
+                  - {label: "link", name: "link", widget: "string"}
+                  - {label: "icon", name: "icon", widget: "string"}
+      - label: "projects"
+        name: "page-projects"
+        file: "data/pages/projects.json"
+        widget: "object"
+        fields:
+          - label: "hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
+          - label: "footer"
+            name: "footer"
+            widget: "object"
+            fields:
+
+          - label: "projects"
+            name: "projects"
+            widget: "object"
+            fields:
+              - {label: "flux", name: "flux", widget: "string"}
+              - {label: "queuemein", name: "queuemein", widget: "string"}
+              - {label: "researchconnect", name: "researchconnect", widget: "string"}
+              - {label: "reviews", name: "reviews", widget: "string"}
+              - {label: "samwise", name: "samwise", widget: "string"}
+              - {label: "events", name: "events", widget: "string"}
+              - {label: "orientation", name: "orientation", widget: "string"}
+          - label: "not-ready-projects"
+            name: "not-ready-projects"
+            widget: "object"
+            fields:
+              - {label: "rescuer", name: "rescuer", widget: "string"}
+          - label: "archived-projects"
+            name: "archived-projects"
+            widget: "object"
+            fields:
+              - {label: "shout", name: "shout", widget: "string"}
+      - label: "sponsor"
+        name: "page-sponsor"
+        file: "data/pages/sponsor.json"
+        widget: "object"
+        fields:
+          - label: "hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "string"}
+          - label: "pitch"
+            name: "pitch"
+            widget: "list"
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "description", name: "description", widget: "text"}
+          - label: "call-to-action"
+            name: "call-to-action"
+            widget: "object"
+            fields:
+              - {label: "description", name: "description", widget: "string"}
+              - label: "button"
+                name: "button"
+                widget: "object"
+                fields:
+                  - {label: "text", name: "text", widget: "string"}
+          - label: "current-sponsors"
+            name: "current-sponsors"
+            widget: "object"
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+          - label: "tiers"
+            name: "tiers"
+            widget: "object"
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - label: "sponsor"
+                name: "sponsor"
+                widget: "list"
+                fields:
+                  - {label: "benefit", name: "benefit", widget: "string"}
+                  - {label: "subheader", name: "subheader", widget: "string"}
+                  - label: "tiers"
+                    name: "tiers"
+                    widget: "object"
+                    fields:
+                      - {label: "bronze", name: "bronze", widget: "boolean"}
+                      - {label: "silver", name: "silver", widget: "boolean"}
+                      - {label: "gold", name: "gold", widget: "boolean"}
+                      - {label: "platinum", name: "platinum", widget: "boolean"}
+      - label: "team"
+        name: "page-team"
+        file: "data/pages/team.json"
+        widget: "object"
+        fields:
+          - label: "hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "string"}
+          - label: "diversity"
+            name: "diversity"
+            widget: "object"
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "description", name: "description", widget: "text"}
+              - label: "gender"
+                name: "gender"
+                widget: "object"
+                fields:
+                  - {label: "header", name: "header", widget: "string"}
+              - label: "stats"
+                name: "stats"
+                widget: "object"
+                fields:
+                  - label: "underclassmen"
+                    name: "underclassmen"
+                    widget: "object"
+                    fields:
+                      - {label: "stat", name: "stat", widget: "string"}
+                      - {label: "description", name: "description", widget: "string"}
+                  - label: "majors"
+                    name: "majors"
+                    widget: "object"
+                    fields:
+                      - {label: "stat", name: "stat", widget: "string"}
+                      - {label: "description", name: "description", widget: "string"}
+                  - label: "colleges"
+                    name: "colleges"
+                    widget: "object"
+                    fields:
+                      - {label: "stat", name: "stat", widget: "string"}
+                      - {label: "description", name: "description", widget: "string"}
+          - label: "team"
+            name: "team"
+            widget: "object"
+            fields:
+              - {label: "header", name: "header", widget: "string"}

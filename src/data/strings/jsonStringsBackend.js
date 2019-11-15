@@ -54,6 +54,13 @@ function searchKey(key, json) {
     let currentChild = json;
 
     for (const childKey of keys) {
+      const asInt = Number.parseInt(childKey, 10);
+      if (Number.isInteger(asInt)) {
+        path += `/${childKey}`;
+        currentChild = currentChild[asInt - 1];
+        continue;
+      }
+
       if (typeof currentChild[childKey] === 'undefined' || currentChild[childKey] === null) {
         if (typeof currentChild['*'] !== 'undefined') {
           path += `/${childKey}`;

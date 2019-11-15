@@ -10,11 +10,11 @@
     "*": {
       "card": "~.png",
       "hero-image": "/pages/projects/pages/$1$/header.png",
-      "features": {
-        "1": "/pages/projects/pages/$1$/feature1.jpg",
-        "2": "/pages/projects/pages/$1$/feature2.jpg",
-        "3": "/pages/projects/pages/$1$/feature3.jpg"
-      }
+      "features": [
+        "/pages/projects/pages/$1$/feature1.jpg",
+        "/pages/projects/pages/$1$/feature2.jpg",
+        "/pages/projects/pages/$1$/feature3.jpg"
+      ]
     }
   },
   "pages": {
