@@ -1,1 +1,7 @@
-{}
+{
+  "hero": {
+    "lazy": "/public/pages/initiatives/hero/hero-lazy.jpg",
+    "video": "/public/pages/initiatives/hero/hero.m4v",
+    "image": "/public/pages/initiatives/hero/hero.png"
+  }
+}

@@ -2,25 +2,28 @@
   "text-hero.header": "Creating Technology for Community Impact",
   "text-hero.subheader": "Our engineering project team is dedicated to more than just software development. We solve real problems around us to make our community better, while fostering our personal growth to teach others from our experience.",
   "hero": {
-    "lazy": "/pages/home/hero/hero-lazy.jpg",
-    "video": "/pages/home/hero/hero.m4v",
-    "image": "/pages/home/hero/hero.png"
+    "lazy": "/public/pages/home/hero/hero-lazy.jpg",
+    "video": "/public/pages/home/hero/hero.m4v",
+    "image": "/public/pages/home/hero/hero.png"
   },
   "quicklinks": {
     "team": {
       "header": "Team",
       "subheader": "Who we are >",
-      "link": "/team"
+      "link": "/team",
+      "image": ""
     },
     "projects": {
       "header": "Projects",
       "subheader": "What we create >",
-      "link": "/projects"
+      "link": "/projects",
+      "image": ""
     },
     "initiatives": {
       "header": "Initiatives",
       "subheader": "Why we do it >",
-      "link": "/initiatives"
+      "link": "/initiatives",
+      "image": ""
     }
   }
 }

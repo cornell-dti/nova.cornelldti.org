@@ -5,12 +5,11 @@
   "author": "rockon999 <rockon999@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "./node_modules/.bin/concurrently \"yarn start\" \"vue-cli-service serve\"",
-    "start": "node server.js",
-    "serve": "yarn build-member-data && vue-cli-service serve",
     "build-member-data": "node build.js",
     "build-vue": "vue-cli-service build --silent",
     "build": "yarn build-member-data && yarn build-vue",
+    "dev": "yarn build-member-data && vue-cli-service serve",
+    "prod": "node server.js",
     "lint": "vue-cli-service lint"
   },
   "vuePlugins": {

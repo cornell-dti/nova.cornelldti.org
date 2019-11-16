@@ -2,10 +2,10 @@
   <div class="nova-hero">
     <div class="nova-hero-visual-container">
       <visual
-        :video="aws(AssetStrings.get(`pages.${page}.hero.video`))"
-        :poster="AssetStrings.get(`pages.${page}.hero.lazy`)"
+        :video="aws(video)"
+        :poster="lazy"
         background="cover"
-        :fallback="aws(AssetStrings.get(`pages.${page}.hero.image`))"
+        :fallback="aws(image)"
         class="nova-hero-visual"
         align="top left"
         autoplay
@@ -72,6 +72,15 @@ export default {
       type: String
     },
     header: {
+      type: String
+    },
+    video: {
+      type: String
+    },
+    lazy: {
+      type: String
+    },
+    image: {
       type: String
     },
     subheader: {

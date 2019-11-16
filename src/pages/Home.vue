@@ -2,8 +2,8 @@
   <div>
     <div class="home">
       <visual
-        :video="aws(AssetStrings.get('pages.home.hero.video'))"
-        :poster="AssetStrings.get(`pages.home.hero.lazy`)"
+        :video="aws(Strings.get('hero.video'))"
+        :poster="Strings.get(`hero.lazy`)"
         class="home-background home-preload-background home-background-video"
         autoplay
         :fill="true"
@@ -27,19 +27,19 @@
     <page-sublist :border-padding="true">
       <quicklink
         :link="Strings.get('quicklinks.projects.link')"
-        :image="AssetStrings.get(`pages.home.quicklinks.projects`)"
+        :image="Strings.get(`quicklinks.projects.image`)"
         :header="Strings.get('quicklinks.projects.header')"
         :subheader="Strings.get('quicklinks.projects.subheader')"
       />
       <quicklink
         :link="Strings.get('quicklinks.team.link')"
-        :image="AssetStrings.get(`pages.home.quicklinks.team`)"
+        :image="Strings.get(`quicklinks.team.image`)"
         :header="Strings.get('quicklinks.team.header')"
         :subheader="Strings.get('quicklinks.team.subheader')"
       />
       <quicklink
         :link="Strings.get('quicklinks.initiatives.link')"
-        :image="AssetStrings.get(`pages.home.quicklinks.initiatives`)"
+        :image="Strings.get(`quicklinks.initiatives.image`)"
         :header="Strings.get('quicklinks.initiatives.header')"
         :subheader="Strings.get('quicklinks.initiatives.subheader')"
       />

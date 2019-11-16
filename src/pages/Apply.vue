@@ -4,12 +4,18 @@
       v-if="Strings.get('join-information.applications-open')"
       :header="Strings.get('hero.header')"
       :subheader="Strings.get('hero.subheader')"
+      :video="Strings.get(`hero.video`)"
+      :lazy="Strings.get(`hero.lazy`)"
+      :image="Strings.get(`hero.image`)"
       page="apply"
     />
     <nova-hero
       v-else
-      :header="Strings.get('hero-closed.header')"
-      :subheader="Strings.get('hero-closed.subheader')"
+      :header="Strings.get('hero.closed.header')"
+      :subheader="Strings.get('hero.closed.subheader')"
+      :video="Strings.get(`hero.video`)"
+      :lazy="Strings.get(`hero.lazy`)"
+      :image="Strings.get(`hero.image`)"
       page="apply"
     />
     <page-section v-if="!Strings.get('join-information.applications-open')">

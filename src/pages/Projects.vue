@@ -3,6 +3,9 @@
     <nova-hero
       :header="Strings.get('hero.header')"
       :subheader="Strings.get('hero.subheader')"
+      :video="Strings.get(`hero.video`)"
+      :lazy="Strings.get(`hero.lazy`)"
+      :image="Strings.get(`hero.image`)"
       page="projects"
     />
 
@@ -21,7 +24,7 @@
           :key="project"
         >
           <router-link :to="{ path: project }" append>
-            <b-img :src="AssetStrings.get(`projects.${project}.card`)" class="project-card"/>
+            <b-img :src="AssetStrings.get(`projects.${project}.card`)" class="project-card" />
           </router-link>
         </b-col>
       </b-row>

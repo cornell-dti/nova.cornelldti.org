@@ -3,6 +3,9 @@
     <nova-hero
       header="Inspiring Change"
       subheader="What sets us apart from other project teams is our desire to share what we learn with other students and members of the greater Ithaca community."
+      :video="Strings.get(`hero.video`)"
+      :lazy="Strings.get(`hero.lazy`)"
+      :image="Strings.get(`hero.image`)"
       page="initiatives"
     />
     <page-section class="initiatives-main-section">

@@ -1,6 +1,6 @@
 {
   "branding": {
-    "wordmark": "/branding/wordmark/.png",
+    "wordmark": "/branding/wordmark.png",
     "icon": "/branding/brand-icon.svg"
   },
   "directories": {
@@ -9,11 +9,11 @@
   "projects": {
     "*": {
       "card": "/projects/$1$/card.png",
-      "hero-image": "/pages/projects/pages/$1$/header.png",
+      "hero-image": "/public/pages/projects/pages/$1$/header.png",
       "features": [
-        "/pages/projects/pages/$1$/feature1.jpg",
-        "/pages/projects/pages/$1$/feature2.jpg",
-        "/pages/projects/pages/$1$/feature3.jpg"
+        "/public/pages/projects/pages/$1$/feature1.jpg",
+        "/public/pages/projects/pages/$1$/feature2.jpg",
+        "/public/pages/projects/pages/$1$/feature3.jpg"
       ]
     }
   }

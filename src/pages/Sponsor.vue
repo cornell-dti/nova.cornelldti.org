@@ -3,6 +3,9 @@
     <nova-hero
       :header="Strings.get('hero.header')"
       :subheader="Strings.get('hero.subheader')"
+      :video="Strings.get(`hero.video`)"
+      :lazy="Strings.get(`hero.lazy`)"
+      :image="Strings.get(`hero.image`)"
       page="sponsor"
     />
     <b-container>

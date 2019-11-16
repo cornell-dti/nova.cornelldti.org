@@ -2,9 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 /* Node Modules */
-import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue';
-import VueVisual from 'vue-visual';
 
 /* CSS for Node Modules */
 
@@ -15,18 +13,9 @@ import BootstrapVueCSS from 'bootstrap-vue/dist/bootstrap-vue.css';
 
 /* eslint-enable */
 
-/* Data */
-
-import Members from '#/generated/members.json';
-import Companies from '#/sets/companies.json';
-import Teams from '#/sets/teams.json';
-import Roles from '#/sets/roles.json';
-
 /* Core Files */
 
 import App from '@/App';
-import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings/lib';
 import router from '@/router';
 
 /* Global Components */
@@ -42,71 +31,17 @@ import TextHero from '@/components/TextHero';
 import PageSection from '@/components/PageSection';
 import StoreBadge from '@/components/StoreBadge';
 
-const AssetStrings = new StringsFrontend('assets', SingleBackend);
+import AssetStrings from './shared';
 
 Vue.mixin({
-  data() {
-    return {
-      AssetStrings
-    }
-  },
   methods: {
-    joinPath(...parts) {
-      const first = parts[0].split('://');
-      const beginning = first[0];
-      const url = [];
-
-      if (first.length > 1) {
-        url.push(`${beginning}://`);
-        const slice = first.slice(1);
-        url.push(
-          ...slice
-            .join('://')
-            .split('/')
-            .filter(value => value !== '')
-        );
-      } else {
-        url.push(`${beginning}`);
-        url.push(...beginning.split('/').filter(value => value !== ''));
-      }
-
-      url.push(
-        ...parts
-          .slice(1)
-          .join('/')
-          .split('/')
-          .filter(value => value !== '')
-      );
-
-      return url.join('/');
-    },
     aws(asset) {
       return this.joinPath(
         `https://s3.us-east-2.amazonaws.com/dti-nova-website/static/`,
         `${asset.replace('/public', '')}`
       );
-    },
-    getMembers() {
-      return Members;
-    },
-    getRoles() {
-      return Roles;
-    },
-    getTeams() {
-      return Teams;
-    },
-    getCompanies() {
-      return Companies;
     }
   }
-});
-
-Vue.use(BootstrapVue);
-
-Vue.component('visual', VueVisual).options.setDefaults({
-  load: 'visible',
-  loadPoster: true,
-  transition: 'vv-fade'
 });
 
 Vue.component('PageSublist', PageSublist);

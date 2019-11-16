@@ -2,9 +2,9 @@
   "hero": {
     "header": "Sponsor Our Mission",
     "subheader": "We want to partner with organizations who have a similar vision of changing the world. Together, we can work towards improving our communities with technology.",
-    "lazy": "/pages/sponsor/hero/hero-lazy.jpg",
-    "video": "/pages/sponsor/hero/hero.m4v",
-    "image": "/pages/sponsor/hero/hero.png"
+    "lazy": "/public/pages/sponsor/hero/hero-lazy.jpg",
+    "video": "/public/pages/sponsor/hero/hero.m4v",
+    "image": "/public/pages/sponsor/hero/hero.png"
   },
   "pitch": [
     {

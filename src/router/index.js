@@ -88,7 +88,7 @@ const dtiRouter = new Router({
       name: 'Team',
       component: () => createAsyncPage('team', () => import('@/pages/Team')),
       props: {
-        diversity: DiversityJson
+        diversity: DiversityJson.diversity
       }
     },
     {

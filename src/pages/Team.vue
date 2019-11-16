@@ -3,6 +3,9 @@
     <nova-hero
       :header="Strings.get('hero.header')"
       :subheader="Strings.get('hero.subheader')"
+      :video="Strings.get(`hero.video`)"
+      :lazy="Strings.get(`hero.lazy`)"
+      :image="Strings.get(`hero.image`)"
       page="team"
     />
 
@@ -12,16 +15,16 @@
         <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
           <b-row>
             <b-col sm="12" md="9">
-              <div class="team-header diversity-header my-auto">
-                {{ Strings.get('diversity.header', 'team') }}
-              </div>
-              <div class="diversity-description my-auto lg-y-padding">
-                {{ Strings.get('diversity.description', 'team') }}
-              </div>
+              <div
+                class="team-header diversity-header my-auto"
+              >{{ Strings.get('diversity.header', 'team') }}</div>
+              <div
+                class="diversity-description my-auto lg-y-padding"
+              >{{ Strings.get('diversity.description', 'team') }}</div>
 
-              <h3 class="graph-header lg-y-padding">
-                {{ Strings.get('diversity.gender.header', 'team') }}
-              </h3>
+              <h3
+                class="graph-header lg-y-padding"
+              >{{ Strings.get('diversity.gender.header', 'team') }}</h3>
 
               <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
@@ -59,28 +62,28 @@
         <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
           <b-row>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">
-                {{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}
-              </div>
-              <div class="diversity-description diversity-stat-description">
-                {{ Strings.get('diversity.stats.underclassmen.description', 'team') }}
-              </div>
+              <div
+                class="diversity-stat-header"
+              >{{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}</div>
+              <div
+                class="diversity-description diversity-stat-description"
+              >{{ Strings.get('diversity.stats.underclassmen.description', 'team') }}</div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">
-                {{ Strings.get('diversity.stats.majors.stat', 'team') }}
-              </div>
-              <div class="diversity-description diversity-stat-description">
-                {{ Strings.get('diversity.stats.majors.description', 'team') }}
-              </div>
+              <div
+                class="diversity-stat-header"
+              >{{ Strings.get('diversity.stats.majors.stat', 'team') }}</div>
+              <div
+                class="diversity-description diversity-stat-description"
+              >{{ Strings.get('diversity.stats.majors.description', 'team') }}</div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">
-                {{ Strings.get('diversity.stats.colleges.stat', 'team') }}
-              </div>
-              <div class="diversity-description diversity-stat-description">
-                {{ Strings.get('diversity.stats.colleges.description', 'team') }}
-              </div>
+              <div
+                class="diversity-stat-header"
+              >{{ Strings.get('diversity.stats.colleges.stat', 'team') }}</div>
+              <div
+                class="diversity-description diversity-stat-description"
+              >{{ Strings.get('diversity.stats.colleges.description', 'team') }}</div>
             </b-col>
           </b-row>
         </b-col>
@@ -426,7 +429,9 @@ export default {
       return this.getMembers()
         .filter(
           member =>
-            ((typeof member.roleId === 'string' && member.roleId.endsWith(role)) || role === '') &&
+            ((typeof member.roleId === 'string' &&
+              member.roleId.endsWith(role)) ||
+              role === '') &&
             (member.isLead != null && member.isLead === true) === isLead
         )
         .map(member => ({ info: member, id: member.netid }))
