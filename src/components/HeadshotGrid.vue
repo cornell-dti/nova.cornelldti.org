@@ -6,16 +6,15 @@
         <headshot-card :name="member.id" :role="member.id" :image="``" @click.native="null" />
       </div>
       <headshot-card
-        v-b-modal.memberModal
         v-else
         :name="member.info.name"
         :role="member.info.roleDescription"
-        :image="`${AssetStrings.get('directories.members')}/${member.id}.jpg`"
         @click.native="memberClicked(member)"
+        :image="member.info.image || `${AssetStrings.get('directories.members')}/${member.id}.jpg`"
       />
     </div>
 
-    <member-profile-modal :profile="currentProfile" :display="true" />
+    <member-profile-modal ref="modalRef" :profile="currentProfile" :display="true" />
   </div>
 </template>
 
@@ -50,6 +49,7 @@ export default {
   methods: {
     memberClicked(member) {
       this.currentProfile = member;
+      this.$refs.modalRef.showModal();
     },
     pad(members) {
       const copy = [...members];

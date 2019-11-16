@@ -1,6 +1,6 @@
 <template>
   <transition name="modal">
-    <div v-if="profile && profile.info" v-show="isShowing">
+    <div v-show="isShowing">
       <b-modal
         lazy
         no-fade
@@ -9,7 +9,7 @@
         ref="memberModalRef"
         id="memberModal"
         v-model="isShowing"
-        :title="profile.info.name"
+        :title="profile && profile.info ? profile.info.name : 'not found'"
         header-bg-variant="light"
         header-text-variant="dark"
         body-bg-variant="light"
@@ -19,7 +19,7 @@
         header-border-variant="light"
         footer-border-variant="light"
       >
-        <b-container fluid>
+        <b-container v-if="profile && profile.info" fluid>
           <b-row>
             <b-col>
               <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
