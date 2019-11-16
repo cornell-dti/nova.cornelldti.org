@@ -149,7 +149,10 @@ ${this.members.map(m => m.toString(padding + 4)).join('\n')}`
   }
 }
 
-if (process.argv[4] && process.argv[4] === "1") {
+if (process.argv[4] === '--indent') {
+  const baseIndent = Number.parseInt(process.argv[5]);
+  console.log(NCObject.fromJSON(process.argv[3], process.argv[3], json).toString(baseIndent));
+} else if (process.argv[4] && process.argv[4] === "1") {
   console.log(NCObject.fromJSON(process.argv[3], process.argv[3], json).toFields());
 } else {
   console.log(NCObject.fromJSON(process.argv[3], process.argv[3], json).toString(6));

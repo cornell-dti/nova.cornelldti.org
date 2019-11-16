@@ -2,46 +2,49 @@ import './netlifyConfig';
 import './vue';
 
 import { VueInReact } from 'vuera';
+
 import CMS from 'netlify-cms'; // -app/dist/esm
-import Profile from './previews/Profile';
+
 import Apply from '@/pages/Apply';
 import Sponsor from '@/pages/Sponsor';
+import Home from '@/pages/Home';
+import Courses from '@/pages/Courses';
+import Initiatives from '@/pages/Initiatives';
+import Projects from '@/pages/Projects';
 
-import wrap from './previews/preview';
+import Profile from './previews/profile.jsx';
+import wrap from './preview';
 
-const ApplyPage = wrap('apply', [
-  'join-information',
-  'main-menu',
-  'hero',
-  'info-session',
-  'info-sessions',
-  'application-info'
-], Apply);
+// Page Wrappers
 
-const SponsorPage = wrap('sponsor', [
-  'hero',
-  'pitch',
-  'call-to-action',
-  'current-sponsors',
-  'tiers'
-], Sponsor);
+const ApplyPage = wrap('apply', Apply);
+const SponsorPage = wrap('sponsor', Sponsor);
+const HomePage = wrap('home', Home);
+const CoursesPage = wrap('courses', Courses);
+const InitiativesPage = wrap('initiatives', Initiatives);
+const ProjectsPage = wrap('projects', Projects);
 
-CMS.registerPreviewTemplate('member', VueInReact(Profile));
+// Page Previews
 CMS.registerPreviewTemplate('page-apply', VueInReact(ApplyPage));
 CMS.registerPreviewTemplate('page-sponsor', VueInReact(SponsorPage));
+CMS.registerPreviewTemplate('page-home', VueInReact(HomePage));
+CMS.registerPreviewTemplate('page-courses', VueInReact(CoursesPage));
+CMS.registerPreviewTemplate('page-initiatives', VueInReact(InitiativesPage));
+CMS.registerPreviewTemplate('page-projects', VueInReact(ProjectsPage));
+
+// Custom Component Previews
+CMS.registerPreviewTemplate('member', VueInReact(Profile));
 
 // Vendor Styles (easier to load from unpkg)
 
 CMS.registerPreviewStyle('//unpkg.com/bootstrap/dist/css/bootstrap.min.css');
 CMS.registerPreviewStyle('//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css');
 
-// Core site styles
+// Load our stylesheets (only works in production builds)
 
-CMS.registerPreviewStyle('/public/cms/css/main.css');
+CMS.registerPreviewStyle('/admin/css/chunk-vendors.css');
+CMS.registerPreviewStyle('/admin/css/cms.css');
 
-// Page-specific CSS
-
-CMS.registerPreviewStyle('/public/cms/css/cms.css');
-
-
-CMS.init();
+window.addEventListener('load', () => {
+  CMS.init();
+});

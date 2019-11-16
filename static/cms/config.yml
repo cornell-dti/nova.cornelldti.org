@@ -40,11 +40,45 @@ collections:
     name: "pages"
     format: "json"
     files:
-      - label: "apply"
+      - label: "Apply"
         name: "page-apply"
         widget: "object"
         file: "data/pages/apply.json"
         fields:
+          - label: "hero"
+            name: "hero"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
+              - {label: "lazy", name: "lazy", widget: "file"}
+              - {label: "video", name: "video", widget: "file"}
+              - {label: "image", name: "image", widget: "image"}
+          - label: "text-hero"
+            name: "text-hero"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
+          - label: "hero"
+            name: "hero"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
+              - {label: "lazy", name: "lazy", widget: "file"}
+              - {label: "video", name: "video", widget: "file"}
+              - {label: "image", name: "image", widget: "image"}
+          - label: "text-hero"
+            name: "text-hero"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
           - label: "join-information"
             name: "join-information"
             widget: "object"
@@ -59,12 +93,6 @@ collections:
                 widget: "object"
                 fields:
                   - {label: "open", name: "open", widget: "boolean"}
-          - label: "hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "header", name: "header", widget: "string"}
-              - {label: "subheader", name: "subheader", widget: "text"}
           - label: "info-session"
             name: "info-session"
             widget: "object"
@@ -130,8 +158,23 @@ collections:
         file: "data/pages/home.json"
         widget: "object"
         fields:
-          - {label: "text-hero.header", name: "text-hero.header", widget: "string"}
-          - {label: "text-hero.subheader", name: "text-hero.subheader", widget: "text"}
+          - label: "hero"
+            name: "hero"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
+              - {label: "lazy", name: "lazy", widget: "file"}
+              - {label: "video", name: "video", widget: "file"}
+              - {label: "image", name: "image", widget: "image"}
+          - label: "text-hero"
+            name: "text-hero"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
           - label: "quicklinks"
             name: "quicklinks"
             widget: "object"
@@ -157,7 +200,7 @@ collections:
                   - {label: "header", name: "header", widget: "string"}
                   - {label: "subheader", name: "subheader", widget: "string"}
                   - {label: "link", name: "link", widget: "string"}
-      - label: "courses"
+      - label: "Courses"
         name: "page-courses"
         file: "data/pages/courses.json"
         widget: "object"
@@ -165,6 +208,17 @@ collections:
           - label: "hero"
             name: "hero"
             widget: "object"
+            required: false
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
+              - {label: "lazy", name: "lazy", widget: "file"}
+              - {label: "video", name: "video", widget: "file"}
+              - {label: "image", name: "image", widget: "image"}
+          - label: "text-hero"
+            name: "text-hero"
+            widget: "object"
+            required: false
             fields:
               - {label: "header", name: "header", widget: "string"}
               - {label: "subheader", name: "subheader", widget: "text"}
@@ -187,7 +241,7 @@ collections:
                   - {label: "title", name: "title", widget: "string"}
                   - {label: "link", name: "link", widget: "string"}
                   - {label: "icon", name: "icon", widget: "string"}
-      - label: "projects"
+      - label: "Projects"
         name: "page-projects"
         file: "data/pages/projects.json"
         widget: "object"
@@ -195,6 +249,17 @@ collections:
           - label: "hero"
             name: "hero"
             widget: "object"
+            required: false
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
+              - {label: "lazy", name: "lazy", widget: "file"}
+              - {label: "video", name: "video", widget: "file"}
+              - {label: "image", name: "image", widget: "image"}
+          - label: "text-hero"
+            name: "text-hero"
+            widget: "object"
+            required: false
             fields:
               - {label: "header", name: "header", widget: "string"}
               - {label: "subheader", name: "subheader", widget: "text"}
@@ -224,7 +289,7 @@ collections:
             widget: "object"
             fields:
               - {label: "shout", name: "shout", widget: "string"}
-      - label: "sponsor"
+      - label: "Sponsor"
         name: "page-sponsor"
         file: "data/pages/sponsor.json"
         widget: "object"
@@ -232,9 +297,20 @@ collections:
           - label: "hero"
             name: "hero"
             widget: "object"
+            required: false
             fields:
               - {label: "header", name: "header", widget: "string"}
-              - {label: "subheader", name: "subheader", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
+              - {label: "lazy", name: "lazy", widget: "file"}
+              - {label: "video", name: "video", widget: "file"}
+              - {label: "image", name: "image", widget: "image"}
+          - label: "text-hero"
+            name: "text-hero"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
           - label: "pitch"
             name: "pitch"
             widget: "list"
@@ -275,7 +351,7 @@ collections:
             widget: "object"
             fields:
               - {label: "header", name: "header", widget: "string"}
-      - label: "team"
+      - label: "Team"
         name: "page-team"
         file: "data/pages/team.json"
         widget: "object"
@@ -283,9 +359,20 @@ collections:
           - label: "hero"
             name: "hero"
             widget: "object"
+            required: false
             fields:
               - {label: "header", name: "header", widget: "string"}
-              - {label: "subheader", name: "subheader", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
+              - {label: "lazy", name: "lazy", widget: "file"}
+              - {label: "video", name: "video", widget: "file"}
+              - {label: "image", name: "image", widget: "image"}
+          - label: "text-hero"
+            name: "text-hero"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "header", name: "header", widget: "string"}
+              - {label: "subheader", name: "subheader", widget: "text"}
           - label: "diversity"
             name: "diversity"
             widget: "object"
@@ -324,3 +411,72 @@ collections:
             widget: "object"
             fields:
               - {label: "header", name: "header", widget: "string"}
+  - name: "dataset"
+    label: "Datasets"
+    format: "json"
+    files:
+    - label: "Companies"
+      file: "data/sets/companies.json"
+      name: "companies"
+      widget: "list"
+      fields:
+            - {label: "name", name: "name", widget: "string"}
+            - {label: "logo", name: "logo", widget: "string"}
+    - label: "Roles"
+      file: "data/sets/roles.json"
+      name: "roles"
+      widget: "list"
+      fields:
+            - {label: "id", name: "id", widget: "string"}
+            - {label: "name", name: "name", widget: "string"}
+    - label: "Subteams"
+      file: "data/sets/teams.json"
+      name: "teams"
+      widget: "list"
+      fields:
+            - {label: "name", name: "name", widget: "string"}
+            - {label: "id", name: "id", widget: "string"}
+    - label: "Diversity Stats"
+      name: "diversity"
+      widget: "object"
+      file: "data/sets/diversity.json"
+      fields:
+        - label: "femalePercentage"
+          name: "femalePercentage"
+          widget: "object"
+          fields:
+            - {label: "", name: "", widget: "number"}
+            - {label: "business", name: "business", widget: "number"}
+            - {label: "developer", name: "developer", widget: "number"}
+            - {label: "designer", name: "designer", widget: "number"}
+            - {label: "pm", name: "pm", widget: "number"}
+  - name: "global"
+    label: "Global"
+    format: "json"
+    files:
+      - name: "assets"
+        label: "Assets"
+        file: "data/assets.json"
+        fields:
+          - label: "branding"
+            name: "branding"
+            widget: "object"
+            fields:
+              - {label: "wordmark", name: "wordmark", widget: "string"}
+              - {label: "icon", name: "icon", widget: "string"}
+          - label: "directories"
+            name: "directories"
+            widget: "object"
+            fields:
+              - {label: "members", name: "members", widget: "string"}
+          - label: "projects"
+            name: "projects"
+            widget: "object"
+            fields:
+              - label: "*"
+                name: "*"
+                widget: "object"
+                fields:
+                  - {label: "card", name: "card", widget: "string"}
+                  - {label: "hero-image", name: "hero-image", widget: "string"}
+                  - {label: "features", name: "features", widget: "unknown"}

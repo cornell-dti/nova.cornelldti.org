@@ -19,10 +19,12 @@ if (process.env.environment === 'production') {
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
 
+app.use('/admin', express.static(path.join(__dirname, '/dist/admin')));
+
 app.use(history());
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, '/dist')));
+app.use('/', express.static(path.join(__dirname, '/dist')));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

@@ -7,11 +7,16 @@
   "scripts": {
     "dev": "./node_modules/.bin/concurrently \"yarn start\" \"vue-cli-service serve\"",
     "start": "node server.js",
-    "serve": "yarn build-cms-styles && yarn build-member-data && vue-cli-service serve",
-    "build-cms-styles": "webpack --config csspack.config.js",
+    "serve": "yarn build-member-data && vue-cli-service serve",
     "build-member-data": "node build.js",
-    "build": "yarn build-cms-styles && yarn build-member-data && vue-cli-service build",
+    "build-vue": "vue-cli-service build --silent",
+    "build": "yarn build-member-data && yarn build-vue",
     "lint": "vue-cli-service lint"
+  },
+  "vuePlugins": {
+    "service": [
+      "multipack.js"
+    ]
   },
   "dependencies": {
     "axios": "^0.19.0",

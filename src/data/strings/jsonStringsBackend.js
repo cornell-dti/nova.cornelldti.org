@@ -8,6 +8,7 @@ const TeamJSON = () => import('#/pages/team.json');
 const ProjectsJSON = () => import('#/pages/projects.json');
 const SponsorJSON = () => import('#/pages/sponsor.json');
 const CoursesJSON = () => import('#/pages/courses.json');
+const NotFoundJSON = () => import('#/pages/notfound.json');
 
 const EventsJSON = () => import('#/projects/events.json');
 const FluxJSON = () => import('#/projects/flux.json');
@@ -29,6 +30,7 @@ const JSONImports = {
   team: TeamJSON,
   courses: CoursesJSON,
   sponsor: SponsorJSON,
+  notfound: NotFoundJSON,
   'projects.events': EventsJSON,
   'projects.orientation': OrientationJSON,
   'projects.queuemein': QueueMeInJSON,
@@ -132,10 +134,15 @@ export default class JSONStringsBackend extends StringsBackend {
 
   resolveContext(context) {
     if (!JSONMap.has(context)) {
-      return JSONImports[context]().then(json => {
-        JSONMap.set(context, json);
-        return json;
-      });
+      if (typeof JSONImports[context] === 'function') {
+        return JSONImports[context]().then(json => {
+          JSONMap.set(context, json);
+          return json;
+        });
+      }
+
+      console.log(`Failed to resolve context: ${context}`);
+      return {};
     }
 
     return Promise.resolve(JSONMap.get(context));

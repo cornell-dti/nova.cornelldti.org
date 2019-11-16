@@ -1,7 +1,10 @@
 {
   "hero": {
     "header": "Teaching The Community",
-    "subheader": "A project team is meant, above all, to be a learning experience. Given our mission of community impact, we want to help everyone learn and grow through our training courses in design, technology, and product development."
+    "subheader": "A project team is meant, above all, to be a learning experience. Given our mission of community impact, we want to help everyone learn and grow through our training courses in design, technology, and product development.",
+    "lazy": "/pages/courses/hero/hero-lazy.jpg",
+    "video": "/pages/courses/hero/hero.m4v",
+    "image": "/pages/courses/hero/hero.png"
   },
   "content": [
     {

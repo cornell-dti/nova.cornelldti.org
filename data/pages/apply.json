@@ -9,7 +9,10 @@
   },
   "hero": {
     "header": "Join Us",
-    "subheader": "In every applicant, we above all look for people that want to use their talents and skills to make a difference. No matter your experience, we also strive to be as inclusive as possible and give passionate people a chance to grow and learn with us."
+    "subheader": "In every applicant, we above all look for people that want to use their talents and skills to make a difference. No matter your experience, we also strive to be as inclusive as possible and give passionate people a chance to grow and learn with us.",
+    "lazy": "/pages/apply/hero/hero-lazy.jpg",
+    "video": "/pages/apply/hero/hero.m4v",
+    "image": "/pages/apply/hero/hero.png"
   },
   "info-session": {
     "header": "Freshman Apps!",
