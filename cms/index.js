@@ -4,6 +4,7 @@ import './vue';
 import { VueInReact } from 'vuera';
 
 import CMS from 'netlify-cms'; // -app/dist/esm
+import CMSIdentity from 'netlify-identity-widget';
 
 import Apply from '@/pages/Apply';
 import Sponsor from '@/pages/Sponsor';
@@ -45,6 +46,14 @@ CMS.registerPreviewStyle('//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.mi
 CMS.registerPreviewStyle('/admin/css/chunk-vendors.css');
 CMS.registerPreviewStyle('/admin/css/cms.css');
 
-window.addEventListener('load', () => {
-  CMS.init();
+window.netlifyIdentity = CMSIdentity;
+
+CMSIdentity.on('init', () => {
+  if (!CMSIdentity.currentUser) {
+    CMSIdentity.open();
+  } else {
+    CMS.init();
+  }
 });
+
+CMSIdentity.init();

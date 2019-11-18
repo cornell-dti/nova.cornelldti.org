@@ -1,9 +1,13 @@
 backend:
-  name: github
+  name: git-gateway
+  accept_roles:
+    - admin
+    - editor
   repo: cornell-dti/nova.cornelldti.org
   branch: netlify
 publish_mode: editorial_workflow
-media_folder: "static/uploads"
+media_folder: "static/images/uploads"
+public_folder: "/public/images/uploads"
 collections:
   - name: "member"
     label: "Member Profile"
@@ -13,6 +17,7 @@ collections:
     widget: "member"
     create: true
     fields:
+      - { label: "image", name: "Photo", widget: "string", required: false}
       - { label: "netid", name: "netid", widget: "string"}
       - { label: "firstName", name: "firstName", widget: "string"}
       - { label: "lastName", name: "lastName", widget: "string"}
@@ -23,7 +28,7 @@ collections:
         default: ""
         format: "MM/YYYY"
       - { label: "major", name: "major", widget: "string"}
-      - { label: "minor", name: "minor", widget: "string"}
+      - { label: "minor", name: "minor", widget: "string", required: false}
       - { label: "linkedin", name: "linkedin", widget: "string"}
       - { label: "github", name: "github", widget: "string"}
       - { label: "hometown", name: "hometown", widget: "string"}
@@ -33,6 +38,7 @@ collections:
         name: "otherSubteams"
         widget: "select"
         multiple: true
+        required: false
         options: ["flux", "website", "samwise", "researchconnect", "cue"]
       - { label: "Role", name: "roleId", widget: "string"}
       - { label: "Role Label", name: "roleDescription", widget: "string"}
@@ -54,7 +60,7 @@ collections:
               - {label: "subheader", name: "subheader", widget: "text"}
               - {label: "lazy", name: "lazy", widget: "file"}
               - {label: "video", name: "video", widget: "file"}
-              - {label: "image", name: "image", widget: "image"}
+              - {label: "image", name: "image", widget: "string"}
           - label: "text-hero"
             name: "text-hero"
             widget: "object"
@@ -71,7 +77,7 @@ collections:
               - {label: "subheader", name: "subheader", widget: "text"}
               - {label: "lazy", name: "lazy", widget: "file"}
               - {label: "video", name: "video", widget: "file"}
-              - {label: "image", name: "image", widget: "image"}
+              - {label: "image", name: "image", widget: "string"}
           - label: "text-hero"
             name: "text-hero"
             widget: "object"
@@ -167,7 +173,7 @@ collections:
               - {label: "subheader", name: "subheader", widget: "text"}
               - {label: "lazy", name: "lazy", widget: "file"}
               - {label: "video", name: "video", widget: "file"}
-              - {label: "image", name: "image", widget: "image"}
+              - {label: "image", name: "image", widget: "string"}
           - label: "text-hero"
             name: "text-hero"
             widget: "object"
@@ -214,7 +220,7 @@ collections:
               - {label: "subheader", name: "subheader", widget: "text"}
               - {label: "lazy", name: "lazy", widget: "file"}
               - {label: "video", name: "video", widget: "file"}
-              - {label: "image", name: "image", widget: "image"}
+              - {label: "image", name: "image", widget: "string"}
           - label: "text-hero"
             name: "text-hero"
             widget: "object"
@@ -255,7 +261,7 @@ collections:
               - {label: "subheader", name: "subheader", widget: "text"}
               - {label: "lazy", name: "lazy", widget: "file"}
               - {label: "video", name: "video", widget: "file"}
-              - {label: "image", name: "image", widget: "image"}
+              - {label: "image", name: "image", widget: "string"}
           - label: "text-hero"
             name: "text-hero"
             widget: "object"
@@ -303,7 +309,7 @@ collections:
               - {label: "subheader", name: "subheader", widget: "text"}
               - {label: "lazy", name: "lazy", widget: "file"}
               - {label: "video", name: "video", widget: "file"}
-              - {label: "image", name: "image", widget: "image"}
+              - {label: "image", name: "image", widget: "string"}
           - label: "text-hero"
             name: "text-hero"
             widget: "object"
@@ -365,7 +371,7 @@ collections:
               - {label: "subheader", name: "subheader", widget: "text"}
               - {label: "lazy", name: "lazy", widget: "file"}
               - {label: "video", name: "video", widget: "file"}
-              - {label: "image", name: "image", widget: "image"}
+              - {label: "image", name: "image", widget: "string"}
           - label: "text-hero"
             name: "text-hero"
             widget: "object"
