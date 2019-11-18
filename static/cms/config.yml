@@ -4,7 +4,7 @@ backend:
     - admin
     - editor
   repo: cornell-dti/nova.cornelldti.org
-  branch: netlify
+  branch: cms
 publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
 public_folder: "/public/images/uploads"
