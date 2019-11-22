@@ -3,10 +3,20 @@
     "header": "We Are Our Products",
     "subheader": "We've learned that tackling the hardest problems is the only way to truly create value for the people around us. Each of our projects address an unfulfilled need that exists in our community using human-centered design and software engineering.",
     "lazy": "/public/pages/projects/hero/hero-lazy.jpg",
-    "video": "/public/pages/projects/hero/hero.m4v",
+    "video": "/public/pages/projects/hero/hero.mp4",
     "image": "/public/pages/projects/hero/hero.png"
   },
   "footer": {},
+  "cards": {
+    "flux": "/public/projects/flux/card.png",
+    "orientation": "/public/projects/orientation/card.png",
+    "researchconnect": "/public/projects/researchconnect/card.png",
+    "reviews": "/public/projects/reviews/card.png",
+    "samwise": "/public/projects/samwise/card.png",
+    "shout": "/public/projects/shout/card.png",
+    "events": "/public/projects/events/card.png",
+    "queuemein": "/public/projects/queuemein/card.png"
+  },
   "projects": {
     "flux": "projects.flux",
     "queuemein": "projects.queuemein",

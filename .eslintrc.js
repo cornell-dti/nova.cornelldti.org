@@ -5,21 +5,21 @@ module.exports = {
   extends: [
     'plugin:vue/essential',
     '@vue/airbnb',
-    '@vue/prettier'
+    '@vue/typescript/recommended',
+    '@vue/prettier',
+    'plugin:import/typescript',
   ],
-  plugins: [
-    "import"
-  ],
+  plugins: ['@typescript-eslint'],
+
   parserOptions: {
-    parser: 'babel-eslint',
-    ecmaFeatures: {
-      legacyDecorators: true
-    }
+    parser: '@typescript-eslint/parser',
   },
+
   env: {
     browser: true,
     node: true
   },
+
   // add your custom rules here
   rules: {
     // don't require .vue extension when importing
@@ -27,8 +27,10 @@ module.exports = {
       'error',
       'always',
       {
-        js: 'never',
-        vue: 'never'
+        ts: 'never',
+        tsx: 'never',
+        'd.ts': 'never',
+        js: 'never'
       }
     ],
     // disallow reassignment of function parameters
@@ -80,9 +82,18 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // TODO: fix these problems and turn them into error again.
-    'vue/no-use-v-if-with-v-for': 'warn',
-    'vue/no-unused-components': 'warn',
-    'vue/no-unused-vars': 'warn',
-    'no-restricted-globals': 'warn'
-  }
+    'vue/no-use-v-if-with-v-for': ['warn'],
+    'vue/no-unused-components': ['warn'],
+    'vue/no-unused-vars': ['warn'],
+    'no-restricted-globals': ['warn']
+  },
+
+  'extends': [
+    'plugin:vue/essential',
+    '@vue/airbnb',
+    '@vue/typescript/recommended',
+    '@vue/prettier',
+    'plugin:import/typescript',
+    '@vue/typescript'
+  ]
 };

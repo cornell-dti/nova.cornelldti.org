@@ -6,43 +6,30 @@ import Vue from 'vue';
 
 /* CSS for Node Modules */
 
-/* eslint-disable no-unused-vars */
-
-import VueVisualCSS from 'vue-visual/index.css';
-import BootstrapVueCSS from 'bootstrap-vue/dist/bootstrap-vue.css';
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
+// @ts-ignore
 
 /* eslint-enable */
 
 /* Core Files */
 
-import App from '@/App';
+import App from '@/App.vue';
 import router from '@/router';
 
 /* Global Components */
 
-import DtiMainMenu from '@/components/DtiMainMenu';
-import DtiFooter from '@/components/DtiFooter';
-import PageBackground from '@/components/PageBackground';
-import PageHero from '@/components/PageHero';
-import NovaHero from '@/components/NovaHero';
-import PageSublist from '@/components/PageSublist';
-import TextPageHero from '@/components/TextPageHero';
-import TextHero from '@/components/TextHero';
-import PageSection from '@/components/PageSection';
-import StoreBadge from '@/components/StoreBadge';
+import DtiMainMenu from '@/components/DtiMainMenu.vue';
+import DtiFooter from '@/components/DtiFooter.vue';
+import PageBackground from '@/components/PageBackground.vue';
+import PageHero from '@/components/PageHero.vue';
+import NovaHero from '@/components/NovaHero.vue';
+import PageSublist from '@/components/PageSublist.vue';
+import TextPageHero from '@/components/TextPageHero.vue';
+import TextHero from '@/components/TextHero.vue';
+import PageSection from '@/components/PageSection.vue';
+import StoreBadge from '@/components/StoreBadge.vue';
 
 import AssetStrings from './shared';
-
-Vue.mixin({
-  methods: {
-    aws(asset) {
-      return this.joinPath(
-        `https://s3.us-east-2.amazonaws.com/dti-nova-website/static/`,
-        `${asset.replace('/public', '')}`
-      );
-    }
-  }
-});
 
 Vue.component('PageSublist', PageSublist);
 Vue.component('DtiMainMenu', DtiMainMenu);

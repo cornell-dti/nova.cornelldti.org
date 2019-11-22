@@ -8,7 +8,7 @@ export default class StringsBackend {
    * @returns null
    */
   getDefaultContext() {
-    return null;
+    return '';
   }
 
   /**
@@ -44,14 +44,18 @@ export default class StringsBackend {
    *
    */
   _getString(key, context) {
-    return null;
+    return '';
   }
 
-  _getChildrenKeysFor(key, context) {
-    return null;
+  _getChildrenKeysFor(key, context): string[] | null {
+    return [] as string[];
   }
 
   _exists(key, context) {
     return false;
+  }
+
+  resolveContext(context, ..._) {
+    return Promise.resolve(true);
   }
 }

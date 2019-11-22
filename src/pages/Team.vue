@@ -15,16 +15,16 @@
         <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
           <b-row>
             <b-col sm="12" md="9">
-              <div
-                class="team-header diversity-header my-auto"
-              >{{ Strings.get('diversity.header', 'team') }}</div>
-              <div
-                class="diversity-description my-auto lg-y-padding"
-              >{{ Strings.get('diversity.description', 'team') }}</div>
+              <div class="team-header diversity-header my-auto">
+                {{ Strings.get('diversity.header', 'team') }}
+              </div>
+              <div class="diversity-description my-auto lg-y-padding">
+                {{ Strings.get('diversity.description', 'team') }}
+              </div>
 
-              <h3
-                class="graph-header lg-y-padding"
-              >{{ Strings.get('diversity.gender.header', 'team') }}</h3>
+              <h3 class="graph-header lg-y-padding">
+                {{ Strings.get('diversity.gender.header', 'team') }}
+              </h3>
 
               <b-row class="lg-y-padding" align-h="center">
                 <b-col cols="auto">
@@ -62,28 +62,28 @@
         <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
           <b-row>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div
-                class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}</div>
-              <div
-                class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.underclassmen.description', 'team') }}</div>
+              <div class="diversity-stat-header">
+                {{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}
+              </div>
+              <div class="diversity-description diversity-stat-description">
+                {{ Strings.get('diversity.stats.underclassmen.description', 'team') }}
+              </div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div
-                class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.majors.stat', 'team') }}</div>
-              <div
-                class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.majors.description', 'team') }}</div>
+              <div class="diversity-stat-header">
+                {{ Strings.get('diversity.stats.majors.stat', 'team') }}
+              </div>
+              <div class="diversity-description diversity-stat-description">
+                {{ Strings.get('diversity.stats.majors.description', 'team') }}
+              </div>
             </b-col>
             <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div
-                class="diversity-stat-header"
-              >{{ Strings.get('diversity.stats.colleges.stat', 'team') }}</div>
-              <div
-                class="diversity-description diversity-stat-description"
-              >{{ Strings.get('diversity.stats.colleges.description', 'team') }}</div>
+              <div class="diversity-stat-header">
+                {{ Strings.get('diversity.stats.colleges.stat', 'team') }}
+              </div>
+              <div class="diversity-description diversity-stat-description">
+                {{ Strings.get('diversity.stats.colleges.description', 'team') }}
+              </div>
             </b-col>
           </b-row>
         </b-col>
@@ -344,7 +344,7 @@ $secondary: #f6f6f6;
   }
 
   &.diversity-background {
-    background-image: url('/public/pages/team/diversity-background.jpg'); // todo convert to v-visual
+    background-image: url('/public/pages/team/diversity-background.jpg'); // todo convert to lazy-video
     background-size: cover;
   }
 
@@ -388,17 +388,19 @@ $secondary: #f6f6f6;
 }
 </style>
 
-<script>
-import HeadshotGrid from '@/components/HeadshotGrid';
-import RoleSelector from '@/components/RoleSelector';
-import CircleProgressIndicator from '@/components/CircleProgressIndicator';
+<script lang="ts">
+import HeadshotGrid from '@/components/HeadshotGrid.vue';
+import RoleSelector from '@/components/RoleSelector.vue';
+import CircleProgressIndicator from '@/components/CircleProgressIndicator.vue';
+import { Component } from '../shim';
 
-export default {
+export default Component({
   components: {
     HeadshotGrid,
     CircleProgressIndicator,
     RoleSelector
   },
+  computed: {},
   mounted() {
     this.$nextTick(() => {
       this.roleId = '';
@@ -417,7 +419,6 @@ export default {
       required: true
     }
   },
-
   methods: {
     malePercentage(roleId) {
       return 1 - this.diversity.femalePercentage[roleId];
@@ -429,9 +430,7 @@ export default {
       return this.getMembers()
         .filter(
           member =>
-            ((typeof member.roleId === 'string' &&
-              member.roleId.endsWith(role)) ||
-              role === '') &&
+            ((typeof member.roleId === 'string' && member.roleId.endsWith(role)) || role === '') &&
             (member.isLead != null && member.isLead === true) === isLead
         )
         .map(member => ({ info: member, id: member.netid }))
@@ -446,5 +445,5 @@ export default {
         });
     }
   }
-};
+});
 </script>

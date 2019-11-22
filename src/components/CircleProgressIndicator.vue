@@ -3,7 +3,15 @@
     <div class="circle-progress">
       <div class="circle">
         <div class="mask full">
-          <svg xmlns="http://www.w3.org/2000/svg" class="fill circle-svg"></svg>
+          <donut-graph
+            :margin="10"
+            id="diversityWheel"
+            :width="300"
+            :height="300"
+            :outerRadius="150"
+            :innerRadius="135"
+            :data="{ female: currentPercentage, male: 1 - currentPercentage }"
+          />
         </div>
       </div>
       <div class="inset">
@@ -15,64 +23,14 @@
   </div>
 </template>
 
-<script>
-import { PathTemplate } from '../path';
+<script lang="ts">
+import DonutGraph from './DonutGraph';
+import { Component } from '@/shim';
 
-const OUTER_RADIUS = 150;
-const INNER_RADIUS = 135;
-
-const INNER_X_PARAM = 'innerX';
-const INNER_Y_PARAM = 'innerY';
-const OUTER_X_PARAM = 'outerX';
-const OUTER_Y_PARAM = 'outerY';
-const OUTER_RADIUS_PARAM = 'outerRadius';
-const INNER_RADIUS_PARAM = 'innerRadius';
-const LARGE_ARC_PARAM = 'largeArc';
-const LARGE_ARC_INV_PARAM = 'largeArcInv'; // todo
-
-// TODO Cleanup this api/utility
-
-const INVERSE_ARC_TEMPLATE = new PathTemplate()
-  .move(INNER_X_PARAM, INNER_Y_PARAM)
-  .line(OUTER_X_PARAM, OUTER_Y_PARAM)
-  .circulararc(
-    OUTER_RADIUS_PARAM,
-    LARGE_ARC_INV_PARAM,
-    PathTemplate.ONE,
-    OUTER_RADIUS_PARAM,
-    PathTemplate.ZERO
-  ) // todo toggle var
-  .line(
-    OUTER_RADIUS_PARAM,
-    parameters => parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
-  )
-  .circulararc(
-    INNER_RADIUS_PARAM,
-    LARGE_ARC_INV_PARAM,
-    PathTemplate.ZERO,
-    INNER_X_PARAM,
-    INNER_Y_PARAM
-  )
-  .end();
-
-const ARC_TEMPLATE = new PathTemplate()
-  .move(
-    OUTER_RADIUS_PARAM,
-    parameters => parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
-  )
-  .line(OUTER_RADIUS_PARAM, PathTemplate.ZERO)
-  .circulararc(OUTER_RADIUS_PARAM, LARGE_ARC_PARAM, PathTemplate.ONE, OUTER_X_PARAM, OUTER_Y_PARAM) // todo toggle var
-  .line(INNER_X_PARAM, INNER_Y_PARAM)
-  .circulararc(
-    INNER_RADIUS_PARAM,
-    LARGE_ARC_PARAM,
-    PathTemplate.ZERO,
-    OUTER_RADIUS_PARAM,
-    parameters => parameters[OUTER_RADIUS_PARAM] - parameters[INNER_RADIUS_PARAM]
-  )
-  .end();
-
-export default {
+export default Component({
+  components: {
+    DonutGraph
+  },
   props: {
     percentage: {
       type: Number,
@@ -102,29 +60,6 @@ export default {
     }
   },
   methods: {
-    getTemplateParameters(percentage) {
-      const angle = Math.PI / 2 - percentage * 2 * Math.PI;
-
-      const [xOffset, yOffset] = [Math.cos(angle), -Math.sin(angle)];
-
-      const params = {};
-
-      params[INNER_X_PARAM] = OUTER_RADIUS + INNER_RADIUS * xOffset;
-      params[INNER_Y_PARAM] = OUTER_RADIUS + INNER_RADIUS * yOffset;
-      params[OUTER_X_PARAM] = OUTER_RADIUS + OUTER_RADIUS * xOffset;
-      params[OUTER_Y_PARAM] = OUTER_RADIUS + OUTER_RADIUS * yOffset;
-      params[INNER_RADIUS_PARAM] = INNER_RADIUS;
-      params[OUTER_RADIUS_PARAM] = OUTER_RADIUS;
-      params[LARGE_ARC_INV_PARAM] = percentage < 0.5 ? 1 : 0;
-      params[LARGE_ARC_PARAM] = percentage >= 0.5 ? 1 : 0;
-
-      return params;
-    },
-    getPaths(percentage = 0.5) {
-      const params = this.getTemplateParameters(percentage);
-
-      return [ARC_TEMPLATE.commands(params), INVERSE_ARC_TEMPLATE.commands(params)];
-    },
     setPercentage(percentage1 = 0.5) {
       if (this.interval !== -1) {
         clearInterval(this.interval);
@@ -134,41 +69,6 @@ export default {
       this.goalPercentage = percentage1;
 
       this.interval = setInterval(() => {
-        const [commands, inverseCommands] = this.getPaths(this.currentPercentage);
-
-        let pathData = '';
-
-        for (const param of commands) {
-          pathData += ` ${param}`;
-        }
-
-        let inversePathData = '';
-
-        for (const param of inverseCommands) {
-          inversePathData += ` ${param}`;
-        }
-
-        const svg = this.$refs.circleProgressIndicator.getElementsByTagNameNS(
-          'http://www.w3.org/2000/svg',
-          'svg'
-        )[0]; // TODO don't rely on array index
-        let path = svg.getElementById('circle-path');
-        let inversePath = svg.getElementById('circle-path-inverse');
-
-        if (path == null) {
-          path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-          path.id = 'circle-path';
-          svg.appendChild(path);
-        }
-
-        if (inversePath == null) {
-          inversePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-          inversePath.id = 'circle-path-inverse';
-          svg.appendChild(inversePath);
-        }
-
-        path.setAttributeNS(null, 'd', pathData);
-        inversePath.setAttributeNS(null, 'd', inversePathData);
         const diff = Math.abs(this.goalPercentage - this.currentPercentage);
 
         if (diff <= 0.005) {
@@ -184,7 +84,7 @@ export default {
       }, 5);
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>
@@ -227,25 +127,7 @@ $inset-color: #fefefe;
         backface-visibility: hidden;
         z-index: 2;
       }
-
-      .circle-svg {
-        fill-rule: evenodd;
-      }
     }
   }
-}
-</style>
-
-<style lang="scss">
-$circle-background-color: rgba(#ececec, 0.3);
-$circle-fill-color: #ff324a;
-$circle-border-color: grey;
-
-#circle-path {
-  fill: $circle-fill-color;
-}
-
-#circle-path-inverse {
-  fill: rgb(236, 236, 236);
 }
 </style>

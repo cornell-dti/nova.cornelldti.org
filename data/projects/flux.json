@@ -16,14 +16,14 @@
   "heroStartingColor": "#FFF",
   "heroEndingColor": "#FFA01E",
   "heroUseDarkText": false,
-  "features": {
-    "1": {
+  "features": [
+    {
       "title": "Browse.",
       "description": "Filter dining halls by location or crowdedness."
     },
-    "2": {
+    {
       "title": "Plan.",
       "description": "Know ahead of time the best places to be."
     }
-  }
+  ]
 }

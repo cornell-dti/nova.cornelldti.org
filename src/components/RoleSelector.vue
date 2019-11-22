@@ -235,6 +235,7 @@ export default {
       type: Boolean,
       default: true
     },
+    /** @type {import('vue/types/options').PropValidator<import('../shared').Role[]>} */
     roles: {
       type: Array,
       default: null
@@ -248,10 +249,7 @@ export default {
   },
   data() {
     return {
-      roleId: {
-        type: String,
-        default: ''
-      },
+      roleId: '',
       mobileDropdownDefault: {
         type: String
       }

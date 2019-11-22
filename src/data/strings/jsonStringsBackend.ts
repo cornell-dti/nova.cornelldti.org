@@ -44,22 +44,23 @@ const JSONImports = {
 const JSONMap = new Map();
 
 /**
- * @param {string} key 
- * @param {*} json 
+ * @param {string} key
+ * @param {*} json
  */
 function searchKey(key, json) {
   let val = json[key];
 
-  let path = '';
+  let path: string | null = '';
 
-  const replacements = [];
+  const replacements = [] as Array<string | number>;
 
   if (typeof val === 'undefined' || val === null) {
     const keys = key.split('.');
 
     let currentChild = json;
 
-    for (let childKey of keys) {
+    for (const _childKey of keys) {
+      let childKey: string | number = _childKey;
       const asInt = Number.parseInt(`${childKey}`, 10);
 
       if (Number.isInteger(asInt)) {
@@ -73,7 +74,11 @@ function searchKey(key, json) {
           currentChild = currentChild['*'];
 
           continue;
-        } else if (Array.isArray(currentChild) && typeof childKey === 'string' && childKey.includes('=')) {
+        } else if (
+          Array.isArray(currentChild) &&
+          typeof childKey === 'string' &&
+          childKey.includes('=')
+        ) {
           const [k, v] = childKey.split('=');
 
           const found = currentChild.find(m => m[k] === v);
@@ -132,7 +137,7 @@ export default class JSONStringsBackend extends StringsBackend {
     return DEFAULT_CONTEXT;
   }
 
-  resolveContext(context) {
+  resolveContext(context, ..._) {
     if (!JSONMap.has(context)) {
       if (typeof JSONImports[context] === 'function') {
         return JSONImports[context]().then(json => {
@@ -157,7 +162,7 @@ export default class JSONStringsBackend extends StringsBackend {
       }
       const AssetsJSON = JSONMap.get('assets');
       if (context === 'assets' && AssetsJSON) {
-        return `/public${searchKey(key, AssetsJSON)}`;
+        return `${searchKey(key, AssetsJSON)}`;
       }
 
       if (context === 'assets') {
@@ -191,7 +196,6 @@ export default class JSONStringsBackend extends StringsBackend {
     return null;
   }
 }
-
 
 export class JSONStringsBackendPreview extends JSONStringsBackend {
   resolveContext(context, json) {

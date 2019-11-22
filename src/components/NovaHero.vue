@@ -1,22 +1,7 @@
 <template>
   <div class="nova-hero">
     <div class="nova-hero-visual-container">
-      <visual
-        :video="aws(video)"
-        :poster="lazy"
-        background="cover"
-        :fallback="aws(image)"
-        class="nova-hero-visual"
-        align="top left"
-        autoplay
-        :loop="true"
-        :muted="true"
-        preload="auto"
-        :fill="true"
-        load-video="visible"
-        :load-poster="true"
-      />
-
+      <lazy-video className="nova-hero-visual" :lazy="lazy" :image="image" :video="video" />
       <div class="nova-hero-overlay" />
     </div>
     <b-container v-if="header || subheader" fluid>
@@ -57,6 +42,7 @@ $height: 65vh;
   width: 100vw;
   position: relative;
   overflow: hidden;
+  object-fit: cover;
 }
 
 .nova-hero {
@@ -66,7 +52,10 @@ $height: 65vh;
 </style>
 
 <script>
+import LazyVideo from './LazyVideo';
+
 export default {
+  components: { LazyVideo },
   props: {
     page: {
       type: String

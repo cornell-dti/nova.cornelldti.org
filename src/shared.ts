@@ -1,7 +1,7 @@
 /* Node Modules */
 import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue';
-import VueVisual from 'vue-visual';
+import ImgixClient from 'imgix-core-js';
 
 /* Data */
 
@@ -17,17 +17,21 @@ import SingleBackend from '@/data/strings/lib';
 
 const AssetStrings = new StringsFrontend('assets', SingleBackend);
 
+const Images = new ImgixClient({
+  domain: 'cornelldti.imgix.net'
+});
+
 Vue.mixin({
   data() {
     return {
       AssetStrings
-    }
+    };
   },
   methods: {
     joinPath(...parts) {
       const first = parts[0].split('://');
       const beginning = first[0];
-      const url = [];
+      const url = [] as string[];
 
       if (first.length > 1) {
         url.push(`${beginning}://`);
@@ -53,6 +57,19 @@ Vue.mixin({
 
       return url.join('/');
     },
+    aws(asset = '', extension = '') {
+      if (!asset) {
+        return '';
+      }
+
+      if (extension) {
+        return Images.buildURL(
+          asset.replace(/^\/public/, '/static').replace(/\.(.*?)$/, `.${extension}`)
+        );
+      }
+
+      return Images.buildURL(asset.replace(/^\/public/, '/static'));
+    },
     getMembers() {
       return Members;
     },
@@ -68,12 +85,44 @@ Vue.mixin({
   }
 });
 
-Vue.use(BootstrapVue);
+export interface Member {
+  netid: string;
+  name: string;
+  firstName: string;
+  lastName: string;
+  isLead?: boolean;
+  roleId: string;
+  otherSubteams?: string[];
+  subteam: string;
+}
 
-Vue.component('visual', VueVisual).options.setDefaults({
-  load: 'visible',
-  loadPoster: true,
-  transition: 'vv-fade'
-});
+export interface Role {
+  name: string;
+  id: string;
+}
+
+export interface Team {
+  name: string;
+  id: string;
+}
+
+export interface Company {
+  name: string;
+  id: string;
+}
+
+declare module 'vue/types/vue' {
+  // 3. Declare augmentation for Vue
+  interface Vue {
+    getCompanies(): Company[];
+    getTeams(): Team[];
+    getRoles(): Role[];
+    getMembers(): Member[];
+    joinPath(...paths: string[]): string;
+    Strings: StringsFrontend;
+  }
+}
+
+Vue.use(BootstrapVue);
 
 export default AssetStrings;

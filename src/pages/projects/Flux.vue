@@ -30,15 +30,11 @@
 }
 </style>
 
-<script>
-import TeamBaseVue from './TeamBase';
+<script lang="ts">
+import TeamBaseVue from './TeamBase.vue';
+import { Component } from '../../shim';
 
-export default {
-  extends: TeamBaseVue,
-  computed: {
-    projectData() {
-      return this.Strings.get('', 'projects.flux');
-    }
-  }
-};
+export default Component({
+  extends: TeamBaseVue
+});
 </script>

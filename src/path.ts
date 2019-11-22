@@ -1,7 +1,5 @@
 export class PathTemplate {
-  constructor() {
-    this.pathData = [];
-  }
+  pathData: { template: (parameters) => string }[] = [];
 
   static ZERO() {
     return 0;
@@ -57,7 +55,7 @@ export class PathTemplate {
   }
 
   commands(parameters) {
-    const commands = [];
+    const commands = [] as string[];
 
     for (const param of this.pathData) {
       commands.push(param.template(parameters));
@@ -68,9 +66,7 @@ export class PathTemplate {
 }
 
 export default class Path {
-  constructor() {
-    this.pathData = [];
-  }
+  pathData: string[] = [];
 
   line(x, y) {
     this.pathData.push(`L ${x} ${y}`);

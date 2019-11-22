@@ -1,7 +1,7 @@
 import StringsFrontend from '@/data/strings/strings';
 import SingleBackend from '@/data/strings/lib';
-import ErrorComponent from '@/components/ErrorComponent';
-import LoadingComponent from '@/components/LoadingComponent';
+import ErrorComponent from '@/components/ErrorComponent.vue';
+import LoadingComponent from '@/components/LoadingComponent.vue';
 
 function createAsyncPage(context, pageName) {
   const StringInstance = new StringsFrontend(context, SingleBackend);

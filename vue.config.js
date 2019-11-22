@@ -29,7 +29,7 @@ module.exports = {
       cmsConfig.entryPoints.clear();
 
       // Add the appropriate CMS entry
-      cmsConfig.entry('cms').add('./cms/index.js').end();
+      cmsConfig.entry('cms').add('./cms/index.ts').end();
 
       // Setup the static -> public copying for the primary site.
       config.plugin('copy').use(CopyPlugin, [[{ from: 'static', to: 'public' }]]);

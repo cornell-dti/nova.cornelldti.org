@@ -424,10 +424,13 @@ collections:
     - label: "Companies"
       file: "data/sets/companies.json"
       name: "companies"
-      widget: "list"
+      widget: "object"
       fields:
-            - {label: "name", name: "name", widget: "string"}
-            - {label: "logo", name: "logo", widget: "string"}
+            - name: "companies"
+              widget: "list"
+              fields:
+                - {label: "name", name: "name", widget: "string"}
+                - {label: "logo", name: "logo", widget: "string"}
     - label: "Roles"
       file: "data/sets/roles.json"
       name: "roles"

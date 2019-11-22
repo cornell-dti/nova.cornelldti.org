@@ -105,9 +105,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
+import { BModal } from 'bootstrap-vue';
+
 import Facebook from '@/assets/social/facebook.svg';
 import Dribbble from '@/assets/social/dribbble.svg';
 import Github from '@/assets/social/github.svg';
@@ -116,7 +118,8 @@ import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
 import Heart from '@/assets/footer/heart.svg';
 import HeartMobile from '@/assets/footer/heart-mobile.svg';
-import MailChimpForm from '@/components/MailChimpForm';
+
+import MailChimpForm from '@/components/MailChimpForm.vue';
 
 @Component({
   components: {
@@ -143,7 +146,8 @@ export default class DtiFooter extends Vue {
   email = '';
 
   modalClose() {
-    this.$refs.emailModalRef.hide();
+    const modal = (this.$refs.emailModalRef as unknown) as BModal;
+    modal.hide();
   }
 
   subscritionClick() {

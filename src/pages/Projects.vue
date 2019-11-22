@@ -24,7 +24,7 @@
           :key="project"
         >
           <router-link :to="{ path: project }" append>
-            <b-img :src="AssetStrings.get(`projects.${project}.card`)" class="project-card" />
+            <b-img :src="Strings.get(`cards.${project}`)" class="project-card" />
           </router-link>
         </b-col>
       </b-row>
@@ -70,7 +70,7 @@ export default {
       const rows = [];
       let row = [];
 
-      const projects = this.Strings.get('projects');
+      const projects = this.Strings.childrenOf('projects');
 
       for (let i = 0; i < projects.length; i += 1) {
         row.push(projects[i]);

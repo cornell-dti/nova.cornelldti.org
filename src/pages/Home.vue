@@ -1,18 +1,10 @@
 <template>
   <div>
     <div class="home">
-      <visual
-        :video="aws(Strings.get('hero.video'))"
-        :poster="Strings.get(`hero.lazy`)"
+      <lazy-video
         class="home-background home-preload-background home-background-video"
-        autoplay
-        :fill="true"
-        background="cover"
-        :loop="true"
-        :muted="true"
-        preload="auto"
-        load-video="visible"
-        :load-poster="true"
+        :lazy="Strings.get(`hero.lazy`)"
+        :video="Strings.get('hero.video')"
       />
       <div class="home-background home-background-overlay" />
       <b-row>
@@ -52,11 +44,13 @@
 </template>
 
 <script>
-import Quicklink from '@/components/Quicklink';
+import Quicklink from '@/components/Quicklink.vue';
+import LazyVideo from '@/components/LazyVideo';
 
 export default {
   components: {
-    Quicklink
+    Quicklink,
+    LazyVideo
   }
 };
 </script>

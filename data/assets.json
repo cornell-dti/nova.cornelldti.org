@@ -1,14 +1,14 @@
 {
   "branding": {
-    "wordmark": "/branding/wordmark.png",
-    "icon": "/branding/brand-icon.svg"
+    "wordmark": "/public/branding/wordmark.png",
+    "icon": "/public/branding/brand-icon.svg"
   },
   "directories": {
-    "members": "/members"
+    "members": "/public/members"
   },
   "projects": {
     "*": {
-      "card": "/projects/$1$/card.png",
+      "card": "/public/projects/$1$/card.png",
       "hero-image": "/public/pages/projects/pages/$1$/header.png",
       "features": [
         "/public/pages/projects/pages/$1$/feature1.jpg",

@@ -24,15 +24,15 @@
   </page-background>
 </template>
 
-<script>
-import HeadshotGrid from '@/components/HeadshotGrid';
+<script lang="ts">
 import EventBus from '@/eventbus';
-import ProjectFeaturesList from '@/components/ProjectFeaturesList';
-import ProjectLearnMore from '@/components/ProjectLearnMore';
-import ProjectHeader from '@/components/ProjectHeader';
-import TeamMembers from '@/components/TeamMembers';
+import ProjectFeaturesList from '@/components/ProjectFeaturesList.vue';
+import ProjectLearnMore from '@/components/ProjectLearnMore.vue';
+import ProjectHeader from '@/components/ProjectHeader.vue';
+import TeamMembers from '@/components/TeamMembers.vue';
+import { Component } from '../../shim';
 
-export default {
+export default Component({
   props: {
     project: {
       type: String,
@@ -40,7 +40,6 @@ export default {
     }
   },
   components: {
-    HeadshotGrid,
     ProjectFeaturesList,
     ProjectLearnMore,
     ProjectHeader,
@@ -55,6 +54,11 @@ export default {
   mounted() {
     EventBus.$emit('set-navbar-light', {});
   },
+  computed: {
+    projectData() {
+      return JSON.parse(JSON.stringify(this.Strings.get('')));
+    }
+  },
   methods: {
     getTeam(team) {
       const teamA = this.getMembers()
@@ -64,22 +68,10 @@ export default {
             (Array.isArray(member.otherSubteams) && member.otherSubteams.includes(team))
         )
         .map(obj => ({ info: obj, id: obj.netid }));
-
       return teamA;
-    },
-    getProject(project) {
-      let projectA = null;
-
-      this.getProjects().forEach(projectData => {
-        if (projectData.id === project) {
-          projectA = projectData;
-        }
-      });
-
-      return projectA;
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

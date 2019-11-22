@@ -6,14 +6,14 @@ import { VueInReact } from 'vuera';
 import CMS from 'netlify-cms'; // -app/dist/esm
 import CMSIdentity from 'netlify-identity-widget';
 
-import Apply from '@/pages/Apply';
-import Sponsor from '@/pages/Sponsor';
-import Home from '@/pages/Home';
-import Courses from '@/pages/Courses';
-import Initiatives from '@/pages/Initiatives';
-import Projects from '@/pages/Projects';
+import Apply from '@/pages/Apply.vue';
+import Sponsor from '@/pages/Sponsor.vue';
+import Home from '@/pages/Home.vue';
+import Courses from '@/pages/Courses.vue';
+import Initiatives from '@/pages/Initiatives.vue';
+import Projects from '@/pages/Projects.vue';
 
-import Profile from './previews/profile.jsx';
+import Profile from './previews/profile';
 import wrap from './preview';
 
 // Page Wrappers
@@ -46,14 +46,25 @@ CMS.registerPreviewStyle('//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.mi
 CMS.registerPreviewStyle('/admin/css/chunk-vendors.css');
 CMS.registerPreviewStyle('/admin/css/cms.css');
 
+// extend window!
+declare global {
+  interface Window {
+    netlifyIdentity: typeof CMSIdentity;
+  }
+}
+
 window.netlifyIdentity = CMSIdentity;
 
 CMSIdentity.on('init', () => {
   if (!CMSIdentity.currentUser) {
     CMSIdentity.open();
-  } else {
-    CMS.init();
   }
 });
 
+CMSIdentity.on('error', err => {
+  // eslint-disable-next-line no-console
+  console.error(err);
+});
+
 CMSIdentity.init();
+CMS.init();

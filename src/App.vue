@@ -7,7 +7,9 @@
   </div>
 </template>
 
-<script>
+<style src="bootstrap-vue/dist/bootstrap-vue.css"></style>
+
+<script script="ts">
 import EventBus from '@/eventbus';
 
 export default {

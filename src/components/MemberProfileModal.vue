@@ -9,6 +9,7 @@
         ref="memberModalRef"
         id="memberModal"
         v-model="isShowing"
+        :static="isStatic"
         :title="profile && profile.info ? profile.info.name : 'not found'"
         header-bg-variant="light"
         header-text-variant="dark"
@@ -48,14 +49,14 @@
               <b-row class="profile-main">
                 <b-col class="my-auto">
                   <div class="profile-name-header">
-                    <div
-                      v-if="typeof profile.info.name === 'undefined'"
-                    >{{ profile.info.firstName }} {{ profile.info.lastName }}</div>
+                    <div v-if="typeof profile.info.name === 'undefined'">
+                      >{{ profile.info.firstName }} {{ profile.info.lastName }}
+                    </div>
                     <div v-else>{{ profile.info.name }}</div>
                   </div>
-                  <div
-                    class="profile-role text-dark"
-                  >{{ profile.info.roleDescription || 'No Profile Available' }}</div>
+                  <div class="profile-role text-dark">
+                    {{ profile.info.roleDescription || 'No Profile Available' }}
+                  </div>
                 </b-col>
               </b-row>
               <b-row v-if="profile.info.graduation" class="profile-facts" id="profile-spacing">
@@ -80,11 +81,9 @@
                 <b-row class="profile-facts">
                   <b-col cols="5" class="profile-label">Website</b-col>
                   <b-col cols="7" class="profile-details">
-                    <a class="personalwebsite" :href="profile.info.website">
-                      {{
+                    <a class="personalwebsite" :href="profile.info.website">{{
                       profile.info.website
-                      }}
-                    </a>
+                    }}</a>
                   </b-col>
                 </b-row>
               </div>
@@ -126,7 +125,9 @@
                       <template
                         v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
                       >
-                        <li class="team-info-item my-auto" :key="team">{{ getTeamName(team)[0] }}</li>
+                        <li class="team-info-item my-auto" :key="team">
+                          {{ getTeamName(team)[0] }}
+                        </li>
                       </template>
                     </ul>
                   </b-col>
@@ -140,61 +141,65 @@
   </transition>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+
+import { BModal } from 'bootstrap-vue';
+import { ObjectProp, BooleanProp } from '../util/common';
+
 import Github from '@/assets/social/github.svg';
 import LinkedIn from '@/assets/social/linkedin.svg';
 import MissingImage from '@/assets/other/missing.svg';
 
-export default {
+@Component({
   components: {
     Github,
     LinkedIn,
     MissingImage
-  },
-  data() {
-    return { isShowing: false };
-  },
-  props: {
-    profile: {
-      type: Object,
-      required: false,
-      default() {
-        return {};
-      }
-    },
-    display: {
-      type: Boolean,
-      required: false,
-      default() {
-        return {};
-      }
-    }
-  },
-  methods: {
-    modalClose() {
-      this.$refs.memberModalRef.hide();
-    },
-    showModal() {
-      this.$refs.memberModalRef.show();
-    },
-    toggleModal() {
-      this.$refs.memberModalRef.toggle();
-    },
-    getTeamName(team) {
-      const teamNames = [];
-
-      this.getTeams().forEach(teamData => {
-        if (typeof team === 'string' && teamData.id === team) {
-          teamNames.push(teamData.name);
-        } else if (typeof team === 'object' && teamData.id === team.id) {
-          teamNames.push(teamData.name);
-        }
-      });
-
-      return teamNames;
-    }
   }
-};
+})
+export default class MemberProfileModal extends Vue {
+  @BooleanProp({ required: false, defaultValue: false })
+  isStatic;
+
+  @ObjectProp()
+  profile;
+
+  @BooleanProp({ required: false, defaultValue: false })
+  display;
+
+  isShowing = false;
+
+  modalClose() {
+    const modal = (this.$refs.memberModalRef as unknown) as BModal;
+    modal.hide();
+  }
+
+  showModal() {
+    const modal = (this.$refs.memberModalRef as unknown) as BModal;
+    modal.show();
+  }
+
+  toggleModal() {
+    const modal = (this.$refs.memberModalRef as unknown) as BModal;
+    modal.toggle();
+  }
+
+  getTeamName(team) {
+    const teamNames = [] as string[];
+
+    this.getTeams().forEach(teamData => {
+      if (typeof team === 'string' && teamData.id === team) {
+        teamNames.push(teamData.name);
+      } else if (typeof team === 'object' && teamData.id === team.id) {
+        teamNames.push(teamData.name);
+      }
+    });
+
+    return teamNames;
+  }
+}
 </script>
 
 <style lang="scss" scoped>

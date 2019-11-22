@@ -18,14 +18,14 @@
             />
           </b-col>
           <b-col class="sponsor-row-content-container" sm="12" md="5" order-md="1" order="2">
-            <h2 class="sponsor-row-content-header">{{Strings.get('pitch.1.header')}}</h2>
-            <p class="sponsor-row-content">{{Strings.get('pitch.1.description')}}</p>
+            <h2 class="sponsor-row-content-header">{{ Strings.get('pitch.1.header') }}</h2>
+            <p class="sponsor-row-content">{{ Strings.get('pitch.1.description') }}</p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
           <b-col sm="12" md="5" class="sponsor-row-content-container" order="2">
-            <h2>{{Strings.get('pitch.2.header')}}</h2>
-            <p class="sponsor-row-content">{{Strings.get('pitch.2.description')}}</p>
+            <h2>{{ Strings.get('pitch.2.header') }}</h2>
+            <p class="sponsor-row-content">{{ Strings.get('pitch.2.description') }}</p>
           </b-col>
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order="1">
             <b-img
@@ -56,6 +56,7 @@
                   :items="items"
                   :fields="fields"
                 >
+                  <!-- eslint-disable vue/no-unused-vars -->
                   <template v-slot:head(benefits)="row">
                     <strong class="table-header">Benefits</strong>
                   </template>
@@ -68,9 +69,11 @@
                   <template v-slot:head(gold)="row">
                     <div class="gold-header">Gold</div>
                   </template>
+
                   <template v-slot:head(platinum)="row">
                     <div class="platinum-header">Platinum</div>
                   </template>
+                  <!-- eslint-enable -->
 
                   <template v-slot:cell(benefits)="row">
                     <b-row>
@@ -118,19 +121,25 @@
     <b-container>
       <page-section>
         <b-row class="text-center justify-content-center sponsor-contact">
-          <h2>{{Strings.get('call-to-action.description')}}</h2>
+          <h2>{{ Strings.get('call-to-action.description') }}</h2>
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
           <b-button
-            :href="(Strings.get('call-to-action.button.link', `sponsor`) || 'mailto:hello@cornelldti.org')"
-          >{{Strings.get('call-to-action.button.text')}}</b-button>
+            :href="
+              Strings.get('call-to-action.button.link', `sponsor`) || 'mailto:hello@cornelldti.org'
+            "
+            >{{ Strings.get('call-to-action.button.text') }}</b-button
+          >
         </b-row>
       </page-section>
       <page-section>
-        <h2 class="sponsor-list-heading">{{Strings.get('current-sponsors.header')}}</h2>
+        <h2 class="sponsor-list-heading">{{ Strings.get('current-sponsors.header') }}</h2>
         <b-row class="sponsor-list justify-content-center">
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="AssetStrings.get('pages.sponsor.sponsors.invision')" />
+            <b-img
+              class="sponsor-icon"
+              :src="AssetStrings.get('pages.sponsor.sponsors.invision')"
+            />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
             <b-img class="sponsor-icon" :src="AssetStrings.get('pages.sponsor.sponsors.google')" />

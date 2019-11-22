@@ -2,6 +2,10 @@ import StringsBackend from './stringsBackend';
 import { JSONStringsBackendPreview } from './jsonStringsBackend';
 
 export default class StringsFrontend {
+  backend: StringsBackend;
+
+  context: string;
+
   constructor(context, backend) {
     this.context = context;
 
@@ -20,21 +24,19 @@ export default class StringsFrontend {
    * Gets a string for a given key in a given context.
    *
    * @param {*} key
-   * @param {*} context
    */
   get(key) {
     return this.backend.getString(key, this.context);
   }
 
-  initialize() {
-    return this.backend.resolveContext(this.context);
+  initialize(...args) {
+    return this.backend.resolveContext(this.context, ...args);
   }
 
   /**
    * Determines if a string exists for a given key and optional context.
    *
    * @param {*} key
-   * @param {*} context
    */
   exists(key) {
     return this.backend.exists(key, this.context);
@@ -44,7 +46,6 @@ export default class StringsFrontend {
    * Retrieves all direct children for a given key in an optional context.
    *
    * @param {*} key
-   * @param {*} context
    */
   childrenOf(key) {
     return this.backend.getChildrenKeysFor(key, this.context);

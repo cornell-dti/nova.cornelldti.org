@@ -20,11 +20,15 @@
             <p class="courses-row-content">{{ Strings.get('content.1.description') }}</p>
             <b-button class="social-button" :href="Strings.get('content.1.buttons.apply.link')">
               <ApplyIcon />
-              <div class="social-button-text">{{ Strings.get('content.1.buttons.apply.title') }}</div>
+              <div class="social-button-text">
+                {{ Strings.get('content.1.buttons.apply.title') }}
+              </div>
             </b-button>
             <b-button class="social-button" :href="Strings.get('content.1.buttons.github.link')">
               <GitHubIcon />
-              <div class="social-button-text">{{ Strings.get('content.1.buttons.github.title') }}</div>
+              <div class="social-button-text">
+                {{ Strings.get('content.1.buttons.github.title') }}
+              </div>
             </b-button>
           </b-col>
         </b-row>
@@ -35,7 +39,9 @@
             <p class="courses-row-content">{{ Strings.get('content.2.description') }}</p>
             <b-button class="social-button" :href="Strings.get('content.2.buttons.apply.link')">
               <ApplyIcon />
-              <div class="social-button-text">{{ Strings.get('content.2.buttons.apply.title') }}</div>
+              <div class="social-button-text">
+                {{ Strings.get('content.2.buttons.apply.title') }}
+              </div>
             </b-button>
           </b-col>
           <b-col sm="12" md="7" class="courses-row-img" order-md="1" order="1">

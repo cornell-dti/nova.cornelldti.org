@@ -1,5 +1,5 @@
 <template>
-  <div v-if="projectData">
+  <div v-if="projectData != null">
     <page-section v-if="getTeam.length > 0">
       <div class="project-header">Team</div>
       <headshot-grid :members="getTeam" />
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import HeadshotGrid from '@/components/HeadshotGrid';
+import HeadshotGrid from '@/components/HeadshotGrid.vue';
 
 export default {
   components: {

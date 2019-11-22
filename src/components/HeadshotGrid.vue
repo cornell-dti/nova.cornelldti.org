@@ -27,8 +27,8 @@
 </style>
 
 <script>
-import HeadshotCard from '@/components/HeadshotCard';
-import MemberProfileModal from '@/components/MemberProfileModal';
+import HeadshotCard from '@/components/HeadshotCard.vue';
+import MemberProfileModal from '@/components/MemberProfileModal.vue';
 
 export default {
   props: {
