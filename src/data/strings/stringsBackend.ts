@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this, no-unused-vars */
 
-export default class StringsBackend {
+export default abstract class StringsBackend {
   /**
    * Retrieves the default context for the backend. This function should be implemented by
    * child classes.
@@ -43,19 +43,11 @@ export default class StringsBackend {
    * @returns the given string for the key in context or null if not found
    *
    */
-  _getString(key: string, context: string): string | null {
-    return '';
-  }
+  abstract _getString(key: string, context: string): string | null;
 
-  _getChildrenKeysFor(key: string, context: string): string[] | null {
-    return [] as string[];
-  }
+  abstract _getChildrenKeysFor(key: string, context: string): string[] | null;
 
-  _exists(key: string, context: string): boolean {
-    return false;
-  }
+  abstract _exists(key: string, context: string): boolean;
 
-  resolveContext(context: string, ..._: any[]): Promise<any> {
-    return Promise.resolve(true);
-  }
+  abstract resolveContext(context: string, ..._: any[]): Promise<any>;
 }
