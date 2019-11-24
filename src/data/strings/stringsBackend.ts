@@ -21,15 +21,15 @@ export default class StringsBackend {
    *
    * @returns the given string for the key in context or null if not found
    */
-  getString(key: string, context: string = this.getDefaultContext()) {
+  getString(key: string, context: string = this.getDefaultContext()): string | null {
     return this._getString(key, context);
   }
 
-  getChildrenKeysFor(key: string, context: string = this.getDefaultContext()) {
+  getChildrenKeysFor(key: string, context: string = this.getDefaultContext()): string[] | null {
     return this._getChildrenKeysFor(key, context);
   }
 
-  exists(key: string, context: string = this.getDefaultContext()) {
+  exists(key: string, context: string = this.getDefaultContext()): boolean {
     return this._exists(key, context);
   }
 
@@ -43,7 +43,7 @@ export default class StringsBackend {
    * @returns the given string for the key in context or null if not found
    *
    */
-  _getString(key: string, context: string) {
+  _getString(key: string, context: string): string | null {
     return '';
   }
 
@@ -51,11 +51,11 @@ export default class StringsBackend {
     return [] as string[];
   }
 
-  _exists(key: string, context: string) {
+  _exists(key: string, context: string): boolean {
     return false;
   }
 
-  resolveContext(context: string, ..._) {
+  resolveContext(context: string, ..._): Promise<any> {
     return Promise.resolve(true);
   }
 }

@@ -55,7 +55,7 @@ export default Component({
     });
   },
   watch: {
-    percentage(val) {
+    percentage(val: number) {
       this.setPercentage(val);
     }
   },

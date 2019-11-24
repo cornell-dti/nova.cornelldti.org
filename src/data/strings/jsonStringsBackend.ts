@@ -153,7 +153,7 @@ export default class JSONStringsBackend extends StringsBackend {
     return Promise.resolve(JSONMap.get(context));
   }
 
-  _getString(key: string, context: string) {
+  _getString(key: string, context: string): string | null {
     const json = JSONMap.get(context);
 
     if (json) {
@@ -175,12 +175,12 @@ export default class JSONStringsBackend extends StringsBackend {
     return null;
   }
 
-  _exists(key: string, context: string) {
+  _exists(key: string, context: string): boolean {
     const str = this._getString(key, context);
     return typeof str !== 'undefined' && str !== null;
   }
 
-  _getChildrenKeysFor(key: string, context: string) {
+  _getChildrenKeysFor(key: string, context: string): string[] | null {
     const json = JSONMap.get(context);
 
     if (json) {
