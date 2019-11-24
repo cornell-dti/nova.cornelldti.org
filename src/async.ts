@@ -3,11 +3,11 @@ import SingleBackend from '@/data/strings/lib';
 import ErrorComponent from '@/components/ErrorComponent.vue';
 import LoadingComponent from '@/components/LoadingComponent.vue';
 
-function createAsyncPage(context, pageName) {
+function createAsyncPage(context: string, pageComponent: () => any) {
   const StringInstance = new StringsFrontend(context, SingleBackend);
   const AsyncHandler = () => ({
     component: StringInstance.initialize()
-      .then(() => pageName())
+      .then(() => pageComponent())
       .then(cmp => ({
         extends: cmp.default,
         data() {
@@ -21,7 +21,7 @@ function createAsyncPage(context, pageName) {
   });
   return Promise.resolve({
     functional: true,
-    render(h, { data, children }) {
+    render(h: (handler: any, data: any, children: any) => any, { data, children }) {
       return h(AsyncHandler, data, children);
     }
   });

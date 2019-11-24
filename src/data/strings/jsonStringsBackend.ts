@@ -47,7 +47,7 @@ const JSONMap = new Map();
  * @param {string} key
  * @param {*} json
  */
-function searchKey(key, json) {
+function searchKey(key: string, json) {
   let val = json[key];
 
   let path: string | null = '';
@@ -133,11 +133,11 @@ function searchKey(key, json) {
 /* eslint-disable class-methods-use-this */
 
 export default class JSONStringsBackend extends StringsBackend {
-  getDefaultContext() {
+  getDefaultContext(): string {
     return DEFAULT_CONTEXT;
   }
 
-  resolveContext(context, ..._) {
+  resolveContext(context: string, ..._) {
     if (!JSONMap.has(context)) {
       if (typeof JSONImports[context] === 'function') {
         return JSONImports[context]().then(json => {
@@ -153,7 +153,7 @@ export default class JSONStringsBackend extends StringsBackend {
     return Promise.resolve(JSONMap.get(context));
   }
 
-  _getString(key, context) {
+  _getString(key: string, context: string) {
     const json = JSONMap.get(context);
 
     if (json) {
@@ -175,12 +175,12 @@ export default class JSONStringsBackend extends StringsBackend {
     return null;
   }
 
-  _exists(key, context) {
+  _exists(key: string, context: string) {
     const str = this._getString(key, context);
     return typeof str !== 'undefined' && str !== null;
   }
 
-  _getChildrenKeysFor(key, context) {
+  _getChildrenKeysFor(key: string, context: string) {
     const json = JSONMap.get(context);
 
     if (json) {

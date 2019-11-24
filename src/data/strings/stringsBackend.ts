@@ -7,7 +7,7 @@ export default class StringsBackend {
    *
    * @returns null
    */
-  getDefaultContext() {
+  getDefaultContext(): string {
     return '';
   }
 
@@ -15,21 +15,21 @@ export default class StringsBackend {
    * Retrieves a given string for any given key or context. This function is meant for
    * public, stable use and should be considered final and never overriden by children.
    *
-   * @param {*} key
-   * @param {*} context the desired context or the result of getDefaultContext() if no context
+   * @param key
+   * @param context the desired context or the result of getDefaultContext() if no context
    * is provided
    *
    * @returns the given string for the key in context or null if not found
    */
-  getString(key, context = this.getDefaultContext()) {
+  getString(key: string, context: string = this.getDefaultContext()) {
     return this._getString(key, context);
   }
 
-  getChildrenKeysFor(key, context = this.getDefaultContext()) {
+  getChildrenKeysFor(key: string, context: string = this.getDefaultContext()) {
     return this._getChildrenKeysFor(key, context);
   }
 
-  exists(key, context = this.getDefaultContext()) {
+  exists(key: string, context: string = this.getDefaultContext()) {
     return this._exists(key, context);
   }
 
@@ -43,19 +43,19 @@ export default class StringsBackend {
    * @returns the given string for the key in context or null if not found
    *
    */
-  _getString(key, context) {
+  _getString(key: string, context: string) {
     return '';
   }
 
-  _getChildrenKeysFor(key, context): string[] | null {
+  _getChildrenKeysFor(key: string, context: string): string[] | null {
     return [] as string[];
   }
 
-  _exists(key, context) {
+  _exists(key: string, context: string) {
     return false;
   }
 
-  resolveContext(context, ..._) {
+  resolveContext(context: string, ..._) {
     return Promise.resolve(true);
   }
 }

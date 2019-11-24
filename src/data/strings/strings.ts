@@ -6,7 +6,7 @@ export default class StringsFrontend {
 
   context: string;
 
-  constructor(context, backend) {
+  constructor(context: string, backend: StringsBackend) {
     this.context = context;
 
     if (typeof backend === 'undefined' || backend === null) {
@@ -23,9 +23,9 @@ export default class StringsFrontend {
   /**
    * Gets a string for a given key in a given context.
    *
-   * @param {*} key
+   * @param key
    */
-  get(key) {
+  get(key: string) {
     return this.backend.getString(key, this.context);
   }
 
