@@ -28,7 +28,7 @@ Vue.mixin({
     };
   },
   methods: {
-    joinPath(...parts) {
+    joinPath(...parts: string[]) {
       const first = parts[0].split('://');
       const beginning = first[0];
       const url = [] as string[];

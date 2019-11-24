@@ -41,7 +41,7 @@ const JSONImports = {
   'projects.flux': FluxJSON
 };
 
-const JSONMap = new Map();
+const JSONMap = new Map<string, any>();
 
 /**
  * @param {string} key
@@ -198,12 +198,12 @@ export default class JSONStringsBackend extends StringsBackend {
 }
 
 export class JSONStringsBackendPreview extends JSONStringsBackend {
-  resolveContext(context, json) {
+  resolveContext(context: string, json) {
     JSONMap.set(context, json);
     return json;
   }
 
-  unresolve(context) {
+  unresolve(context: string) {
     JSONMap.delete(context);
   }
 }

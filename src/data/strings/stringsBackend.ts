@@ -55,7 +55,7 @@ export default class StringsBackend {
     return false;
   }
 
-  resolveContext(context: string, ..._): Promise<any> {
+  resolveContext(context: string, ..._: any[]): Promise<any> {
     return Promise.resolve(true);
   }
 }

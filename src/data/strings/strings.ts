@@ -36,24 +36,24 @@ export default class StringsFrontend {
   /**
    * Determines if a string exists for a given key and optional context.
    *
-   * @param {*} key
+   * @param {string} key
    */
-  exists(key) {
+  exists(key: string) {
     return this.backend.exists(key, this.context);
   }
 
   /**
    * Retrieves all direct children for a given key in an optional context.
    *
-   * @param {*} key
+   * @param {string} key
    */
-  childrenOf(key) {
+  childrenOf(key: string) {
     return this.backend.getChildrenKeysFor(key, this.context);
   }
 }
 
 export class StringsFrontendPreview extends StringsFrontend {
-  constructor(context, backend) {
+  constructor(context: string, backend: StringsBackend) {
     super(`preview-${context}`, backend);
 
     if (!(this.backend instanceof JSONStringsBackendPreview)) {
@@ -61,11 +61,11 @@ export class StringsFrontendPreview extends StringsFrontend {
     }
   }
 
-  initialize(json) {
+  initialize(json): Promise<any> {
     return this.backend.resolveContext(this.context, json);
   }
 
-  get(key) {
+  get(key: string): string | null {
     const value = super.get(key);
     return value;
   }
