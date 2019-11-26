@@ -1,11 +1,18 @@
+import { CreateElement, VNode, RenderContext } from 'vue';
 import MemberProfileModal from '@/components/MemberProfileModal.vue';
 import { entryToStrings } from '../preview';
 
-export default (h, cx) => {
+interface Props {
+  entry: any;
+}
+
+export default (h: CreateElement, cx: RenderContext<Props>): VNode => {
   if (cx.props.entry) {
     const info = entryToStrings(cx.props.entry);
 
     const toggle = () => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
       return cx.parent.$refs.modalRef.toggleModal();
     };
 
@@ -13,6 +20,8 @@ export default (h, cx) => {
       h(
         'button',
         {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+          // @ts-ignore
           innerHTML: 'Show Modal',
           on: {
             click: () => {
