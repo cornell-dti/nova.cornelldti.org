@@ -21,7 +21,7 @@ export default (name, Widget, loadStrings = true) => ({
     // Netlify CMS uses immutable.js so we have to convert the data.
     const info = entryToStrings(cx.props.entry);
 
-    let data;
+    let data: () => { Strings?: StringsFrontendPreview };
 
     if (loadStrings) {
       const Strings = new StringsFrontendPreview(name, new JSONStringsBackendPreview());
