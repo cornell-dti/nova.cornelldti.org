@@ -8,7 +8,7 @@
               <div class="subfooter-text subfooter-text-gray">{{ `Have a great idea?` }}</div>
               <a
                 class="button-wrapper"
-                :href="AssetStrings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org'"
+                :href="AssetStrings.get('footer.link') || 'mailto:hello@cornelldti.org'"
               >
                 <button class="subfooter-button subfooter-button-gray">{{ `Contact Us` }}</button>
               </a>
@@ -154,6 +154,8 @@ export default class DtiFooter extends Vue {
     this.isSubscribing = true;
   }
 }
+
+export { DtiFooter };
 </script>
 
 <style lang="scss" scoped>

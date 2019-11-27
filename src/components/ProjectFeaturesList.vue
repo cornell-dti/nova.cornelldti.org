@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings/lib';
+import StringsFrontend from '@/strings/strings';
+import SingleBackend from '@/strings/lib';
 
 export default {
   props: {

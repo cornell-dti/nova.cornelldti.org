@@ -4,8 +4,8 @@ import {
   AsyncComponentFactory
 } from 'vue/types/options';
 import { CreateElement } from 'vue';
-import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings/lib';
+import StringsFrontend from '@/strings/strings';
+import SingleBackend from '@/strings/lib';
 import ErrorComponent from '@/components/ErrorComponent.vue';
 import LoadingComponent from '@/components/LoadingComponent.vue';
 

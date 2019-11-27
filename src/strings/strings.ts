@@ -1,7 +1,8 @@
-import StringsBackend from './stringsBackend';
-import { JSONStringsBackendPreview } from './jsonStringsBackend';
+import StringsBackend from './backend';
 
-export default class StringsFrontend {
+export type StringsData = boolean | string | number | boolean[] | string[] | number[];
+
+export default class Strings {
   backend: StringsBackend;
 
   context: string;
@@ -10,7 +11,7 @@ export default class StringsFrontend {
     this.context = context;
 
     if (typeof backend === 'undefined' || backend === null) {
-      throw new Error('Undefined or null passed for backend to a StringsFrontend instance.');
+      throw new Error('Undefined or null passed for backend to a Strings instance.');
     }
 
     if (backend instanceof StringsBackend) {
@@ -25,8 +26,8 @@ export default class StringsFrontend {
    *
    * @param key
    */
-  get(key: string) {
-    return this.backend.getString(key, this.context);
+  get<K extends StringsData>(key): K {
+    return this.backend.getString<K>(key, this.context);
   }
 
   initialize(...args) {
@@ -49,24 +50,5 @@ export default class StringsFrontend {
    */
   childrenOf(key: string) {
     return this.backend.getChildrenKeysFor(key, this.context);
-  }
-}
-
-export class StringsFrontendPreview extends StringsFrontend {
-  constructor(context: string, backend: StringsBackend) {
-    super(`preview-${context}`, backend);
-
-    if (!(this.backend instanceof JSONStringsBackendPreview)) {
-      throw new Error('Backend passed is not an instance of JSONStringsBackendPreview');
-    }
-  }
-
-  initialize(json): Promise<any> {
-    return this.backend.resolveContext(this.context, json);
-  }
-
-  get(key: string): string | null {
-    const value = super.get(key);
-    return value;
   }
 }

@@ -1,23 +1,24 @@
-import StringsBackend from './stringsBackend';
+import StringsBackend from '../backend';
 
-const HomeJSON = () => import('#/pages/home.json');
-const $AssetsJSON = () => import('#/assets.json');
-const ApplyJSON = () => import('#/pages/apply.json');
-const InitiativesJSON = () => import('#/pages/initiatives.json');
-const TeamJSON = () => import('#/pages/team.json');
-const ProjectsJSON = () => import('#/pages/projects.json');
-const SponsorJSON = () => import('#/pages/sponsor.json');
-const CoursesJSON = () => import('#/pages/courses.json');
-const NotFoundJSON = () => import('#/pages/notfound.json');
+const HomeJSON = () => import(/* webpackPrefetch: true */ '#/pages/home.json');
+const $AssetsJSON = () => import(/* webpackPrefetch: true */ '#/assets.json');
+const ApplyJSON = () => import(/* webpackPrefetch: true */ '#/pages/apply.json');
+const InitiativesJSON = () => import(/* webpackPrefetch: true */ '#/pages/initiatives.json');
+const TeamJSON = () => import(/* webpackPrefetch: true */ '#/pages/team.json');
+const ProjectsJSON = () => import(/* webpackPrefetch: true */ '#/pages/projects.json');
+const SponsorJSON = () => import(/* webpackPrefetch: true */ '#/pages/sponsor.json');
+const CoursesJSON = () => import(/* webpackPrefetch: true */ '#/pages/courses.json');
+const NotFoundJSON = () => import(/* webpackPrefetch: true */ '#/pages/notfound.json');
 
-const EventsJSON = () => import('#/projects/events.json');
-const FluxJSON = () => import('#/projects/flux.json');
-const OrientationJSON = () => import('#/projects/orientation.json');
-const QueueMeInJSON = () => import('#/projects/queuemein.json');
-const ResearchConnectJSON = () => import('#/projects/researchconnect.json');
-const ReviewsJSON = () => import('#/projects/reviews.json');
-const SamwiseJSON = () => import('#/projects/samwise.json');
-const ShoutJSON = () => import('#/projects/shout.json');
+const EventsJSON = () => import(/* webpackPrefetch: true */ '#/projects/events.json');
+const FluxJSON = () => import(/* webpackPrefetch: true */ '#/projects/flux.json');
+const OrientationJSON = () => import(/* webpackPrefetch: true */ '#/projects/orientation.json');
+const QueueMeInJSON = () => import(/* webpackPrefetch: true */ '#/projects/queuemein.json');
+const ResearchConnectJSON = () =>
+  import(/* webpackPrefetch: true */ '#/projects/researchconnect.json');
+const ReviewsJSON = () => import(/* webpackPrefetch: true */ '#/projects/reviews.json');
+const SamwiseJSON = () => import(/* webpackPrefetch: true */ '#/projects/samwise.json');
+const ShoutJSON = () => import(/* webpackPrefetch: true */ '#/projects/shout.json');
 
 const DEFAULT_CONTEXT = 'default';
 
@@ -141,16 +142,17 @@ export default class JSONStringsBackend extends StringsBackend {
     if (!JSONMap.has(context)) {
       if (typeof JSONImports[context] === 'function') {
         return JSONImports[context]().then(json => {
-          JSONMap.set(context, json);
+          this.map.set(context, json);
           return json;
         });
       }
 
-      console.log(`Failed to resolve context: ${context}`);
-      return {};
+      throw new Error(
+        `Failed to resolve context: ${context} with arguments: ${JSON.stringify(args)}`
+      );
     }
 
-    return Promise.resolve(JSONMap.get(context));
+    return Promise.resolve(this.map.get(context));
   }
 
   _getString(key: string, context: string): string | null {
@@ -160,7 +162,7 @@ export default class JSONStringsBackend extends StringsBackend {
       if (key === '' || key === null) {
         return json;
       }
-      const AssetsJSON = JSONMap.get('assets');
+      const AssetsJSON = this.map.get('assets');
       if (context === 'assets' && AssetsJSON) {
         return `${searchKey(key, AssetsJSON)}`;
       }

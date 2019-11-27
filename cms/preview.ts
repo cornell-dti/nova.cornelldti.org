@@ -1,6 +1,6 @@
 import { Component, FunctionalComponentOptions } from 'vue';
-import { StringsFrontendPreview } from '@/data/strings/strings';
-import { JSONStringsBackendPreview } from '@/data/strings/jsonStringsBackend';
+import StringsFrontendPreview from '@/strings/preview';
+import JSONStringsBackendPreview from '@/strings/backends/preview';
 
 export function entryToStrings(entry) {
   return entry.getIn(['data']).toJS();

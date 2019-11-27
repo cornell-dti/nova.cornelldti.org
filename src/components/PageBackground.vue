@@ -5,6 +5,10 @@
   </div>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style lang="scss" scoped>
 .page-background {
   background-color: #fff;

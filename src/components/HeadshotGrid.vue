@@ -1,8 +1,7 @@
 <template>
   <div class="headshot-grid d-flex flex-row flex-wrap justify-content-start">
-    <!-- v-for="row in rows()" :key="row.index" -->
     <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
-      <div v-if="member.phantom" class="phantom-headshot-card">
+      <div v-if="'phantom' in member" class="phantom-headshot-card">
         <headshot-card :name="member.id" :role="member.id" :image="``" @click.native="null" />
       </div>
       <headshot-card
@@ -10,7 +9,7 @@
         :name="member.info.name"
         :role="member.info.roleDescription"
         @click.native="memberClicked(member)"
-        :image="member.info.image || `${AssetStrings.get('directories.members')}/${member.id}.jpg`"
+        :image="`${AssetStrings.get('directories.members')}/${member.id}.jpg`"
       />
     </div>
 
@@ -26,17 +25,26 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import { BModal } from 'bootstrap-vue';
+
 import HeadshotCard from '@/components/HeadshotCard.vue';
 import MemberProfileModal from '@/components/MemberProfileModal.vue';
 
-export default {
+import { Member } from '@/shared';
+import { Component } from '@/shim';
+
+type MemberInfo = { id: string; info: Member };
+
+export interface PhantomMember {
+  id: string;
+  phantom: true;
+}
+
+export default Component({
   props: {
     members: {
-      type: Array,
-      default() {
-        return [];
-      }
+      default: () => [] as MemberInfo[]
     }
   },
   components: { HeadshotCard, MemberProfileModal },
@@ -49,17 +57,19 @@ export default {
   methods: {
     memberClicked(member) {
       this.currentProfile = member;
-      this.$refs.modalRef.showModal();
+
+      const modal = this.$refs.modalRef as BModal;
+      modal.showModal();
     },
-    pad(members) {
-      const copy = [...members];
+    pad(members: MemberInfo[]) {
+      const copy: Array<MemberInfo | PhantomMember> = [...members];
 
       const max = 16;
 
       for (let i = 0; i < max; i += 1) {
         copy.push({
           // TODO
-          id: 'phantom-' + i, //eslint-disable-line
+          id: `phantom-${i}`,
           phantom: true
         });
       }
@@ -67,5 +77,5 @@ export default {
       return copy;
     }
   }
-};
+});
 </script>
