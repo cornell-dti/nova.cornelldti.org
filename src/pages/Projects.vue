@@ -1,13 +1,15 @@
 <template>
   <page-background>
-    <nova-hero
-      :header="Strings.get('hero.header')"
-      :subheader="Strings.get('hero.subheader')"
-      :video="Strings.get(`hero.video`)"
-      :lazy="Strings.get(`hero.lazy`)"
-      :image="Strings.get(`hero.image`)"
-      page="projects"
-    />
+    <strings strings="hero" #strings="{ header, subheader, video, lazy, image}">
+      <nova-hero
+        :header="header"
+        :subheader="subheader"
+        :video="video"
+        :lazy="lazy"
+        :image="image"
+        page="projects"
+      />
+    </strings>
 
     <page-section class="project-page-main-section">
       <b-row

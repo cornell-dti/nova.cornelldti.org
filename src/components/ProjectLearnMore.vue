@@ -1,87 +1,85 @@
 <template>
-  <page-section
-    v-if="
-      enableAll ||
-        (!Strings.exists(`website`) &&
-          !Strings.exists(`playstore`) &&
-          !Strings.exists(`appstore`) &&
-          Strings.exists(`medium`)) ||
-        ((Strings.exists(`playstore`) || Strings.exists(`appstore`) || Strings.exists(`website`)) &&
-          (Strings.exists(`ios-github`) ||
-            Strings.exists(`android-github`) ||
-            Strings.exists(`github`)))
-    "
+  <strings
+    :source="`projects.${this.projectId}`"
+    :strings="{
+      website: 'website',
+      websiteTitle: 'website-title',
+      playstore: 'playstore',
+      medium: 'medium',
+      appstore: 'appstore',
+      iosGithub: 'ios-github',
+      androidGithub: 'android-github',
+      github: 'github'
+    }"
+    #strings="strings"
   >
-    <div class="project-header">Learn More</div>
-    <b-row>
-      <b-col cols="auto">
-        <b-row>
-          <b-col
-            class="connect-icon-container"
-            cols="auto"
-            v-if="
-              (enableAll ||
-                Strings.exists(`website`) ||
-                Strings.exists(`playstore`) ||
-                Strings.exists(`appstore`)) &&
-                Strings.exists(`ios-github`)
-            "
-          >
-            <b-button class="align-content-center" :href="Strings.get(`ios-github`)">
-              <Github class="connect-icon connect-icon-blank" />
-              <span class="connect-text">iOS</span>
-            </b-button>
-          </b-col>
-          <b-col
-            class="connect-icon-container"
-            cols="auto"
-            v-if="
-              (enableAll ||
-                Strings.exists(`website`) ||
-                Strings.exists(`playstore`) ||
-                Strings.exists(`appstore`)) &&
-                Strings.exists(`android-github`)
-            "
-          >
-            <b-button class="align-content-center" :href="Strings.get(`android-github`)">
-              <Github class="connect-icon connect-icon-blank" />
-              <span class="connect-text">Android</span>
-            </b-button>
-          </b-col>
-          <b-col
-            class="connect-icon-container"
-            cols="auto"
-            v-if="
-              (enableAll ||
-                Strings.exists(`website`) ||
-                Strings.exists(`playstore`) ||
-                Strings.exists(`appstore`)) &&
-                Strings.exists(`github`)
-            "
-          >
-            <b-button class="align-content-center" :href="Strings.get(`github`)">
-              <Github class="connect-icon connect-icon-blank" />
-              <span class="connect-text">GitHub</span>
-            </b-button>
-          </b-col>
-          <b-col class="connect-icon-container" cols="auto" v-if="Strings.exists(`medium`)">
-            <b-button class="align-content-center" :href="Strings.get(`medium`)">
-              <Medium class="connect-icon connect-icon-blank" />
-              <span class="connect-text">Medium</span>
-            </b-button>
-          </b-col>
-        </b-row>
-      </b-col>
-    </b-row>
-  </page-section>
+    <page-section
+      v-if="
+        enableAll ||
+          (!strings.website && !strings.playstore && !strings.appstore && strings.medium) ||
+          ((strings.playstore || strings.appstore || strings.website) &&
+            (strings.iosGithub || strings.androidGithub || strings.github))
+      "
+    >
+      <div class="project-header">Learn More</div>
+      <b-row>
+        <b-col cols="auto">
+          <b-row>
+            <b-col
+              class="connect-icon-container"
+              cols="auto"
+              v-if="
+                (enableAll || strings.website || strings.playstore || strings.appstore) &&
+                  strings.iosGithub
+              "
+            >
+              <b-button class="align-content-center" :href="strings.iosGithub">
+                <Github class="connect-icon connect-icon-blank" />
+                <span class="connect-text">iOS</span>
+              </b-button>
+            </b-col>
+            <b-col
+              class="connect-icon-container"
+              cols="auto"
+              v-if="
+                (enableAll || strings.website || strings.playstore || strings.appstore) &&
+                  strings.androidGithub
+              "
+            >
+              <b-button class="align-content-center" :href="strings.androidGithub">
+                <Github class="connect-icon connect-icon-blank" />
+                <span class="connect-text">Android</span>
+              </b-button>
+            </b-col>
+            <b-col
+              class="connect-icon-container"
+              cols="auto"
+              v-if="
+                (enableAll || strings.website || strings.playstore || strings.appstore) &&
+                  strings.github
+              "
+            >
+              <b-button class="align-content-center" :href="strings.github">
+                <Github class="connect-icon connect-icon-blank" />
+                <span class="connect-text">GitHub</span>
+              </b-button>
+            </b-col>
+            <b-col class="connect-icon-container" cols="auto" v-if="strings.medium">
+              <b-button class="align-content-center" :href="strings.medium">
+                <Medium class="connect-icon connect-icon-blank" />
+                <span class="connect-text">Medium</span>
+              </b-button>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+    </page-section>
+  </strings>
 </template>
 
 <script>
 import Github from '@/assets/social/github.svg';
 import Medium from '@/assets/social/medium.svg';
-
-import StringsFrontend from '@/strings/strings';
-import SingleBackend from '@/strings/lib';
 
 export default {
   components: {
@@ -97,11 +95,6 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  data() {
-    return {
-      Strings: new StringsFrontend(`projects.${this.projectId}`, SingleBackend)
-    };
   }
 };
 </script>

@@ -11,35 +11,26 @@
           :image="hero.image"
           page="apply"
         />
-        <nova-hero
-          v-else
-          :header="closed.header"
-          :subheader="closed.subheader"
-          :video="hero.video"
-          :lazy="hero.lazy"
-          :image="hero.image"
-          page="apply"
-        />
+        <nova-hero v-else :video="hero.video" :lazy="hero.lazy" :image="hero.image" page="apply" />
+        <page-section v-if="!isOpen">
+          <b-container class="email-form">
+            <b-row align-h="center" class="no-gutters">
+              <b-col cols="auto">
+                <h2 class="email-header">{{ closed.header }}</h2>
+                <p>{{ closed.subheader }}</p>
+              </b-col>
+            </b-row>
+            <b-row align-h="center">
+              <b-alert :show="msgShow" :variant="msgVariant" v-html="msgContent"></b-alert>
+            </b-row>
+            <b-row align-h="center">
+              <b-col cols="auto">
+                <b-button @click="onSubscribe" type="submit">Subscribe</b-button>
+              </b-col>
+            </b-row>
+          </b-container>
+        </page-section>
       </Strings>
-
-      <page-section v-if="!isOpen">
-        <b-container class="email-form">
-          <b-row align-h="center" class="no-gutters">
-            <b-col cols="auto">
-              <h2 class="email-header">Applications are currently closed.</h2>
-              <p>Subscribe to our newsletter to stay updated on the application process.</p>
-            </b-col>
-          </b-row>
-          <b-row align-h="center">
-            <b-alert :show="msgShow" :variant="msgVariant" v-html="msgContent"></b-alert>
-          </b-row>
-          <b-row align-h="center">
-            <b-col cols="auto">
-              <b-button @click="onSubscribe" type="submit">Subscribe</b-button>
-            </b-col>
-          </b-row>
-        </b-container>
-      </page-section>
       <b-row v-if="isOpen" class="justify-content-center info-session-interjection">
         <Strings :strings="'info-session'" #strings="{header, subheader, description}">
           <b-col class="info-session-description" sm="12" md="4" md-offset="1">
@@ -56,33 +47,43 @@
                   <div class="info-session h-50">
                     <div class="time">{{ session1.time }}</div>
                     <div class="location location-desktop">
-                      {{ `${session1.location}${session1.link.url ? ' • ' : ''}` }}
-                      <template v-if="session1.link.url">
+                      {{ `${session1.location}${session1.link && session1.link.url ? ' • ' : ''}` }}
+                      <template v-if="session1.link && session1.link.url">
                         <a class="apply-link" :href="session1.link.url">{{ session1.link.text }}</a>
                       </template>
                     </div>
                     <div class="location location-mobile">
                       {{ `${session1.location}` }}
                       <br />
-                      <a v-if="session1.link.url" class="apply-link" :href="session1.link.url">{{
-                        session1.link.text
-                      }}</a>
+                      <a
+                        v-if="session1.link && session1.link.url"
+                        class="apply-link"
+                        :href="session1.link.url"
+                        >{{ session1.link.text }}</a
+                      >
                     </div>
                   </div>
                   <div class="info-session h-50">
                     <div class="time">{{ session2.time }}</div>
                     <div class="location location-desktop">
-                      {{ `${session2.location}${session2.link.url ? ' • ' : ''}` }}
-                      <a v-if="session2.link.url" class="apply-link" :href="session2.link.url">{{
-                        session2.link.text
-                      }}</a>
+                      {{ `${session2.location}${session2.link && session2.link.url ? ' • ' : ''}` }}
+                      <a
+                        v-if="session2.link && session2.link.url"
+                        class="apply-link"
+                        :href="session2.link.url"
+                      >
+                        {{ session2.link.text }}</a
+                      >
                     </div>
                     <div class="location location-mobile">
                       {{ `${session2.location}` }}
                       <br />
-                      <a v-if="session2.link.url" class="apply-link" :href="session2.link.url">{{
-                        session2.link.text
-                      }}</a>
+                      <a
+                        v-if="session2.link && session2.link.url"
+                        class="apply-link"
+                        :href="session2.link.url"
+                        >{{ session2.link.text }}</a
+                      >
                     </div>
                   </div>
                 </template>
@@ -110,57 +111,69 @@
           <template #strings="info">
             <timeline-section :header="info.header" :rightHeader="info.rightHeader">
               <template v-if="Array.isArray(info.sections)">
-                <div v-for="section of info.sections" :key="section">
-                  <div class="apply-header" v-if="section.header">
-                    {{ section.header }}
-                  </div>
-
-                  <div class="apply-list" v-if="Array.isArray(section.content.lines)">
-                    <div class="apply-list-item" v-for="line of section.content.lines" :key="line">
-                      {{ line }}
+                <div v-for="section of info.sections" :key="section.header">
+                  <template v-if="section">
+                    <div class="apply-header" v-if="section.header">
+                      {{ section.header }}
                     </div>
-                  </div>
-                  <div class="apply-description" v-else>
-                    {{ section.content }}
-                  </div>
+
+                    <div
+                      class="apply-list"
+                      v-if="section.content && Array.isArray(section.content.lines)"
+                    >
+                      <div
+                        class="apply-list-item"
+                        v-for="line of section.content.lines"
+                        :key="line"
+                      >
+                        {{ line }}
+                      </div>
+                    </div>
+                    <div class="apply-description" v-else>
+                      {{ section.content }}
+                    </div>
+                  </template>
                 </div>
               </template>
               <b-row v-else>
                 <b-col sm v-for="col of ['left', 'right']" :key="col">
-                  <div class="apply-header">
-                    {{ info.sections[col].header }}
-                  </div>
-
-                  <div class="apply-list" v-if="info.sections[col].content.lines">
-                    <div
-                      class="apply-list-item"
-                      v-for="line of info.sections[col].content.lines"
-                      :key="line"
-                    >
-                      {{ line }}
+                  <template v-if="info.sections && info.sections[col]">
+                    <div class="apply-header">
+                      {{ info.sections[col].header }}
                     </div>
-                  </div>
-                  <div v-else class="apply-description">{{ info.sections[col].content }}</div>
+
+                    <div class="apply-list" v-if="info.sections[col].content.lines">
+                      <div
+                        class="apply-list-item"
+                        v-for="line of info.sections[col].content.lines"
+                        :key="line"
+                      >
+                        {{ line }}
+                      </div>
+                    </div>
+                    <div v-else class="apply-description">{{ info.sections[col].content }}</div>
+                  </template>
                 </b-col>
               </b-row>
               <StringsDomain
-                #key="[{ content, link, closed }, secondary]"
+                v-if="isOpen"
+                #key="[primary, secondary]"
                 :value="[info['call-to-action-button'], info['call-to-action-button-2']]"
               >
-                <b-row class="justify-content-center" v-if="!closed">
+                <b-row class="justify-content-center">
                   <b-col cols="12">
                     <b-row>
-                      <b-col md="auto" sm="12">
+                      <b-col v-if="primary && primary.link" md="auto" sm="12">
                         <b-button
-                          :href="link"
+                          :href="primary.link"
                           size="lg"
                           variant="primary"
                           class="call-to-action-button text-start"
                         >
-                          {{ content }}
+                          {{ primary.content }}
                         </b-button>
                       </b-col>
-                      <b-col v-if="secondary.link" md="auto" sm="12">
+                      <b-col v-if="secondary && secondary.link" md="auto" sm="12">
                         <b-button
                           :href="secondary.link"
                           v-string="secondary.context"
@@ -170,17 +183,6 @@
                         ></b-button>
                       </b-col>
                     </b-row>
-                  </b-col>
-                </b-row>
-                <b-row v-else>
-                  <b-col cols="12">
-                    <b-button
-                      disabled
-                      size="lg"
-                      variant="secondary"
-                      class="call-to-action-button text-center"
-                      >(unknown)</b-button
-                    >
                   </b-col>
                 </b-row>
               </StringsDomain>

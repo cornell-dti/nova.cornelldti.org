@@ -1,65 +1,64 @@
 <template>
   <b-row>
     <b-col cols="auto">
-      <b-row>
-        <b-col cols="auto" v-if="Strings.exists(`website`)">
-          <b-button :href="Strings.get(`website`)">
-            {{ `Go to ${Strings.get(`website-title`) || Strings.get(`website`)}` }}
-          </b-button>
-        </b-col>
+      <strings
+        :source="`projects.${this.projectId}`"
+        :strings="[
+          'website',
+          'website-title',
+          'playstore',
+          'appstore',
+          'ios-github',
+          'android-github',
+          'github'
+        ]"
+        #strings="[website, websiteTitle, playstore, appstore, iosGithub, androidGithub, github]"
+      >
+        <b-row>
+          <b-col cols="auto" v-if="website">
+            <b-button :href="website">
+              {{ `Go to ${websiteTitle || website}` }}
+            </b-button>
+          </b-col>
 
-        <b-col cols="auto" v-if="Strings.exists(`playstore`)">
-          <store-badge store="playstore" :url="Strings.get(`playstore`)" />
-        </b-col>
-        <b-col cols="auto" v-if="Strings.exists(`appstore`)">
-          <store-badge store="appstore" :url="Strings.get(`appstore`)" />
-        </b-col>
-        <b-col
-          class="connect-icon-container"
-          cols="auto"
-          v-if="
-            Strings.exists(`ios-github`) &&
-              !Strings.exists(`appstore`) &&
-              !Strings.exists(`playstore`) &&
-              !Strings.exists(`website`)
-          "
-        >
-          <b-button class="align-content-center" :href="Strings.get(`ios-github`)">
-            <Github class="connect-icon connect-icon-blank" />
-            <span class="connect-text">iOS</span>
-          </b-button>
-        </b-col>
-        <b-col
-          class="connect-icon-container"
-          cols="auto"
-          v-if="
-            Strings.exists(`android-github`) &&
-              !Strings.exists(`appstore`) &&
-              !Strings.exists(`playstore`) &&
-              !Strings.exists(`website`)
-          "
-        >
-          <b-button class="align-content-center" :href="Strings.get(`android-github`)">
-            <Github class="connect-icon connect-icon-blank" />
-            <span class="connect-text">Android</span>
-          </b-button>
-        </b-col>
-        <b-col
-          class="connect-icon-container"
-          cols="auto"
-          v-if="
-            Strings.exists(`github`) &&
-              !Strings.exists(`appstore`) &&
-              !Strings.exists(`playstore`) &&
-              !Strings.exists(`website`)
-          "
-        >
-          <b-button class="align-content-center" :href="Strings.get(`github`)">
-            <Github class="connect-icon connect-icon-blank" />
-            <span class="connect-text">GitHub</span>
-          </b-button>
-        </b-col>
-      </b-row>
+          <b-col cols="auto" v-if="playstore">
+            <store-badge store="playstore" :url="playstore" />
+          </b-col>
+          <b-col cols="auto" v-if="appstore">
+            <store-badge store="appstore" :url="appstore" />
+          </b-col>
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="iosGithub && !appstore && !playstore && !website"
+          >
+            <b-button class="align-content-center" :href="iosGithub">
+              <Github class="connect-icon connect-icon-blank" />
+              <span class="connect-text">iOS</span>
+            </b-button>
+          </b-col>
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="androidGithub && !appstore && !playstore && !website"
+          >
+            <b-button class="align-content-center" :href="androidGithub">
+              <Github class="connect-icon connect-icon-blank" />
+              <span class="connect-text">Android</span>
+            </b-button>
+          </b-col>
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="github && !appstore && !playstore && !website"
+          >
+            <b-button class="align-content-center" :href="github">
+              <Github class="connect-icon connect-icon-blank" />
+              <span class="connect-text">GitHub</span>
+            </b-button>
+          </b-col>
+        </b-row>
+      </strings>
     </b-col>
   </b-row>
 </template>
@@ -88,9 +87,6 @@ import StoreBadge from '@/components/StoreBadge.vue';
 
 import Github from '@/assets/social/github.svg';
 
-import StringsFrontend from '@/strings/strings';
-import SingleBackend from '@/strings/lib';
-
 export default {
   components: {
     Github,
@@ -101,11 +97,6 @@ export default {
       type: String,
       required: true
     }
-  },
-  data() {
-    return {
-      Strings: new StringsFrontend(`projects.${this.projectId}`, SingleBackend)
-    };
   }
 };
 </script>

@@ -45,7 +45,7 @@ const AsyncApp = Vue.component('AsyncApp', () => ({
   timeout: 5000
 }));
 
-// eslint-disable-next-line
+// eslint-disable-next-line no-new
 new Vue({
   el: '#app',
   router,

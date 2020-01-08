@@ -1,15 +1,10 @@
 /* eslint-disable no-param-reassign */
 /* Node Modules */
 import BootstrapVue from 'bootstrap-vue';
-import Vue, { VNode } from 'vue';
+import Vue from 'vue';
 import ImgixClient from 'imgix-core-js';
 
-/* Data */
-
-/* Core Files */
-
-import { DirectiveBinding } from 'vue/types/options';
-import StringsFrontend from '@/strings/strings';
+import StringsFrontend, { StringsData } from '@/strings/strings';
 import SingleBackend from '@/strings/lib';
 
 const AssetStrings = new StringsFrontend('assets', SingleBackend);
@@ -170,130 +165,31 @@ Vue.mixin({
   }
 });
 
-function getValue(binding: DirectiveBinding, el: HTMLElement) {
-  let { value } = binding;
-
-  if (value.startsWith('.')) {
-    let parent: HTMLElement | null = el;
-
-    while (parent != null) {
-      if ('string-domain' in el.dataset) {
-        value = `${el.dataset.stringDomain}${value === '.' ? '' : value}`;
-        break;
-      }
-
-      parent = parent.parentElement;
-    }
-  }
-  return value;
-}
-
-Vue.directive('strings-if', (el, binding, vnode) => {
-  const value = getValue(binding, el);
-  const $this = vnode.context;
-  let sibling: Element | null = null;
-  if (el != null) {
-    sibling = el.nextElementSibling;
-
-    if (sibling == null || (sibling as HTMLElement).dataset.stringsElse !== 'yes') {
-      sibling = null;
-    }
-  }
-
-  if ($this) {
-    const { Strings: $ } = $this;
-    let test = !$.exists(value);
-    const val = $.get(value);
-
-    if (typeof val === 'boolean') {
-      test = test && val;
-    }
-
-    if (test) {
-      el.remove();
-    } else if (sibling) {
-      sibling.remove();
-    }
-  } else {
-    el.remove();
-  }
-});
-
-Vue.directive('strings-show', (el, binding, vnode) => {
-  const value = getValue(binding, el);
-  const $this = vnode.context;
-  let sibling: Element | null = null;
-  if (el != null) {
-    sibling = el.nextElementSibling;
-
-    if (sibling == null || (sibling as HTMLElement).dataset.stringsDefault !== 'yes') {
-      sibling = null;
-    }
-  }
-
-  if ($this) {
-    const { Strings: $ } = $this;
-    const test = !$.exists(value);
-    el.style.display = test ? 'none' : 'block';
-    if (sibling) {
-      (sibling as HTMLElement).style.display = !test ? 'none' : 'block';
-    }
-  } else {
-    if (sibling) {
-      (sibling as HTMLElement).style.display = 'block';
-    }
-
-    el.style.display = 'none';
-  }
-});
-
-Vue.directive('string', (el, binding, vnode) => {
-  const $this = vnode.context;
-  if ($this) {
-    const { Strings: $ } = $this;
-    const value = getValue(binding, el);
-    const text = $.get(value);
-    // eslint-disable-next-line no-param-reassign
-    if (binding.arg === 'href') {
-      (el as HTMLAnchorElement).href = `${text}`;
-    } else {
-      el.innerText = `${text}`;
-    }
-  }
-});
-
-Vue.directive('strings-domain', (el, binding, vnode) => {
-  // eslint-disable-next-line no-param-reassign
-  el.dataset.stringDomain = binding.value;
-});
-
-Vue.directive('strings-show-default', (el, binding, vnode) => {
-  el.dataset.stringsDefault = 'yes';
-});
-
-Vue.directive('strings-else', (el, binding, vnode) => {
-  el.dataset.stringsElse = 'yes';
-});
-
 Vue.component('Strings', {
   name: 'Strings',
   functional: true,
   props: {
     strings: {
       default: () => ({})
+    },
+    source: {
+      default: ''
     }
   },
   render(h, cx) {
     const prop: string | { [key: string]: string } | string[] = cx.props.strings;
-    let resolvedStrings = {};
+    let resolvedStrings: { [key: string]: StringsData } | StringsData | StringsData[] | null = null;
+    const { source } = cx.props;
+    const Strings = source ? new StringsFrontend(source, SingleBackend) : cx.parent.Strings;
+
     if (typeof prop === 'string') {
-      resolvedStrings = cx.parent.Strings.get(prop);
+      resolvedStrings = Strings.get(prop);
     } else if (Array.isArray(prop)) {
-      resolvedStrings = prop.map(p => cx.parent.Strings.get(p));
+      resolvedStrings = prop.map(p => Strings.get(p));
     } else {
       resolvedStrings = Object.fromEntries(
         Object.entries({ ...prop }).map(([k, v]) => {
-          return [k, cx.parent.Strings.get(v)];
+          return [k, Strings.get(v)];
         })
       );
     }
@@ -301,7 +197,7 @@ Vue.component('Strings', {
     const { strings: slot } = cx.scopedSlots;
 
     if (slot) {
-      const node = slot({ ...resolvedStrings });
+      const node = slot(resolvedStrings);
 
       if (node) {
         return node;
@@ -311,8 +207,6 @@ Vue.component('Strings', {
     return h();
   }
 });
-
-const v = Vue?.extend({});
 
 Vue.component('StringsDomain', {
   name: 'StringsDomain',

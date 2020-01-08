@@ -1,13 +1,15 @@
 <template>
   <page-background>
-    <nova-hero
-      header="Inspiring Change"
-      subheader="What sets us apart from other project teams is our desire to share what we learn with other students and members of the greater Ithaca community."
-      :video="Strings.get(`hero.video`)"
-      :lazy="Strings.get(`hero.lazy`)"
-      :image="Strings.get(`hero.image`)"
-      page="initiatives"
-    />
+    <strings strings="hero" #strings="{ video, lazy, image}">
+      <nova-hero
+        header="Inspiring Change"
+        subheader="What sets us apart from other project teams is our desire to share what we learn with other students and members of the greater Ithaca community."
+        :video="video"
+        :lazy="lazy"
+        :image="image"
+        page="initiatives"
+      />
+    </strings>
     <page-section class="initiatives-main-section">
       <b-container>
         <b-row align-h="center" align-v="center" class="initiative-row">

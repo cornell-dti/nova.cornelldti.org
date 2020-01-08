@@ -1,111 +1,120 @@
 <template>
   <page-background>
-    <nova-hero
-      :header="Strings.get('hero.header')"
-      :subheader="Strings.get('hero.subheader')"
-      :video="Strings.get(`hero.video`)"
-      :lazy="Strings.get(`hero.lazy`)"
-      :image="Strings.get(`hero.image`)"
-      page="team"
-    />
+    <strings
+      :strings="['hero', 'diversity', 'team']"
+      #strings="[{ header, subheader, video, lazy, image}, diversity, team]"
+    >
+      <nova-hero
+        :header="header"
+        :subheader="subheader"
+        :video="video"
+        :lazy="lazy"
+        :image="image"
+        page="team"
+      />
 
-    <div class="diversity diversity-background">
-      <!-- TODO bind formatting to actual elements-->
-      <b-row class="no-gutters diversity diversity-content">
-        <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
-          <b-row>
-            <b-col sm="12" md="9">
-              <div class="team-header diversity-header my-auto">
-                {{ Strings.get('diversity.header', 'team') }}
-              </div>
-              <div class="diversity-description my-auto lg-y-padding">
-                {{ Strings.get('diversity.description', 'team') }}
-              </div>
+      <strings-domain #key="{ header, description, stats, gender }" :value="diversity">
+        <div class="diversity diversity-background">
+          <!-- TODO bind formatting to actual elements-->
+          <b-row class="no-gutters diversity diversity-content">
+            <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
+              <b-row>
+                <b-col sm="12" md="9">
+                  <div class="team-header diversity-header my-auto">
+                    {{ header }}
+                  </div>
+                  <div class="diversity-description my-auto lg-y-padding">
+                    {{ description }}
+                  </div>
 
-              <h3 class="graph-header lg-y-padding">
-                {{ Strings.get('diversity.gender.header', 'team') }}
-              </h3>
+                  <h3 class="graph-header lg-y-padding">
+                    {{ gender.header }}
+                  </h3>
 
-              <b-row class="lg-y-padding" align-h="center">
-                <b-col cols="auto">
-                  <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
-                    <div class="text-center graph-data h-100">
-                      <b-row align-v="center" class="h-100">
-                        <b-col cols="6" class="graph-datum">
-                          <h3 v-html="`${Math.round(100 * malePercentage(divRoleId))}%`" />
-                          <p class="graph-datum-description">Male</p>
-                        </b-col>
-                        <b-col cols="6" class="graph-datum red">
-                          <h3 v-html="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
-                          <p class="graph-datum-description">Female</p>
-                        </b-col>
-                      </b-row>
-                    </div>
-                  </circle-progress-indicator>
+                  <b-row class="lg-y-padding" align-h="center">
+                    <b-col cols="auto">
+                      <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
+                        <div class="text-center graph-data h-100">
+                          <b-row align-v="center" class="h-100">
+                            <b-col cols="6" class="graph-datum">
+                              <h3 v-text="`${Math.round(100 * malePercentage(divRoleId))}%`" />
+                              <p class="graph-datum-description">Male</p>
+                            </b-col>
+                            <b-col cols="6" class="graph-datum red">
+                              <h3 v-text="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
+                              <p class="graph-datum-description">Female</p>
+                            </b-col>
+                          </b-row>
+                        </div>
+                      </circle-progress-indicator>
+                    </b-col>
+                  </b-row>
+                  <b-row class="my-auto" align-h="center">
+                    <b-col>
+                      <role-selector
+                        class="diversity-role-selector"
+                        :centered="true"
+                        v-model="divRoleId"
+                        :dark="true"
+                        density="compact"
+                      />
+                    </b-col>
+                  </b-row>
+                </b-col>
+                <b-col sm="0" md="3"></b-col>
+              </b-row>
+            </b-col>
+            <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
+              <b-row>
+                <b-col cols="12" class="diversity-description diversity-inner-text">
+                  <div class="diversity-stat-header">
+                    {{ stats.underclassmen.stat }}
+                  </div>
+                  <div class="diversity-description diversity-stat-description">
+                    {{ stats.underclassmen.description }}
+                  </div>
+                </b-col>
+                <b-col cols="12" class="diversity-description diversity-inner-text">
+                  <div class="diversity-stat-header">
+                    {{ stats.majors.stat }}
+                  </div>
+                  <div class="diversity-description diversity-stat-description">
+                    {{ stats.majors.description }}
+                  </div>
+                </b-col>
+                <b-col cols="12" class="diversity-description diversity-inner-text">
+                  <div class="diversity-stat-header">
+                    {{ stats.colleges.stat }}
+                  </div>
+                  <div class="diversity-description diversity-stat-description">
+                    {{ stats.colleges.description }}
+                  </div>
                 </b-col>
               </b-row>
-              <b-row class="my-auto" align-h="center">
-                <b-col>
-                  <role-selector
-                    class="diversity-role-selector"
-                    :centered="true"
-                    v-model="divRoleId"
-                    :dark="true"
-                    density="compact"
-                  />
-                </b-col>
-              </b-row>
-            </b-col>
-            <b-col sm="0" md="3"></b-col>
-          </b-row>
-        </b-col>
-        <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
-          <b-row>
-            <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">
-                {{ Strings.get('diversity.stats.underclassmen.stat', 'team') }}
-              </div>
-              <div class="diversity-description diversity-stat-description">
-                {{ Strings.get('diversity.stats.underclassmen.description', 'team') }}
-              </div>
-            </b-col>
-            <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">
-                {{ Strings.get('diversity.stats.majors.stat', 'team') }}
-              </div>
-              <div class="diversity-description diversity-stat-description">
-                {{ Strings.get('diversity.stats.majors.description', 'team') }}
-              </div>
-            </b-col>
-            <b-col cols="12" class="diversity-description diversity-inner-text">
-              <div class="diversity-stat-header">
-                {{ Strings.get('diversity.stats.colleges.stat', 'team') }}
-              </div>
-              <div class="diversity-description diversity-stat-description">
-                {{ Strings.get('diversity.stats.colleges.description', 'team') }}
-              </div>
             </b-col>
           </b-row>
-        </b-col>
-      </b-row>
-    </div>
+        </div>
+      </strings-domain>
 
-    <b-container fluid>
-      <page-section>
-        <div class="team-header diversity-header">{{ Strings.get('team.header') }}</div>
+      <b-container fluid>
+        <page-section>
+          <div class="team-header diversity-header">{{ team.header }}</div>
 
-        <!-- TODO actual padding -->
-        <br />
+          <!-- TODO actual padding -->
+          <br />
 
-        <b-row align-h="center">
-          <b-col cols="12">
-            <role-selector density="normal" class="team-role-selector" v-model="roleId" />
+          <b-row align-h="center">
+            <b-col cols="12">
+              <role-selector density="normal" class="team-role-selector" v-model="roleId" />
 
-            <headshot-grid :members="[...filterMembers(roleId, true), ...filterMembers(roleId)]" />
-          </b-col>
-        </b-row>
-      </page-section>
-    </b-container>
+              <headshot-grid
+                :members="[...filterMembers(roleId, true), ...filterMembers(roleId)]"
+              />
+            </b-col>
+          </b-row>
+        </page-section>
+      </b-container>
+    </strings>
 
     <dti-footer page="team" />
   </page-background>

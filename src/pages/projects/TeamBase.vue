@@ -1,21 +1,31 @@
 <template>
   <page-background>
-    <project-header projectId="shout" />
+    <slot name="header">
+      <project-header :projectId="project" />
+    </slot>
     <b-container fluid>
       <b-row align-h="center">
         <b-col md="10" sm="12">
-          <b-container fluid>
-            <text-hero
-              :header="Strings.get('hero.header')"
-              :subheader="Strings.get('hero.subheader')"
-            />
-          </b-container>
+          <slot name="text-header">
+            <b-container fluid>
+              <text-hero
+                :header="Strings.get('hero.header')"
+                :subheader="Strings.get('hero.subheader')"
+              />
+            </b-container>
+          </slot>
 
-          <project-features-list projectId="shout" />
+          <slot name="features">
+            <project-features-list :projectId="project" />
+          </slot>
 
-          <team-members :projectData="projectData"></team-members>
+          <slot name="team-members">
+            <team-members :projectData="projectData"></team-members>
+          </slot>
 
-          <project-learn-more projectId="shout" />
+          <slot name="learn-more">
+            <project-learn-more :projectId="project" />
+          </slot>
         </b-col>
       </b-row>
     </b-container>
@@ -37,6 +47,9 @@ export default Component({
     project: {
       type: String,
       required: false
+    },
+    Strings: {
+      required: true
     }
   },
   components: {

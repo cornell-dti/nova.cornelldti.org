@@ -1,6 +1,6 @@
 <template>
-  <page-background>
-    <project-header :customGoTo="true" projectId="events">
+  <team-base :Strings="Strings" project="events">
+    <project-header #header :customGoTo="true" projectId="events">
       <b-row align-v="center">
         <b-col md="8" sm="12">
           <div class="events-interested-prompt">Sign up for early access</div>
@@ -12,35 +12,15 @@
         </b-col>
       </b-row>
     </project-header>
-    <b-container fluid>
-      <b-row align-h="center">
-        <b-col md="10" sm="12">
-          <b-container fluid>
-            <text-hero
-              :header="Strings.get('hero.header')"
-              :subheader="Strings.get('hero.subheader')"
-            />
-          </b-container>
-
-          <project-features-list projectId="events" />
-
-          <team-members :projectData="projectData"></team-members>
-
-          <project-learn-more :enableAll="true" projectId="events" />
-        </b-col>
-      </b-row>
-    </b-container>
-
-    <dti-footer page="project" />
-  </page-background>
+  </team-base>
 </template>
 
 <script lang="ts">
-import TeamBaseVue from './TeamBase.vue';
+import TeamBase from './TeamBase.vue';
 import { Component } from '../../shim';
 
 export default Component({
-  extends: TeamBaseVue
+  components: { TeamBase }
 });
 </script>
 

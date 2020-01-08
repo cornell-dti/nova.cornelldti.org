@@ -1,5 +1,6 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueTemplateTranspiler = require('vue-template-esnext-compiler');
 
 const path = require('path');
 
@@ -36,6 +37,12 @@ module.exports = {
   },
   chainWebpack: (config) => {
     config.resolve.alias.set('#', '@/../data');
+
+    const vueRule = config.module.rule('vue');
+
+    vueRule.use('vue-loader').options({
+      transpile: VueTemplateTranspiler
+    });
 
     const svgRule = config.module.rule('svg');
 

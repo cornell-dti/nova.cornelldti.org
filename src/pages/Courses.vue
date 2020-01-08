@@ -1,56 +1,68 @@
 <template>
   <page-background>
-    <nova-hero
-      :header="Strings.get('hero.header')"
-      :subheader="Strings.get('hero.subheader')"
-      :video="Strings.get(`hero.video`)"
-      :lazy="Strings.get(`hero.lazy`)"
-      :image="Strings.get(`hero.image`)"
-      page="courses"
-    />
-    <b-container>
-      <page-section>
-        <b-row align-h="center" align-v="center" class="courses-row">
-          <b-col sm="12" md="7" class="courses-row-img" order-md="2" order-sm="1">
-            <b-img class="courses-row-image" :src="AssetStrings.get('pages.courses.trends')" />
-          </b-col>
-          <b-col class="courses-row-content-container" sm="12" md="5" order-md="1" order="2">
-            <h2 class="courses-row-content-header">{{ Strings.get('content.1.header') }}</h2>
-            <div class="courses-row-content-subheader">{{ Strings.get('content.1.subtitle') }}</div>
-            <p class="courses-row-content">{{ Strings.get('content.1.description') }}</p>
-            <b-button class="social-button" :href="Strings.get('content.1.buttons.apply.link')">
-              <ApplyIcon />
-              <div class="social-button-text">
-                {{ Strings.get('content.1.buttons.apply.title') }}
-              </div>
-            </b-button>
-            <b-button class="social-button" :href="Strings.get('content.1.buttons.github.link')">
-              <GitHubIcon />
-              <div class="social-button-text">
-                {{ Strings.get('content.1.buttons.github.title') }}
-              </div>
-            </b-button>
-          </b-col>
-        </b-row>
-        <b-row align-h="center" align-v="center" class="courses-row">
-          <b-col sm="12" md="5" class="courses-row-content-container" order="2">
-            <h2 class="courses-row-content-header">{{ Strings.get('content.2.header') }}</h2>
-            <div class="courses-row-content-subheader">{{ Strings.get('content.2.subtitle') }}</div>
-            <p class="courses-row-content">{{ Strings.get('content.2.description') }}</p>
-            <b-button class="social-button" :href="Strings.get('content.2.buttons.apply.link')">
-              <ApplyIcon />
-              <div class="social-button-text">
-                {{ Strings.get('content.2.buttons.apply.title') }}
-              </div>
-            </b-button>
-          </b-col>
-          <b-col sm="12" md="7" class="courses-row-img" order-md="1" order="1">
-            <b-img class="courses-row-image" :src="AssetStrings.get('pages.courses.blueprint')" />
-          </b-col>
-        </b-row>
-      </page-section>
-    </b-container>
+    <strings
+      :strings="['hero', 'content']"
+      #strings="[{ header, subheader, video, lazy, image}, contents]"
+    >
+      <nova-hero
+        :header="header"
+        :subheader="subheader"
+        :video="video"
+        :lazy="lazy"
+        :image="image"
+        page="courses"
+      />
 
+      <b-container>
+        <page-section>
+          <template
+            v-for="{ content, order } of contents.map(function(c, i) {
+              return {
+                content: c,
+                order: 2 - (i % 2)
+              };
+            })"
+          >
+            <b-row :key="content.id" align-h="center" align-v="center" class="courses-row">
+              <b-col cols="12" lg="7" class="courses-row-img" :order-lg="order" order="1">
+                <b-img class="courses-row-image" :src="content.image" />
+              </b-col>
+              <b-col
+                class="courses-row-content-container"
+                cols="12"
+                lg="5"
+                :order-lg="(order % 2) + 1"
+                order="2"
+              >
+                <h2 class="courses-row-content-header">{{ content.header }}</h2>
+                <div class="courses-row-content-subheader">
+                  {{ content.subtitle }}
+                </div>
+                <p class="courses-row-content">{{ content.description }}</p>
+                <strings-domain
+                  v-if="content.buttons"
+                  #key="{apply, github}"
+                  :value="content.buttons"
+                >
+                  <b-button v-if="apply" class="social-button" :href="apply.link">
+                    <ApplyIcon />
+                    <div class="social-button-text">
+                      {{ apply.title || '' }}
+                    </div>
+                  </b-button>
+                  <b-button v-if="github" class="social-button" :href="github.link">
+                    <GitHubIcon />
+                    <div class="social-button-text">
+                      {{ github.title || '' }}
+                    </div>
+                  </b-button>
+                </strings-domain>
+              </b-col>
+            </b-row>
+          </template>
+        </page-section>
+      </b-container>
+    </strings>
     <dti-footer page="courses" />
   </page-background>
 </template>

@@ -1,13 +1,15 @@
 <template>
   <page-background>
-    <nova-hero
-      :header="Strings.get('hero.header')"
-      :subheader="Strings.get('hero.subheader')"
-      :video="Strings.get(`hero.video`)"
-      :lazy="Strings.get(`hero.lazy`)"
-      :image="Strings.get(`hero.image`)"
-      page="sponsor"
-    />
+    <strings strings="hero" #strings="{ header, subheader, video, lazy, image}">
+      <nova-hero
+        :header="header"
+        :subheader="subheader"
+        :video="video"
+        :lazy="lazy"
+        :image="image"
+        page="sponsor"
+      />
+    </strings>
     <b-container>
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
@@ -168,15 +170,11 @@ export default {
     items() {
       const data = this.Strings.get('tiers.sponsor');
 
-      return data.map(d =>
-        Object.assign(
-          {
-            benefits: d.benefit,
-            subheader: d.subheader
-          },
-          d.tiers
-        )
-      );
+      return data.map(d => ({
+        benefits: d.benefit,
+        subheader: d.subheader,
+        ...d.tiers
+      }));
     }
   },
   data() {
