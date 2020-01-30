@@ -21,14 +21,14 @@
     "*": {
       "hero": {
         "lazy": "/pages/$1$/hero/hero-lazy.jpg",
-        "video": "/pages/$1$/hero/hero.m4v",
+        "video": "/pages/$1$/hero/hero.mp4",
         "image": "/pages/$1$/hero/hero.png"
       }
     },
     "sponsor": {
       "hero": {
         "lazy": "/pages/sponsor/hero/hero-lazy.jpg",
-        "video": "/pages/sponsor/hero/hero.m4v",
+        "video": "/pages/sponsor/hero/hero.mp4",
         "image": "/pages/sponsor/hero/hero.png"
       },
       "sponsors": {
@@ -45,7 +45,7 @@
     "initiatives": {
       "hero": {
         "lazy": "/pages/initiatives/hero/hero-lazy.jpg",
-        "video": "/pages/initiatives/hero/hero.m4v",
+        "video": "/pages/initiatives/hero/hero.mp4",
         "image": "/pages/intiatives/hero/hero.png"
       },
       "promo": {
@@ -55,7 +55,7 @@
     "courses": {
       "hero": {
         "lazy": "/pages/courses/hero/hero-lazy.jpg",
-        "video": "/pages/courses/hero/hero.m4v",
+        "video": "/pages/courses/hero/hero.mp4",
         "image": "/pages/courses/hero/hero.png"
       },
       "trends": "/pages/courses/promo/trends.jpg",
@@ -64,7 +64,7 @@
     "home": {
       "hero": {
         "lazy": "/pages/home/hero/hero-lazy.jpg",
-        "video": "/pages/home/hero/hero.m4v",
+        "video": "/pages/home/hero/hero.mp4",
         "image": "/pages/home/hero/hero.png"
       },
       "quicklinks": {
