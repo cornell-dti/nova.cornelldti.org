@@ -154,14 +154,3 @@ export default class JSStringsBackend extends StringsBackend {
     return null;
   }
 }
-
-export class JSONStringsBackendPreview extends JSONStringsBackend {
-  resolveContext(context: string, json) {
-    JSONMap.set(context, json);
-    return json;
-  }
-
-  unresolve(context: string) {
-    JSONMap.delete(context);
-  }
-}

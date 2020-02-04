@@ -22,7 +22,7 @@ export default abstract class StringsBackend {
    * @returns the given string for the key in context or null if not found
    */
   getString<K>(key: string, context = this.getDefaultContext()): K {
-    return this._getString(key, context);
+    return (this._getString(key, context) as unknown) as K;
   }
 
   getChildrenKeysFor(key: string, context = this.getDefaultContext()) {
@@ -55,5 +55,5 @@ export default abstract class StringsBackend {
 
   abstract _exists(key: string, context: string): boolean;
 
-  abstract resolveContext(context: string, ..._: any[]): Promise<any>;
+  abstract resolveContext(context: string, ..._: any[]): any;
 }

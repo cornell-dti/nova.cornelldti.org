@@ -9,6 +9,7 @@ import PageSublist from '@/components/PageSublist.vue';
 import TextPageHero from '@/components/TextPageHero.vue';
 import TextHero from '@/components/TextHero.vue';
 import PageSection from '@/components/PageSection.vue';
+import DTIProject from '@/templates/DTIProject.vue';
 
 export default function(Vue: VueConstructor) {
   Vue.component('PageSublist', PageSublist);
@@ -19,6 +20,7 @@ export default function(Vue: VueConstructor) {
   Vue.component('NovaHero', NovaHero);
   Vue.component('TextPageHero', TextPageHero);
   Vue.component('TextHero', TextHero);
+  Vue.component('DtiProject', DTIProject);
 
   shared(Vue);
 }

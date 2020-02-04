@@ -19,9 +19,12 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import EventsJSON from '@/../data/projects/events.json';
+import { fromJSON } from '@/strings/json';
 
 @Component({})
-export default class Events extends Vue {}
+export default class Events extends Vue {
+  Strings = fromJSON('projects.events', EventsJSON);
+}
 </script>
 
 <style lang="scss" scoped>

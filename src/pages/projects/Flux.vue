@@ -5,6 +5,11 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import FluxJSON from '@/../data/projects/flux.json';
+import { fromJSON } from '@/strings/json';
+
+fromJSON('projects.flux', FluxJSON);
+
 export default Vue.extend({});
 </script>
 

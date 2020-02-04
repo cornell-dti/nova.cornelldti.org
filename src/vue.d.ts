@@ -11,6 +11,7 @@ export interface Member {
   graduation: string;
   major: string;
   doubleMajor: string;
+  minor: string;
   website: string;
   github: string;
   linkedin: string;

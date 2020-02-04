@@ -1,6 +1,5 @@
 {
   "name": "Course Reviews",
-
   "teamId": "reviews",
   "card": "/public/projects/reviews/card.png",
   "header": "Course Reviews",
@@ -19,15 +18,18 @@
   "features": [
     {
       "title": "Search for Classes.",
-      "description": "Search for Cornell classes using our wicked fast search."
+      "description": "Search for Cornell classes using our wicked fast search.",
+      "image": "/static/pages/projects/pages/reviews/feature1.jpg"
     },
     {
       "title": "Write a Review.",
-      "description": "Write about the class, plus rate its difficulty and workload."
+      "description": "Write about the class, plus rate its difficulty and workload.",
+      "image": "/static/pages/projects/pages/reviews/feature2.jpg"
     },
     {
       "title": "Check Out Class Reviews.",
-      "description": "Read what other students have to say about the class."
+      "description": "Read what other students have to say about the class.",
+      "image": "/static/pages/projects/pages/reviews/feature3.jpg"
     }
   ]
 }

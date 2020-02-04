@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "build": "gridsome build",
-    "develop": "gridsome develop",
-    "explore": "gridsome explore",
+    "serve": "gridsome develop",
+    "lint": "vue-cli-service lint",
     "gen": "node ./cli.js"
   },
   "dependencies": {
