@@ -1,14 +1,11 @@
 <template>
-  <team-base :Strings="Strings" project="flux" />
+  <dti-project project="flux" />
 </template>
 
 <script lang="ts">
-import TeamBase from './TeamBase.vue';
-import { Component } from '../../shim';
+import Vue from 'vue';
 
-export default Component({
-  components: { TeamBase }
-});
+export default Vue.extend({});
 </script>
 
 <style lang="scss">

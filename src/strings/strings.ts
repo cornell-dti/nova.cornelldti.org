@@ -7,7 +7,7 @@ export default class Strings {
 
   context: string;
 
-  constructor(context: string, backend: StringsBackend) {
+  constructor(context: string, backend: StringsBackend | null) {
     this.context = context;
 
     if (typeof backend === 'undefined' || backend === null) {
@@ -26,11 +26,11 @@ export default class Strings {
    *
    * @param key
    */
-  get<K extends StringsData>(key): K {
+  get<K extends StringsData>(key: string): K {
     return this.backend.getString<K>(key, this.context);
   }
 
-  initialize(...args) {
+  initialize(...args: undefined[]) {
     return this.backend.resolveContext(this.context, ...args);
   }
 

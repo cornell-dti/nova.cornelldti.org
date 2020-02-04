@@ -14,10 +14,7 @@
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
-            <b-img
-              class="sponsor-row-image"
-              :src="AssetStrings.get('pages.sponsor.events.googleLunch')"
-            />
+            <b-img class="sponsor-row-image" :src="Strings.get('events.googleLunch')" />
           </b-col>
           <b-col class="sponsor-row-content-container" sm="12" md="5" order-md="1" order="2">
             <h2 class="sponsor-row-content-header">{{ Strings.get('pitch.1.header') }}</h2>
@@ -30,10 +27,7 @@
             <p class="sponsor-row-content">{{ Strings.get('pitch.2.description') }}</p>
           </b-col>
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order="1">
-            <b-img
-              class="sponsor-row-image"
-              :src="AssetStrings.get('pages.sponsor.events.infoSesh')"
-            />
+            <b-img class="sponsor-row-image" :src="Strings.get('events.infoSesh')" />
           </b-col>
         </b-row>
       </page-section>
@@ -127,9 +121,7 @@
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
           <b-button
-            :href="
-              Strings.get('call-to-action.button.link', `sponsor`) || 'mailto:hello@cornelldti.org'
-            "
+            :href="Strings.get('call-to-action.button.link') || 'mailto:hello@cornelldti.org'"
             >{{ Strings.get('call-to-action.button.text') }}</b-button
           >
         </b-row>
@@ -138,19 +130,13 @@
         <h2 class="sponsor-list-heading">{{ Strings.get('current-sponsors.header') }}</h2>
         <b-row class="sponsor-list justify-content-center">
           <b-col class="my-auto" sm="12" md="4">
-            <b-img
-              class="sponsor-icon"
-              :src="AssetStrings.get('pages.sponsor.sponsors.invision')"
-            />
+            <b-img class="sponsor-icon" :src="Strings.get('sponsors.invision')" />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="AssetStrings.get('pages.sponsor.sponsors.google')" />
+            <b-img class="sponsor-icon" :src="Strings.get('sponsors.google')" />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
-            <b-img
-              class="sponsor-icon"
-              :src="AssetStrings.get('pages.sponsor.sponsors.cornell-engineering-alumni')"
-            />
+            <b-img class="sponsor-icon" :src="Strings.get('sponsors.cornell-engineering-alumni')" />
           </b-col>
         </b-row>
       </page-section>
@@ -159,18 +145,24 @@
   </page-background>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import wcheck from '@/assets/sponsor/whitecheck.svg';
 
-export default {
+import { fromJSON } from '@/strings/json';
+
+// eslint-disable-next-line
+import SponsorJSON from '@/../data/generated/pages/sponsor.json';
+
+export default Vue.extend({
   components: {
     wcheck
   },
   computed: {
-    items() {
+    items(): any[] {
       const data = this.Strings.get('tiers.sponsor');
 
-      return data.map(d => ({
+      return (data as any[]).map(d => ({
         benefits: d.benefit,
         subheader: d.subheader,
         ...d.tiers
@@ -179,6 +171,7 @@ export default {
   },
   data() {
     return {
+      Strings: fromJSON('sponsor', SponsorJSON),
       fields: ['benefits', 'bronze', 'silver', 'gold', 'platinum'],
       striped: false,
       outlined: false,
@@ -186,7 +179,7 @@ export default {
       dark: false
     };
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

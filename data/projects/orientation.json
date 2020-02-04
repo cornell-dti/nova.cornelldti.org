@@ -1,7 +1,8 @@
 {
   "name": "O-Week",
-  "id": "events",
-  "teamId": "events",
+  "active": false,
+  "teamId": "oweek",
+  "card": "/public/projects/events/card.png",
   "header": "O-Week",
   "subheader": "Orientation Week. Made Simple.",
   "hero": {

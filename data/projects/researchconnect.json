@@ -1,7 +1,8 @@
 {
   "name": "Research Connect",
-  "id": "researchconnect",
+  "active": false,
   "teamId": "research",
+  "card": "/public/projects/research/card.png",
   "header": "Research Connect",
   "subheader": "Handshake for Lab Research.",
   "hero": {

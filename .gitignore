@@ -19,3 +19,7 @@ s3/
 
 # Local Netlify folder
 .netlify
+
+# Gridsome folders
+.temp
+.cache

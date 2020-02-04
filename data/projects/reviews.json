@@ -1,7 +1,8 @@
 {
   "name": "Course Reviews",
-  "id": "reviews",
+
   "teamId": "reviews",
+  "card": "/public/projects/reviews/card.png",
   "header": "Course Reviews",
   "subheader": "Real Students. Real Class Feedback.",
   "hero": {

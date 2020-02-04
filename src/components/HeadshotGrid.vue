@@ -9,7 +9,7 @@
         :name="member.info.name"
         :role="member.info.roleDescription"
         @click.native="memberClicked(member)"
-        :image="`${AssetStrings.get('directories.members')}/${member.id}.jpg`"
+        :image="`${member.info.image}`"
       />
     </div>
 
@@ -28,11 +28,11 @@
 <script lang="ts">
 import { BModal } from 'bootstrap-vue';
 
+import Vue from 'vue';
 import HeadshotCard from '@/components/HeadshotCard.vue';
 import MemberProfileModal from '@/components/MemberProfileModal.vue';
 
-import { Member } from '@/shared';
-import { Component } from '@/shim';
+import { Member } from '../vue';
 
 type MemberInfo = { id: string; info: Member };
 
@@ -41,10 +41,10 @@ export interface PhantomMember {
   phantom: true;
 }
 
-export default Component({
+export default Vue.extend({
   props: {
     members: {
-      default: () => [] as MemberInfo[]
+      default: [] as MemberInfo[]
     }
   },
   components: { HeadshotCard, MemberProfileModal },
@@ -55,7 +55,7 @@ export default Component({
     };
   },
   methods: {
-    memberClicked(member) {
+    memberClicked(member: { id?: string; info?: Member }) {
       this.currentProfile = member;
 
       const modal = this.$refs.modalRef as BModal;

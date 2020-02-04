@@ -1,7 +1,15 @@
 {
   "hero": {
-    "lazy": "/public/pages/initiatives/hero/hero-lazy.jpg",
-    "video": "/public/pages/initiatives/hero/hero.mp4",
+    "lazy": "/static/pages/initiatives/hero/hero-lazy.jpg",
+    "video": {
+      "mp4": "/public/pages/initiatives/hero/hero.mp4",
+      "webm": "/public/pages/initiatives/hero/hero.webm"
+    },
     "image": "/public/pages/initiatives/hero/hero.png"
+  },
+  "promo": {
+    "makeathon": "/public/pages/initiatives/promo/makeathon.png",
+    "blueprint": "/public/pages/initiatives/promo/blueprint.png",
+    "halfbaked": "/public/pages/initiatives/promo/halfbaked.png"
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <team-base :Strings="Strings" project="events">
+  <dti-project project="events">
     <project-header #header :customGoTo="true" projectId="events">
       <b-row align-v="center">
         <b-col md="8" sm="12">
@@ -12,16 +12,16 @@
         </b-col>
       </b-row>
     </project-header>
-  </team-base>
+  </dti-project>
 </template>
 
 <script lang="ts">
-import TeamBase from './TeamBase.vue';
-import { Component } from '../../shim';
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import EventsJSON from '@/../data/projects/events.json';
 
-export default Component({
-  components: { TeamBase }
-});
+@Component({})
+export default class Events extends Vue {}
 </script>
 
 <style lang="scss" scoped>

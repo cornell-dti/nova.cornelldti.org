@@ -1,7 +1,7 @@
 {
   "name": "Flux",
-  "id": "flux",
   "teamId": "flux",
+  "card": "/public/projects/flux/card.png",
   "header": "flux",
   "subheader": "Real time traffic flow.",
   "hero": {

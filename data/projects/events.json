@@ -1,7 +1,8 @@
 {
   "name": "CUE",
-  "id": "events",
+
   "teamId": "events",
+  "card": "/public/projects/events/card.png",
   "header": "cue",
   "subheader": "Events at Cornell. Just for you.",
   "hero": {

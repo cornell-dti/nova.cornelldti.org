@@ -35,7 +35,7 @@
                 center
                 rounded="circle"
                 class="profile-image"
-                :src="IMGIX(`${AssetStrings.get('directories.members')}/${profile.id + '.jpg'}`)"
+                :src="`${profile.info.image}`"
                 @error="display = !display"
               ></b-img>
               <div
@@ -122,9 +122,7 @@
                   <b-col>
                     <div id="teamwork" class="member-modal-header left-space">Team Work</div>
                     <ul class="team-info-list left-space">
-                      <template
-                        v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
-                      >
+                      <template v-for="team of subteams">
                         <li class="team-info-item my-auto" :key="team">
                           {{ getTeamName(team)[0] }}
                         </li>
@@ -146,11 +144,12 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import { BModal } from 'bootstrap-vue';
-import { ObjectProp, BooleanProp } from '../util/common';
+import { ObjectProp, BooleanProp } from '@/util/common';
 
 import Github from '@/assets/social/github.svg';
 import LinkedIn from '@/assets/social/linkedin.svg';
 import MissingImage from '@/assets/other/missing.svg';
+import { Member } from '../vue';
 
 @Component({
   components: {
@@ -161,15 +160,26 @@ import MissingImage from '@/assets/other/missing.svg';
 })
 export default class MemberProfileModal extends Vue {
   @BooleanProp({ required: false, defaultValue: false })
-  isStatic;
+  isStatic!: boolean;
 
   @ObjectProp()
-  profile;
+  profile!: { info: Member };
 
   @BooleanProp({ required: false, defaultValue: false })
-  display;
+  display!: boolean;
 
   isShowing = false;
+
+  get subteams(): string[] {
+    const subteams = [this.profile.info.subteam];
+    const other = this.profile.info.otherSubteams;
+    if (Array.isArray(other)) {
+      subteams.push(...other);
+    } else if (other) {
+      subteams.push(other);
+    }
+    return subteams;
+  }
 
   modalClose() {
     const modal = (this.$refs.memberModalRef as unknown) as BModal;
@@ -186,7 +196,7 @@ export default class MemberProfileModal extends Vue {
     modal.toggle();
   }
 
-  getTeamName(team) {
+  getTeamName(team: string | { id: string }) {
     const teamNames = [] as string[];
 
     this.getTeams().forEach(teamData => {

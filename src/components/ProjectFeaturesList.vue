@@ -4,7 +4,7 @@
     <b-row align-v="center" class="mobile-space">
       <b-col md="7">
         <div class="feature-header" id="mobile">{{ Strings.get(`features.1.title`) }}</div>
-        <b-img class="product" :src="AssetStrings.get(`projects.${projectId}.features.1`)" />
+        <b-img class="product" :src="Strings.get(`features.1.image`)" />
       </b-col>
       <b-col md="5">
         <div class="feature-header" id="hide">{{ Strings.get(`features.1.title`) }}</div>
@@ -19,14 +19,14 @@
       </b-col>
       <b-col md="7" class="switch2">
         <div class="feature-header" id="mobile">{{ Strings.get(`features.2.title`) }}</div>
-        <b-img class="product" :src="AssetStrings.get(`projects.${projectId}.features.2`)" />
+        <b-img class="product" :src="Strings.get(`features.2.image`)" />
       </b-col>
     </b-row>
     <b-row class="feature-padding" />
     <b-row align-v="center" class="mobile-space">
       <b-col md="7">
         <div class="feature-header" id="mobile">{{ Strings.get(`features.3.title`) }}</div>
-        <b-img class="product" :src="AssetStrings.get(`projects.${projectId}.features.3`)" />
+        <b-img class="product" :src="Strings.get(`features.3.image`)" />
       </b-col>
       <b-col md="5">
         <div class="feature-header" id="hide">{{ Strings.get(`features.3.title`) }}</div>

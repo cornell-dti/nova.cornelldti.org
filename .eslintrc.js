@@ -31,7 +31,6 @@ module.exports = {
       'always',
       {
         ts: 'never',
-        tsx: 'never',
         'd.ts': 'never',
         js: 'never'
       }

@@ -1,0 +1,11 @@
+{
+  "name": "gridsome-transformer-json-enhanced",
+  "version": "0.0.1",
+  "description": "JSON Transformer with CDN support.",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@gridsome/transformer-json": "^0.2.1",
+    "imgix-json": "./packages/imgix-json"
+  }
+}

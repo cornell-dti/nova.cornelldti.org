@@ -1,7 +1,8 @@
 {
   "name": "Queue Me In",
-  "id": "queuemein",
+
   "teamId": "queuemein",
+  "card": "/public/projects/queuemein/card.png",
   "header": "Queue Me In",
   "subheader": "Office Hours. Simplified.",
   "hero": {

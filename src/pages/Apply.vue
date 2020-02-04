@@ -71,8 +71,7 @@
                         v-if="session2.link && session2.link.url"
                         class="apply-link"
                         :href="session2.link.url"
-                      >
-                        {{ session2.link.text }}</a
+                        >{{ session2.link.text }}</a
                       >
                     </div>
                     <div class="location location-mobile">
@@ -113,9 +112,7 @@
               <template v-if="Array.isArray(info.sections)">
                 <div v-for="section of info.sections" :key="section.header">
                   <template v-if="section">
-                    <div class="apply-header" v-if="section.header">
-                      {{ section.header }}
-                    </div>
+                    <div class="apply-header" v-if="section.header">{{ section.header }}</div>
 
                     <div
                       class="apply-list"
@@ -129,18 +126,14 @@
                         {{ line }}
                       </div>
                     </div>
-                    <div class="apply-description" v-else>
-                      {{ section.content }}
-                    </div>
+                    <div class="apply-description" v-else>{{ section.content }}</div>
                   </template>
                 </div>
               </template>
               <b-row v-else>
                 <b-col sm v-for="col of ['left', 'right']" :key="col">
                   <template v-if="info.sections && info.sections[col]">
-                    <div class="apply-header">
-                      {{ info.sections[col].header }}
-                    </div>
+                    <div class="apply-header">{{ info.sections[col].header }}</div>
 
                     <div class="apply-list" v-if="info.sections[col].content.lines">
                       <div
@@ -169,9 +162,8 @@
                           size="lg"
                           variant="primary"
                           class="call-to-action-button text-start"
+                          >{{ primary.content }}</b-button
                         >
-                          {{ primary.content }}
-                        </b-button>
                       </b-col>
                       <b-col v-if="secondary && secondary.link" md="auto" sm="12">
                         <b-button
@@ -201,7 +193,12 @@ import { Component } from 'vue-property-decorator';
 
 import TimelineSection from '@/components/TimelineSection.vue';
 import RoleSelector from '@/components/RoleSelector.vue';
-import { DtiFooter } from '../components/DtiFooter.vue';
+import DtiFooter from '@/components/DtiFooter.vue';
+
+import { fromJSON } from '@/strings/json';
+
+// eslint-disable-next-line
+import ApplyJSON from '@/../data/generated/pages/apply.json';
 
 interface Apply {
   $refs: {
@@ -223,9 +220,11 @@ class Apply extends Vue {
   tabIndex = 0;
   roleId = '';
 
-  onSubscribe(event) {
+  Strings = fromJSON('apply', ApplyJSON);
+
+  onSubscribe(event: { preventDefault: () => void }) {
     event.preventDefault();
-    this.$refs.footerRef.subscritionClick();
+    (this.$refs.footerRef as any).subscriptionClick();
   }
 }
 

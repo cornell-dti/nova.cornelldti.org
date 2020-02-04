@@ -251,14 +251,25 @@ $dark-gray: #4a4a4a;
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import GitHubIcon from '@/assets/social/github.svg';
 import ApplyIcon from '@/assets/other/apply.svg';
 
-export default {
+// eslint-disable-next-line
+import CoursesJSON from '@/../data/generated/pages/courses.json';
+
+import { fromJSON } from '@/strings/json';
+
+export default Vue.extend({
+  data() {
+    return {
+      Strings: fromJSON('courses', CoursesJSON)
+    };
+  },
   components: {
     GitHubIcon,
     ApplyIcon
   }
-};
+});
 </script>

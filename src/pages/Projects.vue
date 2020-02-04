@@ -23,10 +23,10 @@
           lg="4"
           class="justify-content"
           v-for="project in projectRow.members"
-          :key="project"
+          :key="project.id"
         >
-          <router-link :to="{ path: project }" append>
-            <b-img :src="Strings.get(`cards.${project}`)" class="project-card" />
+          <router-link :to="{ path: project.teamId }" append>
+            <b-img :src="project.card" class="project-card" />
           </router-link>
         </b-col>
       </b-row>
@@ -65,30 +65,64 @@
 }
 </style>
 
-<script>
-export default {
+<page-query>
+query DTIProjects {
+  projects: allDtiProject {
+    edges {
+      node {
+           id
+           active
+           teamId
+           card
+      }
+    }
+  }
+}
+</page-query>
+
+<script lang="ts">
+import Vue from 'vue';
+
+// eslint-disable-next-line
+import ProjectsJSON from '@/../data/generated/pages/projects.json';
+
+import { fromJSON } from '@/strings/json';
+
+export default Vue.extend({
+  data() {
+    return {
+      Strings: fromJSON('projects', ProjectsJSON)
+    };
+  },
   computed: {
     projectRows() {
       const rows = [];
       let row = [];
 
-      const projects = this.Strings.childrenOf('projects');
+      const projects = this.$page.projects.edges.map((e: { node: any }) => e.node);
+
+      let rowIndex = 0;
 
       for (let i = 0; i < projects.length; i += 1) {
+        if (projects[i].active === false) {
+          continue;
+        }
+
         row.push(projects[i]);
 
         if (row.length === 3 || rows.length * 3 === projects.length) {
-          rows.push({ index: i, members: row });
+          rows.push({ index: rowIndex, members: row });
+          rowIndex += 1;
           row = [];
         }
       }
 
       if (row.length > 0) {
-        rows.push({ index: rows.length + 4, members: row });
+        rows.push({ index: rowIndex, members: row });
       }
 
       return rows;
     }
   }
-};
+});
 </script>

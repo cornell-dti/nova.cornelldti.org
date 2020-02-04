@@ -21,15 +21,21 @@ export default abstract class StringsBackend {
    *
    * @returns the given string for the key in context or null if not found
    */
-  getString(key: string, context: string = this.getDefaultContext()): string | null {
+  getString<K>(key: string, context = this.getDefaultContext()): K {
     return this._getString(key, context);
   }
 
-  getChildrenKeysFor(key: string, context: string = this.getDefaultContext()): string[] | null {
-    return this._getChildrenKeysFor(key, context);
+  getChildrenKeysFor(key: string, context = this.getDefaultContext()) {
+    const keys = this._getChildrenKeysFor(key, context);
+
+    if (keys != null) {
+      return keys;
+    }
+
+    throw new Error(`Context not found: ${context}!`);
   }
 
-  exists(key: string, context: string = this.getDefaultContext()): boolean {
+  exists(key: string, context = this.getDefaultContext()) {
     return this._exists(key, context);
   }
 

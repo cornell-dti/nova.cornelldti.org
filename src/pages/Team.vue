@@ -20,16 +20,10 @@
             <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
               <b-row>
                 <b-col sm="12" md="9">
-                  <div class="team-header diversity-header my-auto">
-                    {{ header }}
-                  </div>
-                  <div class="diversity-description my-auto lg-y-padding">
-                    {{ description }}
-                  </div>
+                  <div class="team-header diversity-header my-auto">{{ header }}</div>
+                  <div class="diversity-description my-auto lg-y-padding">{{ description }}</div>
 
-                  <h3 class="graph-header lg-y-padding">
-                    {{ gender.header }}
-                  </h3>
+                  <h3 class="graph-header lg-y-padding">{{ gender.header }}</h3>
 
                   <b-row class="lg-y-padding" align-h="center">
                     <b-col cols="auto">
@@ -67,25 +61,19 @@
             <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
               <b-row>
                 <b-col cols="12" class="diversity-description diversity-inner-text">
-                  <div class="diversity-stat-header">
-                    {{ stats.underclassmen.stat }}
-                  </div>
+                  <div class="diversity-stat-header">{{ stats.underclassmen.stat }}</div>
                   <div class="diversity-description diversity-stat-description">
                     {{ stats.underclassmen.description }}
                   </div>
                 </b-col>
                 <b-col cols="12" class="diversity-description diversity-inner-text">
-                  <div class="diversity-stat-header">
-                    {{ stats.majors.stat }}
-                  </div>
+                  <div class="diversity-stat-header">{{ stats.majors.stat }}</div>
                   <div class="diversity-description diversity-stat-description">
                     {{ stats.majors.description }}
                   </div>
                 </b-col>
                 <b-col cols="12" class="diversity-description diversity-inner-text">
-                  <div class="diversity-stat-header">
-                    {{ stats.colleges.stat }}
-                  </div>
+                  <div class="diversity-stat-header">{{ stats.colleges.stat }}</div>
                   <div class="diversity-description diversity-stat-description">
                     {{ stats.colleges.description }}
                   </div>
@@ -353,7 +341,7 @@ $secondary: #f6f6f6;
   }
 
   &.diversity-background {
-    background-image: url('/public/pages/team/diversity-background.jpg'); // todo convert to lazy-video
+    background-image: url('/static/pages/team/diversity-background.jpg'); // todo convert to lazy-video
     background-size: cover;
   }
 
@@ -398,18 +386,40 @@ $secondary: #f6f6f6;
 </style>
 
 <script lang="ts">
+import Vue from 'vue';
 import HeadshotGrid from '@/components/HeadshotGrid.vue';
 import RoleSelector from '@/components/RoleSelector.vue';
 import CircleProgressIndicator from '@/components/CircleProgressIndicator.vue';
-import { Component } from '../shim';
 
-export default Component({
+// eslint-disable-next-line
+import TeamJSON from '@/../data/generated/pages/team.json';
+
+import DiversityJSON from '@/../data/sets/diversity.json';
+
+import { fromJSON } from '@/strings/json';
+
+type RoleId = '' | 'business' | 'developer' | 'designer' | 'pm';
+interface Diversity {
+  femalePercentage: {
+    '': number;
+    business: number;
+    developer: number;
+    designer: number;
+    pm: number;
+  };
+}
+
+export default Vue.extend({
   components: {
     HeadshotGrid,
     CircleProgressIndicator,
     RoleSelector
   },
-  computed: {},
+  computed: {
+    diversity(): Diversity {
+      return DiversityJSON.diversity;
+    }
+  },
   mounted() {
     this.$nextTick(() => {
       this.roleId = '';
@@ -417,22 +427,17 @@ export default Component({
   },
   data() {
     return {
+      Strings: fromJSON('team', TeamJSON),
       currentProfile: {},
       roleId: 'none',
-      divRoleId: ''
+      divRoleId: '' as RoleId
     };
   },
-  props: {
-    diversity: {
-      type: Object,
-      required: true
-    }
-  },
   methods: {
-    malePercentage(roleId) {
+    malePercentage(roleId: RoleId) {
       return 1 - this.diversity.femalePercentage[roleId];
     },
-    femalePercentage(roleId) {
+    femalePercentage(roleId: RoleId) {
       return this.diversity.femalePercentage[roleId];
     },
     filterMembers(role = '', isLead = false) {

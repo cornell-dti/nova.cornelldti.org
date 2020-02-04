@@ -1,54 +1,12 @@
-import StringsBackend from '../backend';
-
-const HomeJSON = () => import(/* webpackPrefetch: true */ '#/pages/home.json');
-const $AssetsJSON = () => import(/* webpackPrefetch: true */ '#/assets.json');
-const ApplyJSON = () => import(/* webpackPrefetch: true */ '#/pages/apply.json');
-const InitiativesJSON = () => import(/* webpackPrefetch: true */ '#/pages/initiatives.json');
-const TeamJSON = () => import(/* webpackPrefetch: true */ '#/pages/team.json');
-const ProjectsJSON = () => import(/* webpackPrefetch: true */ '#/pages/projects.json');
-const SponsorJSON = () => import(/* webpackPrefetch: true */ '#/pages/sponsor.json');
-const CoursesJSON = () => import(/* webpackPrefetch: true */ '#/pages/courses.json');
-const NotFoundJSON = () => import(/* webpackPrefetch: true */ '#/pages/notfound.json');
-
-const EventsJSON = () => import(/* webpackPrefetch: true */ '#/projects/events.json');
-const FluxJSON = () => import(/* webpackPrefetch: true */ '#/projects/flux.json');
-const OrientationJSON = () => import(/* webpackPrefetch: true */ '#/projects/orientation.json');
-const QueueMeInJSON = () => import(/* webpackPrefetch: true */ '#/projects/queuemein.json');
-const ResearchConnectJSON = () =>
-  import(/* webpackPrefetch: true */ '#/projects/researchconnect.json');
-const ReviewsJSON = () => import(/* webpackPrefetch: true */ '#/projects/reviews.json');
-const SamwiseJSON = () => import(/* webpackPrefetch: true */ '#/projects/samwise.json');
-const ShoutJSON = () => import(/* webpackPrefetch: true */ '#/projects/shout.json');
+import StringsBackend from '@/strings/backend';
 
 const DEFAULT_CONTEXT = 'default';
-
-const JSONImports = {
-  home: HomeJSON,
-  assets: $AssetsJSON,
-  apply: ApplyJSON,
-  projects: ProjectsJSON,
-  initiatives: InitiativesJSON,
-  team: TeamJSON,
-  courses: CoursesJSON,
-  sponsor: SponsorJSON,
-  notfound: NotFoundJSON,
-  'projects.events': EventsJSON,
-  'projects.orientation': OrientationJSON,
-  'projects.queuemein': QueueMeInJSON,
-  'projects.researchconnect': ResearchConnectJSON,
-  'projects.reviews': ReviewsJSON,
-  'projects.samwise': SamwiseJSON,
-  'projects.shout': ShoutJSON,
-  'projects.flux': FluxJSON
-};
-
-const JSONMap = new Map<string, any>();
 
 /**
  * @param {string} key
  * @param {*} json
  */
-function searchKey(key: string, json) {
+function searchKey(key: string, json: { [x: string]: any }) {
   let val = json[key];
 
   let path: string | null = '';
@@ -58,7 +16,7 @@ function searchKey(key: string, json) {
   if (typeof val === 'undefined' || val === null) {
     const keys = key.split('.');
 
-    let currentChild = json;
+    let currentChild: typeof json | null = json;
 
     for (const _childKey of keys) {
       let childKey: string | number = _childKey;
@@ -66,6 +24,10 @@ function searchKey(key: string, json) {
 
       if (Number.isInteger(asInt)) {
         childKey = asInt - 1;
+      }
+
+      if (currentChild === null) {
+        break;
       }
 
       if (typeof currentChild[childKey] === 'undefined' || currentChild[childKey] === null) {
@@ -133,30 +95,24 @@ function searchKey(key: string, json) {
 
 /* eslint-disable class-methods-use-this */
 
-export default class JSONStringsBackend extends StringsBackend {
-  getDefaultContext(): string {
+export default class JSStringsBackend extends StringsBackend {
+  protected map = new Map<string, {}>();
+
+  getDefaultContext() {
     return DEFAULT_CONTEXT;
   }
 
-  resolveContext(context: string, ..._) {
-    if (!JSONMap.has(context)) {
-      if (typeof JSONImports[context] === 'function') {
-        return JSONImports[context]().then(json => {
-          this.map.set(context, json);
-          return json;
-        });
-      }
-
-      throw new Error(
-        `Failed to resolve context: ${context} with arguments: ${JSON.stringify(args)}`
-      );
+  resolveContext(context: string, ...args: any[]) {
+    const [strings] = args;
+    if (!this.map.has(context)) {
+      this.map.set(context, strings);
     }
 
-    return Promise.resolve(this.map.get(context));
+    return this.map.get(context);
   }
 
-  _getString(key: string, context: string): string | null {
-    const json = JSONMap.get(context);
+  _getString(key: string | null, context: string) {
+    const json = this.map.get(context);
 
     if (json) {
       if (key === '' || key === null) {
@@ -177,13 +133,13 @@ export default class JSONStringsBackend extends StringsBackend {
     return null;
   }
 
-  _exists(key: string, context: string): boolean {
+  _exists(key: string, context: string) {
     const str = this._getString(key, context);
     return typeof str !== 'undefined' && str !== null;
   }
 
-  _getChildrenKeysFor(key: string, context: string): string[] | null {
-    const json = JSONMap.get(context);
+  _getChildrenKeysFor(key: string, context: string) {
+    const json = this.map.get(context);
 
     if (json) {
       const obj = searchKey(key, json);

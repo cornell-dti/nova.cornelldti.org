@@ -1,0 +1,9 @@
+{
+  "name": "imgix-json",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "imgix-core-js": "^2.2.1"
+  }
+}

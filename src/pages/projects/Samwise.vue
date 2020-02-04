@@ -1,12 +1,9 @@
 <template>
-  <team-base :Strings="Strings" project="samwise" />
+  <dti-project project="samwise" />
 </template>
 
 <script lang="ts">
-import TeamBase from './TeamBase.vue';
-import { Component } from '../../shim';
+import Vue from 'vue';
 
-export default Component({
-  components: { TeamBase }
-});
+export default Vue.extend({});
 </script>

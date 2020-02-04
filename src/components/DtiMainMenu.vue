@@ -12,7 +12,7 @@
     type="none"
   >
     <b-navbar-brand class="navbar-branding-dti" href="#">
-      <b-img class="brand-icon" :src="AssetStrings.get('branding.icon')" />
+      <b-img class="brand-icon" :src="$static.metadata.branding.icon" />
     </b-navbar-brand>
 
     <b-nav-text :style="{ display: navShown ? '' : 'none' }" v-html="this.$route.name" />
@@ -66,7 +66,7 @@
         <b-nav-item to="/Courses">Courses</b-nav-item>
         <b-nav-item to="/Sponsor">Sponsor</b-nav-item>
         <b-nav-item
-          v-if="AssetStrings.get('main-menu.advertisement.open')"
+          v-if="$static.metadata.mainMenu.advertisement.open"
           to="/Apply"
           class="override-apply-color"
         >
@@ -77,6 +77,22 @@
     </b-collapse>
   </b-navbar>
 </template>
+
+<static-query>
+query {
+  metadata {
+    branding {
+      icon
+    }
+
+    mainMenu {
+      advertisement {
+        open
+      }
+    }
+  }
+}
+</static-query>
 
 <script>
 import EventBus from '@/eventbus';

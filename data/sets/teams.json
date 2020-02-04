@@ -22,7 +22,8 @@
     },
     {
       "name": "Research Connect",
-      "id": "researchconnect"
+      "id": "researchconnect",
+      "display": false
     },
     {
       "name": "Queue Me In",
@@ -30,7 +31,8 @@
     },
     {
       "name": "Website",
-      "id": "nova"
+      "id": "nova",
+      "display": false
     },
     {
       "name": "Flux",
@@ -38,11 +40,13 @@
     },
     {
       "name": "O-Week",
-      "id": "orientation"
+      "id": "orientation",
+      "display": false
     },
     {
       "name": "Rescuer",
-      "id": "rescuer"
+      "id": "rescuer",
+      "display": false
     },
     {
       "name": "Course Plan (upcoming)",

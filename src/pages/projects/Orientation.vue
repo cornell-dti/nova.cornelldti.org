@@ -1,12 +1,9 @@
 <template>
-  <team-base :Strings="Strings" project="orientation" />
+  <dti-project project="orientation" />
 </template>
 
 <script lang="ts">
-import TeamBaseVue from './TeamBase.vue';
-import { Component } from '../../shim';
+import Vue from 'vue';
 
-export default Component({
-  components: { TeamBaseVue }
-});
+export default Vue.extend({});
 </script>
