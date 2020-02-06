@@ -1,5 +1,9 @@
-import Vue from 'vue';
+// This is the entry point for the "library" version of the website.
+// It is used to render previews in CMS.
 
+import './webpackConfig';
+
+import { VueConstructor } from 'vue';
 import About from '@/pages/About.vue';
 import Apply from '@/pages/Apply.vue';
 import Courses from '@/pages/Courses.vue';
@@ -18,7 +22,13 @@ import PageSublist from '@/components/PageSublist.vue';
 import TextPageHero from '@/components/TextPageHero.vue';
 import TextHero from '@/components/TextHero.vue';
 import PageSection from '@/components/PageSection.vue';
+import MemberProfileModal from '@/components/MemberProfileModal.vue';
 import DTIProject from '@/templates/DTIProject.vue';
+
+import { shared } from '@/shared';
+
+import SingleBackend from '@/strings/lib';
+import JSStringsBackend from '@/strings/backends/json';
 
 const Components = {
   About,
@@ -31,6 +41,7 @@ const Components = {
   Sponsor,
   Team,
   DtiFooter,
+  MemberProfileModal,
   PageBackground,
   PageHero,
   NovaHero,
@@ -41,6 +52,19 @@ const Components = {
   DTIProject
 };
 
-Object.entries(Components).forEach(([name, component]) => {
-  Vue.component(name, component);
-});
+export { Components };
+
+export function initialize(Vue: VueConstructor) {
+  shared(Vue);
+}
+
+SingleBackend.resolveContext = function(this: JSStringsBackend, context: string, ...args: any[]) {
+  const [strings] = args;
+
+  // Allow re-resolving in the library.
+  this.map.set(context, strings);
+
+  return this.map.get(context);
+};
+
+export { fromJSON } from '@/strings/json';

@@ -48,10 +48,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Component from 'vue-class-component';
+import { Component, Prop } from 'vue-property-decorator';
 import Quicklink from '@/components/Quicklink.vue';
 import LazyVideo from '@/components/LazyVideo.tsx';
 
+import Strings from '@/strings/strings';
 import { fromJSON } from '@/strings/json';
 
 // eslint-disable-next-line
@@ -64,7 +65,14 @@ import IndexJSON from '@/../data/generated/pages/home.json';
   }
 })
 export default class Index extends Vue {
-  Strings = fromJSON('home', IndexJSON);
+  @Prop({ default: null })
+  dynamicStrings!: Strings | null;
+
+  staticStrings = fromJSON('home', IndexJSON);
+
+  get Strings() {
+    return this.dynamicStrings || this.staticStrings;
+  }
 }
 </script>
 

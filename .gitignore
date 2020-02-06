@@ -23,3 +23,6 @@ s3/
 # Gridsome folders
 .temp
 .cache
+
+# CMS folders
+lib/**/*

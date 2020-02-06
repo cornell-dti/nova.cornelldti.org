@@ -272,18 +272,30 @@ $dark-gray: #4a4a4a;
 
 <script lang="ts">
 import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
 import FacebookIcon from '@/assets/social/facebook-white.svg';
 import MediumIcon from '@/assets/social/medium-white-m.svg';
 
 import InitiativesJSON from '@/../data/generated/pages/initiatives.json';
 
+import Strings from '@/strings/strings';
 import { fromJSON } from '@/strings/json';
 
 export default Vue.extend({
   data() {
     return {
-      Strings: fromJSON('initiatives', InitiativesJSON)
+      staticStrings: fromJSON('initiatives', InitiativesJSON)
     };
+  },
+  props: {
+    dynamicStrings: {
+      default: null
+    } as PropValidator<null | Strings>
+  },
+  computed: {
+    Strings(): Strings {
+      return this.dynamicStrings || this.staticStrings;
+    }
   },
   components: {
     FacebookIcon,

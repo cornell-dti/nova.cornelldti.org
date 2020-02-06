@@ -147,18 +147,28 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
 import wcheck from '@/assets/sponsor/whitecheck.svg';
 
 import { fromJSON } from '@/strings/json';
 
 // eslint-disable-next-line
 import SponsorJSON from '@/../data/generated/pages/sponsor.json';
+import Strings from '@/strings/strings';
 
 export default Vue.extend({
   components: {
     wcheck
   },
+  props: {
+    dynamicStrings: {
+      default: null
+    } as PropValidator<null | Strings>
+  },
   computed: {
+    Strings(): Strings {
+      return this.dynamicStrings || this.staticStrings;
+    },
     items(): any[] {
       const data = this.Strings.get('tiers.sponsor');
 
@@ -171,7 +181,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      Strings: fromJSON('sponsor', SponsorJSON),
+      staticStrings: fromJSON('sponsor', SponsorJSON),
       fields: ['benefits', 'bronze', 'silver', 'gold', 'platinum'],
       striped: false,
       outlined: false,

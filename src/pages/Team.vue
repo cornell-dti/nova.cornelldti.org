@@ -387,6 +387,7 @@ $secondary: #f6f6f6;
 
 <script lang="ts">
 import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
 import HeadshotGrid from '@/components/HeadshotGrid.vue';
 import RoleSelector from '@/components/RoleSelector.vue';
 import CircleProgressIndicator from '@/components/CircleProgressIndicator.vue';
@@ -397,6 +398,7 @@ import TeamJSON from '@/../data/generated/pages/team.json';
 import DiversityJSON from '@/../data/sets/diversity.json';
 
 import { fromJSON } from '@/strings/json';
+import Strings from '@/strings/strings';
 
 type RoleId = '' | 'business' | 'developer' | 'designer' | 'pm';
 interface Diversity {
@@ -415,7 +417,15 @@ export default Vue.extend({
     CircleProgressIndicator,
     RoleSelector
   },
+  props: {
+    dynamicStrings: {
+      default: null
+    } as PropValidator<null | Strings>
+  },
   computed: {
+    Strings(): Strings {
+      return this.dynamicStrings || this.staticStrings;
+    },
     diversity(): Diversity {
       return DiversityJSON.diversity;
     }
@@ -427,7 +437,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      Strings: fromJSON('team', TeamJSON),
+      staticStrings: fromJSON('team', TeamJSON),
       currentProfile: {},
       roleId: 'none',
       divRoleId: '' as RoleId

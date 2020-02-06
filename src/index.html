@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ${htmlAttrs}>
 
 <head>
   <meta charset="utf-8">
@@ -16,9 +16,13 @@
   <meta name="theme-color" content="#ffffff">
 
   <title>Cornell DTI</title>
+
+  ${head}
 </head>
 
-<body>
+<body ${bodyAttrs}>
+  ${app}
+  ${scripts}
   <div id="app"></div>
   <!-- built files will be auto injected -->
 </body>

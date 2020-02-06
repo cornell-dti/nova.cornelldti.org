@@ -60,19 +60,19 @@
       <b-navbar-nav class="ml-auto">
         <!-- todo look into ml-auto variants, also move routes to an actual file -->
         <b-nav-item to="/" exact>Home</b-nav-item>
-        <b-nav-item to="/Team">Team</b-nav-item>
-        <b-nav-item to="/Projects">Projects</b-nav-item>
-        <b-nav-item to="/Initiatives">Initiatives</b-nav-item>
-        <b-nav-item to="/Courses">Courses</b-nav-item>
-        <b-nav-item to="/Sponsor">Sponsor</b-nav-item>
+        <b-nav-item to="/team">Team</b-nav-item>
+        <b-nav-item to="/projects">Projects</b-nav-item>
+        <b-nav-item to="/initiatives">Initiatives</b-nav-item>
+        <b-nav-item to="/courses">Courses</b-nav-item>
+        <b-nav-item to="/sponsor">Sponsor</b-nav-item>
         <b-nav-item
           v-if="$static.metadata.mainMenu.advertisement.open"
-          to="/Apply"
+          to="/apply"
           class="override-apply-color"
         >
           <b-button class="apply-button" variant="primary">Apply Now!</b-button>
         </b-nav-item>
-        <b-nav-item v-else to="/Apply">Apply</b-nav-item>
+        <b-nav-item v-else to="/apply">Apply</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

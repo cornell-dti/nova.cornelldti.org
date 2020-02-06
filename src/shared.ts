@@ -6,7 +6,10 @@ import { VueConstructor, CreateElement, RenderContext } from 'vue';
 import StringsFrontend, { StringsData } from '@/strings/strings';
 import SingleBackend from '@/strings/lib';
 import { makeStrings } from './strings/context';
+
 import { Member, Team, Company, Role } from './vue';
+
+export { Member, Team, Company, Role } from './vue';
 
 class AsyncDatasetBuilder<T, K> {
   protected _fn: () => Promise<{ default: T }>;

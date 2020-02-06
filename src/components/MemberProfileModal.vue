@@ -31,15 +31,15 @@
           <b-row class="modal-scroll">
             <b-col col>
               <b-img
-                v-if="display"
+                v-if="internalDisplay && display"
                 center
                 rounded="circle"
                 class="profile-image"
                 :src="`${profile.info.image}`"
-                @error="display = !display"
+                @error="internalDisplay = !display"
               ></b-img>
               <div
-                v-if="!display"
+                v-if="!internalDisplay || !display"
                 center
                 rounded="circle"
                 class="profile-image rounded-circle mx-auto"
@@ -149,7 +149,7 @@ import { ObjectProp, BooleanProp } from '@/util/common';
 import Github from '@/assets/social/github.svg';
 import LinkedIn from '@/assets/social/linkedin.svg';
 import MissingImage from '@/assets/other/missing.svg';
-import { Member } from '../vue';
+import { Member } from '@/shared';
 
 @Component({
   components: {
@@ -167,6 +167,8 @@ export default class MemberProfileModal extends Vue {
 
   @BooleanProp({ required: false, defaultValue: false })
   display!: boolean;
+
+  internalDisplay = true;
 
   isShowing = false;
 

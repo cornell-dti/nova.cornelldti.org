@@ -32,7 +32,7 @@ import Vue from 'vue';
 import HeadshotCard from '@/components/HeadshotCard.vue';
 import MemberProfileModal from '@/components/MemberProfileModal.vue';
 
-import { Member } from '../vue';
+import { Member } from '@/shared';
 
 type MemberInfo = { id: string; info: Member };
 

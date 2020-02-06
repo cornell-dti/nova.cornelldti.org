@@ -253,19 +253,31 @@ $dark-gray: #4a4a4a;
 
 <script lang="ts">
 import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
 import GitHubIcon from '@/assets/social/github.svg';
 import ApplyIcon from '@/assets/other/apply.svg';
 
 // eslint-disable-next-line
 import CoursesJSON from '@/../data/generated/pages/courses.json';
 
+import Strings from '@/strings/strings';
 import { fromJSON } from '@/strings/json';
 
 export default Vue.extend({
   data() {
     return {
-      Strings: fromJSON('courses', CoursesJSON)
+      staticStrings: fromJSON('courses', CoursesJSON)
     };
+  },
+  props: {
+    dynamicStrings: {
+      default: null
+    } as PropValidator<null | Strings>
+  },
+  computed: {
+    Strings(): Strings {
+      return this.dynamicStrings || this.staticStrings;
+    }
   },
   components: {
     GitHubIcon,

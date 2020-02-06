@@ -82,20 +82,36 @@ query DTIProjects {
 
 <script lang="ts">
 import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
 
 // eslint-disable-next-line
 import ProjectsJSON from '@/../data/generated/pages/projects.json';
 
 import { fromJSON } from '@/strings/json';
 
+import Strings from '@/strings/strings';
+
+import { Member } from '@/shared';
+
 export default Vue.extend({
   data() {
     return {
-      Strings: fromJSON('projects', ProjectsJSON)
+      staticStrings: fromJSON('projects', ProjectsJSON)
     };
   },
+  props: {
+    dynamicStrings: {
+      default: null
+    } as PropValidator<null | Strings>
+  },
   computed: {
-    projectRows() {
+    Strings(): Strings {
+      return this.dynamicStrings || this.staticStrings;
+    },
+    projectRows(): {
+      index: number;
+      members: Member[];
+    }[] {
       const rows = [];
       let row = [];
 

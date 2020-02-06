@@ -2,8 +2,11 @@
   "name": "dti-nova-gridsome",
   "private": true,
   "scripts": {
-    "build": "gridsome build",
+    "build": "yarn build:lib && yarn build:grid",
+    "build:grid": "gridsome build",
+    "build:lib": "vue-cli-service build --target lib --name dti-nova --formats commonjs --dest admin/lib src/lib.ts",
     "serve": "gridsome develop",
+    "prod": "node ./server.js",
     "lint": "vue-cli-service lint",
     "gen": "node ./cli.js"
   },
@@ -20,11 +23,12 @@
     "json-parse-better-errors": "^1.0.2",
     "netlify-cms": "^2.10.11",
     "netlify-identity-widget": "^1.5.6",
+    "react": "^16.12.0",
     "vue": "^2.6.10",
     "vue-analytics": "^5.17.2",
     "vue-class-component": "^7.1.0",
     "vue-property-decorator": "^8.3.0",
-    "vuera": "^0.2.6"
+    "vuera": "^0.2.7"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
@@ -45,6 +49,7 @@
     "@vue/eslint-config-typescript": "^5.0.0",
     "autoprefixer": "^9.7.1",
     "babel-eslint": "^10.0.3",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
     "core-js": "^2.6.11",
     "dotenv": "^5.0.1",
     "eslint": "^6.6.0",

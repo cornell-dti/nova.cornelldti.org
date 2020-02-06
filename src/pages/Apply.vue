@@ -16,8 +16,8 @@
           <b-container class="email-form">
             <b-row align-h="center" class="no-gutters">
               <b-col cols="auto">
-                <h2 class="email-header">{{ closed.header }}</h2>
-                <p>{{ closed.subheader }}</p>
+                <h2 class="email-header">{{ closed && closed.header }}</h2>
+                <p>{{ closed && closed.subheader }}</p>
               </b-col>
             </b-row>
             <b-row align-h="center">
@@ -189,7 +189,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 
 import TimelineSection from '@/components/TimelineSection.vue';
 import RoleSelector from '@/components/RoleSelector.vue';
@@ -199,6 +199,7 @@ import { fromJSON } from '@/strings/json';
 
 // eslint-disable-next-line
 import ApplyJSON from '@/../data/generated/pages/apply.json';
+import Strings from '../strings/strings';
 
 interface Apply {
   $refs: {
@@ -220,7 +221,14 @@ class Apply extends Vue {
   tabIndex = 0;
   roleId = '';
 
-  Strings = fromJSON('apply', ApplyJSON);
+  @Prop({ default: null })
+  dynamicStrings!: Strings | null;
+
+  staticStrings = fromJSON('apply', ApplyJSON);
+
+  get Strings() {
+    return this.dynamicStrings || this.staticStrings;
+  }
 
   onSubscribe(event: { preventDefault: () => void }) {
     event.preventDefault();
