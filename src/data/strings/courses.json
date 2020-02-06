@@ -20,7 +20,7 @@
     "2": {
       "header": "Blueprint",
       "subtitle": "Product Development & Management",
-      "description": "Blueprint is a 1-credit S/U course created by Cornell DTI that teaches students how to develop an idea and bring it to life using concepts from product design, product management, and entrepreneurship. Students will work in groups to solve a problem they identify, and then ideate and iterate to create a minimum viable product. We teach what we've learned from our experiences within DTI on a project team, as well as industry experience at leading tech companies.",
+      "description": "Blueprint is a 2-credit S/U course created by Cornell DTI that teaches students how to develop an idea and bring it to life using concepts from product design, product management, and entrepreneurship. Students will work in groups to solve a problem they identify, and then ideate and iterate to create a minimum viable product. We teach what we've learned from our experiences within DTI on a project team, as well as industry experience at leading tech companies.",
       "image": "../public/pages/courses/blueprint.png",
       "buttons": {
         "apply": {
