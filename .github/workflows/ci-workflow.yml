@@ -12,12 +12,10 @@ jobs:
           node-version: '12.x'
       - name: Yarn Install
         run: yarn install
-      - name: Build JSON
-        run: node cli.js
-      - name: Run Linter
-        run: yarn lint
       - name: Build
         run: yarn build
+      - name: Run Linter
+        run: yarn lint
       - name: Upload Built Static Assets
         uses: actions/upload-artifact@master
         with:
