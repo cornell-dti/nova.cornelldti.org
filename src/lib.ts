@@ -4,7 +4,6 @@
 import './webpackConfig';
 
 import { VueConstructor } from 'vue';
-import About from '@/pages/About.vue';
 import Apply from '@/pages/Apply.vue';
 import Courses from '@/pages/Courses.vue';
 import Index from '@/pages/Index.vue';
