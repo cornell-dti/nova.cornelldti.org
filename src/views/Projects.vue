@@ -65,8 +65,6 @@
 }
 </style>
 
-
-
 <script lang="ts">
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';

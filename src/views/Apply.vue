@@ -195,7 +195,7 @@ import TimelineSection from '@/components/TimelineSection.vue';
 import RoleSelector from '@/components/RoleSelector.vue';
 import DtiFooter from '@/components/DtiFooter.vue';
 
-import Strings from '../strings/strings';
+import Strings from '@/strings/strings';
 
 interface Apply {
   $refs: {

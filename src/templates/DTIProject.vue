@@ -43,7 +43,7 @@ import ProjectLearnMore from '@/components/ProjectLearnMore.vue';
 import ProjectHeader from '@/components/ProjectHeader.vue';
 import TeamMembers from '@/components/TeamMembers.vue';
 
-import { makeStrings } from '../strings/context';
+import { makeStrings } from '@/strings/context';
 import Strings from '@/strings/strings';
 
 export default Vue.extend({
