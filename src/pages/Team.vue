@@ -412,6 +412,9 @@ interface Diversity {
 }
 
 export default Vue.extend({
+  metaInfo: {
+    title: 'Team'
+  },
   components: {
     HeadshotGrid,
     CircleProgressIndicator,

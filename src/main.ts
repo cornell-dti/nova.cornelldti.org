@@ -1,5 +1,5 @@
 import { VueConstructor } from 'vue';
-import { shared } from './shared';
+import 'vue-meta';
 
 import DtiFooter from '@/components/DtiFooter.vue';
 import PageBackground from '@/components/PageBackground.vue';
@@ -10,6 +10,7 @@ import TextPageHero from '@/components/TextPageHero.vue';
 import TextHero from '@/components/TextHero.vue';
 import PageSection from '@/components/PageSection.vue';
 import DTIProject from '@/templates/DTIProject.vue';
+import { shared } from '@/shared';
 
 export default function(Vue: VueConstructor) {
   Vue.component('PageSublist', PageSublist);

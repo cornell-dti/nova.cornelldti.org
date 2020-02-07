@@ -282,6 +282,9 @@ import Strings from '@/strings/strings';
 import { fromJSON } from '@/strings/json';
 
 export default Vue.extend({
+  metaInfo: {
+    title: 'Initiatives'
+  },
   data() {
     return {
       staticStrings: fromJSON('initiatives', InitiativesJSON)

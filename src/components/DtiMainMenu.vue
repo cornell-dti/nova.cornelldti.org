@@ -110,13 +110,16 @@ export default {
       const yOffset =
         window.pageYOffset ||
         window.scrollY ||
+        /* eslint-disable no-restricted-globals */
         pageYOffset ||
         scrollY ||
+        /* eslint-enable */
         document.documentElement.scrollTop;
       const scrollTop = yOffset - (document.documentElement.clientTop || 0);
 
       if (typeof this.$refs.dtinavbar !== 'undefined') {
-        this.transparent = scrollTop <= this.$refs.dtinavbar.offsetHeight;
+        const height = this.$refs.dtinavbar.$el.offsetHeight;
+        this.transparent = scrollTop <= height;
       } else {
         this.transparent = false;
       }

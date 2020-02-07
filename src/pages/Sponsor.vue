@@ -157,6 +157,9 @@ import SponsorJSON from '@/../data/generated/pages/sponsor.json';
 import Strings from '@/strings/strings';
 
 export default Vue.extend({
+  metaInfo: {
+    title: 'Sponsor'
+  },
   components: {
     wcheck
   },

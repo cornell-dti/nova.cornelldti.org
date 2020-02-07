@@ -91,9 +91,16 @@ import { fromJSON } from '@/strings/json';
 
 import Strings from '@/strings/strings';
 
-import { Member } from '@/shared';
+interface Project {
+  id: string;
+  teamId: string;
+  card: string;
+}
 
 export default Vue.extend({
+  metaInfo: {
+    title: 'Projects'
+  },
   data() {
     return {
       staticStrings: fromJSON('projects', ProjectsJSON)
@@ -110,7 +117,7 @@ export default Vue.extend({
     },
     projectRows(): {
       index: number;
-      members: Member[];
+      members: Project[];
     }[] {
       const rows = [];
       let row = [];

@@ -208,6 +208,9 @@ interface Apply {
 }
 
 @Component({
+  metaInfo: {
+    title: 'Apply'
+  },
   components: {
     TimelineSection,
     RoleSelector

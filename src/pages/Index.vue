@@ -59,6 +59,9 @@ import { fromJSON } from '@/strings/json';
 import IndexJSON from '@/../data/generated/pages/home.json';
 
 @Component({
+  metaInfo: {
+    title: 'Home'
+  },
   components: {
     Quicklink,
     LazyVideo

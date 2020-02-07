@@ -2,9 +2,23 @@
 
 const fs = require('fs');
 const path = require('path');
-const cdnify = require('imgix-json');
+const cdnify = require('cdnify-json');
+const { Imgix, CloudFront } = cdnify;
 
-cdnify.setup("cornelldti.imgix.net", process.env.IMGIX_API_KEY);
+cdnify.init([
+    {
+        pattern: /^\/public\/.*\.(png|jpg|jpeg)/g,
+        provider: Imgix({
+            url: "cornelldti.imgix.net", key: process.env.IMGIX_API_KEY
+        }),
+    },
+    {
+        pattern: /^\/public\/.*\.(webm|m4v|mp4)/g,
+        provider: CloudFront({
+            url: "d2ytxic79evey7.cloudfront.net"
+        }),
+    }
+]);
 
 function buildMembers() {
     const memberFiles = fs.readdirSync(path.join(__dirname, 'data', 'members'));

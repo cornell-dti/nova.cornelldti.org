@@ -27,7 +27,7 @@ imgix-core-js@^2.2.1:
     js-base64 "^2.1.9"
     md5 "^2.2.1"
 
-imgix-json@../imgix-json:
+cdnify-json@../cdnify-json:
   version "0.0.1"
   dependencies:
     imgix-core-js "^2.2.1"
