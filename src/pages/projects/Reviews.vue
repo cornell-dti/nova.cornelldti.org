@@ -1,14 +1,18 @@
 <template>
-  <dti-project project="reviews" />
+  <ReviewsPage :strings="Strings" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'vue-class-component';
 
-import ReviewsJSON from '@/../data/projects/reviews.json';
+import ReviewsPage from '@/views/projects/Reviews.vue';
+
 import { fromJSON } from '@/strings/json';
+import ReviewsJSON from '@/../data/projects/reviews.json';
 
-fromJSON('projects.reviews', ReviewsJSON);
-
-export default Vue.extend({});
+@Component({ components: { ReviewsPage } })
+export default class Reviews extends Vue {
+  Strings = fromJSON('projects.reviews', ReviewsJSON);
+}
 </script>

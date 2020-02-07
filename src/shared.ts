@@ -1,13 +1,12 @@
 /* eslint-disable no-param-reassign */
-/* Node Modules */
+
 import BootstrapVue from 'bootstrap-vue';
 
 import { VueConstructor, CreateElement, RenderContext } from 'vue';
+
 import StringsFrontend, { StringsData } from '@/strings/strings';
 import SingleBackend from '@/strings/lib';
-import { makeStrings } from './strings/context';
-
-import { Member, Team, Company, Role } from './vue';
+import { makeStrings } from '@/strings/context';
 
 export { Member, Team, Company, Role } from './vue';
 
@@ -80,80 +79,14 @@ export class AsyncDataset<T, K = {}> {
   }
 }
 
-export function shared(Vue: VueConstructor) {
+export function initializeVue(Vue: VueConstructor) {
   const AssetStrings = new StringsFrontend('assets', SingleBackend);
-
-  const memberSet = AsyncDataset.import(() =>
-    import(/* webpackPrefetch: true */ '@/../data/generated/members.json')
-  )
-    .accessor(d => d as Member[])
-    .build();
-
-  const companiesSet = AsyncDataset.import(() =>
-    import(/* webpackPrefetch: true */ '@/../data/sets/companies.json')
-  )
-    .accessor<Company[]>(d => d.companies)
-    .build();
-
-  const teamsSet = AsyncDataset.import(() =>
-    import(/* webpackPrefetch: true */ '@/../data/sets/teams.json')
-  )
-    .accessor<Team[]>(d => d.teams)
-    .build();
-  const rolesSet = AsyncDataset.import(() =>
-    import(/* webpackPrefetch: true */ '@/../data/sets/roles.json')
-  )
-    .accessor<Role[]>(d => d.roles)
-    .build();
 
   Vue.mixin({
     data() {
       return {
         AssetStrings
       };
-    },
-    methods: {
-      joinPath(...parts: any[]) {
-        const first = parts[0].split('://');
-        const beginning = first[0];
-        const url = [] as string[];
-
-        if (first.length > 1) {
-          url.push(`${beginning}://`);
-          const slice = first.slice(1);
-          url.push(
-            ...slice
-              .join('://')
-              .split('/')
-              .filter((value: string) => value !== '')
-          );
-        } else {
-          url.push(`${beginning}`);
-          url.push(...beginning.split('/').filter((value: string) => value !== ''));
-        }
-
-        url.push(
-          ...parts
-            .slice(1)
-            .join('/')
-            .split('/')
-            .filter(value => value !== '')
-        );
-
-        return url.join('/');
-      },
-      getMembers() {
-        return memberSet.get();
-      },
-      getRoles() {
-        return rolesSet.get();
-      },
-      getTeams() {
-        return teamsSet.get();
-      },
-      getCompanies() {
-        return companiesSet.get();
-      }
     }
   });
 
@@ -228,13 +161,8 @@ export function shared(Vue: VueConstructor) {
       return h();
     }
   });
+
   Vue.use(BootstrapVue);
 
-  return [
-    AssetStrings.initialize(),
-    memberSet.initialize(),
-    companiesSet.initialize(),
-    teamsSet.initialize(),
-    rolesSet.initialize()
-  ];
+  return [AssetStrings.initialize()];
 }

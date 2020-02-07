@@ -1,16 +1,20 @@
 <template>
-  <dti-project project="flux" />
+  <FluxPage :strings="Strings" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import Component from 'vue-class-component';
+
+import FluxPage from '@/views/projects/Flux.vue';
 
 import FluxJSON from '@/../data/projects/flux.json';
 import { fromJSON } from '@/strings/json';
 
-fromJSON('projects.flux', FluxJSON);
-
-export default Vue.extend({});
+@Component({ components: { FluxPage } })
+export default class Flux extends Vue {
+  Strings = fromJSON('projects.flux', FluxJSON);
+}
 </script>
 
 <style lang="scss">

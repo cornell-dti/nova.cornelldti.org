@@ -31,7 +31,16 @@ CMS.registerPreviewStyle('/admin/lib/dti-nova.css');
 // Custom Component Previews
 CMS.registerPreviewTemplate('member', VueInReact(Profile));
 
-const { PageSublist, PageBackground, PageSection, PageHero, NovaHero, TextPageHero, TextHero, DTIProject } = Components;
+const {
+  PageSublist,
+  PageBackground,
+  PageSection,
+  PageHero,
+  NovaHero,
+  TextPageHero,
+  TextHero,
+  DTIProject
+} = Components;
 
 // Fix the lack of vue-router in Netlify CMS previews
 Vue.prototype.$route = { name: 'Preview', path: 'nowhere/' };
@@ -43,8 +52,8 @@ Vue.component(
     render(h) {
       return h('div');
     }
-  }
-  ));
+  })
+);
 Vue.component('PageBackground', PageBackground);
 Vue.component('PageSection', PageSection);
 Vue.component('PageHero', PageHero);
@@ -60,7 +69,7 @@ const CoursesPage = wrap('courses', Components.Courses);
 const InitiativesPage = wrap('initiatives', Components.Initiatives);
 const ProjectsPage = wrap('projects', Components.Projects);
 
-// Page Previews	
+// Page Previews
 CMS.registerPreviewTemplate('page-apply', VueInReact(ApplyPage));
 CMS.registerPreviewTemplate('page-sponsor', VueInReact(SponsorPage));
 CMS.registerPreviewTemplate('page-home', VueInReact(HomePage));

@@ -10,7 +10,8 @@ import TextPageHero from '@/components/TextPageHero.vue';
 import TextHero from '@/components/TextHero.vue';
 import PageSection from '@/components/PageSection.vue';
 import DTIProject from '@/templates/DTIProject.vue';
-import { shared } from '@/shared';
+
+import { Role, Team, Company, Member, AsyncDataset, initializeVue } from '@/shared';
 
 export default function(Vue: VueConstructor) {
   Vue.component('PageSublist', PageSublist);
@@ -23,5 +24,52 @@ export default function(Vue: VueConstructor) {
   Vue.component('TextHero', TextHero);
   Vue.component('DtiProject', DTIProject);
 
-  shared(Vue);
+  const memberSet = AsyncDataset.import(() =>
+    import(/* webpackPrefetch: true */ '@/../data/generated/members.json')
+  )
+    .accessor(d => d as Member[])
+    .build();
+
+  const companiesSet = AsyncDataset.import(() =>
+    import(/* webpackPrefetch: true */ '@/../data/sets/companies.json')
+  )
+    .accessor<Company[]>(d => d.companies)
+    .build();
+
+  const teamsSet = AsyncDataset.import(() =>
+    import(/* webpackPrefetch: true */ '@/../data/sets/teams.json')
+  )
+    .accessor<Team[]>(d => d.teams)
+    .build();
+  const rolesSet = AsyncDataset.import(() =>
+    import(/* webpackPrefetch: true */ '@/../data/sets/roles.json')
+  )
+    .accessor<Role[]>(d => d.roles)
+    .build();
+
+  Vue.mixin({
+    methods: {
+      getMembers() {
+        return memberSet.get();
+      },
+      getRoles() {
+        return rolesSet.get();
+      },
+      getTeams() {
+        return teamsSet.get();
+      },
+      getCompanies() {
+        return companiesSet.get();
+      }
+    }
+  });
+
+  initializeVue(Vue);
+
+  return [
+    memberSet.initialize(),
+    companiesSet.initialize(),
+    teamsSet.initialize(),
+    rolesSet.initialize()
+  ];
 }

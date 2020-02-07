@@ -4,14 +4,13 @@
 import './webpackConfig';
 
 import { VueConstructor } from 'vue';
-import Apply from '@/pages/Apply.vue';
-import Courses from '@/pages/Courses.vue';
-import Index from '@/pages/Index.vue';
-import Initiatives from '@/pages/Initiatives.vue';
-import NotFound from '@/pages/NotFound.vue';
-import Projects from '@/pages/Projects.vue';
-import Sponsor from '@/pages/Sponsor.vue';
-import Team from '@/pages/Team.vue';
+import Apply from '@/views/Apply.vue';
+import Courses from '@/views/Courses.vue';
+import Home from '@/views/Home.vue';
+import Initiatives from '@/views/Initiatives.vue';
+import Projects from '@/views/Projects.vue';
+import Sponsor from '@/views/Sponsor.vue';
+import TeamView from '@/views/Team.vue';
 
 import DtiFooter from '@/components/DtiFooter.vue';
 import PageBackground from '@/components/PageBackground.vue';
@@ -24,21 +23,19 @@ import PageSection from '@/components/PageSection.vue';
 import MemberProfileModal from '@/components/MemberProfileModal.vue';
 import DTIProject from '@/templates/DTIProject.vue';
 
-import { shared } from '@/shared';
+import { initializeVue, AsyncDataset, Member, Company, Role, Team } from '@/shared';
 
 import SingleBackend from '@/strings/lib';
 import JSStringsBackend from '@/strings/backends/json';
 
 const Components = {
-  About,
   Apply,
   Courses,
-  Index,
+  Home,
   Initiatives,
-  NotFound,
   Projects,
   Sponsor,
-  Team,
+  Team: TeamView,
   DtiFooter,
   MemberProfileModal,
   PageBackground,
@@ -54,10 +51,58 @@ const Components = {
 export { Components };
 
 export function initialize(Vue: VueConstructor) {
-  shared(Vue);
+  const memberSet = AsyncDataset.import(() =>
+    Promise.resolve({
+      default: [] as Member[]
+    })
+  )
+    .accessor(d => d as Member[])
+    .build();
+
+  const companiesSet = AsyncDataset.import(() => import('@/../data/sets/companies.json'))
+    .accessor<Company[]>(d => d.companies)
+    .build();
+
+  const teamsSet = AsyncDataset.import(() => import('@/../data/sets/teams.json'))
+    .accessor<Team[]>(d => d.teams)
+    .build();
+
+  const rolesSet = AsyncDataset.import(() => import('@/../data/sets/roles.json'))
+    .accessor<Role[]>(d => d.roles)
+    .build();
+
+  Vue.mixin({
+    methods: {
+      getMembers() {
+        return memberSet.get();
+      },
+      getRoles() {
+        return rolesSet.get();
+      },
+      getTeams() {
+        return teamsSet.get();
+      },
+      getCompanies() {
+        return companiesSet.get();
+      }
+    }
+  });
+
+  initializeVue(Vue);
+
+  return [
+    rolesSet.initialize(),
+    teamsSet.initialize(),
+    memberSet.initialize(),
+    companiesSet.initialize()
+  ];
 }
 
-SingleBackend.resolveContext = function(this: JSStringsBackend, context: string, ...args: any[]) {
+SingleBackend.resolveContext = function resolveContext(
+  this: JSStringsBackend,
+  context: string,
+  ...args: any[]
+) {
   const [strings] = args;
 
   // Allow re-resolving in the library.
