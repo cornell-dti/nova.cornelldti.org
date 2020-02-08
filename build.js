@@ -7,13 +7,13 @@ const { Imgix, CloudFront } = cdnify;
 
 cdnify.init([
     {
-        pattern: /^\/public\/.*\.(png|jpg|jpeg)/g,
+        pattern: /^\/public\/.*\.(png|jpg)/,
         provider: Imgix({
             url: "cornelldti.imgix.net", key: process.env.IMGIX_API_KEY
         }),
     },
     {
-        pattern: /^\/public\/.*\.(webm|m4v|mp4)/g,
+        pattern: /^\/public\/.*\.(webm|m4v|mp4)/,
         provider: CloudFront({
             url: "d2ytxic79evey7.cloudfront.net"
         }),

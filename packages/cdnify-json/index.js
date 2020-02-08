@@ -5,13 +5,11 @@ const ImgixClient = require("imgix-core-js");
 const providerMap = new Map();
 
 module.exports = function cdnify(json) {
-    let entries;
-
+    const providers = Array.from(providerMap.entries());
     if (Array.isArray(json)) {
-        entries = json;
-        return entries.map(v => {
+        return json.map(v => {
             if (typeof v === 'string') {
-                for (let [pattern, provider] of Array.from(providerMap.entries())) {
+                for (let [pattern, provider] of providers) {
                     if (pattern.test(v)) {
                         return provider.transform(v);
                     }
@@ -23,14 +21,13 @@ module.exports = function cdnify(json) {
             } else {
                 return v;
             }
-        })
+        });
     } else {
-        entries = Object.entries(json).map(([k, v]) => {
+        return Object.entries(json).map(([k, v]) => {
             if (typeof v === 'string') {
-                for (let [pattern, provider] of Array.from(providerMap.entries())) {
+                for (let [pattern, provider] of providers) {
                     if (pattern.test(v)) {
-                        return [k,
-                            provider.transform(v)];
+                        return [k, provider.transform(v)];
                     }
                 }
 
@@ -40,9 +37,7 @@ module.exports = function cdnify(json) {
             } else {
                 return [k, v];
             }
-        });
-
-        return Object.fromEntries(entries);
+        }).reduce((prev, [k, v]) => Object.assign(prev, { [k]: v }), {});
     }
 }
 
