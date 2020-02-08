@@ -1,10 +1,10 @@
 {
   "join-information": {
-    "applications-open": false
+    "applications-open": true
   },
   "main-menu": {
     "advertisement": {
-      "open": false
+      "open": true
     }
   },
   "hero": {
@@ -22,18 +22,25 @@
     "image": "/public/pages/apply/hero/hero.png"
   },
   "info-session": {
-    "header": "Freshman Apps!",
-    "subheader": "Fall 2019",
-    "description": "First-year applications are now available to submit! Submissions will close at 11:59 p.m. on September 23rd."
+    "header": "Information Sessions!",
+    "subheader": "Spring 2020",
+    "description": "Come say hello! Because we’re recruiting only for specific roles, we’re jumping right to the point. These events are a great opportunity for you to talk to members about their experiences and projects more directly, and get your questions answered. We won’t have a giant slide deck, we promise."
   },
-  "info-sessions": [
-    {
-      "time": "Submit Applications Now!",
-      "location": "(links below)"
+  "info-sessions": [{
+      "time": "5:00 PM - 7:00 PM",
+      "location": "Upson Hall 222",
+      "link": {
+        "url": "https://www.facebook.com/events/1001712280229118/",
+        "text": "Facebook Event"
+      }
     },
     {
-      "time": "Information Sessions",
-      "location": "Klarman Auditorium • 9/3 + 9/9 • 5:00 PM"
+      "time": "1:00 PM - 4:00 PM",
+      "location": "ClubFest",
+      "link": {
+        "url": "http://events.cornell.edu/event/clubfest_spring_2020",
+        "text": "Event Info"
+      }
     }
   ],
   "application-info": [
@@ -41,7 +48,7 @@
       "id": "designer",
       "apply": {
         "header": "Product Design Role",
-        "right-header": "due 11:59 PM on Monday 9/23",
+        "right-header": "due 11:59 PM on Thursday 2/6",
         "sections": [
           {
             "header": "What We're Looking For",
@@ -53,13 +60,14 @@
           }
         ],
         "call-to-action-button": {
-          "closed": true,
-          "content": "Product Design Application (closed)"
+          "closed": false,
+          "content": "Product Design Application",
+          "link": "https://forms.gle/v1orvf7uJEf9PAtV6"
         }
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Tuesday 9/17 through Monday 9/30",
+        "right-header": "Monday 2/3 through Monday 2/10",
         "sections": [
           {
             "header": "Application Review",
@@ -73,7 +81,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 12:01 AM on Tuesday 10/1",
+        "right-header": "by 12:01 PM on Tuesday 2/11",
         "sections": [
           {
             "header": "Notification",
@@ -86,7 +94,7 @@
       "id": "developer",
       "apply": {
         "header": "Software Development Role",
-        "right-header": "due 11:59 PM on Monday 9/23",
+        "right-header": "due 11:59 PM on Thursday 2/6",
         "sections": [
           {
             "header": "What We're Looking For",
@@ -98,13 +106,14 @@
           }
         ],
         "call-to-action-button": {
-          "closed": true,
-          "content": "Software Developer Application (closed)"
+          "closed": false,
+          "content": "Software Developer Application",
+          "link": "https://forms.gle/qzQQqiXaucRH5HFJ6"
         }
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Tuesday 9/17 through Monday 9/30",
+        "right-header": "Monday 2/3 through Monday 2/10",
         "sections": [
           {
             "header": "Application Review",
@@ -118,7 +127,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 12:01 AM on Tuesday 10/1",
+        "right-header": "by 12:01 PM on Tuesday 2/11",
         "sections": [
           {
             "header": "Notification",
@@ -131,7 +140,7 @@
       "id": "business",
       "apply": {
         "header": "Business Analyst Role",
-        "right-header": "due 11:59 PM on Monday 9/23",
+        "right-header": "not recruiting for Spring 2020",
         "sections": [
           {
             "header": "What We're Looking For",
@@ -149,7 +158,7 @@
       },
       "next-steps": {
         "header": "Next Steps",
-        "right-header": "Tuesday 9/17 through Monday 9/30",
+        "right-header": "",
         "sections": [
           {
             "header": "Application Review",
@@ -163,7 +172,7 @@
       },
       "decision": {
         "header": "Decision",
-        "right-header": "by 12:01 AM on Tuesday 10/1",
+        "right-header": "",
         "sections": [
           {
             "header": "Notification",
@@ -176,7 +185,7 @@
       "id": "pm",
       "apply": {
         "header": "Product Management Role",
-        "right-header": "not open for freshman submissions",
+        "right-header": "not recruiting for Spring 2020",
         "sections": [
           {
             "header": "What We're Looking For",
