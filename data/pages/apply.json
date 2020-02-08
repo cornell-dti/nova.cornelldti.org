@@ -8,10 +8,17 @@
     }
   },
   "hero": {
+    "closed": {
+      "header": "Applications are currently closed.",
+      "subheader": "Subscribe to our newsletter to stay updated on the application process."
+    },
     "header": "Join Us",
     "subheader": "In every applicant, we above all look for people that want to use their talents and skills to make a difference. No matter your experience, we also strive to be as inclusive as possible and give passionate people a chance to grow and learn with us.",
-    "lazy": "/public/pages/apply/hero/hero-lazy.jpg",
-    "video": "/public/pages/apply/hero/hero.mp4",
+    "lazy": "/static/pages/apply/hero/hero-lazy.jpg",
+    "video": {
+      "webm": "/public/pages/apply/hero/hero.webm",
+      "mp4": "/public/pages/apply/hero/hero.mp4"
+    },
     "image": "/public/pages/apply/hero/hero.png"
   },
   "info-session": {

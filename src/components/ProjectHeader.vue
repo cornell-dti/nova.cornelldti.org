@@ -23,19 +23,16 @@
         </b-row>
       </b-col>
       <b-col cols="6" class="project-hero-logo">
-        <b-img
-          :class="['product', `product-${projectId}`]"
-          :src="AssetStrings.get(`projects.${projectId}.hero-image`)"
-        />
+        <b-img :class="['product', `product-${projectId}`]" :src="Strings.get(`hero-image`)" />
       </b-col>
     </b-row>
   </page-hero>
 </template>
 
 <script>
-import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings/lib';
-import ProjectGoTo from './ProjectGoTo.vue';
+import StringsFrontend from '@/strings/strings';
+import SingleBackend from '@/strings/lib';
+import ProjectGoTo from '@/components/ProjectGoTo.vue';
 
 export default {
   components: { ProjectGoTo },

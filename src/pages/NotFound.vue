@@ -5,3 +5,13 @@
     >
   </page-background>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  metaInfo: {
+    title: 'Not Found'
+  }
+});
+</script>

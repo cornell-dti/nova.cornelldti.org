@@ -1,7 +1,7 @@
 {
   "name": "Queue Me In",
-  "id": "queuemein",
-  "teamId": "queuemein",
+  "teamId": "queue-me-in",
+  "card": "/public/projects/queuemein/card.png",
   "header": "Queue Me In",
   "subheader": "Office Hours. Simplified.",
   "hero": {
@@ -17,15 +17,18 @@
   "features": [
     {
       "title": "Pick a Session.",
-      "description": "Browse upcoming office hours by day to pick one that works best for you. You can see whether or not the queue has opened, and how many students have already entered a question!"
+      "description": "Browse upcoming office hours by day to pick one that works best for you. You can see whether or not the queue has opened, and how many students have already entered a question!",
+      "image": "/static/pages/projects/pages/queuemein/feature1.jpg"
     },
     {
       "title": "Add Your Question.",
-      "description": "Join an office hour session! By adding your question, you can secure your place in line without worrying about other students cutting in."
+      "description": "Join an office hour session! By adding your question, you can secure your place in line without worrying about other students cutting in.",
+      "image": "/static/pages/projects/pages/queuemein/feature2.jpg"
     },
     {
       "title": "View the Queue.",
-      "description": "You can find an opportunity to listen in for a question you also have, or view other questions asked to understand overall problem areas."
+      "description": "You can find an opportunity to listen in for a question you also have, or view other questions asked to understand overall problem areas.",
+      "image": "/static/pages/projects/pages/queuemein/feature3.jpg"
     }
   ]
 }

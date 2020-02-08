@@ -1,40 +1,24 @@
 <template>
-  <page-background>
-    <project-header projectId="flux" />
-    <b-container fluid>
-      <b-row align-h="center">
-        <b-col md="10" sm="12">
-          <b-container fluid>
-            <text-hero
-              :header="Strings.get('hero.header', 'projects.flux')"
-              :subheader="Strings.get('hero.subheader', 'projects.flux')"
-            />
-          </b-container>
-
-          <project-features-list projectId="flux" />
-
-          <team-members :projectData="projectData"></team-members>
-
-          <project-learn-more projectId="flux" />
-        </b-col>
-      </b-row>
-    </b-container>
-
-    <dti-footer page="project" />
-  </page-background>
+  <FluxPage :strings="Strings" />
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+
+import FluxPage from '@/views/projects/Flux.vue';
+
+import FluxJSON from '@/../data/projects/flux.json';
+import { fromJSON } from '@/strings/json';
+
+@Component({ components: { FluxPage } })
+export default class Flux extends Vue {
+  Strings = fromJSON('projects.flux', FluxJSON);
+}
+</script>
 
 <style lang="scss">
 .product-flux {
   margin-top: -50%;
 }
 </style>
-
-<script lang="ts">
-import TeamBaseVue from './TeamBase.vue';
-import { Component } from '../../shim';
-
-export default Component({
-  extends: TeamBaseVue
-});
-</script>

@@ -1,7 +1,8 @@
 {
   "name": "Team Website",
-  "id": "website",
+  "active": false,
   "teamId": "website",
+  "card": "/public/projects/website/card.png",
   "header": "Team Website",
   "subheader": "Our Home Online.",
   "hero": {

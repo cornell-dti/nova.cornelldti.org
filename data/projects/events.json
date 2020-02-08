@@ -1,7 +1,7 @@
 {
   "name": "CUE",
-  "id": "events",
   "teamId": "events",
+  "card": "/public/projects/events/card.png",
   "header": "cue",
   "subheader": "Events at Cornell. Just for you.",
   "hero": {
@@ -17,15 +17,18 @@
   "features": [
     {
       "title": "Trending Now.",
-      "description": "Whether it’s a busy Monday or a casual weekend, cue lets you know what’s happening on campus."
+      "description": "Whether it’s a busy Monday or a casual weekend, cue lets you know what’s happening on campus.",
+      "image": "/static/pages/projects/pages/events/feature1.jpg"
     },
     {
       "title": "Manage Your Events.",
-      "description": "Track all the events you’re interested in with the app, anywhere on-the-go."
+      "description": "Track all the events you’re interested in with the app, anywhere on-the-go.",
+      "image": "/static/pages/projects/pages/events/feature2.jpg"
     },
     {
       "title": "Stay Updated.",
-      "description": "Cue makes it easy to stay up to date with all the organizations you care about."
+      "description": "Cue makes it easy to stay up to date with all the organizations you care about.",
+      "image": "/static/pages/projects/pages/events/feature3.jpg"
     }
   ]
 }

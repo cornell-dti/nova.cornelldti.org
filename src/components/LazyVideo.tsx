@@ -1,9 +1,8 @@
 export default {
   functional: true,
-  render(_, cx) {
-    const { props, parent } = cx;
+  render(_: any, cx: { props: any }) {
+    const { props } = cx;
     const useAws = props.aws != null ? props.aws : true;
-    const modifyUrl = useAws ? parent.aws : a => a;
 
     const video = <video class={props.className} mute autoplay loop poster={props.lazy} />;
 
@@ -11,15 +10,21 @@ export default {
 
     if (props.video) {
       if (useAws) {
-        video.children.push(<source type="video/webm" src={modifyUrl(props.video, 'webm')} />);
+        if (typeof props.video === 'string') {
+          video.children.push(<source type="video/mp4" src={props.video} />);
+        } else {
+          video.children.push(<source type="video/webm" src={props.video.webm} />);
+          video.children.push(<source type="video/mp4" src={props.video.mp4} />);
+        }
+      } else {
+        video.children.push(<source type="video/mp4" src={props.video} />);
       }
-      video.children.push(<source type="video/mp4" src={modifyUrl(props.video)} />);
     } else {
       video.children.push(<source type="video/mp4" src="" />);
     }
 
     if (props.image) {
-      video.children.push(<img src={modifyUrl(props.image)} />);
+      video.children.push(<img src={props.image} />);
     }
 
     if (props.lazy) {

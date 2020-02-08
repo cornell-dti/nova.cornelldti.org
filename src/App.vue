@@ -11,10 +11,13 @@
 
 <script script="ts">
 import EventBus from '@/eventbus';
+import DtiMainMenu from '@/components/DtiMainMenu.vue';
 
 export default {
   name: 'App',
-
+  components: {
+    DtiMainMenu
+  },
   mounted() {
     this.$root.$on('bv::modal::show', () => {
       const root = document.getElementsByTagName('html')[0];

@@ -1,7 +1,8 @@
 {
   "name": "O-Week",
-  "id": "events",
-  "teamId": "events",
+  "active": false,
+  "teamId": "oweek",
+  "card": "/public/projects/events/card.png",
   "header": "O-Week",
   "subheader": "Orientation Week. Made Simple.",
   "hero": {
@@ -18,15 +19,18 @@
   "features": [
     {
       "title": "Find It.",
-      "description": "Search for new events by keyword."
+      "description": "Search for new events by keyword.",
+      "image": "/static/pages/projects/pages/orientation/feature1.jpg"
     },
     {
       "title": "Remind Me.",
-      "description": "Be notified before any events required for your major."
+      "description": "Be notified before any events required for your major.",
+      "image": "/static/pages/projects/pages/orientation/feature2.jpg"
     },
     {
       "title": "Get There.",
-      "description": "Directions to any event are just a tap away."
+      "description": "Directions to any event are just a tap away.",
+      "image": "/static/pages/projects/pages/orientation/feature3.jpg"
     }
   ]
 }

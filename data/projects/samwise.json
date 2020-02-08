@@ -1,7 +1,7 @@
 {
   "name": "Project Samwise",
   "teamId": "samwise",
-  "id": "samwise",
+  "card": "/public/projects/samwise/card.png",
   "header": "Project Samwise",
   "subheader": "A Student Planner for Everyone.",
   "hero": {
@@ -17,15 +17,18 @@
   "features": [
     {
       "title": "Seize Your Day.",
-      "description": "Getting overwhelmed by looming assignments is not why you attend university. Samwise supports your sanity by presenting only what you need to be successful today."
+      "description": "Getting overwhelmed by looming assignments is not why you attend university. Samwise supports your sanity by presenting only what you need to be successful today.",
+      "image": "/static/pages/projects/pages/samwise/feature1.jpg"
     },
     {
       "title": "Plan Ahead.",
-      "description": "Seeing is believing. Add tasks with confidence as Samwise helps manage your workload days ahead. Work smarter, not harder."
+      "description": "Seeing is believing. Add tasks with confidence as Samwise helps manage your workload days ahead. Work smarter, not harder.",
+      "image": "/static/pages/projects/pages/samwise/feature2.jpg"
     },
     {
       "title": "Focus On What Matters.",
-      "description": "Remembering every task required for a specific assignment is hard. Take the guesswork out of homework with subtasks that work for you. Samwise brings your deadlines into focus, one step at a time."
+      "description": "Remembering every task required for a specific assignment is hard. Take the guesswork out of homework with subtasks that work for you. Samwise brings your deadlines into focus, one step at a time.",
+      "image": "/static/pages/projects/pages/reviews/feature3.jpg"
     }
   ]
 }

@@ -1,34 +1,18 @@
 <template>
-  <page-background>
-    <project-header projectId="samwise" />
-    <b-container fluid>
-      <b-row align-h="center">
-        <b-col md="10" sm="12">
-          <b-container fluid>
-            <text-hero
-              :header="Strings.get('hero.header')"
-              :subheader="Strings.get('hero.subheader')"
-            />
-          </b-container>
-
-          <project-features-list projectId="samwise" />
-
-          <team-members :projectData="projectData"></team-members>
-
-          <project-learn-more projectId="samwise" />
-        </b-col>
-      </b-row>
-    </b-container>
-
-    <dti-footer page="project" />
-  </page-background>
+  <SamwisePage :strings="Strings" />
 </template>
 
 <script lang="ts">
-import TeamBaseVue from './TeamBase.vue';
-import { Component } from '../../shim';
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-export default Component({
-  extends: TeamBaseVue
-});
+import SamwisePage from '@/views/projects/Samwise.vue';
+
+import SamwiseJSON from '@/../data/projects/samwise.json';
+import { fromJSON } from '@/strings/json';
+
+@Component({ components: { SamwisePage } })
+export default class Samwise extends Vue {
+  Strings = fromJSON('projects.samwise', SamwiseJSON);
+}
 </script>

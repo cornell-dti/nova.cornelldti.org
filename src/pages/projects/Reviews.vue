@@ -1,34 +1,18 @@
 <template>
-  <page-background>
-    <project-header projectId="reviews" />
-    <b-container fluid>
-      <b-row align-h="center">
-        <b-col md="10" sm="12">
-          <b-container fluid>
-            <text-hero
-              :header="Strings.get('hero.header')"
-              :subheader="Strings.get('hero.subheader')"
-            />
-          </b-container>
-
-          <project-features-list projectId="reviews" />
-
-          <team-members :projectData="projectData"></team-members>
-
-          <project-learn-more projectId="reviews" />
-        </b-col>
-      </b-row>
-    </b-container>
-
-    <dti-footer page="project" />
-  </page-background>
+  <ReviewsPage :strings="Strings" />
 </template>
 
 <script lang="ts">
-import TeamBaseVue from './TeamBase.vue';
-import { Component } from '../../shim';
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-export default Component({
-  extends: TeamBaseVue
-});
+import ReviewsPage from '@/views/projects/Reviews.vue';
+
+import { fromJSON } from '@/strings/json';
+import ReviewsJSON from '@/../data/projects/reviews.json';
+
+@Component({ components: { ReviewsPage } })
+export default class Reviews extends Vue {
+  Strings = fromJSON('projects.reviews', ReviewsJSON);
+}
 </script>

@@ -2,36 +2,95 @@
 
 const fs = require('fs');
 const path = require('path');
+const cdnify = require('cdnify-json');
+const { Imgix, CloudFront } = cdnify;
+
+cdnify.init([
+    {
+        pattern: /^\/public\/.*\.(png|jpg|jpeg)/g,
+        provider: Imgix({
+            url: "cornelldti.imgix.net", key: process.env.IMGIX_API_KEY
+        }),
+    },
+    {
+        pattern: /^\/public\/.*\.(webm|m4v|mp4)/g,
+        provider: CloudFront({
+            url: "d2ytxic79evey7.cloudfront.net"
+        }),
+    }
+]);
 
 function buildMembers() {
-  const memberFiles = fs.readdirSync(path.join(__dirname, 'data', 'members'));
+    const memberFiles = fs.readdirSync(path.join(__dirname, 'data', 'members'));
 
-  const members =
-    memberFiles
-      .filter(f => f.endsWith(".json"))
-      .map(f => path.join(__dirname, 'data', 'members', f))
-      .map(f => fs.readFileSync(f, { encoding: 'utf-8' }))
-      .map(contents => {
-        try {
-          return JSON.parse(contents);
-        } catch (err) {
-          console.error(err);
-          return null;
-        }
-      })
-      .filter(f => f != null);
+    const members =
+        memberFiles
+            .filter(f => f.endsWith(".json"))
+            .map(f => path.join(__dirname, 'data', 'members', f))
+            .map(f => fs.readFileSync(f, { encoding: 'utf-8' }))
+            .map(contents => {
+                try {
+                    const parsed = JSON.parse(contents);
 
-  const out = path.join(__dirname, 'data', 'generated');
+                    parsed.image = cdnify({ picture: `/public/members/${parsed.netid}.jpg` }).picture;
 
-  if (!fs.existsSync(out)) {
-    fs.mkdirSync(out);
-  }
+                    return parsed;
+                } catch (err) {
+                    console.error(err);
+                    return null;
+                }
+            })
+            .filter(f => f != null);
 
-  const outFile = path.join(out, 'members.json');
+    const out = path.join(__dirname, 'data', 'generated');
 
-  fs.writeFileSync(outFile, JSON.stringify(members, null, 4));
+    if (!fs.existsSync(out)) {
+        fs.mkdirSync(out);
+    }
+
+    const outFile = path.join(out, 'members.json');
+
+    fs.writeFileSync(outFile, JSON.stringify(members, null, 4));
 }
 
-console.log("Building members...");
-buildMembers();
-console.log("Members built!");
+function buildPages() {
+    const pageFiles = fs.readdirSync(path.join(__dirname, 'data', 'pages'));
+
+    pageFiles
+        .filter(f => f.endsWith(".json"))
+        .map(f => [f, path.join(__dirname, 'data', 'pages', f)])
+        .map(([f, path]) => [f, fs.readFileSync(path, { encoding: 'utf-8' })])
+        .map(([f, contents]) => {
+            try {
+                return [f, JSON.parse(contents)];
+            } catch (err) {
+                console.error(err);
+                return null;
+            }
+        })
+        .filter(([, contents]) => contents != null)
+        .map(([f, contents]) => [f, cdnify(contents)])
+        .forEach(([f, contents]) => {
+            const out = path.join(__dirname, 'data', 'generated', 'pages');
+
+            if (!fs.existsSync(out)) {
+                fs.mkdirSync(out);
+            }
+
+            const outFile = path.join(out, f);
+
+            fs.writeFileSync(outFile, JSON.stringify(contents, null, 4));
+        });
+
+
+}
+
+module.exports = function () {
+    console.log("Building members...");
+    buildMembers();
+    console.log("Members built!");
+
+    console.log("Building pages...");
+    buildPages();
+    console.log("Pages built!");
+}

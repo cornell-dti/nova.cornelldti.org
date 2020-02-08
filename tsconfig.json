@@ -7,10 +7,6 @@
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "noImplicitAny": false,
-    "noImplicitThis": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
@@ -21,12 +17,6 @@
     "paths": {
       "@/*": [
         "src/*"
-      ],
-      "#/*": [
-        "data/*"
-      ],
-      "$/*": [
-        "cms/*"
       ]
     },
     "lib": [
@@ -37,12 +27,8 @@
     ]
   },
   "include": [
-    "data/**/*.json",
-    "cms/**/*.ts",
-    "cms/**/*.tsx",
-    "cms/**/*.vue",
+    "admin/**/*.js",
     "src/**/*.ts",
-    "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",

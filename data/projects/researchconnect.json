@@ -1,7 +1,8 @@
 {
   "name": "Research Connect",
-  "id": "researchconnect",
+  "active": false,
   "teamId": "research",
+  "card": "/public/projects/research/card.png",
   "header": "Research Connect",
   "subheader": "Handshake for Lab Research.",
   "hero": {
@@ -18,15 +19,18 @@
   "features": [
     {
       "title": "Find Research Opportunities.",
-      "description": "Instead of having to email researchers, we streamline the process by showing undergrads all of the opportunities available to them."
+      "description": "Instead of having to email researchers, we streamline the process by showing undergrads all of the opportunities available to them.",
+      "image": "/static/pages/projects/pages/researchconnect/feature1.jpg"
     },
     {
       "title": "View Requirements. Apply Online.",
-      "description": "Find out exactly what requirements a lab is searching for that match your background."
+      "description": "Find out exactly what requirements a lab is searching for that match your background.",
+      "image": "/static/pages/projects/pages/researchconnect/feature2.jpg"
     },
     {
       "title": "Search Faculty.",
-      "description": "Search for faculty across all departments to find out who is conducting research and whether they’re looking for students. (Coming Soon)"
+      "description": "Search for faculty across all departments to find out who is conducting research and whether they’re looking for students. (Coming Soon)",
+      "image": "/static/pages/projects/pages/researchconnect/feature3.jpg"
     }
   ]
 }

@@ -1,20 +1,14 @@
 {
   "branding": {
-    "wordmark": "/public/branding/wordmark.png",
-    "icon": "/public/branding/brand-icon.svg"
+    "wordmark": "/static/branding/wordmark.png",
+    "icon": "/static/branding/brand-icon.svg"
   },
-  "directories": {
-    "members": "/public/members"
-  },
-  "projects": {
-    "*": {
-      "card": "/public/projects/$1$/card.png",
-      "hero-image": "/public/pages/projects/pages/$1$/header.png",
-      "features": [
-        "/public/pages/projects/pages/$1$/feature1.jpg",
-        "/public/pages/projects/pages/$1$/feature2.jpg",
-        "/public/pages/projects/pages/$1$/feature3.jpg"
-      ]
+  "mainMenu": {
+    "advertisement": {
+      "open": false
     }
+  },
+  "footer": {
+    "link": "mailto:hello@cornelldti.org"
   }
 }

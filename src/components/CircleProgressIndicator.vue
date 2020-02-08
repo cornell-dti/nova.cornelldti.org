@@ -24,10 +24,10 @@
 </template>
 
 <script lang="ts">
-import DonutGraph from './DonutGraph';
-import { Component } from '@/shim';
+import Vue from 'vue';
+import DonutGraph from '@/components/DonutGraph.tsx';
 
-export default Component({
+export default Vue.extend({
   components: {
     DonutGraph
   },

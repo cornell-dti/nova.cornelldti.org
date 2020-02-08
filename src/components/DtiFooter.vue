@@ -6,10 +6,7 @@
           <b-row align-h="end" align-v="start" class="subfooter-wrapper">
             <b-col class="subfooter-col" md="6" sm="6">
               <div class="subfooter-text subfooter-text-gray">{{ `Have a great idea?` }}</div>
-              <a
-                class="button-wrapper"
-                :href="AssetStrings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org'"
-              >
+              <a class="button-wrapper" :href="$static.metadata.footer.link">
                 <button class="subfooter-button subfooter-button-gray">{{ `Contact Us` }}</button>
               </a>
             </b-col>
@@ -18,7 +15,7 @@
                 {{ `Sign up for our newsletter!` }}
               </div>
               <a class="button-wrapper">
-                <button @click="subscritionClick" class="subfooter-button subfooter-button-red">
+                <button @click="subscriptionClick" class="subfooter-button subfooter-button-red">
                   {{ `Subscribe` }}
                 </button>
               </a>
@@ -31,7 +28,7 @@
           <b-row class="footer-row" align-v="center">
             <b-col lg="12" xl="6">
               <b-row align-h="start">
-                <img class="brand" :src="AssetStrings.get('branding.wordmark')" />
+                <img class="brand" :src="$static.metadata.branding.wordmark" />
               </b-row>
             </b-col>
             <b-col lg="12" xl="6" class="social-icons-wrapper">
@@ -105,6 +102,20 @@
   </div>
 </template>
 
+<static-query>
+query {
+  metadata {
+    branding {
+      wordmark 
+    }
+
+    footer {
+      link
+    }
+  }
+}
+</static-query>
+
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
@@ -136,10 +147,10 @@ import MailChimpForm from '@/components/MailChimpForm.vue';
 })
 export default class DtiFooter extends Vue {
   @Prop({ type: String })
-  page;
+  page!: string;
 
   @Prop({ type: Boolean, default: false })
-  hideSubfooter;
+  hideSubfooter!: boolean;
 
   isSubscribing = false;
 
@@ -150,10 +161,12 @@ export default class DtiFooter extends Vue {
     modal.hide();
   }
 
-  subscritionClick() {
+  subscriptionClick() {
     this.isSubscribing = true;
   }
 }
+
+export { DtiFooter };
 </script>
 
 <style lang="scss" scoped>

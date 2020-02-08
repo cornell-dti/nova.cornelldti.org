@@ -1,7 +1,7 @@
 {
   "name": "Flux",
-  "id": "flux",
   "teamId": "flux",
+  "card": "/public/projects/flux/card.png",
   "header": "flux",
   "subheader": "Real time traffic flow.",
   "hero": {
@@ -19,11 +19,13 @@
   "features": [
     {
       "title": "Browse.",
-      "description": "Filter dining halls by location or crowdedness."
+      "description": "Filter dining halls by location or crowdedness.",
+      "image": "/static/pages/projects/pages/flux/feature1.jpg"
     },
     {
       "title": "Plan.",
-      "description": "Know ahead of time the best places to be."
+      "description": "Know ahead of time the best places to be.",
+      "image": "/static/pages/projects/pages/flux/feature1.jpg"
     }
   ]
 }

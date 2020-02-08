@@ -1,7 +1,8 @@
 {
   "name": "Shout",
-  "id": "shout",
+  "active": false,
   "teamId": "shout",
+  "card": "/public/projects/shout/card.png",
   "header": "Shout",
   "subheader": "Find Out. Go Out. Reach Out.",
   "hero": {

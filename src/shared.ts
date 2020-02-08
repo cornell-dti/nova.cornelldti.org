@@ -1,128 +1,168 @@
-/* Node Modules */
+/* eslint-disable no-param-reassign */
+
 import BootstrapVue from 'bootstrap-vue';
-import Vue from 'vue';
-import ImgixClient from 'imgix-core-js';
 
-/* Data */
+import { VueConstructor, CreateElement, RenderContext } from 'vue';
 
-import Members from '#/generated/members.json';
-import Companies from '#/sets/companies.json';
-import Teams from '#/sets/teams.json';
-import Roles from '#/sets/roles.json';
+import StringsFrontend, { StringsData } from '@/strings/strings';
+import SingleBackend from '@/strings/lib';
+import { makeStrings } from '@/strings/context';
 
-/* Core Files */
+export { Member, Team, Company, Role } from './vue';
 
-import StringsFrontend from '@/data/strings/strings';
-import SingleBackend from '@/data/strings/lib';
+class AsyncDatasetBuilder<T, K> {
+  protected _fn: () => Promise<{ default: T }>;
 
-const AssetStrings = new StringsFrontend('assets', SingleBackend);
+  protected _accessor: (a: T) => K;
 
-const Images = new ImgixClient({
-  domain: 'cornelldti.imgix.net'
-});
+  constructor(fn: () => Promise<{ default: T }>, a: (a: T) => K) {
+    this._fn = fn;
+    this._accessor = a;
+  }
 
-Vue.mixin({
-  data() {
-    return {
-      AssetStrings
-    };
-  },
-  methods: {
-    joinPath(...parts: string[]) {
-      const first = parts[0].split('://');
-      const beginning = first[0];
-      const url = [] as string[];
+  build() {
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    return new AsyncDataset(this._fn, this._accessor);
+  }
+}
 
-      if (first.length > 1) {
-        url.push(`${beginning}://`);
-        const slice = first.slice(1);
-        url.push(
-          ...slice
-            .join('://')
-            .split('/')
-            .filter(value => value !== '')
-        );
-      } else {
-        url.push(`${beginning}`);
-        url.push(...beginning.split('/').filter(value => value !== ''));
-      }
+class AsyncDatasetFn<T> extends AsyncDatasetBuilder<T, T> {
+  constructor(fn: () => Promise<{ default: T }>) {
+    super(fn, a => a);
+  }
 
-      url.push(
-        ...parts
-          .slice(1)
-          .join('/')
-          .split('/')
-          .filter(value => value !== '')
-      );
+  accessor<K>(accessor: (a: T) => K) {
+    const { _fn } = this;
+    return new AsyncDatasetBuilder(_fn, accessor);
+  }
+}
 
-      return url.join('/');
-    },
-    aws(asset = '', extension = '') {
-      if (!asset) {
-        return '';
-      }
+class AsyncDatasetAcc<T, K> {
+  private _accessor: (a: T) => K;
 
-      if (extension) {
-        return Images.buildURL(
-          asset.replace(/^\/public/, '/static').replace(/\.(.*?)$/, `.${extension}`)
-        );
-      }
+  constructor(a: (a: T) => K) {
+    this._accessor = a;
+  }
 
-      return Images.buildURL(asset.replace(/^\/public/, '/static'));
-    },
-    getMembers() {
-      return Members;
-    },
-    getRoles() {
-      return Roles.roles;
-    },
-    getTeams() {
-      return Teams.teams;
-    },
-    getCompanies() {
-      return Companies.companies;
+  import(fn: () => Promise<{ default: T }>) {
+    return new AsyncDatasetBuilder(fn, this._accessor);
+  }
+}
+
+export class AsyncDataset<T, K = {}> {
+  data!: T;
+
+  fn: () => Promise<{ default: T }>;
+
+  accessor: (a: T) => K;
+
+  constructor(fn: () => Promise<{ default: T }>, a: (a: T) => K) {
+    this.fn = fn;
+    this.accessor = a;
+  }
+
+  static import<T>(fn: () => Promise<{ default: T }>) {
+    return new AsyncDatasetFn(fn);
+  }
+
+  static accessor<T, K>(accessor: (a: T) => K) {
+    return new AsyncDatasetAcc(accessor);
+  }
+
+  async initialize() {
+    this.data = (await this.fn()).default;
+    return true;
+  }
+
+  get(): K {
+    return this.accessor(this.data);
+  }
+}
+
+export function initializeVue(Vue: VueConstructor) {
+  const AssetStrings = new StringsFrontend('assets', SingleBackend);
+
+  Vue.mixin({
+    data() {
+      return {
+        AssetStrings
+      };
     }
-  }
-});
+  });
 
-export interface Member {
-  netid: string;
-  name: string;
-  firstName: string;
-  lastName: string;
-  isLead?: boolean;
-  roleId: string;
-  otherSubteams?: string[];
-  subteam: string;
+  Vue.component('Strings', {
+    name: 'Strings',
+    functional: true,
+    props: {
+      strings: {
+        default: () => ({})
+      },
+      source: {
+        default: ''
+      }
+    },
+    render(h, cx) {
+      const prop: string | { [key: string]: string } | string[] = cx.props.strings;
+      let resolvedStrings:
+        | { [key: string]: StringsData }
+        | StringsData
+        | StringsData[]
+        | null = null;
+      const { source } = cx.props;
+      const Strings = source
+        ? new StringsFrontend(source, SingleBackend)
+        : (cx.parent as any).Strings || makeStrings(cx.parent.$context);
+
+      if (typeof prop === 'string') {
+        resolvedStrings = Strings.get(prop);
+      } else if (Array.isArray(prop)) {
+        resolvedStrings = prop.map(p => Strings.get(p));
+      } else {
+        resolvedStrings = Object.fromEntries(
+          Object.entries({ ...prop }).map(([k, v]) => {
+            return [k, Strings.get(v)];
+          })
+        );
+      }
+
+      const { strings: slot } = cx.scopedSlots;
+
+      if (slot) {
+        const node = slot(resolvedStrings);
+
+        if (node) {
+          return node;
+        }
+      }
+
+      return h();
+    }
+  });
+
+  Vue.component('StringsDomain', {
+    name: 'StringsDomain',
+    functional: true,
+    props: {
+      value: {
+        required: true
+      }
+    },
+    render(h: CreateElement, cx: RenderContext<{ value: unknown }>) {
+      const { key: slot } = cx.scopedSlots;
+
+      if (slot) {
+        const node = slot(cx.props.value);
+
+        if (node) {
+          return node;
+        }
+      }
+
+      return h();
+    }
+  });
+
+  Vue.use(BootstrapVue);
+
+  return [AssetStrings.initialize()];
 }
-
-export interface Role {
-  name: string;
-  id: string;
-}
-
-export interface Team {
-  name: string;
-  id: string;
-}
-
-export interface Company {
-  name: string;
-  id: string;
-}
-
-declare module 'vue/types/vue' {
-  // 3. Declare augmentation for Vue
-  interface Vue {
-    getCompanies(): Company[];
-    getTeams(): Team[];
-    getRoles(): Role[];
-    getMembers(): Member[];
-    joinPath(...paths: string[]): string;
-    Strings: StringsFrontend;
-  }
-}
-
-Vue.use(BootstrapVue);
-
-export default AssetStrings;

@@ -2,8 +2,11 @@
   "hero": {
     "header": "Sponsor Our Mission",
     "subheader": "We want to partner with organizations who have a similar vision of changing the world. Together, we can work towards improving our communities with technology.",
-    "lazy": "/public/pages/sponsor/hero/hero-lazy.jpg",
-    "video": "/public/pages/sponsor/hero/hero.mp4",
+    "lazy": "/static/pages/sponsor/hero/hero-lazy.jpg",
+    "video": {
+      "mp4": "/public/pages/sponsor/hero/hero.mp4",
+      "webm": "/public/pages/sponsor/hero/hero.webm"
+    },
     "image": "/public/pages/sponsor/hero/hero.png"
   },
   "pitch": [
@@ -103,5 +106,15 @@
         }
       }
     ]
+  },
+  "sponsors": {
+    "check": "/static/pages/sponsor/sponsors/Checkmark.png",
+    "invision": "/static/pages/sponsor/sponsors/invision.png",
+    "google": "/static/pages/sponsor/sponsors/google.png",
+    "cornell-engineering-alumni": "/static/pages/sponsor/sponsors/cornellengineeringalumni.png"
+  },
+  "events": {
+    "infoSesh": "/public/pages/sponsor/events/infoSesion.png",
+    "googleLunch": "/public/pages/sponsor/events/googleLunch.jpg"
   }
 }

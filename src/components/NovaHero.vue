@@ -51,10 +51,11 @@ $height: 65vh;
 }
 </style>
 
-<script>
-import LazyVideo from './LazyVideo';
+<script lang="ts">
+import Vue from 'vue';
+import LazyVideo from '@/components/LazyVideo.tsx';
 
-export default {
+export default Vue.extend({
   components: { LazyVideo },
   props: {
     page: {
@@ -64,7 +65,7 @@ export default {
       type: String
     },
     video: {
-      type: String
+      default: {}
     },
     lazy: {
       type: String
@@ -76,5 +77,5 @@ export default {
       type: String
     }
   }
-};
+});
 </script>

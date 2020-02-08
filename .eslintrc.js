@@ -10,9 +10,12 @@ module.exports = {
     'plugin:import/typescript',
   ],
   plugins: ['@typescript-eslint'],
-
   parserOptions: {
     parser: '@typescript-eslint/parser',
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    extraFileExtensions: ['.vue'],
+    project: './tsconfig.json'
   },
 
   env: {
@@ -28,7 +31,6 @@ module.exports = {
       'always',
       {
         ts: 'never',
-        tsx: 'never',
         'd.ts': 'never',
         js: 'never'
       }
@@ -78,14 +80,17 @@ module.exports = {
         allowTemplateLiterals: true
       }
     ],
+    'lines-between-class-members': ['off'],
     'max-len': ['warn', { code: 200 }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // TODO: fix these problems and turn them into error again.
+    'vue/no-parsing-error': ['warn'],
     'vue/no-use-v-if-with-v-for': ['warn'],
     'vue/no-unused-components': ['warn'],
     'vue/no-unused-vars': ['warn'],
-    'no-restricted-globals': ['warn']
+    'no-restricted-globals': ['warn'],
+    'max-classes-per-file': ['off']
   },
 
   'extends': [

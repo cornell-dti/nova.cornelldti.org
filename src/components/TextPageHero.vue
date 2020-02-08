@@ -25,7 +25,7 @@
 </style>
 
 <script>
-import PageHero from './PageHero.vue';
+import PageHero from '@/components/PageHero.vue';
 
 export default {
   extends: PageHero,
