@@ -35,6 +35,8 @@
     "tests/**/*.tsx"
   ],
   "exclude": [
+    "packages",
+    "plugins",
     "node_modules"
   ]
 }

@@ -17,6 +17,9 @@ s3/
 
 .env
 
+# Generated JSON files.
+data/generated/**/*
+
 # Local Netlify folder
 .netlify
 
@@ -25,4 +28,4 @@ s3/
 .cache
 
 # CMS folders
-lib/**/*
+admin/lib/**/*

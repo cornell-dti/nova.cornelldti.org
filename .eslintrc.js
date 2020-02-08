@@ -15,14 +15,13 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
     extraFileExtensions: ['.vue'],
-    project: './tsconfig.json'
+    project: ['./tsconfig.json']
   },
 
   env: {
     browser: true,
     node: true
   },
-
   // add your custom rules here
   rules: {
     // don't require .vue extension when importing
@@ -92,7 +91,6 @@ module.exports = {
     'no-restricted-globals': ['warn'],
     'max-classes-per-file': ['off']
   },
-
   'extends': [
     'plugin:vue/essential',
     '@vue/airbnb',
