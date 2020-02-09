@@ -11,7 +11,12 @@ import FluxPage from '@/views/projects/Flux.vue';
 import FluxJSON from '@/../data/projects/flux.json';
 import { fromJSON } from '@/strings/json';
 
-@Component({ components: { FluxPage } })
+@Component({
+  metaInfo: {
+    title: 'Flux'
+  },
+  components: { FluxPage }
+})
 export default class Flux extends Vue {
   Strings = fromJSON('projects.flux', FluxJSON);
 }

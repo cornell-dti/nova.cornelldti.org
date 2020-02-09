@@ -53,20 +53,20 @@
                   :fields="fields"
                 >
                   <!-- eslint-disable vue/no-unused-vars -->
-                  <template v-slot:head(benefits)="row">
+                  <template v-slot:head(benefits)>
                     <strong class="table-header">Benefits</strong>
                   </template>
-                  <template v-slot:head(bronze)="row">
+                  <template v-slot:head(bronze)>
                     <div class="bronze-header">Bronze</div>
                   </template>
-                  <template v-slot:head(silver)="row">
+                  <template v-slot:head(silver)>
                     <div class="silver-header">Silver</div>
                   </template>
-                  <template v-slot:head(gold)="row">
+                  <template v-slot:head(gold)>
                     <div class="gold-header">Gold</div>
                   </template>
 
-                  <template v-slot:head(platinum)="row">
+                  <template v-slot:head(platinum)>
                     <div class="platinum-header">Platinum</div>
                   </template>
                   <!-- eslint-enable -->
@@ -151,6 +151,21 @@ import { PropValidator } from 'vue/types/options';
 import wcheck from '@/assets/sponsor/whitecheck.svg';
 
 import Strings from '@/strings/strings';
+import { StringsData } from '@/strings/types';
+
+type SponsorTier = 'bronze' | 'gold' | 'silver' | 'platinum';
+
+interface SponsorTierBenefits {
+  [k: string]: Partial<StringsData>;
+  benefit: string;
+  subheader: string;
+  tiers: { [key in SponsorTier]?: boolean };
+}
+
+type SponsorTierBenefitsData = {
+  benefits: string;
+  subheader: string;
+} & { [key in SponsorTier]: boolean };
 
 export default Vue.extend({
   metaInfo: {
@@ -165,14 +180,25 @@ export default Vue.extend({
     } as PropValidator<Strings>
   },
   computed: {
-    items(): any[] {
-      const data = this.Strings.get('tiers.sponsor');
+    items(): SponsorTierBenefitsData[] {
+      const data = this.Strings.get<SponsorTierBenefits[]>('tiers.sponsor');
 
-      return (data as any[]).map(d => ({
-        benefits: d.benefit,
-        subheader: d.subheader,
-        ...d.tiers
-      }));
+      return data.map((tier: SponsorTierBenefits) => {
+        const {
+          benefit: benefits,
+          subheader,
+          tiers: { bronze, gold, silver, platinum }
+        } = tier;
+
+        return {
+          benefits,
+          subheader,
+          bronze: bronze || false,
+          gold: gold || false,
+          silver: silver || false,
+          platinum: platinum || false
+        };
+      });
     }
   },
   data() {

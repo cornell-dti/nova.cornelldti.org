@@ -23,9 +23,15 @@ import { Component } from 'vue-property-decorator';
 
 import { fromJSON } from '@/strings/json';
 
-import ProjectsPage from '@/views/Projects.vue';
+import ProjectsPage, { Project } from '@/views/Projects.vue';
 
 import ProjectsJSON from '@/../data/generated/pages/projects.json';
+
+interface ProjectsPage {
+  projects: {
+    edges: { node: Project }[];
+  };
+}
 
 @Component({
   metaInfo: {
@@ -38,8 +44,8 @@ import ProjectsJSON from '@/../data/generated/pages/projects.json';
 class Projects extends Vue {
   Strings = fromJSON('projects', ProjectsJSON);
 
-  get projects() {
-    const projects = this.$page.projects.edges.map((e: { node: any }) => e.node);
+  get projects(): Project[] {
+    const projects = (this.$page as ProjectsPage).projects.edges.map(e => e.node);
     return projects;
   }
 }

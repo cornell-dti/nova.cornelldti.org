@@ -1,6 +1,17 @@
 export default {
   functional: true,
-  render(_: any, cx: { props: any }) {
+  render(
+    _: unknown,
+    cx: {
+      props: {
+        aws: boolean;
+        className: string;
+        lazy: boolean;
+        image: string;
+        video: string | { webm: string; mp4: string };
+      };
+    }
+  ) {
     const { props } = cx;
     const useAws = props.aws != null ? props.aws : true;
 

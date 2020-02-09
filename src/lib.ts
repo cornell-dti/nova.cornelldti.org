@@ -27,6 +27,7 @@ import { initializeVue, AsyncDataset, Member, Company, Role, Team } from '@/shar
 
 import SingleBackend from '@/strings/lib';
 import JSStringsBackend from '@/strings/backends/json';
+import Strings from '@/strings/strings';
 
 const Components = {
   Apply,
@@ -101,7 +102,7 @@ export function initialize(Vue: VueConstructor) {
 SingleBackend.resolveContext = function resolveContext(
   this: JSStringsBackend,
   context: string,
-  ...args: any[]
+  ...args: Strings[]
 ) {
   const [strings] = args;
 

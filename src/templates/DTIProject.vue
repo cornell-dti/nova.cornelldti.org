@@ -43,7 +43,6 @@ import ProjectLearnMore from '@/components/ProjectLearnMore.vue';
 import ProjectHeader from '@/components/ProjectHeader.vue';
 import TeamMembers from '@/components/TeamMembers.vue';
 
-import { makeStrings } from '@/strings/context';
 import Strings from '@/strings/strings';
 
 export default Vue.extend({
@@ -69,11 +68,11 @@ export default Vue.extend({
     EventBus.$emit('set-navbar-light', {});
   },
   computed: {
-    Strings(): Strings {
-      return makeStrings(this.$context || this.$parent.$context);
-    },
     projectData() {
-      return {}; // JSON.parse(JSON.stringify(this.Strings.get('')));
+      return {};
+    },
+    Strings(): Strings | null {
+      return this.$parent.Strings || null;
     }
   },
   methods: {

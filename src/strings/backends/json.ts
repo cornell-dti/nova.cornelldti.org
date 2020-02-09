@@ -1,4 +1,5 @@
-import StringsBackend from '@/strings/backend';
+import StringsBackend from '../backend';
+import { StringsData } from '../types';
 
 const DEFAULT_CONTEXT = 'default';
 
@@ -6,8 +7,16 @@ const DEFAULT_CONTEXT = 'default';
  * @param {string} key
  * @param {*} json
  */
-function searchKey(key: string, json: { [x: string]: any }) {
-  let val = json[key];
+function searchKey(key: string, json: StringsData) {
+  if (typeof json !== 'object') {
+    return json;
+  }
+
+  if (json == null) {
+    return null;
+  }
+
+  let val = Array.isArray(json) ? json : json[key];
 
   let path: string | null = '';
 
@@ -16,7 +25,7 @@ function searchKey(key: string, json: { [x: string]: any }) {
   if (typeof val === 'undefined' || val === null) {
     const keys = key.split('.');
 
-    let currentChild: typeof json | null = json;
+    let currentChild: StringsData = json;
 
     for (const _childKey of keys) {
       let childKey: string | number = _childKey;
@@ -30,12 +39,17 @@ function searchKey(key: string, json: { [x: string]: any }) {
         break;
       }
 
-      if (typeof currentChild[childKey] === 'undefined' || currentChild[childKey] === null) {
-        if (typeof currentChild['*'] !== 'undefined') {
+      if (
+        typeof currentChild === 'object' &&
+        ((Array.isArray(currentChild) &&
+          ((typeof childKey === 'number' && currentChild[childKey] == null) ||
+            typeof childKey === 'string')) ||
+          (!Array.isArray(currentChild) && currentChild[childKey] == null))
+      ) {
+        if (!Array.isArray(currentChild) && typeof currentChild['*'] !== 'undefined') {
           path += `/${childKey}`;
           replacements.push(childKey);
           currentChild = currentChild['*'];
-
           continue;
         } else if (
           Array.isArray(currentChild) &&
@@ -43,8 +57,9 @@ function searchKey(key: string, json: { [x: string]: any }) {
           childKey.includes('=')
         ) {
           const [k, v] = childKey.split('=');
-
-          const found = currentChild.find(m => m[k] === v);
+          const found = currentChild.find(
+            m => m != null && typeof m === 'object' && !Array.isArray(m) && m[k] === v
+          );
 
           if (typeof found !== 'undefined' && found !== null) {
             path += `/${v}`;
@@ -52,14 +67,19 @@ function searchKey(key: string, json: { [x: string]: any }) {
             continue;
           }
         }
-
         currentChild = null;
         path = null;
         break;
       }
 
       path += `/${childKey}`;
-      currentChild = currentChild[childKey];
+      if (currentChild != null && typeof currentChild === 'object') {
+        if (!Array.isArray(currentChild)) {
+          currentChild = currentChild[childKey];
+        } else if (typeof childKey === 'number') {
+          currentChild = currentChild[childKey];
+        }
+      }
     }
 
     if (typeof currentChild !== 'undefined' && currentChild !== null) {
@@ -75,14 +95,14 @@ function searchKey(key: string, json: { [x: string]: any }) {
     }
 
     let replacementIndex = 1;
-    let newStr = val.replace(`$${replacementIndex}$`, replacements[replacementIndex - 1]);
+    let newStr = val.replace(`$${replacementIndex}$`, `${replacements[replacementIndex - 1]}`);
 
     replacementIndex += 1;
 
     while (val !== newStr) {
       val = newStr;
 
-      newStr = val.replace(`$${replacementIndex}$`, replacements[replacementIndex - 1]);
+      newStr = val.replace(`$${replacementIndex}$`, `${replacements[replacementIndex - 1]}`);
 
       replacementIndex += 1;
     }
@@ -102,10 +122,10 @@ export default class JSStringsBackend extends StringsBackend {
     return DEFAULT_CONTEXT;
   }
 
-  resolveContext(context: string, ...args: any[]) {
+  resolveContext(context: string, ...args: unknown[]) {
     const [strings] = args;
     if (!this.map.has(context)) {
-      this.map.set(context, strings);
+      this.map.set(context, strings as {});
     }
 
     return this.map.get(context);
@@ -144,7 +164,7 @@ export default class JSStringsBackend extends StringsBackend {
     if (json) {
       const obj = searchKey(key, json);
 
-      if (typeof obj === 'object') {
+      if (obj != null && typeof obj === 'object') {
         return Object.keys(obj);
       }
 

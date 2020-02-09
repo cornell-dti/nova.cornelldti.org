@@ -3,7 +3,7 @@
     <Strings :strings="'join-information.applications-open'" #strings="isOpen">
       <Strings :strings="['hero', 'hero.closed']" #strings="[hero, closed]">
         <nova-hero
-          v-if="isOpen"
+          v-if="hero && isOpen"
           :header="hero.header"
           :subheader="hero.subheader"
           :video="hero.video"
@@ -108,7 +108,7 @@
           :strings="`application-info.id=${roleId}.${child}`"
         >
           <template #strings="info">
-            <timeline-section :header="info.header" :rightHeader="info.rightHeader">
+            <timeline-section v-if="info" :header="info.header" :rightHeader="info['right-header']">
               <template v-if="Array.isArray(info.sections)">
                 <div v-for="section of info.sections" :key="section.header">
                   <template v-if="section">
@@ -225,7 +225,7 @@ class Apply extends Vue {
 
   onSubscribe(event: { preventDefault: () => void }) {
     event.preventDefault();
-    (this.$refs.footerRef as any).subscriptionClick();
+    this.$refs.footerRef.subscriptionClick();
   }
 }
 

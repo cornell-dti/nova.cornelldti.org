@@ -1,3 +1,5 @@
+import { StringsData } from './types';
+
 /* eslint-disable class-methods-use-this, no-unused-vars */
 
 export default abstract class StringsBackend {
@@ -49,11 +51,11 @@ export default abstract class StringsBackend {
    * @returns the given string for the key in context or null if not found
    *
    */
-  abstract _getString(key: string, context: string): string | null;
+  abstract _getString(key: string, context: string): StringsData;
 
   abstract _getChildrenKeysFor(key: string, context: string): string[] | null;
 
   abstract _exists(key: string, context: string): boolean;
 
-  abstract resolveContext(context: string, ..._: any[]): any;
+  abstract resolveContext(context: string, ..._: unknown[]): unknown;
 }

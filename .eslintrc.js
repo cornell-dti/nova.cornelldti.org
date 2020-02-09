@@ -8,6 +8,7 @@ module.exports = {
     '@vue/typescript/recommended',
     '@vue/prettier',
     'plugin:import/typescript',
+    '@vue/typescript'
   ],
   plugins: ['@typescript-eslint'],
   parserOptions: {
@@ -17,10 +18,15 @@ module.exports = {
     extraFileExtensions: ['.vue'],
     project: ['./tsconfig.json']
   },
-
   env: {
     browser: true,
     node: true
+  },
+  settings: {
+    "import/resolver": {
+      "typescript": {
+      },
+    }
   },
   // add your custom rules here
   rules: {
@@ -90,13 +96,5 @@ module.exports = {
     'vue/no-unused-vars': ['warn'],
     'no-restricted-globals': ['warn'],
     'max-classes-per-file': ['off']
-  },
-  'extends': [
-    'plugin:vue/essential',
-    '@vue/airbnb',
-    '@vue/typescript/recommended',
-    '@vue/prettier',
-    'plugin:import/typescript',
-    '@vue/typescript'
-  ]
+  }
 };

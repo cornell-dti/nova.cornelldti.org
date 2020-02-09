@@ -11,7 +11,12 @@ import QueueMeInPage from '@/views/projects/QueueMeIn.vue';
 import QueueMeInJSON from '@/../data/projects/queuemein.json';
 import { fromJSON } from '@/strings/json';
 
-@Component({ components: { QueueMeInPage } })
+@Component({
+  metaInfo: {
+    title: 'Queue Me In'
+  },
+  components: { QueueMeInPage }
+})
 export default class QueueMeIn extends Vue {
   Strings = fromJSON('projects.queuemein', QueueMeInJSON);
 }

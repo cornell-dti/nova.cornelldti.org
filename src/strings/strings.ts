@@ -1,10 +1,7 @@
 import StringsBackend from './backend';
 
-export type StringsData = boolean | string | number | boolean[] | string[] | number[];
-
 export default class Strings {
   backend: StringsBackend;
-
   context: string;
 
   constructor(context: string, backend: StringsBackend | null) {
@@ -26,11 +23,11 @@ export default class Strings {
    *
    * @param key
    */
-  get<K extends StringsData>(key: string): K {
+  get<K>(key: string): K {
     return this.backend.getString<K>(key, this.context);
   }
 
-  initialize(...args: undefined[]) {
+  initialize(...args: unknown[]) {
     return this.backend.resolveContext(this.context, ...args);
   }
 

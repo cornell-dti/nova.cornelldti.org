@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 export default {
   functional: true,
   render(
-    _: any,
+    _: unknown,
     cx: {
       props: {
         width: number;

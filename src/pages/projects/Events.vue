@@ -11,7 +11,12 @@ import EventsPage from '@/views/projects/Events.vue';
 import EventsJSON from '@/../data/projects/events.json';
 import { fromJSON } from '@/strings/json';
 
-@Component({ components: { EventsPage } })
+@Component({
+  metaInfo: {
+    title: 'Events'
+  },
+  components: { EventsPage }
+})
 export default class Events extends Vue {
   Strings = fromJSON('projects.events', EventsJSON);
 }

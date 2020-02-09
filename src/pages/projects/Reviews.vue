@@ -11,7 +11,12 @@ import ReviewsPage from '@/views/projects/Reviews.vue';
 import { fromJSON } from '@/strings/json';
 import ReviewsJSON from '@/../data/projects/reviews.json';
 
-@Component({ components: { ReviewsPage } })
+@Component({
+  metaInfo: {
+    title: 'CU Reviews'
+  },
+  components: { ReviewsPage }
+})
 export default class Reviews extends Vue {
   Strings = fromJSON('projects.reviews', ReviewsJSON);
 }

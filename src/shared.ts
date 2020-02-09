@@ -4,9 +4,9 @@ import BootstrapVue from 'bootstrap-vue';
 
 import { VueConstructor, CreateElement, RenderContext } from 'vue';
 
-import StringsFrontend, { StringsData } from '@/strings/strings';
+import StringsFrontend from '@/strings/strings';
+import { StringsData } from '@/strings/types';
 import SingleBackend from '@/strings/lib';
-import { makeStrings } from '@/strings/context';
 
 export { Member, Team, Company, Role } from './vue';
 
@@ -109,9 +109,20 @@ export function initializeVue(Vue: VueConstructor) {
         | StringsData[]
         | null = null;
       const { source } = cx.props;
-      const Strings = source
-        ? new StringsFrontend(source, SingleBackend)
-        : (cx.parent as any).Strings || makeStrings(cx.parent.$context);
+
+      let Strings: StringsFrontend;
+
+      if (source) {
+        Strings = new StringsFrontend(source, SingleBackend);
+      } else {
+        const { parent } = cx;
+
+        if (parent.Strings != null) {
+          Strings = parent.Strings;
+        } else {
+          return h();
+        }
+      }
 
       if (typeof prop === 'string') {
         resolvedStrings = Strings.get(prop);

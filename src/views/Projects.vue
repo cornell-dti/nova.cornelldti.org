@@ -71,7 +71,7 @@ import { PropValidator } from 'vue/types/options';
 
 import Strings from '@/strings/strings';
 
-interface Project {
+export interface Project {
   active: boolean;
   id: string;
   teamId: string;

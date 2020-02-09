@@ -1,3 +1,5 @@
+import Strings from '@/strings/strings';
+
 export interface Member {
   netid: string;
   image: string;
@@ -42,9 +44,9 @@ declare module 'vue/types/vue' {
     getTeams(): Team[];
     getRoles(): Role[];
     getMembers(): Member[];
-    joinPath(...paths: string[]): string;
-    $context: any;
-    $static: any;
-    $page: any;
+    Strings?: Strings;
+    $context: unknown;
+    $static: unknown;
+    $page: unknown;
   }
 }
