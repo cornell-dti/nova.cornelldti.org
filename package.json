@@ -47,6 +47,7 @@
     "babel-plugin-transform-vue-jsx": "^3.7.0",
     "cdnify-json": "./packages/cdnify-json/",
     "core-js": "^2.6.11",
+    "dotenv": "^8.2.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-import-resolver-typescript": "^2.0.0",

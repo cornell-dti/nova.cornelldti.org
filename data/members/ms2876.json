@@ -3,6 +3,7 @@
     "firstName": "Megan",
     "lastName": "She",
     "name": "Megan She",
+    "isLead": true,
     "graduation": "05/2020",
     "major": "English",
     "linkedin": "https://www.linkedin.com/in/megan-she-72b556130/",

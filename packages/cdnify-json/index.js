@@ -4,20 +4,20 @@ const ImgixClient = require("imgix-core-js");
 /** @type {Map.<RegExp, { transform(s: string): string }>} */
 const providerMap = new Map();
 
-module.exports = function cdnify(json) {
+module.exports = function cdnify(json, options) {
     const providers = Array.from(providerMap.entries());
     if (Array.isArray(json)) {
         return json.map(v => {
             if (typeof v === 'string') {
                 for (let [pattern, provider] of providers) {
                     if (pattern.test(v)) {
-                        return provider.transform(v);
+                        return provider.transform(v, options);
                     }
                 }
 
                 return v;
             } else if (typeof v === 'object') {
-                return cdnify(v);
+                return cdnify(v, options);
             } else {
                 return v;
             }
@@ -27,13 +27,13 @@ module.exports = function cdnify(json) {
             if (typeof v === 'string') {
                 for (let [pattern, provider] of providers) {
                     if (pattern.test(v)) {
-                        return [k, provider.transform(v)];
+                        return [k, provider.transform(v, options)];
                     }
                 }
 
                 return [k, v];
             } else if (typeof v === 'object') {
-                return [k, cdnify(v)];
+                return [k, cdnify(v, options)];
             } else {
                 return [k, v];
             }
@@ -49,10 +49,11 @@ class ImgixProvider {
         });
     }
 
-    transform(url) {
+    transform(url, options = {}) {
         return this._Images.buildURL(
             url
-                .replace(/^\/public/, "/static")
+                .replace(/^\/public/, "/static"),
+            options
         );
     }
 };

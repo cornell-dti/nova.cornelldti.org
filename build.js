@@ -32,7 +32,9 @@ function buildMembers() {
                 try {
                     const parsed = JSON.parse(contents);
 
-                    parsed.image = cdnify({ picture: `/public/members/${parsed.netid}.jpg` }).picture;
+                    parsed.image = cdnify({ picture: `/public/members/v3/${parsed.netid}.jpg` }, {
+                        h: 500
+                    }).picture;
 
                     return parsed;
                 } catch (err) {

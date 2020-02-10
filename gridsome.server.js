@@ -4,6 +4,11 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+if (process.env.NODE_ENV !== 'production') {
+  console.log("Loading environment variables with .env in development environment.");
+  require('dotenv').config();
+}
+
 const express = require('express');
 const path = require('path');
 
