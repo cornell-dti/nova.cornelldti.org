@@ -1,10 +1,10 @@
 {
   "join-information": {
-    "applications-open": true
+    "applications-open": false
   },
   "main-menu": {
     "advertisement": {
-      "open": true
+      "open": false
     }
   },
   "hero": {
@@ -50,9 +50,8 @@
           }
         },
         "call-to-action-button": {
-          "closed": false,
-          "content": "Product Design Application",
-          "link": "https://forms.gle/v1orvf7uJEf9PAtV6"
+          "closed": true,
+          "content": "Product Design Application (closed)"
         }
       },
       "next-steps": {
@@ -95,9 +94,8 @@
           }
         },
         "call-to-action-button": {
-          "closed": false,
-          "content": "Software Developer Application",
-          "link": "https://forms.gle/qzQQqiXaucRH5HFJ6"
+          "closed": true,
+          "content": "Software Developer Application (closed)"
         }
       },
       "next-steps": {
