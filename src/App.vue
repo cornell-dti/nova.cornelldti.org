@@ -43,7 +43,7 @@ export default {
     });
 
     for (const element of Array.from(document.getElementsByTagName('title'))) {
-      if (typeof this.$route.name !== 'undefined') {
+      if (this.$route.name && this.$route.name.trim()) {
         element.innerText = `${this.$route.name} | Cornell DTI`;
       } else {
         element.innerText = `Cornell DTI`;
@@ -54,7 +54,7 @@ export default {
       const titleElements = Array.from(document.getElementsByTagName('title'));
 
       for (const element of titleElements) {
-        if (typeof to.name !== 'undefined') {
+        if (to.name && to.name.trim()) {
           element.innerText = `${to.name} | Cornell DTI`;
         } else {
           element.innerText = `Cornell DTI`;
