@@ -1,7 +1,7 @@
 <template class="applyPage">
-  <page-background>
-    <Strings :strings="'join-information.applications-open'" #strings="isOpen">
-      <Strings :strings="['hero', 'hero.closed']" #strings="[hero, closed]">
+  <page-background v-if="content">
+    <strings-domain :value="content.join_information.applications_open" #key="isOpen">
+      <strings-domain :value="[content.hero, content.hero.closed]" #key="[hero, closed]">
         <nova-hero
           v-if="hero && isOpen"
           :header="hero.header"
@@ -30,20 +30,20 @@
             </b-row>
           </b-container>
         </page-section>
-      </Strings>
+      </strings-domain>
       <b-row v-if="isOpen" class="justify-content-center info-session-interjection">
-        <Strings :strings="'info-session'" #strings="{header, subheader, description}">
+        <strings-domain :value="content.info_session" #key="{header, subheader, description}">
           <b-col class="info-session-description" sm="12" md="4" md-offset="1">
             <div class="header">{{ header }}</div>
             <div class="subheader">{{ subheader }}</div>
             <div class="description">{{ description }}</div>
           </b-col>
-        </Strings>
+        </strings-domain>
         <b-col class="info-session-details" sm="12" md="auto" md-offset="1">
           <b-row class="h-100" align-h="center" align-v="center">
             <b-col cols="auto">
-              <Strings :strings="'info-sessions'">
-                <template #strings="[session1, session2]">
+              <strings-domain :value="content.info_sessions">
+                <template #key="[session1, session2]">
                   <div class="info-session h-50">
                     <div class="time">{{ session1.time }}</div>
                     <div class="location location-desktop">
@@ -86,7 +86,7 @@
                     </div>
                   </div>
                 </template>
-              </Strings>
+              </strings-domain>
             </b-col>
           </b-row>
         </b-col>
@@ -102,12 +102,8 @@
           :showAll="false"
         />
 
-        <Strings
-          v-for="child of Strings.childrenOf(`application-info.id=${roleId}`)"
-          :key="child"
-          :strings="`application-info.id=${roleId}.${child}`"
-        >
-          <template #strings="info">
+        <strings-domain v-for="child of sections" :key="child.id" :value="child.info">
+          <template #key="info">
             <timeline-section v-if="info" :header="info.header" :rightHeader="info['right-header']">
               <template v-if="Array.isArray(info.sections)">
                 <div v-for="section of info.sections" :key="section.header">
@@ -148,7 +144,7 @@
                   </template>
                 </b-col>
               </b-row>
-              <StringsDomain
+              <strings-domainDomain
                 v-if="isOpen"
                 #key="[primary, secondary]"
                 :value="[info['call-to-action-button'], info['call-to-action-button-2']]"
@@ -177,12 +173,12 @@
                     </b-row>
                   </b-col>
                 </b-row>
-              </StringsDomain>
+              </strings-domainDomain>
             </timeline-section>
           </template>
-        </Strings>
+        </strings-domain>
       </b-container>
-    </Strings>
+    </strings-domain>
     <dti-footer ref="footerRef" page="apply" />
   </page-background>
 </template>
@@ -195,7 +191,7 @@ import TimelineSection from '@/components/TimelineSection.vue';
 import RoleSelector from '@/components/RoleSelector.vue';
 import DtiFooter from '@/components/DtiFooter.vue';
 
-import Strings from '@/strings/strings';
+import { ApplyContent, ApplicationInfo } from '@/content';
 
 interface Apply {
   $refs: {
@@ -204,9 +200,6 @@ interface Apply {
 }
 
 @Component({
-  metaInfo: {
-    title: 'Apply'
-  },
   components: {
     TimelineSection,
     RoleSelector
@@ -221,11 +214,24 @@ class Apply extends Vue {
   roleId = '';
 
   @Prop({ required: true })
-  Strings!: Strings;
+  content!: ApplyContent;
 
   onSubscribe(event: { preventDefault: () => void }) {
     event.preventDefault();
     this.$refs.footerRef.subscriptionClick();
+  }
+
+  get sections() {
+    const info = this.content.application_info.find(a => a.id === this.roleId);
+
+    if (!info) {
+      return [];
+    }
+
+    return Object.keys(info).map(id => ({
+      id,
+      info: ((info as unknown) as { [id: string]: ApplicationInfo })[id] // TODO
+    }));
   }
 }
 

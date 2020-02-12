@@ -153,27 +153,15 @@ export default Vue.extend({
     EventBus.$emit('set-navbar-light', {});
   },
   computed: {
-    project(): Project | null {
-      if (!this.$page) {
-        return null;
-      }
-
+    project(): Project {
       const project = (this.$page as DTIProjectPage).dtiProject;
 
       return project;
     },
     pastMembers(): Member[] {
-      if (!this.$page) {
-        return [];
-      }
-
       return (this.$page as DTIProjectPage).pastMembers.edges.map(e => e.node);
     },
     currentMembers(): Member[] {
-      if (!this.$page) {
-        return [];
-      }
-
       return (this.$page as DTIProjectPage).currentMembers.edges.map(e => e.node);
     }
   }

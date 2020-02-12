@@ -1,9 +1,9 @@
 <template>
-  <TeamPage :strings="Strings" :members="members" :diversity="diversity" />
+  <team-view :content="content" :members="members" :diversity="diversity" />
 </template>
 
 <page-query>
-query Members {
+query Members($id: ID!) {
   members: allMember {
     edges {
       node {
@@ -26,21 +26,60 @@ query Members {
       }
     }
   }
+
+  content: teamEntry(id: $id) {
+    hero {
+      header
+      subheader
+      lazy
+      video {
+        mp4
+        webm
+      }
+      image
+    }
+
+    team {
+      header
+    }
+
+    diversity {
+     header
+    description
+    gender {
+      header
+    }
+    stats {
+      underclassmen {
+        stat
+        description
+      }
+      majors {
+        stat
+        description
+      }
+      colleges {
+        stat
+        description
+      }
+    }
+    }
+  }
 }
 </page-query>
 
 <script lang="ts">
-import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
-import { fromJSON } from '@/strings/json';
-
-import TeamPage from '@/views/Team.vue';
+import TeamView from '@/views/Team.vue';
 
 import { Member } from '@/shared';
 
+import Entry from '@/entry';
+
+import { TeamContent } from '@/content';
+
 import DiversityJSON from '@/../data/sets/diversity.json';
-import TeamJSON from '@/../data/generated/pages/team.json';
 
 interface TeamPage {
   members: {
@@ -55,12 +94,10 @@ interface TeamPage {
     title: 'Team'
   },
   components: {
-    TeamPage
+    TeamView
   }
 })
-class Team extends Vue {
-  Strings = fromJSON('team', TeamJSON);
-
+class Team extends Entry<TeamContent> {
   diversity = DiversityJSON.diversity;
 
   get members(): Member[] {

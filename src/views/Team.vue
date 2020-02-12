@@ -1,9 +1,6 @@
 <template>
-  <page-background>
-    <strings
-      :strings="['hero', 'diversity', 'team']"
-      #strings="[{ header, subheader, video, lazy, image}, diversity, team]"
-    >
+  <page-background v-if="content">
+    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image }">
       <nova-hero
         :header="header"
         :subheader="subheader"
@@ -13,7 +10,7 @@
         page="team"
       />
 
-      <strings-domain #key="{ header, description, stats, gender }" :value="diversity">
+      <strings-domain #key="{ header, description, stats, gender }" :value="content.diversity">
         <div class="diversity diversity-background">
           <!-- TODO bind formatting to actual elements-->
           <b-row class="no-gutters diversity diversity-content">
@@ -86,7 +83,7 @@
 
       <b-container fluid>
         <page-section>
-          <div class="team-header diversity-header">{{ team.header }}</div>
+          <div class="team-header diversity-header">{{ content.team.header }}</div>
 
           <!-- TODO actual padding -->
           <br />
@@ -102,7 +99,7 @@
           </b-row>
         </page-section>
       </b-container>
-    </strings>
+    </strings-domain>
 
     <dti-footer page="team" />
   </page-background>
@@ -392,7 +389,7 @@ import HeadshotGrid from '@/components/HeadshotGrid.vue';
 import RoleSelector from '@/components/RoleSelector.vue';
 import CircleProgressIndicator from '@/components/CircleProgressIndicator.vue';
 
-import Strings from '@/strings/strings';
+import { TeamContent } from '@/content';
 import { Member } from '@/shared';
 
 type RoleId = '' | 'business' | 'developer' | 'designer' | 'pm';
@@ -408,18 +405,15 @@ interface Diversity {
 }
 
 export default Vue.extend({
-  metaInfo: {
-    title: 'Team'
-  },
   components: {
     HeadshotGrid,
     CircleProgressIndicator,
     RoleSelector
   },
   props: {
-    Strings: {
+    content: {
       required: true
-    } as PropValidator<Strings>,
+    } as PropValidator<TeamContent>,
     members: {
       required: true
     } as PropValidator<Member[]>,

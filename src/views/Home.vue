@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div v-if="content">
     <div class="home">
       <lazy-video
         class="home-background home-preload-background home-background-video"
-        :lazy="Strings.get(`hero.lazy`)"
-        :video="Strings.get('hero.video')"
+        :lazy="content.hero.lazy"
+        :video="content.hero.video"
       />
       <div class="home-background home-background-overlay" />
       <b-row>
@@ -14,29 +14,26 @@
         </h1>
       </b-row>
     </div>
-    <text-hero
-      :header="Strings.get('text-hero.header')"
-      :subheader="Strings.get('text-hero.subheader')"
-    />
+    <text-hero :header="content.textHero.header" :subheader="content.textHero.subheader" />
 
     <page-sublist :border-padding="true">
       <quicklink
-        :link="Strings.get('quicklinks.projects.link')"
-        :image="Strings.get(`quicklinks.projects.image`)"
-        :header="Strings.get('quicklinks.projects.header')"
-        :subheader="Strings.get('quicklinks.projects.subheader')"
+        :link="content.quicklinks.projects.link"
+        :image="content.quicklinks.projects.image"
+        :header="content.quicklinks.projects.header"
+        :subheader="content.quicklinks.projects.subheader"
       />
       <quicklink
-        :link="Strings.get('quicklinks.team.link')"
-        :image="Strings.get(`quicklinks.team.image`)"
-        :header="Strings.get('quicklinks.team.header')"
-        :subheader="Strings.get('quicklinks.team.subheader')"
+        :link="content.quicklinks.team.link"
+        :image="content.quicklinks.team.image"
+        :header="content.quicklinks.team.header"
+        :subheader="content.quicklinks.team.subheader"
       />
       <quicklink
-        :link="Strings.get('quicklinks.initiatives.link')"
-        :image="Strings.get(`quicklinks.initiatives.image`)"
-        :header="Strings.get('quicklinks.initiatives.header')"
-        :subheader="Strings.get('quicklinks.initiatives.subheader')"
+        :link="content.quicklinks.initiatives.link"
+        :image="content.quicklinks.initiatives.image"
+        :header="content.quicklinks.initiatives.header"
+        :subheader="content.quicklinks.initiatives.subheader"
       />
     </page-sublist>
 
@@ -52,20 +49,17 @@ import { Component, Prop } from 'vue-property-decorator';
 import Quicklink from '@/components/Quicklink.vue';
 import LazyVideo from '@/components/LazyVideo.tsx';
 
-import Strings from '@/strings/strings';
+import { HomeContent } from '@/content';
 
 @Component({
-  metaInfo: {
-    title: 'Home'
-  },
   components: {
     Quicklink,
     LazyVideo
   }
 })
-export default class Index extends Vue {
+export default class HomeView extends Vue {
   @Prop({ required: true })
-  Strings!: Strings;
+  content!: HomeContent;
 }
 </script>
 

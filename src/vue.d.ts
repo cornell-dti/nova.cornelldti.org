@@ -1,4 +1,3 @@
-import Strings from '@/strings/strings';
 import { Company, Team, Role } from './types';
 
 declare module 'vue/types/vue' {
@@ -7,7 +6,6 @@ declare module 'vue/types/vue' {
     getCompanies(): Company[];
     getTeams(): Team[];
     getRoles(): Role[];
-    Strings?: Strings;
     $context: unknown;
     $static: unknown;
     $page: unknown;

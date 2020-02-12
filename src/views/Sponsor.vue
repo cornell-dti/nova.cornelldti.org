@@ -1,6 +1,6 @@
 <template>
-  <page-background>
-    <strings strings="hero" #strings="{ header, subheader, video, lazy, image}">
+  <page-background v-if="content">
+    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image}">
       <nova-hero
         :header="header"
         :subheader="subheader"
@@ -9,25 +9,25 @@
         :image="image"
         page="sponsor"
       />
-    </strings>
+    </strings-domain>
     <b-container>
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="2" order-sm="1">
-            <b-img class="sponsor-row-image" :src="Strings.get('events.googleLunch')" />
+            <b-img class="sponsor-row-image" :src="content.events.googleLunch" />
           </b-col>
           <b-col class="sponsor-row-content-container" sm="12" md="5" order-md="1" order="2">
-            <h2 class="sponsor-row-content-header">{{ Strings.get('pitch.1.header') }}</h2>
-            <p class="sponsor-row-content">{{ Strings.get('pitch.1.description') }}</p>
+            <h2 class="sponsor-row-content-header">{{ content.pitch[0].header }}</h2>
+            <p class="sponsor-row-content">{{ content.pitch[0].description }}</p>
           </b-col>
         </b-row>
         <b-row align-h="center" align-v="center" class="sponsor-row">
           <b-col sm="12" md="5" class="sponsor-row-content-container" order="2">
-            <h2>{{ Strings.get('pitch.2.header') }}</h2>
-            <p class="sponsor-row-content">{{ Strings.get('pitch.2.description') }}</p>
+            <h2>{{ content.pitch[1].header }}</h2>
+            <p class="sponsor-row-content">{{ content.pitch[1].description }}</p>
           </b-col>
           <b-col sm="12" md="7" class="sponsor-row-img" order-md="1" order="1">
-            <b-img class="sponsor-row-image" :src="Strings.get('events.infoSesh')" />
+            <b-img class="sponsor-row-image" :src="content.events.infoSesh" />
           </b-col>
         </b-row>
       </page-section>
@@ -36,7 +36,7 @@
       <page-section>
         <b-row>
           <b-col>
-            <h2 class="sponsor-tier-heading">{{ Strings.get('tiers.header') }}</h2>
+            <h2 class="sponsor-tier-heading">{{ content.tiers.header }}</h2>
           </b-col>
         </b-row>
 
@@ -117,26 +117,25 @@
     <b-container>
       <page-section>
         <b-row class="text-center justify-content-center sponsor-contact">
-          <h2>{{ Strings.get('call-to-action.description') }}</h2>
+          <h2>{{ content.call_to_action.description }}</h2>
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
-          <b-button
-            :href="Strings.get('call-to-action.button.link') || 'mailto:hello@cornelldti.org'"
-            >{{ Strings.get('call-to-action.button.text') }}</b-button
-          >
+          <b-button :href="content.call_to_action.button.link || 'mailto:hello@cornelldti.org'">{{
+            content.call_to_action.button.text
+          }}</b-button>
         </b-row>
       </page-section>
       <page-section>
-        <h2 class="sponsor-list-heading">{{ Strings.get('current-sponsors.header') }}</h2>
+        <h2 class="sponsor-list-heading">{{ content.current_sponsors.header }}</h2>
         <b-row class="sponsor-list justify-content-center">
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="Strings.get('sponsors.invision')" />
+            <b-img class="sponsor-icon" :src="content.sponsors.invision" />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="Strings.get('sponsors.google')" />
+            <b-img class="sponsor-icon" :src="content.sponsors.google" />
           </b-col>
           <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="Strings.get('sponsors.cornell-engineering-alumni')" />
+            <b-img class="sponsor-icon" :src="content.sponsors.cornell_engineering_alumni" />
           </b-col>
         </b-row>
       </page-section>
@@ -150,17 +149,7 @@ import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 import wcheck from '@/assets/sponsor/whitecheck.svg';
 
-import Strings from '@/strings/strings';
-import { StringsData } from '@/strings/types';
-
-type SponsorTier = 'bronze' | 'gold' | 'silver' | 'platinum';
-
-interface SponsorTierBenefits {
-  [k: string]: Partial<StringsData>;
-  benefit: string;
-  subheader: string;
-  tiers: { [key in SponsorTier]?: boolean };
-}
+import { SponsorContent, SponsorTier } from '@/content';
 
 type SponsorTierBenefitsData = {
   benefits: string;
@@ -168,22 +157,19 @@ type SponsorTierBenefitsData = {
 } & { [key in SponsorTier]: boolean };
 
 export default Vue.extend({
-  metaInfo: {
-    title: 'Sponsor'
-  },
   components: {
     wcheck
   },
   props: {
-    Strings: {
+    content: {
       required: true
-    } as PropValidator<Strings>
+    } as PropValidator<SponsorContent>
   },
   computed: {
     items(): SponsorTierBenefitsData[] {
-      const data = this.Strings.get<SponsorTierBenefits[]>('tiers.sponsor');
+      const data = this.content.tiers.sponsor;
 
-      return data.map((tier: SponsorTierBenefits) => {
+      return data.map(tier => {
         const {
           benefit: benefits,
           subheader,
