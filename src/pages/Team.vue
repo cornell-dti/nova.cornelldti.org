@@ -42,6 +42,13 @@ import { Member } from '@/shared';
 import DiversityJSON from '@/../data/sets/diversity.json';
 import TeamJSON from '@/../data/generated/pages/team.json';
 
+interface TeamPage {
+  members: {
+    edges: {
+      node: Member;
+    }[];
+  };
+}
 
 @Component({
   metaInfo: {
@@ -57,7 +64,7 @@ class Team extends Vue {
   diversity = DiversityJSON.diversity;
 
   get members(): Member[] {
-    return (this.$page as any).members.edges.map((e: any) => e.node).filter((e: any) => e.name);
+    return (this.$page as TeamPage).members.edges.map(e => e.node).filter(e => e.name);
   }
 }
 

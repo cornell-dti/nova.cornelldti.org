@@ -23,7 +23,7 @@ import PageSection from '@/components/PageSection.vue';
 import MemberProfileModal from '@/components/MemberProfileModal.vue';
 import DTIProject from '@/templates/DTIProject.vue';
 
-import { initializeVue, AsyncDataset, Member, Company, Role, Team } from '@/shared';
+import { initializeVue, AsyncDataset, Company, Role, Team } from '@/shared';
 
 import SingleBackend from '@/strings/lib';
 import JSStringsBackend from '@/strings/backends/json';

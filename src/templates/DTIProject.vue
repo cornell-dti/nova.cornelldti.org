@@ -122,8 +122,6 @@ import ProjectLearnMore from '@/components/ProjectLearnMore.vue';
 import ProjectHeader from '@/components/ProjectHeader.vue';
 import TeamMembers from '@/components/TeamMembers.vue';
 
-import Strings from '@/strings/strings';
-import { fromJSON } from '@/strings/json';
 import { Member, Project } from '@/shared';
 
 type EdgeNode<T> = { edges: { node: T }[] };
@@ -162,15 +160,15 @@ export default Vue.extend({
       if (!this.$page) {
         return [];
       }
-      
-      return (this.$page as DTIProjectPage).pastMembers.edges.map((e: any) => e.node);
+
+      return (this.$page as DTIProjectPage).pastMembers.edges.map(e => e.node);
     },
     currentMembers(): Member[] {
       if (!this.$page) {
         return [];
       }
-      
-      return (this.$page as DTIProjectPage).currentMembers.edges.map((e: any) => e.node);
+
+      return (this.$page as DTIProjectPage).currentMembers.edges.map(e => e.node);
     }
   }
 });

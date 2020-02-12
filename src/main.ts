@@ -11,7 +11,7 @@ import TextHero from '@/components/TextHero.vue';
 import PageSection from '@/components/PageSection.vue';
 import DTIProject from '@/templates/DTIProject.vue';
 
-import { Role, Team, Company, Member, AsyncDataset, initializeVue } from '@/shared';
+import { Role, Team, Company, AsyncDataset, initializeVue } from '@/shared';
 
 export default function(Vue: VueConstructor) {
   Vue.component('PageSublist', PageSublist);
