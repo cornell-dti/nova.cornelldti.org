@@ -6,6 +6,8 @@
 query CoursesEntry ($id: ID!) {
   content: coursesEntry(id: $id) {
     hero {
+      header
+      subheader
       lazy
       video {
         mp4
