@@ -26,23 +26,34 @@ function buildMembers() {
     const members =
         memberFiles
             .filter(f => f.endsWith(".json"))
-            .map(f => path.join(__dirname, 'data', 'members', f))
-            .map(f => fs.readFileSync(f, { encoding: 'utf-8' }))
-            .map(contents => {
+            .map(f => [f, path.join(__dirname, 'data', 'members', f)])
+            .map(([f, resolved]) => [f, fs.readFileSync(resolved, { encoding: 'utf-8' })])
+            .map(([f, contents]) => {
                 try {
                     const parsed = JSON.parse(contents);
 
-                    parsed.image = cdnify({ picture: `/public/members/v3/${parsed.netid}.jpg` }, {
+                    parsed.image = cdnify({ picture: `/public/members/headshots/${parsed.netid}.jpg` }, {
                         h: 500
                     }).picture;
 
-                    return parsed;
+                    return [f, parsed];
                 } catch (err) {
                     console.error(err);
-                    return null;
+                    return [f, null];
                 }
             })
-            .filter(f => f != null);
+            .filter(([, contents]) => contents != null)
+            .forEach(([f, contents]) => {
+                const out = path.join(__dirname, 'data', 'generated', 'members');
+
+                if (!fs.existsSync(out)) {
+                    fs.mkdirSync(out);
+                }
+
+                const outFile = path.join(out, f);
+
+                fs.writeFileSync(outFile, JSON.stringify(contents, null, 4));
+            });;
 
     const out = path.join(__dirname, 'data', 'generated');
 

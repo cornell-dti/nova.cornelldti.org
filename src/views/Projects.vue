@@ -70,13 +70,7 @@ import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 
 import Strings from '@/strings/strings';
-
-export interface Project {
-  active: boolean;
-  id: string;
-  teamId: string;
-  card: string;
-}
+import { Project } from '@/shared';
 
 export default Vue.extend({
   metaInfo: {

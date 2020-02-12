@@ -8,7 +8,7 @@ import StringsFrontend from '@/strings/strings';
 import { StringsData } from '@/strings/types';
 import SingleBackend from '@/strings/lib';
 
-export { Member, Team, Company, Role } from './vue';
+export { Project, Member, Team, Company, Role } from './types';
 
 class AsyncDatasetBuilder<T, K> {
   protected _fn: () => Promise<{ default: T }>;

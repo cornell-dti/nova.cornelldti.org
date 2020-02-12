@@ -6,7 +6,8 @@ const path = require('path');
 module.exports = {
   siteName: 'Cornell Design & Tech Initiative',
   templates: {
-    DTIProject: '/project/:id'
+    DTIProject: '/projects/:teamId_raw',
+    Member: '/members/:netid_raw'
   },
   plugins: [
     {
@@ -17,7 +18,14 @@ module.exports = {
       options: {
         typeName: 'DTIProject',
         path: './data/projects/*.json',
-      }
+      },
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'Member',
+        path: './data/generated/members/*.json',
+      },
     },
     {
       use: 'gridsome-plugin-svg'

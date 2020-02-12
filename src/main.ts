@@ -24,12 +24,6 @@ export default function(Vue: VueConstructor) {
   Vue.component('TextHero', TextHero);
   Vue.component('DtiProject', DTIProject);
 
-  const memberSet = AsyncDataset.import(() =>
-    import(/* webpackPrefetch: true */ '@/../data/generated/members.json')
-  )
-    .accessor(d => d as Member[])
-    .build();
-
   const companiesSet = AsyncDataset.import(() =>
     import(/* webpackPrefetch: true */ '@/../data/sets/companies.json')
   )
@@ -41,6 +35,7 @@ export default function(Vue: VueConstructor) {
   )
     .accessor<Team[]>(d => d.teams)
     .build();
+
   const rolesSet = AsyncDataset.import(() =>
     import(/* webpackPrefetch: true */ '@/../data/sets/roles.json')
   )
@@ -49,9 +44,6 @@ export default function(Vue: VueConstructor) {
 
   Vue.mixin({
     methods: {
-      getMembers() {
-        return memberSet.get();
-      },
       getRoles() {
         return rolesSet.get();
       },
@@ -66,10 +58,5 @@ export default function(Vue: VueConstructor) {
 
   initializeVue(Vue);
 
-  return [
-    memberSet.initialize(),
-    companiesSet.initialize(),
-    teamsSet.initialize(),
-    rolesSet.initialize()
-  ];
+  return [companiesSet.initialize(), teamsSet.initialize(), rolesSet.initialize()];
 }

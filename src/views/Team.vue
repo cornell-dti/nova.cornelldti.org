@@ -393,6 +393,7 @@ import RoleSelector from '@/components/RoleSelector.vue';
 import CircleProgressIndicator from '@/components/CircleProgressIndicator.vue';
 
 import Strings from '@/strings/strings';
+import { Member } from '@/shared';
 
 type RoleId = '' | 'business' | 'developer' | 'designer' | 'pm';
 
@@ -419,6 +420,9 @@ export default Vue.extend({
     Strings: {
       required: true
     } as PropValidator<Strings>,
+    members: {
+      required: true
+    } as PropValidator<Member[]>,
     diversity: {
       required: true
     } as PropValidator<Diversity>
@@ -443,7 +447,7 @@ export default Vue.extend({
       return this.diversity.femalePercentage[roleId];
     },
     filterMembers(role = '', isLead = false) {
-      return this.getMembers()
+      return this.members
         .filter(
           member =>
             ((typeof member.roleId === 'string' && member.roleId.endsWith(role)) || role === '') &&

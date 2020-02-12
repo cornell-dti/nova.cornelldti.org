@@ -1,24 +1,23 @@
 <template>
-  <strings
-    :source="`projects.${this.projectId}`"
-    :strings="{
-      website: 'website',
-      websiteTitle: 'website-title',
-      playstore: 'playstore',
-      medium: 'medium',
-      appstore: 'appstore',
-      iosGithub: 'ios-github',
-      androidGithub: 'android-github',
-      github: 'github'
+  <strings-domain
+    v-if="project"
+    #key="{
+      website,
+      website_title,
+      playstore,
+      medium,
+      appstore,
+      ios_github,
+      android_github,
+      github
     }"
-    #strings="strings"
+    :value="project"
   >
     <page-section
       v-if="
         enableAll ||
-          (!strings.website && !strings.playstore && !strings.appstore && strings.medium) ||
-          ((strings.playstore || strings.appstore || strings.website) &&
-            (strings.iosGithub || strings.androidGithub || strings.github))
+          (!website && !playstore && !appstore && medium) ||
+          ((playstore || appstore || website) && (ios_github || android_github || github))
       "
     >
       <div class="project-header">Learn More</div>
@@ -28,12 +27,9 @@
             <b-col
               class="connect-icon-container"
               cols="auto"
-              v-if="
-                (enableAll || strings.website || strings.playstore || strings.appstore) &&
-                  strings.iosGithub
-              "
+              v-if="(enableAll || website || playstore || appstore) && ios_github"
             >
-              <b-button class="align-content-center" :href="strings.iosGithub">
+              <b-button class="align-content-center" :href="ios_github">
                 <Github class="connect-icon connect-icon-blank" />
                 <span class="connect-text">iOS</span>
               </b-button>
@@ -41,12 +37,9 @@
             <b-col
               class="connect-icon-container"
               cols="auto"
-              v-if="
-                (enableAll || strings.website || strings.playstore || strings.appstore) &&
-                  strings.androidGithub
-              "
+              v-if="(enableAll || website || playstore || appstore) && android_github"
             >
-              <b-button class="align-content-center" :href="strings.androidGithub">
+              <b-button class="align-content-center" :href="android_github">
                 <Github class="connect-icon connect-icon-blank" />
                 <span class="connect-text">Android</span>
               </b-button>
@@ -54,18 +47,15 @@
             <b-col
               class="connect-icon-container"
               cols="auto"
-              v-if="
-                (enableAll || strings.website || strings.playstore || strings.appstore) &&
-                  strings.github
-              "
+              v-if="(enableAll || website || playstore || appstore) && github"
             >
-              <b-button class="align-content-center" :href="strings.github">
+              <b-button class="align-content-center" :href="github">
                 <Github class="connect-icon connect-icon-blank" />
                 <span class="connect-text">GitHub</span>
               </b-button>
             </b-col>
-            <b-col class="connect-icon-container" cols="auto" v-if="strings.medium">
-              <b-button class="align-content-center" :href="strings.medium">
+            <b-col class="connect-icon-container" cols="auto" v-if="medium">
+              <b-button class="align-content-center" :href="medium">
                 <Medium class="connect-icon connect-icon-blank" />
                 <span class="connect-text">Medium</span>
               </b-button>
@@ -74,29 +64,33 @@
         </b-col>
       </b-row>
     </page-section>
-  </strings>
+  </strings-domain>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
+
+import { Project } from '@/shared';
+
 import Github from '@/assets/social/github.svg';
 import Medium from '@/assets/social/medium.svg';
 
-export default {
+export default Vue.extend({
   components: {
     Github,
     Medium
   },
   props: {
-    projectId: {
-      type: String,
+    project: {
       required: true
-    },
+    } as PropValidator<Project>,
     enableAll: {
       type: Boolean,
       default: false
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

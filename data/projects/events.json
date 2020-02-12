@@ -1,8 +1,8 @@
 {
-  "name": "CUE",
+  "name": "eve",
   "teamId": "events",
   "card": "/public/projects/events/card.png",
-  "header": "cue",
+  "header": "eve",
   "subheader": "Events at Cornell. Just for you.",
   "hero": {
     "header": "What We Do",

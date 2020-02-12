@@ -1,5 +1,5 @@
 <template>
-  <div v-if="projectData != null">
+  <div>
     <page-section v-if="getTeam.length > 0">
       <div class="project-header">Team</div>
       <headshot-grid :members="getTeam" />
@@ -11,42 +11,42 @@
   </div>
 </template>
 
-<script>
-import HeadshotGrid from '@/components/HeadshotGrid.vue';
+<script lang="ts">
+import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
 
-export default {
+import HeadshotGrid from '@/components/HeadshotGrid.vue';
+import { Member } from '@/shared';
+
+type MemberInfo = { info: Member; id: string };
+
+export default Vue.extend({
   components: {
     HeadshotGrid
   },
   props: {
-    projectData: {
-      type: Object,
-      required: false
-    }
+    current: {
+      type: Array,
+      default: () => []
+    } as PropValidator<Member[]>,
+    past: {
+      type: Array,
+      default: () => []
+    } as PropValidator<Member[]>
   },
   computed: {
-    getTeam() {
-      const teamA = this.getMembers()
-        .filter(
-          member => typeof member.subteam === 'string' && member.subteam === this.projectData.id
-        )
-        .map(obj => ({ info: obj, id: obj.netid }));
+    getTeam(): MemberInfo[] {
+      const teamA = this.current.map(obj => ({ info: obj, id: obj.netid }));
 
       return teamA;
     },
-    getFormerTeam() {
-      const teamA = this.getMembers()
-        .filter(
-          member =>
-            Array.isArray(member.otherSubteams) &&
-            member.otherSubteams.includes(this.projectData.id)
-        )
-        .map(obj => ({ info: obj, id: obj.netid }));
+    getFormerTeam(): MemberInfo[] {
+      const teamA = this.past.map(obj => ({ info: obj, id: obj.netid }));
 
       return teamA;
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

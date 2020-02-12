@@ -1,7 +1,7 @@
 <template>
   <page-background>
     <slot name="header">
-      <project-header :projectId="project" />
+      <project-header :project="project" />
     </slot>
     <b-container fluid>
       <b-row align-h="center">
@@ -9,22 +9,27 @@
           <slot name="text-header">
             <b-container fluid>
               <text-hero
-                :header="Strings.get('hero.header')"
-                :subheader="Strings.get('hero.subheader')"
+                v-if="project"
+                :header="project.hero.header"
+                :subheader="project.hero.subheader"
               />
             </b-container>
           </slot>
 
           <slot name="features">
-            <project-features-list :projectId="project" />
+            <project-features-list :project="project" />
           </slot>
 
           <slot name="team-members">
-            <team-members :projectData="projectData"></team-members>
+            <team-members
+              :past="pastMembers"
+              :current="currentMembers"
+              :project="project"
+            ></team-members>
           </slot>
 
           <slot name="learn-more">
-            <project-learn-more :projectId="project" />
+            <project-learn-more :project="project" />
           </slot>
         </b-col>
       </b-row>
@@ -33,6 +38,80 @@
     <dti-footer page="project" />
   </page-background>
 </template>
+
+<page-query>
+query DTIProjects ($path: String!, $teamId: String!) {
+  dtiProject: dtiProject(path: $path) {
+      id
+      active
+      teamId
+      card
+      name
+      features { title image description }
+      subheader
+      header
+      hero {
+          header
+          subheader
+      }
+      appstore
+      playstore
+      ios_github
+      android_github
+      heroStartingColor
+      heroEndingColor
+      heroUseDarkText
+      website
+      website_title
+  }
+
+  currentMembers: allMember(filter: { subteam: { in: [$teamId] }}) {
+    edges {
+      node {
+        netid
+        image       
+        firstName
+        lastName
+        name
+        graduation
+        major
+        linkedin
+        github
+        hometown
+        about
+        subteam
+        otherSubteams
+        website
+        roleId
+        roleDescription
+      }
+    }
+  }
+
+  pastMembers: allMember(filter: { otherSubteams: { contains: [$teamId] }}) {
+    edges {
+      node {
+        netid
+        image       
+        firstName
+        lastName
+        name
+        graduation
+        major
+        linkedin
+        github
+        hometown
+        about
+        subteam
+        otherSubteams
+        website
+        roleId
+        roleDescription
+      }
+    }
+  }
+}
+</page-query>
 
 <script lang="ts">
 import Vue from 'vue';
@@ -44,14 +123,18 @@ import ProjectHeader from '@/components/ProjectHeader.vue';
 import TeamMembers from '@/components/TeamMembers.vue';
 
 import Strings from '@/strings/strings';
+import { fromJSON } from '@/strings/json';
+import { Member, Project } from '@/shared';
+
+type EdgeNode<T> = { edges: { node: T }[] };
+
+interface DTIProjectPage {
+  pastMembers: EdgeNode<Member>;
+  currentMembers: EdgeNode<Member>;
+  dtiProject: Project;
+}
 
 export default Vue.extend({
-  props: {
-    project: {
-      type: String,
-      required: false
-    }
-  },
   components: {
     ProjectFeaturesList,
     ProjectLearnMore,
@@ -68,23 +151,26 @@ export default Vue.extend({
     EventBus.$emit('set-navbar-light', {});
   },
   computed: {
-    projectData() {
-      return {};
+    project(): Project | null {
+      if (!this.$page) {
+        return null;
+      }
+
+      return (this.$page as DTIProjectPage).dtiProject;
     },
-    Strings(): Strings | null {
-      return this.$parent.Strings || null;
-    }
-  },
-  methods: {
-    getTeam(team: string) {
-      const teamA = this.getMembers()
-        .filter(
-          member =>
-            (typeof member.subteam === 'string' && member.subteam === team) ||
-            (Array.isArray(member.otherSubteams) && member.otherSubteams.includes(team))
-        )
-        .map(obj => ({ info: obj, id: obj.netid }));
-      return teamA;
+    pastMembers(): Member[] {
+      if (!this.$page) {
+        return [];
+      }
+      
+      return (this.$page as DTIProjectPage).pastMembers.edges.map((e: any) => e.node);
+    },
+    currentMembers(): Member[] {
+      if (!this.$page) {
+        return [];
+      }
+      
+      return (this.$page as DTIProjectPage).currentMembers.edges.map((e: any) => e.node);
     }
   }
 });

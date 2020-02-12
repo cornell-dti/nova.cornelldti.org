@@ -1,0 +1,14 @@
+{
+    "netid": "aa753",
+    "firstName": "Akash",
+    "lastName": "Aryal",
+    "name": "Akash Aryal",
+    "graduation": "May 2023",
+    "major": "Computer Science",
+    "linkedin": "https://www.linkedin.com/in/akash-aryal",
+    "github": "https://github.com/AkashAryal",
+    "hometown": "Manhattan, KS",
+    "about": "Hi! My name is Akash Aryal. I am currently a freshmen at Cornell University majoring in CS in the college of Arts and Science. I'm currently interested in web and app development (both front and back end). I am most familiar with mysql and laravel but am looking to expand my stack to incorporate React and nosql dbms. In my free time I enjoy playing tennis, getting flamed in league, and lots of anime...lots.",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}

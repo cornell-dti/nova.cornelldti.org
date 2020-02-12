@@ -39,7 +39,7 @@ collections:
         widget: "select"
         multiple: true
         required: false
-        options: ["flux", "website", "samwise", "researchconnect", "cue"]
+        options: ["flux", "website", "samwise", "researchconnect", "events"]
       - { label: "Role", name: "roleId", widget: "string"}
       - { label: "Role Label", name: "roleDescription", widget: "string"}
   - label: "Pages"

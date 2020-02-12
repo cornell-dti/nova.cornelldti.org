@@ -52,14 +52,6 @@ const Components = {
 export { Components };
 
 export function initialize(Vue: VueConstructor) {
-  const memberSet = AsyncDataset.import(() =>
-    Promise.resolve({
-      default: [] as Member[]
-    })
-  )
-    .accessor(d => d as Member[])
-    .build();
-
   const companiesSet = AsyncDataset.import(() => import('@/../data/sets/companies.json'))
     .accessor<Company[]>(d => d.companies)
     .build();
@@ -74,9 +66,6 @@ export function initialize(Vue: VueConstructor) {
 
   Vue.mixin({
     methods: {
-      getMembers() {
-        return memberSet.get();
-      },
       getRoles() {
         return rolesSet.get();
       },
@@ -91,12 +80,7 @@ export function initialize(Vue: VueConstructor) {
 
   initializeVue(Vue);
 
-  return [
-    rolesSet.initialize(),
-    teamsSet.initialize(),
-    memberSet.initialize(),
-    companiesSet.initialize()
-  ];
+  return [rolesSet.initialize(), teamsSet.initialize(), companiesSet.initialize()];
 }
 
 SingleBackend.resolveContext = function resolveContext(

@@ -23,13 +23,18 @@ import { Component } from 'vue-property-decorator';
 
 import { fromJSON } from '@/strings/json';
 
-import ProjectsPage, { Project } from '@/views/Projects.vue';
+import ProjectsPage from '@/views/Projects.vue';
 
 import ProjectsJSON from '@/../data/generated/pages/projects.json';
+
+import { Member, Project } from '@/shared';
 
 interface ProjectsPage {
   projects: {
     edges: { node: Project }[];
+  };
+  members: {
+    edges: { node: Member }[];
   };
 }
 
@@ -43,6 +48,11 @@ interface ProjectsPage {
 })
 class Projects extends Vue {
   Strings = fromJSON('projects', ProjectsJSON);
+
+  get members(): Member[] {
+    const members = (this.$page as ProjectsPage).members.edges.map(e => e.node);
+    return members;
+  }
 
   get projects(): Project[] {
     const projects = (this.$page as ProjectsPage).projects.edges.map(e => e.node);

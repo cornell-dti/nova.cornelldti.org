@@ -1,0 +1,15 @@
+{
+    "netid": "jt568",
+    "firstName": "Jason",
+    "lastName": "Tung",
+    "name": "Jason Tung",
+    "graduation": "May 2023",
+    "major": "Computer Science",
+    "minor": "Math",
+    "linkedin": "https://www.linkedin.com/in/jason-tung-61824b191/",
+    "github": "https://github.com/jason-tung/",
+    "hometown": "New York City, NY",
+    "about": "I'm a first year student in the college of engineering pursuing a degree in CS with a minor in math. While neglecting my schoolwork and extracurricular commitments, I listen to a lot, lot, lot of music, play video games, watch shows, and take naps. Beyond that, I also enjoy studying ethics and moral theory.",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}

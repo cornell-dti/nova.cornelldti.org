@@ -15,7 +15,6 @@ import wrap from './preview/page';
 import('./lib/dti-nova.common.1');
 import('./lib/dti-nova.common.2');
 import('./lib/dti-nova.common.3');
-import('./lib/dti-nova.common.4');
 
 initialize(Vue);
 

@@ -1,0 +1,14 @@
+{
+    "netid": "plw53",
+    "firstName": "Peter",
+    "lastName": "Wu",
+    "name": "Peter Wu",
+    "graduation": "May 2023",
+    "major": "Computer Science",
+    "linkedin": "https://www.linkedin.com/in/peterlingwu/",
+    "github": "https://github.com/ptwu",
+    "hometown": "Princeton Junction, NJ",
+    "about": "I'm a freshman majoring in computer science, and I love building apps and websites that can help make a marked improvement on our daily lives. While I've spent a lot of my time developing web apps, I'm interested in a broad range of software and web technologies, especially as trends ebb and flow. You'll find me in Helen Newman Hall playing badminton on Tuesday, Thursday, or Saturday, or playing board and card games / getting bubble tea with friends.",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}

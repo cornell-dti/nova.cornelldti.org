@@ -15,6 +15,9 @@ import DtiMainMenu from '@/components/DtiMainMenu.vue';
 
 export default {
   name: 'App',
+  metaInfo: {
+    title: ''
+  },
   components: {
     DtiMainMenu
   },

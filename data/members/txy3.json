@@ -1,0 +1,14 @@
+{
+    "netid": "txy3",
+    "firstName": "Tony",
+    "lastName": "Yang",
+    "name": "Tony Yang",
+    "graduation": "May 2023",
+    "major": "Computer Science",
+    "linkedin": "https://www.linkedin.com/in/tony-yang-a23b80185/",
+    "github": "https://github.com/tyang98",
+    "hometown": "Ithaca, NY",
+    "about": "Hi! I'm Tony, a freshmen studying CS in the College of Arts and Sciences. I am interested in Android and web development. In my free time, I enjoy playing basketball, guitar, hiking, and photography.",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}

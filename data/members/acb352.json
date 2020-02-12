@@ -9,8 +9,8 @@
     "github": "https://github.com/abagh0703/",
     "hometown": "Great Neck, NY",
     "about": "Gosh, I feel like these always come off as so generic and cliche and have always wondered what I can do to make them seem less trite. Do people even read these? I'm genuinely curious, so if you're reading this then click http://bit.ly/yes-i-actually-read-the-bio. When you open the link, you'll find instructions to see how many people also clicked the link!",
-    "subteam": "cue",
-    "otherSubteams": "researchconnect",
+    "subteam": "events",
+    "otherSubteams": ["researchconnect"],
     "website": "http://bit.ly/yes-i-actually-read-the-bio",
     "roleId": "pm",
     "roleDescription": "Product Manager"

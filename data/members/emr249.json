@@ -1,0 +1,15 @@
+{
+    "netid": "emr249",
+    "firstName": "Emily",
+    "lastName": "Reynolds",
+    "name": "Emily Reynolds",
+    "graduation": "May 2021",
+    "major": "Information Science",
+    "doubleMajor": "Computer Science",
+    "linkedin": "https://www.linkedin.com/in/emily-reynolds-3171b6167/",
+    "github": "https://github.com/emilyreynolds89",
+    "hometown": "Rumson, NJ",
+    "about": "I am a junior double majoring in information science and computer science (because I just love to make my life more difficult..). You can find me in the library or around campus, but I'll probably accidentally ignore you because I like to blast my music in my earphones and stare into space. You will definitely not find me at a gym, sorry.",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}

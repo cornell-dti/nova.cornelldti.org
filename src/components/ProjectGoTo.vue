@@ -1,18 +1,10 @@
 <template>
   <b-row>
     <b-col cols="auto">
-      <strings
-        :source="`projects.${this.projectId}`"
-        :strings="[
-          'website',
-          'website-title',
-          'playstore',
-          'appstore',
-          'ios-github',
-          'android-github',
-          'github'
-        ]"
-        #strings="[website, websiteTitle, playstore, appstore, iosGithub, androidGithub, github]"
+      <strings-domain
+        v-if="project"
+        #key="{website, website_title: websiteTitle, playstore, appstore, ios_github, android_github, github }"
+        :value="project"
       >
         <b-row>
           <b-col cols="auto" v-if="website">
@@ -30,9 +22,9 @@
           <b-col
             class="connect-icon-container"
             cols="auto"
-            v-if="iosGithub && !appstore && !playstore && !website"
+            v-if="ios_github && !appstore && !playstore && !website"
           >
-            <b-button class="align-content-center" :href="iosGithub">
+            <b-button class="align-content-center" :href="ios_github">
               <Github class="connect-icon connect-icon-blank" />
               <span class="connect-text">iOS</span>
             </b-button>
@@ -40,9 +32,9 @@
           <b-col
             class="connect-icon-container"
             cols="auto"
-            v-if="androidGithub && !appstore && !playstore && !website"
+            v-if="android_github && !appstore && !playstore && !website"
           >
-            <b-button class="align-content-center" :href="androidGithub">
+            <b-button class="align-content-center" :href="android_github">
               <Github class="connect-icon connect-icon-blank" />
               <span class="connect-text">Android</span>
             </b-button>
@@ -58,7 +50,7 @@
             </b-button>
           </b-col>
         </b-row>
-      </strings>
+      </strings-domain>
     </b-col>
   </b-row>
 </template>
@@ -82,21 +74,24 @@
 }
 </style>
 
-<script>
-import StoreBadge from '@/components/StoreBadge.vue';
+<script lang="ts">
+import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
 
+import { Project } from '@/shared';
+
+import StoreBadge from '@/components/StoreBadge.vue';
 import Github from '@/assets/social/github.svg';
 
-export default {
+export default Vue.extend({
   components: {
     Github,
     StoreBadge
   },
   props: {
-    projectId: {
-      type: String,
+    project: {
       required: true
-    }
+    } as PropValidator<Project>
   }
-};
+});
 </script>
