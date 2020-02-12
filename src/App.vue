@@ -4,22 +4,23 @@
     <div class="page-stack">
       <router-view />
     </div>
-    <!-- Load low quality heros before pages are loaded -->
-    <div
-      v-for="page of ['team', 'projects', 'initiatives', 'sponsor', 'courses', 'apply']"
-      :key="page"
-    >
-      <img style="display: none;" :src="Strings.get(`pages.${page}.hero.lazy`, `assets`)" />
-    </div>
   </div>
 </template>
 
-<script>
+<style src="bootstrap-vue/dist/bootstrap-vue.css"></style>
+
+<script script="ts">
 import EventBus from '@/eventbus';
+import DtiMainMenu from '@/components/DtiMainMenu.vue';
 
 export default {
   name: 'App',
-
+  metaInfo: {
+    title: ''
+  },
+  components: {
+    DtiMainMenu
+  },
   mounted() {
     this.$root.$on('bv::modal::show', () => {
       const root = document.getElementsByTagName('html')[0];
@@ -39,26 +40,6 @@ export default {
       EventBus.$emit('reset-navbar', {});
 
       next();
-    });
-
-    for (const element of Array.from(document.getElementsByTagName('title'))) {
-      if (typeof this.$route.name !== 'undefined') {
-        element.innerText = `${this.$route.name} | Cornell DTI`;
-      } else {
-        element.innerText = `Cornell DTI`;
-      }
-    }
-
-    this.$router.afterEach(to => {
-      const titleElements = Array.from(document.getElementsByTagName('title'));
-
-      for (const element of titleElements) {
-        if (typeof to.name !== 'undefined') {
-          element.innerText = `${to.name} | Cornell DTI`;
-        } else {
-          element.innerText = `Cornell DTI`;
-        }
-      }
     });
   }
 };

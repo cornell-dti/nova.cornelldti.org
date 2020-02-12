@@ -16,3 +16,16 @@ s3/
 .idea
 
 .env
+
+# Generated JSON files.
+data/generated/**/*
+
+# Local Netlify folder
+.netlify
+
+# Gridsome folders
+.temp
+.cache
+
+# CMS folders
+admin/lib/**/*

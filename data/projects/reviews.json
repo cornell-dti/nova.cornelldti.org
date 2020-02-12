@@ -1,0 +1,36 @@
+{
+  "name": "Course Reviews",
+  "teamId": "reviews",
+  "card": "/public/projects/reviews/card.png",
+  "header": "Course Reviews",
+  "subheader": "Real Students. Real Class Feedback.",
+  "hero": {
+    "header": "What We Do",
+    "image": "/public/projects/reviews/header.png",
+    "subheader": "Course Reviews is a course review website by Cornell students, for Cornell students. You can browse classes and view their metrics, read about other students’ experiences, and submit your own course reviews for others. Pre-Enroll has never been easier."
+  },
+  "website": "http://www.cureviews.org",
+  "website-title": "CU Reviews",
+  "github": "https://github.com/cornell-dti/course-reviews-react-2.0",
+  "external": "http://cornellsun.com/2018/05/09/website-designed-by-students-provides-more-comprehensive-course-information/",
+  "heroStartingColor": "#619DFE",
+  "heroEndingColor": "#C2E9FB",
+  "heroUseDarkText": false,
+  "features": [
+    {
+      "title": "Search for Classes.",
+      "description": "Search for Cornell classes using our wicked fast search.",
+      "image": "/public/projects/reviews/feature1.jpg"
+    },
+    {
+      "title": "Write a Review.",
+      "description": "Write about the class, plus rate its difficulty and workload.",
+      "image": "/public/projects/reviews/feature2.jpg"
+    },
+    {
+      "title": "Check Out Class Reviews.",
+      "description": "Read what other students have to say about the class.",
+      "image": "/public/projects/reviews/feature3.jpg"
+    }
+  ]
+}

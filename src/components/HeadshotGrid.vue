@@ -1,21 +1,19 @@
 <template>
   <div class="headshot-grid d-flex flex-row flex-wrap justify-content-start">
-    <!-- v-for="row in rows()" :key="row.index" -->
     <div class="flexible-item" v-for="member in pad(members)" :key="member.id">
-      <div v-if="member.phantom" class="phantom-headshot-card">
+      <div v-if="'phantom' in member" class="phantom-headshot-card">
         <headshot-card :name="member.id" :role="member.id" :image="``" @click.native="null" />
       </div>
       <headshot-card
-        v-b-modal.memberModal
         v-else
         :name="member.info.name"
         :role="member.info.roleDescription"
-        :image="`${Strings.get('directories.members', 'assets')}/${member.id}.jpg`"
         @click.native="memberClicked(member)"
+        :image="`${member.info.image}`"
       />
     </div>
 
-    <member-profile-modal :profile="currentProfile" :display="true" />
+    <member-profile-modal ref="modalRef" :profile="currentProfile" :display="true" />
   </div>
 </template>
 
@@ -27,36 +25,51 @@
 }
 </style>
 
-<script>
-import HeadshotCard from '@/components/HeadshotCard';
-import MemberProfileModal from '@/components/MemberProfileModal';
+<script lang="ts">
+import { BModal } from 'bootstrap-vue';
 
-export default {
+import Vue from 'vue';
+import HeadshotCard from '@/components/HeadshotCard.vue';
+import MemberProfileModal from '@/components/MemberProfileModal.vue';
+
+import { Member } from '@/shared';
+
+type MemberInfo = { id: string; info: Member };
+
+export interface PhantomMember {
+  id: string;
+  phantom: true;
+}
+
+export default Vue.extend({
   props: {
     members: {
-      type: Array,
-      default() {
-        return [];
-      }
+      default: [] as MemberInfo[]
     }
   },
   components: { HeadshotCard, MemberProfileModal },
   data() {
-    return { modalShow: false, currentProfile: {} };
+    return {
+      modalShow: false,
+      currentProfile: {}
+    };
   },
   methods: {
-    memberClicked(member) {
+    memberClicked(member: { id?: string; info?: Member }) {
       this.currentProfile = member;
+
+      const modal = this.$refs.modalRef as BModal;
+      modal.showModal();
     },
-    pad(members) {
-      const copy = [...members];
+    pad(members: MemberInfo[]) {
+      const copy: Array<MemberInfo | PhantomMember> = [...members];
 
       const max = 16;
 
       for (let i = 0; i < max; i += 1) {
         copy.push({
           // TODO
-          id: 'phantom-' + i, //eslint-disable-line
+          id: `phantom-${i}`,
           phantom: true
         });
       }
@@ -64,5 +77,5 @@ export default {
       return copy;
     }
   }
-};
+});
 </script>

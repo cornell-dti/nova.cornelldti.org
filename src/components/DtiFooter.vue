@@ -6,10 +6,7 @@
           <b-row align-h="end" align-v="start" class="subfooter-wrapper">
             <b-col class="subfooter-col" md="6" sm="6">
               <div class="subfooter-text subfooter-text-gray">{{ `Have a great idea?` }}</div>
-              <a
-                class="button-wrapper"
-                :href="Strings.get('footer.link', `${page}`) || 'mailto:hello@cornelldti.org'"
-              >
+              <a class="button-wrapper" :href="$static.metadata.footer.link">
                 <button class="subfooter-button subfooter-button-gray">{{ `Contact Us` }}</button>
               </a>
             </b-col>
@@ -18,7 +15,7 @@
                 {{ `Sign up for our newsletter!` }}
               </div>
               <a class="button-wrapper">
-                <button @click="subscritionClick" class="subfooter-button subfooter-button-red">
+                <button @click="subscriptionClick" class="subfooter-button subfooter-button-red">
                   {{ `Subscribe` }}
                 </button>
               </a>
@@ -31,7 +28,7 @@
           <b-row class="footer-row" align-v="center">
             <b-col lg="12" xl="6">
               <b-row align-h="start">
-                <img class="brand" :src="Strings.get('branding.wordmark', 'assets')" />
+                <img class="brand" :src="$static.metadata.branding.wordmark" />
               </b-row>
             </b-col>
             <b-col lg="12" xl="6" class="social-icons-wrapper">
@@ -105,9 +102,25 @@
   </div>
 </template>
 
-<script>
+<static-query>
+query {
+  metadata {
+    branding {
+      wordmark 
+    }
+
+    footer {
+      link
+    }
+  }
+}
+</static-query>
+
+<script lang="ts">
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
+import { BModal } from 'bootstrap-vue';
+
 import Facebook from '@/assets/social/facebook.svg';
 import Dribbble from '@/assets/social/dribbble.svg';
 import Github from '@/assets/social/github.svg';
@@ -116,7 +129,8 @@ import AppStore from '@/assets/social/app-store.svg';
 import Medium from '@/assets/social/medium.svg';
 import Heart from '@/assets/footer/heart.svg';
 import HeartMobile from '@/assets/footer/heart-mobile.svg';
-import MailChimpForm from '@/components/MailChimpForm';
+
+import MailChimpForm from '@/components/MailChimpForm.vue';
 
 @Component({
   components: {
@@ -133,23 +147,26 @@ import MailChimpForm from '@/components/MailChimpForm';
 })
 export default class DtiFooter extends Vue {
   @Prop({ type: String })
-  page;
+  page!: string;
 
   @Prop({ type: Boolean, default: false })
-  hideSubfooter;
+  hideSubfooter!: boolean;
 
   isSubscribing = false;
 
   email = '';
 
   modalClose() {
-    this.$refs.emailModalRef.hide();
+    const modal = (this.$refs.emailModalRef as unknown) as BModal;
+    modal.hide();
   }
 
-  subscritionClick() {
+  subscriptionClick() {
     this.isSubscribing = true;
   }
 }
+
+export { DtiFooter };
 </script>
 
 <style lang="scss" scoped>

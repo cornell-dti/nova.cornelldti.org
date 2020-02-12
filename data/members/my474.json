@@ -1,0 +1,17 @@
+{
+    "netid": "my474",
+    "firstName": "Meijun",
+    "lastName": "Yin",
+    "name": "Megan Yin",
+    "graduation": "05/2022",
+    "major": "Computer Science",
+    "minor": "Applied Economics Management",
+    "website": "http://meijunyin.com",
+    "linkedin": "https://www.linkedin.com/in/meijunyin13/",
+    "github": "https://github.com/meganyin13",
+    "hometown": "New York, NY",
+    "about": "I began coding when I was 13 years old and since then I have developed my skills through computational biology research, robotics, project teams, and free-lance web development. Through these experiences, I’ve developed an interest in robotics, machine learning, venture capital, front-end development and financial modeling. In addition, I’ve discovered the best code is written together and I love spending weekends planning and hosting collegiate hackathons with BigRed//Hacks or working with my team Cornell Design & Tech Initiative on campus.",
+    "subteam": "samwise",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}

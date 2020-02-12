@@ -16,33 +16,31 @@ A web app for informing the general public about the Cornell Design & Tech Initi
 ## Getting Started
 You will need **a text editor (VS Code, Atom, Brackets, Webstorm)** to run the latest version of this app, which uses the following **packages**:
 ​
- * Node.js v10.x
+ * Node.js v12.x
  * NPM version 6.x
  * Yarn version >= 1.13.x
 
 ### Directory Structure
 The entire site is built with Vue.js utilizing single page components comprising of JavaScript, SCSS, and Vue HTML templates.
 
-- static
-  - branding: _all global branding assets go here_
-  - pages: _assets for particular pages live here_
-- public
-  - index.html: the base file for the entire site.
+- static: _all files which need to be served on / go here_
+  - static: _all files which need to be served on /static/ go here_
+    - branding: _all global branding assets go here_
+    - pages: _assets for particular pages live here_
+- data: _contains all string-based data which will be used for the website_
 - src: _all dynamic files live here_
+  - index.html: the base template for the entire site.
   - assets:  _primarily hosts SVGs which will be inlined in our build system and image files that will be compressed_
   - components:  _all Vue components which will be used across multiple page components_
-  - data: _contains all string-based data which will be used for the website_
-    - [strings]: all strings to render the website
-  - eventbus: _an instance of [Vue] which is utilized as a global eventbus. You can see an example of this utilization here._
+  - [strings]: strings library
+  - eventbus: _an instance of [Vue] which is utilized as a global eventbus._
   - pages: _Vue components that comprise entire pages on the site._
     - projects: _Page components for specific projects_
-  - router: _Initializes the Vue.js routing system._
   - scss: _All global CSS_
     - bootstrap-custom _All overrides of bootstrap defaults live here_
   - App.vue: _The Vue components that other components will be injected into_
   - index.scss: _Imports all SCSS into the app_
-  - main.js: _The application entry point, initializes Vue.js_
-  - path.js: _A simple library for handling SVG path drawing_
+  - main.ts: _The application entry point, initializes Vue.js_
 
 ### Build Setup
 ``` bash
@@ -53,11 +51,9 @@ yarn
 yarn build
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
 ### Deploy Setup
 
-Our `master` branch automatically deploys to our staging Heroku instance.
+Our `master` branch automatically deploys to our Netlify staging instance.
 ​
 ## Dependencies & Libraries
  * [Vue](https://vuejs.org) 2.6.x - A JavaScript front-end framework for building component-driven web applications. Vue offers a flexible, strong developer framework that is more well structured and powerful than Angular, and has a better learning curve than React. 

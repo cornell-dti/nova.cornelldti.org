@@ -1,12 +1,8 @@
 <template>
   <page-hero
+    v-if="project"
     :overlay="false"
-    :bg="
-      `linear-gradient(282deg, ${Strings.get(
-        'heroStartingColor',
-        `projects.${projectId}`
-      )}, ${Strings.get('heroEndingColor', `projects.${projectId}`)})`
-    "
+    :bg="`linear-gradient(282deg, ${project.heroStartingColor}, ${project.heroEndingColor})`"
   >
     <b-row align-h="center" class="project-hero-header-left-mobile h-100 no-gutters">
       <b-col sm="auto" md="6" class="project-hero">
@@ -14,45 +10,41 @@
           <b-col class="project-hero-header-left" md="10" sm="12">
             <b-row class="no-gutters">
               <b-col cols="12">
-                <h3 class="project-hero-text-header">
-                  {{ Strings.get(`header`, `projects.${projectId}`) }}
-                </h3>
-                <p class="project-hero-description">
-                  {{ Strings.get(`subheader`, `projects.${projectId}`) }}
-                </p>
+                <h3 class="project-hero-text-header">{{ project.header }}</h3>
+                <p class="project-hero-description">{{ project.subheader }}</p>
               </b-col>
             </b-row>
-            <project-go-to class="no-gutters" v-if="!customGoTo" :projectId="projectId" />
+            <project-go-to class="no-gutters" v-if="!customGoTo" :project="project" />
             <slot class="no-gutters" v-else />
           </b-col>
         </b-row>
       </b-col>
       <b-col cols="6" class="project-hero-logo">
-        <b-img
-          :class="['product', `product-${projectId}`]"
-          :src="Strings.get(`projects.${projectId}.hero-image`, 'assets')"
-        />
+        <b-img :class="['product', `product-${project.teamId}`]" :src="project.hero.image" />
       </b-col>
     </b-row>
   </page-hero>
 </template>
 
-<script>
-import ProjectGoTo from './ProjectGoTo';
+<script lang="ts">
+import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
 
-export default {
+import ProjectGoTo from '@/components/ProjectGoTo.vue';
+import { Project } from '@/shared';
+
+export default Vue.extend({
   components: { ProjectGoTo },
   props: {
-    projectId: {
-      type: String,
+    project: {
       required: true
-    },
+    } as PropValidator<Project>,
     customGoTo: {
       type: Boolean,
       default: false
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

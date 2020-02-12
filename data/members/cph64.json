@@ -1,0 +1,16 @@
+{
+    "netid": "cph64",
+    "firstName": "Christopher",
+    "lastName": "Hansen",
+    "name": "Chris Hansen",
+    "graduation": "May 2022",
+    "major": "Computer Science",
+    "linkedin": "https://www.linkedin.com/in/christopherphansen/",
+    "github": "https://github.com/chansen424/",
+    "hometown": "Staten Island, NY",
+    "about": "I am an ever-curious developer from New York who collects books and listens to punk rock music. Technology inspires me to help people, spurring my interests in cybersecurity and the web and giving me the courage to ask the questions that need asking.",
+    "roleId": "developer",
+    "roleDescription": "Technical PM",
+    "subteam": "carriage",
+    "otherSubteams": []
+}

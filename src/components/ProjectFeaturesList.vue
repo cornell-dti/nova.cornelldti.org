@@ -1,72 +1,53 @@
 <template>
-  <page-section>
+  <page-section v-if="project">
     <div class="project-header">Features</div>
-    <b-row align-v="center" class="mobile-space">
+    <b-row v-if="project.features[0]" align-v="center" class="mobile-space">
       <b-col md="7">
-        <div class="feature-header" id="mobile">
-          {{ Strings.get(`features.1.title`, `projects.${projectId}`) }}
-        </div>
-        <b-img class="product" :src="Strings.get(`projects.${projectId}.features.1`, 'assets')" />
+        <div class="feature-header" id="mobile">{{ project.features[0].title }}</div>
+        <b-img class="product" :src="project.features[0].image" />
       </b-col>
       <b-col md="5">
-        <div class="feature-header" id="hide">
-          {{ Strings.get(`features.1.title`, `projects.${projectId}`) }}
-        </div>
-        <div class="project-description">
-          {{ Strings.get(`features.1.description`, `projects.${projectId}`) }}
-        </div>
+        <div class="feature-header" id="hide">{{ project.features[0].title }}</div>
+        <div class="project-description">{{ project.features[0].description }}</div>
       </b-col>
     </b-row>
     <b-row class="feature-padding" />
-    <b-row align-v="center" class="mobile-space">
+    <b-row v-if="project.features[1]" align-v="center" class="mobile-space">
       <b-col md="5" class="switch1">
-        <div class="feature-header" id="hide">
-          {{ Strings.get(`features.2.title`, `projects.${projectId}`) }}
-        </div>
-        <div class="project-description">
-          {{ Strings.get(`features.2.description`, `projects.${projectId}`) }}
-        </div>
+        <div class="feature-header" id="hide">{{ project.features[1].title }}</div>
+        <div class="project-description">{{ project.features[1].description }}</div>
       </b-col>
       <b-col md="7" class="switch2">
-        <div class="feature-header" id="mobile">
-          {{ Strings.get(`features.2.title`, `projects.${projectId}`) }}
-        </div>
-        <b-img class="product" :src="Strings.get(`projects.${projectId}.features.2`, 'assets')" />
+        <div class="feature-header" id="mobile">{{ project.features[1].title }}</div>
+        <b-img class="product" :src="project.features[1].image" />
       </b-col>
     </b-row>
     <b-row class="feature-padding" />
-    <b-row
-      v-if="Strings.get(`features.3.title`, `projects.${projectId}`)"
-      align-v="center"
-      class="mobile-space"
-    >
+    <b-row v-if="project.features[2]" align-v="center" class="mobile-space">
       <b-col md="7">
-        <div class="feature-header" id="mobile">
-          {{ Strings.get(`features.3.title`, `projects.${projectId}`) }}
-        </div>
-        <b-img class="product" :src="Strings.get(`projects.${projectId}.features.3`, 'assets')" />
+        <div class="feature-header" id="mobile">{{ project.features[2].title }}</div>
+        <b-img class="product" :src="project.features[2].image" />
       </b-col>
       <b-col md="5">
-        <div class="feature-header" id="hide">
-          {{ Strings.get(`features.3.title`, `projects.${projectId}`) }}
-        </div>
-        <div class="project-description">
-          {{ Strings.get(`features.3.description`, `projects.${projectId}`) }}
-        </div>
+        <div class="feature-header" id="hide">{{ project.features[2].title }}</div>
+        <div class="project-description">{{ project.features[2].description }}</div>
       </b-col>
     </b-row>
   </page-section>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
+import { Project } from '@/shared';
+
+export default Vue.extend({
   props: {
-    projectId: {
-      type: String,
+    project: {
       required: true
-    }
+    } as PropValidator<Project>
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

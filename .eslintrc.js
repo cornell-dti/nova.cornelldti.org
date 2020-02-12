@@ -5,17 +5,28 @@ module.exports = {
   extends: [
     'plugin:vue/essential',
     '@vue/airbnb',
-    '@vue/prettier'
+    '@vue/typescript/recommended',
+    '@vue/prettier',
+    'plugin:import/typescript',
+    '@vue/typescript'
   ],
+  plugins: ['@typescript-eslint'],
   parserOptions: {
-    parser: 'babel-eslint',
-    ecmaFeatures: {
-      legacyDecorators: true
-    }
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    extraFileExtensions: ['.vue'],
+    project: ['./tsconfig.json']
   },
   env: {
     browser: true,
     node: true
+  },
+  settings: {
+    "import/resolver": {
+      "typescript": {
+      },
+    }
   },
   // add your custom rules here
   rules: {
@@ -24,8 +35,9 @@ module.exports = {
       'error',
       'always',
       {
-        js: 'never',
-        vue: 'never'
+        ts: 'never',
+        'd.ts': 'never',
+        js: 'never'
       }
     ],
     // disallow reassignment of function parameters
@@ -73,13 +85,16 @@ module.exports = {
         allowTemplateLiterals: true
       }
     ],
+    'lines-between-class-members': ['off'],
     'max-len': ['warn', { code: 200 }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // TODO: fix these problems and turn them into error again.
-    'vue/no-use-v-if-with-v-for': 'warn',
-    'vue/no-unused-components': 'warn',
-    'vue/no-unused-vars': 'warn',
-    'no-restricted-globals': 'warn'
+    'vue/no-parsing-error': ['warn'],
+    'vue/no-use-v-if-with-v-for': ['warn'],
+    'vue/no-unused-components': ['warn'],
+    'vue/no-unused-vars': ['warn'],
+    'no-restricted-globals': ['warn'],
+    'max-classes-per-file': ['off']
   }
 };

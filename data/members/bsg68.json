@@ -1,0 +1,16 @@
+{
+    "netid": "bsg68",
+    "firstName": "Bryan",
+    "lastName": "Graeser",
+    "name": "Bryan Graeser",
+    "graduation": "05/2021",
+    "major": "Computer Science",
+    "minor": "Creative Writing",
+    "linkedin": "https://www.linkedin.com/in/bryangraeser/",
+    "hometown": "Los Altos, CA",
+    "about": "When I'm not in Duffield working on a CS pset or DTI, I enjoy working on creative writing pieces and going to the gym. I am also Co-Director of Hack4Impact, a nonprofit, social impact CS group on campus. In my free time, I like playing games with friends and showing people unsolicited pet photos.",
+    "subteam": "reviews",
+    "roleId": "developer",
+    "roleDescription": "Developer",
+    "otherSubteams": []
+}

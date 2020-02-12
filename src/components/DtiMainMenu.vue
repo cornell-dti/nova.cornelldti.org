@@ -12,7 +12,7 @@
     type="none"
   >
     <b-navbar-brand class="navbar-branding-dti" href="#">
-      <b-img class="brand-icon" :src="Strings.get('branding.icon', 'assets')" />
+      <b-img class="brand-icon" :src="$static.metadata.branding.icon" />
     </b-navbar-brand>
 
     <b-nav-text :style="{ display: navShown ? '' : 'none' }" v-html="this.$route.name" />
@@ -60,23 +60,39 @@
       <b-navbar-nav class="ml-auto">
         <!-- todo look into ml-auto variants, also move routes to an actual file -->
         <b-nav-item to="/" exact>Home</b-nav-item>
-        <b-nav-item to="/Team">Team</b-nav-item>
-        <b-nav-item to="/Projects">Projects</b-nav-item>
-        <b-nav-item to="/Initiatives">Initiatives</b-nav-item>
-        <b-nav-item to="/Courses">Courses</b-nav-item>
-        <b-nav-item to="/Sponsor">Sponsor</b-nav-item>
+        <b-nav-item to="/team">Team</b-nav-item>
+        <b-nav-item to="/projects">Projects</b-nav-item>
+        <b-nav-item to="/initiatives">Initiatives</b-nav-item>
+        <b-nav-item to="/courses">Courses</b-nav-item>
+        <b-nav-item to="/sponsor">Sponsor</b-nav-item>
         <b-nav-item
-          v-if="Strings.get('main-menu.advertisement.open', 'apply')"
-          to="/Apply"
+          v-if="$static.metadata.mainMenu.advertisement.open"
+          to="/apply"
           class="override-apply-color"
         >
           <b-button class="apply-button" variant="primary">Apply Now!</b-button>
         </b-nav-item>
-        <b-nav-item v-else to="/Apply">Apply</b-nav-item>
+        <b-nav-item v-else to="/apply">Apply</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </template>
+
+<static-query>
+query {
+  metadata {
+    branding {
+      icon
+    }
+
+    mainMenu {
+      advertisement {
+        open
+      }
+    }
+  }
+}
+</static-query>
 
 <script>
 import EventBus from '@/eventbus';
@@ -94,13 +110,16 @@ export default {
       const yOffset =
         window.pageYOffset ||
         window.scrollY ||
+        /* eslint-disable no-restricted-globals */
         pageYOffset ||
         scrollY ||
+        /* eslint-enable */
         document.documentElement.scrollTop;
       const scrollTop = yOffset - (document.documentElement.clientTop || 0);
 
       if (typeof this.$refs.dtinavbar !== 'undefined') {
-        this.transparent = scrollTop <= this.$refs.dtinavbar.offsetHeight;
+        const height = this.$refs.dtinavbar.$el.offsetHeight;
+        this.transparent = scrollTop <= height;
       } else {
         this.transparent = false;
       }

@@ -1,0 +1,20 @@
+{
+    "netid": "jb2375",
+    "firstName": "Jagger",
+    "lastName": "Brulato",
+    "name": "Jagger Brulato",
+    "isLead": true,
+    "graduation": "05/2021",
+    "major": "Computer Science",
+    "doubleMajor": "Economics",
+    "linkedin": "https://www.linkedin.com/in/jagger-brulato-896968149/",
+    "github": "https://github.com/JBoss925",
+    "hometown": "Mooresville, NC",
+    "about": "I'm a junior majoring in Computer Science. I like writing and producing funk fusion music, and I do a lot of board/watersports. I also play a lot of chess and Tetris.",
+    "subteam": "events",
+    "otherSubteams": [
+        "orientation"
+    ],
+    "roleId": "developer",
+    "roleDescription": "Developer Lead"
+}

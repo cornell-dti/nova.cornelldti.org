@@ -1,0 +1,17 @@
+{
+    "netid": "klx2",
+    "firstName": "Kathleen",
+    "lastName": "Xu",
+    "name": "Kathleen Xu",
+    "graduation": "05/2021",
+    "major": "AEM",
+    "doubleMajor": "Information Science",
+    "linkedin": "https://www.linkedin.com/in/kathleenxu2021/",
+    "github": "https://github.com/katx125",
+    "hometown": "Millburn, NJ",
+    "about": "I'm a junior double majoring in Information Science and Applied Economics and Management. I'm happiest when I'm creating, whether that be writing a story, knitting a scarf or drawing. I'm currently a part of DTI (obviously), Shogi Club, and the Cornell Lunatic. When I'm not trying to power through all my work, you can find me drinking boba tea, watching anime, or obsessing over my betta fish.",
+    "subteam": "business",
+    "otherSubteams": ["nova"],
+    "roleId": "business",
+    "roleDescription": "Business Analyst"
+}

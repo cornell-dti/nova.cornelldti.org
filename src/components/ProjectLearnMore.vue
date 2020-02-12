@@ -1,119 +1,96 @@
 <template>
-  <page-section
-    v-if="
-      enableAll ||
-        (!Strings.exists(`website`, `projects.${projectId}`) &&
-          !Strings.exists(`playstore`, `projects.${projectId}`) &&
-          !Strings.exists(`appstore`, `projects.${projectId}`) &&
-          Strings.exists(`medium`, `projects.${projectId}`)) ||
-        ((Strings.exists(`playstore`, `projects.${projectId}`) ||
-          Strings.exists(`appstore`, `projects.${projectId}`) ||
-          Strings.exists(`website`, `projects.${projectId}`)) &&
-          (Strings.exists(`ios-github`, `projects.${projectId}`) ||
-            Strings.exists(`android-github`, `projects.${projectId}`) ||
-            Strings.exists(`github`, `projects.${projectId}`)))
-    "
+  <strings-domain
+    v-if="project"
+    #key="{
+      website,
+      website_title,
+      playstore,
+      medium,
+      appstore,
+      ios_github,
+      android_github,
+      github
+    }"
+    :value="project"
   >
-    <div class="project-header">Learn More</div>
-    <b-row>
-      <b-col cols="auto">
-        <b-row>
-          <b-col
-            class="connect-icon-container"
-            cols="auto"
-            v-if="
-              (enableAll ||
-                (Strings.exists(`website`, `projects.${projectId}`) ||
-                  Strings.exists(`playstore`, `projects.${projectId}`) ||
-                  Strings.exists(`appstore`, `projects.${projectId}`))) &&
-                Strings.exists(`ios-github`, `projects.${projectId}`)
-            "
-          >
-            <b-button
-              class="align-content-center"
-              :href="Strings.get(`ios-github`, `projects.${projectId}`)"
+    <page-section
+      v-if="
+        enableAll ||
+          (!website && !playstore && !appstore && medium) ||
+          ((playstore || appstore || website) && (ios_github || android_github || github))
+      "
+    >
+      <div class="project-header">Learn More</div>
+      <b-row>
+        <b-col cols="auto">
+          <b-row>
+            <b-col
+              class="connect-icon-container"
+              cols="auto"
+              v-if="(enableAll || website || playstore || appstore) && ios_github"
             >
-              <Github class="connect-icon connect-icon-blank" />
-              <span class="connect-text">iOS</span>
-            </b-button>
-          </b-col>
-          <b-col
-            class="connect-icon-container"
-            cols="auto"
-            v-if="
-              (enableAll ||
-                (Strings.exists(`website`, `projects.${projectId}`) ||
-                  Strings.exists(`playstore`, `projects.${projectId}`) ||
-                  Strings.exists(`appstore`, `projects.${projectId}`))) &&
-                Strings.exists(`android-github`, `projects.${projectId}`)
-            "
-          >
-            <b-button
-              class="align-content-center"
-              :href="Strings.get(`android-github`, `projects.${projectId}`)"
+              <b-button class="align-content-center" :href="ios_github">
+                <Github class="connect-icon connect-icon-blank" />
+                <span class="connect-text">iOS</span>
+              </b-button>
+            </b-col>
+            <b-col
+              class="connect-icon-container"
+              cols="auto"
+              v-if="(enableAll || website || playstore || appstore) && android_github"
             >
-              <Github class="connect-icon connect-icon-blank" />
-              <span class="connect-text">Android</span>
-            </b-button>
-          </b-col>
-          <b-col
-            class="connect-icon-container"
-            cols="auto"
-            v-if="
-              (enableAll ||
-                (Strings.exists(`website`, `projects.${projectId}`) ||
-                  Strings.exists(`playstore`, `projects.${projectId}`) ||
-                  Strings.exists(`appstore`, `projects.${projectId}`))) &&
-                Strings.exists(`github`, `projects.${projectId}`)
-            "
-          >
-            <b-button
-              class="align-content-center"
-              :href="Strings.get(`github`, `projects.${projectId}`)"
+              <b-button class="align-content-center" :href="android_github">
+                <Github class="connect-icon connect-icon-blank" />
+                <span class="connect-text">Android</span>
+              </b-button>
+            </b-col>
+            <b-col
+              class="connect-icon-container"
+              cols="auto"
+              v-if="(enableAll || website || playstore || appstore) && github"
             >
-              <Github class="connect-icon connect-icon-blank" />
-              <span class="connect-text">GitHub</span>
-            </b-button>
-          </b-col>
-          <b-col
-            class="connect-icon-container"
-            cols="auto"
-            v-if="Strings.exists(`medium`, `projects.${projectId}`)"
-          >
-            <b-button
-              class="align-content-center"
-              :href="Strings.get(`medium`, `projects.${projectId}`)"
-            >
-              <Medium class="connect-icon connect-icon-blank" />
-              <span class="connect-text">Medium</span>
-            </b-button>
-          </b-col>
-        </b-row>
-      </b-col>
-    </b-row>
-  </page-section>
+              <b-button class="align-content-center" :href="github">
+                <Github class="connect-icon connect-icon-blank" />
+                <span class="connect-text">GitHub</span>
+              </b-button>
+            </b-col>
+            <b-col class="connect-icon-container" cols="auto" v-if="medium">
+              <b-button class="align-content-center" :href="medium">
+                <Medium class="connect-icon connect-icon-blank" />
+                <span class="connect-text">Medium</span>
+              </b-button>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+    </page-section>
+  </strings-domain>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
+
+import { Project } from '@/shared';
+
 import Github from '@/assets/social/github.svg';
 import Medium from '@/assets/social/medium.svg';
 
-export default {
+export default Vue.extend({
   components: {
     Github,
     Medium
   },
   props: {
-    projectId: {
-      type: String,
+    project: {
       required: true
-    },
+    } as PropValidator<Project>,
     enableAll: {
       type: Boolean,
       default: false
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

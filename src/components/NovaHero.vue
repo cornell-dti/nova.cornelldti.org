@@ -1,22 +1,7 @@
 <template>
   <div class="nova-hero">
     <div class="nova-hero-visual-container">
-      <visual
-        :video="aws(Strings.get(`pages.${page}.hero.video`, 'assets'))"
-        :poster="Strings.get(`pages.${page}.hero.lazy`, 'assets')"
-        background="cover"
-        :fallback="aws(Strings.get(`pages.${page}.hero.image`, 'assets'))"
-        class="nova-hero-visual"
-        align="top left"
-        autoplay
-        :loop="true"
-        :muted="true"
-        preload="auto"
-        :fill="true"
-        load-video="visible"
-        :load-poster="true"
-      />
-
+      <lazy-video className="nova-hero-visual" :lazy="lazy" :image="image" :video="video" />
       <div class="nova-hero-overlay" />
     </div>
     <b-container v-if="header || subheader" fluid>
@@ -57,6 +42,7 @@ $height: 65vh;
   width: 100vw;
   position: relative;
   overflow: hidden;
+  object-fit: cover;
 }
 
 .nova-hero {
@@ -65,8 +51,12 @@ $height: 65vh;
 }
 </style>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import LazyVideo from '@/components/LazyVideo.tsx';
+
+export default Vue.extend({
+  components: { LazyVideo },
   props: {
     page: {
       type: String
@@ -74,9 +64,18 @@ export default {
     header: {
       type: String
     },
+    video: {
+      default: {}
+    },
+    lazy: {
+      type: String
+    },
+    image: {
+      type: String
+    },
     subheader: {
       type: String
     }
   }
-};
+});
 </script>

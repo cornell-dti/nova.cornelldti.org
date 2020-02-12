@@ -1,77 +1,56 @@
 <template>
   <b-row>
     <b-col cols="auto">
-      <b-row>
-        <b-col cols="auto" v-if="Strings.exists(`website`, `projects.${projectId}`)">
-          <b-button :href="Strings.get(`website`, `projects.${projectId}`)">
-            {{
-              `Go to ${Strings.get(`website-title`, `projects.${projectId}`) ||
-                Strings.get(`website`, `projects.${projectId}`)}`
-            }}
-          </b-button>
-        </b-col>
+      <strings-domain
+        v-if="project"
+        #key="{website, website_title: websiteTitle, playstore, appstore, ios_github, android_github, github }"
+        :value="project"
+      >
+        <b-row>
+          <b-col cols="auto" v-if="website">
+            <b-button :href="website">
+              {{ `Go to ${websiteTitle || website}` }}
+            </b-button>
+          </b-col>
 
-        <b-col cols="auto" v-if="Strings.exists(`playstore`, `projects.${projectId}`)">
-          <store-badge store="playstore" :url="Strings.get(`playstore`, `projects.${projectId}`)" />
-        </b-col>
-        <b-col cols="auto" v-if="Strings.exists(`appstore`, `projects.${projectId}`)">
-          <store-badge store="appstore" :url="Strings.get(`appstore`, `projects.${projectId}`)" />
-        </b-col>
-        <b-col
-          class="connect-icon-container"
-          cols="auto"
-          v-if="
-            Strings.exists(`ios-github`, `projects.${projectId}`) &&
-              !Strings.exists(`appstore`, `projects.${projectId}`) &&
-              !Strings.exists(`playstore`, `projects.${projectId}`) &&
-              !Strings.exists(`website`, `projects.${projectId}`)
-          "
-        >
-          <b-button
-            class="align-content-center"
-            :href="Strings.get(`ios-github`, `projects.${projectId}`)"
+          <b-col cols="auto" v-if="playstore">
+            <store-badge store="playstore" :url="playstore" />
+          </b-col>
+          <b-col cols="auto" v-if="appstore">
+            <store-badge store="appstore" :url="appstore" />
+          </b-col>
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="ios_github && !appstore && !playstore && !website"
           >
-            <Github class="connect-icon connect-icon-blank" />
-            <span class="connect-text">iOS</span>
-          </b-button>
-        </b-col>
-        <b-col
-          class="connect-icon-container"
-          cols="auto"
-          v-if="
-            Strings.exists(`android-github`, `projects.${projectId}`) &&
-              !Strings.exists(`appstore`, `projects.${projectId}`) &&
-              !Strings.exists(`playstore`, `projects.${projectId}`) &&
-              !Strings.exists(`website`, `projects.${projectId}`)
-          "
-        >
-          <b-button
-            class="align-content-center"
-            :href="Strings.get(`android-github`, `projects.${projectId}`)"
+            <b-button class="align-content-center" :href="ios_github">
+              <Github class="connect-icon connect-icon-blank" />
+              <span class="connect-text">iOS</span>
+            </b-button>
+          </b-col>
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="android_github && !appstore && !playstore && !website"
           >
-            <Github class="connect-icon connect-icon-blank" />
-            <span class="connect-text">Android</span>
-          </b-button>
-        </b-col>
-        <b-col
-          class="connect-icon-container"
-          cols="auto"
-          v-if="
-            Strings.exists(`github`, `projects.${projectId}`) &&
-              !Strings.exists(`appstore`, `projects.${projectId}`) &&
-              !Strings.exists(`playstore`, `projects.${projectId}`) &&
-              !Strings.exists(`website`, `projects.${projectId}`)
-          "
-        >
-          <b-button
-            class="align-content-center"
-            :href="Strings.get(`github`, `projects.${projectId}`)"
+            <b-button class="align-content-center" :href="android_github">
+              <Github class="connect-icon connect-icon-blank" />
+              <span class="connect-text">Android</span>
+            </b-button>
+          </b-col>
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="github && !appstore && !playstore && !website"
           >
-            <Github class="connect-icon connect-icon-blank" />
-            <span class="connect-text">GitHub</span>
-          </b-button>
-        </b-col>
-      </b-row>
+            <b-button class="align-content-center" :href="github">
+              <Github class="connect-icon connect-icon-blank" />
+              <span class="connect-text">GitHub</span>
+            </b-button>
+          </b-col>
+        </b-row>
+      </strings-domain>
     </b-col>
   </b-row>
 </template>
@@ -95,18 +74,24 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
+
+import { Project } from '@/shared';
+
+import StoreBadge from '@/components/StoreBadge.vue';
 import Github from '@/assets/social/github.svg';
 
-export default {
+export default Vue.extend({
   components: {
-    Github
+    Github,
+    StoreBadge
   },
   props: {
-    projectId: {
-      type: String,
+    project: {
       required: true
-    }
+    } as PropValidator<Project>
   }
-};
+});
 </script>

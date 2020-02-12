@@ -1,0 +1,19 @@
+{
+    "netid": "yc686",
+    "firstName": "Yvonne",
+    "lastName": "Chan",
+    "name": "Yvonne Chan",
+    "graduation": "05/2021",
+    "major": "Computer Science",
+    "minor": "Information Science, Creative Writing",
+    "linkedin": "https://www.linkedin.com/in/yvonne-chan-yc/",
+    "github": "https://github.com/ChanYvonne",
+    "hometown": "Bayside, NY",
+    "about": "I love working with people. DTI allows me to do this while also solving greater community problems. I also get to do what I love when I am nature walking, creative writing, and exploring new music with others. Apart from DTI, I am a member of the Assorted Aces Dance Team and the WICC Photo Committee. When I'm not working in Upson Hall, I'm finding the best study spots on campus or rediscovering my love for Brooklyn Nine-Nine!",
+    "subteam": "reviews",
+    "otherSubteams": [
+        "nova"
+    ],
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}

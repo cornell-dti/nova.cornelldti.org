@@ -1,6 +1,6 @@
 <template>
   <transition name="modal">
-    <div v-if="profile && profile.info" v-show="isShowing">
+    <div v-show="isShowing">
       <b-modal
         lazy
         no-fade
@@ -9,7 +9,8 @@
         ref="memberModalRef"
         id="memberModal"
         v-model="isShowing"
-        :title="profile.info.name"
+        :static="isStatic"
+        :title="profile && profile.info ? profile.info.name : 'not found'"
         header-bg-variant="light"
         header-text-variant="dark"
         body-bg-variant="light"
@@ -19,7 +20,7 @@
         header-border-variant="light"
         footer-border-variant="light"
       >
-        <b-container fluid>
+        <b-container v-if="profile && profile.info" fluid>
           <b-row>
             <b-col>
               <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
@@ -30,15 +31,15 @@
           <b-row class="modal-scroll">
             <b-col col>
               <b-img
-                v-if="display"
+                v-if="internalDisplay && display"
                 center
                 rounded="circle"
                 class="profile-image"
-                :src="aws(`${Strings.get('directories.members', 'assets')}/${profile.id + '.jpg'}`)"
-                @error="display = !display"
+                :src="`${profile.info.image}`"
+                @error="internalDisplay = !display"
               ></b-img>
               <div
-                v-if="!display"
+                v-if="!internalDisplay || !display"
                 center
                 rounded="circle"
                 class="profile-image rounded-circle mx-auto"
@@ -49,7 +50,7 @@
                 <b-col class="my-auto">
                   <div class="profile-name-header">
                     <div v-if="typeof profile.info.name === 'undefined'">
-                      {{ profile.info.firstName }} {{ profile.info.lastName }}
+                      >{{ profile.info.firstName }} {{ profile.info.lastName }}
                     </div>
                     <div v-else>{{ profile.info.name }}</div>
                   </div>
@@ -121,9 +122,7 @@
                   <b-col>
                     <div id="teamwork" class="member-modal-header left-space">Team Work</div>
                     <ul class="team-info-list left-space">
-                      <template
-                        v-for="team of [profile.info.subteam, ...profile.info.otherSubteams]"
-                      >
+                      <template v-for="team of subteams">
                         <li class="team-info-item my-auto" :key="team">
                           {{ getTeamName(team)[0] }}
                         </li>
@@ -140,55 +139,79 @@
   </transition>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+
+import { BModal } from 'bootstrap-vue';
+import { ObjectProp, BooleanProp } from '@/util/common';
+
 import Github from '@/assets/social/github.svg';
 import LinkedIn from '@/assets/social/linkedin.svg';
 import MissingImage from '@/assets/other/missing.svg';
+import { Member } from '@/shared';
 
-export default {
+@Component({
   components: {
     Github,
     LinkedIn,
     MissingImage
-  },
-  data() {
-    return { isShowing: false };
-  },
-  props: {
-    profile: {
-      type: Object,
-      required: false,
-      default() {
-        return {};
-      }
-    },
-    display: {
-      type: Boolean,
-      required: false,
-      default() {
-        return {};
-      }
-    }
-  },
-  methods: {
-    modalClose() {
-      this.$refs.memberModalRef.hide();
-    },
-    getTeamName(team) {
-      const teamNames = [];
-
-      this.getTeams().forEach(teamData => {
-        if (typeof team === 'string' && teamData.id === team) {
-          teamNames.push(teamData.name);
-        } else if (typeof team === 'object' && teamData.id === team.id) {
-          teamNames.push(teamData.name);
-        }
-      });
-
-      return teamNames;
-    }
   }
-};
+})
+export default class MemberProfileModal extends Vue {
+  @BooleanProp({ required: false, defaultValue: false })
+  isStatic!: boolean;
+
+  @ObjectProp()
+  profile!: { info: Member };
+
+  @BooleanProp({ required: false, defaultValue: false })
+  display!: boolean;
+
+  internalDisplay = true;
+
+  isShowing = false;
+
+  get subteams(): string[] {
+    const subteams = [this.profile.info.subteam];
+    const other = this.profile.info.otherSubteams;
+    if (Array.isArray(other)) {
+      subteams.push(...other);
+    } else if (other) {
+      subteams.push(other);
+    }
+    return subteams;
+  }
+
+  modalClose() {
+    const modal = (this.$refs.memberModalRef as unknown) as BModal;
+    modal.hide();
+  }
+
+  showModal() {
+    const modal = (this.$refs.memberModalRef as unknown) as BModal;
+    modal.show();
+  }
+
+  toggleModal() {
+    const modal = (this.$refs.memberModalRef as unknown) as BModal;
+    modal.toggle();
+  }
+
+  getTeamName(team: string | { id: string }) {
+    const teamNames = [] as string[];
+
+    this.getTeams().forEach(teamData => {
+      if (typeof team === 'string' && teamData.id === team) {
+        teamNames.push(teamData.name);
+      } else if (typeof team === 'object' && teamData.id === team.id) {
+        teamNames.push(teamData.name);
+      }
+    });
+
+    return teamNames;
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,0 +1,14 @@
+{
+  "branding": {
+    "wordmark": "/static/branding/wordmark.png",
+    "icon": "/static/branding/brand-icon.svg"
+  },
+  "mainMenu": {
+    "advertisement": {
+      "open": false
+    }
+  },
+  "footer": {
+    "link": "mailto:hello@cornelldti.org"
+  }
+}

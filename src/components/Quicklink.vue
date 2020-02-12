@@ -1,21 +1,19 @@
 <template>
   <b-row :no-gutters="true">
     <b-col cols="12">
-      <div class="quicklink-container">
+      <div
+        class="quicklink-container"
+        :style="`backgroundSize: cover; backgroundImage: url(${image})`"
+      >
         <div class="quicklink-overlay" />
-        <visual
-          class="quicklink-visual-dimensions"
-          background="cover"
-          :image="image"
-          align="middle center"
-        >
-          <div class="quicklink-internal">
-            <a :href="link">
+        <div class="quicklink-visual-dimensions">
+          <a :href="link">
+            <div class="quicklink-internal">
               <div class="quicklink-text quicklink-text-header">{{ header }}</div>
               <div class="quicklink-text quicklink-text-subheader">{{ subheader }}</div>
-            </a>
-          </div>
-        </visual>
+            </div>
+          </a>
+        </div>
       </div>
     </b-col>
   </b-row>
@@ -46,8 +44,15 @@ $height: 50vh;
 .quicklink-container {
   position: relative;
 
+  a,
+  a:hover {
+    text-decoration: none !important;
+  }
+
   .quicklink-visual-dimensions {
     height: $height;
+    width: 100vw;
+    object-fit: cover;
   }
 
   .quicklink-overlay {
@@ -64,13 +69,11 @@ $height: 50vh;
   .quicklink-internal {
     z-index: 20;
     position: relative;
-
-    a {
-      text-decoration: none !important;
-    }
+    height: $height;
 
     .quicklink-text {
       &.quicklink-text-header {
+        padding-top: 15vh; // TODO Don't just pad the top.
         font-size: 3rem;
         font-weight: 600;
         font-style: normal;

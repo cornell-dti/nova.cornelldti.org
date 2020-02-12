@@ -1,0 +1,15 @@
+{
+    "netid": "tsc82",
+    "firstName": "Theresa",
+    "lastName": "Cho",
+    "name": "Theresa Cho",
+    "graduation": "May 2021",
+    "major": "Information Science",
+    "minor": "Computer Science",
+    "linkedin": "https://www.linkedin.com/in/theresa-cho-405226173/",
+    "github": "https://github.com/tcho6319",
+    "hometown": "Westchester, NY",
+    "about": "Outside of school, I enjoy watching superhero movies (The Dark Knight is amazing - change my mind) Parks and Rec & the Office, and singing. I have joined Cornell Music VS on singing trips to Cayuga Ridge, a nursing home nearby, and have participated in the mass choir on Sunday nights. I am also a big sib in Cornell Catholic and a senior consultant for CS 1110: Intro to Python!",
+    "roleId": "developer",
+    "roleDescription": "Developer"
+}
