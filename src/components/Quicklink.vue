@@ -51,7 +51,6 @@ $height: 50vh;
 
   .quicklink-visual-dimensions {
     height: $height;
-    width: 100vw;
     object-fit: cover;
   }
 
