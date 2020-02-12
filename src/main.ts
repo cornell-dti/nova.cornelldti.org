@@ -13,7 +13,9 @@ import DTIProject from '@/templates/DTIProject.vue';
 
 import { Role, Team, Company, AsyncDataset, initializeVue } from '@/shared';
 
-export default function(Vue: VueConstructor) {
+export default function(Vue: VueConstructor, { head }: { head: { titleTemplate: string } }) {
+  head.titleTemplate = '%s - Cornell DTI';
+
   Vue.component('PageSublist', PageSublist);
   Vue.component('DtiFooter', DtiFooter);
   Vue.component('PageBackground', PageBackground);

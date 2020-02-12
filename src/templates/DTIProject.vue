@@ -53,6 +53,7 @@ query DTIProjects ($path: String!, $teamId: String!) {
       hero {
           header
           subheader
+          image
       }
       appstore
       playstore
@@ -139,6 +140,9 @@ export default Vue.extend({
     ProjectHeader,
     TeamMembers
   },
+  metaInfo: {
+    title: 'Projects'
+  },
   data() {
     return {
       currentFeatureDescription: '',
@@ -154,7 +158,9 @@ export default Vue.extend({
         return null;
       }
 
-      return (this.$page as DTIProjectPage).dtiProject;
+      const project = (this.$page as DTIProjectPage).dtiProject;
+
+      return project;
     },
     pastMembers(): Member[] {
       if (!this.$page) {

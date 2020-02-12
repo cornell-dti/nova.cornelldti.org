@@ -7,6 +7,7 @@
   "subheader": "Handshake for Lab Research.",
   "hero": {
     "header": "What We Do",
+    "image": "",
     "subheader": "Large universities have so many research opportunities, but few ways to find out about them. Research Connect is a platform where students can find opportunities and research labs can find students they’re looking for."
   },
   "website": "https://www.research-connect.com",
@@ -20,17 +21,17 @@
     {
       "title": "Find Research Opportunities.",
       "description": "Instead of having to email researchers, we streamline the process by showing undergrads all of the opportunities available to them.",
-      "image": "/static/pages/projects/pages/researchconnect/feature1.jpg"
+      "image": "/public/projects/researchconnect/feature1.jpg"
     },
     {
       "title": "View Requirements. Apply Online.",
       "description": "Find out exactly what requirements a lab is searching for that match your background.",
-      "image": "/static/pages/projects/pages/researchconnect/feature2.jpg"
+      "image": "/public/projects/researchconnect/feature2.jpg"
     },
     {
       "title": "Search Faculty.",
       "description": "Search for faculty across all departments to find out who is conducting research and whether they’re looking for students. (Coming Soon)",
-      "image": "/static/pages/projects/pages/researchconnect/feature3.jpg"
+      "image": "/public/projects/researchconnect/feature3.jpg"
     }
   ]
 }

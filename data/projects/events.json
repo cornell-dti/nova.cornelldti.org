@@ -6,6 +6,7 @@
   "subheader": "Events at Cornell. Just for you.",
   "hero": {
     "header": "What We Do",
+    "image": "/public/projects/events/header.png",
     "subheader": "With so much going on at Cornell, finding all the events you want to go to is hard. Cue keeps you updated on what events are happening around you, so you’ll never miss out!"
   },
   "ios-github": "https://github.com/cornell-dti/events-manager-ios",
@@ -18,17 +19,17 @@
     {
       "title": "Trending Now.",
       "description": "Whether it’s a busy Monday or a casual weekend, cue lets you know what’s happening on campus.",
-      "image": "/static/pages/projects/pages/events/feature1.jpg"
+      "image": "/public/projects/events/feature1.jpg"
     },
     {
       "title": "Manage Your Events.",
       "description": "Track all the events you’re interested in with the app, anywhere on-the-go.",
-      "image": "/static/pages/projects/pages/events/feature2.jpg"
+      "image": "/public/projects/events/feature2.jpg"
     },
     {
       "title": "Stay Updated.",
       "description": "Cue makes it easy to stay up to date with all the organizations you care about.",
-      "image": "/static/pages/projects/pages/events/feature3.jpg"
+      "image": "/public/projects/events/feature3.jpg"
     }
   ]
 }

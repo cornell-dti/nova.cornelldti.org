@@ -6,6 +6,7 @@
   "subheader": "Real Students. Real Class Feedback.",
   "hero": {
     "header": "What We Do",
+    "image": "/public/projects/reviews/header.png",
     "subheader": "Course Reviews is a course review website by Cornell students, for Cornell students. You can browse classes and view their metrics, read about other students’ experiences, and submit your own course reviews for others. Pre-Enroll has never been easier."
   },
   "website": "http://www.cureviews.org",
@@ -19,17 +20,17 @@
     {
       "title": "Search for Classes.",
       "description": "Search for Cornell classes using our wicked fast search.",
-      "image": "/static/pages/projects/pages/reviews/feature1.jpg"
+      "image": "/public/projects/reviews/feature1.jpg"
     },
     {
       "title": "Write a Review.",
       "description": "Write about the class, plus rate its difficulty and workload.",
-      "image": "/static/pages/projects/pages/reviews/feature2.jpg"
+      "image": "/public/projects/reviews/feature2.jpg"
     },
     {
       "title": "Check Out Class Reviews.",
       "description": "Read what other students have to say about the class.",
-      "image": "/static/pages/projects/pages/reviews/feature3.jpg"
+      "image": "/public/projects/reviews/feature3.jpg"
     }
   ]
 }

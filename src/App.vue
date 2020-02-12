@@ -41,26 +41,6 @@ export default {
 
       next();
     });
-
-    for (const element of Array.from(document.getElementsByTagName('title'))) {
-      if (this.$route.name && this.$route.name.trim()) {
-        element.innerText = `${this.$route.name} | Cornell DTI`;
-      } else {
-        element.innerText = `Cornell DTI`;
-      }
-    }
-
-    this.$router.afterEach(to => {
-      const titleElements = Array.from(document.getElementsByTagName('title'));
-
-      for (const element of titleElements) {
-        if (to.name && to.name.trim()) {
-          element.innerText = `${to.name} | Cornell DTI`;
-        } else {
-          element.innerText = `Cornell DTI`;
-        }
-      }
-    });
   }
 };
 </script>

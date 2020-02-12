@@ -6,6 +6,7 @@
   "subheader": "A Student Planner for Everyone.",
   "hero": {
     "header": "What We Do",
+    "image": "/public/projects/samwise/header.png",
     "subheader": "Managing a full credit-load and a healthy life is difficult. As due dates approach, it becomes easy to misjudge the amount of work remaining for any given assignment. By creating your tangible timeline, completing work no longer means giving up sleep."
   },
   "website": "https://samwise.today",
@@ -18,17 +19,17 @@
     {
       "title": "Seize Your Day.",
       "description": "Getting overwhelmed by looming assignments is not why you attend university. Samwise supports your sanity by presenting only what you need to be successful today.",
-      "image": "/static/pages/projects/pages/samwise/feature1.jpg"
+      "image": "/public/projects/samwise/feature1.jpg"
     },
     {
       "title": "Plan Ahead.",
       "description": "Seeing is believing. Add tasks with confidence as Samwise helps manage your workload days ahead. Work smarter, not harder.",
-      "image": "/static/pages/projects/pages/samwise/feature2.jpg"
+      "image": "/public/projects/samwise/feature2.jpg"
     },
     {
       "title": "Focus On What Matters.",
       "description": "Remembering every task required for a specific assignment is hard. Take the guesswork out of homework with subtasks that work for you. Samwise brings your deadlines into focus, one step at a time.",
-      "image": "/static/pages/projects/pages/reviews/feature3.jpg"
+      "image": "/public/projects/reviews/feature3.jpg"
     }
   ]
 }

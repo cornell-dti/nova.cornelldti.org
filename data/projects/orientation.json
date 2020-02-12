@@ -7,6 +7,7 @@
   "subheader": "Orientation Week. Made Simple.",
   "hero": {
     "header": "What We Do",
+    "image": "",
     "subheader": "Cornell is big. Orientation week is messy. With O-Week, new students can find orientation week events, keep track of their favorites, and know where and when to go."
   },
   "appstore": "https://itunes.apple.com/us/app/cu-orientation/id1244530142?mt=8",
@@ -20,17 +21,17 @@
     {
       "title": "Find It.",
       "description": "Search for new events by keyword.",
-      "image": "/static/pages/projects/pages/orientation/feature1.jpg"
+      "image": "/public/projects/orientation/feature1.jpg"
     },
     {
       "title": "Remind Me.",
       "description": "Be notified before any events required for your major.",
-      "image": "/static/pages/projects/pages/orientation/feature2.jpg"
+      "image": "/public/projects/orientation/feature2.jpg"
     },
     {
       "title": "Get There.",
       "description": "Directions to any event are just a tap away.",
-      "image": "/static/pages/projects/pages/orientation/feature3.jpg"
+      "image": "/public/projects/orientation/feature3.jpg"
     }
   ]
 }
