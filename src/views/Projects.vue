@@ -1,6 +1,6 @@
 <template>
-  <page-background>
-    <strings strings="hero" #strings="{ header, subheader, video, lazy, image}">
+  <page-background v-if="content">
+    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image}">
       <nova-hero
         :header="header"
         :subheader="subheader"
@@ -9,7 +9,7 @@
         :image="image"
         page="projects"
       />
-    </strings>
+    </strings-domain>
 
     <page-section class="project-page-main-section">
       <b-row
@@ -69,17 +69,14 @@
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 
-import Strings from '@/strings/strings';
+import { ProjectsContent } from '@/content';
 import { Project } from '@/shared';
 
 export default Vue.extend({
-  metaInfo: {
-    title: 'Projects'
-  },
   props: {
-    Strings: {
+    content: {
       required: true
-    } as PropValidator<Strings>,
+    } as PropValidator<ProjectsContent>,
     projects: {
       required: true
     } as PropValidator<Project[]>

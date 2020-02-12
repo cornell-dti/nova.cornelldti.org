@@ -1,9 +1,6 @@
 <template>
-  <page-background>
-    <strings
-      :strings="['hero', 'content']"
-      #strings="[{ header, subheader, video, lazy, image}, contents]"
-    >
+  <page-background v-if="content">
+    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image}">
       <nova-hero
         :header="header"
         :subheader="subheader"
@@ -12,57 +9,57 @@
         :image="image"
         page="courses"
       />
-
-      <b-container>
-        <page-section>
-          <template
-            v-for="{ content, order } of contents.map(function(c, i) {
-              return {
-                content: c,
-                order: 2 - (i % 2)
-              };
-            })"
-          >
-            <b-row :key="content.id" align-h="center" align-v="center" class="courses-row">
-              <b-col cols="12" lg="7" class="courses-row-img" :order-lg="order" order="1">
-                <b-img class="courses-row-image" :src="content.image" />
-              </b-col>
-              <b-col
-                class="courses-row-content-container"
-                cols="12"
-                lg="5"
-                :order-lg="(order % 2) + 1"
-                order="2"
+    </strings-domain>
+    <b-container>
+      <page-section>
+        <template
+          v-for="{ content, order } of content.content.map(function(c, i) {
+            return {
+              content: c,
+              order: 2 - (i % 2)
+            };
+          })"
+        >
+          <b-row :key="content.id" align-h="center" align-v="center" class="courses-row">
+            <b-col cols="12" lg="7" class="courses-row-img" :order-lg="order" order="1">
+              <b-img class="courses-row-image" :src="content.image" />
+            </b-col>
+            <b-col
+              class="courses-row-content-container"
+              cols="12"
+              lg="5"
+              :order-lg="(order % 2) + 1"
+              order="2"
+            >
+              <h2 class="courses-row-content-header">{{ content.header }}</h2>
+              <div class="courses-row-content-subheader">
+                {{ content.subtitle }}
+              </div>
+              <p class="courses-row-content">{{ content.description }}</p>
+              <strings-domain
+                v-if="content.buttons"
+                #key="{apply, github}"
+                :value="content.buttons"
               >
-                <h2 class="courses-row-content-header">{{ content.header }}</h2>
-                <div class="courses-row-content-subheader">
-                  {{ content.subtitle }}
-                </div>
-                <p class="courses-row-content">{{ content.description }}</p>
-                <strings-domain
-                  v-if="content.buttons"
-                  #key="{apply, github}"
-                  :value="content.buttons"
-                >
-                  <b-button v-if="apply" class="social-button" :href="apply.link">
-                    <ApplyIcon />
-                    <div class="social-button-text">
-                      {{ apply.title || '' }}
-                    </div>
-                  </b-button>
-                  <b-button v-if="github" class="social-button" :href="github.link">
-                    <GitHubIcon />
-                    <div class="social-button-text">
-                      {{ github.title || '' }}
-                    </div>
-                  </b-button>
-                </strings-domain>
-              </b-col>
-            </b-row>
-          </template>
-        </page-section>
-      </b-container>
-    </strings>
+                <b-button v-if="apply" class="social-button" :href="apply.link">
+                  <ApplyIcon />
+                  <div class="social-button-text">
+                    {{ apply.title || '' }}
+                  </div>
+                </b-button>
+                <b-button v-if="github" class="social-button" :href="github.link">
+                  <GitHubIcon />
+                  <div class="social-button-text">
+                    {{ github.title || '' }}
+                  </div>
+                </b-button>
+              </strings-domain>
+            </b-col>
+          </b-row>
+        </template>
+      </page-section>
+    </b-container>
+
     <dti-footer page="courses" />
   </page-background>
 </template>
@@ -254,19 +251,17 @@ $dark-gray: #4a4a4a;
 <script lang="ts">
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
+
 import GitHubIcon from '@/assets/social/github.svg';
 import ApplyIcon from '@/assets/other/apply.svg';
 
-import Strings from '@/strings/strings';
+import { CoursesContent } from '@/content';
 
 export default Vue.extend({
-  metaInfo: {
-    title: 'Courses'
-  },
   props: {
-    Strings: {
+    content: {
       required: true
-    } as PropValidator<Strings>
+    } as PropValidator<CoursesContent>
   },
   components: {
     GitHubIcon,

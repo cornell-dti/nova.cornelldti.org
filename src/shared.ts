@@ -4,10 +4,6 @@ import BootstrapVue from 'bootstrap-vue';
 
 import { VueConstructor, CreateElement, RenderContext } from 'vue';
 
-import StringsFrontend from '@/strings/strings';
-import { StringsData } from '@/strings/types';
-import SingleBackend from '@/strings/lib';
-
 export { Project, Member, Team, Company, Role } from './types';
 
 class AsyncDatasetBuilder<T, K> {
@@ -80,76 +76,6 @@ export class AsyncDataset<T, K = {}> {
 }
 
 export function initializeVue(Vue: VueConstructor) {
-  const AssetStrings = new StringsFrontend('assets', SingleBackend);
-
-  Vue.mixin({
-    data() {
-      return {
-        AssetStrings
-      };
-    }
-  });
-
-  Vue.component('Strings', {
-    name: 'Strings',
-    functional: true,
-    props: {
-      strings: {
-        default: () => ({})
-      },
-      source: {
-        default: ''
-      }
-    },
-    render(h, cx) {
-      const prop: string | { [key: string]: string } | string[] = cx.props.strings;
-      let resolvedStrings:
-        | { [key: string]: StringsData }
-        | StringsData
-        | StringsData[]
-        | null = null;
-      const { source } = cx.props;
-
-      let Strings: StringsFrontend;
-
-      if (source) {
-        Strings = new StringsFrontend(source, SingleBackend);
-      } else {
-        const { parent } = cx;
-
-        if (parent.Strings != null) {
-          Strings = parent.Strings;
-        } else {
-          return h();
-        }
-      }
-
-      if (typeof prop === 'string') {
-        resolvedStrings = Strings.get(prop);
-      } else if (Array.isArray(prop)) {
-        resolvedStrings = prop.map(p => Strings.get(p));
-      } else {
-        resolvedStrings = Object.fromEntries(
-          Object.entries({ ...prop }).map(([k, v]) => {
-            return [k, Strings.get(v)];
-          })
-        );
-      }
-
-      const { strings: slot } = cx.scopedSlots;
-
-      if (slot) {
-        const node = slot(resolvedStrings);
-
-        if (node) {
-          return node;
-        }
-      }
-
-      return h();
-    }
-  });
-
   Vue.component('StringsDomain', {
     name: 'StringsDomain',
     functional: true,
@@ -175,5 +101,5 @@ export function initializeVue(Vue: VueConstructor) {
 
   Vue.use(BootstrapVue);
 
-  return [AssetStrings.initialize()];
+  return [];
 }

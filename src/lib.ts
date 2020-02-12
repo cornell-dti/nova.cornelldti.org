@@ -25,10 +25,6 @@ import DTIProject from '@/templates/DTIProject.vue';
 
 import { initializeVue, AsyncDataset, Company, Role, Team } from '@/shared';
 
-import SingleBackend from '@/strings/lib';
-import JSStringsBackend from '@/strings/backends/json';
-import Strings from '@/strings/strings';
-
 const Components = {
   Apply,
   Courses,
@@ -82,18 +78,3 @@ export function initialize(Vue: VueConstructor) {
 
   return [rolesSet.initialize(), teamsSet.initialize(), companiesSet.initialize()];
 }
-
-SingleBackend.resolveContext = function resolveContext(
-  this: JSStringsBackend,
-  context: string,
-  ...args: Strings[]
-) {
-  const [strings] = args;
-
-  // Allow re-resolving in the library.
-  this.map.set(context, strings);
-
-  return this.map.get(context);
-};
-
-export { fromJSON } from '@/strings/json';

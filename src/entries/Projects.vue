@@ -1,9 +1,9 @@
 <template>
-  <ProjectsPage :strings="Strings" :projects="projects" />
+  <projects-view :content="content" :projects="projects" />
 </template>
 
 <page-query>
-query DTIProjects {
+query DTIProjects($id: ID!) {
   projects: allDtiProject {
     edges {
       node {
@@ -14,19 +14,29 @@ query DTIProjects {
       }
     }
   }
+
+  content: projectsEntry(id: $id) {
+    hero {
+      lazy
+      video {
+        mp4
+        webm
+      }
+      image
+    }
+    
+  }
 }
 </page-query>
 
 <script lang="ts">
-import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
-import { fromJSON } from '@/strings/json';
+import ProjectsView from '@/views/Projects.vue';
 
-import ProjectsPage from '@/views/Projects.vue';
+import Entry from '@/entry';
 
-import ProjectsJSON from '@/../data/generated/pages/projects.json';
-
+import { ProjectsContent } from '@/content';
 import { Member, Project } from '@/shared';
 
 interface ProjectsPage {
@@ -43,12 +53,10 @@ interface ProjectsPage {
     title: 'Projects'
   },
   components: {
-    ProjectsPage
+    ProjectsView
   }
 })
-class Projects extends Vue {
-  Strings = fromJSON('projects', ProjectsJSON);
-
+class Projects extends Entry<ProjectsContent> {
   get members(): Member[] {
     const members = (this.$page as ProjectsPage).members.edges.map(e => e.node);
     return members;

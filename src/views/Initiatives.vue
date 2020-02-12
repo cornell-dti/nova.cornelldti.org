@@ -1,6 +1,6 @@
 <template>
-  <page-background>
-    <strings strings="hero" #strings="{ video, lazy, image}">
+  <page-background v-if="content">
+    <strings-domain :value="content.hero" #key="{ video, lazy, image}">
       <nova-hero
         header="Inspiring Change"
         subheader="What sets us apart from other project teams is our desire to share what we learn with other students and members of the greater Ithaca community."
@@ -9,8 +9,8 @@
         :image="image"
         page="initiatives"
       />
-    </strings>
-    <strings strings="promo" #strings="{ makeathon, blueprint, halfbaked }">
+    </strings-domain>
+    <strings-domain :value="content.promo" #key="{ makeathon, blueprint, halfbaked }">
       <page-section class="initiatives-main-section">
         <b-container>
           <b-row align-h="center" align-v="center" class="initiative-row">
@@ -88,7 +88,7 @@
           </b-row>
         </b-container>
       </page-section>
-    </strings>
+    </strings-domain>
     <dti-footer page="initiatives" />
   </page-background>
 </template>
@@ -276,16 +276,13 @@ import { PropValidator } from 'vue/types/options';
 import FacebookIcon from '@/assets/social/facebook-white.svg';
 import MediumIcon from '@/assets/social/medium-white-m.svg';
 
-import Strings from '@/strings/strings';
+import { InitiativesContent } from '@/content';
 
 export default Vue.extend({
-  metaInfo: {
-    title: 'Initiatives'
-  },
   props: {
-    Strings: {
+    content: {
       required: true
-    } as PropValidator<Strings>
+    } as PropValidator<InitiativesContent>
   },
   components: {
     FacebookIcon,
