@@ -108,10 +108,13 @@
     ]
   },
   "sponsors": {
-    "check": "/static/pages/sponsor/sponsors/Checkmark.png",
-    "invision": "/static/pages/sponsor/sponsors/invision.png",
-    "google": "/static/pages/sponsor/sponsors/google.png",
-    "cornell-engineering-alumni": "/static/pages/sponsor/sponsors/cornellengineeringalumni.png"
+    "check": "/public/pages/sponsor/sponsors/Checkmark.png",
+    "capitalone": "/public/pages/sponsor/sponsors/capitalone.png",
+    "invision": "/public/pages/sponsor/sponsors/invision.png",
+    "zeplin": "/public/pages/sponsor/sponsors/zeplin.png",
+    "asana": "/public/pages/sponsor/sponsors/asana.png",
+    "google": "/public/pages/sponsor/sponsors/google.png",
+    "cornell-engineering-alumni": "/public/pages/sponsor/sponsors/cornellengineeringalumni.png"
   },
   "events": {
     "infoSesh": "/public/pages/sponsor/events/infoSesion.png",

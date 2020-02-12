@@ -44,6 +44,9 @@ query Sponsor($id: ID!) {
       invision
       google
       cornell_engineering_alumni
+      capitalone
+      zeplin
+      asana
     }
     events {
       infoSesh
