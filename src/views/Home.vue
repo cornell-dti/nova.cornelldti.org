@@ -2,7 +2,7 @@
   <div v-if="content">
     <div class="home">
       <lazy-video
-        class="home-background home-preload-background home-background-video"
+        className="home-background home-preload-background home-background-video"
         :lazy="content.hero.lazy"
         :video="content.hero.video"
       />
@@ -91,6 +91,8 @@ $hero-margin: 3vw;
 
   &.home-background-video {
     object-fit: cover;
+    height: 100vh;
+    width: 100vw;
   }
 }
 
