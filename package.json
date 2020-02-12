@@ -2,7 +2,7 @@
   "name": "dti-nova-gridsome",
   "private": true,
   "scripts": {
-    "build": "yarn build:lib && yarn build:grid && yarn build:grid",
+    "build": "yarn build:lib && yarn build:grid",
     "build:grid": "gridsome build",
     "build:lib": "vue-cli-service build --target lib --name dti-nova --formats commonjs --dest admin/lib src/lib.ts",
     "update:packages": "yarn add -D ./packages/cdnify-json/ && yarn add -D ./packages/gridsome-transformer-json-enhanced/",
