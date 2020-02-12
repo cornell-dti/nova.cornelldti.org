@@ -62,14 +62,14 @@ function buildMembers() {
                         roleDescription: parsed.roleDescription || ""
                     };
 
-                    return [f, fixed];
+                    return { file: f, member: fixed };
                 } catch (err) {
                     console.error(err);
-                    return [f, null];
+                    return { file: f, member: null };
                 }
             })
-            .filter(([, contents]) => contents != null)
-            .forEach(([f, contents]) => {
+            .filter(({ member }) => member != null)
+            .map(({ file: f, member }) => {
                 const out = path.join(__dirname, 'data', 'generated', 'members');
 
                 if (!fs.existsSync(out)) {
@@ -78,7 +78,9 @@ function buildMembers() {
 
                 const outFile = path.join(out, f);
 
-                fs.writeFileSync(outFile, JSON.stringify(contents, null, 4));
+                fs.writeFileSync(outFile, JSON.stringify(member, null, 4));
+
+                return member;
             });;
 
     const outFile = path.join(out, 'members.json');
