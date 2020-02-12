@@ -9,5 +9,7 @@
     "hometown": "Seattle, WA",
     "about": "Hi, I’m Ein! I’m a sophomore studying Computer Science and excited to be a part of a team where I can work with others from all different backgrounds to create an impactful product! On campus, I’m also involved in APO and SWE. I love going hiking and to concerts and am always down to eat tacos!!",
     "roleId": "design",
-    "roleDescription": "Designer"
+    "roleDescription": "Designer",
+    "subteam": "",
+    "otherSubteams": []
 }

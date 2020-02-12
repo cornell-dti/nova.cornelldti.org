@@ -11,5 +11,6 @@
     "about": "When I'm not in Duffield working on a CS pset or DTI, I enjoy working on creative writing pieces and going to the gym. I am also Co-Director of Hack4Impact, a nonprofit, social impact CS group on campus. In my free time, I like playing games with friends and showing people unsolicited pet photos.",
     "subteam": "reviews",
     "roleId": "developer",
-    "roleDescription": "Developer"
+    "roleDescription": "Developer",
+    "otherSubteams": []
 }

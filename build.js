@@ -42,7 +42,27 @@ function buildMembers() {
                         h: 500
                     }).picture;
 
-                    return [f, parsed];
+                    // We need to enforce certain fields for search purposes.
+                    const fixed = {
+                        netid: parsed.netid || "",
+                        image: parsed.image || "",
+                        firstName: parsed.firstName || "",
+                        lastName: parsed.lastName || "",
+                        name: parsed.name || "",
+                        graduation: parsed.graduation || "",
+                        major: parsed.major || "",
+                        linkedin: parsed.linkedin || "",
+                        github: parsed.github || "",
+                        hometown: parsed.hometown || "",
+                        about: parsed.about || "",
+                        subteam: parsed.subteam || "",
+                        otherSubteams: parsed.otherSubteams || [],
+                        website: parsed.website || "",
+                        roleId: parsed.roleId || "",
+                        roleDescription: parsed.roleDescription || ""
+                    };
+
+                    return [f, fixed];
                 } catch (err) {
                     console.error(err);
                     return [f, null];

@@ -31,6 +31,29 @@ module.exports = function (api) {
     build();
   });
 
+  api.loadSource(({ addSchemaTypes }) => {
+    addSchemaTypes(`
+      type Member implements Node {
+        netid: String
+        image: String
+        firstName: String
+        lastName: String
+        name: String
+        graduation: String
+        major: String
+        linkedin: String
+        github: String
+        hometown: String
+        about: String
+        subteam: String
+        otherSubteams: [String]
+        website: String
+        roleId: String
+        roleDescription: String
+      }
+    `)
+  })
+
   api.loadSource(async store => {
     Object.entries($AssetsJSON).forEach(([k, v]) => {
       store.addMetadata(k, v);

@@ -11,5 +11,7 @@
     "hometown": "Woodbury, CT",
     "about": "Hi, I’m Beth! I study CS and psychology in Arts & Sciences, and aside from DTI I’m a member of Big Red Thon, WICC, and Alpha Chi Omega on campus. In my free time, I enjoy reading, visiting art museums, and running. I love solving complex problems with creative solutions, especially when they have a social impact.",
     "roleId": "developer",
-    "roleDescription": "Developer"
+    "roleDescription": "Developer",
+    "subteam": "",
+    "otherSubteams": []
 }

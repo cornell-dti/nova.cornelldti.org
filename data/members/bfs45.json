@@ -10,5 +10,7 @@
     "hometown": "Queens, NY",
     "about": "I am currently a sophomore undergraduate at Cornell studying Computer Science. I'm from New York City but I love nature just as much as city life. In my free time, I enjoy singing in The Glee Club and The Chordials! My favorite junk food is Cheetos and my favorite junk drink is iced tea.",
     "roleId": "developer",
-    "roleDescription": "Developer"
+    "roleDescription": "Developer",
+    "subteam": "flux",
+    "otherSubteams": []
 }

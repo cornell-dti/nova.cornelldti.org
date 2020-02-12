@@ -11,5 +11,7 @@
     "hometown": "Tenafly, NJ",
     "about": "I am a developer excited to use my skills to make a positive impact on the community. I primarily do back-end development, with an emphasis on data science, but I do have familiarity with some front-end technologies if needed. Outside of DTI, I am a part of the data engineering subteam under Cornell Data Science, where we tackle difficult problems through data engineering techniques. I am also a Project Manager for Hack4Impact, a group where we develop software for social impact. Additionally, I am a course consultant for CS 2024, C++. In my free time, I enjoy playing games, hanging out with friends, and further developing a homebrew Gameboy game I made.",
     "roleId": "developer",
-    "roleDescription": "Developer"
+    "roleDescription": "Developer",
+    "subteam": "",
+    "otherSubteams": []
 }
