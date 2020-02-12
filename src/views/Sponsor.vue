@@ -128,14 +128,25 @@
       <page-section>
         <h2 class="sponsor-list-heading">{{ content.current_sponsors.header }}</h2>
         <b-row class="sponsor-list justify-content-center">
-          <b-col class="my-auto" sm="12" md="4">
+          <b-col class="my-auto" sm="12" md="6">
+            <b-img class="sponsor-icon" :src="content.sponsors.capitalone" />
+          </b-col>
+          <b-col class="my-auto" sm="12" md="6">
+            <b-img class="sponsor-icon" :src="content.sponsors.cornell_engineering_alumni" />
+          </b-col>
+        </b-row>
+        <b-row class="sponsor-list-small justify-content-center">
+          <b-col class="my-auto" sm="12" md="3">
             <b-img class="sponsor-icon" :src="content.sponsors.invision" />
           </b-col>
-          <b-col class="my-auto" sm="12" md="4">
+          <b-col class="my-auto" sm="12" md="3">
+            <b-img class="sponsor-icon" :src="content.sponsors.zeplin" />
+          </b-col>
+          <b-col class="my-auto" sm="12" md="3">
             <b-img class="sponsor-icon" :src="content.sponsors.google" />
           </b-col>
-          <b-col class="my-auto" sm="12" md="4">
-            <b-img class="sponsor-icon" :src="content.sponsors.cornell_engineering_alumni" />
+          <b-col class="my-auto" sm="12" md="3">
+            <b-img class="sponsor-icon" :src="content.sponsors.asana" />
           </b-col>
         </b-row>
       </page-section>
@@ -202,6 +213,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .sponsor-icon {
   width: 100%;
+  margin: 0.5rem;
 }
 
 .sponsor-contact {
@@ -273,26 +285,28 @@ export default Vue.extend({
   background-color: #454545;
   width: 10.5rem;
   height: 3.5rem;
+  margin: auto;
 }
 
 .silver {
   background-color: #454545;
   width: 10.5rem;
   height: 3.5rem;
-  margin: 0;
+  margin: auto;
 }
 
 .gold {
   background-color: #454545;
   width: 10.5rem;
   height: 3.5rem;
+  margin: auto;
 }
 
 .platinum {
   background-color: #454545;
   width: 10.5rem;
   height: 3.5rem;
-  margin: 0;
+  margin: auto;
 }
 
 .text-sm-head {
@@ -324,6 +338,18 @@ export default Vue.extend({
     margin: auto;
     text-align: center;
     width: 90%;
+  }
+
+  margin-bottom: 6rem;
+}
+
+.sponsor-list-small {
+  .col,
+  div[class*='col-'] {
+    font-size: 1.5625rem;
+    margin: auto;
+    text-align: center;
+    width: 70%;
   }
 }
 

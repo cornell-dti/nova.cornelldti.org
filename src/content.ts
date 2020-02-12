@@ -95,6 +95,9 @@ export interface SponsorContent extends Content {
     invision: string;
     google: string;
     cornell_engineering_alumni: string;
+    capitalone: string;
+    zeplin: string;
+    asana: string;
   };
   events: {
     infoSesh: string;
