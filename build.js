@@ -23,6 +23,12 @@ cdnify.init([
 function buildMembers() {
     const memberFiles = fs.readdirSync(path.join(__dirname, 'data', 'members'));
 
+    const out = path.join(__dirname, 'data', 'generated');
+
+    if (!fs.existsSync(out)) {
+        fs.mkdirSync(out);
+    }
+
     const members =
         memberFiles
             .filter(f => f.endsWith(".json"))
@@ -54,12 +60,6 @@ function buildMembers() {
 
                 fs.writeFileSync(outFile, JSON.stringify(contents, null, 4));
             });;
-
-    const out = path.join(__dirname, 'data', 'generated');
-
-    if (!fs.existsSync(out)) {
-        fs.mkdirSync(out);
-    }
 
     const outFile = path.join(out, 'members.json');
 
