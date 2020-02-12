@@ -57,7 +57,7 @@ class Team extends Vue {
   diversity = DiversityJSON.diversity;
 
   get members(): Member[] {
-    return (this.$page as any).members.edges.map((e: any) => e.node);
+    return (this.$page as any).members.edges.map((e: any) => e.node).filter((e: any) => e.name);
   }
 }
 
