@@ -1,11 +1,10 @@
 import Vue from 'vue';
-import { fromJSON } from '../lib/dti-nova.common';
 
 export function entryToStrings(entry) {
   return entry.getIn(['data']).toJS();
 }
 
-export default (name, Widget, loadStrings = true) =>
+export default (name, Widget) =>
   Vue.extend({
     name: `${name}Preview`,
     props: {
@@ -22,15 +21,9 @@ export default (name, Widget, loadStrings = true) =>
       // Netlify CMS uses immutable.js so we have to convert the data.
       const info = entryToStrings(cx.props.entry);
 
-      let Strings = {};
-
-      if (loadStrings) {
-        Strings = fromJSON(name, info);
-      }
-
       return h(Widget, {
         props: {
-          Strings
+          info
         }
       });
     }

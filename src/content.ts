@@ -108,25 +108,31 @@ export interface SponsorContent extends Content {
 export interface TeamContent extends Content {
   team: {
     header: string;
+    away: {
+      header: string;
+      subheader: string;
+    };
   };
-
-  header: string;
-  description: string;
-  gender: {
+  diversity: {
     header: string;
-  };
-  stats: {
-    underclassmen: {
-      stat: string;
-      description: string;
+    description: string;
+
+    gender: {
+      header: string;
     };
-    majors: {
-      stat: string;
-      description: string;
-    };
-    colleges: {
-      stat: string;
-      description: string;
+    stats: {
+      underclassmen: {
+        stat: string;
+        description: string;
+      };
+      majors: {
+        stat: string;
+        description: string;
+      };
+      colleges: {
+        stat: string;
+        description: string;
+      };
     };
   };
 }
