@@ -17,6 +17,14 @@ module.exports = function cdnify(json, options) {
 
                 return v;
             } else if (typeof v === 'object') {
+                if (v['cdnify:image']) {
+                    for (let [pattern, provider] of providers) {
+                        if (pattern.test(v['cdnify:image'])) {
+                            return provider.transform(v['cdnify:image'], v.options || {});
+                        }
+                    }
+                }
+
                 return cdnify(v, options);
             } else {
                 return v;
@@ -33,6 +41,14 @@ module.exports = function cdnify(json, options) {
 
                 return [k, v];
             } else if (typeof v === 'object') {
+                if (v['cdnify:image']) {
+                    for (let [pattern, provider] of providers) {
+                        if (pattern.test(v['cdnify:image'])) {
+                            return [k, provider.transform(v['cdnify:image'], v.options || {})];
+                        }
+                    }
+                }
+
                 return [k, cdnify(v, options)];
             } else {
                 return [k, v];

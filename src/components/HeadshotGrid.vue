@@ -13,7 +13,7 @@
       />
     </div>
 
-    <member-profile-modal ref="modalRef" :profile="currentProfile" :display="true" />
+    <member-profile-modal ref="modalRef" :profile="currentProfile" />
   </div>
 </template>
 

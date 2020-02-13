@@ -4,10 +4,10 @@
     "subheader": "We want to partner with organizations who have a similar vision of changing the world. Together, we can work towards improving our communities with technology.",
     "lazy": "/static/pages/sponsor/hero/hero-lazy.jpg",
     "video": {
-      "mp4": "/public/pages/sponsor/hero/hero.mp4",
-      "webm": "/public/pages/sponsor/hero/hero.webm"
+      "mp4": "",
+      "webm": ""
     },
-    "image": "/public/pages/sponsor/hero/hero.png"
+    "image": ""
   },
   "pitch": [
     {
@@ -117,7 +117,17 @@
     "cornell-engineering-alumni": "/public/pages/sponsor/sponsors/cornellengineeringalumni.png"
   },
   "events": {
-    "infoSesh": "/public/pages/sponsor/events/infoSesion.png",
-    "googleLunch": "/public/pages/sponsor/events/googleLunch.jpg"
+    "infoSesh": {
+      "cdnify:image": "/public/pages/sponsor/events/infoSesion.png",
+      "options": {
+        "h": 800
+      }
+    },
+    "googleLunch": {
+      "cdnify:image": "/public/pages/sponsor/events/googleLunch.jpg",
+      "options": {
+        "h": 800
+      }
+    }
   }
 }

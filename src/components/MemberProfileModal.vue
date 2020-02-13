@@ -31,19 +31,14 @@
           <b-row class="modal-scroll">
             <b-col col>
               <b-img
-                v-if="internalDisplay && display"
+                v-if="internalDisplay"
                 center
                 rounded="circle"
                 class="profile-image"
                 :src="`${profile.info.image}`"
-                @error="internalDisplay = !display"
+                @error="imageError"
               ></b-img>
-              <div
-                v-if="!internalDisplay || !display"
-                center
-                rounded="circle"
-                class="profile-image rounded-circle mx-auto"
-              >
+              <div v-else center rounded="circle" class="profile-image rounded-circle mx-auto">
                 <MissingImage class="profile-image-missing" />
               </div>
               <b-row class="profile-main">
@@ -141,7 +136,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import { Component, Watch } from 'vue-property-decorator';
 
 import { BModal } from 'bootstrap-vue';
 import { ObjectProp, BooleanProp } from '@/util/common';
@@ -165,11 +160,7 @@ export default class MemberProfileModal extends Vue {
   @ObjectProp()
   profile!: { info: Member };
 
-  @BooleanProp({ required: false, defaultValue: false })
-  display!: boolean;
-
   internalDisplay = true;
-
   isShowing = false;
 
   get subteams(): string[] {
@@ -181,6 +172,15 @@ export default class MemberProfileModal extends Vue {
       subteams.push(other);
     }
     return subteams;
+  }
+
+  @Watch('profile')
+  onProfileChanged() {
+    this.internalDisplay = true;
+  }
+
+  imageError() {
+    this.internalDisplay = false;
   }
 
   modalClose() {

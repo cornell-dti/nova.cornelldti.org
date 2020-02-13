@@ -4,8 +4,8 @@
     "subheader": "A project team is meant, above all, to be a learning experience. Given our mission of community impact, we want to help everyone learn and grow through our training courses in design, technology, and product development.",
     "lazy": "/static/pages/courses/hero/hero-lazy.jpg",
     "video": {
-      "mp4": "/public/pages/courses/hero/hero.mp4",
-      "webm": "/public/pages/courses/hero/hero.webm"
+      "mp4": "",
+      "webm": ""
     },
     "image": "/public/pages/courses/hero/hero.png"
   },

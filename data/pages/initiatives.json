@@ -8,8 +8,23 @@
     "image": "/public/pages/initiatives/hero/hero.png"
   },
   "promo": {
-    "makeathon": "/public/pages/initiatives/promo/makeathon.png",
-    "halfbaked": "/public/pages/initiatives/promo/halfbaked.png",
-    "blueprint": "/public/pages/initiatives/promo/blueprint.png"
+    "makeathon": {
+      "cdnify:image": "/public/pages/initiatives/promo/makeathon.png",
+      "options": {
+        "h": 500
+      }
+    },
+    "halfbaked": {
+      "cdnify:image": "/public/pages/initiatives/promo/halfbaked.png",
+      "options": {
+        "h": 500
+      }
+    },
+    "blueprint": {
+      "cdnify:image": "/public/pages/initiatives/promo/blueprint.png",
+      "options": {
+        "h": 500
+      }
+    }
   }
 }
