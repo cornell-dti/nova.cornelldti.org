@@ -15,7 +15,7 @@ export default {
     const { props } = cx;
     const useAws = props.aws != null ? props.aws : true;
 
-    const video = <video class={props.className} mute autoplay loop poster={props.lazy} />;
+    const video = <video class={props.className} playsinline mute autoplay loop poster={props.lazy} />;
 
     video.children = [];
 

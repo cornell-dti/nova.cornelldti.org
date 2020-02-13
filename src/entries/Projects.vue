@@ -17,6 +17,8 @@ query DTIProjects($id: ID!) {
 
   content: projectsEntry(id: $id) {
     hero {
+      header
+      subheader
       lazy
       video {
         mp4
