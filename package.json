@@ -34,7 +34,7 @@
     "@types/d3": "^5.7.2",
     "@types/netlify-identity-widget": "^1.4.1",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
-    "@typescript-eslint/parser": "^2.8.0",
+    "@typescript-eslint/parser": "^2.20.0",
     "@vue/cli": "^4.2.2",
     "@vue/cli-plugin-babel": "^4.2.2",
     "@vue/cli-plugin-eslint": "^4.2.2",
