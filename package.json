@@ -69,7 +69,7 @@
     "imgix-core-js": "^2.2.1",
     "json-parse-better-errors": "^1.0.2",
     "mini-css-extract-plugin": "^0.9.0",
-    "netlify-cli": "^2.32.0",
+    "netlify-cli": "^2.35.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^8.0.0",
