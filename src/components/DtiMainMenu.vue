@@ -8,7 +8,7 @@
     ]"
     ref="dtinavbar"
     fixed="top"
-    toggleable="md"
+    toggleable="lg"
     type="none"
   >
     <b-navbar-brand class="navbar-branding-dti" href="#">
@@ -73,6 +73,9 @@
           <b-button class="apply-button" variant="primary">Apply Now!</b-button>
         </b-nav-item>
         <b-nav-item v-else to="/apply">Apply</b-nav-item>
+        <b-nav-item to="/give" class="override-apply-color">
+          <b-button class="apply-button" variant="primary">Give Now!</b-button>
+        </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -181,14 +184,14 @@ export default {
     box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.3);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .navbar-nav > li {
       padding-left: 1vw;
       padding-right: 1vw;
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     &.navbar {
       padding: 0;
     }
