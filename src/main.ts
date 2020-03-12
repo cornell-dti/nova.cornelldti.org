@@ -1,7 +1,9 @@
 import { VueConstructor } from 'vue';
+import VueRouter from 'vue-router';
 import 'vue-meta';
 
 import DtiFooter from '@/components/DtiFooter.vue';
+import Give from '@/components/Give';
 import PageBackground from '@/components/PageBackground.vue';
 import PageHero from '@/components/PageHero.vue';
 import NovaHero from '@/components/NovaHero.vue';
@@ -9,13 +11,24 @@ import PageSublist from '@/components/PageSublist.vue';
 import TextPageHero from '@/components/TextPageHero.vue';
 import TextHero from '@/components/TextHero.vue';
 import PageSection from '@/components/PageSection.vue';
+
 import DTIProject from '@/templates/DTIProject.vue';
 
 import { Role, Team, Company, AsyncDataset, initializeVue } from '@/shared';
 
-export default function(Vue: VueConstructor, { head }: { head: { titleTemplate: string } }) {
+export default function(
+  Vue: VueConstructor,
+  { head, router }: { router: VueRouter; head: { titleTemplate: string } }
+) {
   /* eslint-disable no-param-reassign */
   head.titleTemplate = '%s - Cornell DTI';
+
+  router.addRoutes([
+    {
+      path: '/give',
+      component: Give
+    }
+  ]);
 
   Vue.component('PageSublist', PageSublist);
   Vue.component('DtiFooter', DtiFooter);
