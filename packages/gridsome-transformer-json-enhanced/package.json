@@ -6,6 +6,6 @@
   "license": "MIT",
   "dependencies": {
     "@gridsome/transformer-json": "^0.2.1",
-    "cdnify-json": "./packages/cdnify-json"
+    "cdnify-json": "0.0.1"
   }
 }

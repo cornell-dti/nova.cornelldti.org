@@ -1,10 +1,11 @@
-// This is where project configuration and plugin options are located. 
+// This is where project configuration and plugin options are located.
 // Learn more: https://gridsome.org/docs/config
 
 const path = require('path');
 
 module.exports = {
   siteName: 'Cornell Design & Tech Initiative',
+  outputDir: '../../dist',
   templates: {
     DTIProject: '/projects/:teamId_raw',
     Member: '/members/:netid_raw',
@@ -118,9 +119,9 @@ module.exports = {
       use: `gridsome-plugin-netlify-cms`,
       options: {
         publicPath: `/admin`,
-        modulePath: `admin/index.js`,
-        configPath: `admin/config.yml`,
-        htmlPath: `admin/index.html`
+        modulePath: `../../admin/index.js`,
+        configPath: `../../admin/config.yml`,
+        htmlPath: `../../admin/index.html`
       },
     },
     {
