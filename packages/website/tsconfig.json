@@ -27,7 +27,7 @@
     ]
   },
   "include": [
-    "admin/**/*.js",
+    "../../admin/**/*.js",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
@@ -35,8 +35,6 @@
     "tests/**/*.tsx"
   ],
   "exclude": [
-    "packages",
-    "plugins",
     "node_modules"
   ]
 }
