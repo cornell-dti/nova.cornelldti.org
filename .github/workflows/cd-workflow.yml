@@ -1,0 +1,32 @@
+name: CD
+on:
+  push:
+    branches:
+      - master
+env:
+  BUILD_ENV: production
+  IMGIX_API_KEY: ${{ secrets.IMGIX_API_KEY }}
+  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Use Yarn Cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: yarn-
+      - name: Yarn Install
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Deploy to Netlify
+        run: ./packages/website/node_modules/.bin/netlify deploy --prod
