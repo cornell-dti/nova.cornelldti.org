@@ -1,5 +1,5 @@
 name: CI
-on: push
+on: pull_request
 
 jobs:
   build:
@@ -16,8 +16,7 @@ jobs:
         run: yarn build
       - name: Run Linter
         run: yarn lint
-      - name: Upload Built Static Assets
-        uses: actions/upload-artifact@master
-        with:
-          name: built-assets
-          path: dist
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: yarn workspace website netlify deploy
