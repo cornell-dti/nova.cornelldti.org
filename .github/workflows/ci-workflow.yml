@@ -28,6 +28,4 @@ jobs:
       - name: Run Linter
         run: yarn lint
       - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
-        with:
-          args: deploy
+        run: ./packages/website/node_modules/.bin/netlify deploy
