@@ -19,4 +19,6 @@ jobs:
       - name: Deploy to Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: yarn workspace website netlify deploy
+        run: |
+          yarn workspace website netlify link
+          yarn workspace website netlify deploy
