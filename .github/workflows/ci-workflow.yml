@@ -28,4 +28,17 @@ jobs:
       - name: Run Linter
         run: yarn lint
       - name: Deploy to Netlify
-        run: ./packages/website/node_modules/.bin/netlify deploy
+        run: ./packages/website/node_modules/.bin/netlify deploy --json > a.json
+      - name: Comment Deployment URL in pull request
+        uses: actions/github-script@0.2.0
+        with:
+          github-token: ${{ secrets.BOT_TOKEN }}
+          script: |
+            const url = require('./a.json').deploy_url;
+
+            github.issues.createComment({
+              owner: 'cornell-dti',
+              repo: 'nova.cornelldti.org',
+              issue_number: ${{ github.event.number }},
+              body: `[deployment-bot] Deployed to ${url}.`
+            });
