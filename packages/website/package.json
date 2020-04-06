@@ -55,7 +55,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue": "^6.2.0",
     "gridsome": "^0.7.13",
-    "gridsome-plugin-image-cdn": "^0.1.1",
+    "gridsome-plugin-image-cdn": "^0.1.6",
     "gridsome-plugin-netlify-cms": "^1.0.9",
     "gridsome-plugin-svg": "^0.0.13",
     "gridsome-plugin-typescript": "^0.4.0",

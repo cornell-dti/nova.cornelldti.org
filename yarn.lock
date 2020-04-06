@@ -8979,12 +8979,10 @@ gray-matter@^4.0.2:
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
 
-gridsome-plugin-image-cdn@^0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/gridsome-plugin-image-cdn/-/gridsome-plugin-image-cdn-0.1.3.tgz#ee4b910fc4c85015539cf2237b56b30332481d69"
-  integrity sha512-2cvSvhxrw1cD6URb0rdg1IpHstM2yC1qzuowbDYx4a/Fe5SQ8fjGYqaZ7sh6qeUlgRMIu3l3+mD9UEyMoDLyTQ==
-  dependencies:
-    lodash.get "^4.4.2"
+gridsome-plugin-image-cdn@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/gridsome-plugin-image-cdn/-/gridsome-plugin-image-cdn-0.1.6.tgz#c21aa81e40f5511fbdbba9efec44484e5bd2affc"
+  integrity sha512-bWwJQ5OtmPYgHaCy5owqLd78kepvYpabbvqPdiW0cNAfPH0kmHbmW2e6l2SMwQ/sTidNd4tgp67oze+75RIVlw==
 
 gridsome-plugin-netlify-cms@^1.0.9:
   version "1.0.9"
