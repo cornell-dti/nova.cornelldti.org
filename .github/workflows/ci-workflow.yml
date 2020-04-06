@@ -28,4 +28,14 @@ jobs:
       - name: Run Linter
         run: yarn lint
       - name: Deploy to Netlify
-        run: ./packages/website/node_modules/.bin/netlify deploy
+        run: |
+          ./packages/website/node_modules/.bin/netlify deploy --json > a.json
+          # Parse deployment URL
+          DEPLOY_URL=$(echo "console.log(require('./a.json').deploy_url)" | node)
+          echo "::set-env name=DEPLOY_URL::$DEPLOY_URL"
+      - uses: cornell-dti/dti-repo-tools@master
+        env:
+          BOT_TOKEN: '${{ secrets.BOT_TOKEN }}'
+        with:
+          command: pr-comment
+          argument: '[deployment-bot] Deployed to ${{env.DEPLOY_URL}}.'
