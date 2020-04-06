@@ -9015,10 +9015,10 @@ gridsome-plugin-netlify-cms@^1.0.9:
     webpack "^4.29.0"
     webpack-dev-middleware "^3.5.1"
 
-gridsome-plugin-svg@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/gridsome-plugin-svg/-/gridsome-plugin-svg-0.0.10.tgz#f7cfab7163cd9eb7dc615e33c7ec6e819febedb6"
-  integrity sha512-TcmBhdbg0QEHdaB5ozh2bmAcupre7sN3tQH1ePVls9GVdpT0m4ZE0KmkHdSuTLSZ/wmMOH5GZ+hiaGmSoBdCCA==
+gridsome-plugin-svg@^0.0.13:
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/gridsome-plugin-svg/-/gridsome-plugin-svg-0.0.13.tgz#012c72e2b2508a641c3c9edaa301bf717cf7b744"
+  integrity sha512-A7ECt1GxbNz5U0CW1USzCpliyG/LKfoy8VU088Tqy1f+noomrl8Q0W6mlBvWuukZB4caRwODUG+4/3ch9fMFzA==
   dependencies:
     vue-svg-loader "^0.12.0"
 
