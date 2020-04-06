@@ -57,7 +57,7 @@
     "gridsome": "^0.7.13",
     "gridsome-plugin-image-cdn": "^0.1.1",
     "gridsome-plugin-netlify-cms": "^1.0.9",
-    "gridsome-plugin-svg": "^0.0.10",
+    "gridsome-plugin-svg": "^0.0.13",
     "gridsome-plugin-typescript": "^0.4.0",
     "gridsome-transformer-json-enhanced": "0.0.1",
     "ignore-loader": "^0.1.2",
