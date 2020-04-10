@@ -1,0 +1,54 @@
+name: CD
+on:
+  push:
+    branches:
+      - master
+env:
+  BUILD_ENV: production
+  IMGIX_API_KEY: ${{ secrets.IMGIX_API_KEY }}
+  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Use Yarn Cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: yarn-
+      - name: Yarn Install
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Upload Built Static Assets
+        uses: actions/upload-artifact@master
+        with:
+          name: built-frontend-assets
+          path: dist
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Download Built Static Assets
+        uses: actions/download-artifact@master
+        with:
+          name: built-frontend-assets
+          path: '.'
+      - name: Create README
+        run: echo "# gh-pages branch for production site" > README.md
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          PUBLISH_DIR: '.'
+          PUBLISH_BRANCH: gh-pages
+          PERSONAL_TOKEN: ${{ secrets.BOT_TOKEN }}
+      - name: Done
+        run: echo "Netlify will automatically track gh-pages branch."
