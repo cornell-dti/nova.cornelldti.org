@@ -63,7 +63,7 @@
     "ignore-loader": "^0.1.2",
     "imgix-core-js": "^2.3.1",
     "json-parse-better-errors": "^1.0.2",
-    "netlify-cli": "^2.44.0",
+    "netlify-cli": "^2.47.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-url": "^8.0.0",
