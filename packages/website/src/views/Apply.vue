@@ -1,6 +1,6 @@
 <template class="applyPage">
   <page-background v-if="content">
-    <strings-domain :value="content.join_information.applications_open" #key="isOpen">
+    <strings-domain :value="content.joinInformation.applicationsOpen" #key="isOpen">
       <strings-domain :value="[content.hero, content.hero.closed]" #key="[hero, closed]">
         <nova-hero
           v-if="hero && isOpen"
@@ -32,7 +32,7 @@
         </page-section>
       </strings-domain>
       <b-row v-if="isOpen" class="justify-content-center info-session-interjection">
-        <strings-domain :value="content.info_session" #key="{header, subheader, description}">
+        <strings-domain :value="content.infoSession" #key="{header, subheader, description}">
           <b-col class="info-session-description" sm="12" md="4" md-offset="1">
             <div class="header">{{ header }}</div>
             <div class="subheader">{{ subheader }}</div>
@@ -42,7 +42,7 @@
         <b-col class="info-session-details" sm="12" md="auto" md-offset="1">
           <b-row class="h-100" align-h="center" align-v="center">
             <b-col cols="auto">
-              <strings-domain :value="content.info_sessions">
+              <strings-domain :value="content.infoSessions">
                 <template #key="[session1, session2]">
                   <div class="info-session h-50">
                     <div class="time">{{ session1.time }}</div>
@@ -222,7 +222,7 @@ class Apply extends Vue {
   }
 
   get sections() {
-    const info = this.content.application_info.find(a => a.id === this.roleId);
+    const info = this.content.applicationInfo.find(a => a.id === this.roleId);
 
     if (!info) {
       return [];

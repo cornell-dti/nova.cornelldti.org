@@ -117,22 +117,22 @@
     <b-container>
       <page-section>
         <b-row class="text-center justify-content-center sponsor-contact">
-          <h2>{{ content.call_to_action.description }}</h2>
+          <h2>{{ content.callToAction.description }}</h2>
         </b-row>
         <b-row class="justify-content-center sponsor-contact">
-          <b-button :href="content.call_to_action.button.link || 'mailto:hello@cornelldti.org'">{{
-            content.call_to_action.button.text
+          <b-button :href="content.callToAction.button.link || 'mailto:hello@cornelldti.org'">{{
+            content.callToAction.button.text
           }}</b-button>
         </b-row>
       </page-section>
       <page-section>
-        <h2 class="sponsor-list-heading">{{ content.current_sponsors.header }}</h2>
+        <h2 class="sponsor-list-heading">{{ content.currentSponsors.header }}</h2>
         <b-row class="sponsor-list justify-content-center">
           <b-col class="my-auto" sm="12" md="6">
             <b-img class="sponsor-icon" :src="content.sponsors.capitalone" />
           </b-col>
           <b-col class="my-auto" sm="12" md="6">
-            <b-img class="sponsor-icon" :src="content.sponsors.cornell_engineering_alumni" />
+            <b-img class="sponsor-icon" :src="content.sponsors.cornellEngineeringAlumni" />
           </b-col>
         </b-row>
         <b-row class="sponsor-list-small justify-content-center">

@@ -66,15 +66,19 @@
         <b-nav-item to="/courses">Courses</b-nav-item>
         <b-nav-item to="/sponsor">Sponsor</b-nav-item>
         <b-nav-item
-          v-if="$static.metadata.mainMenu.advertisement.open"
+          v-if="$static.metadata.mainMenu.advertisement && $static.metadata.mainMenu.advertisement.open"
           to="/apply"
           class="override-apply-color"
         >
           <b-button class="apply-button" variant="primary">Apply Now!</b-button>
         </b-nav-item>
         <b-nav-item v-else to="/apply">Apply</b-nav-item>
-        <b-nav-item to="/give" class="override-apply-color">
-          <b-button class="apply-button" variant="primary">Give Now!</b-button>
+        <b-nav-item
+          v-if="$static.metadata.mainMenu.giving && $static.metadata.mainMenu.giving.show"
+          to="/give"
+          class="override-apply-color"
+        >
+          <b-button class="apply-button" variant="primary">$static.metadata.mainMenu.giving.text</b-button>
         </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
@@ -91,6 +95,11 @@ query {
     mainMenu {
       advertisement {
         open
+      }
+
+      giving {
+        show
+        text
       }
     }
   }

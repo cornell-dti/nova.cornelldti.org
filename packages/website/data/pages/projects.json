@@ -19,10 +19,10 @@
     "events": "projects.events",
     "orientation": "projects.orientation"
   },
-  "not-ready-projects": {
+  "notReadyProjects": {
     "rescuer": "projects.rescuer"
   },
-  "archived-projects": {
+  "archivedProjects": {
     "shout": "projects.shout"
   }
 }

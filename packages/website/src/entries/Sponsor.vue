@@ -17,13 +17,13 @@ query Sponsor($id: ID!) {
       header
       description
     }
-    call_to_action {
+    callToAction {
       description
       button {
         text
       }
     }
-    current_sponsors {
+    currentSponsors {
       header
     }
     tiers {
@@ -43,7 +43,7 @@ query Sponsor($id: ID!) {
       check
       invision
       google
-      cornell_engineering_alumni
+      cornellEngineeringAlumni
       capitalone
       zeplin
       asana

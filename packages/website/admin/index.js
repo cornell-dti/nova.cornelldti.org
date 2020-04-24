@@ -66,7 +66,18 @@ const SponsorPage = wrap('sponsor', Components.Sponsor);
 const HomePage = wrap('home', Components.Home);
 const CoursesPage = wrap('courses', Components.Courses);
 const InitiativesPage = wrap('initiatives', Components.Initiatives);
-const ProjectsPage = wrap('projects', Components.Projects);
+const TeamPage = wrap('team', Components.Team, {
+  members: [],
+  diversity: {
+    femalePercentage: {
+      "": 0.6,
+      "business": 0.5,
+      "developer": 0.5,
+      "designer": 0.5,
+      "pm": 0.5
+    }
+  }
+});
 
 // Page Previews
 CMS.registerPreviewTemplate('page-apply', VueInReact(ApplyPage));
@@ -74,7 +85,7 @@ CMS.registerPreviewTemplate('page-sponsor', VueInReact(SponsorPage));
 CMS.registerPreviewTemplate('page-home', VueInReact(HomePage));
 CMS.registerPreviewTemplate('page-courses', VueInReact(CoursesPage));
 CMS.registerPreviewTemplate('page-initiatives', VueInReact(InitiativesPage));
-CMS.registerPreviewTemplate('page-projects', VueInReact(ProjectsPage));
+CMS.registerPreviewTemplate('page-team', VueInReact(TeamPage));
 
 window.netlifyIdentity = CMSIdentity;
 

@@ -23,13 +23,13 @@
       "description": "All of the funds we receive through sponsorships is directly invested back into the team. Through user research, software licenses, community outreach, and marketing, sponsorships help us grow our vision of helping out the community through technology."
     }
   ],
-  "call-to-action": {
+  "callToAction": {
     "description": "Sponsor us to help make community impact!",
     "button": {
       "text": "Contact Us"
     }
   },
-  "current-sponsors": {
+  "currentSponsors": {
     "header": "Current Sponsors"
   },
   "tiers": {
@@ -114,7 +114,7 @@
     "zeplin": "/public/pages/sponsor/sponsors/zeplin.png",
     "asana": "/public/pages/sponsor/sponsors/asana.png",
     "google": "/public/pages/sponsor/sponsors/google.png",
-    "cornell-engineering-alumni": "/public/pages/sponsor/sponsors/cornellengineeringalumni.png"
+    "cornellEngineeringAlumni": "/public/pages/sponsor/sponsors/cornellengineeringalumni.png"
   },
   "events": {
     "infoSesh": {

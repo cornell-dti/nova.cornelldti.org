@@ -76,14 +76,14 @@ export interface SponsorContent extends Content {
     description: string;
   }[];
 
-  call_to_action: {
+  callToAction: {
     description: string;
     button: {
       text: string;
       link?: string;
     };
   };
-  current_sponsors: {
+  currentSponsors: {
     header: string;
   };
   tiers: {
@@ -94,7 +94,7 @@ export interface SponsorContent extends Content {
     check: string;
     invision: string;
     google: string;
-    cornell_engineering_alumni: string;
+    cornellEngineeringAlumni: string;
     capitalone: string;
     zeplin: string;
     asana: string;
@@ -140,15 +140,15 @@ export interface TeamContent extends Content {
 export interface ApplicationInfo {
   id: string;
   apply: Apply;
-  next_steps: Apply;
+  nextSteps: Apply;
   decision: Apply;
 }
 
 export interface Apply {
   header: string;
-  right_header: string;
+  rightHeader: string;
   sections: Section[];
-  call_to_action_button?: CallToActionButton;
+  callToActionButton?: CallToActionButton;
 }
 
 export interface CallToActionButton {
@@ -184,7 +184,7 @@ export interface Link {
 }
 
 export interface JoinInformation {
-  applications_open: boolean;
+  applicationsOpen: boolean;
 }
 
 export interface MainMenu {
@@ -202,9 +202,9 @@ export interface ApplyContent extends Content {
     video: { mp4: string; webm: string };
     image: string;
   };
-  join_information: JoinInformation;
-  main_menu: MainMenu;
-  info_session: PurpleInfoSession;
-  info_sessions: InfoSessionElement[];
-  application_info: ApplicationInfo[];
+  joinInformation: JoinInformation;
+  mainMenu: MainMenu;
+  infoSession: PurpleInfoSession;
+  infoSessions: InfoSessionElement[];
+  applicationInfo: ApplicationInfo[];
 }

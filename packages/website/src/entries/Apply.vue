@@ -5,34 +5,29 @@
 <page-query>
 query ApplyEntry ($id: ID!) {
   content: applyEntry(id: $id) {
-      join_information {
-    applications_open
-  }
-  main_menu {
-    advertisement {
-      open
+    joinInformation {
+      applicationsOpen
     }
-  }
-  hero {
-    closed {
+    hero {
+      closed {
+        header
+        subheader
+      }
+    header
+      subheader
+      lazy
+      video {
+        webm
+        mp4
+      }
+      image
+    }
+    infoSession {
       header
       subheader
+      description
     }
-    header
-    subheader
-    lazy
-    video {
-      webm
-      mp4
-    }
-    image
-  }
-  info_session {
-    header
-    subheader
-    description
-  }
-  info_sessions {
+    infoSessions {
       time
       location
       link {
@@ -40,26 +35,25 @@ query ApplyEntry ($id: ID!) {
         text
       }
     }
-  application_info 
-    {
+    applicationInfo {
       id
       apply {
         header
-        right_header
+        rightHeader
         sections
           {
             header
             content
           }
          
-        call_to_action_button {
+        callToActionButton {
           closed
           content
         }
       }
-      next_steps {
+      nextSteps {
         header
-        right_header
+        rightHeader
         sections
           {
             header
@@ -68,7 +62,7 @@ query ApplyEntry ($id: ID!) {
       }
       decision {
         header
-        right_header
+        rightHeader
         sections
           {
             header
