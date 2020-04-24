@@ -1,5 +1,6 @@
 <template>
   <b-navbar
+    v-if="!hide"
     :class="[
       'navbar-dti ',
       ...(transparent && !navShown
@@ -11,7 +12,7 @@
     toggleable="lg"
     type="none"
   >
-    <b-navbar-brand class="navbar-branding-dti" href="#">
+    <b-navbar-brand v-if="!hide" class="navbar-branding-dti" href="#">
       <b-img class="brand-icon" :src="$static.metadata.branding.icon" />
     </b-navbar-brand>
 
@@ -112,6 +113,7 @@ import EventBus from '@/eventbus';
 export default {
   data() {
     return {
+      hide: false,
       transparent: true,
       navShown: false,
       light: false
@@ -143,12 +145,17 @@ export default {
   mounted() {
     window.addEventListener('scroll', this.onScroll);
 
+    EventBus.$on('hide-navbar', () => {
+      this.hide = true;
+    });
+
     EventBus.$on('set-navbar-light', () => {
       this.light = true;
     });
 
     EventBus.$on('reset-navbar', () => {
       this.light = false;
+      this.hide = false;
     });
   }
 };
