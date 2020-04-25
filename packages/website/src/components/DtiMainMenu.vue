@@ -67,7 +67,9 @@
         <b-nav-item to="/courses">Courses</b-nav-item>
         <b-nav-item to="/sponsor">Sponsor</b-nav-item>
         <b-nav-item
-          v-if="$static.metadata.mainMenu.advertisement && $static.metadata.mainMenu.advertisement.open"
+          v-if="
+            $static.metadata.mainMenu.advertisement && $static.metadata.mainMenu.advertisement.open
+          "
           to="/apply"
           class="override-apply-color"
         >
@@ -79,7 +81,9 @@
           to="/give"
           class="override-apply-color"
         >
-          <b-button class="apply-button" variant="primary">$static.metadata.mainMenu.giving.text</b-button>
+          <b-button class="apply-button" variant="primary"
+            >$static.metadata.mainMenu.giving.text</b-button
+          >
         </b-nav-item>
       </b-navbar-nav>
     </b-collapse>

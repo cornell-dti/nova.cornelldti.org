@@ -55,7 +55,7 @@ class Privacy extends Entry<PrivacyContent> {
   }
 
   mounted() {
-    EventBus.$emit('hide-navbar', {});
+    EventBus.$emit('hide-navbar', { source: this });
   }
 }
 
