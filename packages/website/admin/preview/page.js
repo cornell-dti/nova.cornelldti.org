@@ -4,7 +4,7 @@ export function entryToStrings(entry) {
   return entry.getIn(['data']).toJS();
 }
 
-export default (name, Widget) =>
+export default (name, Widget, props) =>
   Vue.extend({
     name: `${name}Preview`,
     props: {
@@ -19,11 +19,12 @@ export default (name, Widget) =>
       }
 
       // Netlify CMS uses immutable.js so we have to convert the data.
-      const info = entryToStrings(cx.props.entry);
+      const content = entryToStrings(cx.props.entry);
 
       return h(Widget, {
         props: {
-          info
+          ...props,
+          content
         }
       });
     }

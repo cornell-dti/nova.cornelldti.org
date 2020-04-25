@@ -5,7 +5,7 @@
   "scripts": {
     "build": "yarn build:lib && yarn build:grid && yarn build:grid",
     "build:grid": "gridsome build",
-    "build:lib": "vue-cli-service build --target lib --name dti-nova --formats commonjs --dest ../../admin/lib src/lib.ts",
+    "build:lib": "vue-cli-service build --target lib --name dti-nova --formats commonjs --dest admin/lib src/lib.ts",
     "serve": "gridsome develop",
     "clean-generated-files": "rm -r data/generated && rm -r admin/lib",
     "lint": "vue-cli-service lint",

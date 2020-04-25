@@ -27,7 +27,7 @@
     ]
   },
   "include": [
-    "../../admin/**/*.js",
+    "admin/**/*.js",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",

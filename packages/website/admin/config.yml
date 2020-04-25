@@ -1,0 +1,587 @@
+backend:
+  name: git-gateway
+  accept_roles:
+    - admin
+    - editor
+  repo: cornell-dti/nova.cornelldti.org
+  branch: master
+publish_mode: editorial_workflow
+media_folder: static/images/uploads
+public_folder: /public/images/uploads
+collections:
+  - name: member
+    label: Member Profile
+    folder: data/members
+    format: json
+    slug: "{{netid}}"
+    widget: member
+    create: true
+    fields:
+      - label: NetID
+        name: netid
+        widget: string
+      - label: Name
+        name: name
+        widget: string
+      - label: Graduation (pick any date)
+        name: graduation
+        widget: datetime
+        default: ""
+        format: MM/YYYY
+      - label: Major
+        name: major
+        widget: string
+      - label: Minor
+        name: minor
+        widget: string
+        required: false
+      - label: Linkedin
+        name: linkedin
+        widget: string
+      - label: Github
+        name: github
+        widget: string
+      - label: Hometown
+        name: hometown
+        widget: string
+      - label: About
+        name: about
+        widget: string
+      - label: Subteam
+        name: subteam
+        widget: string
+      - label: Other Subteams?
+        name: otherSubteams
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - flux
+          - website
+          - samwise
+          - researchconnect
+          - events
+      - label: Role
+        name: roleId
+        widget: select
+        multiple: false
+        required: true
+        options:
+          - pm
+          - developer
+          - designer
+          - business
+      - label: Role Label
+        name: roleDescription
+        widget: string
+  - label: Pages
+    name: pages
+    format: json
+    files:
+      - label: Apply
+        name: page-apply
+        widget: object
+        file: data/pages/apply.json
+        fields:
+          - label: hero
+            name: hero
+            widget: object
+            required: false
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: subheader
+                name: subheader
+                widget: text
+          - label: hero
+            name: hero
+            widget: object
+            required: false
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: subheader
+                name: subheader
+                widget: text
+          - label: joinInformation
+            name: joinInformation
+            widget: object
+            fields:
+              - label: applicationsOpen
+                name: applicationsOpen
+                widget: boolean
+          - label: mainMenu
+            name: mainMenu
+            widget: object
+            fields:
+              - label: advertisement
+                name: advertisement
+                widget: object
+                fields:
+                  - label: open
+                    name: open
+                    widget: boolean
+          - label: infoSession
+            name: infoSession
+            widget: object
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: subheader
+                name: subheader
+                widget: string
+              - label: description
+                name: description
+                widget: string
+          - label: infoSessions
+            name: infoSessions
+            widget: list
+            fields:
+              - label: time
+                name: time
+                widget: string
+              - label: location
+                name: location
+                widget: string
+          - label: applicationInfo
+            name: applicationInfo
+            widget: list
+            fields:
+              - label: Role
+                name: id
+                widget: string
+              - label: apply
+                name: apply
+                widget: object
+                fields:
+                  - label: header
+                    name: header
+                    widget: string
+                  - label: rightHeader
+                    name: rightHeader
+                    widget: string
+                  - label: sections
+                    name: sections
+                    widget: list
+                    fields:
+                      - label: header
+                        name: header
+                        widget: string
+                      - label: content
+                        name: content
+                        widget: text
+                  - label: Call To Action Button
+                    name: callToActionButton
+                    widget: object
+                    fields:
+                      - label: closed
+                        name: closed
+                        widget: boolean
+                      - label: content
+                        name: content
+                        widget: string
+              - label: Next Steps
+                name: nextSteps
+                widget: object
+                fields:
+                  - label: header
+                    name: header
+                    widget: string
+                  - label: Right Header
+                    name: rightHeader
+                    widget: string
+                  - label: sections
+                    name: sections
+                    widget: list
+                    fields:
+                      - label: header
+                        name: header
+                        widget: string
+                      - label: content
+                        name: content
+                        widget: text
+              - label: decision
+                name: decision
+                widget: object
+                fields:
+                  - label: header
+                    name: header
+                    widget: string
+                  - label: Right Header
+                    name: rightHeader
+                    widget: string
+                  - label: sections
+                    name: sections
+                    widget: list
+                    fields:
+                      - label: header
+                        name: header
+                        widget: string
+                      - label: content
+                        name: content
+                        widget: text
+      - label: Home
+        name: page-home
+        file: data/pages/home.json
+        widget: object
+        fields:
+          - label: Text Hero
+            name: textHero
+            widget: object
+            required: false
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: subheader
+                name: subheader
+                widget: text
+          - label: hero
+            name: hero
+            widget: object
+            required: false
+            fields:
+              - label: header
+                name: header
+                widget: string
+          - label: quicklinks
+            name: quicklinks
+            widget: object
+            fields:
+              - label: team
+                name: team
+                widget: object
+                fields:
+                  - label: header
+                    name: header
+                    widget: string
+                  - label: subheader
+                    name: subheader
+                    widget: string
+                  - label: link
+                    name: link
+                    widget: string
+              - label: projects
+                name: projects
+                widget: object
+                fields:
+                  - label: header
+                    name: header
+                    widget: string
+                  - label: subheader
+                    name: subheader
+                    widget: string
+                  - label: link
+                    name: link
+                    widget: string
+              - label: initiatives
+                name: initiatives
+                widget: object
+                fields:
+                  - label: header
+                    name: header
+                    widget: string
+                  - label: subheader
+                    name: subheader
+                    widget: string
+                  - label: link
+                    name: link
+                    widget: string
+      - label: Courses
+        name: page-courses
+        file: data/pages/courses.json
+        widget: object
+        fields:
+          - label: hero
+            name: hero
+            widget: object
+            required: false
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: subheader
+                name: subheader
+                widget: text
+          - label: content
+            name: content
+            widget: list
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: subtitle
+                name: subtitle
+                widget: string
+              - label: description
+                name: description
+                widget: text
+              - label: image
+                name: image
+                widget: string
+              - label: buttons
+                name: buttons
+                widget: object
+                fields:
+                  - label: apply
+                    name: apply
+                    widget: object
+                    fields:
+                      - label: title
+                        name: title
+                        widget: string
+                      - label: link
+                        name: link
+                        widget: string
+                      - label: icon
+                        name: icon
+                        widget: string
+      - label: Sponsor
+        name: page-sponsor
+        file: data/pages/sponsor.json
+        widget: object
+        fields:
+          - label: hero
+            name: hero
+            widget: object
+            required: false
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: subheader
+                name: subheader
+                widget: text
+          - label: pitch
+            name: pitch
+            widget: list
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: description
+                name: description
+                widget: text
+          - label: tiers
+            name: tiers
+            widget: object
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: Sponsor Tier
+                name: sponsor
+                widget: list
+                fields:
+                  - label: benefit
+                    name: benefit
+                    widget: string
+                  - label: subheader
+                    name: subheader
+                    widget: string
+                  - label: Tiers
+                    name: tiers
+                    widget: object
+                    fields:
+                      - label: Bronze
+                        name: bronze
+                        widget: boolean
+                      - label: Silver
+                        name: silver
+                        widget: boolean
+                      - label: Gold
+                        name: gold
+                        widget: boolean
+                      - label: Platinum
+                        name: platinum
+                        widget: boolean
+          - label: Call To Action
+            name: callToAction
+            widget: object
+            fields:
+              - label: description
+                name: description
+                widget: string
+              - label: button
+                name: button
+                widget: object
+                fields:
+                  - label: text
+                    name: text
+                    widget: string
+          - label: Current Sponsors
+            name: currentSponsors
+            widget: object
+            fields:
+              - label: header
+                name: header
+                widget: string
+      - label: Team
+        name: page-team
+        file: data/pages/team.json
+        widget: object
+        fields:
+          - label: hero
+            name: hero
+            widget: object
+            required: false
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: subheader
+                name: subheader
+                widget: text
+          - label: diversity
+            name: diversity
+            widget: object
+            fields:
+              - label: header
+                name: header
+                widget: string
+              - label: description
+                name: description
+                widget: text
+              - label: gender
+                name: gender
+                widget: object
+                fields:
+                  - label: header
+                    name: header
+                    widget: string
+              - label: stats
+                name: stats
+                widget: object
+                fields:
+                  - label: underclassmen
+                    name: underclassmen
+                    widget: object
+                    fields:
+                      - label: stat
+                        name: stat
+                        widget: string
+                      - label: description
+                        name: description
+                        widget: string
+                  - label: majors
+                    name: majors
+                    widget: object
+                    fields:
+                      - label: stat
+                        name: stat
+                        widget: string
+                      - label: description
+                        name: description
+                        widget: string
+                  - label: colleges
+                    name: colleges
+                    widget: object
+                    fields:
+                      - label: stat
+                        name: stat
+                        widget: string
+                      - label: description
+                        name: description
+                        widget: string
+          - label: team
+            name: team
+            widget: object
+            fields:
+              - label: header
+                name: header
+                widget: string
+  - name: dataset
+    label: Datasets
+    format: json
+    files:
+      - label: Companies
+        file: data/sets/companies.json
+        name: companies
+        widget: object
+        fields:
+          - name: companies
+            widget: list
+            fields:
+              - label: name
+                name: name
+                widget: string
+              - label: logo
+                name: logo
+                widget: string
+      - label: Roles
+        file: data/sets/roles.json
+        name: roles
+        widget: object
+        fields:
+          - name: roles
+            widget: list
+            fields:
+              - label: id
+                name: id
+                widget: string
+              - label: name
+                name: name
+                widget: string
+      - label: Subteams
+        file: data/sets/teams.json
+        name: teams
+        widget: list
+        fields:
+          - label: name
+            name: name
+            widget: string
+          - label: id
+            name: id
+            widget: string
+      - label: Diversity Stats
+        name: diversity
+        widget: object
+        file: data/sets/diversity.json
+        fields:
+          - label: femalePercentage
+            name: femalePercentage
+            widget: object
+            fields:
+              - label: ""
+                name: ""
+                widget: number
+              - label: business
+                name: business
+                widget: number
+              - label: developer
+                name: developer
+                widget: number
+              - label: designer
+                name: designer
+                widget: number
+              - label: pm
+                name: pm
+                widget: number
+  - name: global
+    label: Global
+    format: json
+    files:
+      - name: assets
+        label: Assets
+        file: data/assets.json
+        fields:
+          - label: branding
+            name: branding
+            widget: object
+            fields:
+              - label: wordmark
+                name: wordmark
+                widget: string
+              - label: icon
+                name: icon
+                widget: string
+          - label: directories
+            name: directories
+            widget: object
+            fields:
+              - label: members
+                name: members
+                widget: string
