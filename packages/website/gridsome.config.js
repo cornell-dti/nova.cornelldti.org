@@ -24,6 +24,11 @@ module.exports = {
       path: '/initiatives',
       component: './src/entries/Initiatives.vue'
     }],
+    PrivacyEntry: [{
+      name: 'Privacy',
+      path: '/privacy',
+      component: './src/entries/Privacy.vue'
+    }],
     ProjectsEntry: [{
       name: 'Projects',
       path: '/projects',
@@ -47,7 +52,11 @@ module.exports = {
   },
   plugins: [
     {
-      use: path.resolve(__dirname, 'plugins/json.js')
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'PrivacyPolicy',
+        path: './data/privacy/*.md',
+      },
     },
     {
       use: '@gridsome/source-filesystem',
@@ -96,6 +105,13 @@ module.exports = {
       options: {
         typeName: 'ProjectsEntry',
         path: './data/generated/pages/projects.json',
+      },
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'PrivacyEntry',
+        path: './data/generated/pages/privacy.json',
       },
     },
     {

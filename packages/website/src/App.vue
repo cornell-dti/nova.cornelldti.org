@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <dti-main-menu />
-    <div class="page-stack">
-      <router-view />
-    </div>
+    <router-view />
   </div>
 </template>
 
