@@ -585,3 +585,38 @@ collections:
               - label: members
                 name: members
                 widget: string
+  - name: policies
+    label: Privacy Policy
+    folder: data/privacy
+    create: true
+    slug: "{{id}}"
+    fields:
+      - label: Name
+        name: name
+        required: true
+        widget: string
+        hint: ""
+        default: ""
+      - label: Team ID
+        name: id
+        required: true
+        widget: select
+        hint: ""
+        default: ""
+        options:
+          - website
+          - flux
+          - eve
+          - courseplan
+          - samwise
+          - carriage
+          - cureviews
+          - queuemein
+          - oweek
+          - fluxfitness
+      - label: Policy Text
+        name: body
+        required: true
+        widget: markdown
+        hint: ""
+        default: ""
