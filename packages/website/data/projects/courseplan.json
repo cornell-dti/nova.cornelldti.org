@@ -1,0 +1,33 @@
+{
+  "name": "CoursePlan",
+  "teamId": "courseplan",
+  "card": "/public/projects/events/card.png",
+  "header": "CoursePlan",
+  "subheader": "Plan Your Courses Ahead.",
+  "hero": {
+    "header": "What We Do",
+    "image": "/public/projects/events/header.png",
+    "subheader": "Introducing the new and easiest way to plan courses at Cornell"
+  },
+  "github": "https://github.com/cornell-dti/course-plan",
+  "heroStartingColor": "#1AA9A5",
+  "heroEndingColor": "#92C3E6",
+  "heroUseDarkText": false,
+  "features": [
+    {
+      "title": "New Way to Track Your Requirements.",
+      "description": "Fully personalized to track your requirements. Customizable interface to view your courses. Built-in system to check your progress. Recommends courses based on your needs.",
+      "image": "/public/projects/events/feature1.jpg"
+    },
+    {
+      "title": "Drag Your Course In.",
+      "description": "CoursePlan’s intuitive interface recommends courses based on unfulfilled requirements and allows you to easily drag and drop them into your planner.",
+      "image": "/public/projects/events/feature2.jpg"
+    },
+    {
+      "title": "Plan Your Semesters.",
+      "description": "Use CoursePlan’s semesterly planner to choose courses well in advance and ensure that you never miss a requirement.",
+      "image": "/public/projects/events/feature3.jpg"
+    }
+  ]
+}
