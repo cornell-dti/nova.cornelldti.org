@@ -12,8 +12,8 @@
     "github": "https://github.com/boonakij/",
     "hometown": "Columbia, MO",
     "about": "I'm an Information Science Major concentrating in Data Science. I love working with data analytics in addition to web, mobile app, and game development. Outside of class, I spend time watching basketball, running at a reasonable pace, being an RA in the Low Rises, and bonding with the squirrels on campus.",
-    "subteam": "courseplan",
-    "otherSubteams": ["events"],
+    "subteam": "",
+    "otherSubteams": ["courseplan", "events"],
     "roleId": "developer",
     "roleDescription": "Developer"
 }
