@@ -4,7 +4,7 @@
       <b-col>
         <b-row class="image-row no-gutters">
           <b-col>
-            <img v-if="foundPic" :src="image" @error="foundPic = !foundPic" />
+            <img v-if="foundPic" :src="image" @error="foundPic = !foundPic" loading="lazy" />
             <div v-if="!foundPic" class="profile-image">
               <MissingImage class="profile-image-missing" />
             </div>
