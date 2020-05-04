@@ -9,7 +9,8 @@
     "linkedin": "https://www.linkedin.com/in/shane-yun-53395b176/",
     "hometown": "Fullerton, CA",
     "about": "hi! I'm a product designer for CUE. I am comfortable with both mobile and iOS design. I am super excited to work on developing CUE!",
-    "subteam": "events",
+    "subteam": "courseplan",
+    "otherSubteams": ["events"],
     "roleId": "designer",
     "roleDescription": "Designer"
 }
