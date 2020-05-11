@@ -1,0 +1,16 @@
+{
+  "netid": "rmz38",
+  "firstName": "Rose",
+  "lastName": "Zhou",
+  "name": "Rose Zhou",
+  "graduation": "May 2022",
+  "major": "Computer Science",
+  "minor": "Game Design, Cognitive Science",
+  "linkedin": "https://www.linkedin.com/in/rose-zhou-752744177/",
+  "github": "https://github.com/rmz38",
+  "hometown": "Syracuse, NY",
+  "about": "Hi! I'm a Computer Science sophomore minoring in Cognitive Science and Game Design. Aside from my work in DTI, I work on research that applies unsupervised learning to the development of common-sense reasoning in humans. I also volunteer at ACSU and Esports at Cornell's events. In every activity I do on campus, I love learning about other people and welcoming new students! My goals at Cornell are to learn more about the psychology of gaming and technology, to grow as a person, and to have fun! When I have time to burn, I'm playing video games, skiing, and making memes.",
+  "subteam": "courseplan",
+  "roleId": "developer",
+  "roleDescription": "Developer"
+}
