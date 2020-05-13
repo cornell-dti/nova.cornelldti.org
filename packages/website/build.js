@@ -38,9 +38,7 @@ function buildMembers() {
                 try {
                     const parsed = JSON.parse(contents);
 
-                    parsed.image = cdnify({ picture: `/public/members/headshots/${parsed.netid}.jpg` }, {
-                        h: 500
-                    }).picture;
+                    parsed.image = `/static/members/${parsed.netid}.jpg`;
 
                     // We need to enforce certain fields for search purposes.
                     const fixed = {
