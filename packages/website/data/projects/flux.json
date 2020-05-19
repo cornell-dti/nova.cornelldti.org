@@ -1,12 +1,12 @@
 {
   "name": "Flux",
   "teamId": "flux",
-  "card": "/public/projects/flux/card.png",
+  "card": "/static/projects/flux-card.png",
   "header": "flux",
   "subheader": "Real time traffic flow.",
   "hero": {
     "header": "What We Do",
-    "image": "/public/projects/flux/header.png",
+    "image": "/static/projects/flux-header.png",
     "subheader": "Nobody wants to go eat at a dining hall only to find that there are no places to sit. With Flux real-time data reporting, you can now avoid crowded dining halls and find the best places and times to eat on campus."
   },
   "ios-github": "https://github.com/cornell-dti/campus-density-ios",
@@ -21,12 +21,12 @@
     {
       "title": "Browse.",
       "description": "Filter dining halls by location or crowdedness.",
-      "image": "/public/projects/flux/feature1.jpg"
+      "image": "/static/projects/flux-feature1.jpg"
     },
     {
       "title": "Plan.",
       "description": "Know ahead of time the best places to be.",
-      "image": "/public/projects/flux/feature1.jpg"
+      "image": "/static/projects/flux-feature1.jpg"
     }
   ]
 }
