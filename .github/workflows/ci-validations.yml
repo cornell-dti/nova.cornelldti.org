@@ -1,0 +1,22 @@
+name: Validations
+on: push
+
+jobs:
+  validate:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: |
+          rm yarn.lock
+          rm package.json
+          cd packages/image-cli
+          yarn
+      - name: Validate transform script can run
+        run: node packages/image-cli/index.js transform packages/website/static/static/members

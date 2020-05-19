@@ -2,7 +2,7 @@
   "name": "Shout",
   "active": false,
   "teamId": "shout",
-  "card": "/public/projects/shout/card.png",
+  "card": "/static/projects/shout-card.png",
   "header": "Shout",
   "subheader": "Find Out. Go Out. Reach Out.",
   "hero": {
