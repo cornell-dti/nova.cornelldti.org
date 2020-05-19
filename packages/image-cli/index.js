@@ -64,8 +64,8 @@ const optimizeImages = (baseDirectory, outputDirectory) => {
       outputDirectory,
       { compress_force: false, statistic: true, autoupdate: true },
       false,
-      { jpg: { engine: 'mozjpeg', command: ['-quality', '50', '-optimize'] } },
-      { png: { engine: 'pngquant', command: ['--quality', '50-80', '--speed', '1'] } },
+      { jpg: { engine: 'mozjpeg', command: ['-quality', '75', '-optimize'] } },
+      { png: { engine: 'pngquant', command: ['--quality', '90-100', '--speed', '1'] } },
       { svg: { engine: false, command: false } },
       { gif: { engine: false, command: false } },
       (error, completed) => {
@@ -91,9 +91,14 @@ const getSizeInKB = (source) => Math.ceil(statSync(source).size / 1024);
 /**
  * @param {string} basePath
  * @param {string} outputPath
+ * @param {boolean} noResize
  * @returns {Promise<void>}
  */
-const transformForAll = async (basePath, outputPath) => {
+const transformForAll = async (basePath, outputPath, noResize) => {
+  if (noResize) {
+    await optimizeImages(basePath, outputPath);
+    return;
+  }
   const resizeOutputDirectory = normalize(join(outputPath, 'temp'));
   const images = imagePaths(basePath);
   mkdirSync(resizeOutputDirectory, { recursive: true });
@@ -133,7 +138,11 @@ const main = async () => {
   const basePath = cliArguments[3];
   switch (command) {
     case 'transform':
-      await transformForAll(normalize(basePath), normalize(join(basePath, 'build/')));
+      await transformForAll(
+        normalize(basePath),
+        normalize(join(basePath, 'build/')),
+        cliArguments[4] === '--no-resize'
+      );
       return;
     case 'check-size':
       checkMaxSizeForAll(normalize(basePath), parseFloat(cliArguments[4] || '20'));

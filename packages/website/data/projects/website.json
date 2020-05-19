@@ -2,7 +2,7 @@
   "name": "Team Website",
   "active": false,
   "teamId": "website",
-  "card": "/public/projects/website/card.png",
+  "card": "/static/projects/website-card.png",
   "header": "Team Website",
   "subheader": "Our Home Online.",
   "hero": {
