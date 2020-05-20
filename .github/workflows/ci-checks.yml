@@ -1,0 +1,17 @@
+name: CI
+on: push
+env:
+  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: yarn install
+      - name: Run Linter
+        run: yarn lint

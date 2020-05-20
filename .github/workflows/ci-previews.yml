@@ -1,8 +1,6 @@
-name: CI
+name: Preview
 on: pull_request
 env:
-  BUILD_ENV: production
-  IMGIX_API_KEY: ${{ secrets.IMGIX_API_KEY }}
   NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
   NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
@@ -13,14 +11,10 @@ jobs:
       - uses: actions/checkout@master
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Yarn Install
         run: yarn install
       - name: Build
         run: yarn build
-      - name: Run Linter
-        run: yarn lint
       - name: Deploy to Netlify
         run: |
           ./packages/website/node_modules/.bin/netlify deploy --json > a.json
