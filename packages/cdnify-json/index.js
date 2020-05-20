@@ -54,20 +54,6 @@ module.exports = function cdnify(json, options) {
     }
 }
 
-class CloudFrontProvider {
-    constructor(url) {
-        this._baseUrl = url;
-    }
-
-    transform(url) {
-        return `https://${this._baseUrl}/${url.replace(/^\/public\//, '')}`;
-    }
-}
-
-module.exports.CloudFront = function ({ url }) {
-    return new CloudFrontProvider(url);
-}
-
 module.exports.init = function init(providers) {
     for (const provider of providers) {
         providerMap.set(provider.pattern, provider.provider);

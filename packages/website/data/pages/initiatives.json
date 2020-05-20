@@ -2,8 +2,8 @@
   "hero": {
     "lazy": "/static/pages/initiatives-hero-lazy.jpg",
     "video": {
-      "mp4": "/public/pages/initiatives/hero/hero.mp4",
-      "webm": "/public/pages/initiatives/hero/hero.webm"
+      "mp4": "https://d2ytxic79evey7.cloudfront.net/pages/initiatives/hero/hero.mp4",
+      "webm": "https://d2ytxic79evey7.cloudfront.net/pages/initiatives/hero/hero.webm"
     },
     "image": "/static/pages/initiatives-hero.png"
   },

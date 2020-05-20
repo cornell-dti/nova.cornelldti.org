@@ -1,16 +1,8 @@
 const JSONTransformer = require('@gridsome/transformer-json')
 
 const cdnify = require('cdnify-json');
-const { CloudFront } = cdnify;
 
-cdnify.init([
-    {
-        pattern: /^\/public\/.*\.(webm|m4v|mp4)/g,
-        provider: CloudFront({
-            url: "d2ytxic79evey7.cloudfront.net"
-        }),
-    }
-]);
+cdnify.init([]);
 
 class EnhancedJSONTransformer extends JSONTransformer {
     static mimeTypes() {
