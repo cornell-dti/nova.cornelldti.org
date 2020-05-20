@@ -19,3 +19,4 @@ jobs:
         run: |
           node packages/image-cli/index.js check-size packages/website/static/static/members 20
           node packages/image-cli/index.js check-size packages/website/static/static/projects 600
+          node packages/image-cli/index.js check-size packages/website/static/static/pages 700

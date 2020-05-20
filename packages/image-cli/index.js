@@ -65,7 +65,7 @@ const optimizeImages = (baseDirectory, outputDirectory) => {
       { compress_force: false, statistic: true, autoupdate: true },
       false,
       { jpg: { engine: 'mozjpeg', command: ['-quality', '75', '-optimize'] } },
-      { png: { engine: 'pngquant', command: ['--quality', '90-100', '--speed', '1'] } },
+      { png: { engine: 'pngquant', command: ['--quality', '70-80', '--speed', '1'] } },
       { svg: { engine: false, command: false } },
       { gif: { engine: false, command: false } },
       (error, completed) => {
