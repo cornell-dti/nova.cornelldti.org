@@ -76,56 +76,56 @@ module.exports = {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'HomeEntry',
-        path: './data/generated/pages/home.json',
+        path: './data/pages/home.json',
       },
     },
     {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'TeamEntry',
-        path: './data/generated/pages/team.json',
+        path: './data/pages/team.json',
       },
     },
     {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'CoursesEntry',
-        path: './data/generated/pages/courses.json',
+        path: './data/pages/courses.json',
       },
     },
     {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'InitiativesEntry',
-        path: './data/generated/pages/initiatives.json',
+        path: './data/pages/initiatives.json',
       },
     },
     {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'ProjectsEntry',
-        path: './data/generated/pages/projects.json',
+        path: './data/pages/projects.json',
       },
     },
     {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'PrivacyEntry',
-        path: './data/generated/pages/privacy.json',
+        path: './data/pages/privacy.json',
       },
     },
     {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'SponsorEntry',
-        path: './data/generated/pages/sponsor.json',
+        path: './data/pages/sponsor.json',
       },
     },
     {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'ApplyEntry',
-        path: './data/generated/pages/apply.json',
+        path: './data/pages/apply.json',
       },
     },
     {

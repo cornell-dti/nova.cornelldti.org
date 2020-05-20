@@ -16,7 +16,7 @@ import DTIProject from '@/templates/DTIProject.vue';
 
 import { Role, Team, Company, AsyncDataset, initializeVue } from '@/shared';
 
-export default function(
+export default function main(
   Vue: VueConstructor,
   { head, router }: { router: VueRouter; head: { titleTemplate: string } }
 ) {

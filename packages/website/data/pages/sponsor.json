@@ -2,7 +2,7 @@
   "hero": {
     "header": "Sponsor Our Mission",
     "subheader": "We want to partner with organizations who have a similar vision of changing the world. Together, we can work towards improving our communities with technology.",
-    "lazy": "/static/pages/sponsor/hero/hero-lazy.jpg",
+    "lazy": "/static/pages/sponsor-hero-lazy.jpg",
     "video": {
       "mp4": "",
       "webm": ""
@@ -108,26 +108,16 @@
     ]
   },
   "sponsors": {
-    "check": "/public/pages/sponsor/sponsors/Checkmark.png",
-    "capitalone": "/public/pages/sponsor/sponsors/capitalone.png",
-    "invision": "/public/pages/sponsor/sponsors/invision.png",
-    "zeplin": "/public/pages/sponsor/sponsors/zeplin.png",
-    "asana": "/public/pages/sponsor/sponsors/asana.png",
-    "google": "/public/pages/sponsor/sponsors/google.png",
-    "cornellEngineeringAlumni": "/public/pages/sponsor/sponsors/cornellengineeringalumni.png"
+    "check": "/static/pages/sponsor-Checkmark.png",
+    "capitalone": "/static/pages/sponsor-capitalone.png",
+    "invision": "/static/pages/sponsor-invision.png",
+    "zeplin": "/static/pages/sponsor-zeplin.png",
+    "asana": "/static/pages/sponsor-asana.png",
+    "google": "/static/pages/sponsor-google.png",
+    "cornellEngineeringAlumni": "/static/pages/sponsor-cornellengineeringalumni.png"
   },
   "events": {
-    "infoSesh": {
-      "cdnify:image": "/public/pages/sponsor/events/infoSesion.png",
-      "options": {
-        "h": 800
-      }
-    },
-    "googleLunch": {
-      "cdnify:image": "/public/pages/sponsor/events/googleLunch.jpg",
-      "options": {
-        "h": 800
-      }
-    }
+    "infoSesh": "/static/pages/sponsor-events-infoSesion.png",
+    "googleLunch": "/static/pages/sponsor-events-googleLunch.jpg"
   }
 }

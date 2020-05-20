@@ -2,12 +2,12 @@
   "hero": {
     "header": "Working Together",
     "subheader": "We are Cornell Design & Tech Initiative. But individually, we are a talented, diverse group of students from different colleges and countries striving to make a difference in our community.",
-    "lazy": "/static/pages/team/hero/hero-lazy.jpg",
+    "lazy": "/static/pages/team-hero-lazy.jpg",
     "video": {
-      "mp4": "/public/pages/team/hero/hero.mp4",
-      "webm": "/public/pages/team/hero/hero.webm"
+      "mp4": "https://d2ytxic79evey7.cloudfront.net/pages/team/hero/hero.mp4",
+      "webm": "https://d2ytxic79evey7.cloudfront.net/pages/team/hero/hero.webm"
     },
-    "image": "/public/pages/team/hero/hero.png"
+    "image": "/static/pages/team-hero.png"
   },
   "diversity": {
     "header": "Diversity",

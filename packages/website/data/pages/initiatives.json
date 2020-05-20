@@ -1,30 +1,15 @@
 {
   "hero": {
-    "lazy": "/static/pages/initiatives/hero/hero-lazy.jpg",
+    "lazy": "/static/pages/initiatives-hero-lazy.jpg",
     "video": {
-      "mp4": "/public/pages/initiatives/hero/hero.mp4",
-      "webm": "/public/pages/initiatives/hero/hero.webm"
+      "mp4": "https://d2ytxic79evey7.cloudfront.net/pages/initiatives/hero/hero.mp4",
+      "webm": "https://d2ytxic79evey7.cloudfront.net/pages/initiatives/hero/hero.webm"
     },
-    "image": "/public/pages/initiatives/hero/hero.png"
+    "image": "/static/pages/initiatives-hero.png"
   },
   "promo": {
-    "makeathon": {
-      "cdnify:image": "/public/pages/initiatives/promo/makeathon.png",
-      "options": {
-        "h": 500
-      }
-    },
-    "halfbaked": {
-      "cdnify:image": "/public/pages/initiatives/promo/halfbaked.png",
-      "options": {
-        "h": 500
-      }
-    },
-    "blueprint": {
-      "cdnify:image": "/public/pages/initiatives/promo/blueprint.png",
-      "options": {
-        "h": 500
-      }
-    }
+    "makeathon": "/static/pages/initiatives-promo-makeathon.png",
+    "halfbaked": "/static/pages/initiatives-promo-halfbaked.png",
+    "blueprint": "/static/pages/initiatives-promo-blueprint.png"
   }
 }
