@@ -4,31 +4,31 @@
     "subheader": "Our engineering project team is dedicated to more than just software development. We solve real problems around us to make our community better, while fostering our personal growth to teach others from our experience."
   },
   "hero": {
-    "lazy": "/static/pages/home/hero/hero-lazy.jpg",
+    "lazy": "/static/pages/home-hero-lazy.jpg",
     "video": {
       "mp4": "/public/pages/home/hero/hero.mp4",
       "webm": "/public/pages/home/hero/hero.webm"
     },
-    "image": "/public/pages/home/hero/hero.png"
+    "image": "/static/pages/home-hero.png"
   },
   "quicklinks": {
     "team": {
       "header": "Team",
       "subheader": "Who we are >",
       "link": "/team",
-      "image": "/public/pages/home/quicklinks/team.jpg"
+      "image": "/static/pages/home-team.jpg"
     },
     "projects": {
       "header": "Projects",
       "subheader": "What we create >",
       "link": "/projects",
-      "image": "/public/pages/home/quicklinks/projects.jpg"
+      "image": "/static/pages/home-projects.jpg"
     },
     "initiatives": {
       "header": "Initiatives",
       "subheader": "Why we do it >",
       "link": "/initiatives",
-      "image": "/public/pages/home/quicklinks/initiatives.jpg"
+      "image": "/static/pages/home-initiatives.jpg"
     }
   }
 }
