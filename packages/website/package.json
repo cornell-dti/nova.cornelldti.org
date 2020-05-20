@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "build": "yarn build:lib && yarn build:grid && yarn build:grid",
+    "build": "yarn gen && yarn build:lib && yarn build:grid",
     "build:grid": "gridsome build",
     "build:lib": "vue-cli-service build --target lib --name dti-nova --formats commonjs --dest admin/lib src/lib.ts",
     "serve": "gridsome develop",

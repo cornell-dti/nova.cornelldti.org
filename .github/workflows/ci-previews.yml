@@ -14,7 +14,7 @@ jobs:
       - name: Yarn Install
         run: yarn install
       - name: Build
-        run: yarn build
+        run: yarn workspace website build
       - name: Deploy to Netlify
         run: |
           ./packages/website/node_modules/.bin/netlify deploy --json > a.json
