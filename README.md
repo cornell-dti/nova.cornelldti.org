@@ -37,7 +37,7 @@ The layout of the [`website`](./packages/website) folder is shown below:
     - branding: _all global branding assets go here_
     - members: _headshots for team members live here_
     - projects: _assets for projects live here_
-    - pages: _assets for particular pages live here_
+    - pages: _assets for particular pages live here_ (videos are not stored in this folder. Instead, they are in a separate S3 bucket. Ask a team/developer lead for access in case you need it.)
 - data: _contains all string-based data which will be used for the website_
 - src: _all dynamic files live here_
   - index.html: the base template for the entire site.
