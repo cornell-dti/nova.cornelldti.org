@@ -3,15 +3,9 @@
 const fs = require('fs');
 const path = require('path');
 const cdnify = require('cdnify-json');
-const { Imgix, CloudFront } = cdnify;
+const { CloudFront } = cdnify;
 
 cdnify.init([
-    {
-        pattern: /^\/public\/.*\.(png|jpg)/,
-        provider: Imgix({
-            url: "cornelldti.imgix.net", key: process.env.IMGIX_API_KEY
-        }),
-    },
     {
         pattern: /^\/public\/.*\.(webm|m4v|mp4)/,
         provider: CloudFront({
@@ -35,7 +29,6 @@ function buildMembers() {
             .map(f => [f, path.join(__dirname, 'data', 'members', f)])
             .map(([f, resolved]) => [f, fs.readFileSync(resolved, { encoding: 'utf-8' })])
             .map(([f, contents]) => {
-                try {
                     const parsed = JSON.parse(contents);
 
                     parsed.image = `/static/members/${parsed.netid}.jpg`;
@@ -61,10 +54,6 @@ function buildMembers() {
                     };
 
                     return { file: f, member: fixed };
-                } catch (err) {
-                    console.error(err);
-                    return { file: f, member: null };
-                }
             })
             .filter(({ member }) => member != null)
             .map(({ file: f, member }) => {
@@ -112,10 +101,8 @@ function buildPages() {
 
             const outFile = path.join(out, f);
 
-            fs.writeFileSync(outFile, JSON.stringify(contents, null, 4));
+            fs.writeFileSync(outFile, JSON.stringify(contents, null, 2));
         });
-
-
 }
 
 module.exports = function () {

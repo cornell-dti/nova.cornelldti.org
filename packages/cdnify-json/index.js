@@ -1,6 +1,3 @@
-const URL = require('url');
-const ImgixClient = require("imgix-core-js");
-
 /** @type {Map.<RegExp, { transform(s: string): string }>} */
 const providerMap = new Map();
 
@@ -57,23 +54,6 @@ module.exports = function cdnify(json, options) {
     }
 }
 
-class ImgixProvider {
-    constructor(url, apiKey) {
-        this._Images = new ImgixClient({
-            domain: url,
-            secureURLToken: apiKey
-        });
-    }
-
-    transform(url, options = {}) {
-        return this._Images.buildURL(
-            url
-                .replace(/^\/public/, "/static"),
-            options
-        );
-    }
-};
-
 class CloudFrontProvider {
     constructor(url) {
         this._baseUrl = url;
@@ -82,10 +62,6 @@ class CloudFrontProvider {
     transform(url) {
         return `https://${this._baseUrl}/${url.replace(/^\/public\//, '')}`;
     }
-}
-
-module.exports.Imgix = function ({ url, key }) {
-    return new ImgixProvider(url, key);
 }
 
 module.exports.CloudFront = function ({ url }) {
