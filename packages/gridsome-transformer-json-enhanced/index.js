@@ -1,15 +1,9 @@
 const JSONTransformer = require('@gridsome/transformer-json')
 
 const cdnify = require('cdnify-json');
-const { Imgix, CloudFront } = cdnify;
+const { CloudFront } = cdnify;
 
 cdnify.init([
-    {
-        pattern: /^\/public\/.*\.(png|jpg|jpeg)/g,
-        provider: Imgix({
-            url: "cornelldti.imgix.net", key: process.env.IMGIX_API_KEY
-        }),
-    },
     {
         pattern: /^\/public\/.*\.(webm|m4v|mp4)/g,
         provider: CloudFront({
