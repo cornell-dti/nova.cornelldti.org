@@ -9,6 +9,11 @@ _Last updated **05/20/2020**_.
   - [About](#about)
   - [Getting Started](#getting-started)
     - [Directory Structure](#directory-structure)
+    - [Contribution Guide](#contribution-guide)
+      - [Update Personal Information](#update-personal-information)
+      - [Update Member Headshots](#update-member-headshots)
+      - [Update Project Assets](#update-project-assets)
+      - [Update Page Assets](#update-page-assets)
     - [Build Setup](#build-setup)
     - [Deploy Setup](#deploy-setup)
   - [Dependencies & Libraries](#dependencies--libraries)
@@ -58,6 +63,59 @@ Not optimizing the assets will cause you to fail the CI checks that enforces the
 are below a certain threshold. To automatically optimize assets, read the instructions in the
 [`image-cli`](./packages/image-cli/index.js) and run `yarn image-cli` followed by
 arguments to be passed into `image-cli`.
+
+### Contribution Guide
+
+This section covers some simple scanarios for updating the website.
+
+#### Update Personal Information
+
+Edit the relevant json in `packages/website/data/members`. Run `yarn workspace website gen`. Run
+`yarn workspace website serve` to preview your change locally.
+
+#### Update Member Headshots
+
+Put the headshot in `packages/website/static/static/members`. The image must be in jpg and must has
+the same aspect ratio with all the existing images. The images should be optimized before committing
+to the repo.
+
+To optimized new images, put them in a folder, and run
+
+```bash
+yarn image-cli transform [path-to-your-image-folder]
+```
+
+Optimized images will appear in `[path-to-your-image-folder]/build`. They should be all below 20KB.
+
+#### Update Project Assets
+
+Put the assets in `packages/website/static/static/projects`. The name of the assets must follow the
+existing naming convention in the folder. The image must be in jpg or png and it must has the same
+aspect ratio with all the existing images. The image should be optimized before committing to the
+repo.
+
+To optimized new images, put them in a folder, and run
+
+```bash
+yarn image-cli transform [path-to-your-image-folder] --no-resize
+```
+
+Optimized images will appear in `[path-to-your-image-folder]/build`. They should be all below 600KB.
+
+#### Update Page Assets
+
+Put the assets in `packages/website/static/static/pages`. The name of the assets must follow the
+existing naming convention in the folder. The image must be in jpg or png and it must has the
+similar size compared to corresponding existing images. The image should be optimized before
+committing to the repo.
+
+To optimized new images, put them in a folder, and run
+
+```bash
+yarn image-cli transform [path-to-your-image-folder] --no-resize
+```
+
+Optimized images will appear in `[path-to-your-image-folder]/build`. They should be all below 700KB.
 
 ### Build Setup
 
