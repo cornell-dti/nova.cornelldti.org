@@ -1,18 +1,12 @@
-const JSONTransformer = require('@gridsome/transformer-json')
-
-const cdnify = require('cdnify-json');
-
-cdnify.init([]);
+const JSONTransformer = require('@gridsome/transformer-json');
 
 class EnhancedJSONTransformer extends JSONTransformer {
     static mimeTypes() {
-        return ['application/json']
+        return ['application/json'];
     }
 
     parse(source) {
-        const data = super.parse(source)
-
-        return cdnify(data);
+        return super.parse(source);
     }
 }
 

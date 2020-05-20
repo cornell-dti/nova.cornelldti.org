@@ -44,7 +44,6 @@
     "autoprefixer": "^9.8.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
-    "cdnify-json": "0.0.1",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
     "eslint": "^7.0.0",
