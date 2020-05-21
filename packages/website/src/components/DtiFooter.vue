@@ -50,7 +50,6 @@
                 </b-col>
                 <b-col cols="auto" class="social-icon-wrapper">
                   <a href="http://appstore.com/cornelldti">
-                    <!--TODO get the actual link-->
                     <AppStore class="social-icon social-icon-blank" />
                   </a>
                 </b-col>

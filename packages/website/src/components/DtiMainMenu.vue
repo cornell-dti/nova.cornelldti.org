@@ -59,32 +59,31 @@
 
     <b-collapse is-nav id="nav_collapse" v-model="navShown">
       <b-navbar-nav class="ml-auto">
-        <!-- todo look into ml-auto variants, also move routes to an actual file -->
-        <b-nav-item to="/" exact>Home</b-nav-item>
-        <b-nav-item to="/team">Team</b-nav-item>
-        <b-nav-item to="/projects">Projects</b-nav-item>
-        <b-nav-item to="/initiatives">Initiatives</b-nav-item>
-        <b-nav-item to="/courses">Courses</b-nav-item>
-        <b-nav-item to="/sponsor">Sponsor</b-nav-item>
-        <b-nav-item
+        <g-nav-item to="/" exact>Home</g-nav-item>
+        <g-nav-item to="/team/">Team</g-nav-item>
+        <g-nav-item to="/projects/">Projects</g-nav-item>
+        <g-nav-item to="/initiatives/">Initiatives</g-nav-item>
+        <g-nav-item to="/courses/">Courses</g-nav-item>
+        <g-nav-item to="/sponsor/">Sponsor</g-nav-item>
+        <g-nav-item
           v-if="
             $static.metadata.mainMenu.advertisement && $static.metadata.mainMenu.advertisement.open
           "
-          to="/apply"
+          to="/apply/"
           class="override-apply-color"
         >
           <b-button class="apply-button" variant="primary">Apply Now!</b-button>
-        </b-nav-item>
-        <b-nav-item v-else to="/apply">Apply</b-nav-item>
-        <b-nav-item
+        </g-nav-item>
+        <g-nav-item v-else to="/apply/">Apply</g-nav-item>
+        <g-nav-item
           v-if="$static.metadata.mainMenu.giving && $static.metadata.mainMenu.giving.show"
-          to="/give"
+          to="/give/"
           class="override-apply-color"
         >
           <b-button class="apply-button" variant="primary"
             >$static.metadata.mainMenu.giving.text</b-button
           >
-        </b-nav-item>
+        </g-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
