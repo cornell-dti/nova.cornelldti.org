@@ -2,8 +2,8 @@
   <projects-view :content="content" :projects="projects" />
 </template>
 
-<page-query>
-query DTIProjects($id: ID!) {
+<static-query>
+query DTIProjects {
   projects: allDtiProject {
     edges {
       node {
@@ -14,32 +14,20 @@ query DTIProjects($id: ID!) {
       }
     }
   }
-
-  content: projectsEntry(id: $id) {
-    hero {
-      header
-      subheader
-      lazy
-      video {
-        mp4
-        webm
-      }
-      image
-    }
-    
-  }
 }
-</page-query>
+</static-query>
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
 import ProjectsView from '@/views/Projects.vue';
 
-import Entry from '@/entry';
+import Page from '@/page';
 
 import { ProjectsContent } from '@/content';
 import { Member, Project } from '@/shared';
+
+import json from '../../data/pages/projects.json';
 
 interface ProjectsPage {
   projects: {
@@ -58,14 +46,15 @@ interface ProjectsPage {
     ProjectsView
   }
 })
-class Projects extends Entry<ProjectsContent> {
+class Projects extends Page<ProjectsContent>(json) {
+
   get members(): Member[] {
-    const members = (this.$page as ProjectsPage).members.edges.map(e => e.node);
+    const members = (this.$static as ProjectsPage).members.edges.map(e => e.node);
     return members;
   }
 
   get projects(): Project[] {
-    const projects = (this.$page as ProjectsPage).projects.edges.map(e => e.node);
+    const projects = (this.$static as ProjectsPage).projects.edges.map(e => e.node);
     return projects;
   }
 }

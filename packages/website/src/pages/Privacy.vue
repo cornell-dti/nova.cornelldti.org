@@ -2,13 +2,8 @@
   <privacy-view :content="content" :policies="policies" />
 </template>
 
-<page-query>
-query Privacy($id: ID!) {
-  content: privacyEntry(id: $id) {
-    header
-    subheader
-  }
-
+<static-query>
+query Privacy {
   policies: allPrivacyPolicy(sortBy: "name", order: ASC) {
     edges {
       node {
@@ -19,7 +14,7 @@ query Privacy($id: ID!) {
     }
   }
 }
-</page-query>
+</static-query>
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
@@ -27,9 +22,11 @@ import { Component } from 'vue-property-decorator';
 import PrivacyView from '@/views/Privacy.vue';
 
 import EventBus from '@/eventbus';
-import Entry from '@/entry';
+import Page from '@/page';
 
 import { PrivacyContent, PrivacyPolicy } from '@/content';
+
+import json from '../../data/pages/privacy.json';
 
 interface PolicyPage {
   policies: {
@@ -49,9 +46,10 @@ interface PolicyPage {
     PrivacyView
   }
 })
-class Privacy extends Entry<PrivacyContent> {
+class Privacy extends Page<PrivacyContent>(json) {
+
   get policies(): PrivacyPolicy[] {
-    return (this.$page as PolicyPage).policies.edges.map(e => e.node);
+    return (this.$static as PolicyPage).policies.edges.map(e => e.node);
   }
 
   mounted() {

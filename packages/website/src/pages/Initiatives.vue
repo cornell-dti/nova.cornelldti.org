@@ -2,33 +2,15 @@
   <initiatives-view :content="content" />
 </template>
 
-<page-query>
-query InitiativesEntry ($id: ID!) {
-  content: initiativesEntry(id: $id) {
-    hero {
-      lazy
-      video {
-        mp4
-        webm
-      }
-      image
-    }
-    promo {
-      makeathon
-      halfbaked
-      blueprint
-    }
-  }
-}
-</page-query>
-
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
 import InitiativesView from '@/views/Initiatives.vue';
-import Entry from '@/entry';
+import Page from '@/page';
 
 import { InitiativesContent } from '@/content';
+
+import json from '../../data/pages/initiatives.json';
 
 @Component({
   metaInfo: {
@@ -38,7 +20,7 @@ import { InitiativesContent } from '@/content';
     InitiativesView
   }
 })
-class Initiatives extends Entry<InitiativesContent> {}
+class Initiatives extends Page<InitiativesContent>(json) {}
 
 export default Initiatives;
 </script>

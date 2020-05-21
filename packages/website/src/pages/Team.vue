@@ -2,8 +2,8 @@
   <team-view :content="content" :members="members" :diversity="diversity" />
 </template>
 
-<page-query>
-query Members($id: ID!) {
+<static-query>
+query Members {
   members: allMember {
     edges {
       node {
@@ -26,47 +26,8 @@ query Members($id: ID!) {
       }
     }
   }
-
-  content: teamEntry(id: $id) {
-    hero {
-      header
-      subheader
-      lazy
-      video {
-        mp4
-        webm
-      }
-      image
-    }
-
-    team {
-      header
-    }
-
-    diversity {
-     header
-    description
-    gender {
-      header
-    }
-    stats {
-      underclassmen {
-        stat
-        description
-      }
-      majors {
-        stat
-        description
-      }
-      colleges {
-        stat
-        description
-      }
-    }
-    }
-  }
 }
-</page-query>
+</static-query>
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
@@ -75,11 +36,13 @@ import TeamView from '@/views/Team.vue';
 
 import { Member } from '@/shared';
 
-import Entry from '@/entry';
+import Page from '@/page';
 
 import { TeamContent } from '@/content';
 
 import DiversityJSON from '@/../data/sets/diversity.json';
+
+import json from '../../data/pages/team.json';
 
 interface TeamPage {
   members: {
@@ -97,11 +60,11 @@ interface TeamPage {
     TeamView
   }
 })
-class Team extends Entry<TeamContent> {
+class Team extends Page<TeamContent>(json) {
   diversity = DiversityJSON.diversity;
 
   get members(): Member[] {
-    return (this.$page as TeamPage).members.edges.map(e => e.node).filter(e => e.name);
+    return (this.$static as TeamPage).members.edges.map(e => e.node).filter(e => e.name);
   }
 }
 
