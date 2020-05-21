@@ -20,12 +20,12 @@ query DTIProjects {
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import ProjectsView from '@/views/Projects.vue';
+import ProjectsView from '../views/Projects.vue';
 
-import Page from '@/page';
+import Page from '../page';
 
-import { ProjectsContent } from '@/content';
-import { Member, Project } from '@/shared';
+import { ProjectsContent } from '../content';
+import { Member, Project } from '../shared';
 
 import json from '../../data/pages/projects.json';
 

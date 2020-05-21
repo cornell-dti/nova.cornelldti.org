@@ -30,8 +30,9 @@
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 
-import ProjectGoTo from '@/components/ProjectGoTo.vue';
-import { Project } from '@/shared';
+import ProjectGoTo from './ProjectGoTo.vue';
+
+import { Project } from '../shared';
 
 export default Vue.extend({
   components: { ProjectGoTo },

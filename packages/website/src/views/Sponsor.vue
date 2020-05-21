@@ -158,9 +158,9 @@
 <script lang="ts">
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
-import wcheck from '@/assets/sponsor/whitecheck.svg';
+import wcheck from '../assets/sponsor/whitecheck.svg';
 
-import { SponsorContent, SponsorTier } from '@/content';
+import { SponsorContent, SponsorTier } from '../content';
 
 type SponsorTierBenefitsData = {
   benefits: string;

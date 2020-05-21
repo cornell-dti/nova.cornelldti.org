@@ -187,11 +187,11 @@
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import TimelineSection from '@/components/TimelineSection.vue';
-import RoleSelector from '@/components/RoleSelector.vue';
-import DtiFooter from '@/components/DtiFooter.vue';
+import TimelineSection from '../components/TimelineSection.vue';
+import RoleSelector from '../components/RoleSelector.vue';
+import DtiFooter from '../components/DtiFooter.vue';
 
-import { ApplyContent, ApplicationInfo } from '@/content';
+import { ApplyContent, ApplicationInfo } from '../content';
 
 interface Apply {
   $refs: {

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import MissingImage from '@/assets/other/missing.svg';
+import MissingImage from '../assets/other/missing.svg';
 
 export default {
   components: {

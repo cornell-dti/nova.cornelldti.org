@@ -112,7 +112,7 @@ query {
 </static-query>
 
 <script>
-import EventBus from '@/eventbus';
+import EventBus from '../eventbus';
 
 export default {
   data() {

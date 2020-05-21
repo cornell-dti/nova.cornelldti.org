@@ -385,12 +385,12 @@ $secondary: #f6f6f6;
 <script lang="ts">
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
-import HeadshotGrid from '@/components/HeadshotGrid.vue';
-import RoleSelector from '@/components/RoleSelector.vue';
-import CircleProgressIndicator from '@/components/CircleProgressIndicator.vue';
+import HeadshotGrid from '../components/HeadshotGrid.vue';
+import RoleSelector from '../components/RoleSelector.vue';
+import CircleProgressIndicator from '../components/CircleProgressIndicator.vue';
 
-import { TeamContent } from '@/content';
-import { Member } from '@/shared';
+import { TeamContent } from '../content';
+import { Member } from '../shared';
 
 type RoleId = '' | 'business' | 'developer' | 'designer' | 'pm';
 

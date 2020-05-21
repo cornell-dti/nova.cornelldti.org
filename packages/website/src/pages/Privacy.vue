@@ -19,12 +19,12 @@ query Privacy {
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import PrivacyView from '@/views/Privacy.vue';
+import PrivacyView from '../views/Privacy.vue';
 
-import EventBus from '@/eventbus';
-import Page from '@/page';
+import EventBus from '../eventbus';
+import Page from '../page';
 
-import { PrivacyContent, PrivacyPolicy } from '@/content';
+import { PrivacyContent, PrivacyPolicy } from '../content';
 
 import json from '../../data/pages/privacy.json';
 

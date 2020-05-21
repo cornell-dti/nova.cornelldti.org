@@ -252,10 +252,10 @@ $dark-gray: #4a4a4a;
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 
-import GitHubIcon from '@/assets/social/github.svg';
-import ApplyIcon from '@/assets/other/apply.svg';
+import GitHubIcon from '../assets/social/github.svg';
+import ApplyIcon from '../assets/other/apply.svg';
 
-import { CoursesContent } from '@/content';
+import { CoursesContent } from '../content';
 
 export default Vue.extend({
   props: {

@@ -117,13 +117,13 @@ query DTIProjects ($path: String!, $teamId: String!) {
 <script lang="ts">
 import Vue from 'vue';
 
-import EventBus from '@/eventbus';
-import ProjectFeaturesList from '@/components/ProjectFeaturesList.vue';
-import ProjectLearnMore from '@/components/ProjectLearnMore.vue';
-import ProjectHeader from '@/components/ProjectHeader.vue';
-import TeamMembers from '@/components/TeamMembers.vue';
+import EventBus from '../eventbus';
+import ProjectFeaturesList from '../components/ProjectFeaturesList.vue';
+import ProjectLearnMore from '../components/ProjectLearnMore.vue';
+import ProjectHeader from '../components/ProjectHeader.vue';
+import TeamMembers from '../components/TeamMembers.vue';
 
-import { Member, Project } from '@/shared';
+import { Member, Project } from '../shared';
 
 type EdgeNode<T> = { edges: { node: T }[] };
 

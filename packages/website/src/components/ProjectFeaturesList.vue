@@ -39,7 +39,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
-import { Project } from '@/shared';
+
+import { Project } from '../shared';
 
 export default Vue.extend({
   props: {

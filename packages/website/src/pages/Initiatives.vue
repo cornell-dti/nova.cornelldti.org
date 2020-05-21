@@ -5,10 +5,10 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import InitiativesView from '@/views/Initiatives.vue';
-import Page from '@/page';
+import InitiativesView from '../views/Initiatives.vue';
+import Page from '../page';
 
-import { InitiativesContent } from '@/content';
+import { InitiativesContent } from '../content';
 
 import json from '../../data/pages/initiatives.json';
 
