@@ -23,7 +23,7 @@ import PageSection from '@/components/PageSection.vue';
 import MemberProfileModal from '@/components/MemberProfileModal.vue';
 import DTIProject from '@/templates/DTIProject.vue';
 
-import { initializeVue, AsyncDataset, Company, Role, Team } from '@/shared';
+import { initializeVue } from '@/shared';
 
 const Components = {
   Apply,
@@ -48,33 +48,5 @@ const Components = {
 export { Components };
 
 export function initialize(Vue: VueConstructor) {
-  const companiesSet = AsyncDataset.import(() => import('@/../data/sets/companies.json'))
-    .accessor<Company[]>(d => d.companies)
-    .build();
-
-  const teamsSet = AsyncDataset.import(() => import('@/../data/sets/teams.json'))
-    .accessor<Team[]>(d => d.teams)
-    .build();
-
-  const rolesSet = AsyncDataset.import(() => import('@/../data/sets/roles.json'))
-    .accessor<Role[]>(d => d.roles)
-    .build();
-
-  Vue.mixin({
-    methods: {
-      getRoles() {
-        return rolesSet.get();
-      },
-      getTeams() {
-        return teamsSet.get();
-      },
-      getCompanies() {
-        return companiesSet.get();
-      }
-    }
-  });
-
   initializeVue(Vue);
-
-  return [rolesSet.initialize(), teamsSet.initialize(), companiesSet.initialize()];
 }

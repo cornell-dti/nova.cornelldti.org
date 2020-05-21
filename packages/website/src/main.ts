@@ -14,7 +14,11 @@ import PageSection from '@/components/PageSection.vue';
 
 import DTIProject from '@/templates/DTIProject.vue';
 
-import { Role, Team, Company, AsyncDataset, initializeVue } from '@/shared';
+import { initializeVue } from '@/shared';
+
+import CompaniesJSON from '../data/sets/companies.json';
+import TeamsJSON from '../data/sets/teams.json';
+import RolesJSON from '../data/sets/roles.json';
 
 export default function main(
   Vue: VueConstructor,
@@ -40,39 +44,21 @@ export default function main(
   Vue.component('TextHero', TextHero);
   Vue.component('DtiProject', DTIProject);
 
-  const companiesSet = AsyncDataset.import(() =>
-    import(/* webpackPrefetch: true */ '@/../data/sets/companies.json')
-  )
-    .accessor<Company[]>(d => d.companies)
-    .build();
-
-  const teamsSet = AsyncDataset.import(() =>
-    import(/* webpackPrefetch: true */ '@/../data/sets/teams.json')
-  )
-    .accessor<Team[]>(d => d.teams)
-    .build();
-
-  const rolesSet = AsyncDataset.import(() =>
-    import(/* webpackPrefetch: true */ '@/../data/sets/roles.json')
-  )
-    .accessor<Role[]>(d => d.roles)
-    .build();
-
   Vue.mixin({
     methods: {
       getRoles() {
-        return rolesSet.get();
+        const { roles } = RolesJSON;
+        return roles;
       },
       getTeams() {
-        return teamsSet.get();
+        const { teams } = TeamsJSON;
+        return teams;
       },
       getCompanies() {
-        return companiesSet.get();
+        const { companies } = CompaniesJSON;
+        return companies;
       }
     }
   });
-
   initializeVue(Vue);
-
-  return [companiesSet.initialize(), teamsSet.initialize(), rolesSet.initialize()];
 }
