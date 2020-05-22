@@ -5,12 +5,14 @@
     "name": "Aitong Yu",
     "graduation": "May 2021",
     "major": "ISST",
-    "minor": "Business",
     "linkedin": "https://www.linkedin.com/in/aitong-yu-3bb6a1126/",
     "github": "https://github.com/AitongYu",
     "hometown": "Brooklyn, NY",
-    "about": "Hi, My name is Aitong Yu! I immigrated to the US when i was 9 and live in New York City since then. I hope to make positive impacts in the community and that's why I joined DTI. On campus, I am involved in ECaFT and Cornell Chinese Dram Society. During my free time, I like to watch figure skating competitions and collect postcards!",
+    "about": "Hi! I am a Junior majoring in ISST. I was born in China and immigrated to the US when I was 9. Some of my hobbies include watching figure skating competition, films, and collecting postcards. If dialects count as a different language, then I speak a total of 4 languages.",
+    "subteam": "business",
+    "otherSubteams": [
+        "reviews"
+    ],
     "roleId": "business",
-    "roleDescription": "Business Analyst",
-    "otherSubteams": []
+    "roleDescription": "Business Analyst"
 }

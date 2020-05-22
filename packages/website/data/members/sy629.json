@@ -3,14 +3,16 @@
     "firstName": "Sang",
     "lastName": "Yun",
     "name": "Shane Yun",
-    "graduation": "12/2020",
+    "graduation": "December 2020",
     "major": "Information Science",
     "website": "https://www.syun.me",
     "linkedin": "https://www.linkedin.com/in/shane-yun-53395b176/",
     "hometown": "Fullerton, CA",
-    "about": "hi! I'm a product designer for CUE. I am comfortable with both mobile and iOS design. I am super excited to work on developing CUE!",
+    "about": "I am a designer for Courseplan. I started off as a designer for CUE. I like UX and mangoes. I am always open to learn more about design and mangoes.",
     "subteam": "courseplan",
-    "otherSubteams": ["events"],
+    "otherSubteams": [
+        "events"
+    ],
     "roleId": "designer",
     "roleDescription": "Designer"
 }

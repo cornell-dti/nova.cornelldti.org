@@ -2,12 +2,12 @@
     "netid": "gz78",
     "firstName": "Gary",
     "lastName": "Zhuge",
-    "name": "Gary",
+    "name": "Gary Zhuge",
     "graduation": "May 2021",
     "major": "Computer Science",
     "hometown": "Dublin, CA",
-    "about": "Hi! I am a junior studying cs and English. I lived in Canada and China before coming to the U.S. 80 of my diet consist of quesadillas and oolong tea.",
+    "about": "I am currently a junior studying CS and minoring in English. I procrastinate by rewatching movie trailers and reading short stories about warm, faraway places.",
     "subteam": "events",
-    "roleId": "designer",
-    "roleDescription": "Designer"
+    "roleId": "developer",
+    "roleDescription": "Developer"
 }

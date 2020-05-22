@@ -3,12 +3,16 @@
     "firstName": "Rebecca",
     "lastName": "Fu",
     "name": "Rebecca Fu",
-    "graduation": "05/2021",
+    "graduation": "May 2021",
     "major": "AEM",
-    "linkedin": "https://www.linkedin.com/in/becsf",
+    "doubleMajor": "Information Science",
+    "linkedin": "https://linkedin.com/in/becsf",
     "hometown": "Bardonia, NY",
-    "about": "I am currently a junior studying applied economics and management with a concentration in business analytics! DTI stood out to me because it gave me an opportunity to explore my interests in tech outside of class and meet a great community of people who were passionate about helping others. But outside of academics, I love to dance, play tennis, and browse the sales section at Urban. And you can probably catch me at eHub in the AMs dancing wildly to my throwback playlist.",
+    "about": "Hi, I'm Rebecca! I'm currently a junior studying Applied Economics and Management. I joined DTI because INFO 1300 changed my life. But other than that, you can catch me making bad jokes and spending way too much on smoothies at Mac's cafe.",
     "subteam": "business",
+    "otherSubteams": [
+        "samwise"
+    ],
     "roleId": "business",
     "roleDescription": "Business Analyst"
 }
