@@ -3,14 +3,17 @@
     "firstName": "Bryan",
     "lastName": "Graeser",
     "name": "Bryan Graeser",
-    "graduation": "05/2021",
+    "graduation": "May 2021",
     "major": "Computer Science",
     "minor": "Creative Writing",
     "linkedin": "https://www.linkedin.com/in/bryangraeser/",
+    "github": "https://github.com/BryanGraeser",
     "hometown": "Los Altos, CA",
-    "about": "When I'm not in Duffield working on a CS pset or DTI, I enjoy working on creative writing pieces and going to the gym. I am also Co-Director of Hack4Impact, a nonprofit, social impact CS group on campus. In my free time, I like playing games with friends and showing people unsolicited pet photos.",
-    "subteam": "reviews",
-    "roleId": "developer",
-    "roleDescription": "Developer",
-    "otherSubteams": []
+    "about": "I love working on projects at the intersection of technology and social impact, projects that bring about significant, verifiable positive change to the world. When I'm not nose-deep in a project you can find me writing a short story or squeezing in some extra reps at the Teagle gym.",
+    "subteam": "carriage",
+    "otherSubteams": [
+        "reviews"
+    ],
+    "roleId": "pm",
+    "roleDescription": "Product Manager"
 }

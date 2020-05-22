@@ -2,15 +2,16 @@
     "netid": "cph64",
     "firstName": "Christopher",
     "lastName": "Hansen",
-    "name": "Chris Hansen",
+    "name": "Christopher Hansen",
     "graduation": "May 2022",
     "major": "Computer Science",
+    "minor": "English",
+    "website": "https://chansen424.github.io/Portfolio/",
     "linkedin": "https://www.linkedin.com/in/christopherphansen/",
     "github": "https://github.com/chansen424/",
     "hometown": "Staten Island, NY",
-    "about": "I am an ever-curious developer from New York who collects books and listens to punk rock music. Technology inspires me to help people, spurring my interests in cybersecurity and the web and giving me the courage to ask the questions that need asking.",
-    "roleId": "developer",
-    "roleDescription": "Technical PM",
+    "about": "I am a sophomore in the College of Arts and Sciences studying Computer Science. I collect books and love reading them. I'm also a member of Cornell Hacking Club. I enjoy trying new things!",
     "subteam": "carriage",
-    "otherSubteams": []
+    "roleId": "pm",
+    "roleDescription": "Technical PM"
 }

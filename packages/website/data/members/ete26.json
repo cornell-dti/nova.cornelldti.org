@@ -4,10 +4,15 @@
     "lastName": "Esemuze",
     "name": "Ehi Esemuze",
     "graduation": "May 2023",
-    "major": "Mechanical Engineering",
-    "minor": "Creative Writing",
+    "major": "ECE",
+    "linkedin": "https://www.linkedin.com/in/ehi-esemuze-6059631a2/",
+    "github": "https://github.coecis.cornell.edu/ete26",
     "hometown": "Sugar Land, TX",
-    "about": "Hi! My name is Ehi and I’m a first-year studying mechanical engineering. My passion lies in using design across mediums to create sustainable, positive social impact. Outside of academic and project team work, you can find me acting in a show, attempting to pick up a new language, listening to music, or writing poetry or prose. Feel free to reach out to me and start a conversation!",
-    "roleDescription": "Business Analyst",
-    "roleId": "business"
+    "about": "Hi! My name is Ehi and I’m a first-year studying electrical and computer engineering. I am passionate about using design across mediums to create technology that is functional, accessible, sustainable, beautiful, and makes positive social impact. Outside of academic and project team work, you can find me acting in a show, attempting to pick up a new language, listening to music, or reading/writing poetry or prose. Feel free to reach out to me and start a conversation!",
+    "subteam": "business",
+    "otherSubteams": [
+        "events"
+    ],
+    "roleId": "business",
+    "roleDescription": "Business Analyst"
 }
