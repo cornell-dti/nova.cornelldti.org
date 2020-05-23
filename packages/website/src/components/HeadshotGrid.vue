@@ -29,10 +29,10 @@
 import { BModal } from 'bootstrap-vue';
 
 import Vue from 'vue';
-import HeadshotCard from '@/components/HeadshotCard.vue';
-import MemberProfileModal from '@/components/MemberProfileModal.vue';
+import HeadshotCard from './HeadshotCard.vue';
+import MemberProfileModal from './MemberProfileModal.vue';
 
-import { Member } from '@/shared';
+import { Member } from '../shared';
 
 type MemberInfo = { id: string; info: Member };
 

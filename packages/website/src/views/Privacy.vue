@@ -30,7 +30,7 @@
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 
-import { PrivacyContent, PrivacyPolicy } from '@/content';
+import { PrivacyContent, PrivacyPolicy } from '../content';
 
 export default Vue.extend({
   props: {

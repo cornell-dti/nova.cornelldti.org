@@ -15,8 +15,8 @@
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 
-import HeadshotGrid from '@/components/HeadshotGrid.vue';
-import { Member } from '@/shared';
+import HeadshotGrid from './HeadshotGrid.vue';
+import { Member } from '../shared';
 
 type MemberInfo = { info: Member; id: string };
 

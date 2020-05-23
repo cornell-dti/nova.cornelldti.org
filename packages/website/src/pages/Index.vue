@@ -5,10 +5,10 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import HomeView from '@/views/Home.vue';
-import Page from '@/page';
+import HomeView from '../views/Home.vue';
+import Page from '../page';
 
-import { HomeContent } from '@/content';
+import { HomeContent } from '../content';
 
 import json from '../../data/pages/home.json';
 

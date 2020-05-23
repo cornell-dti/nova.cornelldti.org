@@ -46,10 +46,11 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
-import Quicklink from '@/components/Quicklink.vue';
-import LazyVideo from '@/components/LazyVideo.tsx';
 
-import { HomeContent } from '@/content';
+import Quicklink from '../components/Quicklink.vue';
+import LazyVideo from '../components/LazyVideo';
+
+import { HomeContent } from '../content';
 
 @Component({
   components: {

@@ -273,10 +273,10 @@ $dark-gray: #4a4a4a;
 <script lang="ts">
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
-import FacebookIcon from '@/assets/social/facebook-white.svg';
-import MediumIcon from '@/assets/social/medium-white-m.svg';
+import FacebookIcon from '../assets/social/facebook-white.svg';
+import MediumIcon from '../assets/social/medium-white-m.svg';
 
-import { InitiativesContent } from '@/content';
+import { InitiativesContent } from '../content';
 
 export default Vue.extend({
   props: {

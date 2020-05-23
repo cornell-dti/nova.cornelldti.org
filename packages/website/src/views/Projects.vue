@@ -69,8 +69,8 @@
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 
-import { ProjectsContent } from '@/content';
-import { Project } from '@/shared';
+import { ProjectsContent } from '../content';
+import { Project } from '../shared';
 
 export default Vue.extend({
   props: {

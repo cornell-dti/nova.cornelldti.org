@@ -71,10 +71,10 @@
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 
-import { Project } from '@/shared';
+import { Project } from '../shared';
 
-import Github from '@/assets/social/github.svg';
-import Medium from '@/assets/social/medium.svg';
+import Github from '../assets/social/github.svg';
+import Medium from '../assets/social/medium.svg';
 
 export default Vue.extend({
   components: {

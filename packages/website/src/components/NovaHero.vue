@@ -53,7 +53,7 @@ $height: 65vh;
 
 <script lang="ts">
 import Vue from 'vue';
-import LazyVideo from '@/components/LazyVideo.tsx';
+import LazyVideo from './LazyVideo';
 
 export default Vue.extend({
   components: { LazyVideo },

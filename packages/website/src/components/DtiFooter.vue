@@ -121,16 +121,16 @@ import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 import { BModal } from 'bootstrap-vue';
 
-import Facebook from '@/assets/social/facebook.svg';
-import Dribbble from '@/assets/social/dribbble.svg';
-import Github from '@/assets/social/github.svg';
-import GooglePlay from '@/assets/social/google-play.svg';
-import AppStore from '@/assets/social/app-store.svg';
-import Medium from '@/assets/social/medium.svg';
-import Heart from '@/assets/footer/heart.svg';
-import HeartMobile from '@/assets/footer/heart-mobile.svg';
+import Facebook from '../assets/social/facebook.svg';
+import Dribbble from '../assets/social/dribbble.svg';
+import Github from '../assets/social/github.svg';
+import GooglePlay from '../assets/social/google-play.svg';
+import AppStore from '../assets/social/app-store.svg';
+import Medium from '../assets/social/medium.svg';
+import Heart from '../assets/footer/heart.svg';
+import HeartMobile from '../assets/footer/heart-mobile.svg';
 
-import MailChimpForm from '@/components/MailChimpForm.vue';
+import MailChimpForm from './MailChimpForm.vue';
 
 @Component({
   components: {

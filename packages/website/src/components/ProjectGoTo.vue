@@ -78,10 +78,10 @@
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 
-import { Project } from '@/shared';
+import { Project } from '../shared';
 
-import StoreBadge from '@/components/StoreBadge.vue';
-import Github from '@/assets/social/github.svg';
+import StoreBadge from './StoreBadge.vue';
+import Github from '../assets/social/github.svg';
 
 export default Vue.extend({
   components: {

@@ -139,12 +139,12 @@ import Vue from 'vue';
 import { Component, Watch } from 'vue-property-decorator';
 
 import { BModal } from 'bootstrap-vue';
-import { ObjectProp, BooleanProp } from '@/util/common';
+import { ObjectProp, BooleanProp } from '../util/common';
 
-import Github from '@/assets/social/github.svg';
-import LinkedIn from '@/assets/social/linkedin.svg';
-import MissingImage from '@/assets/other/missing.svg';
-import { Member } from '@/shared';
+import Github from '../assets/social/github.svg';
+import LinkedIn from '../assets/social/linkedin.svg';
+import MissingImage from '../assets/other/missing.svg';
+import { Member } from '../shared';
 
 @Component({
   components: {

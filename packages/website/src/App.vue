@@ -8,8 +8,8 @@
 <style src="bootstrap-vue/dist/bootstrap-vue.css"></style>
 
 <script script="ts">
-import EventBus from '@/eventbus';
-import DtiMainMenu from '@/components/DtiMainMenu.vue';
+import EventBus from './eventbus';
+import DtiMainMenu from './components/DtiMainMenu.vue';
 
 export default {
   name: 'App',

@@ -32,15 +32,15 @@ query Members {
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import TeamView from '@/views/Team.vue';
+import TeamView from '../views/Team.vue';
 
-import { Member } from '@/shared';
+import { Member } from '../shared';
 
-import Page from '@/page';
+import Page from '../page';
 
-import { TeamContent } from '@/content';
+import { TeamContent } from '../content';
 
-import DiversityJSON from '@/../data/sets/diversity.json';
+import DiversityJSON from '../../data/sets/diversity.json';
 
 import json from '../../data/pages/team.json';
 
