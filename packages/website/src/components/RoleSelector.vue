@@ -11,10 +11,9 @@
         :key="role.id"
         class="my-auto text-center"
       >
-        <div
-          :class="btnCSS(roleId === role.id, density, bold, dark)"
-          @click="roleId = role.id"
-        >{{ role.name }}</div>
+        <div :class="btnCSS(roleId === role.id, density, bold, dark)" @click="roleId = role.id">
+          {{ role.name }}
+        </div>
         <div :class="selectorCSS(roleId === role.id, dark)" />
       </b-col>
     </b-row>
@@ -33,7 +32,8 @@
             v-for="role of resolvedRoles"
             :key="role.id"
             :value="role.id"
-          >{{ role.name }}</option>
+            >{{ role.name }}</option
+          >
         </b-form-select>
       </b-col>
     </b-row>
@@ -201,8 +201,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Role } from '../types';
 import { PropValidator } from 'vue/types/options';
+
+import { Role } from '../types';
 
 export default Vue.extend({
   model: {
