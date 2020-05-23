@@ -7,7 +7,7 @@ export interface Member {
   isLead?: boolean;
   roleId: string;
   otherSubteams?: string[] | string | undefined;
-  subteam: string;
+  subteam?: string;
   graduation: string;
   major: string;
   doubleMajor: string;
