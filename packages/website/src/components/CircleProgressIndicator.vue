@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import DonutGraph from './DonutGraph.tsx';
+import DonutGraph from './DonutGraph';
 
 export default Vue.extend({
   components: {
