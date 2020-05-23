@@ -47,7 +47,6 @@ interface PolicyPage {
   }
 })
 class Privacy extends Page<PrivacyContent>(json) {
-
   get policies(): PrivacyPolicy[] {
     return (this.$static as PolicyPage).policies.edges.map(e => e.node);
   }

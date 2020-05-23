@@ -15,7 +15,7 @@ module.exports = function (api) {
   // for gridsome develop
   api.configureServer(app => {
     // webpack won't host these files in development mode.
-    app.use('/admin/lib', express.static(path.join(__dirname, 'admin/lib')));
+    app.use('/admin', express.static(path.resolve(__dirname, '../../dist/admin/')));
   });
 
   api.loadSource(({ addSchemaTypes, addMetadata }) => {

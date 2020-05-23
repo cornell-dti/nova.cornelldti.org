@@ -48,9 +48,6 @@ export default function main(
 
   Vue.mixin({
     methods: {
-      getHeadshot(netid: string) {
-        return `/static/members/${netid}.jpg`;
-      },
       getRoles() {
         const { roles } = RolesJSON;
         return roles;
@@ -65,5 +62,6 @@ export default function main(
       }
     }
   });
+
   initializeVue(Vue);
 }

@@ -1,18 +1,31 @@
-import Vue from 'vue';
-import { Components } from '../lib/dti-nova.common';
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 
+import Vue from 'vue';
+
+// @ts-ignore
+import { Components } from 'website-components';
+
+/**
+ * 
+ * @param {*} entry 
+ */
 export function entryToStrings(entry) {
   return entry.getIn(['data']).toJS();
 }
 
 export default Vue.extend({
   functional: true,
+  /**
+   * @param {*} h 
+   * @param {import('vue').RenderContext<{ entry: any }>} cx
+   */
   render(h, cx) {
     if (cx.props.entry) {
       const info = entryToStrings(cx.props.entry);
 
       const toggle = () => {
-        return cx.parent.$refs.modalRef.toggleModal();
+        const modal = /** @type {any} */ (cx.parent.$refs.modalRef);
+        return modal.toggleModal();
       };
 
       return h('div', [

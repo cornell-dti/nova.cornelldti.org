@@ -5,13 +5,14 @@
   "scripts": {
     "build": "yarn build:lib && yarn build:grid",
     "build:grid": "gridsome build",
-    "build:lib": "vue-cli-service build --target lib --name dti-nova --formats commonjs --dest admin/lib src/lib.ts",
+    "build:lib": "vue-cli-service build --target lib --name dti-nova --formats commonjs --dest ../website-components/dist/ src/lib.ts",
     "serve": "gridsome develop",
     "clean-generated-files": "rm -r admin/lib",
-    "check": "tsc --noEmit",
+    "type-check": "tsc --noEmit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "website-components": "^1.0.0",
     "bootstrap-vue": "^2.14.0",
     "d3": "^5.16.0",
     "netlify-cms": "^2.10.48",

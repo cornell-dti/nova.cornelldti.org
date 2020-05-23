@@ -1,20 +1,25 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
+
 import './netlifyConfig';
 
 import Vue from 'vue';
+// @ts-ignore
 import CMS from 'netlify-cms'; // -app/dist/esm
 import CMSIdentity from 'netlify-identity-widget';
 
+// @ts-ignore
 import { VueInReact } from 'vuera';
 
 // Must run `yarn build:lib` to access lib.
-import { initialize, Components } from './lib/dti-nova.common';
+// @ts-ignore
+import { initialize, Components } from 'website-components';
 
 import Profile from './preview/profile';
 import wrap from './preview/page';
 
-import('./lib/dti-nova.common.1');
-import('./lib/dti-nova.common.2');
-import('./lib/dti-nova.common.3');
+import RolesJSON from '../data/sets/roles.json';
+import TeamsJSON from '../data/sets/teams.json';
+import CompaniesJSON from '../data/sets/companies.json';
 
 initialize(Vue);
 
@@ -25,7 +30,11 @@ CMS.registerPreviewStyle('//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.mi
 
 // Load our stylesheets (only works in production builds)
 
-CMS.registerPreviewStyle('/admin/lib/dti-nova.css');
+// admin/1.css
+import('website-components/dist/dti-nova.css').then(() => {
+  // As long as this is the only CSS import it will be "admin/1.css"
+  CMS.registerPreviewStyle('/admin/1.css');
+});
 
 // Custom Component Previews
 CMS.registerPreviewTemplate('member', VueInReact(Profile));
@@ -43,6 +52,23 @@ const {
 
 // Fix the lack of vue-router in Netlify CMS previews
 Vue.prototype.$route = { name: 'Preview', path: 'nowhere/' };
+
+Vue.mixin({
+  methods: {
+    getRoles() {
+      const { roles } = RolesJSON;
+      return roles;
+    },
+    getTeams() {
+      const { teams } = TeamsJSON;
+      return teams;
+    },
+    getCompanies() {
+      const { companies } = CompaniesJSON;
+      return companies;
+    }
+  }
+});
 
 Vue.component('PageSublist', PageSublist);
 Vue.component(
@@ -70,11 +96,11 @@ const TeamPage = wrap('team', Components.Team, {
   members: [],
   diversity: {
     femalePercentage: {
-      "": 0.6,
-      "business": 0.5,
-      "developer": 0.5,
-      "designer": 0.5,
-      "pm": 0.5
+      '': 0.6,
+      business: 0.5,
+      developer: 0.5,
+      designer: 0.5,
+      pm: 0.5
     }
   }
 });
@@ -87,6 +113,7 @@ CMS.registerPreviewTemplate('page-courses', VueInReact(CoursesPage));
 CMS.registerPreviewTemplate('page-initiatives', VueInReact(InitiativesPage));
 CMS.registerPreviewTemplate('page-team', VueInReact(TeamPage));
 
+// @ts-ignore
 window.netlifyIdentity = CMSIdentity;
 
 CMSIdentity.on('init', () => {

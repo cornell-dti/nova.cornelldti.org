@@ -29,10 +29,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+
 import MissingImage from '../assets/other/missing.svg';
 
-export default {
+export default Vue.extend({
   components: {
     MissingImage
   },
@@ -59,7 +61,7 @@ export default {
       default: 'backed'
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

@@ -47,7 +47,6 @@ interface ProjectsPage {
   }
 })
 class Projects extends Page<ProjectsContent>(json) {
-
   get members(): Member[] {
     const members = (this.$static as ProjectsPage).members.edges.map(e => e.node);
     return members;
