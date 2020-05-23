@@ -17,7 +17,8 @@
     "reviews": "projects.reviews",
     "samwise": "projects.samwise",
     "events": "projects.events",
-    "orientation": "projects.orientation"
+    "orientation": "projects.orientation",
+    "courseplan": "projects.courseplan"
   },
   "notReadyProjects": {
     "rescuer": "projects.rescuer"
