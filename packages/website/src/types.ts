@@ -1,6 +1,5 @@
 export interface Member {
   netid: string;
-  image: string;
   name: string;
   firstName: string;
   lastName: string;

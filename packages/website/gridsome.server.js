@@ -24,7 +24,6 @@ module.exports = function (api) {
     addSchemaTypes(`
       type Member implements Node {
         netid: String
-        image: String
         firstName: String
         lastName: String
         name: String

@@ -16,8 +16,7 @@
 <page-query>
 query DTIMember($path: String!) {
   member: member(path: $path) {
-    netid
-    image       
+    netid      
     firstName
     lastName
     name
