@@ -7,11 +7,13 @@
 
 <style src="bootstrap-vue/dist/bootstrap-vue.css"></style>
 
-<script script="ts">
+<script lang="ts">
+import Vue from 'vue';
+
 import EventBus from './eventbus';
 import DtiMainMenu from './components/DtiMainMenu.vue';
 
-export default {
+export default Vue.extend({
   name: 'App',
   metaInfo: {
     title: ''
@@ -40,7 +42,7 @@ export default {
       next();
     });
   }
-};
+});
 </script>
 
 <style lang="scss">

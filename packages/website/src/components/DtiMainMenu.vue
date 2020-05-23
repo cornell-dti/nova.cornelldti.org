@@ -110,10 +110,13 @@ query {
 }
 </static-query>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import { BNavbar } from 'bootstrap-vue';
+
 import EventBus from '../eventbus';
 
-export default {
+export default Vue.extend({
   data() {
     return {
       hide: false,
@@ -123,7 +126,7 @@ export default {
     };
   },
   methods: {
-    onScroll(window) {
+    onScroll(): void {
       const yOffset =
         window.pageYOffset ||
         window.scrollY ||
@@ -135,14 +138,15 @@ export default {
       const scrollTop = yOffset - (document.documentElement.clientTop || 0);
 
       if (typeof this.$refs.dtinavbar !== 'undefined') {
-        const height = this.$refs.dtinavbar.$el.offsetHeight;
+        const navbar = this.$refs.dtinavbar as BNavbar;
+        const height = (navbar.$el as HTMLElement).offsetHeight;
         this.transparent = scrollTop <= height;
       } else {
         this.transparent = false;
       }
     }
   },
-  destroy() {
+  destroyed() {
     window.removeEventListener('scroll', this.onScroll);
   },
   mounted() {
@@ -161,7 +165,7 @@ export default {
       this.hide = false;
     });
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

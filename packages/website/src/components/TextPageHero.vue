@@ -24,14 +24,16 @@
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+
 import PageHero from './PageHero.vue';
 
-export default {
+export default Vue.extend({
   extends: PageHero,
   props: {
     header: { type: String, default: '' },
     subheader: { type: String, default: '' }
   }
-};
+});
 </script>
