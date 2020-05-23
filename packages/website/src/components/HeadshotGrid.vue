@@ -9,7 +9,7 @@
         :name="member.info.name"
         :role="member.info.roleDescription"
         @click.native="memberClicked(member)"
-        :image="`${member.info.image}`"
+        :image="getHeadshot(member.info.netid)"
       />
     </div>
 

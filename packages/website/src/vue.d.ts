@@ -6,6 +6,7 @@ declare module 'vue/types/vue' {
     getCompanies(): Company[];
     getTeams(): Team[];
     getRoles(): Role[];
+    getHeadshot(netid: string): string;
     $context: unknown;
     $static: unknown;
     $page: unknown;

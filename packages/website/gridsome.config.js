@@ -29,7 +29,7 @@ module.exports = {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'Member',
-        path: './data/generated/members/*.json',
+        path: './data/members/*.json',
       },
     },
     {

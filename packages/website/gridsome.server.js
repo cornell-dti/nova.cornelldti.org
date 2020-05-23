@@ -10,21 +10,12 @@ const path = require('path');
 
 const $AssetsJSON = require("./data/assets.json");
 
-const build = require('./build.js');
-
 /** @type import('@tyankatsu0105/types-gridsome').Server */
 module.exports = function (api) {
-  // for gridsome build
-  api.beforeBuild(() => {
-    build();
-  });
-
   // for gridsome develop
   api.configureServer(app => {
     // webpack won't host these files in development mode.
     app.use('/admin/lib', express.static(path.join(__dirname, 'admin/lib')));
-
-    build();
   });
 
   api.loadSource(({ addSchemaTypes, addMetadata }) => {
