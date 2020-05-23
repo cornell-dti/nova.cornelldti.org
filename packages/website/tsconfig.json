@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "checkJs": true,
+    "allowJs": true,
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -19,7 +21,8 @@
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ],
+    "outDir": "dist"
   },
   "include": [
     "admin/**/*.js",

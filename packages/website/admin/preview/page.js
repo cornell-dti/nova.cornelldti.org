@@ -1,10 +1,21 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
+
 import Vue from 'vue';
 
+/**
+ * @param {any} entry
+ */
 export function entryToStrings(entry) {
   return entry.getIn(['data']).toJS();
 }
 
-export default (name, Widget, props) =>
+export default
+/**
+ * @param {string} name
+ * @param {import('vue').VueConstructor} Widget
+ * @param {any} [props]
+ */
+(name, Widget, props = {}) =>
   Vue.extend({
     name: `${name}Preview`,
     props: {

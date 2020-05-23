@@ -7,6 +7,16 @@ import { VueConstructor, CreateElement, RenderContext } from 'vue';
 export { Project, Member, Team, Company, Role } from './types';
 
 export function initializeVue(Vue: VueConstructor) {
+  Vue.use(BootstrapVue);
+
+  Vue.mixin({
+    methods: {
+      getHeadshot(netid: string) {
+        return `/static/members/${netid}.jpg`;
+      }
+    }
+  });
+
   Vue.component('StringsDomain', {
     name: 'StringsDomain',
     functional: true,
@@ -29,8 +39,4 @@ export function initializeVue(Vue: VueConstructor) {
       return h();
     }
   });
-
-  Vue.use(BootstrapVue);
-
-  return [];
 }
