@@ -27,7 +27,9 @@ module.exports = function (api) {
     build();
   });
 
-  api.loadSource(({ addSchemaTypes }) => {
+  api.loadSource(({ addSchemaTypes, addMetadata }) => {
+    // Define the member schema.
+
     addSchemaTypes(`
       type Member implements Node {
         netid: String
@@ -47,12 +49,12 @@ module.exports = function (api) {
         roleId: String
         roleDescription: String
       }
-    `)
-  })
+    `);
 
-  api.loadSource(async store => {
+    // assets.json
+
     Object.entries($AssetsJSON).forEach(([k, v]) => {
-      store.addMetadata(k, v);
+      addMetadata(k, v);
     });
   });
 }

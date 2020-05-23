@@ -5,9 +5,8 @@
         <div :class="btnCSS(roleId === '', density, bold, dark)" @click="roleId = ''">All</div>
         <div :class="selectorCSS(roleId === '', dark)" />
       </b-col>
-      <!-- TODO: Cleanup the roles overriding -->
       <b-col
-        v-for="role of this.roles === null ? getRoles() : this.roles"
+        v-for="role of resolvedRoles"
         :md="density === 'compact' ? 'auto' : null"
         :key="role.id"
         class="my-auto text-center"
@@ -30,7 +29,7 @@
           <option :class="mobileMenuCSS()" v-if="showAll" :value="''">All</option>
           <option
             :class="mobileMenuCSS()"
-            v-for="role of this.roles === null ? getRoles() : this.roles"
+            v-for="role of resolvedRoles"
             :key="role.id"
             :value="role.id"
             >{{ role.name }}</option
@@ -200,8 +199,13 @@
 }
 </style>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import { PropValidator } from 'vue/types/options';
+
+import { Role } from '../types';
+
+export default Vue.extend({
   model: {
     prop: 'rolePropId',
     event: 'update:change'
@@ -235,15 +239,19 @@ export default {
       type: Boolean,
       default: true
     },
-    /** @type {import('vue/types/options').PropValidator<import('../shared').Role[]>} */
     roles: {
       type: Array,
       default: null
+    } as PropValidator<Role[]>
+  },
+  computed: {
+    resolvedRoles() {
+      return this.roles ?? this.getRoles();
     }
   },
   mounted() {
     this.$nextTick(() => {
-      const roles = this.roles !== null ? this.roles : this.getRoles();
+      const { roles } = this;
       this.roleId = this.showAll ? '' : roles[0].id;
     });
   },
@@ -256,7 +264,7 @@ export default {
     };
   },
   methods: {
-    btnCSS(selected, density, isBold, isDark = false) {
+    btnCSS(selected: boolean, density: 'compact' | '', isBold: boolean, isDark = false) {
       return [
         selected ? 'selected-filter-btn' : 'filter-btn',
         isDark ? 'fg-light' : 'fg-dark',
@@ -264,16 +272,16 @@ export default {
         isBold ? 'bold' : null
       ];
     },
-    selectorCSS(selected, isDark = false) {
+    selectorCSS(selected: boolean, isDark = false) {
       return selected ? ['selector', 'selected', isDark ? 'fg-light' : 'fg-dark'] : ['selector'];
     },
-    mobileSelectorCSS(centered, isDark = false) {
+    mobileSelectorCSS(centered: boolean, isDark = false) {
       return [isDark ? 'fg-light' : 'fg-dark', centered ? 'centered' : null];
     },
     mobileMenuCSS() {
       return ['fg-dark'];
     },
-    handleMobileSelection(val) {
+    handleMobileSelection(val: string) {
       this.roleId = val;
     }
   },
@@ -282,5 +290,5 @@ export default {
       this.$emit('update:change', $event);
     }
   }
-};
+});
 </script>
