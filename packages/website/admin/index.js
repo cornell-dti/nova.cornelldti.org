@@ -33,7 +33,7 @@ CMS.registerPreviewStyle('//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.mi
 // admin/1.css
 import('website-components/dist/dti-nova.css').then(() => {
   // As long as this is the only CSS import it will be "admin/1.css"
-  CMS.registerPreviewStyle('admin/1.css');
+  CMS.registerPreviewStyle('/admin/1.css');
 });
 
 // Custom Component Previews
