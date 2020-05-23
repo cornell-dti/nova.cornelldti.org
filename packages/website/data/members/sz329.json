@@ -3,14 +3,14 @@
     "firstName": "Shi Chong",
     "lastName": "Zhao",
     "name": "Shi Chong Zhao",
-    "graduation": "05/2021",
+    "graduation": "May 2021",
     "major": "Computer Science",
     "minor": "Cognitive Science",
     "linkedin": "https://www.linkedin.com/in/shichong97/",
     "github": "https://github.com/shichong-97",
     "hometown": "Singapore, Singapore",
-    "about": "Hi I am Shi Chong, a sophomore majoring in CS. I'm from Singapore where the season's always summer (opposite of Ithaca). Apart from being a member of DTI,  I am also a pipa player in the Cornell Eastern Music Ensemble. Hit me up!",
+    "about": "Hi, I am Shi Chong and I am a sophomore majoring in Computer Science and minoring in Cognitive Science in CAS. I am also currently the TPM of eve in DTI. I have been on DTI for three semesters and I have to say that I love the people and the experience here! Also, I am from Singapore and I greatly miss the food back home.",
     "subteam": "events",
-    "roleId": "developer",
-    "roleDescription": "Developer"
+    "roleId": "pm",
+    "roleDescription": "Technical PM"
 }

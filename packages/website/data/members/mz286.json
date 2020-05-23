@@ -7,7 +7,11 @@
     "major": "AEM",
     "linkedin": "https://www.linkedin.com/in/mattzhao/",
     "hometown": "Potomac, MD",
-    "about": "I have the most fun when I'm doing something new, whether that be visiting foreign countries for the first time or taking on an interesting hobby. Alongside DTI, I'm currently on the executive board for Cornell Economics Society and a player for the Men's Club Volleyball team. On any day, you can probably find me procrastinating in eHub or Kung Fu Tea ( > U Tea).",
+    "about": "I'm currently a sophomore in AEM concentrating in Finance and Business Analytics. In the future, I hope to enter either the consulting or sports analytics field. Besides DTI, I am involved in Cornell Economics Society, Men's Club Volleyball, and Lambdas! On any day, you can probably find me procrastinating in eHub or not following my gym schedule.",
+    "subteam": "business",
+    "otherSubteams": [
+        "flux"
+    ],
     "roleId": "business",
     "roleDescription": "Business Analyst"
 }

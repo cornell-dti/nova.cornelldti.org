@@ -3,23 +3,19 @@
     "firstName": "Evan",
     "lastName": "Welsh",
     "name": "Evan Welsh",
-    "graduation": "12/2021",
-    "hometown": "Grand Forks, ND",
-    "subteam": "Leads",
-    "roleId": "team-lead",
-    "roleDescription": "Operations Lead",
-    "isLead": true,
+    "graduation": "December 2020",
     "major": "Information Science",
-    "doubleMajor": "",
     "minor": "Computer Science",
-    "github": "https://github.com/rockon999/",
-    "linkedin": "https://www.linkedin.com/in/evan-welsh-291577141/",
-    "other": "",
-    "website": "https://www.evanwelsh.com/",
-    "about": "I'm a junior in the College of Arts and Sciences majoring in Computer Science. In my free time I love exploring all sorts of wild technologies. My adventures in Vue.js in fact led to this very site to use it. I've worked within frontend web, backend, and mobile spheres and enjoy periodically switching things up to get a better sense of new and especially emerging platforms. Outside of DTI I enjoy singing in Cornell Chorale, studying Latin, and experimenting with gluten-free recipes among other things.",
+    "website": "https://www.evanwelsh.com",
+    "hometown": "Grand Forks, ND",
+    "about": "About Me!",
+    "subteam": "Leads",
     "otherSubteams": [
         "flux",
         "shout",
-        "nova"
-    ]
+        "website"
+    ],
+    "roleId": "lead",
+    "roleDescription": "Lead",
+    "isLead": true
 }
