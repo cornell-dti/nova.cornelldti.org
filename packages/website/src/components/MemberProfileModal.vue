@@ -35,7 +35,7 @@
                 center
                 rounded="circle"
                 class="profile-image"
-                :src="`${profile.info.image}`"
+                :src="getHeadshot(profile.info.netid)"
                 @error="imageError"
               ></b-img>
               <div v-else center rounded="circle" class="profile-image rounded-circle mx-auto">

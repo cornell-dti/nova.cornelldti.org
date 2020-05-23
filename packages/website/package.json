@@ -3,14 +3,13 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "build": "yarn gen && yarn build:lib && yarn build:grid",
+    "build": "yarn build:lib && yarn build:grid",
     "build:grid": "gridsome build",
     "build:lib": "vue-cli-service build --target lib --name dti-nova --formats commonjs --dest admin/lib src/lib.ts",
     "serve": "gridsome develop",
-    "clean-generated-files": "rm -r data/generated && rm -r admin/lib",
+    "clean-generated-files": "rm -r admin/lib",
     "check": "tsc --noEmit",
-    "lint": "vue-cli-service lint",
-    "gen": "node ./cli.js"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "bootstrap-vue": "^2.14.0",
