@@ -2449,6 +2449,48 @@
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.5.tgz#9adbc12950582aa65ead76bffdf39fe0c27a3c02"
   integrity sha512-/gG2M/Imw7cQFp8PGvz/SwocNrmKFjFsm5Pb8HdbHkZ1K8pmuPzOX4VeVoiEecFCVf4CsN1r3/BRvx+6sNqwtQ==
 
+"@types/topojson-client@*":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/topojson-client/-/topojson-client-3.0.0.tgz#2517fae5abbdd3052eb191747c7d0bc268d69918"
+  integrity sha512-HZH6E8XMhjkDEkkpe3HuIg95COuvjdnyy0EKrh8rAi1f6o/V6P3ly1kGyU2E8bpAffXDd2r+Rk5ceMX4XkqHnA==
+  dependencies:
+    "@types/geojson" "*"
+    "@types/topojson-specification" "*"
+
+"@types/topojson-server@*":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/topojson-server/-/topojson-server-3.0.0.tgz#b668fc808831763320db8f3b339ee168c2e2e5dc"
+  integrity sha512-OdIgHf+9hbEOdrZEoIaE6staRbCyssznjtggIySUqvWOk9xWK0lodLnn7ks3l8H+wgMTgelEXqyBmAtlyn0fvA==
+  dependencies:
+    "@types/geojson" "*"
+    "@types/topojson-specification" "*"
+
+"@types/topojson-simplify@*":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/topojson-simplify/-/topojson-simplify-3.0.0.tgz#54ad7e2f172c662c07ad390e5cf965c147093e65"
+  integrity sha512-hfrvjZ/KbdAFBgJzdPfkixHgMNbhRvvFSCIOga1rAeluksFV9sSTWx+N4vZymqcfz1J+yMZfP2SCRt+/DHsJCQ==
+  dependencies:
+    "@types/geojson" "*"
+    "@types/topojson-specification" "*"
+
+"@types/topojson-specification@*":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/topojson-specification/-/topojson-specification-1.0.1.tgz#a80cb294290b79f2d674d3f5938c544ed2bd9d80"
+  integrity sha512-ZZYZUgkmUls9Uhxx2WZNt9f/h2+H3abUUjOVmq+AaaDFckC5oAwd+MDp95kBirk+XCXrYj0hfpI6DSUiJMrpYQ==
+  dependencies:
+    "@types/geojson" "*"
+
+"@types/topojson@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@types/topojson/-/topojson-3.2.2.tgz#96136313ba6a1df3df8931b722400828e027ee94"
+  integrity sha512-CwIJKe3YmNZ4oMcjJ//+8IXe6YA+znX6DXe0alCEoMoiWEM97QfjuP9BhPdvSU4pa0ZgghYJYtKcTprZhJm7Kw==
+  dependencies:
+    "@types/geojson" "*"
+    "@types/topojson-client" "*"
+    "@types/topojson-server" "*"
+    "@types/topojson-simplify" "*"
+    "@types/topojson-specification" "*"
+
 "@types/uglify-js@*":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@types/uglify-js/-/uglify-js-3.0.4.tgz#96beae23df6f561862a830b4288a49e86baac082"
@@ -18508,6 +18550,13 @@ topbar@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/topbar/-/topbar-0.1.3.tgz#c9ef8776dc4469f7840e6416f4136ddeccf4b7c6"
   integrity sha1-ye+HdtxEafeEDmQW9BNt3sz0t8Y=
+
+topojson-client@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/topojson-client/-/topojson-client-3.1.0.tgz#22e8b1ed08a2b922feeb4af6f53b6ef09a467b99"
+  integrity sha512-605uxS6bcYxGXw9qi62XyrV6Q3xwbndjachmNxu8HWTtVPxZfEJN9fd/SZS1Q54Sn2y0TMyMxFj/cJINqGHrKw==
+  dependencies:
+    commander "2"
 
 toposort@^1.0.0:
   version "1.0.7"

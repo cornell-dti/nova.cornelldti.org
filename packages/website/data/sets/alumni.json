@@ -1,0 +1,311 @@
+[
+    {
+        "firstName": "Sangwoo",
+        "lastName": "Kim",
+        "graduation": "Fall 2017",
+        "location": "San Francisco Bay Area",
+        "employer": "Shipt",
+        "role": "Product Designer",
+        "lat": 37.7884969,
+        "lng": -122.3558473
+    },
+    {
+        "firstName": "Kevin",
+        "lastName": "Gregor",
+        "graduation": "Fall 2017",
+        "location": "San Francisco Bay Area",
+        "employer": "Adobe",
+        "lat": 37.7884969,
+        "lng": -122.3558473
+    },
+    {
+        "firstName": "Alice",
+        "lastName": "Pham",
+        "graduation": "Spring 2018",
+        "location": "San Francisco Bay Area",
+        "employer": "Jumpstart",
+        "role": "Product Manager",
+        "lat": 37.7884969,
+        "lng": -122.3558473
+    },
+    {
+        "firstName": "David",
+        "lastName": "Ticzon",
+        "graduation": "Spring 2018",
+        "location": "Philadelphia",
+        "employer": "BlackRock",
+        "lat": 39.9527237,
+        "lng": -75.1635262
+    },
+    {
+        "firstName": "Divyansha",
+        "lastName": "Sehgal",
+        "graduation": "Spring 2018",
+        "location": "New York City",
+        "employer": "Deutsche Bank",
+        "lat": 40.7127281,
+        "lng": -74.0060152
+    },
+    {
+        "firstName": "Justin",
+        "lastName": "Park",
+        "graduation": "Spring 2018",
+        "location": "San Francisco Bay Area",
+        "employer": "IBM",
+        "lat": 37.7884969,
+        "lng": -122.3558473
+    },
+    {
+        "firstName": "Karun",
+        "lastName": "Singh",
+        "graduation": "Spring 2018",
+        "location": "San Francisco Bay Area",
+        "employer": "Facebook",
+        "role": "Software Developer",
+        "lat": 37.7884969,
+        "lng": -122.3558473
+    },
+    {
+        "firstName": "Michelle",
+        "lastName": "Yang",
+        "graduation": "Spring 2018",
+        "location": "Texas (Houston or Dallas)",
+        "employer": "IBM",
+        "lat": 29.8521965,
+        "lng": -95.2639145
+    },
+    {
+        "firstName": "Vinisha",
+        "lastName": "Mittal",
+        "graduation": "Spring 2018",
+        "location": "San Francisco Bay Area",
+        "employer": "Workday",
+        "role": "Software Developer",
+        "lat": 37.7884969,
+        "lng": -122.3558473
+    },
+    {
+        "firstName": "Wenchang",
+        "lastName": "Yang",
+        "graduation": "Spring 2018",
+        "location": "Virginia",
+        "employer": "MicroStrategy",
+        "lat": 37.1232245,
+        "lng": -78.4927721
+    },
+    {
+        "firstName": "Yiwei",
+        "lastName": "Ni",
+        "graduation": "Spring 2018",
+        "location": "Seattle",
+        "employer": "Amazon",
+        "lat": 47.6038321,
+        "lng": -122.3300624
+    },
+    {
+        "firstName": "Julia",
+        "lastName": "Kruk",
+        "graduation": "Fall 2018",
+        "location": "New York City",
+        "employer": "ML Research Company",
+        "lat": 40.7127281,
+        "lng": -74.0060152
+    },
+    {
+        "firstName": "Julia",
+        "lastName": "Yang",
+        "graduation": "Fall 2018",
+        "location": "New York City",
+        "employer": "Squarespace",
+        "role": "Front-End Software Engineer",
+        "lat": 40.7127281,
+        "lng": -74.0060152
+    },
+    {
+        "firstName": "Kevin",
+        "lastName": "Li",
+        "graduation": "Fall 2018",
+        "location": "New York City",
+        "employer": "Squarespace",
+        "lat": 40.7127281,
+        "lng": -74.0060152
+    },
+    {
+        "firstName": "Shea",
+        "lastName": "Belsky",
+        "graduation": "Fall 2018",
+        "location": "Boston",
+        "employer": "Wayfair",
+        "role": "Front-End Web Developer",
+        "lat": 42.3602534,
+        "lng": -71.0582912
+    },
+    {
+        "firstName": "Rachel",
+        "lastName": "Goffin",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Brooke",
+        "lastName": "Docherty",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Joyelle",
+        "lastName": "Gilbert",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Imani",
+        "lastName": "Majied",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Nihar",
+        "lastName": "Sidhu",
+        "graduation": "Spring 2019",
+        "location": "New York City",
+        "lat": 40.7127281,
+        "lng": -74.0060152
+    },
+    {
+        "firstName": "Adit",
+        "lastName": "Gupta",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Arnav",
+        "lastName": "Ghosh",
+        "graduation": "Spring 2019",
+        "location": "Mumbai",
+        "employer": "Fractal Analytics",
+        "role": "Data Scientist",
+        "lat": 18.9387711,
+        "lng": 72.8353355
+    },
+    {
+        "firstName": "Max",
+        "lastName": "Chu",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Rachel",
+        "lastName": "Harkins",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Alexa",
+        "lastName": "Bren",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Alice",
+        "lastName": "Zhou",
+        "graduation": "Spring 2019",
+        "location": "San Francisco Bay Area",
+        "employer": "Visa",
+        "lat": 37.7884969,
+        "lng": -122.3558473
+    },
+    {
+        "firstName": "Amanda",
+        "lastName": "Ong",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Gleni",
+        "lastName": "Kodra",
+        "graduation": "Spring 2019",
+        "employer": "Capital One"
+    },
+    {
+        "firstName": "Jesse",
+        "lastName": "Mansoor",
+        "graduation": "Spring 2019",
+        "location": "New York City",
+        "employer": "Deloitte",
+        "role": "Business Technology Analyst",
+        "lat": 40.7127281,
+        "lng": -74.0060152
+    },
+    {
+        "firstName": "Joaquin",
+        "lastName": "Amante",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Justin",
+        "lastName": "Tran",
+        "graduation": "Spring 2019",
+        "location": "Seattle",
+        "employer": "Qualtrics",
+        "role": "Software Engineer",
+        "lat": 47.6038321,
+        "lng": -122.3300624
+    },
+    {
+        "firstName": "Kathy",
+        "lastName": "Wang",
+        "graduation": "Spring 2019",
+        "location": "Austin, Texas",
+        "employer": "IBM",
+        "role": "Product Designer",
+        "lat": 30.2711286,
+        "lng": -97.7436995
+    },
+    {
+        "firstName": "Matthew",
+        "lastName": "Barker",
+        "graduation": "Spring 2019",
+        "location": "San Francisco Bay Area",
+        "employer": "Apple",
+        "role": "App Engineer",
+        "lat": 37.7884969,
+        "lng": -122.3558473
+    },
+    {
+        "firstName": "Ronni",
+        "lastName": "Mok",
+        "graduation": "Spring 2019",
+        "location": "San Francisco Bay Area",
+        "employer": "McKinsey & Co.",
+        "role": "Business Analyst",
+        "lat": 37.7884969,
+        "lng": -122.3558473
+    },
+    {
+        "firstName": "Shefali",
+        "lastName": "Agarwal",
+        "graduation": "Spring 2019",
+        "location": "Seattle",
+        "employer": "Groupon",
+        "role": "Software Development Engineer",
+        "lat": 47.6038321,
+        "lng": -122.3300624
+    },
+    {
+        "firstName": "Sonya",
+        "lastName": "Tao",
+        "graduation": "Spring 2019",
+        "location": "Seattle",
+        "employer": "Amazon",
+        "role": "Business Analyst",
+        "lat": 47.6038321,
+        "lng": -122.3300624
+    },
+    {
+        "firstName": "Tiffany",
+        "lastName": "Wang",
+        "graduation": "Spring 2019"
+    },
+    {
+        "firstName": "Gautam",
+        "lastName": "Mekkat",
+        "graduation": "Spring 2020"
+    },
+    {
+        "firstName": "Horace",
+        "lastName": "He",
+        "graduation": "Spring 2020"
+    }
+]
