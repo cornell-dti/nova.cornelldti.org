@@ -4,9 +4,12 @@ import * as topojson from 'topojson-client';
 import us from '../../data/maps/states-albers-10m.json';
 import alumni from '../../data/sets/alumni.json';
 
+// TODO Move alumni data outside of this component.
+
 const country = topojson.feature(us, us.objects.nation);
 const states = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
-const located_alumni = alumni.filter((a: any) => a.lat && a.lng);
+// TODO Support json imports in typescript
+const locatedAlumni = (alumni as { lat: number; lng: number }[]).filter(a => a.lat && a.lng);
 
 // TODO Add intrinsic TSX types.
 
@@ -47,19 +50,17 @@ export default {
           <path d={path(country)}></path>
         </g>
         <g>
-          {located_alumni.map((a: any) => {
+          {locatedAlumni.map((a: { lat: number; lng: number }) => {
             const [x, y] = projection([a.lng, a.lat]) ?? [null, null];
 
             return (
               <circle
                 onMouseover={(event: MouseEvent) => {
-                  console.log(event.target);
                   const circle = event.target as SVGCircleElement;
 
                   circle.setAttribute('r', '20');
                 }}
                 onMouseleave={(event: MouseEvent) => {
-                  console.log(event.target);
                   const circle = event.target as SVGCircleElement;
 
                   circle.setAttribute('r', '10');
