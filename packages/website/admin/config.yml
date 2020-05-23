@@ -1,7 +1,5 @@
 backend:
-  name: github
-  open_authoring: true
-  repo: cornell-dti/nova.cornelldti.org
+  name: git-gateway
   branch: master
 publish_mode: editorial_workflow
 media_folder: static/images/uploads
@@ -35,9 +33,11 @@ collections:
         required: false
       - label: Linkedin
         name: linkedin
+        required: false
         widget: string
       - label: Github
         name: github
+        required: false
         widget: string
       - label: Hometown
         name: hometown
