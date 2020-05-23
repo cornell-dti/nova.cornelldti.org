@@ -4,6 +4,7 @@ import 'vue-meta';
 
 import DtiFooter from './components/DtiFooter.vue';
 import Give from './components/Give';
+import GNavItem from './components/GNavItem';
 import PageBackground from './components/PageBackground.vue';
 import PageHero from './components/PageHero.vue';
 import NovaHero from './components/NovaHero.vue';
@@ -34,6 +35,7 @@ export default function main(
     }
   ]);
 
+  Vue.component('GNavItem', GNavItem);
   Vue.component('PageSublist', PageSublist);
   Vue.component('DtiFooter', DtiFooter);
   Vue.component('PageBackground', PageBackground);

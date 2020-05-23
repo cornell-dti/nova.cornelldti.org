@@ -23,8 +23,8 @@
         <b-container v-if="profile && profile.info" fluid>
           <b-row>
             <b-col>
-              <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
               <!--TODO use actual icon, not text -->
+              <b-button class="modal-close-button close" @click="modalClose()">x</b-button>
             </b-col>
           </b-row>
 

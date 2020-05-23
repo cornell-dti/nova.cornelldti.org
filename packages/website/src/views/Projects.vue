@@ -25,9 +25,9 @@
           v-for="project in projectRow.members"
           :key="project.id"
         >
-          <router-link :to="{ path: project.teamId }" append>
+          <g-link :to="{ path: `/projects/${project.teamId}/` }">
             <b-img :src="project.card" class="project-card" />
-          </router-link>
+          </g-link>
         </b-col>
       </b-row>
     </page-section>
