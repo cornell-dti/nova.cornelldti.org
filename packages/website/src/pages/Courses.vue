@@ -5,10 +5,10 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import CoursesView from '@/views/Courses.vue';
-import Page from '@/page';
+import CoursesView from '../views/Courses.vue';
+import Page from '../page';
 
-import { CoursesContent } from '@/content';
+import { CoursesContent } from '../content';
 
 import json from '../../data/pages/courses.json';
 
