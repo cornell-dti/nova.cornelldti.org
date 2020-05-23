@@ -8,6 +8,7 @@
     "build:lib": "vue-cli-service build --target lib --name dti-nova --formats commonjs --dest admin/lib src/lib.ts",
     "serve": "gridsome develop",
     "clean-generated-files": "rm -r data/generated && rm -r admin/lib",
+    "check": "tsc --noEmit",
     "lint": "vue-cli-service lint",
     "gen": "node ./cli.js"
   },
