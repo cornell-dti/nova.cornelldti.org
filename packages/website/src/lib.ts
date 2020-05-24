@@ -20,7 +20,7 @@ import PageSublist from './components/PageSublist.vue';
 import TextPageHero from './components/TextPageHero.vue';
 import TextHero from './components/TextHero.vue';
 import PageSection from './components/PageSection.vue';
-import MemberProfileModal from './components/MemberProfileModal.vue';
+import MemberProfile from './components/MemberProfile.vue';
 import DTIProject from './templates/DTIProject.vue';
 
 import { initializeVue } from './shared';
@@ -34,7 +34,7 @@ const Components = {
   Sponsor,
   Team: TeamView,
   DtiFooter,
-  MemberProfileModal,
+  MemberProfile,
   PageBackground,
   PageHero,
   NovaHero,

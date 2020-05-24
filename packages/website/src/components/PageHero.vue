@@ -3,7 +3,7 @@
     :style="bg_()"
     :class="['page-header', 'page-hero', this.greyscale ? 'page-hero-greyscale' : '']"
   >
-    <div class="navbar-padding" />
+    <navbar-padding />
     <slot>
       <slot name="inner-content" />
     </slot>
@@ -37,10 +37,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.navbar-padding {
-  padding-top: 10vh !important;
-}
-
 .page-header {
   min-height: 10vh;
   background-size: cover !important;

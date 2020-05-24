@@ -1,13 +1,12 @@
 export interface Member {
   netid: string;
-  image: string;
   name: string;
   firstName: string;
   lastName: string;
   isLead?: boolean;
   roleId: string;
   otherSubteams?: string[] | string | undefined;
-  subteam: string;
+  subteam?: string;
   graduation: string;
   major: string;
   doubleMajor: string;

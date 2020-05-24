@@ -69,8 +69,7 @@ query DTIProjects ($path: String!, $teamId: String!) {
   currentMembers: allMember(filter: { subteam: { in: [$teamId] }}) {
     edges {
       node {
-        netid
-        image       
+        netid    
         firstName
         lastName
         name
@@ -92,8 +91,7 @@ query DTIProjects ($path: String!, $teamId: String!) {
   pastMembers: allMember(filter: { otherSubteams: { contains: [$teamId] }}) {
     edges {
       node {
-        netid
-        image       
+        netid      
         firstName
         lastName
         name

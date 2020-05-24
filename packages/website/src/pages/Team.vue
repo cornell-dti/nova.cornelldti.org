@@ -7,8 +7,7 @@ query Members {
   members: allMember {
     edges {
       node {
-        netid
-        image       
+        netid      
         firstName
         lastName
         name
