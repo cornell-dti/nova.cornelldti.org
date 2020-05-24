@@ -1,11 +1,15 @@
-
 module.exports = {
   presets: [
-    ['@vue/babel-preset-app', { jsx: true }]
+    '@vue/babel-preset-app',
+    [
+      '@vue/babel-preset-jsx',
+      {
+        injectH: false
+      }
+    ]
   ],
-  "plugins": [
-    ["@babel/plugin-syntax-jsx"],
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+  plugins: [
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    ['@babel/plugin-proposal-class-properties', { loose: true }]
   ]
 };

@@ -2610,7 +2610,7 @@
     lodash.kebabcase "^4.1.1"
     svg-tags "^1.0.0"
 
-"@vue/babel-preset-app@^4.2.2":
+"@vue/babel-preset-app@^4.2.2", "@vue/babel-preset-app@^4.3.1":
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/@vue/babel-preset-app/-/babel-preset-app-4.3.1.tgz#bb67aae562983067c5b242c27fb7de17f40cf109"
   integrity sha512-iNkySkbRWXGUA+Cvzj+/gEP0Y0uVAwwzfn21S7hkggSeIg9LJyZ+QzdxgKO0wgi01yTdb2mYWgeLQAfHZ65aew==
@@ -2681,6 +2681,19 @@
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/@vue/cli-overlay/-/cli-overlay-4.3.1.tgz#434529c188b628a54773670201667a0b4a361e07"
   integrity sha512-UA399aWHhre2VHrQFQSJhFLrFMqOYQ8ly+Ni6T+cpCjOwssjiaqaqrG5YiZBAqDwQvjrtYori4lU66qrY5DVhA==
+
+"@vue/cli-plugin-babel@^4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-babel/-/cli-plugin-babel-4.3.1.tgz#6e3a6aa18595b98ad5c52898a2850d452404712b"
+  integrity sha512-tBqu0v1l4LfWX8xuJmofpp+8xQzKddFNxdLmeVDOX/omDBQX0qaVDeMUtRxxSTazI06SKr605SnUQoa35qwbvw==
+  dependencies:
+    "@babel/core" "^7.9.0"
+    "@vue/babel-preset-app" "^4.3.1"
+    "@vue/cli-shared-utils" "^4.3.1"
+    babel-loader "^8.1.0"
+    cache-loader "^4.1.0"
+    thread-loader "^2.1.3"
+    webpack "^4.0.0"
 
 "@vue/cli-plugin-eslint@^4.3.1":
   version "4.3.1"
@@ -4092,6 +4105,17 @@ babel-loader@8.0.5:
     loader-utils "^1.0.2"
     mkdirp "^0.5.1"
     util.promisify "^1.0.0"
+
+babel-loader@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.1.0.tgz#c611d5112bd5209abe8b9fa84c3e4da25275f1c3"
+  integrity sha512-7q7nC1tYOrqvUrN3LQK4GwSk/TQorZSOlO9C+RZDZpODgyN4ZlCqE5q9cDsyWOliN+aU9B4JX01xK9eJXowJLw==
+  dependencies:
+    find-cache-dir "^2.1.0"
+    loader-utils "^1.4.0"
+    mkdirp "^0.5.3"
+    pify "^4.0.1"
+    schema-utils "^2.6.5"
 
 babel-plugin-dynamic-import-node@^2.3.0:
   version "2.3.0"
@@ -11806,7 +11830,7 @@ loader-utils@^0.2.16:
     json5 "^0.5.0"
     object-assign "^4.0.1"
 
-loader-utils@^1.0.0, loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3:
+loader-utils@^1.0.0, loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3, loader-utils@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
   integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
@@ -16783,6 +16807,14 @@ schema-utils@^2.0.0, schema-utils@^2.5.0, schema-utils@^2.6.0, schema-utils@^2.6
   version "2.6.5"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.6.5.tgz#c758f0a7e624263073d396e29cd40aa101152d8a"
   integrity sha512-5KXuwKziQrTVHh8j/Uxz+QUbxkaLW9X/86NBlx/gnKgtsZA2GIVMUn17qWhRFwF8jdYb3Dig5hRO/W5mZqy6SQ==
+  dependencies:
+    ajv "^6.12.0"
+    ajv-keywords "^3.4.1"
+
+schema-utils@^2.6.5:
+  version "2.6.6"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.6.6.tgz#299fe6bd4a3365dc23d99fd446caff8f1d6c330c"
+  integrity sha512-wHutF/WPSbIi9x6ctjGGk2Hvl0VOz5l3EKEuKbjPlB30mKZUzb9A5k9yEXRX3pwyqVLPvpfZZEllaFq/M718hA==
   dependencies:
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
