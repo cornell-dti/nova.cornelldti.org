@@ -47,6 +47,6 @@ const Components = {
 
 export { Components };
 
-export function initialize(Vue: VueConstructor) {
+export function initialize(Vue: VueConstructor): void {
   initializeVue(Vue);
 }

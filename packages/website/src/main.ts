@@ -25,7 +25,7 @@ import RolesJSON from '../data/sets/roles.json';
 export default function main(
   Vue: VueConstructor,
   { head, router }: { router: VueRouter; head: { titleTemplate: string } }
-) {
+): void {
   /* eslint-disable no-param-reassign */
   head.titleTemplate = '%s - Cornell DTI';
 

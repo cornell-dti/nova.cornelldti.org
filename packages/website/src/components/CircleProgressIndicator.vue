@@ -55,12 +55,12 @@ export default Vue.extend({
     });
   },
   watch: {
-    percentage(val: number) {
+    percentage(val: number): void {
       this.setPercentage(val);
     }
   },
   methods: {
-    setPercentage(percentage1 = 0.5) {
+    setPercentage(percentage1 = 0.5): void {
       if (this.interval !== -1) {
         clearInterval(this.interval);
         this.interval = -1;

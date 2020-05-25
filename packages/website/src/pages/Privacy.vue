@@ -51,7 +51,7 @@ class Privacy extends Page<PrivacyContent>(json) {
     return (this.$static as PolicyPage).policies.edges.map(e => e.node);
   }
 
-  mounted() {
+  mounted(): void {
     EventBus.$emit('hide-navbar', { source: this });
   }
 }

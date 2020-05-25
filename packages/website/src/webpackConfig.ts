@@ -1,2 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
+
 __webpack_public_path__ = '/admin/lib/';

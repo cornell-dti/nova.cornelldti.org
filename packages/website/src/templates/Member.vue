@@ -16,7 +16,7 @@
 <page-query>
 query DTIMember($path: String!) {
   member: member(path: $path) {
-    netid      
+    netid
     firstName
     lastName
     name
@@ -54,13 +54,13 @@ interface MemberPage {
   }
 })
 export default class MemberTemplate extends Vue {
-  get profile() {
+  get profile(): { readonly info: Member } {
     return {
       info: (this.$page as MemberPage).member
     };
   }
 
-  mounted() {
+  mounted(): void {
     EventBus.$emit('set-navbar-light', { source: this });
   }
 }

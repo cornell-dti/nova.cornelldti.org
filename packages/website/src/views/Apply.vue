@@ -216,12 +216,12 @@ class Apply extends Vue {
   @Prop({ required: true })
   content!: ApplyContent;
 
-  onSubscribe(event: { preventDefault: () => void }) {
+  onSubscribe(event: { preventDefault: () => void }): void {
     event.preventDefault();
     this.$refs.footerRef.subscriptionClick();
   }
 
-  get sections() {
+  get sections(): readonly { readonly id: string; readonly info: ApplicationInfo }[] {
     const info = this.content.applicationInfo.find(a => a.id === this.roleId);
 
     if (!info) {

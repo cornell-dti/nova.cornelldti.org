@@ -1,7 +1,7 @@
 import { Prop } from 'vue-property-decorator';
 
-export const objectDefault = () => ({});
-export const arrayDefault = () => [];
+export const objectDefault = (): Record<string, unknown> => ({});
+export const arrayDefault = (): never[] => [];
 
 type PropParams = Parameters<ReturnType<typeof Prop>>;
 

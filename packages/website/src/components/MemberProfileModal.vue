@@ -66,17 +66,17 @@ export default class MemberProfileModal extends Vue {
 
   isShowing = false;
 
-  modalClose() {
+  modalClose(): void {
     const modal = (this.$refs.memberModalRef as unknown) as BModal;
     modal.hide();
   }
 
-  showModal() {
+  showModal(): void {
     const modal = (this.$refs.memberModalRef as unknown) as BModal;
     modal.show();
   }
 
-  toggleModal() {
+  toggleModal(): void {
     const modal = (this.$refs.memberModalRef as unknown) as BModal;
     modal.toggle();
   }

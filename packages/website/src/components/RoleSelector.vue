@@ -245,7 +245,7 @@ export default Vue.extend({
     } as PropValidator<Role[]>
   },
   computed: {
-    resolvedRoles() {
+    resolvedRoles(): readonly Role[] {
       return this.roles ?? this.getRoles();
     }
   },
@@ -264,7 +264,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    btnCSS(selected: boolean, density: 'compact' | '', isBold: boolean, isDark = false) {
+    btnCSS(selected: boolean, density: 'compact' | '', isBold: boolean, isDark = false): readonly (string | null)[] {
       return [
         selected ? 'selected-filter-btn' : 'filter-btn',
         isDark ? 'fg-light' : 'fg-dark',
@@ -272,21 +272,21 @@ export default Vue.extend({
         isBold ? 'bold' : null
       ];
     },
-    selectorCSS(selected: boolean, isDark = false) {
+    selectorCSS(selected: boolean, isDark = false): readonly string[] {
       return selected ? ['selector', 'selected', isDark ? 'fg-light' : 'fg-dark'] : ['selector'];
     },
-    mobileSelectorCSS(centered: boolean, isDark = false) {
+    mobileSelectorCSS(centered: boolean, isDark = false): readonly (string | null)[] {
       return [isDark ? 'fg-light' : 'fg-dark', centered ? 'centered' : null];
     },
-    mobileMenuCSS() {
+    mobileMenuCSS(): readonly string[] {
       return ['fg-dark'];
     },
-    handleMobileSelection(val: string) {
+    handleMobileSelection(val: string): void {
       this.roleId = val;
     }
   },
   watch: {
-    roleId($event) {
+    roleId($event): void {
       this.$emit('update:change', $event);
     }
   }

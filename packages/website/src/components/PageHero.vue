@@ -29,7 +29,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    bg_() {
+    bg_(): string {
       return `background: ${this.bg};`;
     }
   }

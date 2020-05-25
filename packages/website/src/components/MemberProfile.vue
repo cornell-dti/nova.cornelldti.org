@@ -139,11 +139,11 @@ export default class MemberProfileModal extends Vue {
   }
 
   @Watch('profile')
-  onProfileChanged() {
+  onProfileChanged(): void {
     this.internalDisplay = true;
   }
 
-  imageError() {
+  imageError(): void {
     this.internalDisplay = false;
   }
 
