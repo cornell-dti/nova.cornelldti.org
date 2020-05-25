@@ -12,7 +12,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.14.0",
+    "bootstrap-vue": "^2.15.0",
     "d3": "^5.16.0",
     "netlify-cms": "^2.10.49",
     "netlify-identity-widget": "^1.6.0",
