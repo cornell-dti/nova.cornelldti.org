@@ -434,13 +434,13 @@ export default Vue.extend({
     };
   },
   methods: {
-    malePercentage(roleId: RoleId) {
+    malePercentage(roleId: RoleId): number {
       return 1 - this.diversity.femalePercentage[roleId];
     },
-    femalePercentage(roleId: RoleId) {
+    femalePercentage(roleId: RoleId): number {
       return this.diversity.femalePercentage[roleId];
     },
-    filterMembers(role = '', isLead = false) {
+    filterMembers(role = '', isLead = false): readonly { info: Member; id: string }[] {
       return this.members
         .filter(
           member =>

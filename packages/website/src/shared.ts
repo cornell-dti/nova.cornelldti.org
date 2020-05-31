@@ -6,7 +6,7 @@ import { VueConstructor, CreateElement, RenderContext } from 'vue';
 
 export { Project, Member, Team, Company, Role } from './types';
 
-export function initializeVue(Vue: VueConstructor) {
+export function initializeVue(Vue: VueConstructor): void {
   Vue.use(BootstrapVue);
 
   Vue.mixin({

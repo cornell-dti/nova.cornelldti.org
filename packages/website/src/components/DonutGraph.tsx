@@ -15,7 +15,7 @@ export default {
         data: { [key: string]: number };
       };
     }
-  ) {
+  ): JSX.Element {
     const { props } = cx;
     const { width, height, id, outerRadius, innerRadius, data } = props;
 

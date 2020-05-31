@@ -105,7 +105,7 @@
 query {
   metadata {
     branding {
-      wordmark 
+      wordmark
     }
 
     footer {
@@ -155,12 +155,12 @@ export default class DtiFooter extends Vue {
 
   email = '';
 
-  modalClose() {
+  modalClose(): void {
     const modal = (this.$refs.emailModalRef as unknown) as BModal;
     modal.hide();
   }
 
-  subscriptionClick() {
+  subscriptionClick(): void {
     this.isSubscribing = true;
   }
 }

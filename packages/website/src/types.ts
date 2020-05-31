@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 export interface Member {
   netid: string;
   name: string;
