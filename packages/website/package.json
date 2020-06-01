@@ -56,6 +56,6 @@
     "sass": "^1.26.7",
     "sass-loader": "^8.0.2",
     "typescript": "^3.9.3",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.3.2"
   }
 }
