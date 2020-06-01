@@ -20,7 +20,7 @@
     "vue": "^2.6.11",
     "vue-analytics": "^5.22.1",
     "vue-class-component": "^7.2.3",
-    "vue-meta": "^2.3.2",
+    "vue-meta": "^2.3.4",
     "vue-property-decorator": "^8.4.2",
     "vuera": "^0.2.7",
     "website-components": "^1.0.0"
