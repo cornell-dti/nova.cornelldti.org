@@ -1,6 +1,6 @@
 {
   "joinInformation": {
-    "applicationsOpen": false
+    "applicationsOpen": true
   },
   "hero": {
     "closed": {
@@ -18,20 +18,21 @@
   },
   "infoSession": {
     "header": "Information Sessions!",
-    "subheader": "Spring 2020",
-    "description": "Come say hello! Because we’re recruiting only for specific roles, we’re jumping right to the point. These events are a great opportunity for you to talk to members about their experiences and projects more directly, and get your questions answered. We won’t have a giant slide deck, we promise."
+    "subheader": "Fall 2020",
+    "description": "Come say hello! You'll have the opportunity to learn more about our team, hear from current members about the exciting work they do, and have the opportunity to chat to people about roles you're interested in!"
   },
-  "infoSessions": [{
-      "time": "5:00 PM - 7:00 PM",
-      "location": "Upson Hall 222",
+  "infoSessions": [
+    {
+      "time": "4:00 PM - 5:30 PM",
+      "location": "Zoom",
       "link": {
         "url": "https://www.facebook.com/events/1001712280229118/",
         "text": "Facebook Event"
       }
     },
     {
-      "time": "1:00 PM - 4:00 PM",
-      "location": "ClubFest",
+      "time": "4:00 PM - 5:30 PM",
+      "location": "Zoom",
       "link": {
         "url": "http://events.cornell.edu/event/clubfest_spring_2020",
         "text": "Event Info"
@@ -43,7 +44,7 @@
       "id": "designer",
       "apply": {
         "header": "Product Design Role",
-        "rightHeader": "due 11:59 PM on Thursday 2/6",
+        "rightHeader": "due 11:59 PM on Sunday 9/20",
         "sections": [
           {
             "header": "What We're Looking For",
@@ -55,13 +56,13 @@
           }
         ],
         "callToActionButton": {
-          "closed": true,
-          "content": "Product Design Application (closed)"
+          "closed": false,
+          "content": "Product Design Application"
         }
       },
       "nextSteps": {
         "header": "Next Steps",
-        "rightHeader": "Monday 2/3 through Monday 2/10",
+        "rightHeader": "Tuesday 9/22 through Tuesday 9/29",
         "sections": [
           {
             "header": "Application Review",
@@ -75,7 +76,7 @@
       },
       "decision": {
         "header": "Decision",
-        "rightHeader": "by 12:01 PM on Tuesday 2/11",
+        "rightHeader": "by 12:01 PM on Wednesday 9/30",
         "sections": [
           {
             "header": "Notification",
@@ -88,7 +89,7 @@
       "id": "developer",
       "apply": {
         "header": "Software Development Role",
-        "rightHeader": "due 11:59 PM on Thursday 2/6",
+        "rightHeader": "due 11:59 PM on Sunday 9/20",
         "sections": [
           {
             "header": "What We're Looking For",
@@ -100,13 +101,13 @@
           }
         ],
         "callToActionButton": {
-          "closed": true,
-          "content": "Software Developer Application (closed)"
+          "closed": false,
+          "content": "Software Developer Application"
         }
       },
       "nextSteps": {
         "header": "Next Steps",
-        "rightHeader": "Monday 2/3 through Monday 2/10",
+        "rightHeader": "Tuesday 9/22 through Tuesday 9/29",
         "sections": [
           {
             "header": "Application Review",
@@ -120,7 +121,7 @@
       },
       "decision": {
         "header": "Decision",
-        "rightHeader": "by 12:01 PM on Tuesday 2/11",
+        "rightHeader": "by 12:01 PM on Wednesday 9/30",
         "sections": [
           {
             "header": "Notification",
@@ -133,7 +134,7 @@
       "id": "business",
       "apply": {
         "header": "Business Analyst Role",
-        "rightHeader": "not recruiting for Spring 2020",
+        "rightHeader": "due 11:59 PM on Sunday 9/20",
         "sections": [
           {
             "header": "What We're Looking For",
@@ -145,13 +146,13 @@
           }
         ],
         "callToActionButton": {
-          "closed": true,
-          "content": "Business Analyst Application (closed)"
+          "closed": false,
+          "content": "Business Analyst Application"
         }
       },
       "nextSteps": {
         "header": "Next Steps",
-        "rightHeader": "",
+        "rightHeader": "Tuesday 9/22 through Tuesday 9/29",
         "sections": [
           {
             "header": "Application Review",
@@ -165,7 +166,7 @@
       },
       "decision": {
         "header": "Decision",
-        "rightHeader": "",
+        "rightHeader": "by 12:01 PM on Wednesday 9/30",
         "sections": [
           {
             "header": "Notification",
@@ -196,7 +197,7 @@
       },
       "nextSteps": {
         "header": "Next Steps",
-        "rightHeader": "",
+        "rightHeader": " ",
         "sections": [
           {
             "header": "Application Review",
@@ -210,7 +211,7 @@
       },
       "decision": {
         "header": "Decision",
-        "rightHeader": "",
+        "rightHeader": " ",
         "sections": [
           {
             "header": "Notification",
@@ -219,5 +220,10 @@
         ]
       }
     }
-  ]
+  ],
+  "mainMenu": {
+    "advertisement": {
+      "open": false
+    }
+  }
 }
