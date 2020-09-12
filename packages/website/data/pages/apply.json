@@ -26,16 +26,16 @@
       "time": "4:00 PM - 5:30 PM",
       "location": "Zoom",
       "link": {
-        "url": "https://www.facebook.com/events/1001712280229118/",
-        "text": "Facebook Event"
+	"url": "https://cornell.zoom.us/j/99412467626?pwd=TmdramkrWG1aY3ozNVZYT2FsamV5UT09",
+        "text": "URL"
       }
     },
     {
       "time": "4:00 PM - 5:30 PM",
       "location": "Zoom",
       "link": {
-        "url": "http://events.cornell.edu/event/clubfest_spring_2020",
-        "text": "Event Info"
+	"url": "https://cornell.zoom.us/j/98367871220?pwd=Ky94Kzh0Ym96czhuR2owcDFoSThtZz09",
+        "text": "URL"
       }
     }
   ],
@@ -57,7 +57,8 @@
         ],
         "callToActionButton": {
           "closed": false,
-          "content": "Product Design Application"
+          "content": "Product Design Application",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSdZ7mPLuTgtyyvgrMt5TPrrGZyNYiRgm71-ykZNbuwN9ckdsg/viewform"
         }
       },
       "nextSteps": {
@@ -102,7 +103,8 @@
         ],
         "callToActionButton": {
           "closed": false,
-          "content": "Software Developer Application"
+          "content": "Software Developer Application",
+          "link": "https://forms.gle/stgzVx8MSmamHC3T8"
         }
       },
       "nextSteps": {
@@ -179,7 +181,7 @@
       "id": "pm",
       "apply": {
         "header": "Product Management Role",
-        "rightHeader": "not recruiting for Spring 2020",
+        "rightHeader": "due 11:59 PM on Sunday 9/20",
         "sections": [
           {
             "header": "What We're Looking For",
@@ -191,13 +193,14 @@
           }
         ],
         "callToActionButton": {
-          "closed": true,
-          "content": "Product Management Application (closed)"
+          "closed": false,
+          "content": "Product Management Application",
+          "link": "https://docs.google.com/forms/d/e/1FAIpQLSdue7uoQDyyH062u0jWrNR2ArVXqBRI2vav-qtuL5Pqe7ag8A/viewform"
         }
       },
       "nextSteps": {
         "header": "Next Steps",
-        "rightHeader": " ",
+        "rightHeader": "Tuesday 9/22 through Tuesday 9/29",
         "sections": [
           {
             "header": "Application Review",
@@ -211,7 +214,7 @@
       },
       "decision": {
         "header": "Decision",
-        "rightHeader": " ",
+        "rightHeader": "by 12:01 PM on Wednesday 9/30",
         "sections": [
           {
             "header": "Notification",
@@ -223,7 +226,7 @@
   ],
   "mainMenu": {
     "advertisement": {
-      "open": false
+      "open": true
     }
   }
 }
