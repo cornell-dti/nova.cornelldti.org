@@ -43,7 +43,7 @@
                     <Github class="social-icon social-icon-blank" />
                   </a>
                 </b-col>
-                <b-col cols="auto">
+                <b-col cols="auto" class="social-icon-wrapper">
                   <a href="https://play.google.com/store/apps/dev?id=8943927778040647949">
                     <GooglePlay class="social-icon social-icon-blank" />
                   </a>
