@@ -24,18 +24,18 @@
   "infoSessions": [
     {
       "time": "4:00 PM - 5:30 PM",
-      "location": "Zoom",
+      "location": "Online",
       "link": {
 	"url": "https://cornell.zoom.us/j/99412467626?pwd=TmdramkrWG1aY3ozNVZYT2FsamV5UT09",
-        "text": "URL"
+        "text": "Zoom Link"
       }
     },
     {
       "time": "4:00 PM - 5:30 PM",
-      "location": "Zoom",
+      "location": "Online",
       "link": {
 	"url": "https://cornell.zoom.us/j/98367871220?pwd=Ky94Kzh0Ym96czhuR2owcDFoSThtZz09",
-        "text": "URL"
+        "text": "Zoom Link"
       }
     }
   ],
@@ -224,10 +224,5 @@
         ]
       }
     }
-  ],
-  "mainMenu": {
-    "advertisement": {
-      "open": true
-    }
-  }
+  ]
 }
