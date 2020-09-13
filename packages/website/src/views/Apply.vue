@@ -144,10 +144,10 @@
                   </template>
                 </b-col>
               </b-row>
-              <strings-domainDomain
+              <strings-domain
                 v-if="isOpen"
                 #key="[primary, secondary]"
-                :value="[info['call-to-action-button'], info['call-to-action-button-2']]"
+                :value="[info['callToActionButton']]"
               >
                 <b-row class="justify-content-center">
                   <b-col cols="12">
@@ -173,7 +173,7 @@
                     </b-row>
                   </b-col>
                 </b-row>
-              </strings-domainDomain>
+              </strings-domain>
             </timeline-section>
           </template>
         </strings-domain>

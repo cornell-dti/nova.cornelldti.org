@@ -173,10 +173,14 @@ export default Vue.extend({
   .apply-button {
     padding-top: 0.325rem;
     padding-bottom: 0.325rem;
-    margin-top: 0.175rem;
-    margin-bottom: 0.175rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   }
+}
+
+// This matches the padding set by any menu link.
+.apply-button {
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
 }
 
 .override-apply-color {

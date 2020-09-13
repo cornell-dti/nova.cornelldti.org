@@ -251,8 +251,7 @@ export default Vue.extend({
   },
   mounted() {
     this.$nextTick(() => {
-      const { roles } = this;
-      this.roleId = this.showAll ? '' : roles[0].id;
+      this.roleId = this.showAll ? '' : this.resolvedRoles?.[0].id ?? '';
     });
   },
   data() {

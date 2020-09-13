@@ -52,7 +52,7 @@
     "gridsome-plugin-netlify-cms": "^1.0.9",
     "gridsome-plugin-svg": "^0.0.13",
     "gridsome-plugin-typescript": "^0.4.0",
-    "netlify-cli": "^2.51.0",
+    "netlify-cli": "^2.62.0",
     "sass": "^1.26.7",
     "sass-loader": "^8.0.2",
     "typescript": "^3.9.3",
