@@ -228,7 +228,7 @@ class Apply extends Vue {
       return [];
     }
 
-    return Object.keys(info).map(id => ({
+    return Object.keys(info).filter(id => id !== 'id').map(id => ({
       id,
       info: ((info as unknown) as { [id: string]: ApplicationInfo })[id] // TODO
     }));
