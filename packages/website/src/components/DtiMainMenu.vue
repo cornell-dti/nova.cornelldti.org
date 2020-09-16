@@ -163,6 +163,7 @@ export default Vue.extend({
     EventBus.$on('reset-navbar', () => {
       this.light = false;
       this.hide = false;
+      this.navShown = false;
     });
   }
 });
