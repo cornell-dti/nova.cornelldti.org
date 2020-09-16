@@ -104,7 +104,7 @@
 
         <strings-domain v-for="child of sections" :key="child.id" :value="child.info">
           <template #key="info">
-            <timeline-section v-if="info" :header="info.header" :rightHeader="info['right-header']">
+            <timeline-section v-if="info" :header="info.header" :rightHeader="info.rightHeader">
               <template v-if="Array.isArray(info.sections)">
                 <div v-for="section of info.sections" :key="section.header">
                   <template v-if="section">
