@@ -23,18 +23,10 @@
   },
   "infoSessions": [
     {
-      "time": "4:00 PM - 5:30 PM ET • 9/15",
+      "time": "5:00 PM - 6:30 PM ET • 10/16",
       "location": "Online",
       "link": {
-	"url": "https://cornell.zoom.us/j/99412467626?pwd=TmdramkrWG1aY3ozNVZYT2FsamV5UT09",
-        "text": "Zoom Link"
-      }
-    },
-    {
-      "time": "4:00 PM - 5:30 PM ET • 9/18",
-      "location": "Online",
-      "link": {
-	"url": "https://cornell.zoom.us/j/98367871220?pwd=Ky94Kzh0Ym96czhuR2owcDFoSThtZz09",
+        "url": "https://cornell.zoom.us/j/98367871220?pwd=Ky94Kzh0Ym96czhuR2owcDFoSThtZz09",
         "text": "Zoom Link"
       }
     }
@@ -44,7 +36,7 @@
       "id": "designer",
       "apply": {
         "header": "Product Design Role",
-        "rightHeader": "due 11:59 PM on Sunday 9/20",
+        "rightHeader": "due 11:59 PM on Sunday 10/18 (Freshman only)",
         "sections": [
           {
             "header": "What We're Looking For",
@@ -58,12 +50,12 @@
         "callToActionButton": {
           "closed": false,
           "content": "Product Design Application",
-          "link": "https://docs.google.com/forms/d/e/1FAIpQLSdZ7mPLuTgtyyvgrMt5TPrrGZyNYiRgm71-ykZNbuwN9ckdsg/viewform"
+          "link": "https://forms.gle/g1PcB663ixkVRa797"
         }
       },
       "nextSteps": {
         "header": "Next Steps",
-        "rightHeader": "Tuesday 9/22 through Tuesday 9/29",
+        "rightHeader": "Tuesday 10/20 through Sunday 11/1",
         "sections": [
           {
             "header": "Application Review",
@@ -77,7 +69,7 @@
       },
       "decision": {
         "header": "Decision",
-        "rightHeader": "by 12:01 PM on Wednesday 9/30",
+        "rightHeader": "by 11:59 PM on Tuesday, 11/2",
         "sections": [
           {
             "header": "Notification",
@@ -90,7 +82,7 @@
       "id": "developer",
       "apply": {
         "header": "Software Development Role",
-        "rightHeader": "due 11:59 PM on Sunday 9/20",
+        "rightHeader": "due 11:59 PM on Sunday 10/18 (Freshman only)",
         "sections": [
           {
             "header": "What We're Looking For",
@@ -104,12 +96,12 @@
         "callToActionButton": {
           "closed": false,
           "content": "Software Developer Application",
-          "link": "https://forms.gle/stgzVx8MSmamHC3T8"
+          "link": "https://forms.gle/te4VMUBLfCeV9gJR8"
         }
       },
       "nextSteps": {
         "header": "Next Steps",
-        "rightHeader": "Tuesday 9/22 through Tuesday 9/29",
+        "rightHeader": "Tuesday 10/20 through Sunday 11/1",
         "sections": [
           {
             "header": "Application Review",
@@ -123,7 +115,7 @@
       },
       "decision": {
         "header": "Decision",
-        "rightHeader": "by 12:01 PM on Wednesday 9/30",
+        "rightHeader": "by 11:59 PM on Tuesday, 11/2",
         "sections": [
           {
             "header": "Notification",
@@ -136,7 +128,7 @@
       "id": "business",
       "apply": {
         "header": "Business Analyst Role",
-        "rightHeader": "due 11:59 PM on Sunday 9/20",
+        "rightHeader": "due 11:59 PM on Sunday 10/18 (Freshman only)",
         "sections": [
           {
             "header": "What We're Looking For",
@@ -155,7 +147,7 @@
       },
       "nextSteps": {
         "header": "Next Steps",
-        "rightHeader": "Tuesday 9/22 through Tuesday 9/29",
+        "rightHeader": "Tuesday 10/20 through Sunday 11/1",
         "sections": [
           {
             "header": "Application Review",
@@ -169,7 +161,7 @@
       },
       "decision": {
         "header": "Decision",
-        "rightHeader": "by 12:01 PM on Wednesday 9/30",
+        "rightHeader": "by 11:59 PM on Tuesday, 11/2",
         "sections": [
           {
             "header": "Notification",
@@ -224,5 +216,10 @@
         ]
       }
     }
-  ]
+  ],
+  "mainMenu": {
+    "advertisement": {
+      "open": false
+    }
+  }
 }

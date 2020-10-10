@@ -43,7 +43,7 @@
           <b-row class="h-100" align-h="center" align-v="center">
             <b-col cols="auto">
               <strings-domain :value="content.infoSessions">
-                <template #key="[session1, session2]">
+                <template #key="[session1]">
                   <div class="info-session h-50">
                     <div class="time">{{ session1.time }}</div>
                     <div class="location location-desktop">
@@ -63,7 +63,7 @@
                       >
                     </div>
                   </div>
-                  <div class="info-session h-50">
+                  <!-- <div class="info-session h-50">
                     <div class="time">{{ session2.time }}</div>
                     <div class="location location-desktop">
                       {{ `${session2.location}${session2.link && session2.link.url ? ' • ' : ''}` }}
@@ -84,7 +84,7 @@
                         >{{ session2.link.text }}</a
                       >
                     </div>
-                  </div>
+                  </div> -->
                 </template>
               </strings-domain>
             </b-col>
