@@ -1,0 +1,35 @@
+{
+  "name": "Carriage",
+  "teamId": "carriage",
+  "card": "/static/projects/carriage-card.png",
+  "header": "Carriage",
+  "subheader": "Efficient Transit for CULift.",
+  "hero": {
+    "header": "What We Do",
+    "image": "/static/projects/carriage-header.png",
+    "subheader": "Carriage is dedicated to making Cornell accessible for all students. We work with CULift, Cornell’s paratransit service for students with disabilities, to build mobile and web platforms that improve the experience of scheduling, performing, and monitoring CULift rides for students, drivers, and administrators alike."
+  },
+  "github": "https://github.com/cornell-dti/carriage-web",
+  "driver-github": "https://github.com/cornell-dti/carriage-driver",
+  "rider-github": "https://github.com/cornell-dti/carriage-rider",
+  "heroStartingColor": "#1AA9A5",
+  "heroEndingColor": "#92C3E6",
+  "heroUseDarkText": false,
+  "features": [
+    {
+      "title": "Rider Mobile & Web.",
+      "description": "CULift riders can schedule and track their rides.",
+      "image": "/static/projects/carriage-feature1.png"
+    },
+    {
+      "title": "Driver Mobile.",
+      "description": "CULift drivers can track rides and communicate progress with the dispatcher.",
+      "image": "/static/projects/carriage-feature2.png"
+    },
+    {
+      "title": "Admin Web.",
+      "description": "CULift dispatchers can schedule and monitor rides, and SDS administrators can oversee service access and metrics.",
+      "image": "/static/projects/carriage-feature3.png"
+    }
+  ]
+}
