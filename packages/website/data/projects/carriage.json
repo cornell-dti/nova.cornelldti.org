@@ -14,7 +14,7 @@
   "rider-github": "https://github.com/cornell-dti/carriage-rider",
   "heroStartingColor": "#000000",
   "heroEndingColor": "#EEEEEE",
-  "heroUseDarkText": true,
+  "heroUseDarkText": false,
   "features": [
     {
       "title": "Rider Mobile & Web.",
