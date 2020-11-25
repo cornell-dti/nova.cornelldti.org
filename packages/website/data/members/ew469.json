@@ -1,5 +1,6 @@
 {
   "lastName": "Welsh",
+  "github": "https://github.com/rockon999",
   "roleDescription": "Lead",
   "otherSubteams": [
     "flux",
@@ -8,7 +9,7 @@
   ],
   "isLead": true,
   "name": "Evan Welsh",
-  "about": "I'm a junior in the College of Arts and Sciences majoring in Information Science. In my free time I love exploring all sorts of wild technologies. My adventures in Vue.js in fact led to this very site to use it. I've worked within frontend web, backend, and mobile spheres and enjoy periodically switching things up to get a better sense of new and especially emerging platforms. Outside of DTI I enjoy singing in Cornell Chorale, studying Latin, and experimenting with gluten-free recipes among other things.",
+  "about": "I'm a junior in the College of Arts and Sciences majoring in Information Science. In my free time I love exploring all sorts of wild technologies. My adventures in Vue.js in fact led to this very site to use it. I've worked within frontend web, backend, and mobile spheres and enjoy periodically switching things up to get a better sense of new and especially emerging platforms. Outside of DTI I enjoy singing in Cornell Chorale, studying Latin, biking around Ithaca, and experimenting with gluten-free recipes among other things.",
   "graduation": "December 2020",
   "roleId": "lead",
   "hometown": "Grand Forks, ND",
