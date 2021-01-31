@@ -49,6 +49,11 @@ export interface CoursesContent extends Content {
         icon: string;
       };
     };
+    // 3 "sub descriptions" in a pair: first element is title and second is the desc
+    subDescription1: [string, string];
+    subDescription2: [string, string];
+    subDescription3: [string, string];
+    courseWebsiteLink: string;
   }[];
 }
 

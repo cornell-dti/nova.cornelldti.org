@@ -35,7 +35,6 @@
               <div class="courses-row-content-subheader">
                 {{ content.subtitle }}
               </div>
-              <p class="courses-row-content">{{ content.description }}</p>
               <strings-domain
                 v-if="content.buttons"
                 #key="{apply, github}"
@@ -55,6 +54,33 @@
                 </b-button>
               </strings-domain>
             </b-col>
+          </b-row>
+          <b-row :key="content.id + 'desc'" align-h="center" align-v="center" class="courses-row">
+            <p class="courses-row-content">{{ content.description }}</p>
+          </b-row>
+          <b-row :key="content.id + 'trio'" align-h="center">
+            <b-col sm="12" md="4">
+              <h3>{{ content.subDescription1[0] }}</h3>
+              <p>{{ content.subDescription1[1] }}</p>
+            </b-col>
+            <b-col sm="12" md="4">
+              <h3>{{ content.subDescription2[0] }}</h3>
+              <p>{{ content.subDescription2[1] }}</p>
+            </b-col>
+            <b-col sm="12" md="4">
+              <h3>{{ content.subDescription3[0] }}</h3>
+              <p>{{ content.subDescription3[1] }}</p>
+            </b-col>
+          </b-row>
+          <b-row :key="content.id + 'cta'" align-h="center">
+            <b-button
+              :href="content.courseWebsiteLink"
+              class="social-button-red social-button-small"
+            >
+              <div class="course-website-text">
+                Course Textbook
+              </div>
+            </b-button>
           </b-row>
         </template>
       </page-section>
@@ -83,7 +109,7 @@ $dark-gray: #4a4a4a;
 
 .courses-row-image {
   object-fit: cover;
-  max-height: 500px;
+  max-height: 350px;
   width: 100%;
   margin: 0.25rem 0;
 }
@@ -145,7 +171,7 @@ $dark-gray: #4a4a4a;
   }
 
   & + .courses-row {
-    margin-top: 7.5rem;
+    margin-top: 3.5rem;
 
     @media screen and (max-width: 768px) {
       margin-top: 0.625rem;
@@ -158,7 +184,7 @@ $dark-gray: #4a4a4a;
   }
 
   & + .courses-row {
-    margin-top: 120px;
+    margin-top: 50px;
 
     @media screen and (max-width: 768px) {
       margin-top: 10px;
@@ -195,6 +221,7 @@ $dark-gray: #4a4a4a;
   }
 
   .courses-row-content {
+    font-size: 1.1rem;
     font-weight: 500;
     letter-spacing: -0.4px;
     color: $dark-gray;
@@ -203,7 +230,6 @@ $dark-gray: #4a4a4a;
   .courses-row-content-subheader {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1.25rem;
   }
 
   .courses-top {
@@ -244,6 +270,19 @@ $dark-gray: #4a4a4a;
     border-left: 1px solid white;
     margin-left: 15px;
     padding-left: 15px;
+  }
+
+  .course-website-text {
+    margin-left: 15px;
+    padding-left: 15px;
+  }
+
+  &-red {
+    background: #c93b4c;
+  }
+
+  &-small {
+    font-size: 1.3rem;
   }
 }
 </style>
