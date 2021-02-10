@@ -1,64 +1,68 @@
 {
   "teams": [
-    {
-      "name": "eve",
-      "id": "events"
-    },
-    {
-      "name": "Business",
-      "id": "business"
-    },
-    {
-      "name": "Shout",
-      "id": "shout"
-    },
-    {
-      "name": "CU Reviews",
-      "id": "reviews"
-    },
-    {
-      "name": "Project Samwise",
-      "id": "samwise"
-    },
-    {
-      "name": "Research Connect",
-      "id": "researchconnect",
-      "display": false
-    },
-    {
-      "name": "Queue Me In",
-      "id": "queuemein"
-    },
-    {
-      "name": "Website",
-      "id": "nova",
-      "display": false
-    },
-    {
-      "name": "Flux",
-      "id": "flux"
-    },
-    {
-      "name": "O-Week",
-      "id": "orientation",
-      "display": false
-    },
-    {
-      "name": "Rescuer",
-      "id": "rescuer",
-      "display": false
-    },
-    {
-      "name": "CoursePlan (upcoming)",
-      "id": "courseplan"
-    },
-    {
-      "name": "Carriage (upcoming)",
-      "id": "carriage"
-    },
-    {
-      "name": "Leads (2019-20)",
-      "id": "leads"
-    }
+      {
+          "name": "Business",
+          "id": "business"
+      },
+      {
+          "name": "Carriage",
+          "id": "carriage"
+      },
+      {
+          "name": "ClubHub",
+          "id": "clubhub"
+      },
+      {
+          "name": "CoursePlan",
+          "id": "courseplan"
+      },
+      {
+          "name": "CU Apts",
+          "id": "cuapts"
+      },
+      {
+          "name": "CUReviews",
+          "id": "reviews"
+      },
+      {
+          "name": "Design @ Cornell",
+          "id": "dac"
+      },
+      {
+          "name": "Flux",
+          "id": "flux"
+      },
+      {
+          "name": "IDOL",
+          "id": "idol"
+      },
+      {
+          "name": "QueueMeIn",
+          "id": "queuemein"
+      },
+      {
+          "name": "Project Samwise",
+          "id": "samwise"
+      },
+      {
+          "name": "Zing",
+          "id": "zing"
+      },
+      {
+          "name": "Untold Social Justice Histories",
+          "id": "sjh"
+      },
+      {
+          "name": "Roommates",
+          "id": "roommates"
+      },
+      {
+          "name": "Leads (2020-21)",
+          "id": "leads"
+      },
+      {
+          "name": "Website",
+          "id": "nova"
+      }
   ]
 }

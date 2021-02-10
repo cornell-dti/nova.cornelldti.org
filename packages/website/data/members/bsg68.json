@@ -3,17 +3,15 @@
     "firstName": "Bryan",
     "lastName": "Graeser",
     "name": "Bryan Graeser",
-    "graduation": "May 2021",
-    "major": "Computer Science",
-    "minor": "Creative Writing",
-    "linkedin": "https://www.linkedin.com/in/bryangraeser/",
-    "github": "https://github.com/BryanGraeser",
+    "graduation": "December 2021",
+    "major": "Information Science (MPS) ",
     "hometown": "Los Altos, CA",
-    "about": "I love working on projects at the intersection of technology and social impact, projects that bring about significant, verifiable positive change to the world. When I'm not nose-deep in a project you can find me writing a short story or squeezing in some extra reps at the Teagle gym.",
+    "about": "I love working on projects at the intersection of technology and social impact--projects that bring about significant, verifiable positive change for communities typically underserved by modern tech. When I'm not nose-deep in a project you can find me writing my latest short story or covered in chalk on the Lindseth climbing wall.",
     "subteam": "carriage",
+    "roleId": "pm",
+    "roleDescription": "Product Manager",
+    "linkedin": "https://www.linkedin.com/in/bryangraeser/",
     "otherSubteams": [
         "reviews"
-    ],
-    "roleId": "pm",
-    "roleDescription": "Product Manager"
+    ]
 }

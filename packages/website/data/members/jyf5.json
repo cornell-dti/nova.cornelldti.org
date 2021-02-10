@@ -1,0 +1,18 @@
+{
+    "netid": "jyf5",
+    "firstName": "Jessica",
+    "lastName": "Feng",
+    "name": "Jessica Feng",
+    "graduation": "May 2023",
+    "major": "Computer Science",
+    "hometown": "Fremont, CA",
+    "about": "Hi! I\u2019m Jessica, a sophomore studying Computer Science in the College of Engineering. I love exploring creative solutions built with tech and listening to people\u2019s stories and experiences in industry. Outside of DTI, catch me at WICC or LOKO Dance events, strolling around campus, or admiring the sunset on the slope! ",
+    "subteam": "dac",
+    "roleId": "pm",
+    "roleDescription": "Technical PM",
+    "linkedin": "https://www.linkedin.com/in/jessica-feng/",
+    "github": "https://github.com/jessfeng",
+    "otherSubteams": [
+        "flux"
+    ]
+}

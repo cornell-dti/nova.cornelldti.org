@@ -4,14 +4,14 @@
     "lastName": "Aryal",
     "name": "Akash Aryal",
     "graduation": "May 2023",
-    "major": "Computer Science",
-    "doubleMajor": "Mathematics",
-    "website": "https://akasharyal.herokuapp.com/",
-    "linkedin": "https://www.linkedin.com/in/akash-aryal",
-    "github": "https://github.com/AkashAryal",
+    "major": "CS",
     "hometown": "Manhattan, KS",
-    "about": "Hi! I'm a CS major in the A&S. My main interests are in web dev (laravel, react) and databases/data science. I love creating products that are impactful and creative. In my free time I like to play League of Legends and hang out with friends.",
+    "about": "Hi! I'm a CS and Math double major in the college of A&S. My main interests are in web dev, data science, and AI/ML. I love working on creative products that positively impact people's lives. In my free time I like playing league of legends, watching anime, and hanging out with friends.",
     "subteam": "reviews",
     "roleId": "developer",
-    "roleDescription": "Developer"
+    "roleDescription": "Developer",
+    "doubleMajor": "Math",
+    "website": "akasharyal.herokuapp.com",
+    "linkedin": "Linkedin.com/in/akash-aryal",
+    "github": "github.com/AkashAryal"
 }

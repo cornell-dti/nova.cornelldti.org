@@ -5,9 +5,10 @@
     "name": "Simran Puri",
     "graduation": "May 2021",
     "major": "Computer Science",
-    "linkedin": "https://www.linkedin.com/in/simran-puri/",
     "hometown": "Watchung, NJ",
-    "about": "Outside of DTI, I continue to use my passion for creating socially impactful technology as part of Cornell Sustainable Design and Spark Design. My other interests include hiking, traveling, watching Grey's Anatomy, and drinking iced coffee.",
+    "about": "I am a senior majoring in Computer Science with an external specialization in Entrepreneurship. Outside of DTI, I continue to use my passion for creating socially impactful technology as part of CUSD and Spark Design. My other interests include hiking, traveling, and drinking iced coffee.",
+    "subteam": "carriage",
     "roleId": "developer",
-    "roleDescription": "Developer"
+    "roleDescription": "Developer",
+    "linkedin": "https://www.linkedin.com/in/simran-puri/"
 }

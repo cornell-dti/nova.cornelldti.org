@@ -2,15 +2,15 @@
     "netid": "jx295",
     "firstName": "Jingyi",
     "lastName": "Xie",
-    "name": "Nina Xie",
+    "name": "Jingyi Xie",
     "graduation": "May 2022",
-    "major": "ISST",
-    "minor": "Dyson Business for Engineers",
-    "linkedin": "https://www.linkedin.com/in/jingyi-nina-xie-50b76013a",
-    "github": "https://github.com/Nina-Xie",
-    "hometown": "Beijing, GA",
-    "about": "Passionate about interdisciplinary topics that combine tech, business, psych, and more, I aspire to solve real-world problems using technology as a PM. I’m also a foodie, musician, runner, movie addict, and roller coaster lover.",
+    "major": "Information Science, Systems, and Technology",
+    "hometown": "Beijing, China",
+    "about": "Passionate about interdisciplinary topics that combine tech, business, psych, and more, I aspire to solve real-world problems using technology as a PM. I\u2019m also a foodie, musician, runner, movie addict, and roller coaster lover.",
     "subteam": "carriage",
     "roleId": "pm",
-    "roleDescription": "Product Manager"
+    "roleDescription": "Product Manager",
+    "minor": "Business Minor for Engineers",
+    "linkedin": "https://www.linkedin.com/in/jingyi-nina-xie/",
+    "github": "https://github.com/Nina-Xie"
 }

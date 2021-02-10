@@ -5,12 +5,12 @@
     "name": "Theresa Cho",
     "graduation": "May 2021",
     "major": "Information Science",
+    "hometown": "Westchester, NY",
+    "about": "Hi there! I'm Theresa, the TPM for CoursePlan. In my free time, I enjoy singing, sharing memes, and watching kdramas and cool movies (the whole range from superhero blockbusters to awesome thrillers like Get Out). Wherever I am and in whatever I do, I hope to bring about a positive change and make some great friends along the way!",
+    "subteam": "courseplan",
+    "roleId": "pm",
+    "roleDescription": "Technical PM",
     "minor": "Computer Science",
     "linkedin": "https://www.linkedin.com/in/theresa-cho-405226173/",
-    "github": "https://github.com/tcho6319",
-    "hometown": "Westchester, NY",
-    "about": "Hi there! I'm Theresa, a developer on CoursePlan. In my free time, I enjoy singing, sharing memes, and watching kdramas and cool movies (the whole range from superhero blockbusters to awesome thrillers like Get Out). Also, I am interested in creating tech for social good and recently participated in the 2020 Impact Fellowship! Wherever I am and in whatever I do, I hope to bring about a positive change and make some great friends along the way!",
-    "subteam": "courseplan",
-    "roleId": "developer",
-    "roleDescription": "Developer"
+    "github": "https://github.com/tcho6319"
 }

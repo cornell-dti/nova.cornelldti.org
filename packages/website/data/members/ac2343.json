@@ -1,0 +1,18 @@
+{
+    "netid": "ac2343",
+    "firstName": "Andrea",
+    "lastName": "Chen",
+    "name": "Andrea Chen",
+    "graduation": "May 2023",
+    "major": "Economics",
+    "hometown": "North Potomac, MD",
+    "about": "Hi, I\u2019m Andrea! I\u2019m currently a sophomore studying Economics and Statistics in the College of Arts and Sciences. On campus, I am involved in The Wardrobe and PMC. Outside of school, I enjoy following the Washington Capitals, eating Cava, and hiking.",
+    "subteam": "reviews",
+    "roleId": "business",
+    "roleDescription": "Business Analyst",
+    "doubleMajor": "Statistics",
+    "minor": "Computer Science",
+    "otherSubteams": [
+        "business"
+    ]
+}

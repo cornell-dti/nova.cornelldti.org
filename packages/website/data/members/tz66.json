@@ -3,18 +3,18 @@
     "firstName": "Sam",
     "lastName": "Zhou",
     "name": "Sam Zhou",
-    "graduation": "May 2021",
+    "graduation": "December 2021",
     "major": "Computer Science",
-    "minor": "Mathematics",
-    "website": "https://developersam.com/",
-    "linkedin": "https://www.linkedin.com/in/sam-zhou-30b91610b/",
-    "github": "https://github.com/SamChou19815",
     "hometown": "Shanghai, China",
-    "about": "I am a full stack web developer with extensive experience in backend development in Kotlin/Java/NodeJS and frontend development with React/Angular Framework. I am interested in designing and developing extensible and scalable software systems as well as programming languages.",
-    "subteam": "samwise",
+    "about": "I build compilers.",
+    "subteam": "courseplan",
+    "roleId": "developer",
+    "roleDescription": "Developer",
+    "minor": "Math",
+    "website": "https://developersam.com",
+    "linkedin": "https://www.linkedin.com/in/sam-zhou-30b91610b/",
+    "github": "https://github.com",
     "otherSubteams": [
-        "Leads"
-    ],
-    "roleId": "lead",
-    "roleDescription": "Lead"
+        "samwise"
+    ]
 }

@@ -1,0 +1,15 @@
+{
+    "netid": "abn53",
+    "firstName": "Alexander",
+    "lastName": "Nagel",
+    "name": "Alexander Nagel",
+    "graduation": "May 2024",
+    "major": "Computer Science",
+    "hometown": "Bethesda, MD",
+    "about": "Hey, I'm Alex and I'm a computer science major in the College of Arts and Sciences. I am a web developer and machine learning enthusiast who loves hackathons. Outside of DTI, I like to listen to music, read, play video games, and hike.",
+    "subteam": "freshman",
+    "roleId": "developer",
+    "roleDescription": "Developer",
+    "linkedin": "https://www.linkedin.com/in/alexander-nagel-a717201a5/",
+    "github": "https://github.com/abagel21"
+}

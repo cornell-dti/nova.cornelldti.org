@@ -3,15 +3,14 @@
     "firstName": "Christopher",
     "lastName": "Hansen",
     "name": "Christopher Hansen",
-    "graduation": "May 2022",
+    "graduation": "December 2021",
     "major": "Computer Science",
-    "minor": "English",
-    "website": "http://chriswho.codes",
-    "linkedin": "https://www.linkedin.com/in/christopherphansen/",
-    "github": "https://github.com/chansen424/",
     "hometown": "Staten Island, NY",
-    "about": "I am a junior in the College of Arts and Sciences studying Computer Science. I collect books and love reading them. I'm also a member of Cornell Hacking Club. I enjoy trying new things!",
-    "subteam": "carriage",
-    "roleId": "pm",
-    "roleDescription": "Technical PM"
+    "about": "A software developer, a book lover, and a cat dad. I love solving problems and working with others.",
+    "subteam": "leads",
+    "roleId": "lead",
+    "roleDescription": "Lead",
+    "website": "https://chriswho.codes",
+    "linkedin": "https://linkedin.com/in/christopherphansen",
+    "github": "https://github.com/chansen424"
 }

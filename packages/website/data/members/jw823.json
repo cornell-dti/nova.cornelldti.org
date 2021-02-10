@@ -5,11 +5,13 @@
     "name": "Jessie Wong",
     "graduation": "May 2023",
     "major": "Computer Science",
-    "linkedin": "https://www.linkedin.com/in/jessie-wong-202140142/",
-    "github": "https://github.com/jw823",
     "hometown": "Cupertino, CA",
-    "about": "I am a freshman majoring in Computer Science in the college of Arts and Sciences. Currently I'm on the Carriage team learning how to Flutter. Catch me on campus wearing free tech t-shirts, listening to NIKI, or stroking my fake beard over a bug.",
-    "subteam": "carriage",
-    "roleId": "developer",
-    "roleDescription": "Developer"
+    "about": "Hi, I'm Jessie. I am a sophomore majoring in Computer Science. Aside from DTI, I am also involved in WICC, CTAS, and OASIS. I'm passionate about improving the communities around me, making meaningful connections with others, and achieving financial independence. You can find me on campus curating playlists, jamming out to musicals, and getting takeout at SoPoong :D. Feel free to chat me up if any of this stuff seems of interest to you! ",
+    "subteam": "business",
+    "roleId": "business",
+    "roleDescription": "Business Analyst",
+    "linkedin": "https://www.linkedin.com/in/jessiewong401/",
+    "otherSubteams": [
+        "carriage"
+    ]
 }

@@ -3,13 +3,17 @@
     "firstName": "Vivian",
     "lastName": "Shiu",
     "name": "Vivian Shiu",
-    "graduation": "05/2021",
-    "major": "Design and Environmental Analysis (DEA)",
-    "linkedin": "https://www.linkedin.com/in/vivian-shiu-826181145/",
-    "hometown": "Sao Paulo, Brazil",
-    "about": "I'm ABC: American-Brazilian-Chinese and a designer. I'm passionate about the unaware effects design can have on a person's life. Outside of school you can find me drinking an açai smoothie or petting dogs around campus. I love to play soccer, piano, doodle, and nap!",
-    "subteam": "samwise",
+    "graduation": "May 2021",
+    "major": "Design & Environmental Analysis",
+    "hometown": "Sao Paulo (Brazil)",
+    "about": "Hi! My name is Vivian and I'm a senior studying Design and Environmental Analysis. As a Chinese American who grew up in Brazil, I have a passion for design that positively transforms the visual, built, and virtual environment. My blend of cultures offers me a unique, complex perspective that inspires my work. In the past, I have interned as a UX designer for Mastercard. On campus, you can find me doodling, building puzzles, playing the New York Times mini crossword and probably sipping on boba in Mann library.",
+    "subteam": "queuemein",
     "roleId": "designer",
     "roleDescription": "Designer",
-    "isLead": true
+    "minor": "Information Science (UX)",
+    "website": "https.www.vivianshiu.net",
+    "linkedin": "https://www.linkedin.com/in/vivian-shiu-826181145/",
+    "otherSubteams": [
+        "samwise"
+    ]
 }

@@ -1,0 +1,17 @@
+{
+    "netid": "mhb224",
+    "firstName": "Morgan",
+    "lastName": "Belous",
+    "name": "Morgan Belous",
+    "graduation": "May 2022",
+    "major": "information science",
+    "hometown": "Dix Hills, NY",
+    "about": "Hi! I\u2019m a junior majoring in information science and minoring in computer science and business. I\u2019m passionate about development because I love making my ideas come to life and building things that solve real problems. In my spare time, I love to watch broadway bootlegs, re-create TikTok dances, and spend time with friends!",
+    "subteam": "idol",
+    "roleId": "developer",
+    "roleDescription": "Developer",
+    "minor": "computer science and business",
+    "website": "http://www.morganbelous.com",
+    "linkedin": "https://www.linkedin.com/in/morgan-belous/",
+    "github": "https://github.com/morganbelous"
+}

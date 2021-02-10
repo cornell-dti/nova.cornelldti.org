@@ -1,0 +1,15 @@
+{
+    "netid": "yah8",
+    "firstName": "Yamato",
+    "lastName": "Hill",
+    "name": "Yamato Hill",
+    "graduation": "May 2023",
+    "major": "AEM",
+    "hometown": "Tokyo",
+    "about": "Hey everyone! My name is Yamato, but my friends call me Yam. I'm a sophomore studying AEM with a minor in Info Sci. I joined DTI because I was interested in the intersection of entrepreneurship and technology, and hope to get inspired from the all the amazing people on the team. Besides that, I'm interested in sports, traveling, bass guitars, exercising, and flying drones over Beebe Lake.",
+    "subteam": "business",
+    "roleId": "business",
+    "roleDescription": "Business Analyst",
+    "minor": "Info Sci",
+    "linkedin": "https://www.linkedin.com/in/yamato-hill/"
+}

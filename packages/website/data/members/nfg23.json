@@ -1,0 +1,18 @@
+{
+    "netid": "nfg23",
+    "firstName": "Nahbuma",
+    "lastName": "Gana",
+    "name": "Nahbuma Gana",
+    "graduation": "May 2022",
+    "major": "Informatio Science, UX Design",
+    "hometown": "Poolesville, MD",
+    "about": "Hi! I'm Buma and I'm a junior ('22) studying information science and an aspiring product designer. I'm really passionate about augumented/virtual reality, tech for social impact and accessible design education. On campus I'm a part of The Wardrobe, Cornell Panhellenic, Medium Design Collective. Outside of school I'm really interested in astrology, fashion and watching funny tiktok threads on youtube!",
+    "subteam": "flux",
+    "roleId": "designer",
+    "roleDescription": "Designer",
+    "website": "https://www.nahbumagana.me/",
+    "linkedin": "https://www.linkedin.com/in/nahbuma/",
+    "otherSubteams": [
+        "cuapts"
+    ]
+}

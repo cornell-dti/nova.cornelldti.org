@@ -4,14 +4,14 @@
     "lastName": "Tung",
     "name": "Jason Tung",
     "graduation": "May 2023",
-    "major": "Computer Science",
-    "minor": "Applied Mathematics",
-    "website": "http://jasontung.me/",
-    "linkedin": "https://www.linkedin.com/in/jason-tung/",
-    "github": "https://github.com/jason-tung/",
-    "hometown": "NYC, NY",
-    "about": "Invite me to coffee to talk about philosophy!",
+    "major": "CS",
+    "hometown": "Bayside, NY",
+    "about": "I like to play video games and study japanese :~)",
     "subteam": "samwise",
     "roleId": "developer",
-    "roleDescription": "Developer"
+    "roleDescription": "Developer",
+    "website": "https://jasontung.me/",
+    "linkedin": "https://www.linkedin.com/in/jason-tung/",
+    "github": "https://github.com/jason-tung/",
+    "otherSubteams": []
 }
