@@ -289,7 +289,7 @@ export default Apply;
   overflow: hidden;
   color: #000;
   margin: 4vw 0;
-  padding: 5rem 4vw;
+  padding: 2rem 4vw;
 
   .info-session-description {
     padding-right: 4vw;
@@ -359,20 +359,6 @@ export default Apply;
       @media (min-width: 768px) {
         .location-mobile {
           display: none !important; // TODO fix this
-        }
-      }
-
-      .location {
-        margin-top: 0.3125rem;
-        font-size: 1.25rem;
-        font-weight: 500;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: 0.3px;
-
-        @media (max-width: 768px) {
-          text-align: center;
         }
       }
     }
