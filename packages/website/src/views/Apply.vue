@@ -43,7 +43,7 @@
           <b-row class="h-100" align-h="center" align-v="center">
             <b-col cols="auto">
               <strings-domain :value="content.infoSessions">
-                <template #key="[session1]">
+                <template #key="[session1, session2]">
                   <div class="info-session h-50">
                     <div class="time">{{ session1.time }}</div>
                     <div class="location location-desktop">
@@ -63,7 +63,7 @@
                       >
                     </div>
                   </div>
-                  <!-- <div class="info-session h-50">
+                  <div class="info-session h-50">
                     <div class="time">{{ session2.time }}</div>
                     <div class="location location-desktop">
                       {{ `${session2.location}${session2.link && session2.link.url ? ' • ' : ''}` }}
@@ -84,9 +84,33 @@
                         >{{ session2.link.text }}</a
                       >
                     </div>
-                  </div> -->
+                  </div>
                 </template>
               </strings-domain>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+      <b-row v-if="isOpen" class="justify-content-center coffee-chat">
+        <b-col class="info-session-description" sm="12" md="4" md-offset="1">
+          <div class="header">Coffee Chats</div>
+          <div class="subheader">Spring 2021</div>
+          <div class="description">
+            Sign up to chat with some members on the team!
+            You can learn more about what we do by sending an email 
+            to any of the members on the spreadsheet.
+          </div>
+        </b-col>
+        <b-col class="info-session-details" sm="12" md="auto" md-offset="1">
+          <b-row class="h-100" align-h="center" align-v="center">
+            <b-col cols="auto">
+              <div class="info-session h-50">
+                <div class="time">
+                  Sign up at 
+                  <a href="https://docs.google.com/spreadsheets/d/1xvFotNdMkCc4vaBv_LYTA8LHNIQfYlYaMIW3DUZYAvA/edit#gid=0"> this link </a> 
+                  to chat!
+                </div>
+              </div>
             </b-col>
           </b-row>
         </b-col>
@@ -258,6 +282,85 @@ export default Apply;
 
     & + p {
       font-size: 1.5rem;
+    }
+  }
+}
+.coffee-chat {
+  overflow: hidden;
+  color: #000;
+  margin: 4vw 0;
+  padding: 2rem 4vw;
+
+  .info-session-description {
+    padding-right: 4vw;
+
+    .header {
+      font-size: 3rem;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.3px;
+    }
+
+    .subheader {
+      font-size: 20px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.4;
+      letter-spacing: 0.3px;
+    }
+
+    .description {
+      margin-top: 2.5rem;
+      font-size: 20px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.4;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  .info-session-details {
+    padding-left: 4vw;
+
+    .info-session {
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+
+      .time {
+        margin-bottom: 0.3125rem;
+        font-size: 2rem;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.3px;
+
+        @media (max-width: 768px) {
+          letter-spacing: 0.5vw;
+          text-align: center;
+        }
+
+        @media (max-width: 500px) {
+          font-size: 5vw;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .location-desktop {
+          display: none !important;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .location-mobile {
+          display: none !important; // TODO fix this
+        }
+      }
     }
   }
 }
