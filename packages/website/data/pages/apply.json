@@ -135,7 +135,7 @@
     {
       "id": "business",
       "apply": {
-        "header": "Business Analyst Role",
+        "header": "Business Role",
         "rightHeader": "due 11:59 PM on Friday 2/19",
         "sections": [
           {
@@ -149,7 +149,7 @@
         ],
         "callToActionButton": {
           "closed": false,
-          "content": "Business Analyst Application",
+          "content": "Business Team Application",
           "link": "https://forms.gle/xcM3JCXCeFuNiUYU7"
         }
       },
