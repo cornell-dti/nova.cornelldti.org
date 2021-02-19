@@ -1,26 +1,16 @@
 <template>
-  <apply-view :content="content" />
+  <apply-view />
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import ApplyView from '../views/Apply.vue';
-import Page from '../page';
-
-import { ApplyContent } from '../content';
-
-import json from '../../data/pages/apply.json';
 
 @Component({
-  metaInfo: {
-    title: 'Apply'
-  },
-  components: {
-    ApplyView
-  }
+  metaInfo: { title: 'Apply' },
+  components: { ApplyView }
 })
-class Apply extends Page<ApplyContent>(json) {}
-
-export default Apply;
+export default class Apply extends Vue {}
 </script>

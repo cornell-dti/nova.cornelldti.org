@@ -157,10 +157,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { PropValidator } from 'vue/types/options';
 import wcheck from '../assets/sponsor/whitecheck.svg';
 
 import { SponsorContent, SponsorTier } from '../content';
+import json from '../../data/pages/sponsor.json';
 
 type SponsorTierBenefitsData = {
   benefits: string;
@@ -171,12 +171,10 @@ export default Vue.extend({
   components: {
     wcheck
   },
-  props: {
-    content: {
-      required: true
-    } as PropValidator<SponsorContent>
-  },
   computed: {
+    content(): SponsorContent {
+      return json;
+    },
     items(): SponsorTierBenefitsData[] {
       const data = this.content.tiers.sponsor;
 

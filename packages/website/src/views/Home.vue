@@ -1,5 +1,5 @@
 <template>
-  <div v-if="content">
+  <div>
     <div class="home">
       <lazy-video
         className="home-background home-preload-background home-background-video"
@@ -45,22 +45,25 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
 
 import Quicklink from '../components/Quicklink.vue';
 import LazyVideo from '../components/LazyVideo';
 
 import { HomeContent } from '../content';
+import json from '../../data/pages/home.json';
 
 @Component({
   components: {
     Quicklink,
     LazyVideo
-  }
+  },
+  computed: {}
 })
 export default class HomeView extends Vue {
-  @Prop({ required: true })
-  content!: HomeContent;
+  get content(): HomeContent {
+    return json;
+  }
 }
 </script>
 

@@ -391,6 +391,8 @@ import CircleProgressIndicator from '../components/CircleProgressIndicator.vue';
 
 import { TeamContent } from '../content';
 import { Member } from '../shared';
+import json from '../../data/pages/team.json';
+import DiversityJSON from '../../data/sets/diversity.json';
 
 type RoleId = '' | 'business' | 'developer' | 'designer' | 'pm';
 
@@ -411,15 +413,17 @@ export default Vue.extend({
     RoleSelector
   },
   props: {
-    content: {
-      required: true
-    } as PropValidator<TeamContent>,
     members: {
       required: true
-    } as PropValidator<Member[]>,
-    diversity: {
-      required: true
-    } as PropValidator<Diversity>
+    } as PropValidator<Member[]>
+  },
+  computed: {
+    content(): TeamContent {
+      return json;
+    },
+    diversity(): Diversity {
+      return DiversityJSON.diversity;
+    }
   },
   mounted() {
     this.$nextTick(() => {

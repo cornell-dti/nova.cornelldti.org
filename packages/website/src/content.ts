@@ -206,11 +206,6 @@ export interface PrivacyPolicy {
   content: string;
 }
 
-export interface PrivacyContent extends Content {
-  header: string;
-  subheader: string;
-}
-
 export interface ApplyContent extends Content {
   hero: {
     closed: Closed;
