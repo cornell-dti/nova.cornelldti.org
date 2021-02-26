@@ -1,94 +1,72 @@
 <template>
   <page-background v-if="content">
-    <strings-domain :value="content.hero" #key="{ video, lazy, image}">
-      <nova-hero
-        header="Inspiring Change"
-        subheader="What sets us apart from other project teams is our desire to share what we learn with other students and members of the greater Ithaca community."
-        :video="video"
-        :lazy="lazy"
-        :image="image"
-        page="initiatives"
-      />
-    </strings-domain>
-    <strings-domain :value="content.promo" #key="{ makeathon, blueprint, halfbaked }">
-      <page-section class="initiatives-main-section">
-        <b-container>
-          <b-row align-h="center" align-v="center" class="initiative-row">
-            <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
-              <b-img class="initiative-row-image" :src="makeathon" />
-            </b-col>
-            <b-col
-              class="initiative-row-content-container"
-              sm="12"
-              md="5"
-              order-md="1"
-              order-sm="2"
-            >
-              <div class="initiative-row-content-header">Ready, Set, Make!</div>
-              <div class="initiative-row-content-subheader">Inspiring future generations.</div>
-              <p class="initiative-row-content">
-                Ready, Set, Make is an annual make-a-thon our team hosts for 5th and 6th grade
-                students! We invite students in the local community to Cornell and how they can use
-                design thinking to solve problems that they encounter. Their energy and creativity
-                was contagious, and team members and kids alike were building incredible prototypes
-                out of cardboard and craft supplies! DTI partnered with Makerspace to give an
-                introduction to 3D printing using Tinkercad.
-              </p>
-              <b-button class="social-button" href="https://medium.com/@alice.pham/5b9033aa7a6e">
-                <MediumIcon />
-                <div class="social-button-text">Read More</div>
-              </b-button>
-            </b-col>
-          </b-row>
-          <b-row align-h="center" align-v="center" class="initiative-row">
-            <b-col sm="12" md="7" class="initiative-row-img" order-md="1" order-sm="1">
-              <b-img class="initiative-row-image" :src="blueprint" />
-            </b-col>
-            <b-col
-              sm="12"
-              md="5"
-              class="initiative-row-content-container"
-              order-md="2"
-              order-sm="2"
-            >
-              <div class="initiative-row-content-header">DTI Blueprint</div>
-              <div class="initiative-row-content-subheader">Fostering Mentorship.</div>
-              <p class="initiative-row-content">
-                DTI Blueprint is a training program designed to teach students about design and
-                product thinking from team members’ own experience. Over several weeks, DTI team
-                members gave workshops on concepts like user research, product ideation, and minimum
-                viable products. Students formed groups and brainstormed a problem to solve on
-                campus and came up with a testable solution.
-              </p>
-            </b-col>
-          </b-row>
-          <b-row align-h="center" align-v="center" class="initiative-row">
-            <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
-              <b-img class="initiative-row-image" :src="halfbaked" />
-            </b-col>
-            <b-col
-              sm="12"
-              md="5"
-              class="initiative-row-content-container"
-              order-md="1"
-              order-sm="2"
-            >
-              <div class="initiative-row-content-header">Events &amp; Workshops</div>
-              <div class="initiative-row-content-subheader">Our presence on campus.</div>
-              <p class="initiative-row-content">
-                We are constantly trying to find ways to expand beyond our team and help the
-                community through holding workshops and events. In the past, we have held workshops
-                on UX Research, building a website portfolio, and more!
-              </p>
-              <b-button class="social-button" href="https://www.facebook.com/cornelldti/events/">
-                <FacebookIcon />
-                <div class="social-button-text">See Events</div>
-              </b-button>
-            </b-col>
-          </b-row>
-        </b-container>
-      </page-section>
-    </strings-domain>
+    <nova-hero
+      header="Inspiring Change"
+      subheader="What sets us apart from other project teams is our desire to share what we learn with other students and members of the greater Ithaca community."
+      :video="content.hero.video"
+      :lazy="content.hero.lazy"
+      :image="content.hero.image"
+      page="initiatives"
+    />
+    <page-section class="initiatives-main-section">
+      <b-container>
+        <b-row align-h="center" align-v="center" class="initiative-row">
+          <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
+            <b-img class="initiative-row-image" :src="content.promo.makeathon" />
+          </b-col>
+          <b-col class="initiative-row-content-container" sm="12" md="5" order-md="1" order-sm="2">
+            <div class="initiative-row-content-header">Ready, Set, Make!</div>
+            <div class="initiative-row-content-subheader">Inspiring future generations.</div>
+            <p class="initiative-row-content">
+              Ready, Set, Make is an annual make-a-thon our team hosts for 5th and 6th grade
+              students! We invite students in the local community to Cornell and how they can use
+              design thinking to solve problems that they encounter. Their energy and creativity was
+              contagious, and team members and kids alike were building incredible prototypes out of
+              cardboard and craft supplies! DTI partnered with Makerspace to give an introduction to
+              3D printing using Tinkercad.
+            </p>
+            <b-button class="social-button" href="https://medium.com/@alice.pham/5b9033aa7a6e">
+              <MediumIcon />
+              <div class="social-button-text">Read More</div>
+            </b-button>
+          </b-col>
+        </b-row>
+        <b-row align-h="center" align-v="center" class="initiative-row">
+          <b-col sm="12" md="7" class="initiative-row-img" order-md="1" order-sm="1">
+            <b-img class="initiative-row-image" :src="content.promo.blueprint" />
+          </b-col>
+          <b-col sm="12" md="5" class="initiative-row-content-container" order-md="2" order-sm="2">
+            <div class="initiative-row-content-header">DTI Blueprint</div>
+            <div class="initiative-row-content-subheader">Fostering Mentorship.</div>
+            <p class="initiative-row-content">
+              DTI Blueprint is a training program designed to teach students about design and
+              product thinking from team members’ own experience. Over several weeks, DTI team
+              members gave workshops on concepts like user research, product ideation, and minimum
+              viable products. Students formed groups and brainstormed a problem to solve on campus
+              and came up with a testable solution.
+            </p>
+          </b-col>
+        </b-row>
+        <b-row align-h="center" align-v="center" class="initiative-row">
+          <b-col sm="12" md="7" class="initiative-row-img" order-md="2" order-sm="1">
+            <b-img class="initiative-row-image" :src="content.promo.halfbaked" />
+          </b-col>
+          <b-col sm="12" md="5" class="initiative-row-content-container" order-md="1" order-sm="2">
+            <div class="initiative-row-content-header">Events &amp; Workshops</div>
+            <div class="initiative-row-content-subheader">Our presence on campus.</div>
+            <p class="initiative-row-content">
+              We are constantly trying to find ways to expand beyond our team and help the community
+              through holding workshops and events. In the past, we have held workshops on UX
+              Research, building a website portfolio, and more!
+            </p>
+            <b-button class="social-button" href="https://www.facebook.com/cornelldti/events/">
+              <FacebookIcon />
+              <div class="social-button-text">See Events</div>
+            </b-button>
+          </b-col>
+        </b-row>
+      </b-container>
+    </page-section>
     <dti-footer page="initiatives" />
   </page-background>
 </template>

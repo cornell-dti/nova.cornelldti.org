@@ -293,7 +293,7 @@ export default Vue.extend({
     }
   },
   watch: {
-    roleId($event): void {
+    roleId($event: Event): void {
       this.$emit('update:change', $event);
     }
   }
