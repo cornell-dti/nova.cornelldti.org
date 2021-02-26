@@ -1,5 +1,5 @@
 <template>
-  <page-background v-if="content">
+  <page-background>
     <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image}">
       <nova-hero
         :header="header"
@@ -289,22 +289,22 @@ $dark-gray: #4a4a4a;
 
 <script lang="ts">
 import Vue from 'vue';
-import { PropValidator } from 'vue/types/options';
 
 import GitHubIcon from '../assets/social/github.svg';
 import ApplyIcon from '../assets/other/apply.svg';
 
 import { CoursesContent } from '../content';
+import json from '../../data/pages/courses.json';
 
 export default Vue.extend({
-  props: {
-    content: {
-      required: true
-    } as PropValidator<CoursesContent>
-  },
   components: {
     GitHubIcon,
     ApplyIcon
+  },
+  computed: {
+    content(): CoursesContent {
+      return json;
+    }
   }
 });
 </script>

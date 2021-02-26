@@ -1,26 +1,16 @@
 <template>
-  <courses-view :content="content" />
+  <courses-view />
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import CoursesView from '../views/Courses.vue';
-import Page from '../page';
-
-import { CoursesContent } from '../content';
-
-import json from '../../data/pages/courses.json';
 
 @Component({
-  metaInfo: {
-    title: 'Courses'
-  },
-  components: {
-    CoursesView
-  }
+  metaInfo: { title: 'Courses' },
+  components: { CoursesView }
 })
-class Courses extends Page<CoursesContent>(json) {}
-
-export default Courses;
+export default class Courses extends Vue {}
 </script>

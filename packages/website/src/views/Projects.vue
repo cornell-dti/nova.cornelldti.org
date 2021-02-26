@@ -71,17 +71,18 @@ import { PropValidator } from 'vue/types/options';
 
 import { ProjectsContent } from '../content';
 import { Project } from '../shared';
+import json from '../../data/pages/projects.json';
 
 export default Vue.extend({
   props: {
-    content: {
-      required: true
-    } as PropValidator<ProjectsContent>,
     projects: {
       required: true
     } as PropValidator<Project[]>
   },
   computed: {
+    content(): ProjectsContent {
+      return json;
+    },
     projectRows(): {
       index: number;
       members: Project[];

@@ -18,8 +18,6 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  metaInfo: {
-    title: 'Not Found'
-  }
+  metaInfo: { title: 'Not Found' }
 });
 </script>

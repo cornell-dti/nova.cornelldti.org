@@ -1,5 +1,5 @@
 <template class="applyPage">
-  <page-background v-if="content">
+  <page-background>
     <strings-domain :value="content.joinInformation.applicationsOpen" #key="isOpen">
       <strings-domain :value="[content.hero, content.hero.closed]" #key="[hero, closed]">
         <nova-hero
@@ -96,9 +96,8 @@
           <div class="header">Coffee Chats</div>
           <div class="subheader">Spring 2021</div>
           <div class="description">
-            Sign up to chat with some members on the team!
-            You can learn more about what we do by sending an email 
-            to any of the members on the spreadsheet.
+            Sign up to chat with some members on the team! You can learn more about what we do by
+            sending an email to any of the members on the spreadsheet.
           </div>
         </b-col>
         <b-col class="info-session-details" sm="12" md="auto" md-offset="1">
@@ -106,8 +105,12 @@
             <b-col cols="auto">
               <div class="info-session h-50">
                 <div class="time">
-                  Sign up at 
-                  <a href="https://docs.google.com/spreadsheets/d/1xvFotNdMkCc4vaBv_LYTA8LHNIQfYlYaMIW3DUZYAvA/edit#gid=0"> this link </a> 
+                  Sign up at
+                  <a
+                    href="https://docs.google.com/spreadsheets/d/1xvFotNdMkCc4vaBv_LYTA8LHNIQfYlYaMIW3DUZYAvA/edit#gid=0"
+                  >
+                    this link
+                  </a>
                   to chat!
                 </div>
               </div>
@@ -209,13 +212,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component  } from 'vue-property-decorator';
 
 import TimelineSection from '../components/TimelineSection.vue';
 import RoleSelector from '../components/RoleSelector.vue';
 import DtiFooter from '../components/DtiFooter.vue';
 
 import { ApplyContent, ApplicationInfo } from '../content';
+import json from '../../data/pages/apply.json';
 
 interface Apply {
   $refs: {
@@ -237,8 +241,9 @@ class Apply extends Vue {
   tabIndex = 0;
   roleId = '';
 
-  @Prop({ required: true })
-  content!: ApplyContent;
+  get content(): ApplyContent {
+    return json
+  }
 
   onSubscribe(event: { preventDefault: () => void }): void {
     event.preventDefault();
