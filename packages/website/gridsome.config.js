@@ -8,7 +8,6 @@ module.exports = {
   outputDir: '../../dist',
   templates: {
     DTIProject: '/projects/:teamId_raw',
-    Member: '/members/:netid_raw',
   },
   plugins: [
     {
