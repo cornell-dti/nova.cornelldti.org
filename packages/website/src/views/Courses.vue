@@ -46,16 +46,16 @@
           </b-row>
           <b-row :key="content.id + 'trio'" align-h="center">
             <b-col sm="12" md="4">
-              <h3>{{ content.subDescription1[0] }}</h3>
-              <p>{{ content.subDescription1[1] }}</p>
+              <h3>{{ content.subDescription1.title }}</h3>
+              <p>{{ content.subDescription1.description }}</p>
             </b-col>
             <b-col sm="12" md="4">
-              <h3>{{ content.subDescription2[0] }}</h3>
-              <p>{{ content.subDescription2[1] }}</p>
+              <h3>{{ content.subDescription2.title }}</h3>
+              <p>{{ content.subDescription2.description }}</p>
             </b-col>
             <b-col sm="12" md="4">
-              <h3>{{ content.subDescription3[0] }}</h3>
-              <p>{{ content.subDescription3[1] }}</p>
+              <h3>{{ content.subDescription3.title }}</h3>
+              <p>{{ content.subDescription3.description }}</p>
             </b-col>
           </b-row>
           <b-row :key="content.id + 'cta'" align-h="center">
