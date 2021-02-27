@@ -186,6 +186,8 @@ interface Apply {
     RoleSelector
   }
 })
+// Linter cannot understand we need this for declaration merging.
+// eslint-disable-next-line no-redeclare
 class Apply extends Vue {
   email = '';
   msgContent = 'banana';

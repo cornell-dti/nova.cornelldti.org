@@ -22,7 +22,7 @@ export function BooleanProp({
   required: boolean;
   defaultValue: boolean;
 }) {
-  return function _(...params: PropParams) {
+  return function _(...params: PropParams): void {
     return Prop({
       ...(defaultValue != null ? { default: defaultValue } : {}),
       required,
