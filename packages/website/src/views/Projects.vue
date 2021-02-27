@@ -1,15 +1,13 @@
 <template>
   <page-background v-if="content">
-    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image}">
-      <nova-hero
-        :header="header"
-        :subheader="subheader"
-        :video="video"
-        :lazy="lazy"
-        :image="image"
-        page="projects"
-      />
-    </strings-domain>
+    <nova-hero
+      :header="content.hero.header"
+      :subheader="content.hero.subheader"
+      :video="content.hero.video"
+      :lazy="content.hero.lazy"
+      :image="content.hero.image"
+      page="projects"
+    />
 
     <page-section class="project-page-main-section">
       <b-row

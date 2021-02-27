@@ -1,6 +1,8 @@
 export interface Content {
   textHero: { header: string; subheader: string };
   hero: {
+    header?: string;
+    subheader?: string;
     lazy: string;
     video: {
       mp4: string;
@@ -46,7 +48,10 @@ export interface CoursesContent extends Content {
       apply: {
         title: string;
         link: string;
-        icon: string;
+      };
+      github: {
+        title: string;
+        link: string;
       };
     };
     // 3 "sub descriptions" in a pair: first element is title and second is the desc
@@ -158,6 +163,7 @@ export interface Apply {
 
 export interface CallToActionButton {
   closed: boolean;
+  link: string;
   content: string;
 }
 
@@ -208,6 +214,8 @@ export interface PrivacyPolicy {
 
 export interface ApplyContent extends Content {
   hero: {
+    header: string;
+    subheader: string;
     closed: Closed;
     lazy: string;
     video: { mp4: string; webm: string };

@@ -37,7 +37,7 @@ export interface Project {
   teamId: string;
   card: string;
   name: string;
-  features: { title: string; image: string; description: string };
+  features: readonly { title: string; image: string; description: string }[];
   header: string;
   subheader: string;
   hero: {
@@ -45,8 +45,11 @@ export interface Project {
     subheader: string;
     image?: string;
   };
+  website?: string;
+  website_title?: string;
   appstore?: string;
   playstore?: string;
+  github?: string;
   ios_github?: string;
   android_github?: string;
   heroStartingColor: string;

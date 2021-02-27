@@ -19,8 +19,7 @@
       "buttons": {
         "apply": {
           "title": "Apply",
-          "link": "https://bit.ly/web-dev-sp21",
-          "icon": "apply"
+          "link": "https://bit.ly/web-dev-sp21"
         }
       },
       "subDescription1": [
