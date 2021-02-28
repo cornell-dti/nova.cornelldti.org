@@ -55,13 +55,13 @@ export default Vue.extend({
     };
   },
   methods: {
-    memberClicked(member: { id?: string; info?: Member }) {
+    memberClicked(member: { id?: string; info?: Member }): void {
       this.currentProfile = member;
 
       const modal = this.$refs.modalRef as BModal;
       modal.showModal();
     },
-    pad(members: MemberInfo[]) {
+    pad(members: MemberInfo[]): ReadonlyArray<MemberInfo | PhantomMember> {
       const copy: Array<MemberInfo | PhantomMember> = [...members];
 
       const max = 16;

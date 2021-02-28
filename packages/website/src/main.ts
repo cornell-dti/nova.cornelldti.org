@@ -7,6 +7,7 @@ import Give from './components/Give';
 import GNavItem from './components/GNavItem';
 import PageBackground from './components/PageBackground.vue';
 import PageHero from './components/PageHero.vue';
+import NavbarPadding from './components/NavbarPadding.vue';
 import NovaHero from './components/NovaHero.vue';
 import PageSublist from './components/PageSublist.vue';
 import TextPageHero from './components/TextPageHero.vue';
@@ -24,7 +25,7 @@ import RolesJSON from '../data/sets/roles.json';
 export default function main(
   Vue: VueConstructor,
   { head, router }: { router: VueRouter; head: { titleTemplate: string } }
-) {
+): void {
   /* eslint-disable no-param-reassign */
   head.titleTemplate = '%s - Cornell DTI';
 
@@ -41,6 +42,7 @@ export default function main(
   Vue.component('PageBackground', PageBackground);
   Vue.component('PageSection', PageSection);
   Vue.component('PageHero', PageHero);
+  Vue.component('NavbarPadding', NavbarPadding);
   Vue.component('NovaHero', NovaHero);
   Vue.component('TextPageHero', TextPageHero);
   Vue.component('TextHero', TextHero);

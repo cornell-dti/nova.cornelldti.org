@@ -64,6 +64,7 @@ module.exports = {
     'no-mixed-operators': ['off'],
     'arrow-parens': ['warn', 'as-needed'],
     'comma-dangle': ['warn', 'never'],
+    'class-methods-use-this': ['off'], // too noisy for Vue computed properties
     'no-underscore-dangle': ['off'],
     'no-continue': ['off'],
     'no-restricted-syntax': [

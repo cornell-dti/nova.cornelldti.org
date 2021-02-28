@@ -1,197 +1,178 @@
 <template class="applyPage">
-  <page-background v-if="content">
-    <strings-domain :value="content.joinInformation.applicationsOpen" #key="isOpen">
-      <strings-domain :value="[content.hero, content.hero.closed]" #key="[hero, closed]">
-        <nova-hero
-          v-if="hero && isOpen"
-          :header="hero.header"
-          :subheader="hero.subheader"
-          :video="hero.video"
-          :lazy="hero.lazy"
-          :image="hero.image"
-          page="apply"
-        />
-        <nova-hero v-else :video="hero.video" :lazy="hero.lazy" :image="hero.image" page="apply" />
-        <page-section v-if="!isOpen">
-          <b-container class="email-form">
-            <b-row align-h="center" class="no-gutters">
-              <b-col cols="auto">
-                <h2 class="email-header">{{ closed && closed.header }}</h2>
-                <p>{{ closed && closed.subheader }}</p>
-              </b-col>
-            </b-row>
-            <b-row align-h="center">
-              <b-alert :show="msgShow" :variant="msgVariant" v-html="msgContent"></b-alert>
-            </b-row>
-            <b-row align-h="center">
-              <b-col cols="auto">
-                <b-button @click="onSubscribe" type="submit">Subscribe</b-button>
-              </b-col>
-            </b-row>
-          </b-container>
-        </page-section>
-      </strings-domain>
-      <b-row v-if="isOpen" class="justify-content-center info-session-interjection">
-        <strings-domain :value="content.infoSession" #key="{header, subheader, description}">
-          <b-col class="info-session-description" sm="12" md="4" md-offset="1">
-            <div class="header">{{ header }}</div>
-            <div class="subheader">{{ subheader }}</div>
-            <div class="description">{{ description }}</div>
+  <page-background>
+    <nova-hero
+      v-if="content.hero && isOpen"
+      :header="content.hero.header"
+      :subheader="content.hero.subheader"
+      :video="content.hero.video"
+      :lazy="content.hero.lazy"
+      :image="content.hero.image"
+      page="apply"
+    />
+    <nova-hero
+      v-else
+      :video="content.hero.video"
+      :lazy="content.hero.lazy"
+      :image="content.hero.image"
+      page="apply"
+    />
+    <page-section v-if="!isOpen">
+      <b-container class="email-form">
+        <b-row align-h="center" class="no-gutters">
+          <b-col cols="auto">
+            <h2 class="email-header">{{ content.hero.closed && content.hero.closed.header }}</h2>
+            <p>{{ content.hero.closed && content.hero.closed.subheader }}</p>
           </b-col>
-        </strings-domain>
-        <b-col class="info-session-details" sm="12" md="auto" md-offset="1">
-          <b-row class="h-100" align-h="center" align-v="center">
-            <b-col cols="auto">
-              <strings-domain :value="content.infoSessions">
-                <template #key="[session1, session2]">
-                  <div class="info-session h-50">
-                    <div class="time">{{ session1.time }}</div>
-                    <div class="location location-desktop">
-                      {{ `${session1.location}${session1.link && session1.link.url ? ' • ' : ''}` }}
-                      <template v-if="session1.link && session1.link.url">
-                        <a class="apply-link" :href="session1.link.url">{{ session1.link.text }}</a>
-                      </template>
-                    </div>
-                    <div class="location location-mobile">
-                      {{ `${session1.location}` }}
-                      <br />
-                      <a
-                        v-if="session1.link && session1.link.url"
-                        class="apply-link"
-                        :href="session1.link.url"
-                        >{{ session1.link.text }}</a
-                      >
-                    </div>
-                  </div>
-                  <div class="info-session h-50">
-                    <div class="time">{{ session2.time }}</div>
-                    <div class="location location-desktop">
-                      {{ `${session2.location}${session2.link && session2.link.url ? ' • ' : ''}` }}
-                      <a
-                        v-if="session2.link && session2.link.url"
-                        class="apply-link"
-                        :href="session2.link.url"
-                        >{{ session2.link.text }}</a
-                      >
-                    </div>
-                    <div class="location location-mobile">
-                      {{ `${session2.location}` }}
-                      <br />
-                      <a
-                        v-if="session2.link && session2.link.url"
-                        class="apply-link"
-                        :href="session2.link.url"
-                        >{{ session2.link.text }}</a
-                      >
-                    </div>
-                  </div>
-                </template>
-              </strings-domain>
-            </b-col>
-          </b-row>
-        </b-col>
-      </b-row>
-
-      <b-container>
-        <role-selector
-          class="application-role-selector"
-          v-model="roleId"
-          dropdownText="I want to apply for..."
-          :centered="true"
-          :bold="true"
-          :showAll="false"
-        />
-
-        <strings-domain v-for="child of sections" :key="child.id" :value="child.info">
-          <template #key="info">
-            <timeline-section v-if="info" :header="info.header" :rightHeader="info['right-header']">
-              <template v-if="Array.isArray(info.sections)">
-                <div v-for="section of info.sections" :key="section.header">
-                  <template v-if="section">
-                    <div class="apply-header" v-if="section.header">{{ section.header }}</div>
-
-                    <div
-                      class="apply-list"
-                      v-if="section.content && Array.isArray(section.content.lines)"
-                    >
-                      <div
-                        class="apply-list-item"
-                        v-for="line of section.content.lines"
-                        :key="line"
-                      >
-                        {{ line }}
-                      </div>
-                    </div>
-                    <div class="apply-description" v-else>{{ section.content }}</div>
-                  </template>
-                </div>
-              </template>
-              <b-row v-else>
-                <b-col sm v-for="col of ['left', 'right']" :key="col">
-                  <template v-if="info.sections && info.sections[col]">
-                    <div class="apply-header">{{ info.sections[col].header }}</div>
-
-                    <div class="apply-list" v-if="info.sections[col].content.lines">
-                      <div
-                        class="apply-list-item"
-                        v-for="line of info.sections[col].content.lines"
-                        :key="line"
-                      >
-                        {{ line }}
-                      </div>
-                    </div>
-                    <div v-else class="apply-description">{{ info.sections[col].content }}</div>
-                  </template>
-                </b-col>
-              </b-row>
-              <strings-domainDomain
-                v-if="isOpen"
-                #key="[primary, secondary]"
-                :value="[info['call-to-action-button'], info['call-to-action-button-2']]"
-              >
-                <b-row class="justify-content-center">
-                  <b-col cols="12">
-                    <b-row>
-                      <b-col v-if="primary && primary.link" md="auto" sm="12">
-                        <b-button
-                          :href="primary.link"
-                          size="lg"
-                          variant="primary"
-                          class="call-to-action-button text-start"
-                          >{{ primary.content }}</b-button
-                        >
-                      </b-col>
-                      <b-col v-if="secondary && secondary.link" md="auto" sm="12">
-                        <b-button
-                          :href="secondary.link"
-                          v-string="secondary.context"
-                          size="lg"
-                          variant="primary"
-                          class="call-to-action-button"
-                        ></b-button>
-                      </b-col>
-                    </b-row>
-                  </b-col>
-                </b-row>
-              </strings-domainDomain>
-            </timeline-section>
-          </template>
-        </strings-domain>
+        </b-row>
+        <b-row align-h="center">
+          <b-alert :show="msgShow" :variant="msgVariant" v-html="msgContent"></b-alert>
+        </b-row>
+        <b-row align-h="center">
+          <b-col cols="auto">
+            <b-button @click="onSubscribe" type="submit">Subscribe</b-button>
+          </b-col>
+        </b-row>
       </b-container>
-    </strings-domain>
+    </page-section>
+    <b-row v-if="isOpen" class="justify-content-center info-session-interjection">
+      <b-col class="info-session-description" sm="12" md="4" md-offset="1">
+        <div class="header">{{ content.infoSession.header }}</div>
+        <div class="subheader">{{ content.infoSession.subheader }}</div>
+        <div class="description">{{ content.infoSession.description }}</div>
+      </b-col>
+      <b-col class="info-session-details" sm="12" md="auto" md-offset="1">
+        <b-row class="h-100" align-h="center" align-v="center">
+          <b-col cols="auto">
+            <div class="info-session h-50">
+              <div class="time">{{ session1.time }}</div>
+              <div class="location location-desktop">
+                {{ `${session1.location}${session1.link && session1.link.url ? ' • ' : ''}` }}
+                <template v-if="session1.link && session1.link.url">
+                  <a class="apply-link" :href="session1.link.url">{{ session1.link.text }}</a>
+                </template>
+              </div>
+              <div class="location location-mobile">
+                {{ `${session1.location}` }}
+                <br />
+                <a
+                  v-if="session1.link && session1.link.url"
+                  class="apply-link"
+                  :href="session1.link.url"
+                  >{{ session1.link.text }}</a
+                >
+              </div>
+            </div>
+            <div class="info-session h-50">
+              <div class="time">{{ session2.time }}</div>
+              <div class="location location-desktop">
+                {{ `${session2.location}${session2.link && session2.link.url ? ' • ' : ''}` }}
+                <a
+                  v-if="session2.link && session2.link.url"
+                  class="apply-link"
+                  :href="session2.link.url"
+                  >{{ session2.link.text }}</a
+                >
+              </div>
+              <div class="location location-mobile">
+                {{ `${session2.location}` }}
+                <br />
+                <a
+                  v-if="session2.link && session2.link.url"
+                  class="apply-link"
+                  :href="session2.link.url"
+                  >{{ session2.link.text }}</a
+                >
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
+    <b-row v-if="isOpen" class="justify-content-center coffee-chat">
+      <b-col class="info-session-description" sm="12" md="4" md-offset="1">
+        <div class="header">Coffee Chats</div>
+        <div class="subheader">Spring 2021</div>
+        <div class="description">
+          Sign up to chat with some members on the team! You can learn more about what we do by
+          sending an email to any of the members on the spreadsheet.
+        </div>
+      </b-col>
+      <b-col class="info-session-details" sm="12" md="auto" md-offset="1">
+        <b-row class="h-100" align-h="center" align-v="center">
+          <b-col cols="auto">
+            <div class="info-session h-50">
+              <div class="time">
+                Sign up at
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1xvFotNdMkCc4vaBv_LYTA8LHNIQfYlYaMIW3DUZYAvA/edit#gid=0"
+                >
+                  this link
+                </a>
+                to chat!
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
+
+    <b-container>
+      <role-selector
+        class="application-role-selector"
+        v-model="roleId"
+        dropdownText="I want to apply for..."
+        :centered="true"
+        :bold="true"
+        :showAll="false"
+      />
+
+      <timeline-section
+        v-for="info of sections"
+        :key="info.id"
+        :header="info.header"
+        :rightHeader="info.rightHeader"
+      >
+        <div v-for="section of info.sections" :key="section.header">
+          <template v-if="section">
+            <div class="apply-header" v-if="section.header">{{ section.header }}</div>
+            <div class="apply-description">{{ section.content }}</div>
+          </template>
+        </div>
+        <b-row class="justify-content-center">
+          <b-col cols="12">
+            <b-row>
+              <b-col
+                v-if="info.callToActionButton && info.callToActionButton.link"
+                md="auto"
+                sm="12"
+              >
+                <b-button
+                  :href="info.callToActionButton.link"
+                  size="lg"
+                  variant="primary"
+                  class="call-to-action-button text-start"
+                  >{{ info.callToActionButton.content }}</b-button
+                >
+              </b-col>
+            </b-row>
+          </b-col>
+        </b-row>
+      </timeline-section>
+    </b-container>
     <dti-footer ref="footerRef" page="apply" />
   </page-background>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component  } from 'vue-property-decorator';
 
 import TimelineSection from '../components/TimelineSection.vue';
 import RoleSelector from '../components/RoleSelector.vue';
 import DtiFooter from '../components/DtiFooter.vue';
 
-import { ApplyContent, ApplicationInfo } from '../content';
+import { ApplyContent, Apply as ApplyType, InfoSessionElement } from '../content';
+import json from '../../data/pages/apply.json';
 
 interface Apply {
   $refs: {
@@ -213,25 +194,39 @@ class Apply extends Vue {
   tabIndex = 0;
   roleId = '';
 
-  @Prop({ required: true })
-  content!: ApplyContent;
+  get content(): ApplyContent {
+    return json
+  }
 
-  onSubscribe(event: { preventDefault: () => void }) {
+  get isOpen(): boolean {
+    return this.content.joinInformation.applicationsOpen;
+  }
+
+  get session1(): InfoSessionElement {
+    return this.content.infoSessions[0]
+  }
+
+  get session2(): InfoSessionElement {
+    return this.content.infoSessions[0]
+  }
+
+  onSubscribe(event: { preventDefault: () => void }): void {
     event.preventDefault();
     this.$refs.footerRef.subscriptionClick();
   }
 
-  get sections() {
+  get sections(): readonly (ApplyType & { id: string })[] {
     const info = this.content.applicationInfo.find(a => a.id === this.roleId);
 
     if (!info) {
       return [];
     }
 
-    return Object.keys(info).map(id => ({
-      id,
-      info: ((info as unknown) as { [id: string]: ApplicationInfo })[id] // TODO
-    }));
+    return [
+      { id: 'apply', ...info.apply },
+      { id: 'nextSteps', ...info.nextSteps },
+      { id: 'decision', ...info.decision }
+    ]
   }
 }
 
@@ -258,6 +253,85 @@ export default Apply;
 
     & + p {
       font-size: 1.5rem;
+    }
+  }
+}
+.coffee-chat {
+  overflow: hidden;
+  color: #000;
+  margin: 4vw 0;
+  padding: 2rem 4vw;
+
+  .info-session-description {
+    padding-right: 4vw;
+
+    .header {
+      font-size: 3rem;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.3px;
+    }
+
+    .subheader {
+      font-size: 20px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.4;
+      letter-spacing: 0.3px;
+    }
+
+    .description {
+      margin-top: 2.5rem;
+      font-size: 20px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.4;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  .info-session-details {
+    padding-left: 4vw;
+
+    .info-session {
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+
+      .time {
+        margin-bottom: 0.3125rem;
+        font-size: 2rem;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.3px;
+
+        @media (max-width: 768px) {
+          letter-spacing: 0.5vw;
+          text-align: center;
+        }
+
+        @media (max-width: 500px) {
+          font-size: 5vw;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .location-desktop {
+          display: none !important;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .location-mobile {
+          display: none !important; // TODO fix this
+        }
+      }
     }
   }
 }

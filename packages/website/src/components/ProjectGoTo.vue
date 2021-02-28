@@ -1,56 +1,51 @@
 <template>
   <b-row>
     <b-col cols="auto">
-      <strings-domain
-        v-if="project"
-        #key="{website, website_title: websiteTitle, playstore, appstore, ios_github, android_github, github }"
-        :value="project"
-      >
-        <b-row>
-          <b-col cols="auto" v-if="website">
-            <b-button :href="website">
-              {{ `Go to ${websiteTitle || website}` }}
-            </b-button>
-          </b-col>
-
-          <b-col cols="auto" v-if="playstore">
-            <store-badge store="playstore" :url="playstore" />
-          </b-col>
-          <b-col cols="auto" v-if="appstore">
-            <store-badge store="appstore" :url="appstore" />
-          </b-col>
-          <b-col
-            class="connect-icon-container"
-            cols="auto"
-            v-if="ios_github && !appstore && !playstore && !website"
-          >
-            <b-button class="align-content-center" :href="ios_github">
-              <Github class="connect-icon connect-icon-blank" />
-              <span class="connect-text">iOS</span>
-            </b-button>
-          </b-col>
-          <b-col
-            class="connect-icon-container"
-            cols="auto"
-            v-if="android_github && !appstore && !playstore && !website"
-          >
-            <b-button class="align-content-center" :href="android_github">
-              <Github class="connect-icon connect-icon-blank" />
-              <span class="connect-text">Android</span>
-            </b-button>
-          </b-col>
-          <b-col
-            class="connect-icon-container"
-            cols="auto"
-            v-if="github && !appstore && !playstore && !website"
-          >
-            <b-button class="align-content-center" :href="github">
-              <Github class="connect-icon connect-icon-blank" />
-              <span class="connect-text">GitHub</span>
-            </b-button>
-          </b-col>
-        </b-row>
-      </strings-domain>
+      <b-row>
+        <b-col cols="auto" v-if="project.website">
+          <b-button :href="project.website">
+            {{ `Go to ${project['website_title'] || project.website}` }}
+          </b-button>
+        </b-col>
+        <b-col cols="auto" v-if="project.playstore">
+          <store-badge store="playstore" :url="project.playstore" />
+        </b-col>
+        <b-col cols="auto" v-if="project.appstore">
+          <store-badge store="appstore" :url="project.appstore" />
+        </b-col>
+        <b-col
+          class="connect-icon-container"
+          cols="auto"
+          v-if="project.ios_github && !project.appstore && !project.playstore && !project.website"
+        >
+          <b-button class="align-content-center" :href="project.ios_github">
+            <Github class="connect-icon connect-icon-blank" />
+            <span class="connect-text">iOS</span>
+          </b-button>
+        </b-col>
+        <b-col
+          class="connect-icon-container"
+          cols="auto"
+          v-if="
+            project.android_github && !project.appstore && !project.playstore && !project.website
+          "
+        >
+          <b-button class="align-content-center" :href="project.android_github">
+            <Github class="connect-icon connect-icon-blank" />
+            <span class="connect-text">Android</span>
+          </b-button>
+        </b-col>
+        <b-col
+          class="connect-icon-container"
+          cols="auto"
+          v-if="project.github && !project.appstore && !project.playstore && !project.website"
+        >
+          <b-button class="align-content-center" :href="project.github">
+            <Github class="connect-icon connect-icon-blank" />
+            <span class="connect-text">GitHub</span>
+          </b-button>
+        </b-col>
+      </b-row>
     </b-col>
   </b-row>
 </template>

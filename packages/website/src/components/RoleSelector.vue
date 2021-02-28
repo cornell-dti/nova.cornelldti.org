@@ -1,7 +1,12 @@
 <template>
   <div>
     <b-row class="filter-btn-group desktop-selector-container">
-      <b-col v-if="showAll" :md="density == 'compact' ? 'auto' : null" class="my-auto text-center">
+      <b-col
+        cols="auto"
+        v-if="showAll"
+        :md="density == 'compact' ? 'auto' : null"
+        class="my-auto text-center"
+      >
         <div :class="btnCSS(roleId === '', density, bold, dark)" @click="roleId = ''">All</div>
         <div :class="selectorCSS(roleId === '', dark)" />
       </b-col>
@@ -9,7 +14,7 @@
         v-for="role of resolvedRoles"
         :md="density === 'compact' ? 'auto' : null"
         :key="role.id"
-        class="my-auto text-center"
+        class="text-center"
       >
         <div :class="btnCSS(roleId === role.id, density, bold, dark)" @click="roleId = role.id">
           {{ role.name }}
@@ -42,12 +47,12 @@
 
 <style lang="scss" scoped>
 .filter-btn-group {
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .filter-btn,
 .selected-filter-btn {
-  margin: 1rem;
+  margin: 1rem 0 0;
   margin-bottom: 0rem;
   background-color: transparent;
   display: inline-block;
@@ -148,7 +153,7 @@
   font-size: 1.5rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1076px) {
   .desktop-selector-container {
     display: none !important;
   }
@@ -158,7 +163,7 @@
     font-weight: bold;
 
     #mobile-apply-dropdown {
-      background: transparent;
+      background-color: transparent;
 
       &.fg-dark {
         border: 1px solid rgba(0, 0, 0, 0.1);
@@ -182,10 +187,8 @@
         color: #fff;
       }
 
-      /* margin: 2rem 0.2rem; */
       -webkit-box-shadow: none;
       box-shadow: none;
-      /* display: inline; */
       font-weight: bold;
       padding: 0.5rem 0.5rem;
       width: auto;
@@ -193,7 +196,7 @@
       font-size: 2rem;
       min-height: 4rem;
       margin-right: auto;
-      /* font-size: 1.8rem; */
+      padding-right: 1.5rem;
     }
   }
 }
@@ -245,14 +248,13 @@ export default Vue.extend({
     } as PropValidator<Role[]>
   },
   computed: {
-    resolvedRoles() {
+    resolvedRoles(): readonly Role[] {
       return this.roles ?? this.getRoles();
     }
   },
   mounted() {
     this.$nextTick(() => {
-      const { roles } = this;
-      this.roleId = this.showAll ? '' : roles[0].id;
+      this.roleId = this.showAll ? '' : this.resolvedRoles?.[0].id ?? '';
     });
   },
   data() {
@@ -264,7 +266,12 @@ export default Vue.extend({
     };
   },
   methods: {
-    btnCSS(selected: boolean, density: 'compact' | '', isBold: boolean, isDark = false) {
+    btnCSS(
+      selected: boolean,
+      density: 'compact' | '',
+      isBold: boolean,
+      isDark = false
+    ): readonly (string | null)[] {
       return [
         selected ? 'selected-filter-btn' : 'filter-btn',
         isDark ? 'fg-light' : 'fg-dark',
@@ -272,21 +279,21 @@ export default Vue.extend({
         isBold ? 'bold' : null
       ];
     },
-    selectorCSS(selected: boolean, isDark = false) {
+    selectorCSS(selected: boolean, isDark = false): readonly string[] {
       return selected ? ['selector', 'selected', isDark ? 'fg-light' : 'fg-dark'] : ['selector'];
     },
-    mobileSelectorCSS(centered: boolean, isDark = false) {
+    mobileSelectorCSS(centered: boolean, isDark = false): readonly (string | null)[] {
       return [isDark ? 'fg-light' : 'fg-dark', centered ? 'centered' : null];
     },
-    mobileMenuCSS() {
+    mobileMenuCSS(): readonly string[] {
       return ['fg-dark'];
     },
-    handleMobileSelection(val: string) {
+    handleMobileSelection(val: string): void {
       this.roleId = val;
     }
   },
   watch: {
-    roleId($event) {
+    roleId($event: Event): void {
       this.$emit('update:change', $event);
     }
   }

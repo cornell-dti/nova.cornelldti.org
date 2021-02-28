@@ -1,5 +1,5 @@
 <template>
-  <team-view :content="content" :members="members" :diversity="diversity" />
+  <team-view :members="members" />
 </template>
 
 <static-query>
@@ -8,7 +8,6 @@ query Members {
     edges {
       node {
         netid
-        image       
         firstName
         lastName
         name
@@ -30,19 +29,12 @@ query Members {
 </static-query>
 
 <script lang="ts">
+import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import TeamView from '../views/Team.vue';
 
 import { Member } from '../shared';
-
-import Page from '../page';
-
-import { TeamContent } from '../content';
-
-import DiversityJSON from '../../data/sets/diversity.json';
-
-import json from '../../data/pages/team.json';
 
 interface TeamPage {
   members: {
@@ -53,20 +45,12 @@ interface TeamPage {
 }
 
 @Component({
-  metaInfo: {
-    title: 'Team'
-  },
-  components: {
-    TeamView
-  }
+  metaInfo: { title: 'Team' },
+  components: { TeamView }
 })
-class Team extends Page<TeamContent>(json) {
-  diversity = DiversityJSON.diversity;
-
+export default class Team extends Vue {
   get members(): Member[] {
     return (this.$static as TeamPage).members.edges.map(e => e.node).filter(e => e.name);
   }
 }
-
-export default Team;
 </script>

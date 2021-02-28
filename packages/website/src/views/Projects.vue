@@ -1,15 +1,13 @@
 <template>
   <page-background v-if="content">
-    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image}">
-      <nova-hero
-        :header="header"
-        :subheader="subheader"
-        :video="video"
-        :lazy="lazy"
-        :image="image"
-        page="projects"
-      />
-    </strings-domain>
+    <nova-hero
+      :header="content.hero.header"
+      :subheader="content.hero.subheader"
+      :video="content.hero.video"
+      :lazy="content.hero.lazy"
+      :image="content.hero.image"
+      page="projects"
+    />
 
     <page-section class="project-page-main-section">
       <b-row
@@ -71,17 +69,18 @@ import { PropValidator } from 'vue/types/options';
 
 import { ProjectsContent } from '../content';
 import { Project } from '../shared';
+import json from '../../data/pages/projects.json';
 
 export default Vue.extend({
   props: {
-    content: {
-      required: true
-    } as PropValidator<ProjectsContent>,
     projects: {
       required: true
     } as PropValidator<Project[]>
   },
   computed: {
+    content(): ProjectsContent {
+      return json;
+    },
     projectRows(): {
       index: number;
       members: Project[];

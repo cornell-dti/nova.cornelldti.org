@@ -11,7 +11,7 @@ export default {
         video: string | { webm: string; mp4: string };
       };
     }
-  ) {
+  ): JSX.Element {
     const { props } = cx;
     const useAws = props.aws != null ? props.aws : true;
 

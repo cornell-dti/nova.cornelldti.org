@@ -1,15 +1,13 @@
 <template>
-  <page-background v-if="content">
-    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image}">
-      <nova-hero
-        :header="header"
-        :subheader="subheader"
-        :video="video"
-        :lazy="lazy"
-        :image="image"
-        page="courses"
-      />
-    </strings-domain>
+  <page-background>
+    <nova-hero
+      :header="content.hero.header"
+      :subheader="content.hero.subheader"
+      :video="content.hero.video"
+      :lazy="content.hero.lazy"
+      :image="content.hero.image"
+      page="courses"
+    />
     <b-container>
       <page-section>
         <template
@@ -35,26 +33,40 @@
               <div class="courses-row-content-subheader">
                 {{ content.subtitle }}
               </div>
-              <p class="courses-row-content">{{ content.description }}</p>
-              <strings-domain
-                v-if="content.buttons"
-                #key="{apply, github}"
-                :value="content.buttons"
-              >
-                <b-button v-if="apply" class="social-button" :href="apply.link">
-                  <ApplyIcon />
-                  <div class="social-button-text">
-                    {{ apply.title || '' }}
-                  </div>
-                </b-button>
-                <b-button v-if="github" class="social-button" :href="github.link">
-                  <GitHubIcon />
-                  <div class="social-button-text">
-                    {{ github.title || '' }}
-                  </div>
-                </b-button>
-              </strings-domain>
+              <b-button class="social-button" :href="content.buttons.apply.link">
+                <ApplyIcon />
+                <div class="social-button-text">
+                  {{ content.buttons.apply.title || '' }}
+                </div>
+              </b-button>
             </b-col>
+          </b-row>
+          <b-row :key="content.id + 'desc'" align-h="center" align-v="center" class="courses-row">
+            <p class="courses-row-content">{{ content.description }}</p>
+          </b-row>
+          <b-row :key="content.id + 'trio'" align-h="center">
+            <b-col sm="12" md="4">
+              <h3>{{ content.subDescription1[0] }}</h3>
+              <p>{{ content.subDescription1[1] }}</p>
+            </b-col>
+            <b-col sm="12" md="4">
+              <h3>{{ content.subDescription2[0] }}</h3>
+              <p>{{ content.subDescription2[1] }}</p>
+            </b-col>
+            <b-col sm="12" md="4">
+              <h3>{{ content.subDescription3[0] }}</h3>
+              <p>{{ content.subDescription3[1] }}</p>
+            </b-col>
+          </b-row>
+          <b-row :key="content.id + 'cta'" align-h="center">
+            <b-button
+              :href="content.courseWebsiteLink"
+              class="social-button-red social-button-small"
+            >
+              <div class="course-website-text">
+                Course Textbook
+              </div>
+            </b-button>
           </b-row>
         </template>
       </page-section>
@@ -83,7 +95,7 @@ $dark-gray: #4a4a4a;
 
 .courses-row-image {
   object-fit: cover;
-  max-height: 500px;
+  max-height: 350px;
   width: 100%;
   margin: 0.25rem 0;
 }
@@ -145,7 +157,7 @@ $dark-gray: #4a4a4a;
   }
 
   & + .courses-row {
-    margin-top: 7.5rem;
+    margin-top: 3.5rem;
 
     @media screen and (max-width: 768px) {
       margin-top: 0.625rem;
@@ -158,7 +170,7 @@ $dark-gray: #4a4a4a;
   }
 
   & + .courses-row {
-    margin-top: 120px;
+    margin-top: 50px;
 
     @media screen and (max-width: 768px) {
       margin-top: 10px;
@@ -195,6 +207,7 @@ $dark-gray: #4a4a4a;
   }
 
   .courses-row-content {
+    font-size: 1.1rem;
     font-weight: 500;
     letter-spacing: -0.4px;
     color: $dark-gray;
@@ -203,7 +216,6 @@ $dark-gray: #4a4a4a;
   .courses-row-content-subheader {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1.25rem;
   }
 
   .courses-top {
@@ -245,27 +257,36 @@ $dark-gray: #4a4a4a;
     margin-left: 15px;
     padding-left: 15px;
   }
+
+  .course-website-text {
+    margin-left: 15px;
+    padding-left: 15px;
+  }
+
+  &-red {
+    background: #c93b4c;
+  }
+
+  &-small {
+    font-size: 1.3rem;
+  }
 }
 </style>
 
 <script lang="ts">
 import Vue from 'vue';
-import { PropValidator } from 'vue/types/options';
 
-import GitHubIcon from '../assets/social/github.svg';
 import ApplyIcon from '../assets/other/apply.svg';
 
 import { CoursesContent } from '../content';
+import json from '../../data/pages/courses.json';
 
 export default Vue.extend({
-  props: {
-    content: {
-      required: true
-    } as PropValidator<CoursesContent>
-  },
-  components: {
-    GitHubIcon,
-    ApplyIcon
+  components: { ApplyIcon },
+  computed: {
+    content(): CoursesContent {
+      return json;
+    }
   }
 });
 </script>

@@ -5,8 +5,8 @@
         <b-row>
           <b-col>
             <div class="privacy-header">
-              <h1>{{ content.header }}</h1>
-              <p>{{ content.subheader }}</p>
+              <h1>Privacy@DTI</h1>
+              <p>All of our privacy polices in one place.</p>
             </div>
           </b-col>
         </b-row>
@@ -30,13 +30,10 @@
 import Vue from 'vue';
 import { PropValidator } from 'vue/types/options';
 
-import { PrivacyContent, PrivacyPolicy } from '../content';
+import { PrivacyPolicy } from '../content';
 
 export default Vue.extend({
   props: {
-    content: {
-      required: true
-    } as PropValidator<PrivacyContent>,
     policies: {
       required: true
     } as PropValidator<PrivacyPolicy[]>

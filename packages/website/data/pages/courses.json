@@ -14,29 +14,27 @@
       "id": "trends",
       "header": "Trends in Web Development",
       "subtitle": "Modern Industry-Leading Technologies",
-      "description": "Trends in Web Development is a 2-credit S/U course that showcases modern web development languages and practices used within the industry. We cover technologies like React, Node.js, Heroku deployment, and more, all based on what we use on the team and what leading tech companies use. The course is specifically designed to fill in the gaps of college classes and prepare you for your next project or internship.",
+      "description": "Trends in Web Development is a 2-credit S/U course that showcases modern full-stack development and best practices used within industry. We cover technologies like TypeScript, React, Node.js, Firebase, Express and more, all of which are deployed at scale by leading tech companies. ",
       "image": "/static/pages/courses-promo-trends.jpg",
       "buttons": {
         "apply": {
           "title": "Apply",
-          "link": "https://bit.ly/webdevsp20",
-          "icon": "apply"
+          "link": "https://bit.ly/web-dev-sp21"
         }
-      }
-    },
-    {
-      "id": "blueprint",
-      "header": "Blueprint",
-      "subtitle": "Product Development & Management",
-      "description": "Blueprint is a 2-credit S/U course created by Cornell DTI that teaches students how to develop an idea and bring it to life using concepts from product design, product management, and entrepreneurship. Students will work in groups to solve a problem they identify, and then ideate and iterate to create a minimum viable product. We teach what we've learned from our experiences within DTI on a project team, as well as industry experience at leading tech companies.",
-      "image": "/static/pages/courses-promo-blueprint.png",
-      "buttons": {
-        "apply": {
-          "title": "Apply",
-          "link": "https://bit.ly/blueprint20",
-          "icon": "apply"
-        }
-      }
+      },
+      "subDescription1": [
+        "Best Practices",
+        "We emphasize best engineering practices for every element of the course taught, from API design to frontend modularization."
+      ],
+      "subDescription2": [
+        "Deploy",
+        "Learn how to deploy your web applications to the cloud using service providers such as Heroku or the Google Cloud Platform."
+      ],
+      "subDescription3": [
+        "Final Project",
+        "The class ends with a final capstone project consolidating all the topics discussed in class, which can be used on your resume or portfolio."
+      ],
+      "courseWebsiteLink": "https://webdev.cornelldti.org/"
     }
   ]
 }
