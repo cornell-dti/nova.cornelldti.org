@@ -1,0 +1,12 @@
+{
+    "hero": {
+        "header": "Where Have We Gone?",
+        "subheader": "Some pretty cool places if we don't say so ourselves...",
+        "lazy": "/static/pages/courses-hero-lazy.jpg",
+        "video": {
+            "mp4": "",
+            "webm": ""
+        },
+        "image": "/static/pages/courses-hero.png"
+    }
+}

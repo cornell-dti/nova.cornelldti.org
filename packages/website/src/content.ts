@@ -12,6 +12,9 @@ export interface Content {
   };
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface AlumniContent extends Content {}
+
 export interface HomeContent extends Content {
   quicklinks: {
     team: {
