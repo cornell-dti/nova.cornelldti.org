@@ -5,7 +5,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import BubbleMap from '../components/BubbleMap.tsx';
+import BubbleMap from '../components/BubbleMap';
 
 export default Vue.extend({
   components: {

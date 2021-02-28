@@ -25,7 +25,7 @@ export default {
         id: number;
       };
     }
-  ) {
+  ): JSX.Element {
     const { props } = cx;
     const { width, height, id } = props;
 
