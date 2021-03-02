@@ -22,18 +22,18 @@
           "link": "https://bit.ly/web-dev-sp21"
         }
       },
-      "subDescription1": [
-        "Best Practices",
-        "We emphasize best engineering practices for every element of the course taught, from API design to frontend modularization."
-      ],
-      "subDescription2": [
-        "Deploy",
-        "Learn how to deploy your web applications to the cloud using service providers such as Heroku or the Google Cloud Platform."
-      ],
-      "subDescription3": [
-        "Final Project",
-        "The class ends with a final capstone project consolidating all the topics discussed in class, which can be used on your resume or portfolio."
-      ],
+      "subDescription1": {
+        "title": "Best Practices",
+        "description": "We emphasize best engineering practices for every element of the course taught, from API design to frontend modularization."
+      },
+      "subDescription2": {
+        "title": "Deploy",
+        "description": "Learn how to deploy your web applications to the cloud using service providers such as Heroku or the Google Cloud Platform."
+      },
+      "subDescription3": {
+        "title": "Final Project",
+        "description": "The class ends with a final capstone project consolidating all the topics discussed in class, which can be used on your resume or portfolio."
+      },
       "courseWebsiteLink": "https://webdev.cornelldti.org/"
     }
   ]
