@@ -5,19 +5,10 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-const express = require('express');
-const path = require('path');
-
-const $AssetsJSON = require("./data/assets.json");
+const $AssetsJSON = require('./data/assets.json');
 
 /** @type import('@tyankatsu0105/types-gridsome').Server */
-module.exports = function (api) {
-  // for gridsome develop
-  api.configureServer(app => {
-    // webpack won't host these files in development mode.
-    app.use('/admin', express.static(path.resolve(__dirname, '../../dist/admin/')));
-  });
-
+module.exports = api => {
   api.loadSource(({ addSchemaTypes, addMetadata }) => {
     // Define the member schema.
 
@@ -47,4 +38,4 @@ module.exports = function (api) {
       addMetadata(k, v);
     });
   });
-}
+};
