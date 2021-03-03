@@ -21,7 +21,7 @@
           lg="4"
           class="justify-content"
           v-for="project in projectRow.members"
-          :key="project.id"
+          :key="project.teamId"
         >
           <g-link :to="{ path: `/projects/${project.teamId}/` }">
             <b-img :src="project.card" class="project-card" />
@@ -65,21 +65,19 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { PropValidator } from 'vue/types/options';
 
 import { ProjectsContent } from '../content';
 import { Project } from '../shared';
-import json from '../../data/pages/projects.json';
+import allProjectsJSON from '../../data/projects/all-projects.json';
+import projectsPageJSON from '../../data/pages/projects.json';
 
 export default Vue.extend({
-  props: {
-    projects: {
-      required: true
-    } as PropValidator<Project[]>
-  },
   computed: {
+    projects(): readonly Project[] {
+      return allProjectsJSON;
+    },
     content(): ProjectsContent {
-      return json;
+      return projectsPageJSON;
     },
     projectRows(): {
       index: number;
