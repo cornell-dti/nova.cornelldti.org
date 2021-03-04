@@ -13,7 +13,7 @@
     type="none"
   >
     <b-navbar-brand v-if="!hide" class="navbar-branding-dti" href="#">
-      <b-img class="brand-icon" :src="$static.metadata.branding.icon" />
+      <b-img class="brand-icon" :src="assets.branding.icon" />
     </b-navbar-brand>
 
     <b-nav-text :style="{ display: navShown ? '' : 'none' }" v-html="this.$route.name" />
@@ -66,9 +66,7 @@
         <g-nav-item to="/courses/">Courses</g-nav-item>
         <g-nav-item to="/sponsor/">Sponsor</g-nav-item>
         <g-nav-item
-          v-if="
-            $static.metadata.mainMenu.advertisement && $static.metadata.mainMenu.advertisement.open
-          "
+          v-if="assets.mainMenu.advertisement && assets.mainMenu.advertisement.open"
           to="/apply/"
           class="override-apply-color"
         >
@@ -76,45 +74,26 @@
         </g-nav-item>
         <g-nav-item v-else to="/apply/">Apply</g-nav-item>
         <g-nav-item
-          v-if="$static.metadata.mainMenu.giving && $static.metadata.mainMenu.giving.show"
+          v-if="assets.mainMenu.giving && assets.mainMenu.giving.show"
           to="/give/"
           class="override-apply-color"
         >
-          <b-button class="apply-button" variant="primary"
-            >$static.metadata.mainMenu.giving.text</b-button
-          >
+          <b-button class="apply-button" variant="primary">{{
+            assets.mainMenu.giving.text
+          }}</b-button>
         </g-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </template>
 
-<static-query>
-query {
-  metadata {
-    branding {
-      icon
-    }
-
-    mainMenu {
-      advertisement {
-        open
-      }
-
-      giving {
-        show
-        text
-      }
-    }
-  }
-}
-</static-query>
-
 <script lang="ts">
 import Vue from 'vue';
 import { BNavbar } from 'bootstrap-vue';
 
 import EventBus from '../eventbus';
+import assets from '../../data/assets.json';
+import { Assets } from '../types';
 
 export default Vue.extend({
   data() {
@@ -124,6 +103,11 @@ export default Vue.extend({
       navShown: false,
       light: false
     };
+  },
+  computed: {
+    assets(): Assets {
+      return assets;
+    }
   },
   methods: {
     onScroll(): void {

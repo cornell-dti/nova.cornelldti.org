@@ -14,8 +14,6 @@ import TextPageHero from './components/TextPageHero.vue';
 import TextHero from './components/TextHero.vue';
 import PageSection from './components/PageSection.vue';
 
-import DTIProject from './templates/DTIProject.vue';
-
 import { initializeVue } from './shared';
 
 import CompaniesJSON from '../data/sets/companies.json';
@@ -46,7 +44,6 @@ export default function main(
   Vue.component('NovaHero', NovaHero);
   Vue.component('TextPageHero', TextPageHero);
   Vue.component('TextHero', TextHero);
-  Vue.component('DtiProject', DTIProject);
 
   Vue.mixin({
     methods: {

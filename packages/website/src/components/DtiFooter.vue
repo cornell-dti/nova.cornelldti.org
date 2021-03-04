@@ -6,7 +6,7 @@
           <b-row align-h="end" align-v="start" class="subfooter-wrapper">
             <b-col class="subfooter-col" md="6" sm="6">
               <div class="subfooter-text subfooter-text-gray">{{ `Have a great idea?` }}</div>
-              <a class="button-wrapper" :href="$static.metadata.footer.link">
+              <a class="button-wrapper" :href="assets.footer.link">
                 <button class="subfooter-button subfooter-button-gray">{{ `Contact Us` }}</button>
               </a>
             </b-col>
@@ -28,7 +28,7 @@
           <b-row class="footer-row" align-v="center">
             <b-col lg="12" xl="6">
               <b-row align-h="start">
-                <img class="brand" :src="$static.metadata.branding.wordmark" />
+                <img class="brand" :src="assets.branding.wordmark" />
               </b-row>
             </b-col>
             <b-col lg="12" xl="6" class="social-icons-wrapper">
@@ -101,20 +101,6 @@
   </div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    branding {
-      wordmark
-    }
-
-    footer {
-      link
-    }
-  }
-}
-</static-query>
-
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
@@ -130,6 +116,9 @@ import Heart from '../assets/footer/heart.svg';
 import HeartMobile from '../assets/footer/heart-mobile.svg';
 
 import MailChimpForm from './MailChimpForm.vue';
+
+import assets from '../../data/assets.json';
+import { Assets } from '../types';
 
 @Component({
   components: {
@@ -153,7 +142,9 @@ export default class DtiFooter extends Vue {
 
   isSubscribing = false;
 
-  email = '';
+  get assets(): Assets {
+    return assets;
+  }
 
   modalClose(): void {
     const modal = (this.$refs.emailModalRef as unknown) as BModal;

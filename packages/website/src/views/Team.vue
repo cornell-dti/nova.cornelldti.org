@@ -385,14 +385,14 @@ $secondary: #f6f6f6;
 
 <script lang="ts">
 import Vue from 'vue';
-import { PropValidator } from 'vue/types/options';
 import HeadshotGrid from '../components/HeadshotGrid.vue';
 import RoleSelector from '../components/RoleSelector.vue';
 import CircleProgressIndicator from '../components/CircleProgressIndicator.vue';
 
 import { TeamContent } from '../content';
 import { Member } from '../shared';
-import json from '../../data/pages/team.json';
+import allMembers from '../../data/members/all-members.json';
+import teamJSON from '../../data/pages/team.json';
 import DiversityJSON from '../../data/sets/diversity.json';
 
 type RoleId = '' | 'business' | 'developer' | 'designer' | 'pm';
@@ -413,14 +413,12 @@ export default Vue.extend({
     CircleProgressIndicator,
     RoleSelector
   },
-  props: {
-    members: {
-      required: true
-    } as PropValidator<Member[]>
-  },
   computed: {
+    members(): readonly Member[] {
+      return allMembers;
+    },
     content(): TeamContent {
-      return json;
+      return teamJSON;
     },
     diversity(): Diversity {
       return DiversityJSON.diversity;

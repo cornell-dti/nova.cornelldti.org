@@ -39,97 +39,17 @@
   </page-background>
 </template>
 
-<page-query>
-query DTIProjects ($path: String!, $teamId: String!) {
-  dtiProject: dtiProject(path: $path) {
-      id
-      active
-      teamId
-      card
-      name
-      features { title image description }
-      subheader
-      header
-      hero {
-          header
-          subheader
-          image
-      }
-      appstore
-      playstore
-      ios_github
-      android_github
-      heroStartingColor
-      heroEndingColor
-      heroUseDarkText
-      website
-      website_title
-  }
-
-  currentMembers: allMember(filter: { subteam: { in: [$teamId] }}) {
-    edges {
-      node {
-        netid    
-        firstName
-        lastName
-        name
-        graduation
-        major
-        linkedin
-        github
-        hometown
-        about
-        subteam
-        otherSubteams
-        website
-        roleId
-        roleDescription
-      }
-    }
-  }
-
-  pastMembers: allMember(filter: { otherSubteams: { contains: [$teamId] }}) {
-    edges {
-      node {
-        netid      
-        firstName
-        lastName
-        name
-        graduation
-        major
-        linkedin
-        github
-        hometown
-        about
-        subteam
-        otherSubteams
-        website
-        roleId
-        roleDescription
-      }
-    }
-  }
-}
-</page-query>
-
 <script lang="ts">
 import Vue from 'vue';
 
 import EventBus from '../eventbus';
-import ProjectFeaturesList from '../components/ProjectFeaturesList.vue';
-import ProjectLearnMore from '../components/ProjectLearnMore.vue';
-import ProjectHeader from '../components/ProjectHeader.vue';
-import TeamMembers from '../components/TeamMembers.vue';
-
+import ProjectFeaturesList from './ProjectFeaturesList.vue';
+import ProjectLearnMore from './ProjectLearnMore.vue';
+import ProjectHeader from './ProjectHeader.vue';
+import TeamMembers from './TeamMembers.vue';
+import allProjects from '../../data/projects/all-projects.json';
+import allMembers from '../../data/members/all-members.json';
 import { Member, Project } from '../shared';
-
-type EdgeNode<T> = { edges: { node: T }[] };
-
-interface DTIProjectPage {
-  pastMembers: EdgeNode<Member>;
-  currentMembers: EdgeNode<Member>;
-  dtiProject: Project;
-}
 
 export default Vue.extend({
   components: {
@@ -138,8 +58,8 @@ export default Vue.extend({
     ProjectHeader,
     TeamMembers
   },
-  metaInfo: {
-    title: 'Projects'
+  props: {
+    teamId: { type: String, required: true }
   },
   data() {
     return {
@@ -152,15 +72,17 @@ export default Vue.extend({
   },
   computed: {
     project(): Project {
-      const project = (this.$page as DTIProjectPage).dtiProject;
-
+      const project = allProjects.find(it => it.teamId === this.teamId);
+      if (project == null) throw new Error();
       return project;
     },
     pastMembers(): Member[] {
-      return (this.$page as DTIProjectPage).pastMembers.edges.map(e => e.node);
+      return allMembers.filter(member =>
+        (member.otherSubteams || []).includes(this.project.teamId)
+      );
     },
     currentMembers(): Member[] {
-      return (this.$page as DTIProjectPage).currentMembers.edges.map(e => e.node);
+      return allMembers.filter(member => member.subteam === this.project.teamId);
     }
   }
 });

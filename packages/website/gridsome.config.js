@@ -6,30 +6,13 @@ const path = require('path');
 module.exports = {
   siteName: 'Cornell Design & Tech Initiative',
   outputDir: '../../dist',
-  templates: {
-    DTIProject: '/projects/:teamId_raw',
-  },
   plugins: [
     {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'PrivacyPolicy',
-        path: './data/privacy/*.md',
-      },
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        typeName: 'DTIProject',
-        path: './data/projects/*.json',
-      },
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        typeName: 'Member',
-        path: './data/members/*.json',
-      },
+        path: './data/privacy/*.md'
+      }
     },
     {
       use: 'gridsome-plugin-svg'
@@ -38,4 +21,4 @@ module.exports = {
       use: path.resolve(__dirname, 'plugins/tsx.js')
     }
   ]
-}
+};
