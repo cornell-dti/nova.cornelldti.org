@@ -3,18 +3,18 @@
     "firstName": "Jagger",
     "lastName": "Brulato",
     "name": "Jagger Brulato",
-    "isLead": true,
     "graduation": "May 2021",
     "major": "Computer Science",
+    "hometown": "Mooresville, NC",
+    "about": "Hey, I'm Jagger. I'm a senior majoring in CS and Economics. I like to write and produce funk-fusion music, and I do a lot of board sports (wakeboarding, wakesurfing, kitesurfing, snowboarding, longboarding, etc.). I also play a lot of chess and Tetris.",
+    "subteam": "leads",
+    "roleId": "lead",
+    "roleDescription": "Lead",
+    "doubleMajor": "Economics",
+    "website": "https://jagger.netlify.app/",
     "linkedin": "https://www.linkedin.com/in/jagger-brulato-896968149/",
     "github": "https://github.com/JBoss925",
-    "hometown": "Mooresville, NC",
-    "about": "I'm Jagger, a junior majoring in CS. I like to write and produce funk-fusion music, and I do lots of board sports (wakeboarding, wakesurfing, kitesurfing, snowboarding, longboarding, etc.). I also play a lot of Chess and Tetris.",
-    "subteam": "Leads",
     "otherSubteams": [
-        "events",
-        "orientation"
-    ],
-    "roleId": "lead",
-    "roleDescription": "Lead"
+        "idol"
+    ]
 }

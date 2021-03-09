@@ -2,13 +2,13 @@
     "netid": "hl2334",
     "firstName": "Hanwen",
     "lastName": "Lin",
-    "name": "Hanwen (Hank) Lin",
+    "name": "Hank Lin",
     "graduation": "May 2023",
     "major": "Information Science",
-    "minor": "D+EA",
-    "hometown": "Pittsburgh, PA",
-    "about": "Hi! I am a product/UX designer for Eve, and currently a freshman majoring in Information Science with a concentration in UX Design. As a newbie to DTI and UX, I am striving to build a strong design portfolio, while learn from and serve the community with my teammates. Outside of academics, I enjoy playing the piano, composing, soccer, surfing, and traveling!",
-    "subteam": "events",
+    "hometown": "Pittsburgh, PA, NJ",
+    "about": "Hi! I am a product/UX designer for QueueMeIn, and currently a sophomore majoring in Information Science with a concentration in UX Design. I have a passion in creating design with community impact. Outside of academics, I enjoy playing the piano, composing, soccer, surfing, and traveling!\n",
+    "subteam": "queuemein",
     "roleId": "designer",
-    "roleDescription": "Designer"
+    "roleDescription": "Designer",
+    "linkedin": "https://www.linkedin.com/in/hank-lin-410b8217a/"
 }

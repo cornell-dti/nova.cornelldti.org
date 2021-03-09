@@ -1,0 +1,15 @@
+{
+    "netid": "mma89",
+    "firstName": "Mena",
+    "lastName": "Attia",
+    "name": "Mena Attia",
+    "graduation": "May 2023",
+    "major": "Computer Science",
+    "hometown": "Brooklyn, NY",
+    "about": "Hi, I'm a sophomore majoring in Computer Science with a minor in ORIE. Outside of CS, I love making art, especially acrylic paintings and pointillism portraits, as well as exploring new art media and techniques. I also love shopping for clothes and spend a lot of time thinking and daydreaming.",
+    "subteam": "cuapts",
+    "roleId": "developer",
+    "roleDescription": "Developer",
+    "minor": "ORIE",
+    "website": "http://menaattia.com"
+}

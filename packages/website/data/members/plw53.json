@@ -5,12 +5,16 @@
     "name": "Peter Wu",
     "graduation": "May 2023",
     "major": "Computer Science",
-    "website": "https://peterwu.dev",
+    "hometown": "Princeton, NJ",
+    "about": "I'm a sophomore who pretends that I'm from Princeton, but that's not 100% true. If you want to know why and you're still reading this, find me and let's chat!",
+    "subteam": "cuapts",
+    "roleId": "pm",
+    "roleDescription": "Technical PM",
+    "minor": "Mathematics",
+    "website": "https://peterlwu.com/",
     "linkedin": "https://www.linkedin.com/in/peterlingwu/",
     "github": "https://github.com/ptwu",
-    "hometown": "Princeton Junction, NJ",
-    "about": "I'm a freshman computer science major—unexpected, right?—and I'm addicted to the feeling when something you made works. I really like making things that people use, usually on the web. When not working on problem sets and developing for DTI, you'll find me at Helen Newman playing badminton with Cornell's club team, cooking and eating, or listening to all kinds of music.",
-    "subteam": "samwise",
-    "roleId": "developer",
-    "roleDescription": "Developer"
+    "otherSubteams": [
+        "samwise"
+    ]
 }

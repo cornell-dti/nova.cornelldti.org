@@ -1,0 +1,17 @@
+{
+    "netid": "sc2843",
+    "firstName": "Sophia",
+    "lastName": "Chu",
+    "name": "Sophia Chu",
+    "graduation": "May 2023",
+    "major": "Operations Researxh",
+    "hometown": "Scarsdale, NY",
+    "about": "Hi! I\u2019m a sophomore majoring in Operations Research and Information Engineering and minoring in business. I\u2019m from Scarsdale, NY  and love to bake and hike. My favorite go to tv show is Brooklyn Nine-Nine because I can always count on it to make me laugh! ",
+    "subteam": "business",
+    "roleId": "business",
+    "roleDescription": "Business Analyst",
+    "minor": "Business minor for engineers",
+    "otherSubteams": [
+        "reviews"
+    ]
+}

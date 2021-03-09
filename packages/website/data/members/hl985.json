@@ -1,0 +1,18 @@
+{
+    "netid": "hl985",
+    "firstName": "Hahnbee",
+    "lastName": "Lee",
+    "name": "Hahnbee Lee",
+    "graduation": "May 2022",
+    "major": "Computer Science",
+    "hometown": "Bristow, VA",
+    "about": "As nerdy as it sounds I like to code. Particularly, I like to utilize code to create an impact and help others. I also like making aesthetically pleasing frontend designs come to life. Besides coding, I also enjoy watching movies, playing guitar, attempting to ollie, cuddling my dog, and listening to music with friends.",
+    "subteam": "courseplan",
+    "roleId": "developer",
+    "roleDescription": "Developer",
+    "doubleMajor": "Information Science",
+    "minor": "Law & Society",
+    "website": "http://hahnbeelee.github.io/",
+    "linkedin": "https://www.linkedin.com/in/hahnbee-lee/",
+    "github": "https://github.com/hahnbeelee"
+}

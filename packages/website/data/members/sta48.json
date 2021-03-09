@@ -1,0 +1,17 @@
+{
+    "netid": "sta48",
+    "firstName": "Sayeeda",
+    "lastName": "Aishee",
+    "name": "Jahin Aishee",
+    "graduation": "May 2022",
+    "major": "ISST",
+    "hometown": "Edinburg, TX",
+    "about": "Hi, I am Jahin. I am junior studying Data Science and UX Design. I love connecting people to technology in an authentic way. Outside of design I love stand up comedy and chai.",
+    "subteam": "zing",
+    "roleId": "designer",
+    "roleDescription": "Designer",
+    "website": "http://jahin.design",
+    "otherSubteams": [
+        "carriage"
+    ]
+}

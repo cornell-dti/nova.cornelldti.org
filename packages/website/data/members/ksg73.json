@@ -2,15 +2,19 @@
     "netid": "ksg73",
     "firstName": "Katherine",
     "lastName": "Go",
-    "name": "Katie Tracy",
+    "name": "Katherine Go",
     "graduation": "May 2022",
     "major": "Information Science",
+    "hometown": "Manila, Philippines",
+    "about": "Hi, I\u2019m Katie! I love creating products at the intersection of technology, entrepreneurship, and design to uplift communities I'm part of. On campus I\u2019m involved with Cornell Creatives, Fort\u00e9, and Cru. I make YouTube videos every week on my channel, alohakatiex, and I also co-host a podcast called The Secret Syllabus. I'm probably eating kimbap right now.",
+    "subteam": "zing",
+    "roleId": "pm",
+    "roleDescription": "Product Manager",
+    "minor": "Creative Writing, Game Design",
     "website": "https://youtube.com/alohakatiex",
     "linkedin": "https://www.linkedin.com/in/katie-tracy/",
     "github": "https://github.com/alohakatiex",
-    "hometown": "Manila, Philippines",
-    "about": "Hi, I’m Katie! I’m a sophomore from Manila, Philippines studying Information Science. On campus I’m involved with Cornell Creatives, WICC, and Forté. I make YouTube videos every week on my channel, alohakatiex, and I love kimbap and fangirling over YA novels.",
-    "subteam": "flux",
-    "roleId": "designer",
-    "roleDescription": "Designer"
+    "otherSubteams": [
+        "flux"
+    ]
 }

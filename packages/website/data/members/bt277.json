@@ -5,11 +5,16 @@
     "name": "Bahar Tehranipoor",
     "graduation": "May 2023",
     "major": "Computer Science",
-    "minor": "International Relations",
-    "linkedin": "https://www.linkedin.com/in/bahar-tehranipoor-781735182/",
     "hometown": "Gainesville, FL",
-    "about": "Hi! I'm a freshman majoring in computer science interested in digital humanities and using technology to make an impact internationally. I'm also the webmaster of my acapella group The Touchtones and if I can make the time, I tutor online making educational videos - think Khan Academy!",
-    "subteam": "events",
-    "roleId": "developer",
-    "roleDescription": "Developer"
+    "about": "Hi! My name is Bahar and I'm a sophomore majoring in computer science and minoring in business. On-campus I'm the assistant musical director of my acapella group The Touchtones and a web dev on The Wardrobe. Outside of all that, you can find me watching documentaries (usually about pyramid schemes), listening to new music, or reading a book and updating my Goodreads.  ",
+    "subteam": "cuapts",
+    "roleId": "pm",
+    "roleDescription": "Product Manager",
+    "minor": "Business",
+    "website": "https://bahartehrani.github.io/",
+    "linkedin": "https://www.linkedin.com/in/bahar-tehranipoor-781735182/",
+    "github": "https://github.com/bahartehrani",
+    "otherSubteams": [
+        "clubhub"
+    ]
 }

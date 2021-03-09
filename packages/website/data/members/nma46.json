@@ -1,0 +1,14 @@
+{
+    "netid": "nma46",
+    "firstName": "Nada",
+    "lastName": "Attia",
+    "name": "Nada Attia",
+    "graduation": "May 2023",
+    "major": "Computer Science",
+    "hometown": "Brooklyn, NY",
+    "about": "Hi, I\u2019m Nada! I\u2019m a sophomore studying computer science. In my free time, I enjoy reading books about tech and psychology. I also love meeting people who have similar interests and passions as me; feel free to reach out if you want to talk :)",
+    "subteam": "queuemein",
+    "roleId": "developer",
+    "roleDescription": "Developer",
+    "github": "https://github.com/nada-attia"
+}

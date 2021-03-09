@@ -5,11 +5,11 @@
     "name": "Pinxuan Huang",
     "graduation": "May 2022",
     "major": "Computer Science",
-    "minor": "Astronomy",
-    "github": "https://github.com/pihucode",
     "hometown": "Dubai, UAE",
     "about": "I am a creator who enjoys building projects across different mediums: programming, digital art, video games, and even food. Presently, I devote my time into being productive, whether it be learning interesting concepts, picking up a new skill, or collaborating with others.",
     "subteam": "samwise",
     "roleId": "developer",
-    "roleDescription": "Developer"
+    "roleDescription": "Developer",
+    "github": "https://github.com/pihucode",
+    "otherSubteams": []
 }

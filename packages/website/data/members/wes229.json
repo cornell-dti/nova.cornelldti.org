@@ -1,19 +1,19 @@
 {
-  "lastName": "Spencer",
-  "github": "https://github.com/willespencer",
-  "roleDescription": "Technical PM",
-  "otherSubteams": [
-    "nova"
-  ],
-  "name": "Will Spencer",
-  "about": "Hey! I'm Will, a sophomore TPM on DTI, and I love to spend my time coding and helping out the community. Besides DTI, I am involved with Girls Who Code on campus, where I help high-school students learn and appreciate the basics of programming. Besides developing, I spend my time gaming and following politics, so I can commonly be found yelling at my computer due to a broken controller or some scandalous news story.",
-  "graduation": "May 2022",
-  "roleId": "pm",
-  "hometown": "Tyson's, VA",
-  "minor": "Public Policy",
-  "netid": "wes229",
-  "major": "Computer Science",
-  "firstName": "William",
-  "subteam": "courseplan",
-  "linkedin": "https://www.linkedin.com/in/willespencer/"
+    "netid": "wes229",
+    "firstName": "William",
+    "lastName": "Spencer",
+    "name": "Will Spencer",
+    "graduation": "May 2022",
+    "major": "Computer Science",
+    "hometown": "Tysons, VA",
+    "about": "Hey! I'm Will, a junior developer on DTI, and I love to spend my time coding and helping out the community. Besides DTI, I am involved with Girls Who Code on campus, where I help high-school students learn computer science concepts and how to program. Besides developing, I spend my time gaming and following politics, so I can commonly be found yelling at my computer due to a broken controller or some scandalous news story.",
+    "subteam": "courseplan",
+    "roleId": "developer",
+    "roleDescription": "Developer",
+    "minor": "Public Policy",
+    "linkedin": "https://www.linkedin.com/in/willespencer/",
+    "github": "https://github.com/willespencer",
+    "otherSubteams": [
+        "nova"
+    ]
 }

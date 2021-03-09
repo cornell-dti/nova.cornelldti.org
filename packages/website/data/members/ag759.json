@@ -3,13 +3,14 @@
     "firstName": "Ansh",
     "lastName": "Godha",
     "name": "Ansh Godha",
-    "graduation": "May 2022",
+    "graduation": "December 2021",
     "major": "Computer Science",
-    "linkedin": "https://www.linkedin.com/in/ansh-godha-a61936172/",
-    "github": "https://github.com/AnshG714",
-    "hometown": "Mumbai, India",
-    "about": "Apart from DTI, I'm a teaching assistant. I love to play squash and table tennis in my free time, and I love going out - I'm always down for any social activity! Oh, and I'm A cS maJoR. You didn't see that coming, did you?",
+    "hometown": "Mumbai",
+    "about": "I love developing tools for social impact, and am particularly interested in making sure my apps can reach as many students as possible. Recently, I\u2019ve been looking into EdTech and AR development. I also love playing squash and participating in adventure sports (at least in a non-pandemic era)!",
     "subteam": "flux",
-    "roleId": "developer",
-    "roleDescription": "Developer"
+    "roleId": "pm",
+    "roleDescription": "Technical PM",
+    "website": "https://anshgodha.me",
+    "linkedin": "http://linkedin.com/in/ansh-godha-a61936172",
+    "github": "https://github.com/AnshG714"
 }

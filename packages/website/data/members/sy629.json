@@ -3,16 +3,14 @@
     "firstName": "Sang",
     "lastName": "Yun",
     "name": "Shane Yun",
-    "graduation": "December 2020",
+    "graduation": "May 2021",
     "major": "Information Science",
-    "website": "https://www.syun.me",
-    "linkedin": "https://www.linkedin.com/in/shane-yun-53395b176/",
     "hometown": "Fullerton, CA",
-    "about": "I am a designer for Courseplan. I started off as a designer for CUE. I like UX and mangoes. I am always open to learn more about design and mangoes.",
-    "subteam": "courseplan",
+    "about": "Hi! I'm Shane and I like to design. I'm currently a senior studying Information Science and I'm excited to contribute to DTI this semester!",
+    "subteam": "leads",
+    "roleId": "lead",
+    "roleDescription": "Lead",
     "otherSubteams": [
-        "events"
-    ],
-    "roleId": "designer",
-    "roleDescription": "Designer"
+        "courseplan"
+    ]
 }
