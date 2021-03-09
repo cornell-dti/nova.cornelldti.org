@@ -1,8 +1,8 @@
 {
     "netid": "sta48",
-    "firstName": "sayeeda",
-    "lastName": "aishee",
-    "name": "sayeeda aishee",
+    "firstName": "Sayeeda",
+    "lastName": "Aishee",
+    "name": "Jahin Aishee",
     "graduation": "May 2022",
     "major": "ISST",
     "hometown": "Edinburg, TX",
@@ -10,7 +10,7 @@
     "subteam": "zing",
     "roleId": "designer",
     "roleDescription": "Designer",
-    "website": "www.jahin.design",
+    "website": "http://jahin.design",
     "otherSubteams": [
         "carriage"
     ]

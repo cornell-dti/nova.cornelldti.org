@@ -2,7 +2,7 @@
     "netid": "htl28",
     "firstName": "Huy",
     "lastName": "Le",
-    "name": "Huy Le",
+    "name": "Huey Le",
     "graduation": "May 2023",
     "major": "Economics",
     "hometown": "Ho Chi Minh City, Vietnam",
@@ -12,6 +12,6 @@
     "roleDescription": "Business Analyst",
     "doubleMajor": "Information Science",
     "minor": "Business",
-    "website": "hueyle.com",
+    "website": "https://hueyle.com",
     "linkedin": "https://www.linkedin.com/in/huyletq/"
 }
