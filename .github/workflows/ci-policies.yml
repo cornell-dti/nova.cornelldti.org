@@ -17,6 +17,6 @@ jobs:
         uses: actions/setup-node@v1
       - name: Check Images Size
         run: |
-          node packages/image-cli/index.js check-size packages/website/static/static/members 20
+          node packages/image-cli/index.js check-size packages/website/static/static/members 50
           node packages/image-cli/index.js check-size packages/website/static/static/projects 600
           node packages/image-cli/index.js check-size packages/website/static/static/pages 700
