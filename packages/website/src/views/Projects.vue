@@ -1,15 +1,13 @@
 <template>
   <page-background v-if="content">
-    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image}">
-      <nova-hero
-        :header="header"
-        :subheader="subheader"
-        :video="video"
-        :lazy="lazy"
-        :image="image"
-        page="projects"
-      />
-    </strings-domain>
+    <nova-hero
+      :header="content.hero.header"
+      :subheader="content.hero.subheader"
+      :video="content.hero.video"
+      :lazy="content.hero.lazy"
+      :image="content.hero.image"
+      page="projects"
+    />
 
     <page-section class="project-page-main-section">
       <b-row
@@ -23,7 +21,7 @@
           lg="4"
           class="justify-content"
           v-for="project in projectRow.members"
-          :key="project.id"
+          :key="project.teamId"
         >
           <g-link :to="{ path: `/projects/${project.teamId}/` }">
             <b-img :src="project.card" class="project-card" />
@@ -67,21 +65,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { PropValidator } from 'vue/types/options';
 
 import { ProjectsContent } from '../content';
 import { Project } from '../shared';
+import allProjectsJSON from '../../data/projects/all-projects.json';
+import projectsPageJSON from '../../data/pages/projects.json';
 
 export default Vue.extend({
-  props: {
-    content: {
-      required: true
-    } as PropValidator<ProjectsContent>,
-    projects: {
-      required: true
-    } as PropValidator<Project[]>
-  },
   computed: {
+    projects(): readonly Project[] {
+      return allProjectsJSON;
+    },
+    content(): ProjectsContent {
+      return projectsPageJSON;
+    },
     projectRows(): {
       index: number;
       members: Project[];

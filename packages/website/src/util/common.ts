@@ -6,7 +6,7 @@ export const arrayDefault = (): never[] => [];
 type PropParams = Parameters<ReturnType<typeof Prop>>;
 
 export function ObjectProp(required = false) {
-  return function _(...params: PropParams) {
+  return function _(...params: PropParams): void {
     return Prop({
       required,
       type: Object,
@@ -22,7 +22,7 @@ export function BooleanProp({
   required: boolean;
   defaultValue: boolean;
 }) {
-  return function _(...params: PropParams) {
+  return function _(...params: PropParams): void {
     return Prop({
       ...(defaultValue != null ? { default: defaultValue } : {}),
       required,

@@ -1,15 +1,13 @@
 <template>
-  <page-background v-if="content">
-    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image}">
-      <nova-hero
-        :header="header"
-        :subheader="subheader"
-        :video="video"
-        :lazy="lazy"
-        :image="image"
-        page="courses"
-      />
-    </strings-domain>
+  <page-background>
+    <nova-hero
+      :header="content.hero.header"
+      :subheader="content.hero.subheader"
+      :video="content.hero.video"
+      :lazy="content.hero.lazy"
+      :image="content.hero.image"
+      page="courses"
+    />
     <b-container>
       <page-section>
         <template
@@ -35,24 +33,12 @@
               <div class="courses-row-content-subheader">
                 {{ content.subtitle }}
               </div>
-              <strings-domain
-                v-if="content.buttons"
-                #key="{apply, github}"
-                :value="content.buttons"
-              >
-                <b-button v-if="apply" class="social-button" :href="apply.link">
-                  <ApplyIcon />
-                  <div class="social-button-text">
-                    {{ apply.title || '' }}
-                  </div>
-                </b-button>
-                <b-button v-if="github" class="social-button" :href="github.link">
-                  <GitHubIcon />
-                  <div class="social-button-text">
-                    {{ github.title || '' }}
-                  </div>
-                </b-button>
-              </strings-domain>
+              <b-button class="social-button" :href="content.buttons.apply.link">
+                <ApplyIcon />
+                <div class="social-button-text">
+                  {{ content.buttons.apply.title || '' }}
+                </div>
+              </b-button>
             </b-col>
           </b-row>
           <b-row :key="content.id + 'desc'" align-h="center" align-v="center" class="courses-row">
@@ -60,16 +46,16 @@
           </b-row>
           <b-row :key="content.id + 'trio'" align-h="center">
             <b-col sm="12" md="4">
-              <h3>{{ content.subDescription1[0] }}</h3>
-              <p>{{ content.subDescription1[1] }}</p>
+              <h3>{{ content.subDescription1.title }}</h3>
+              <p>{{ content.subDescription1.description }}</p>
             </b-col>
             <b-col sm="12" md="4">
-              <h3>{{ content.subDescription2[0] }}</h3>
-              <p>{{ content.subDescription2[1] }}</p>
+              <h3>{{ content.subDescription2.title }}</h3>
+              <p>{{ content.subDescription2.description }}</p>
             </b-col>
             <b-col sm="12" md="4">
-              <h3>{{ content.subDescription3[0] }}</h3>
-              <p>{{ content.subDescription3[1] }}</p>
+              <h3>{{ content.subDescription3.title }}</h3>
+              <p>{{ content.subDescription3.description }}</p>
             </b-col>
           </b-row>
           <b-row :key="content.id + 'cta'" align-h="center">
@@ -289,22 +275,18 @@ $dark-gray: #4a4a4a;
 
 <script lang="ts">
 import Vue from 'vue';
-import { PropValidator } from 'vue/types/options';
 
-import GitHubIcon from '../assets/social/github.svg';
 import ApplyIcon from '../assets/other/apply.svg';
 
 import { CoursesContent } from '../content';
+import json from '../../data/pages/courses.json';
 
 export default Vue.extend({
-  props: {
-    content: {
-      required: true
-    } as PropValidator<CoursesContent>
-  },
-  components: {
-    GitHubIcon,
-    ApplyIcon
+  components: { ApplyIcon },
+  computed: {
+    content(): CoursesContent {
+      return json;
+    }
   }
 });
 </script>

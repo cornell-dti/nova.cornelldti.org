@@ -27,5 +27,3 @@ s3/
 .temp
 .cache
 
-# CMS folders
-admin/lib/**/*

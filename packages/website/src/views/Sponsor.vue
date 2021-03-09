@@ -1,15 +1,13 @@
 <template>
   <page-background v-if="content">
-    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image}">
-      <nova-hero
-        :header="header"
-        :subheader="subheader"
-        :video="video"
-        :lazy="lazy"
-        :image="image"
-        page="sponsor"
-      />
-    </strings-domain>
+    <nova-hero
+      :header="content.hero.header"
+      :subheader="content.hero.subheader"
+      :video="content.hero.video"
+      :lazy="content.hero.lazy"
+      :image="content.hero.image"
+      page="sponsor"
+    />
     <b-container>
       <page-section>
         <b-row align-h="center" align-v="center" class="sponsor-row">
@@ -157,10 +155,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { PropValidator } from 'vue/types/options';
 import wcheck from '../assets/sponsor/whitecheck.svg';
 
 import { SponsorContent, SponsorTier } from '../content';
+import json from '../../data/pages/sponsor.json';
 
 type SponsorTierBenefitsData = {
   benefits: string;
@@ -171,12 +169,10 @@ export default Vue.extend({
   components: {
     wcheck
   },
-  props: {
-    content: {
-      required: true
-    } as PropValidator<SponsorContent>
-  },
   computed: {
+    content(): SponsorContent {
+      return json;
+    },
     items(): SponsorTierBenefitsData[] {
       const data = this.content.tiers.sponsor;
 

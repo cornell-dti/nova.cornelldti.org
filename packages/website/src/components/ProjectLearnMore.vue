@@ -1,70 +1,49 @@
 <template>
-  <strings-domain
-    v-if="project"
-    #key="{
-      website,
-      website_title,
-      playstore,
-      medium,
-      appstore,
-      ios_github,
-      android_github,
-      github
-    }"
-    :value="project"
+  <page-section
+    v-if="
+      enableAll ||
+        (!website && !playstore && !appstore) ||
+        ((playstore || appstore || website) && (ios_github || android_github || github))
+    "
   >
-    <page-section
-      v-if="
-        enableAll ||
-          (!website && !playstore && !appstore && medium) ||
-          ((playstore || appstore || website) && (ios_github || android_github || github))
-      "
-    >
-      <div class="project-header">Learn More</div>
-      <b-row>
-        <b-col cols="auto">
-          <b-row>
-            <b-col
-              class="connect-icon-container"
-              cols="auto"
-              v-if="(enableAll || website || playstore || appstore) && ios_github"
-            >
-              <b-button class="align-content-center" :href="ios_github">
-                <Github class="connect-icon connect-icon-blank" />
-                <span class="connect-text">iOS</span>
-              </b-button>
-            </b-col>
-            <b-col
-              class="connect-icon-container"
-              cols="auto"
-              v-if="(enableAll || website || playstore || appstore) && android_github"
-            >
-              <b-button class="align-content-center" :href="android_github">
-                <Github class="connect-icon connect-icon-blank" />
-                <span class="connect-text">Android</span>
-              </b-button>
-            </b-col>
-            <b-col
-              class="connect-icon-container"
-              cols="auto"
-              v-if="(enableAll || website || playstore || appstore) && github"
-            >
-              <b-button class="align-content-center" :href="github">
-                <Github class="connect-icon connect-icon-blank" />
-                <span class="connect-text">GitHub</span>
-              </b-button>
-            </b-col>
-            <b-col class="connect-icon-container" cols="auto" v-if="medium">
-              <b-button class="align-content-center" :href="medium">
-                <Medium class="connect-icon connect-icon-blank" />
-                <span class="connect-text">Medium</span>
-              </b-button>
-            </b-col>
-          </b-row>
-        </b-col>
-      </b-row>
-    </page-section>
-  </strings-domain>
+    <div class="project-header">Learn More</div>
+    <b-row>
+      <b-col cols="auto">
+        <b-row>
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="(enableAll || website || playstore || appstore) && ios_github"
+          >
+            <b-button class="align-content-center" :href="ios_github">
+              <Github class="connect-icon connect-icon-blank" />
+              <span class="connect-text">iOS</span>
+            </b-button>
+          </b-col>
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="(enableAll || website || playstore || appstore) && android_github"
+          >
+            <b-button class="align-content-center" :href="android_github">
+              <Github class="connect-icon connect-icon-blank" />
+              <span class="connect-text">Android</span>
+            </b-button>
+          </b-col>
+          <b-col
+            class="connect-icon-container"
+            cols="auto"
+            v-if="(enableAll || website || playstore || appstore) && github"
+          >
+            <b-button class="align-content-center" :href="github">
+              <Github class="connect-icon connect-icon-blank" />
+              <span class="connect-text">GitHub</span>
+            </b-button>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
+  </page-section>
 </template>
 
 <script lang="ts">
@@ -74,13 +53,9 @@ import { PropValidator } from 'vue/types/options';
 import { Project } from '../shared';
 
 import Github from '../assets/social/github.svg';
-import Medium from '../assets/social/medium.svg';
 
 export default Vue.extend({
-  components: {
-    Github,
-    Medium
-  },
+  components: { Github },
   props: {
     project: {
       required: true
@@ -88,6 +63,26 @@ export default Vue.extend({
     enableAll: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    website(): string | undefined {
+      return this.project.website;
+    },
+    playstore(): string | undefined {
+      return this.project.playstore;
+    },
+    appstore(): string | undefined {
+      return this.project.appstore;
+    },
+    github(): string | undefined {
+      return this.project.github;
+    },
+    ios_github(): string | undefined {
+      return this.project.ios_github;
+    },
+    android_github(): string | undefined {
+      return this.project.android_github;
     }
   }
 });

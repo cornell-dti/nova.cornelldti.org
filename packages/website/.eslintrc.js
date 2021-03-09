@@ -64,7 +64,9 @@ module.exports = {
     'no-mixed-operators': ['off'],
     'arrow-parens': ['warn', 'as-needed'],
     'comma-dangle': ['warn', 'never'],
+    'class-methods-use-this': ['off'], // too noisy for Vue computed properties
     'no-underscore-dangle': ['off'],
+    'no-use-before-define': ['off'], // Too noisy, and TypeScript can check for that
     'no-continue': ['off'],
     'no-restricted-syntax': [
       'error',
@@ -90,12 +92,6 @@ module.exports = {
     'max-len': ['warn', { code: 200 }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // TODO: fix these problems and turn them into error again.
-    'vue/no-parsing-error': ['warn'],
-    'vue/no-use-v-if-with-v-for': ['warn'],
-    'vue/no-unused-components': ['warn'],
-    'vue/no-unused-vars': ['warn'],
-    'no-restricted-globals': ['warn'],
     'max-classes-per-file': ['off']
   }
 };

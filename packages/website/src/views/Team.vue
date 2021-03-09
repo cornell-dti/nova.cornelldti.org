@@ -1,105 +1,106 @@
 <template>
   <page-background v-if="content">
-    <strings-domain :value="content.hero" #key="{ header, subheader, video, lazy, image }">
-      <nova-hero
-        :header="header"
-        :subheader="subheader"
-        :video="video"
-        :lazy="lazy"
-        :image="image"
-        page="team"
-      />
+    <nova-hero
+      :header="content.hero.header"
+      :subheader="content.hero.subheader"
+      :video="content.hero.video"
+      :lazy="content.hero.lazy"
+      :image="content.hero.image"
+      page="team"
+    />
+    <div class="diversity diversity-background">
+      <!-- TODO bind formatting to actual elements-->
+      <b-row class="no-gutters diversity diversity-content">
+        <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
+          <b-row>
+            <b-col sm="12" md="9">
+              <div class="team-header diversity-header my-auto">
+                {{ content.diversity.header }}
+              </div>
+              <div class="diversity-description my-auto lg-y-padding">
+                {{ content.diversity.description }}
+              </div>
 
-      <strings-domain #key="{ header, description, stats, gender }" :value="content.diversity">
-        <div class="diversity diversity-background">
-          <!-- TODO bind formatting to actual elements-->
-          <b-row class="no-gutters diversity diversity-content">
-            <b-col sm="12" md="7" class="diversity-inner-left diversity-left-overlay">
-              <b-row>
-                <b-col sm="12" md="9">
-                  <div class="team-header diversity-header my-auto">{{ header }}</div>
-                  <div class="diversity-description my-auto lg-y-padding">{{ description }}</div>
+              <h3 class="graph-header lg-y-padding">{{ content.diversity.gender.header }}</h3>
 
-                  <h3 class="graph-header lg-y-padding">{{ gender.header }}</h3>
-
-                  <b-row class="lg-y-padding" align-h="center">
-                    <b-col cols="auto">
-                      <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
-                        <div class="text-center graph-data h-100">
-                          <b-row align-v="center" class="h-100">
-                            <b-col cols="6" class="graph-datum">
-                              <h3 v-text="`${Math.round(100 * malePercentage(divRoleId))}%`" />
-                              <p class="graph-datum-description">Male</p>
-                            </b-col>
-                            <b-col cols="6" class="graph-datum red">
-                              <h3 v-text="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
-                              <p class="graph-datum-description">Female</p>
-                            </b-col>
-                          </b-row>
-                        </div>
-                      </circle-progress-indicator>
-                    </b-col>
-                  </b-row>
-                  <b-row class="my-auto" align-h="center">
-                    <b-col>
-                      <role-selector
-                        class="diversity-role-selector"
-                        :centered="true"
-                        v-model="divRoleId"
-                        :dark="true"
-                        density="compact"
-                      />
-                    </b-col>
-                  </b-row>
+              <b-row class="lg-y-padding" align-h="center">
+                <b-col cols="auto">
+                  <circle-progress-indicator :percentage="femalePercentage(divRoleId)">
+                    <div class="text-center graph-data h-100">
+                      <b-row align-v="center" class="h-100">
+                        <b-col cols="6" class="graph-datum">
+                          <h3 v-text="`${Math.round(100 * malePercentage(divRoleId))}%`" />
+                          <p class="graph-datum-description">Male</p>
+                        </b-col>
+                        <b-col cols="6" class="graph-datum red">
+                          <h3 v-text="`${Math.round(100 * femalePercentage(divRoleId))}%`" />
+                          <p class="graph-datum-description">Female</p>
+                        </b-col>
+                      </b-row>
+                    </div>
+                  </circle-progress-indicator>
                 </b-col>
-                <b-col sm="0" md="3"></b-col>
               </b-row>
-            </b-col>
-            <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
-              <b-row>
-                <b-col cols="12" class="diversity-description diversity-inner-text">
-                  <div class="diversity-stat-header">{{ stats.underclassmen.stat }}</div>
-                  <div class="diversity-description diversity-stat-description">
-                    {{ stats.underclassmen.description }}
-                  </div>
-                </b-col>
-                <b-col cols="12" class="diversity-description diversity-inner-text">
-                  <div class="diversity-stat-header">{{ stats.majors.stat }}</div>
-                  <div class="diversity-description diversity-stat-description">
-                    {{ stats.majors.description }}
-                  </div>
-                </b-col>
-                <b-col cols="12" class="diversity-description diversity-inner-text">
-                  <div class="diversity-stat-header">{{ stats.colleges.stat }}</div>
-                  <div class="diversity-description diversity-stat-description">
-                    {{ stats.colleges.description }}
-                  </div>
+              <b-row class="my-auto" align-h="center">
+                <b-col>
+                  <role-selector
+                    class="diversity-role-selector"
+                    :centered="true"
+                    v-model="divRoleId"
+                    :dark="true"
+                    density="compact"
+                  />
                 </b-col>
               </b-row>
             </b-col>
+            <b-col sm="0" md="3"></b-col>
           </b-row>
-        </div>
-      </strings-domain>
-
-      <b-container fluid>
-        <page-section>
-          <div class="team-header diversity-header">{{ content.team.header }}</div>
-
-          <!-- TODO actual padding -->
-          <br />
-
-          <b-row align-h="center">
-            <b-col cols="12">
-              <role-selector density="normal" class="team-role-selector" v-model="roleId" />
-
-              <headshot-grid
-                :members="[...filterMembers(roleId, true), ...filterMembers(roleId)]"
-              />
+        </b-col>
+        <b-col sm="12" md="4" align-self="center" class="diversity-inner-right mx-auto">
+          <b-row>
+            <b-col cols="12" class="diversity-description diversity-inner-text">
+              <div class="diversity-stat-header">
+                {{ content.diversity.stats.underclassmen.stat }}
+              </div>
+              <div class="diversity-description diversity-stat-description">
+                {{ content.diversity.stats.underclassmen.description }}
+              </div>
+            </b-col>
+            <b-col cols="12" class="diversity-description diversity-inner-text">
+              <div class="diversity-stat-header">{{ content.diversity.stats.majors.stat }}</div>
+              <div class="diversity-description diversity-stat-description">
+                {{ content.diversity.stats.majors.description }}
+              </div>
+            </b-col>
+            <b-col cols="12" class="diversity-description diversity-inner-text">
+              <div class="diversity-stat-header">
+                {{ content.diversity.stats.colleges.stat }}
+              </div>
+              <div class="diversity-description diversity-stat-description">
+                {{ content.diversity.stats.colleges.description }}
+              </div>
             </b-col>
           </b-row>
-        </page-section>
-      </b-container>
-    </strings-domain>
+        </b-col>
+      </b-row>
+    </div>
+
+    <b-container fluid>
+      <page-section>
+        <div class="team-header diversity-header">{{ content.team.header }}</div>
+
+        <!-- TODO actual padding -->
+        <br />
+
+        <b-row align-h="center">
+          <b-col cols="12">
+            <role-selector density="normal" class="team-role-selector" v-model="roleId" />
+
+            <headshot-grid :members="[...filterMembers(roleId, true), ...filterMembers(roleId)]" />
+          </b-col>
+        </b-row>
+      </page-section>
+    </b-container>
 
     <dti-footer page="team" />
   </page-background>
@@ -384,13 +385,15 @@ $secondary: #f6f6f6;
 
 <script lang="ts">
 import Vue from 'vue';
-import { PropValidator } from 'vue/types/options';
 import HeadshotGrid from '../components/HeadshotGrid.vue';
 import RoleSelector from '../components/RoleSelector.vue';
 import CircleProgressIndicator from '../components/CircleProgressIndicator.vue';
 
 import { TeamContent } from '../content';
 import { Member } from '../shared';
+import allMembers from '../../data/members/all-members.json';
+import teamJSON from '../../data/pages/team.json';
+import DiversityJSON from '../../data/sets/diversity.json';
 
 type RoleId = '' | 'business' | 'developer' | 'designer' | 'pm';
 
@@ -410,16 +413,16 @@ export default Vue.extend({
     CircleProgressIndicator,
     RoleSelector
   },
-  props: {
-    content: {
-      required: true
-    } as PropValidator<TeamContent>,
-    members: {
-      required: true
-    } as PropValidator<Member[]>,
-    diversity: {
-      required: true
-    } as PropValidator<Diversity>
+  computed: {
+    members(): readonly Member[] {
+      return allMembers;
+    },
+    content(): TeamContent {
+      return teamJSON;
+    },
+    diversity(): Diversity {
+      return DiversityJSON.diversity;
+    }
   },
   mounted() {
     this.$nextTick(() => {

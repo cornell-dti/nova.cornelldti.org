@@ -1,5 +1,5 @@
 <template>
-  <privacy-view :content="content" :policies="policies" />
+  <privacy-view :policies="policies" />
 </template>
 
 <static-query>
@@ -17,16 +17,14 @@ query Privacy {
 </static-query>
 
 <script lang="ts">
+import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import PrivacyView from '../views/Privacy.vue';
 
 import EventBus from '../eventbus';
-import Page from '../page';
 
-import { PrivacyContent, PrivacyPolicy } from '../content';
-
-import json from '../../data/pages/privacy.json';
+import { PrivacyPolicy } from '../content';
 
 interface PolicyPage {
   policies: {
@@ -39,14 +37,10 @@ interface PolicyPage {
 }
 
 @Component({
-  metaInfo: {
-    title: 'Privacy'
-  },
-  components: {
-    PrivacyView
-  }
+  metaInfo: { title: 'Privacy' },
+  components: { PrivacyView }
 })
-class Privacy extends Page<PrivacyContent>(json) {
+export default class Privacy extends Vue {
   get policies(): PrivacyPolicy[] {
     return (this.$static as PolicyPage).policies.edges.map(e => e.node);
   }
@@ -55,6 +49,4 @@ class Privacy extends Page<PrivacyContent>(json) {
     EventBus.$emit('hide-navbar', { source: this });
   }
 }
-
-export default Privacy;
 </script>

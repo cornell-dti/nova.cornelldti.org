@@ -1,26 +1,16 @@
 <template>
-  <initiatives-view :content="content" />
+  <initiatives-view />
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import InitiativesView from '../views/Initiatives.vue';
-import Page from '../page';
-
-import { InitiativesContent } from '../content';
-
-import json from '../../data/pages/initiatives.json';
 
 @Component({
-  metaInfo: {
-    title: 'Initiatives'
-  },
-  components: {
-    InitiativesView
-  }
+  metaInfo: { title: 'Initiatives' },
+  components: { InitiativesView }
 })
-class Initiatives extends Page<InitiativesContent>(json) {}
-
-export default Initiatives;
+export default class Initiatives extends Vue {}
 </script>

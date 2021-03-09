@@ -1,6 +1,7 @@
 export interface Content {
-  textHero: { header: string; subheader: string };
   hero: {
+    header?: string;
+    subheader?: string;
     lazy: string;
     video: {
       mp4: string;
@@ -11,6 +12,7 @@ export interface Content {
 }
 
 export interface HomeContent extends Content {
+  textHero: { header: string; subheader: string };
   quicklinks: {
     team: {
       header: string;
@@ -46,13 +48,11 @@ export interface CoursesContent extends Content {
       apply: {
         title: string;
         link: string;
-        icon: string;
       };
     };
-    // 3 "sub descriptions" in a pair: first element is title and second is the desc
-    subDescription1: [string, string];
-    subDescription2: [string, string];
-    subDescription3: [string, string];
+    subDescription1: { title: string; description: string };
+    subDescription2: { title: string; description: string };
+    subDescription3: { title: string; description: string };
     courseWebsiteLink: string;
   }[];
 }
@@ -113,10 +113,6 @@ export interface SponsorContent extends Content {
 export interface TeamContent extends Content {
   team: {
     header: string;
-    away: {
-      header: string;
-      subheader: string;
-    };
   };
   diversity: {
     header: string;
@@ -158,6 +154,7 @@ export interface Apply {
 
 export interface CallToActionButton {
   closed: boolean;
+  link: string;
   content: string;
 }
 
@@ -206,13 +203,10 @@ export interface PrivacyPolicy {
   content: string;
 }
 
-export interface PrivacyContent extends Content {
-  header: string;
-  subheader: string;
-}
-
 export interface ApplyContent extends Content {
   hero: {
+    header: string;
+    subheader: string;
     closed: Closed;
     lazy: string;
     video: { mp4: string; webm: string };
