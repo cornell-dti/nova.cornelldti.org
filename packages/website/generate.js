@@ -21,5 +21,4 @@ const generateAggregateArray = (
   );
 };
 
-generateAggregateArray('members', 'all-members.json');
 generateAggregateArray('projects', 'all-projects.json');
